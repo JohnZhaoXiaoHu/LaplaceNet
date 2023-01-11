@@ -2,9 +2,9 @@
  * @Descripttion: (利润中心/fico_prctr)
  * @version: (1.0)
  * @Author: (Laplace.Net:Davis.Cheng)
- * @Date: (2023-01-06)
+ * @Date: (2023-01-11)
  * @LastEditors: (Laplace.Net:Davis.Cheng)
- * @LastEditTime: (2023-01-06)
+ * @LastEditTime: (2023-01-11)
 -->
 <template>
   <div>
@@ -64,6 +64,11 @@
       <el-col :span="1.5">
         <el-button type="danger" :disabled="multiple" v-hasPermi="['fico:prctr:delete']" plain icon="delete" @click="handleDelete">
           {{ $t('btn.delete') }}
+        </el-button>
+      </el-col>
+      <el-col :span="1.5">
+        <el-button color="#FF69B4" plain icon="download" @click="handleExport" v-hasPermi="['fico:prctr:export']">
+          {{ $t('btn.export') }}
         </el-button>
       </el-col>
       <right-toolbar v-model:showSearch="showSearch" @queryTable="getList" :columns="columns"></right-toolbar>
@@ -411,6 +416,18 @@ function handleDelete(row) {
 
 
 
+// 导出按钮操作
+function handleExport() {
+  proxy
+    .$confirm("是否确认导出利润中心数据项?", "警告", {
+      confirmButtonText: "确定",
+      cancelButtonText: "取消",
+      type: "warning",
+    })
+    .then(async () => {
+      await proxy.downFile('/financial/FicoPrctr/export', { ...queryParams })
+    })
+}
 
 handleQuery()
 </script>

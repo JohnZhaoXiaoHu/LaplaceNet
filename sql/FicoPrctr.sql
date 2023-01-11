@@ -1,8 +1,8 @@
 use Laplace_PRD;
 
 -- 利润中心菜单
-INSERT INTO sys_menu(menuName, parentId, orderNum, path, component, isFrame, isCache, menuType, visible, status, perms, icon, create_by, create_time) 
-VALUES ('利润中心', 1094, 999, 'FicoPrctr', 'financial/FicoPrctr', 0, 0, 'C', '0', '0', 'fico:prctr:list', 'icon1', 'system', GETDATE());
+INSERT INTO sys_menu(menuName, parentId, orderNum, path, component, isFrame, isCache, menuType, visible, status, perms, icon, create_by, create_time,menuName_key) 
+VALUES ('利润中心', 1094, 999, 'FicoPrctr', 'financial/FicoPrctr', 0, 0, 'C', '0', '0', 'fico:prctr:list', 'icon1', 'system', GETDATE(), 'menu.FicoPrctr');
 
 -- 按钮父菜单id
 declare @menuId int = @@identity
@@ -20,6 +20,8 @@ VALUES ('删除', @menuId, 3, '#', NULL, 0, 0, 'F', '0', '0', 'fico:prctr:delete
 INSERT INTO sys_menu(menuName, parentId, orderNum, path, component, isFrame, isCache, menuType, visible, status, perms, icon, create_by,create_time) 
 VALUES ('修改', @menuId, 4, '#', NULL, 0, 0, 'F', '0', '0', 'fico:prctr:edit', '', 'system', GETDATE());
 
+INSERT INTO sys_menu(menuName, parentId, orderNum, path, component, isFrame, isCache, menuType, visible, status, perms, icon, create_by,create_time) 
+VALUES ('导出', @menuId, 5, '#', NULL, 0, 0, 'F', '0', '0', 'fico:prctr:export', '', 'system', GETDATE());
 
 
 SELECT * FROM sys_menu WHERE parentId = @menuId;

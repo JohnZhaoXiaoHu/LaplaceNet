@@ -10,7 +10,7 @@ namespace La.Service.Financial.IFinancialService
     /// 财务期间service接口
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-01-06
+    /// @date 2023-01-11
     /// </summary>
     public interface IFicoPeriodService : IBaseService<FicoPeriod>
     {

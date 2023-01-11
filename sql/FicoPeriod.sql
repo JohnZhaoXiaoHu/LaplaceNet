@@ -1,8 +1,8 @@
 use Laplace_PRD;
 
 -- 财务期间菜单
-INSERT INTO sys_menu(menuName, parentId, orderNum, path, component, isFrame, isCache, menuType, visible, status, perms, icon, create_by, create_time) 
-VALUES ('财务期间', 1094, 999, 'FicoPeriod', 'financial/FicoPeriod', 0, 0, 'C', '0', '0', 'fico:period:list', 'icon1', 'system', GETDATE());
+INSERT INTO sys_menu(menuName, parentId, orderNum, path, component, isFrame, isCache, menuType, visible, status, perms, icon, create_by, create_time,menuName_key) 
+VALUES ('财务期间', 1094, 999, 'FicoPeriod', 'financial/FicoPeriod', 0, 0, 'C', '0', '0', 'fico:period:list', 'icon1', 'system', GETDATE(), 'menu.FicoPeriod');
 
 -- 按钮父菜单id
 declare @menuId int = @@identity

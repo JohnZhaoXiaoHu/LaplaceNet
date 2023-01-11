@@ -2,14 +2,15 @@
 
   <h2 style="color: red;">{{ $t('layout.ProjectInformation') }}</h2>
   <h5 style="color: rgb(42, 3, 184);">
-    Laplace.NET是一款前后端分离的、跨平台基于RBAC的通用权限管理后台。ORM采用SqlSugar。前端采用Vue、支持多租户、缓存、任务调度、支持统一异常处理、接口限流、支持一键生成前后端代码，支持动态国际化翻译(Vue3)，等诸多黑科技，代码简洁易懂、易扩展让开发更简单、更通用。
+    {{ $t('layout.projectInfo') }}
   </h5>
   <div class="panel padding-15">
     <div class="panel-content">
       <div class="margin_t-10">
-        <el-button size="small" type="warning" @click="releaseHandle()" round><svg-icon name="log" />更新日志</el-button>
-        <el-button size="small" type="success" @click="releaseHandle()" round><svg-icon
-            name="file-code" />项目文档</el-button>
+        <el-button size="small" type="warning" @click="releaseHandle()" round><svg-icon name="log" />{{
+          $t('layout.changeLog') }}</el-button>
+        <el-button size="small" type="success" @click="releaseHandle()" round><svg-icon name="file-code" />{{
+          $t('layout.helpguide') }}</el-button>
         <el-button size="small" type="info" @click="releaseHandle()" round><svg-icon name="github"
             color="BlueViolet" />GitHub</el-button>
         <el-button size="small" type="info" @click="giteeHandle()" round><svg-icon name="gitee" color="Crimson" />Gitee
@@ -34,9 +35,9 @@
         <div style="float: left; width: 100%">
           <h4>{{ $t('layout.backendTechnology') }}</h4>
           <el-table :data="backend" border stripe height="450" style="width: 100%">
-            <el-table-column type="index" label="序号" style="width: 10%"></el-table-column>
-            <el-table-column prop="Name" label="依赖名" style="width: 20%"></el-table-column>
-            <el-table-column prop="Fun" label="功能" style="width: 20%"></el-table-column>
+            <el-table-column type="index" :label="$t('layout.indexNo')" style="width: 10%"></el-table-column>
+            <el-table-column prop="Name" :label="$t('layout.component')" style="width: 20%"></el-table-column>
+            <el-table-column prop="Fun" :label="$t('layout.description')" style="width: 20%"></el-table-column>
           </el-table>
         </div>
       </el-card>
@@ -46,9 +47,9 @@
         <div style="float: right; width: 100%">
           <h4>{{ $t('layout.frontendTechnology') }}</h4>
           <el-table :data="frontend" border stripe height="450" style="width: 100%">
-            <el-table-column type="index" label="序号" style="width: 10%"></el-table-column>
-            <el-table-column prop="Name" label="依赖名" style="width: 20%"></el-table-column>
-            <el-table-column prop="Fun" label="功能" style="width: 20%"></el-table-column>
+            <el-table-column type="index" :label="$t('layout.indexNo')" style="width: 10%"></el-table-column>
+            <el-table-column prop="Name" :label="$t('layout.component')" style="width: 20%"></el-table-column>
+            <el-table-column prop="Fun" :label="$t('layout.description')" style="width: 20%"></el-table-column>
           </el-table>
         </div>
       </el-card>
@@ -60,9 +61,10 @@
         <el-card>
           <h4>{{ $t('layout.devDependencies') }}</h4>
           <el-table :data="devData" border stripe height="602" style="width: 100%">
-            <el-table-column type="index" label="序号" style="width: 10%"></el-table-column>
-            <el-table-column prop="name" label="依赖名" style="width: 20%"></el-table-column>
-            <el-table-column prop="version" label="版本" style="width: 20%"></el-table-column>
+            <el-table-column type="index" :label="$t('layout.indexNo')" style="width: 10%"></el-table-column>
+            <el-table-column prop="name" :label="$t('layout.dependenciesName')" style="width: 20%"></el-table-column>
+            <el-table-column prop="version" :label="$t('layout.dependenciesVersion')"
+              style="width: 20%"></el-table-column>
           </el-table>
         </el-card>
       </el-col>
@@ -70,9 +72,10 @@
         <el-card>
           <h4>{{ $t('layout.dependencies') }}</h4>
           <el-table :data="depData" border stripe height="602" style="width: 100%">
-            <el-table-column type="index" label="序号" style="width: 10%"></el-table-column>
-            <el-table-column prop="name" label="依赖名" style="width: 20%"></el-table-column>
-            <el-table-column prop="version" label="版本" style="width: 20%"></el-table-column>
+            <el-table-column type="index" :label="$t('layout.indexNo')" style="width: 10%"></el-table-column>
+            <el-table-column prop="name" :label="$t('layout.dependenciesName')" style="width: 20%"></el-table-column>
+            <el-table-column prop="version" :label="$t('layout.dependenciesVersion')"
+              style="width: 20%"></el-table-column>
           </el-table>
         </el-card>
       </el-col>
@@ -81,6 +84,7 @@
 </template>
 <script setup>
   import config from '../../package.json'
+  const { proxy } = getCurrentInstance()
   const versionstring = config.description + ':v' + config.version;
   const data = reactive({
     github: 'https://github.com/Lean365/LaplaceNet',
@@ -101,24 +105,19 @@
   const oscsHandle = () => {
     window.open(data.oscs)
   }
-  const projectInfoVersion = config.version
-  const projectInfoLastBulid = 'config.version'
-  const projectInfoDoc = config.version
-  const projectInfoPreview = config.version
-  const projectInfoGithub = config.version
-  const projectInfoGitee = config.version
+
 
   let projectData = [
     {
-      name1: 'Version',
+      name1: proxy.$t('layout.currentVersion'),
       value1: config.version,
 
-      name2: 'LastBulid',
+      name2: proxy.$t('layout.lastBulid'),
       value2: '2023/1/10',
     }, {
-      name1: 'Doc',
+      name1: proxy.$t('layout.helpguide'),
       value1: 'https://github.com/Lean365/LaplaceNet',
-      name2: 'Preview',
+      name2: proxy.$t('layout.codeSourceAddress'),
       value2: 'https://github.com/Lean365/LaplaceNet',
     }, {
       name1: 'Github',

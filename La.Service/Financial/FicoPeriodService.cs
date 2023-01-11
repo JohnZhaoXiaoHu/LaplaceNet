@@ -15,7 +15,7 @@ namespace La.Service.Financial
     /// 财务期间Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-01-06
+    /// @date 2023-01-11
     /// </summary>
     [AppService(ServiceType = typeof(IFicoPeriodService), ServiceLifetime = LifeTime.Transient)]
     public class FicoPeriodService : BaseService<FicoPeriod>, IFicoPeriodService
@@ -49,7 +49,7 @@ namespace La.Service.Financial
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.FpYm == entryString);
+            int count = Count(it => it.FpId.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

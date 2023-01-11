@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName fico_period
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-01-06
+    /// @date 2023-01-11
     /// </summary>
     [Verify]
     [Route("financial/FicoPeriod")]
@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <param name="entryString"></param>
         /// <returns></returns>
-            if (UserConstants.NOT_UNIQUE.Equals(_FicoPeriodService.CheckEntryStringUnique(parm.FpYm.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_FicoPeriodService.CheckEntryStringUnique(parm.FpId.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增财务期间 '{parm.FpYm}'失败，输入的财务期间已存在"));
+                return ToResponse(ApiResult.Error($"新增财务期间 '{parm.FpId}'失败，输入的财务期间已存在"));
             }
             var modal = parm.Adapt<FicoPeriod>().ToCreate(HttpContext);
 

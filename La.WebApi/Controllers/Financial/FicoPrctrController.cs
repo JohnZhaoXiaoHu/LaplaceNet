@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName fico_prctr
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-01-06
+    /// @date 2023-01-11
     /// </summary>
     [Verify]
     [Route("financial/FicoPrctr")]
@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <param name="entryString"></param>
         /// <returns></returns>
-            if (UserConstants.NOT_UNIQUE.Equals(_FicoPrctrService.CheckEntryStringUnique(parm.FpPlnt+parm.FpCode)))
+            if (UserConstants.NOT_UNIQUE.Equals(_FicoPrctrService.CheckEntryStringUnique(parm.FpId.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增利润中心 '{parm.FpPlnt +','+ parm.FpCode}'失败，输入的利润中心已存在"));
+                return ToResponse(ApiResult.Error($"新增利润中心 '{parm.FpId}'失败，输入的利润中心已存在"));
             }
             var modal = parm.Adapt<FicoPrctr>().ToCreate(HttpContext);
 
@@ -129,6 +129,24 @@ namespace La.WebApi.Controllers
             return ToResponse(response);
         }
 
+        /// <summary>
+        /// 导出利润中心
+        /// </summary>
+        /// <returns></returns>
+        [Log(Title = "利润中心", BusinessType = BusinessType.EXPORT, IsSaveResponseData = false)]
+        [HttpGet("export")]
+        [ActionPermissionFilter(Permission = "fico:prctr:export")]
+        public IActionResult Export([FromQuery] FicoPrctrQueryDto parm)
+        {
+            parm.PageSize = 100000;
+            var list = _FicoPrctrService.GetList(parm).Result;
+            if (list == null || list.Count <= 0)
+            {
+                return ToResponse(ResultCode.FAIL, "没有要导出的数据");
+            }
+            var result = ExportExcelMini(list, "利润中心", "利润中心");
+            return ExportExcel(result.Item2, result.Item1);
+        }
 
 
     }

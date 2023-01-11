@@ -1,4 +1,5 @@
 import request from '@/utils/request'
+import { downFile } from '@/utils/request'
 
 /**
 * 利润中心分页查询
