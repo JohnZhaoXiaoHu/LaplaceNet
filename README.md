@@ -1,5 +1,5 @@
-<h2 align="center"> Laplace.Admin.NET后台管理系统</h2>
-<h4 align="center">基于.Net7 + vue2.x/vue3.x前后端分离的.net快速开发框架</h4>  
+<h2 align="center">🏬Laplace.Admin.NET后台管理系统🏬</h2>
+<h4 align="center">★⚝✨基于.Net7 + vue2.x/vue3.x前后端分离的.net快速开发框架✨⚝★</h4>  
 
 
 <p align="center">
