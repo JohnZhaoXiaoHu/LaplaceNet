@@ -1,0 +1,55 @@
+{
+  "name": "laplace",
+  "version": "23.1.01",
+  "description": "Laplace.Net7",
+  "author": "Davis.Cheng",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build:prod": "vite build",
+    "build:stage": "vite build --mode staging",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/izory/ZrAdminNetCore"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.0.10",
+    "@microsoft/signalr": "^7.0.0",
+    "@vueuse/core": "^9.10.0",
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-vue": "^5.1.12",
+    "axios": "^1.2.2",
+    "countup.js": "^2.3.2",
+    "echarts": "^5.4.1",
+    "echarts-wordcloud": "^2.1.0",
+    "element-plus": "^2.2.28",
+    "file-saver": "2.0.5",
+    "fuse.js": "^6.6.2",
+    "highlight.js": "^11.7.0",
+    "js-cookie": "3.0.1",
+    "jsencrypt": "^3.3.1",
+    "md-editor-v3": "^2.7.2",
+    "nprogress": "0.2.0",
+    "pinia": "^2.0.28",
+    "qs": "^6.11.0",
+    "sortablejs": "^1.15.0",
+    "vue": "^3.2.45",
+    "vue-clipboard3": "^2.0.0",
+    "vue-cropper": "^1.0.5",
+    "vue-i18n": "^9.2.2",
+    "vue-router": "^4.1.6",
+    "vue3-seamless-scroll": "^2.0.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/compiler-sfc": "^3.2.45",
+    "sass": "^1.57.1",
+    "unplugin-auto-import": "^0.12.1",
+    "vite": "^4.0.4",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-svg-icons": "^1.0.5",
+    "vite-plugin-vue-setup-extend": "^0.4.0"
+  }
+}

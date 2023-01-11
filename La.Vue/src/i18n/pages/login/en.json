@@ -1,0 +1,31 @@
+{
+  "login": {
+    "account": "ID",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "captcha": "Captcha",
+    "btnLogin": "Login",
+    "rememberMe": "Remember Me",
+    "loggingIn": "Logging in...",
+    "loginSuccess": "login success",
+    "loginTimeOut": "Login status has expired, please log in again",
+    "reLogin": "re-register",
+    "invalidSession": "Invalid session, or session has expired, please log in again.",
+    "otherLoginWay": "Other",
+    "register": "Sign up now",
+    "registerSuccess": "Sign up",
+    "existingUsers": "Log in with an existing user id.",
+    "underRegistration": "Under registration ...",
+    "IncPassword": "Your confirmed password and new password do not match.",
+    "enterAccount": "Please enter your account!",
+    "lengthAccount": "The user account length must be between 2 and 20 characters.",
+    "enterPassword": "Please enter your password!",
+    "lengthPassword": "The user password length must be between 6 and 20 characters.",
+    "againPassword": "Please enter the password again!",
+    "enterCaptcha": "Please enter the verification code!",
+    "congratulationsAccount": "Congratulations, your account:",
+    "successfulAccount": "Registered successfully.",
+    "systemPrompt": "Laplace prompts",
+    "selectLanguage": "Please wait while the language is set"
+  }
+}
