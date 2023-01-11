@@ -7,7 +7,7 @@
 	<a href="https://github.com/Lean365/LaplaceNet/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"></a>
 </p>
 
-## 🍟概述
+## 🎉概述
 * 本项目适合有一定NetCore和 vue基础的开发人员
 * 基于.NET7实现的通用权限管理平台（RBAC模式）。整合最新技术高效快速开发，前后端分离模式，开箱即用。
 * 代码量少、学习简单、通俗易懂、功能强大、易扩展、轻量级，让web开发更快速、简单高效（从此告别996），解决70%的重复工作，专注您的业务，轻松开发从现在开始！
@@ -16,7 +16,7 @@
 如果对您有帮助，您可以点右上角 “Star” 收藏一下 ，这样作者才有继续免费下去的动力，谢谢！~
 ```
 
-## 🍿在线体验
+## 🌐在线体验
 - 官方文档：http://www.ilaplace.cn/doc
 - vue3.x版本体验：http://www.ilaplace.cn/vue
 - 账号密码：admin/123456
@@ -25,16 +25,16 @@
 ```
 由于是个人项目，资金有限，体验服是低配，请大家爱惜，轻戳，不胜感激！！！
 ```
-## 💒代码仓库
+## 🐰代码仓库
 | 仓库 | Gitee | Github                                             |
 | ---- | ----- | -------------------------------------------------- |
 | Vue3 |       | [克隆/下载](https://github.com/Lean365/LaplaceVue) |
 | Net7 |       | [克隆/下载](https://github.com/Lean365/LaplaceNet) |
 
-## 🍁前端技术
+## 🐰前端技术
 Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、 element-ui、echats、i18n国际化等，前端采用vscode工具开发
 
-## 🍀后端技术
+## 🐰后端技术
 - 核心框架：.Net7.0 + Web API + sqlsugar + swagger + signalR + IpRateLimit + Quartz.net + Redis
 - 定时计划任务：Quartz.Net组件，支持执行程序集或者http网络请求
 - 安全支持：过滤器(数据权限过滤)、Sql注入、请求伪造
@@ -48,7 +48,7 @@ Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、
 - 缓存数据：内置内存缓存和Redis
 
 
-## 🍖内置功能
+## 🐰内置功能
 
 1. 用户管理：用户是系统操作者，该功能主要完成系统用户配置。
 2. 部门管理：配置系统组织机构（公司、部门、小组），树结构展现。
@@ -71,19 +71,19 @@ Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、
 19. 账号注册：可以注册账号登录系统。
 20. 多语言管理：支持静态、后端动态配置国际化。目前只支持中、英、日文(仅支持vue3)
 
-## 🍻项目结构
+## 🔰项目结构
 
 ```
-├─La.Service             			->[服务层类库]：提供WebApi接口调用；
+├─La.Service             			      ->[服务层类库]：提供WebApi接口调用；
 ├─La.Repository                     ->[仓库层类库]：方便提供有执行存储过程的操作；
-├─La.Model                			->[实体层类库]：提供项目中的数据库表、数据传输对象；
-├─La.WebApi               	->[webapi接口]：为Vue版或其他三方系统提供接口服务。
-├─La.Tasks               			->[定时任务类库]：提供项目定时任务实现功能；
-├─La.CodeGenerator               	->[代码生成功能]：包含代码生成的模板、方法、代码生成的下载。
-├─La.Vue               				->[前端UI]：vue3.0版本UI层。
+├─La.Model                			    ->[实体层类库]：提供项目中的数据库表、数据传输对象；
+├─La.WebApi               	        ->[webapi接口]：为Vue版或其他三方系统提供接口服务。
+├─La.Tasks               			      ->[定时任务类库]：提供项目定时任务实现功能；
+├─La.CodeGenerator               	  ->[代码生成功能]：包含模板、方法、代码、下载。
+├─La.Vue               				      ->[前端UI]：vue3.0版本UI层。
 ```
 
-## 🍎演示图
+## 🗃️演示图
 
 <table>
     <tr>
@@ -143,7 +143,7 @@ Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、
 - 👉Meiam.System：[Meiam.System](https://github.com/91270/Meiam.System)
 
 ## 🎀捐赠
-如果你觉得这个项目帮助到了你，你可以请作者喝杯咖啡表示鼓励 ☕️
+如果你觉得这个项目帮助到了你，你可以帮作者买一杯果汁表示鼓励 🍹 
 <img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/pay.jpg"/>
 
 ## 🔧使用说明
