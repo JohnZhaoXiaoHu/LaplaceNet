@@ -3,8 +3,8 @@
 
 
 <p align="center">
-	<a href="https://github.com/Lean365/LaplaceNET"><img src="https://github.com/Lean365/LaplaceNET/badge/star.svg?theme=dark"></a>
-	<a href="https://github.com/Lean365/LaplaceNET/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"></a>
+	<a href="https://github.com/Lean365/LaplaceNET"><img src="https://img.shields.io/github/stars/Lean365/LaplaceNetl?style=flat-square&amp;logo=GitHub"></a>
+	<a href="https://github.com/Lean365/LaplaceNet/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"></a>
 </p>
 
 ## 🍟概述
