@@ -74,13 +74,15 @@ Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、
 ## 🔰项目结构
 
 ```
-├─La.Service             			      ->[服务层类库]：提供WebApi接口调用；
+├─La.Infra                          ->[基础层类库]：数据类型，I/O以及其他类库；
+├─La.Common                         ->[公共层类库]：包括数据、正则、字符串等的Helper；
+├─La.Service                        ->[服务层类库]：提供WebApi接口调用；
 ├─La.Repository                     ->[仓库层类库]：方便提供有执行存储过程的操作；
-├─La.Model                			    ->[实体层类库]：提供项目中的数据库表、数据传输对象；
-├─La.WebApi               	        ->[webapi接口]：为Vue版或其他三方系统提供接口服务。
-├─La.Tasks               			      ->[定时任务类库]：提供项目定时任务实现功能；
-├─La.CodeGenerator               	  ->[代码生成功能]：包含模板、方法、代码、下载。
-├─La.Vue               				      ->[前端UI]：vue3.0版本UI层。
+├─La.Model                          ->[实体层类库]：提供项目中的数据库表、数据传输对象；
+├─La.WebApi                         ->[webapi接口]：为Vue版或其他三方系统提供接口服务。
+├─La.Tasks                          ->[定时任务类库]：提供项目定时任务实现功能；
+├─La.CodeGenerator                  ->[代码生成功能]：包含模板、方法、代码、下载。
+├─La.Vue                            ->[前端UI]：vue3.0版本UI层。
 ```
 
 ## 📌演示图
