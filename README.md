@@ -18,8 +18,7 @@
 
 ## 🍿在线体验
 - 官方文档：http://www.ilaplace.cn/doc
-- vue3.x版本体验：http://www.ilaplace.cn/vue3
-- vue2.x版本体验：http://www.ilaplace.cn/admin
+- vue3.x版本体验：http://www.ilaplace.cn/vue
 - 账号密码：admin/123456
 
 
@@ -27,14 +26,13 @@
 由于是个人项目，资金有限，体验服是低配，请大家爱惜，轻戳，不胜感激！！！
 ```
 ## 💒代码仓库
-| 仓库        | Github                                              | github                                                          |
-| ----------- | --------------------------------------------------- | --------------------------------------------------------------- |
-| Vue2 + Net5 | [克隆/下载](https://github.com/Lean365/LaplaceNET/) | [克隆/下载](https://github.com/Lean365/LaplaceNET/)             |
-| Vue3        |                                                     | [克隆/下载](https://github.com/Lean365/ZRAdmin-vue)             |
-| Net7        |                                                     | [克隆/下载](https://github.com/Lean365/LaplaceNET/tree/net7.0/) |
+| 仓库 | Gitee | Github                                             |
+| ---- | ----- | -------------------------------------------------- |
+| Vue3 |       | [克隆/下载](https://github.com/Lean365/LaplaceVue) |
+| Net7 |       | [克隆/下载](https://github.com/Lean365/LaplaceNet) |
 
 ## 🍁前端技术
-Vue版前端技术栈 ：基于vue2.x/vue3.x、vuex、vue-router 、vue-cli 、axios、 element-ui、echats、i18n国际化等，前端采用vscode工具开发
+Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、 element-ui、echats、i18n国际化等，前端采用vscode工具开发
 
 ## 🍀后端技术
 - 核心框架：.Net7.0 + Web API + sqlsugar + swagger + signalR + IpRateLimit + Quartz.net + Redis
@@ -71,7 +69,7 @@ Vue版前端技术栈 ：基于vue2.x/vue3.x、vuex、vue-router 、vue-cli 、a
 17. 文件管理：可以进行上传文件管理，目前支持上传到本地、阿里云。
 18. 通知管理：系统通知公告信息发布维护，使用 signalr 实现对用户实时通知。
 19. 账号注册：可以注册账号登录系统。
-20. 多语言管理：支持静态、后端动态配置国际化。目前只支持中、英、繁体(仅支持vue3)
+20. 多语言管理：支持静态、后端动态配置国际化。目前只支持中、英、日文(仅支持vue3)
 
 ## 🍻项目结构
 
@@ -79,10 +77,10 @@ Vue版前端技术栈 ：基于vue2.x/vue3.x、vuex、vue-router 、vue-cli 、a
 ├─La.Service             			->[服务层类库]：提供WebApi接口调用；
 ├─La.Repository                     ->[仓库层类库]：方便提供有执行存储过程的操作；
 ├─La.Model                			->[实体层类库]：提供项目中的数据库表、数据传输对象；
-├─La.Admin.WebApi               	->[webapi接口]：为Vue版或其他三方系统提供接口服务。
+├─La.WebApi               	->[webapi接口]：为Vue版或其他三方系统提供接口服务。
 ├─La.Tasks               			->[定时任务类库]：提供项目定时任务实现功能；
 ├─La.CodeGenerator               	->[代码生成功能]：包含代码生成的模板、方法、代码生成的下载。
-├─La.Vue               				->[前端UI]：vue2.0版本UI层。
+├─La.Vue               				->[前端UI]：vue3.0版本UI层。
 ```
 
 ## 🍎演示图
