@@ -48,7 +48,7 @@ Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、
 - 缓存数据：内置内存缓存和Redis
 
 
-## 🐰内置功能
+## 📌内置功能
 
 1. 用户管理：用户是系统操作者，该功能主要完成系统用户配置。
 2. 部门管理：配置系统组织机构（公司、部门、小组），树结构展现。
@@ -83,7 +83,7 @@ Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、
 ├─La.Vue               				      ->[前端UI]：vue3.0版本UI层。
 ```
 
-## 🗃️演示图
+## 📌演示图
 
 <table>
     <tr>
