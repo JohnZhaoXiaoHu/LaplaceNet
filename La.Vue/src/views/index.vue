@@ -83,9 +83,9 @@
   import config from '../../package.json'
   const versionstring = config.description + ':v' + config.version;
   const data = reactive({
-    github: 'https://github.com/gmingchen/vue3-element-plus-admin',
-    gitee: 'https://gitee.com/shychen/vue3-element-plus-admin',
-    release: 'https://github.com/gmingchen/vue3-element-plus-admin/releases',
+    github: 'https://github.com/Lean365/LaplaceNet',
+    gitee: 'https://github.com/Lean365/LaplaceNet',
+    release: 'https://github.com/Lean365/LaplaceNet/releases',
 
 
   })
@@ -117,14 +117,14 @@
       value2: '2023/1/10',
     }, {
       name1: 'Doc',
-      value1: 'https://vben.vvbin.cn/#/about/index',
+      value1: 'https://github.com/Lean365/LaplaceNet',
       name2: 'Preview',
-      value2: 'https://vben.vvbin.cn/#/about/index',
+      value2: 'https://github.com/Lean365/LaplaceNet',
     }, {
       name1: 'Github',
-      value1: 'https://vben.vvbin.cn/#/about/index',
+      value1: 'https://github.com/Lean365/LaplaceNet',
       name2: 'Gitee',
-      value2: 'https://vben.vvbin.cn/#/about/index',
+      value2: 'https://github.com/Lean365/LaplaceNet',
     }]
 
   //单元格的 style 的回调方法

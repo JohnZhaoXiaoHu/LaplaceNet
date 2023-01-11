@@ -1,6 +1,6 @@
 {
   "name": "laplace",
-  "version": "23.1.01",
+  "version": "1.0.0",
   "description": "Laplace.Net7",
   "author": "Davis.Cheng",
   "license": "MIT",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/izory/ZrAdminNetCore"
+    "url": "https://github.com/Lean365/LaplaceNet"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.10",
