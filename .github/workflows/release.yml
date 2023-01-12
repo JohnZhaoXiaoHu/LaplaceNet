@@ -9,7 +9,7 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: GoogleCloudPlatform/release-please-action@v3
+      - uses: actions/checkout@master
         id: release
         with:
           token: ${{ secrets.RELEASE_TOKEN }}
