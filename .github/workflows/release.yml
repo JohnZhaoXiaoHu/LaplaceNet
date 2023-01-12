@@ -21,7 +21,7 @@ jobs:
       - name: Create release
         if: ${{ github.event_name != 'workflow_dispatch' }}
         id: release_tag
-        uses: lean365/release-tag@master
+        uses: Lean365/release-tag@master
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
