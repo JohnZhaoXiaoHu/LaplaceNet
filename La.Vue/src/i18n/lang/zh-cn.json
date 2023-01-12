@@ -232,7 +232,9 @@
     "upload": "上传",
     "view": "查看",
     "copy": "复制",
-    "operate": "操作"
+    "operate": "操作",
+    "popupOperation": "弹窗操作",
+    "inlineEditing": "行内编辑"
   },
   "user": {
     "personalInfo": "个人信息",

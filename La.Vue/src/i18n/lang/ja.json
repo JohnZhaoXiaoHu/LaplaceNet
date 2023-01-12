@@ -198,11 +198,10 @@
     "dateStart": "開始日",
     "dateEnd": "終了日",
     "select": "選択してください",
-    "operation": "作業",
     "empty": "はかならず入力してください!",
     "add": "新規",
     "delete": "削除",
-    "edit": "変更",
+    "edit": "やり直し",
     "search": "クエリー",
     "reset": "リセット",
     "preview": "プレビュー",
@@ -232,7 +231,9 @@
     "operate": "実行",
     "authorize": "承認",
     "close": "クローズ",
-    "multi": "バッチ"
+    "multi": "バッチ",
+    "popupOperation": "ポップアップ",
+    "inlineEditing": "インライン編集"
   },
   "language": "言語",
   "languageKey": "言語key",

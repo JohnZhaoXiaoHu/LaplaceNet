@@ -232,7 +232,9 @@
     "upload": "Upload",
     "view": "To view",
     "copy": "Copy",
-    "operate": "Operate"
+    "operate": "Operate",
+    "popupOperation": "Popup Operation",
+    "inlineEditing": "Inline editing"
   },
   "language": "Language",
   "languageKey": "LanguageKey",
