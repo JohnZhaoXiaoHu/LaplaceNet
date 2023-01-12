@@ -9,7 +9,7 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: cycjimmy/semantic-release-action@v3
         id: release
         with:
           token: ${{ secrets.RELEASE_TOKEN }}
