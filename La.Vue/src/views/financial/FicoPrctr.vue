@@ -152,10 +152,10 @@
               </el-button>
             </div>
             <div v-else>
-              <el-button v-hasPermi="['pp:output:delete']" color="#CCCCCC" icon="minus"
+              <el-button v-hasPermi="['pp:output:edit']" color="#2b85e4" icon="edit"
+                @click="handleEditRow(scope.row, scope.$index)" :title="$t('btn.editRow')"></el-button>
+              <el-button v-hasPermi="['pp:output:delete']" color="#c45656" icon="SemiSelect"
                 @click="handleEraseRow(scope.row,scope.$index, dataList)" :title="$t('btn.eraseRow')"></el-button>
-              <el-button v-hasPermi="['pp:output:edit']" color="#3366FF" icon="EditPen"
-                @click="handleEditRow(scope.row, scope.$index)" :title="$t('btn.edit')"></el-button>
 
             </div>
           </template>
@@ -469,14 +469,6 @@
   //行内编辑 保存前确认
   function handleConfirmEditRow(row, index) {
     row.isEdit = false
-    // if (row.fpPlnt === '' || row.fpPlnt === null || row.fpPlnt === 0 || row.fpPlnt === 'undefined') {
-
-    //   proxy.$modal.msgSuccess("新增失败")
-    // }
-    // else {
-    //   proxy.$modal.msgSuccess("新增成功")
-    // }
-
     // for (let key in row) {
     //   // 判断一行字段是否输入完整
     //   if (row[key] === '' || row[key] === null || row[key] == 0 || typeof row[key] === 'undefined') {
@@ -634,3 +626,26 @@
 
   handleQuery()
 </script>
+
+<!-- primary = #2d8cf0
+lightPrimary = #5cadff
+darkPrimary = #2b85e4
+info = #2db7f5
+success = #19be6b
+warning = #ff9900
+error = #ed4014
+title = #17233d
+content = #515a6e
+subColor = #808695
+disabled = #c5c8ce
+border = #dcdee2
+divider = #e8eaec
+background = #f8f8f9
+menuColor = #465cb9
+menuBgColor = #5873e8
+aColor = #00c1de
+lightSuccess = #dff0d8
+lightInfo = #d9edf7
+lightWarning = #fcf8e3
+lightError = #f2dede
+lightActive = #f5f5f5 -->
