@@ -20,8 +20,8 @@
         </el-select>
       </el-form-item>
       <el-form-item label="创建时间">
-        <el-date-picker v-model="dateRange" type="daterange" range-separator="-" start-placeholder="开始日期"
-          end-placeholder="结束日期">
+        <el-date-picker v-model="dateRangecreateTime" type="daterange" range-separator="-" start-placeholder="开始日期"
+          end-placeholder="结束日期" value-format="YYYY-MM-DD HH:mm:ss" :default-time="defaultTime">
         </el-date-picker>
       </el-form-item>
       <el-form-item>
@@ -184,7 +184,7 @@
   // 是否内置
   const typeOptions = ref([])
   // 日期范围
-  const dateRange = ref([])
+  const dateRangecreateTime = ref([])
   // 查询参数
 
   const formRef = ref()
@@ -202,15 +202,17 @@
       pageSize: 17,
       dictName: undefined,
       dictType: undefined,
-      status: undefined
+      status: undefined,
+      dateRangecreateTime: undefined
     }
   })
   const { rules, form, queryParams } = toRefs(state)
 
   /** 查询字典类型列表 */
   function getList() {
+    proxy.addDateRange(queryParams.value, dateRangecreateTime.value, 'create_time');
     loading.value = true
-    listType(proxy.addDateRange(queryParams.value, dateRange.value)).then((response) => {
+    listType(proxy.addDateRange(queryParams.value, dateRangecreateTime.value, 'create_time')).then((response) => {
       typeList.value = response.data.result
       total.value = response.data.totalNum
       loading.value = false
@@ -241,7 +243,7 @@
   }
   /** 重置按钮操作 */
   function resetQuery() {
-    dateRange.value = []
+    dateRangecreateTime.value = []
     proxy.resetForm('queryForm')
     handleQuery()
   }

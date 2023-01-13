@@ -161,3 +161,7 @@ Modern browsers and Internet Explorer 10+.
 如果部署iis访问不了情况可以有以下两种办法：
 1. 直接打开La.Admin.WebApi.exe文件然后看控制台的错误日志
 2. web.config里面有个false 改为 true，iis重启项目后运行网站后，跟目录下面 有个文件夹 log 里面有错误日志文件
+
+## 🚩License
+[MIT](https://github.com/Lean365/LaplaceNet/blob/master/LICENSE)
+

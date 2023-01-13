@@ -35,6 +35,7 @@
     "pinia": "^2.0.28",
     "qs": "^6.11.0",
     "sortablejs": "^1.15.0",
+    "uuid": "^9.0.0",
     "vue": "^3.2.45",
     "vue-clipboard3": "^2.0.0",
     "vue-cropper": "^1.0.5",
