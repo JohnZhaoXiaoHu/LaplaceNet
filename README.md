@@ -3,8 +3,8 @@
 
 
 <p align="center">
-	<a href="https://github.com/Lean365/LaplaceNET"><img src="https://img.shields.io/github/stars/Lean365/LaplaceNetl?style=flat-square&amp;logo=GitHub"></a>
-	<a href="https://github.com/Lean365/LaplaceNet/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"></a>
+	<a href="https://github.com/Lean365/LaplaceNET"><img src="https://img.shields.io/github/stars/Lean365/LaplaceNet?style=flat-square&logo=github&color=red"></a>
+	<a href="https://github.com/Lean365/LaplaceNet/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Lean365/LaplaceNet?style=flat-square&logo=github&color=616ae5"></a>
 </p>
 
 ## 🎉概述
@@ -17,7 +17,7 @@
 ```
 
 ## 🌐在线体验
-- 官方文档：http://www.ilaplace.cn/doc
+- 官方文档：https://laplacenet.github.io/
 - vue3.x版本体验：http://www.ilaplace.cn/vue
 - 账号密码：admin/123456
 
