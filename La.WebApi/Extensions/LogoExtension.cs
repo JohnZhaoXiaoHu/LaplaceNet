@@ -15,9 +15,9 @@ namespace La.WebApi.Extensions
 
             Console.WriteLine(content);
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("源码地址: https://gitee.com/Lean365/LaplaceNET");
-            Console.WriteLine("官方文档：http://www.Lean365.cn/doc");
-            Console.WriteLine("打赏作者：http://www.Lean365.cn/doc/support.html");
+            Console.WriteLine("源码地址: https://github.com/Lean365/LaplaceNet");
+            Console.WriteLine("官方文档：https://laplacenet.github.io/");
+            Console.WriteLine("打赏作者：https://laplacenet.github.io/docs/others/donate.html");
         }
     }
 }
