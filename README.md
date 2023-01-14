@@ -142,9 +142,13 @@ Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、
 ## 💐 特别鸣谢
 - 👉Ruoyi.vue：[Ruoyi](http://www.ruoyi.vip/)
 - 👉SqlSugar：[SqlSugar](https://github.com/dotnetchina/SqlSugar)
-- 👉vue-element-admin：[vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
+- 👉PanJiaChen：[vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
+- 👉element-plus：[element-plus](https://github.com/element-plus/element-plus)
+- 👉kailong321200875:[vue-element-plus-admin](https://github.com/kailong321200875/vue-element-plus-admin)
+- 👉GMingChen:[vue-element-plus-admin](https://github.com/GMingChen/vue3-element-plus-admin)
 - 👉Meiam.System：[Meiam.System](https://github.com/91270/Meiam.System)
-- 👉ZR.Admin：[Meiam.System](https://gitee.com/izory)
+- 👉cq-panda：[ZR.Admin](https://gitee.com/izory)
+- 👉izory：[Vue.NetCore](https://github.com/cq-panda/Vue.NetCore)
 
 ## 🎀捐赠
 如果你觉得这个项目帮助到了你，你可以帮作者买一杯果汁表示鼓励 🍹 
