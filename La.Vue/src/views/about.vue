@@ -1,5 +1,5 @@
 <template>
-
+  <div>{{gitinfo}}</div>
   <h2 style="color: red;">{{ $t('layout.ProjectInformation') }}</h2>
   <h5 style="color: rgb(42, 3, 184);">
     {{ $t('layout.projectInfo') }}
@@ -84,15 +84,17 @@
 </template>
 <script setup>
   import config from '../../package.json'
+  import axios from "axios"
   const { proxy } = getCurrentInstance()
   const versionstring = config.description + ':v' + config.version;
   const data = reactive({
     github: 'https://github.com/Lean365/LaplaceNet',
     gitee: 'https://github.com/Lean365/LaplaceNet',
     release: 'https://github.com/Lean365/LaplaceNet/releases',
-
-
   })
+
+
+
   const githubHandle = () => {
     window.open(data.github)
   }
@@ -113,7 +115,7 @@
       value1: config.version,
 
       name2: proxy.$t('layout.lastBulid'),
-      value2: '2023/1/10',
+      value2: '2023/1/13',
     }, {
       name1: proxy.$t('layout.helpguide'),
       value1: 'https://github.com/Lean365/LaplaceNet',
@@ -202,7 +204,7 @@
     { Name: 'Composition api', Fun: '组合式API' },
     { Name: 'I18n', Fun: '国际化' },
   ]
-  let devDependencies = config.devDependencies
+
   let depData = [
     { name: '@element-plus/icons-vue', version: config.dependencies['@element-plus/icons-vue'] },
     { name: '@microsoft/signalr', version: config.dependencies['@microsoft/signalr'] },
@@ -247,12 +249,7 @@
 
 </script>
 
-<style>
-  .el-table .warning-row {
-    --el-table-tr-bg-color: var(--el-color-warning-light-9);
-  }
 
-  .el-table .success-row {
-    --el-table-tr-bg-color: var(--el-color-success-light-9);
-  }
+<style lang="scss" scoped>
+
 </style>

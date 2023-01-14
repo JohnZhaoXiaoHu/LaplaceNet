@@ -4,7 +4,10 @@
 
 <p align="center">
 	<a href="https://github.com/Lean365/LaplaceNET"><img src="https://img.shields.io/github/stars/Lean365/LaplaceNet?style=flat-square&logo=github&color=red"></a>
-	<a href="https://github.com/Lean365/LaplaceNet/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Lean365/LaplaceNet?style=flat-square&logo=github&color=616ae5"></a>
+	<a href="https://github.com/Lean365/LaplaceNet/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Lean365/LaplaceNet?style=flat-square&logo=github&color=FF6100"></a>
+  <a href="https://github.com/Lean365/LaplaceNet/watchers"><img src="https://img.shields.io/github/license/watchers/LaplaceNet?style=flat-square&logo=github&color=616ae5"></a>
+  <a href="https://github.com/Lean365/LaplaceNet/network/members"><img src="https://img.shields.io/github/forks/Lean365/Lean365.github.io.svg?style=flat-square&logo=github&color=00C78C"></a>
+  
 </p>
 
 ## 🎉概述
@@ -12,9 +15,7 @@
 * 基于.NET7实现的通用权限管理平台（RBAC模式）。整合最新技术高效快速开发，前后端分离模式，开箱即用。
 * 代码量少、学习简单、通俗易懂、功能强大、易扩展、轻量级，让web开发更快速、简单高效（从此告别996），解决70%的重复工作，专注您的业务，轻松开发从现在开始！
 
-```
-如果对您有帮助，您可以点右上角 “Star” 收藏一下 ，这样作者才有继续免费下去的动力，谢谢！~
-```
+
 
 ## 🌐在线体验
 - 官方文档：https://laplacenet.github.io/
@@ -143,6 +144,7 @@ Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、
 - 👉SqlSugar：[SqlSugar](https://github.com/dotnetchina/SqlSugar)
 - 👉vue-element-admin：[vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
 - 👉Meiam.System：[Meiam.System](https://github.com/91270/Meiam.System)
+- 👉ZR.Admin：[Meiam.System](https://gitee.com/izory)
 
 ## 🎀捐赠
 如果你觉得这个项目帮助到了你，你可以帮作者买一杯果汁表示鼓励 🍹 

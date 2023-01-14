@@ -4,7 +4,9 @@ import Cookies from 'js-cookie'
 import ElementPlus from 'element-plus'
 import 'dayjs/locale/zh-cn'
 import '@/assets/styles/index.scss' // global css
+//跨域
 
+import axios from "axios"
 import App from './App'
 import router from './router'
 import directive from './directive' // directive
@@ -43,6 +45,13 @@ import DictTag from '@/components/DictTag'
 import dateOptions from '@/utils/dateOptions'
 
 const app = createApp(App)
+
+//设置axios请求的地址默认是'/api'
+//axios.defaults.baseURL = "https://api.github.com/repos/Lean365/LaplaceNet/releases";
+
+//将axios挂载到原型对象上
+//app.config.globalProperties.$http = axios;
+
 signalR.init(import.meta.env.VITE_APP_SOCKET_API)
 app.config.globalProperties.signalr = signalR
 // 全局方法挂载

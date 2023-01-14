@@ -9,7 +9,7 @@
       <div class="margin_t-10">
         <el-button size="small" type="warning" @click="releaseHandle()" round><svg-icon name="log" />{{
           $t('layout.changeLog') }}</el-button>
-        <el-button size="small" type="success" @click="releaseHandle()" round><svg-icon name="file-code" />{{
+        <el-button size="small" type="success" @click="guideHandle()" round><svg-icon name="file-code" />{{
           $t('layout.helpguide') }}</el-button>
         <el-button size="small" type="info" @click="releaseHandle()" round><svg-icon name="github"
             color="BlueViolet" />GitHub</el-button>
@@ -26,7 +26,6 @@
     <el-table-column prop="value2">
     </el-table-column>
   </el-table>
-
 
   <h2 style="float:center">{{ $t('layout.technicalSelection') }}</h2>
   <el-row class="mt10">
@@ -84,13 +83,15 @@
 </template>
 <script setup>
   import config from '../../package.json'
+
+
   const { proxy } = getCurrentInstance()
   const versionstring = config.description + ':v' + config.version;
   const data = reactive({
     github: 'https://github.com/Lean365/LaplaceNet',
     gitee: 'https://github.com/Lean365/LaplaceNet',
     release: 'https://github.com/Lean365/LaplaceNet/releases',
-
+    guide: 'https://laplacenet.github.io/',
 
   })
   const githubHandle = () => {
@@ -102,21 +103,19 @@
   const releaseHandle = () => {
     window.open(data.release)
   }
-  const oscsHandle = () => {
-    window.open(data.oscs)
+  const guideHandle = () => {
+    window.open(data.guide)
   }
-
-
   let projectData = [
     {
       name1: proxy.$t('layout.currentVersion'),
       value1: config.version,
 
       name2: proxy.$t('layout.lastBulid'),
-      value2: '2023/1/10',
+      value2: '2023/1/13',
     }, {
       name1: proxy.$t('layout.helpguide'),
-      value1: 'https://github.com/Lean365/LaplaceNet',
+      value1: 'https://laplacenet.github.io/',
       name2: proxy.$t('layout.codeSourceAddress'),
       value2: 'https://github.com/Lean365/LaplaceNet',
     }, {
