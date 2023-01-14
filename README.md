@@ -5,7 +5,7 @@
 <p align="center">
 	<a href="https://github.com/Lean365/LaplaceNET"><img src="https://img.shields.io/github/stars/Lean365/LaplaceNet?style=flat-square&logo=github&color=red"></a>
 	<a href="https://github.com/Lean365/LaplaceNet/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Lean365/LaplaceNet?style=flat-square&logo=github&color=0000FF"></a>
-  <a href="https://github.com/Lean365/LaplaceNet/watchers"><img src="https://img.shields.io/github/watchers/LaplaceNet?style=flat-square&logo=github&color=616ae5"></a>
+  <a href="https://github.com/Lean365/LaplaceNet/watchers"><img src="https://img.shields.io/github/watchers/Lean365/LaplaceNet?style=flat-square&logo=github&color=616ae5"></a>
   <a href="https://github.com/Lean365/LaplaceNet/network/members"><img src="https://img.shields.io/github/forks/Lean365/Lean365.github.io.svg?style=flat-square&logo=github&color=00C78C"></a>
   
 </p>
