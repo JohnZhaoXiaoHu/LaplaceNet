@@ -8,15 +8,15 @@
     </template>
 
     <div class="right-menu">
-      <header-search id="header-search" class="right-menu-item" />
+      <header-search id="header-search" :title="$t('btn.search')" class="right-menu-item" />
       <template v-if="appStore.device == 'desktop'">
-        <zr-git title="源码地址" class="right-menu-item" />
-        <zr-doc title="文档地址" class="right-menu-item" />
-        <screenfull title="全屏" class="right-menu-item" />
+        <LaplaceNet-git :title="$t('layout.codeSourceAddress')" class="right-menu-item" />
+        <LaplaceNet-doc :title="$t('layout.helpguide')" class="right-menu-item" />
+        <screenfull :title="$t('layout.fullscreen')" class="right-menu-item" />
       </template>
-      <size-select title="布局大小" class="right-menu-item" />
-      <LangSelect title="语言设置" class="right-menu-item" />
-      <Notice title="通知" class="right-menu-item" />
+      <size-select :title="$t('layout.sizeSelect')" class="right-menu-item" />
+      <LangSelect :title="$t('layout.multiLanguage')" class="right-menu-item" />
+      <Notice :title="$t('layout.notice')" class="right-menu-item" />
 
       <el-dropdown @command="handleCommand" class="right-menu-item avatar-container" trigger="hover">
         <span class="avatar-wrapper">
@@ -35,7 +35,7 @@
               <span>{{ $t('layout.layoutSetting') }}</span>
             </el-dropdown-item>
             <el-dropdown-item command="copyToken">
-              <span>复制token</span>
+              <span>{{ $t('layout.myToken') }}</span>
             </el-dropdown-item>
             <el-dropdown-item divided command="logout">
               <span>{{ $t('layout.logOut') }}</span>
@@ -54,18 +54,14 @@
   import Screenfull from '@/components/Screenfull'
   import SizeSelect from '@/components/SizeSelect'
   import HeaderSearch from '@/components/HeaderSearch'
-  import ZrGit from '@/components/Zr/Git'
-  import ZrDoc from '@/components/Zr/Doc'
+  import LaplaceNetGit from '@/components/LaplaceNet/Git'
+  import LaplaceNetDoc from '@/components/LaplaceNet/Doc'
   import Notice from '@/components/Notice/Index'
   import LangSelect from '@/components/LangSelect/index'
   import useAppStore from '@/store/modules/app'
   import useUserStore from '@/store/modules/user'
   import useSettingsStore from '@/store/modules/settings'
-  //修改复制方法
-  // import { useClipboard } from '@vueuse/core'
-  import useClipboard from 'vue-clipboard3'
-  const { toClipboard } = useClipboard()
-
+  import { useClipboard } from '@vueuse/core'
   const { proxy } = getCurrentInstance()
   const appStore = useAppStore()
   const userStore = useUserStore()
@@ -92,25 +88,15 @@
     }
   }
 
-  //const { copy, isSupported } = useClipboard()
-  // const copyText = async (val) => {
-  //   if (isSupported) {
-  //     copy(val)
-  //     proxy.$modal.msgSuccess('复制成功！')
-  //   } else {
-  //     alert(val)
-  //     proxy.$modal.msgError('当前浏览器不支持')
-  //   }
-  // }2023/1/14修改
+  const { copy, isSupported } = useClipboard()
   const copyText = async (val) => {
-    try {
-      await toClipboard(val)
+    if (isSupported) {
+      copy(val)
       proxy.$modal.msgSuccess('复制成功！')
-    } catch (e) {
-      console.log(e)
+    } else {
+      alert(val)
       proxy.$modal.msgError('当前浏览器不支持')
     }
-
   }
   function logout() {
     proxy

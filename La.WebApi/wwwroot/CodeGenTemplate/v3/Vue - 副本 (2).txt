@@ -29,8 +29,8 @@ $if(column.HtmlType == "datetime")
           v-model="dateRange${column.CsharpField}" 
           type="datetimerange" 
           range-separator="-"
-          :start-placeholder="${t}t('btn.dateStart')" 
-          :end-placeholder="${t}t('btn.dateEnd')" 
+          start-placeholder="开始日期" 
+          end-placeholder="结束日期" 
           placeholder="请选择$labelName"
           value-format="YYYY-MM-DD HH:mm:ss"
           :default-time="defaultTime"
@@ -163,16 +163,16 @@ $else
 $end
 $end
 $end
-      <el-table-column :label="${t}t('btn.operate')" align="center" width="160">
+      <el-table-column label="操作" align="center" width="160">
         <template #default="scope">
 $if(replaceDto.ShowBtnView)
           <el-button type="primary" icon="view" @click="handlePreview(scope.row)"></el-button>
 $end
 $if(replaceDto.ShowBtnEdit)
-          <el-button v-hasPermi="['${replaceDto.PermissionPrefix}:edit']" type="success" icon="edit" :title="${t}t('btn.edit')" @click="handleUpdate(scope.row)"></el-button>
+          <el-button v-hasPermi="['${replaceDto.PermissionPrefix}:edit']" type="success" icon="edit" title="编辑" @click="handleUpdate(scope.row)"></el-button>
 $end
 $if(replaceDto.ShowBtnDelete)
-          <el-button v-hasPermi="['${replaceDto.PermissionPrefix}:delete']" type="danger" icon="delete" :title="${t}t('btn.delete')" @click="handleDelete(scope.row)"></el-button>
+          <el-button v-hasPermi="['${replaceDto.PermissionPrefix}:delete']" type="danger" icon="delete" title="删除" @click="handleDelete(scope.row)"></el-button>
 $end
         </template>
       </el-table-column>
@@ -199,14 +199,13 @@ $end
 $if(column.IsPK || column.IsIncrement)
           <el-col :lg="${options.ColNum}">
             <el-form-item label="${labelName}" prop="${columnName}">
-$if(column.IsIncrement == true)
+$if(column.IsIncrement == false)
               <el-input-number v-model.number="form.${columnName}" controls-position="right" placeholder="请输入${labelName}" :disabled="title=='修改数据'"/>
 $else
-              <el-input v-model="form.${columnName}" controls-position="right" placeholder="请输入${labelName}" :disabled="title=='修改数据'"/>
+              <span v-html="form.${columnName}"/>
 $end
             </el-form-item>
           </el-col>
-
 $else
 $if(column.HtmlType == "inputNumber" || column.HtmlType == "customInput")
           <el-col :lg="${options.ColNum}">
@@ -289,23 +288,18 @@ $end
 </template>
 
 <script setup name="${genTable.BusinessName.ToLower()}">
-// 引入 ${genTable.BusinessName.ToLower()}操作方法
 import { list${genTable.BusinessName}, add${genTable.BusinessName}, del${genTable.BusinessName}, update${genTable.BusinessName}, get${genTable.BusinessName}, 
 $if(replaceDto.ShowBtnTruncate) clear${genTable.BusinessName}, $end 
 $if(showCustomInput) changeSort $end } 
 from '@/api/${tool.FirstLowerCase(genTable.ModuleName)}/${genTable.BusinessName.ToLower()}.js'
-//获取当前组件实例
+
 const { proxy } = getCurrentInstance()
 // 选中${replaceDto.FistLowerPk}数组数组
 const ids = ref([])
-// 非单个禁用
 const single = ref(true)
-// 非多个禁用
 const multiple = ref(true)
 const loading = ref(false)
-  // 显示搜索条件
 const showSearch = ref(true)
-//使用reactive()定义响应式变量,仅支持对象、数组、Map、Set等集合类型有效
 const queryParams = reactive({
   pageNum: 1,
   pageSize: 17,
@@ -317,7 +311,6 @@ $if(item.IsQuery == true)
 $end
 $end
 })
-//字段显示控制
 const columns = ref([
 $set(index = 0)
 $foreach(column in genTable.Columns)
@@ -327,13 +320,9 @@ $if(column.IsList)
 $end
 $end
 ])
-  // 总条数
 const total = ref(0)
-  // ${genTable.functionName}表格数据
 const dataList = ref([])
-  // 查询参数
 const queryRef = ref()
-//定义起始时间
 const defaultTime = ref([new Date(2000, 1, 1, 0, 0, 0), new Date(2000, 2, 1, 23, 59, 59)])
 
 $foreach(item in genTable.Columns)
@@ -385,7 +374,7 @@ $set(index = index + 1)
 $end
 $end
 ]
-//字典定义
+
 $if(index > 0)
 proxy.getDicts(dictParams).then((response) => {
   response.data.forEach((element) => {
@@ -393,7 +382,7 @@ proxy.getDicts(dictParams).then((response) => {
   })
 })
 $end
-//获取${genTable.functionName}表记录数据
+
 function getList(){
 $foreach(item in genTable.Columns)
 $if(item.HtmlType == "datetime" && item.IsQuery == true)
@@ -459,16 +448,11 @@ ${end}
 }
 
 /*************** form操作 ***************/
-//定义响应式变量
 const formRef = ref()
-  // 弹出层标题
 const title = ref("")
 // 操作类型 1、add 2、edit 3、view
-//定义响应式变量
 const opertype = ref(0)
-//定义对话框打开变更
 const open = ref(false)
-//reactive()定义响应式变量,仅支持对象、数组、Map、Set等集合类型有效
 const state = reactive({
   form: {},
   rules: {
@@ -488,7 +472,7 @@ $end
 $end
   }
 })
-//将响应式对象转换成普通对象
+
 const { form, rules, options } = toRefs(state)
 
 // 关闭dialog

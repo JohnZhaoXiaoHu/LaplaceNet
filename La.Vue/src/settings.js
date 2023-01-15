@@ -55,7 +55,7 @@ export default {
   /**
    * 版权信息
    */
-  copyright: 'Copyright ©2022 <a target="_black" href="http://www.ilaplace.cn/doc">Laplace.NET</a> All Rights Reserved.',
+  copyright: 'Copyright ©2022 <a target="_black" href="https://laplacenet.github.io/">Laplace.NET</a> All Rights Reserved.',
   /**
    * 是否显示底部栏
    */
@@ -63,7 +63,7 @@ export default {
   /**
    * 是否显示水印
    */
-  showWatermark: false,
+  showWatermark: true,
   /**
    * 水印文案
    */

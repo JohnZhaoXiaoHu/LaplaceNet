@@ -69,7 +69,11 @@
     "qcmaster": "マスタデータ",
     "iqc": "納入検査",
     "qa": "出荷検査",
-    "qccost": "品質原価"
+    "qccost": "品質原価",
+    "workflow": "ワークフロー",
+    "SysWorkFlow": "承認",
+    "SysWorkFlowStep": "タスク",
+    "SysWorkFlowTable": "イニシエータ"
   },
   "tagsView": {
     "refresh": "再描画",

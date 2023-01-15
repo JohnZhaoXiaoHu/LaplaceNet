@@ -5,56 +5,56 @@ using System.Collections.Generic;
 namespace La.Model.Models
 {
     /// <summary>
-    /// 利润中心，数据实体对象
+    /// 工作流，数据实体对象
     ///
     /// @author Laplace.Net:Davis.Cheng
     /// @date 2023-01-15
     /// </summary>
-    [SugarTable("fico_prctr")]
-    public class FicoPrctr
+    [SugarTable("Sys_WorkFlow")]
+    public class SysWorkFlow
     {
         /// <summary>
-        /// 描述 :Id主键 
+        /// 描述 :GUID 
+        /// 空值 :false 
+        /// </summary>
+        [SugarColumn(IsPrimaryKey = true, IsIdentity = false, ColumnName = "workFlow_Id")]
+        public Guid WorkflowId { get; set; }
+
+        /// <summary>
+        /// 描述 :流程名称 
+        /// 空值 :false 
+        /// </summary>
+        public string WorkName { get; set; }
+
+        /// <summary>
+        /// 描述 :表名 
+        /// 空值 :false 
+        /// </summary>
+        public string WorkTable { get; set; }
+
+        /// <summary>
+        /// 描述 :功能菜单 
         /// 空值 :true 
         /// </summary>
-        [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
-        public long? FpId { get; set; }
+        public string WorkTableName { get; set; }
 
         /// <summary>
-        /// 描述 :工厂 
-        /// 空值 :false 
+        /// 描述 :节点信息 
+        /// 空值 :true 
         /// </summary>
-        public string FpPlnt { get; set; }
+        public string NodeConfig { get; set; }
 
         /// <summary>
-        /// 描述 :代码 
-        /// 空值 :false 
+        /// 描述 :连接配置 
+        /// 空值 :true 
         /// </summary>
-        public string FpCode { get; set; }
+        public string LineConfig { get; set; }
 
         /// <summary>
-        /// 描述 :名称 
-        /// 空值 :false 
+        /// 描述 : 
+        /// 空值 :true 
         /// </summary>
-        public string FpName { get; set; }
-
-        /// <summary>
-        /// 描述 :类别 
-        /// 空值 :false 
-        /// </summary>
-        public string FpType { get; set; }
-
-        /// <summary>
-        /// 描述 :有效从 
-        /// 空值 :false 
-        /// </summary>
-        public DateTime? FpActDate { get; set; }
-
-        /// <summary>
-        /// 描述 :有效到 
-        /// 空值 :false 
-        /// </summary>
-        public DateTime? FpExpDate { get; set; }
+        public byte Enable { get; set; }
 
         /// <summary>
         /// 描述 : 
@@ -63,7 +63,7 @@ namespace La.Model.Models
         public bool IsDeleted { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :备注 
         /// 空值 :true 
         /// </summary>
         public string Remark { get; set; }

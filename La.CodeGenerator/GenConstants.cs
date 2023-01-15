@@ -123,6 +123,8 @@ namespace La.CodeGenerator
         public static string HTML_COLORPICKER = "colorPicker";
         //switch开关
         public static string HTML_SWITCH { get; set; }
+        /** UUID类型 */
+        public static string TYPE_GUID = "Guid";
 
         /** 字符串类型 */
         public static string TYPE_STRING = "string";

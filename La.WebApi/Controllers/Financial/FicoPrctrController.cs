@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName fico_prctr
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-01-11
+    /// @date 2023-01-15
     /// </summary>
     [Verify]
     [Route("financial/FicoPrctr")]

@@ -1,5 +1,5 @@
-<h2 align="center">🏬Laplace.Admin.NET后台管理系统🏬</h2>
-<h4 align="center">👉基于.Net7 + vue2.x/vue3.x前后端分离的.net快速开发框架👈</h4>  
+<h2 align="center">🏬Laplace.NET后台管理系统🏬</h2>
+<h4 align="center">👉.Net7+Vue3.x+Element plus前后端分离的快速发开框架👈</h4>  
 
 
 <p align="center">
@@ -141,7 +141,7 @@ Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、
 
 ## 💐 特别鸣谢
 - 👉Ruoyi.vue：[Ruoyi](http://www.ruoyi.vip/)
-- 👉SqlSugar：[SqlSugar](https://github.com/dotnetchina/SqlSugar)
+- 👉SqlSugar：[SqlSugar](https://www.donet5.com/Home/Doc)
 - 👉element-plus：[element-plus](https://github.com/element-plus/element-plus)
 - 👉kailong321200875:[vue-element-plus-admin](https://github.com/kailong321200875/vue-element-plus-admin)
 - 👉GMingChen:[vue-element-plus-admin](https://github.com/GMingChen/vue3-element-plus-admin)

@@ -29,6 +29,7 @@
                 <el-option label="decimal" value="decimal" />
                 <el-option label="DateTime" value="DateTime" />
                 <el-option label="bool" value="bool" />
+                <el-option label="Guid" value="Guid" />
               </el-select>
             </template>
           </el-table-column>

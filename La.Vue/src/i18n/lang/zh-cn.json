@@ -69,7 +69,11 @@
     "qcmaster": "主数据",
     "iqc": "来料检验",
     "qa": "出货检验",
-    "qccost": "品质成本"
+    "qccost": "品质成本",
+    "workflow": "工作流程",
+    "SysWorkFlow": "审批",
+    "SysWorkFlowStep": "任务",
+    "SysWorkFlowTable": "发起"
   },
   "tagsView": {
     "refresh": "刷新页面",

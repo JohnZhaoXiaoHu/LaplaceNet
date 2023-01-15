@@ -1,12 +1,20 @@
 import { createApp } from 'vue'
 import Cookies from 'js-cookie'
 
-import ElementPlus from 'element-plus'
+
 import 'dayjs/locale/zh-cn'
 import '@/assets/styles/index.scss' // global css
 //跨域
-
 import axios from "axios"
+//引入element-plus库
+import ElementPlus from 'element-plus'
+//引入element-plus样式
+//import 'element-plus/dist/index.css'
+//引入VForm3库
+//import VForm3 from 'vform3-builds'
+//引入VForm3样式
+//import 'vform3-builds/dist/designer.style.css'
+//引入jsPlumb流程图绘制
 import App from './App'
 import router from './router'
 import directive from './directive' // directive
@@ -16,7 +24,8 @@ import { downFile } from '@/utils/request'
 import signalR from '@/utils/signalR'
 import vueI18n from './i18n/index'
 import pinia from '@/store/index'
-
+//引入UUID
+import { v4 as uuidv4 } from 'uuid'
 // svg图标
 import 'virtual:svg-icons-register'
 
@@ -65,7 +74,7 @@ app.config.globalProperties.handleTree = handleTree
 app.config.globalProperties.addDateRange = addDateRange
 app.config.globalProperties.selectDictLabel = selectDictLabel
 app.config.globalProperties.dateOptions = dateOptions
-
+//app.prototype.uuid = uuidv4()
 // 全局组件挂载
 app.component('DictTag', DictTag)
 app.component('Pagination', Pagination)
@@ -76,5 +85,14 @@ app.component('RightToolbar', RightToolbar)
 app.component('svg-icon', SvgIcon)
 
 directive(app)
+/* 注意：如果你的项目中有使用axios，请用下面一行代码将全局axios复位为你的axios！！ */
+//window.axios = axios
+app.use(pinia)
+  .use(router)
+  //.use(VForm3)
+  .use(plugins)
 
-app.use(pinia).use(router).use(plugins).use(ElementPlus, {}).use(elementIcons).use(vueI18n).mount('#app')
+  .use(ElementPlus, {})
+  .use(elementIcons)
+  .use(vueI18n)
+  .mount('#app')

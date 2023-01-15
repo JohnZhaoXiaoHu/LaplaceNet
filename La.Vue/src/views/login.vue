@@ -4,7 +4,7 @@
     <el-form ref="loginRef" :model="loginForm" :rules="loginRules" class="login-form">
       <h3 class="title">{{ defaultSettings.title }}</h3>
 
-      <LangSelect title="多语言设置" class="langSet v-tag" />
+      <LangSelect title="多语言设置" class="v-tag" />
       <el-form-item prop="username">
         <el-input v-model="loginForm.username" type="text" size="default" auto-complete="off"
           :placeholder="$t('login.account')">

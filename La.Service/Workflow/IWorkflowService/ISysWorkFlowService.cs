@@ -4,17 +4,17 @@ using La.Model.Dto;
 using La.Model.Models;
 using System.Collections.Generic;
 
-namespace La.Service.Financial.IFinancialService
+namespace La.Service.Workflow.IWorkflowService
 {
     /// <summary>
-    /// 利润中心service接口
+    /// 工作流service接口
     ///
     /// @author Laplace.Net:Davis.Cheng
     /// @date 2023-01-15
     /// </summary>
-    public interface IFicoPrctrService : IBaseService<FicoPrctr>
+    public interface ISysWorkFlowService : IBaseService<SysWorkFlow>
     {
-        PagedInfo<FicoPrctrDto> GetList(FicoPrctrQueryDto parm);
+        PagedInfo<SysWorkFlowDto> GetList(SysWorkFlowQueryDto parm);
 
         /// <summary>
         /// 校验输入项目是否唯一
@@ -23,10 +23,10 @@ namespace La.Service.Financial.IFinancialService
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString);
 
-        int AddFicoPrctr(FicoPrctr parm);
+        int AddSysWorkFlow(SysWorkFlow parm);
 
-        int UpdateFicoPrctr(FicoPrctr parm);
+        int UpdateSysWorkFlow(SysWorkFlow parm);
         
-        void TruncateFicoPrctr();
+        void TruncateSysWorkFlow();
     }
 }

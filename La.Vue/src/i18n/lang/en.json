@@ -69,7 +69,11 @@
     "qcmaster": "Master Data",
     "iqc": "IQC",
     "qa": "QA",
-    "qccost": "Qc cost"
+    "qccost": "Qc cost",
+    "workflow": "WorkFlow",
+    "SysWorkFlow": "Approval",
+    "SysWorkFlowStep": "task",
+    "SysWorkFlowTable": "launch"
   },
   "tagsView": {
     "refresh": "refresh",
