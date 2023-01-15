@@ -27,10 +27,10 @@
 由于是个人项目，资金有限！！！
 ```
 ## 🐰代码仓库
-| 仓库 | Gitee | Github                                             |
-| ---- | ----- | -------------------------------------------------- |
-| Vue3 |       | [克隆/下载](https://github.com/Lean365/LaplaceVue) |
-| Net7 |       | [克隆/下载](https://github.com/Lean365/LaplaceNet) |
+| 仓库 | Gitee | Github                                                   |
+| ---- | ----- | -------------------------------------------------------- |
+| Vue3 |       | [未实现克隆/下载](https://github.com/Lean365/LaplaceVue) |
+| Net7 |       | [克隆/下载](https://github.com/Lean365/LaplaceNet)       |
 
 ## 🐰前端技术
 Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、 element-ui、echats、i18n国际化等，前端采用vscode工具开发
