@@ -19,7 +19,7 @@
 
 ## 🌐在线体验
 - 官方文档：https://laplacenet.github.io/
-- vue3.x版本体验：http://www.ilaplace.cn/vue[未开放]
+- <!未开放>vue3.x版本体验：http://www.ilaplace.cn/vue
 - 账号密码：admin/123456
 
 
