@@ -164,9 +164,9 @@ Modern browsers and Internet Explorer 10+.
 
 ## 🔧使用说明
 如果部署iis访问不了情况可以有以下两种办法：
-1. 直接打开<font color=blue>La.WebApi.exe</font>文件然后看控制台的错误日志
+1. 直接打开La.WebApi.exe文件然后看控制台的错误日志
 2. web.config里面有个false 改为 true，iis重启项目后运行网站后，跟目录下面 有个文件夹 log 里面有错误日志文件
-3. 有环境的请使用<font color=blue>Laplace_deb.sql</font>,sql2019版本直接导入，没有环境的可以使用SQLite版本，<font color=#ff0000>laplace.net.db</font>，并在<font color=#ff0000>appsettings.json</font>配置
+3. 有环境的请使用Laplace_deb.sql,sql2019版本直接导入，没有环境的可以使用SQLite版本，laplace.net.db，并在<font color=#ff0000>appsettings.json</font>配置
 
 ## 🚩License
 [MIT](https://github.com/Lean365/LaplaceNet/blob/master/LICENSE)
