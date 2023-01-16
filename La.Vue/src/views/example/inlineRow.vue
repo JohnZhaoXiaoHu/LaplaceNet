@@ -99,119 +99,121 @@
     </el-row>
 
     <!-- 数据区域 -->
-    <el-table :data="dataList" v-loading="loading" ref="table" :key="dataListKey" max-height="635" stripe border
-      highlight-current-row @sort-change="sortChange" @selection-change="handleSelectionChange">
-      <el-table-column type="selection" width="50" align="center" />
-      <el-table-column prop="pomId" label="ID" align="center" v-if="columns.showColumn('pomId')">
+    <el-form ref="formRef" :model="form" :rules="rules">
+      <el-table :data="dataList" v-loading="loading" ref="table" :key="dataListKey" max-height="635" stripe border
+        highlight-current-row @sort-change="sortChange" @selection-change="handleSelectionChange">
+        <el-table-column type="selection" width="50" align="center" />
+        <el-table-column prop="pomId" label="ID" align="center" v-if="columns.showColumn('pomId')">
 
-      </el-table-column>
-      <el-table-column prop="pomGuid" label="GUID" align="center" :show-overflow-tooltip="true"
-        v-if="columns.showColumn('pomGuid')" />
-      <el-table-column prop="pomOrder" label="生产工单" align="center" v-if="columns.showColumn('pomOrder')">
-        <template #default="scope">
-          <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name" align="center">
-            <el-select v-if="scope.row.isEdit && !scope.row.pomId" v-model="scope.row.pomOrder"
-              @change="(val) => { SelAssignment(dataList, val, scope.$index, scope.row) }">
-              <el-option v-for="item in  options.sql_moc_list " :key="item.dictValue" :label="item.dictLabel"
-                :value="item.dictValue"></el-option>
-            </el-select>
-            <span v-else v-text="scope.row.pomOrder"></span>
-          </el-form-item>
-        </template>
-      </el-table-column>
-      <el-table-column prop="pomOrderQty" label="工单数量" align="center" v-if="columns.showColumn('pomOrderQty')">
-      </el-table-column>
-      <el-table-column prop="pomOrderSerial" label="管理序列号" align="center" :show-overflow-tooltip="true"
-        v-if="columns.showColumn('pomOrderSerial')">
-      </el-table-column>
-      <el-table-column prop="pomMflot" label="生产批次" align="center" v-if="columns.showColumn('pomMflot')">
-      </el-table-column>
-      <el-table-column prop="pomModelName" label="机种名" align="center" v-if="columns.showColumn('pomModelName')">
-      </el-table-column>
-      <el-table-column prop="pomMfItem" label="物料" align="center" v-if="columns.showColumn('pomMfItem')">
-      </el-table-column>
-      <el-table-column prop="pomMfDate" label="生产日期" align="center" :show-overflow-tooltip="true"
-        v-if="columns.showColumn('pomMfDate')">
-        <template #default="scope">
-          <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name">
-            <el-date-picker v-if="scope.row.isEdit" v-model="scope.row.pomMfDate" type="date" format="YYYY-MM-DD"
-              value-format="YYYY-MM-DD" />
-            <span v-else v-text="scope.row.pomMfDate"></span>
-          </el-form-item>
-        </template>
-      </el-table-column>
-      <el-table-column prop="pomLineName" label="生产班组" align="center" v-if="columns.showColumn('pomLineName')">
-        <template #default="scope">
-          <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name">
-            <el-select v-if="scope.row.isEdit" v-model="scope.row.pomLineName" placeholder="请选择">
-              <el-option v-for="item in  options.sql_line_list " :key="item.dictValue" :label="item.dictLabel"
-                :value="item.dictValue"></el-option>
-            </el-select>
-            <span v-else v-text="scope.row.pomLineName"></span>
-          </el-form-item>
-        </template>
-      </el-table-column>
-      <el-table-column prop="pomDirect" label="直接人数" align="center" v-if="columns.showColumn('pomDirect')">
-        <template #default="scope">
-          <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name">
-            <el-input-number v-if="scope.row.isEdit" v-model.number="scope.row.pomDirect" controls-position="right"
-              placeholder="请输入直接人数" :min="1" :max="25"
-              @input="(val) => { CalculateStdOutput(dataList, val, scope.$index, scope.row) }" />
-            <span v-else v-text="scope.row.pomDirect"></span>
-          </el-form-item>
-        </template>
-      </el-table-column>
-      <el-table-column prop="pomIndirect" label="间接人数" align="center" v-if="columns.showColumn('pomIndirect')">
-        <template #default="scope">
-          <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name">
-            <el-input-number v-if="scope.row.isEdit" v-model.number="scope.row.pomIndirect" controls-position="right"
-              placeholder="请输入间接人数" :min="1" :max="10" />
-            <span v-else v-text="scope.row.pomIndirect"></span>
-          </el-form-item>
-        </template>
-      </el-table-column>
-      <el-table-column prop="pomStdTime" label="标准工时" align="center" v-if="columns.showColumn('pomStdTime')">
-      </el-table-column>
-      <el-table-column prop="pomStdOutput" label="标准产能" align="center" v-if="columns.showColumn('pomStdOutput')">
-        <template #default="scope">
-          <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name">
-            <el-input-number v-if="scope.row.isEdit" v-model.number="scope.row.pomStdOutput" controls-position="right"
-              placeholder="请输入标准产能" />
-            <span v-else v-text="scope.row.pomStdOutput"></span>
-          </el-form-item>
-        </template>
-      </el-table-column>
-      <el-table-column align="center" label="行内编辑" width="160">
-        <template #default="scope">
-          <div v-if="scope.row.isEdit">
-            <el-button v-hasPermi="['pp:output:edit']" type="success" icon="select"
-              @click="handleConfirmEditRow(scope.row, scope.$index)" :title="$t('btn.submit')">
-            </el-button>
-            <el-button v-hasPermi="['pp:output:edit']" type="danger" icon="CloseBold"
-              @click="handleCancelEditRow(scope.row, scope.$index)" :title="$t('btn.cancel')">
-            </el-button>
-          </div>
-          <div v-else>
-            <el-button v-hasPermi="['pp:output:delete']" color="#CCCCCC" icon="minus"
-              @click="handleEraseRow(scope.$index, dataList)" :title="$t('btn.eraseRow')"></el-button>
-            <el-button v-hasPermi="['pp:output:edit']" color="#3366FF" icon="EditPen"
-              @click="handleEditRow(scope.row, scope.$index)" :title="$t('btn.edit')"></el-button>
+        </el-table-column>
+        <el-table-column prop="pomGuid" label="GUID" align="center" :show-overflow-tooltip="true"
+          v-if="columns.showColumn('pomGuid')" />
+        <el-table-column prop="pomOrder" label="生产工单" align="center" v-if="columns.showColumn('pomOrder')">
+          <template #default="scope">
+            <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name" align="center">
+              <el-select v-if="scope.row.isEdit && !scope.row.pomId" v-model="scope.row.pomOrder"
+                @change="(val) => { SelAssignment(dataList, val, scope.$index, scope.row) }">
+                <el-option v-for="item in  options.sql_moc_list " :key="item.dictValue" :label="item.dictLabel"
+                  :value="item.dictValue"></el-option>
+              </el-select>
+              <span v-else v-text="scope.row.pomOrder"></span>
+            </el-form-item>
+          </template>
+        </el-table-column>
+        <el-table-column prop="pomOrderQty" label="工单数量" align="center" v-if="columns.showColumn('pomOrderQty')">
+        </el-table-column>
+        <el-table-column prop="pomOrderSerial" label="管理序列号" align="center" :show-overflow-tooltip="true"
+          v-if="columns.showColumn('pomOrderSerial')">
+        </el-table-column>
+        <el-table-column prop="pomMflot" label="生产批次" align="center" v-if="columns.showColumn('pomMflot')">
+        </el-table-column>
+        <el-table-column prop="pomModelName" label="机种名" align="center" v-if="columns.showColumn('pomModelName')">
+        </el-table-column>
+        <el-table-column prop="pomMfItem" label="物料" align="center" v-if="columns.showColumn('pomMfItem')">
+        </el-table-column>
+        <el-table-column prop="pomMfDate" label="生产日期" align="center" :show-overflow-tooltip="true"
+          v-if="columns.showColumn('pomMfDate')">
+          <template #default="scope">
+            <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name">
+              <el-date-picker v-if="scope.row.isEdit" v-model="scope.row.pomMfDate" type="date" format="YYYY-MM-DD"
+                value-format="YYYY-MM-DD" />
+              <span v-else v-text="scope.row.pomMfDate"></span>
+            </el-form-item>
+          </template>
+        </el-table-column>
+        <el-table-column prop="pomLineName" label="生产班组" align="center" v-if="columns.showColumn('pomLineName')">
+          <template #default="scope">
+            <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name">
+              <el-select v-if="scope.row.isEdit" v-model="scope.row.pomLineName" placeholder="请选择">
+                <el-option v-for="item in  options.sql_line_list " :key="item.dictValue" :label="item.dictLabel"
+                  :value="item.dictValue"></el-option>
+              </el-select>
+              <span v-else v-text="scope.row.pomLineName"></span>
+            </el-form-item>
+          </template>
+        </el-table-column>
+        <el-table-column prop="pomDirect" label="直接人数" align="center" v-if="columns.showColumn('pomDirect')">
+          <template #default="scope">
+            <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name">
+              <el-input-number v-if="scope.row.isEdit" v-model.number="scope.row.pomDirect" controls-position="right"
+                placeholder="请输入直接人数" :min="1" :max="25"
+                @input="(val) => { CalculateStdOutput(dataList, val, scope.$index, scope.row) }" />
+              <span v-else v-text="scope.row.pomDirect"></span>
+            </el-form-item>
+          </template>
+        </el-table-column>
+        <el-table-column prop="pomIndirect" label="间接人数" align="center" v-if="columns.showColumn('pomIndirect')">
+          <template #default="scope">
+            <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name">
+              <el-input-number v-if="scope.row.isEdit" v-model.number="scope.row.pomIndirect" controls-position="right"
+                placeholder="请输入间接人数" :min="1" :max="10" />
+              <span v-else v-text="scope.row.pomIndirect"></span>
+            </el-form-item>
+          </template>
+        </el-table-column>
+        <el-table-column prop="pomStdTime" label="标准工时" align="center" v-if="columns.showColumn('pomStdTime')">
+        </el-table-column>
+        <el-table-column prop="pomStdOutput" label="标准产能" align="center" v-if="columns.showColumn('pomStdOutput')">
+          <template #default="scope">
+            <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name">
+              <el-input-number v-if="scope.row.isEdit" v-model.number="scope.row.pomStdOutput" controls-position="right"
+                placeholder="请输入标准产能" />
+              <span v-else v-text="scope.row.pomStdOutput"></span>
+            </el-form-item>
+          </template>
+        </el-table-column>
+        <el-table-column align="center" label="行内编辑" width="160">
+          <template #default="scope">
+            <div v-if="scope.row.isEdit">
+              <el-button v-hasPermi="['pp:output:edit']" type="success" icon="select"
+                @click="handleConfirmEditRow(scope.row, scope.$index)" :title="$t('btn.submit')">
+              </el-button>
+              <el-button v-hasPermi="['pp:output:edit']" type="danger" icon="CloseBold"
+                @click="handleCancelEditRow(scope.row, scope.$index)" :title="$t('btn.cancel')">
+              </el-button>
+            </div>
+            <div v-else>
+              <el-button v-hasPermi="['pp:output:delete']" color="#CCCCCC" icon="minus"
+                @click="handleEraseRow(scope.$index, dataList)" :title="$t('btn.eraseRow')"></el-button>
+              <el-button v-hasPermi="['pp:output:edit']" color="#3366FF" icon="EditPen"
+                @click="handleEditRow(scope.row, scope.$index)" :title="$t('btn.edit')"></el-button>
 
-          </div>
-        </template>
+            </div>
+          </template>
 
-      </el-table-column>
-      <el-table-column label="弹窗操作" align="center" width="160">
-        <template #default="scope">
-          <div v-if="scope.row.pomId">
-            <el-button v-hasPermi="['pp:output:edit']" type="success" icon="edit" :title="$t('btn.edit')"
-              @click="handleUpdate(scope.row)"></el-button>
-            <el-button v-hasPermi="['pp:output:delete']" type="danger" icon="delete" :title="$t('btn.delete')"
-              @click="handleDelete(scope.row)"></el-button>
-          </div>
-        </template>
-      </el-table-column>
-    </el-table>
+        </el-table-column>
+        <el-table-column label="弹窗操作" align="center" width="160">
+          <template #default="scope">
+            <div v-if="scope.row.pomId">
+              <el-button v-hasPermi="['pp:output:edit']" type="success" icon="edit" :title="$t('btn.edit')"
+                @click="handleUpdate(scope.row)"></el-button>
+              <el-button v-hasPermi="['pp:output:delete']" type="danger" icon="delete" :title="$t('btn.delete')"
+                @click="handleDelete(scope.row)"></el-button>
+            </div>
+          </template>
+        </el-table-column>
+      </el-table>
+    </el-form>
     <pagination class="mt10" background :total="total" v-model:page="queryParams.pageNum"
       v-model:limit="queryParams.pageSize" @pagination="getList" />
 
