@@ -73,7 +73,10 @@
     "workflow": "WorkFlow",
     "SysWorkFlow": "Approval",
     "SysWorkFlowStep": "task",
-    "SysWorkFlowTable": "launch"
+    "SysWorkFlowTable": "launch",
+    "functionTemplate": "Function template",
+    "inlineTemplate": "Inline editing",
+    "masterslaveTemplate": "Master-slave table"
   },
   "tagsView": {
     "refresh": "refresh",

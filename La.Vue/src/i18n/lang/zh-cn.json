@@ -73,7 +73,9 @@
     "workflow": "工作流程",
     "SysWorkFlow": "审批",
     "SysWorkFlowStep": "任务",
-    "SysWorkFlowTable": "发起"
+    "functionTemplate": "功能模板",
+    "inlineTemplate": "行内编辑",
+    "masterslaveTemplate": "主从表"
   },
   "tagsView": {
     "refresh": "刷新页面",

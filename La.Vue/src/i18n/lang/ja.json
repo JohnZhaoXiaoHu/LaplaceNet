@@ -73,7 +73,10 @@
     "workflow": "ワークフロー",
     "SysWorkFlow": "承認",
     "SysWorkFlowStep": "タスク",
-    "SysWorkFlowTable": "イニシエータ"
+    "SysWorkFlowTable": "イニシエータ",
+    "functionTemplate": "機能テンプレート",
+    "inlineTemplate": "インライン編集",
+    "masterslaveTemplate": "マスタスレーブテーブル"
   },
   "tagsView": {
     "refresh": "再描画",
