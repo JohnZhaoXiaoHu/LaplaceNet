@@ -5,7 +5,7 @@ import { createApp } from 'vue'
 //import axios from 'axios'
 //import VueAxios from 'vue-axios'
 //cookie记录
-import Cookies from 'js-cookie'
+//import Cookies from 'js-cookie'
 
 
 import 'dayjs/locale/zh-cn'
@@ -63,10 +63,17 @@ import ImagePreview from '@/components/ImagePreview'
 import DictTag from '@/components/DictTag'
 // el-date-picker 快捷选项
 import dateOptions from '@/utils/dateOptions'
-//createApp.use(VueAxios, axios)
+//格式化日期
+import moment from "moment"
+
 const app = createApp(App)
 
-
+app.config.globalProperties.$filters = {
+  timeFormat(value, formatString) {
+    formatString = formatString || 'YYYY-MM-DD';
+    return moment(value).format(formatString);
+  }
+}
 signalR.init(import.meta.env.VITE_APP_SOCKET_API)
 app.config.globalProperties.signalr = signalR
 // 全局方法挂载

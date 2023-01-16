@@ -47,7 +47,8 @@
         </el-select>
       </el-form-item>
       <el-form-item label="生产日期">
-        <el-date-picker v-model="dateRangePomMfDate" type="datetimerange" range-separator="-" start-placeholder="开始日期"
+        <!-- datetimerange和daterange -->
+        <el-date-picker v-model="dateRangePomMfDate" type="daterange" range-separator="-" start-placeholder="开始日期"
           end-placeholder="结束日期" placeholder="请选择生产日期" value-format="YYYY-MM-DD HH:mm:ss" :default-time="defaultTime"
           :shortcuts="dateOptions">
         </el-date-picker>
@@ -116,7 +117,12 @@
       <el-table-column prop="pomMfItem" label="物料" align="center" v-if="columns.showColumn('pomMfItem')">
       </el-table-column>
       <el-table-column prop="pomMfDate" label="生产日期" align="center" :show-overflow-tooltip="true"
-        v-if="columns.showColumn('pomMfDate')" />
+        v-if="columns.showColumn('pomMfDate')">
+        <template #default="scope">
+          {{proxy.$filters.timeFormat(scope.row.pomMfDate)}}
+        </template>
+
+      </el-table-column>
       <el-table-column prop="pomLineName" label="生产班组" align="center" v-if="columns.showColumn('pomLineName')">
       </el-table-column>
       <el-table-column prop="pomDirect" label="直接人数" align="center" v-if="columns.showColumn('pomDirect')" />

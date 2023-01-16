@@ -9,6 +9,7 @@
 -->
 <template>
   <div>
+    <p></p>
     <el-form :model="queryParams" label-position="right" inline ref="queryRef" v-show="showSearch" @submit.prevent>
       <el-form-item label="生产工单" prop="pomOrder">
         <el-select clearable v-model="queryParams.pomOrder" placeholder="请选择生产工单">
@@ -131,13 +132,13 @@
         </el-table-column>
         <el-table-column prop="pomMfItem" label="物料" align="center" v-if="columns.showColumn('pomMfItem')">
         </el-table-column>
-        <el-table-column prop="pomMfDate" label="生产日期" align="center" :show-overflow-tooltip="true"
+        <el-table-column prop="pomMfDate" label="生产日期" align="center" :show-overflow-tooltip="true" format="YYYY-MM-DD"
           v-if="columns.showColumn('pomMfDate')">
           <template #default="scope">
             <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name">
               <el-date-picker v-if="scope.row.isEdit" v-model="scope.row.pomMfDate" type="date" format="YYYY-MM-DD"
                 value-format="YYYY-MM-DD" />
-              <span v-else v-text="scope.row.pomMfDate"></span>
+              <span v-else v-text="proxy.$filters.timeFormat(scope.row.pomMfDate)"></span>
             </el-form-item>
           </template>
         </el-table-column>
