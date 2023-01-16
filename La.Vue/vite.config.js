@@ -49,7 +49,15 @@ export default defineConfig(({ mode, command }) => {
       host: true,
       open: false,//自动打开浏览器
       proxy: {
-        // https://cn.vitejs.dev/config/#server-proxy
+        '/github-api': {
+          target: env.VITE_GITHUB_API_HOST,//跨域请求的公共地址
+          ws: true,//用于支持websocket也可以忽略不写，不写不会影响跨域
+          changeOrigin: true,//是否开启跨域，值为 true 就是开启， false 不开启
+          // pathRewrite: {
+          //   '^/github-api': ''//注册全局路径， 但是在你请求的时候前面需要加上 /api 
+          // }
+          rewrite: (path) => path.replace(/^\/github-api/, '')
+        },
         '/dev-api': {
           target: env.VITE_APP_API_HOST,
           changeOrigin: true,

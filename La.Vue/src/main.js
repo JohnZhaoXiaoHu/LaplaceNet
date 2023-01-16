@@ -1,11 +1,16 @@
 import { createApp } from 'vue'
+/*引入资源请求插件*/
+//import VueResource from 'vue-resource'
+//Axios网络请求库封装
+//import axios from 'axios'
+//import VueAxios from 'vue-axios'
+//cookie记录
 import Cookies from 'js-cookie'
 
 
 import 'dayjs/locale/zh-cn'
 import '@/assets/styles/index.scss' // global css
-//跨域
-import axios from "axios"
+
 //引入element-plus库
 import ElementPlus from 'element-plus'
 //引入element-plus样式
@@ -14,6 +19,12 @@ import ElementPlus from 'element-plus'
 //import VForm3 from 'vform3-builds'
 //引入VForm3样式
 //import 'vform3-builds/dist/designer.style.css'
+
+//引入form-create V3库
+import formCreate from '@form-create/element-ui'
+import FcDesigner from '@form-create/designer'
+import ElementUI from 'element-plus/es/index'
+import 'element-plus/dist/index.css'
 //引入jsPlumb流程图绘制
 import App from './App'
 import router from './router'
@@ -52,18 +63,14 @@ import ImagePreview from '@/components/ImagePreview'
 import DictTag from '@/components/DictTag'
 // el-date-picker 快捷选项
 import dateOptions from '@/utils/dateOptions'
-
+//createApp.use(VueAxios, axios)
 const app = createApp(App)
 
-//设置axios请求的地址默认是'/api'
-//axios.defaults.baseURL = "https://api.github.com/repos/Lean365/LaplaceNet/releases";
-
-//将axios挂载到原型对象上
-//app.config.globalProperties.$http = axios;
 
 signalR.init(import.meta.env.VITE_APP_SOCKET_API)
 app.config.globalProperties.signalr = signalR
 // 全局方法挂载
+//app.config.globalProperties.$axios = axios
 app.config.globalProperties.getConfigKey = getConfigKey
 app.config.globalProperties.getDicts = getDicts
 app.config.globalProperties.download = download
@@ -89,9 +96,10 @@ directive(app)
 //window.axios = axios
 app.use(pinia)
   .use(router)
-  //.use(VForm3)
+  .use(formCreate)
+  .use(FcDesigner)
   .use(plugins)
-
+  .use(ElementUI)
   .use(ElementPlus, {})
   .use(elementIcons)
   .use(vueI18n)

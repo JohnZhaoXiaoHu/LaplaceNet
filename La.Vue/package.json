@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.10",
+    "@form-create/designer": "^3.0.2",
+    "@form-create/element-ui": "^3.1.17",
     "@microsoft/signalr": "^7.0.0",
     "@vueuse/core": "^9.10.0",
     "@wangeditor/editor": "^5.1.23",
@@ -37,6 +39,7 @@
     "sortablejs": "^1.15.0",
     "uuid": "^9.0.0",
     "vue": "^3.2.45",
+    "vue-axios": "^3.5.2",
     "vue-clipboard3": "^2.0.0",
     "vue-cropper": "^1.0.5",
     "vue-i18n": "^9.2.2",
