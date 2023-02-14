@@ -1,3 +1,11 @@
+<!--
+ * @Descripttion: (导航/页面路径)
+ * @version: (1.0)
+ * @Author: (Laplace.Net:Davis.Cheng)
+ * @Date: (2023-01-15)
+ * @LastEditors: (Laplace.Net:Davis.Cheng)
+ * @LastEditTime: (2023-01-15)
+-->
 <template>
   <div class="navbar" :data-theme="sideTheme" :class="appStore.device">
     <hamburger id="hamburger-container" :is-active="appStore.sidebar.opened" class="hamburger-container"
@@ -91,18 +99,18 @@
   const { copy, isSupported } = useClipboard()
   const copyText = async (val) => {
     if (isSupported) {
-      copy(val)
-      proxy.$modal.msgSuccess('复制成功！')
+      copy('Bearer ' + val)
+      proxy.$modal.msgSuccess(proxy.$t('common.copySucceed'))
     } else {
       alert(val)
-      proxy.$modal.msgError('当前浏览器不支持')
+      proxy.$modal.msgError(proxy.$t('layout.mybrowserNg'))
     }
   }
   function logout() {
     proxy
       .$confirm(proxy.$t('layout.logOutConfirm'), proxy.$t('common.tips'), {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
+        confirmButtonText: proxy.$t('btn.submit'),
+        cancelButtonText: proxy.$t('btn.cancel'),
         type: 'warning'
       })
       .then(() => {

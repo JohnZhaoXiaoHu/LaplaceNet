@@ -2,7 +2,7 @@ export default {
   /**
    * 框架版本号
    */
-  version: '3.8.2',
+  version: '1.0.1',
   /**
    * 网页标题
    */

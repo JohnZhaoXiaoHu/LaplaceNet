@@ -130,7 +130,9 @@
     "small": "较小",
     "myWorkbench": "我的工作台",
     "onlineUsers": "在线用户",
+    "resisterUsers": "注册用户",
     "message": "消息",
+    "messageList": "消息列表",
     "messagecontent": "请输入消息内容",
     "messageempty": "消息不能为空",
     "notice": "通知",
@@ -169,6 +171,8 @@
     "english": "英文",
     "chinese": "中文",
     "japanese": "日文",
+    "korean": "韩文",
+    "Traditional": "繁体",
     "name": "名称",
     "content": "内容",
     "addTime": "添加时间",
@@ -195,7 +199,8 @@
     "warningTips": "警告",
     "confirmSave": "是否保存数据?",
     "confirmExport": "您确定要导出数据吗？ :",
-    "confirmClean": "是否确认清空所有数据项? "
+    "confirmClean": "是否确认清空所有数据项? ",
+    "copySucceed": "复制成功"
   },
   "btn": {
     "dateselect": "请选择日期",

@@ -131,7 +131,9 @@
     "small": "小さい",
     "myWorkbench": "マイワークベンチ",
     "onlineUsers": "オンラインユーザー",
+    "resisterUsers": "登録ユーザー",
     "message": "メッセージ",
+    "messageList": "メッセージリスト",
     "messagecontent": "メッセージを入力してください",
     "messageempty": "内容はかならず入力してください",
     "notice": "お知らせ",
@@ -170,6 +172,8 @@
     "english": "英文",
     "chinese": "中文",
     "japanese": "日本語",
+    "korean": "韩文",
+    "Traditional": "繁体",
     "name": "名前",
     "content": "內容",
     "addTime": "時間の追加",
@@ -196,7 +200,8 @@
     "warningTips": "ウォーニング",
     "confirmSave": "データをセーブしてもよろしいですか?",
     "confirmExport": "本当にデータをエクスポートしますか? :",
-    "confirmClean": "すべてクリアしますか? "
+    "confirmClean": "すべてクリアしますか? ",
+    "copySucceed": "コーヒー完了"
   },
   "btn": {
     "dateselect": "日付選択",

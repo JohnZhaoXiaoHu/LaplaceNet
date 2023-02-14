@@ -130,8 +130,10 @@
     "default": "Default",
     "small": "Small",
     "myWorkbench": "My workbench",
-    "onlineUsers": "Online",
+    "onlineUsers": "OnlineUsers",
+    "resisterUsers": "resisterUsers",
     "message": "Message",
+    "messageList": "MessageList",
     "messagecontent": "Please enter the message",
     "messageempty": "Can not be empty",
     "notice": "Notice",
@@ -170,6 +172,8 @@
     "english": "English",
     "chinese": "Chinese",
     "japanese": "Japanese",
+    "korean": "韩文",
+    "Traditional": "繁体",
     "name": "Name",
     "content": "Content",
     "addTime": "AddTime",
@@ -196,7 +200,8 @@
     "warningTips": "Warning",
     "confirmSave": "Are you sure you want to save the data?",
     "confirmExport": "Are you sure to export data? :",
-    "confirmClean": "Confirm to clear all data items? "
+    "confirmClean": "Confirm to clear all data items? ",
+    "copySucceed": "Copy Succeed!"
   },
   "btn": {
     "dateselect": "Date Selector",

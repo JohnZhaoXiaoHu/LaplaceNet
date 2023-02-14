@@ -16,8 +16,8 @@ const service = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API,
   // axios中请求配置有githubURL选项，表示请求URL公共部分
   //githubURL: import.meta.env.VITE_GITHUB_API_HOST,
-  // 超时
-  timeout: 30000
+  // 超时1分钟
+  timeout: 60000
 })
 
 // request拦截器
@@ -25,6 +25,7 @@ service.interceptors.request.use(
   (config) => {
     // 是否需要设置 token
     if (getToken()) {
+
       //将token放到请求头发送给服务器,将tokenkey放在请求头中
       config.headers['Authorization'] = 'Bearer ' + getToken()
       config.headers['userid'] = useUserStore().userId

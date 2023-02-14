@@ -41,7 +41,7 @@
       <el-form-item style="width: 100%">
         <el-button :loading="loading" size="default" type="primary" style="width: 100%" @click.prevent="handleLogin">
           <span v-if="!loading">{{ $t('login.btnLogin') }}</span>
-          <span v-else>登 录 中...</span>
+          <span v-else>{{ $t('layout.loggingIn') }}</span>
         </el-button>
       </el-form-item>
       <div class="other-login" v-if="defaultSettings.showOtherLogin">
@@ -175,21 +175,33 @@
   }
 
   .v-tag {
-    top: -50px;
-    text-align: center;
     position: absolute;
-    right: -12px;
-    line-height: 2px;
+    /*定位元素*/
     top: -0px;
+    /*上边缘设置*/
+    right: -12px;
+    /*右边缘设置*/
+    line-height: 2px;
+    /*设置行高*/
+    text-align: center;
+    /*设置文本的对齐方式*/
+    padding-top: 2px;
+    /*顶部补白*/
     padding-left: 0px;
-    font-size: 120px;
-    width: 58px;
+    /*元素的左部填充*/
+    font-size: 12px;
+    /*字体大小*/
+    width: 38px;
+    /*宽度*/
     background: #3de1ad;
     /* 翡翠色(#3de1ad)：1，翡翠鸟羽毛的青绿色。2，翡翠宝石的颜色。 （注：C-Y≥30 的系列色彩，多与白色配合以体现清新明丽感觉，与黑色配合效果不好：该色个性柔弱，会被黑色牵制） */
-    padding-top: 2px; //顶部补白
+
     color: white;
+    /*不同元素设置text-color*/
     -webkit-transform: rotate(40deg);
+    /*safari 浏览器支持*/
     letter-spacing: 2px;
+    /*字符间距*/
   }
 
   .other-login {

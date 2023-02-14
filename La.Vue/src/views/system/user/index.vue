@@ -244,7 +244,6 @@
   import { changeUserStatus, listUser, resetUserPwd, delUser, getUser, updateUser, addUser, exportUser } from '@/api/system/user'
 
   const { proxy } = getCurrentInstance()
-
   const statusOptions = ref([])
   const sexOptions = ref([])
   proxy.getDicts('sys_normal_disable').then((response) => {

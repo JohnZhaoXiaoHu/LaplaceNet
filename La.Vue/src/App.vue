@@ -1,4 +1,5 @@
 <template>
+  <!-- 添加点击事件 -->
   <el-config-provider :locale="locale" :size="size">
     <router-view />
   </el-config-provider>
@@ -12,6 +13,7 @@
   import ja from 'element-plus/lib/locale/lang/ja' //日本語
   import defaultSettings from '@/settings'
   const { proxy } = getCurrentInstance()
+  // 设置超时时间:30分钟
 
   const token = computed(() => {
     return useUserStore().token
