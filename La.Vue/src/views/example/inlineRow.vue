@@ -113,7 +113,7 @@
           <template #default="scope">
             <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name" align="center">
               <el-select v-if="scope.row.isEdit && !scope.row.pomId" v-model="scope.row.pomOrder"
-                @change="(val) => { SelAssignment(dataList, val, scope.$index, scope.row) }">
+                @change="(val) => { SelAssignmentinline(dataList, val, scope.$index, scope.row) }">
                 <el-option v-for="item in  options.sql_moc_list " :key="item.dictValue" :label="item.dictLabel"
                   :value="item.dictValue"></el-option>
               </el-select>
@@ -158,7 +158,7 @@
             <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name">
               <el-input-number v-if="scope.row.isEdit" v-model.number="scope.row.pomDirect" controls-position="right"
                 placeholder="请输入直接人数" :min="1" :max="25"
-                @input="(val) => { CalculateStdOutput(dataList, val, scope.$index, scope.row) }" />
+                @input="(val) => { CalculateStdOutputinline(dataList, val, scope.$index, scope.row) }" />
               <span v-else v-text="scope.row.pomDirect"></span>
             </el-form-item>
           </template>
@@ -223,21 +223,10 @@
       <el-form ref="formRef" :model="form" :rules="rules" label-width="100px">
         <el-row :gutter="20">
 
-          <el-col :lg="12">
-            <el-form-item label="ID" prop="pomId">
-              <span v-html="form.pomId" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="GUID" prop="pomGuid">
-              <el-input v-model="form.pomGuid" placeholder="请输入GUID" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
+          <el-col :lg="24">
             <el-form-item label="生产工单" prop="pomOrder">
-              <el-select v-model="form.pomOrder" placeholder="请选择生产工单">
+              <el-select clearable filterable v-model="form.pomOrder" placeholder="请选择生产工单" @change="SelAssignment"
+                :disabled="title==$t('btn.edit')">
                 <el-option v-for="item in  options.sql_moc_list " :key="item.dictValue" :label="item.dictLabel"
                   :value="item.dictValue"></el-option>
               </el-select>
@@ -246,19 +235,20 @@
 
           <el-col :lg="12">
             <el-form-item label="工单数量" prop="pomOrderQty">
-              <el-input-number v-model.number="form.pomOrderQty" controls-position="right" placeholder="请输入工单数量" />
+              <el-input-number v-model.number="form.pomOrderQty" controls-position="right" placeholder="请输入工单数量"
+                disabled />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="管理序列号" prop="pomOrderSerial">
-              <el-input v-model="form.pomOrderSerial" placeholder="请输入管理序列号" />
+              <el-input v-model="form.pomOrderSerial" placeholder="请输入管理序列号" disabled />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="生产批次" prop="pomMflot">
-              <el-select v-model="form.pomMflot" placeholder="请选择生产批次">
+              <el-select v-model="form.pomMflot" placeholder="请选择生产批次" disabled>
                 <el-option v-for="item in  options.sql_lot_list " :key="item.dictValue" :label="item.dictLabel"
                   :value="item.dictValue"></el-option>
               </el-select>
@@ -267,7 +257,7 @@
 
           <el-col :lg="12">
             <el-form-item label="机种名" prop="pomModelName">
-              <el-select v-model="form.pomModelName" placeholder="请选择机种名">
+              <el-select v-model="form.pomModelName" placeholder="请选择机种名" disabled>
                 <el-option v-for="item in  options.sql_moc_model " :key="item.dictValue" :label="item.dictLabel"
                   :value="item.dictValue"></el-option>
               </el-select>
@@ -276,13 +266,23 @@
 
           <el-col :lg="12">
             <el-form-item label="物料" prop="pomMfItem">
-              <el-select v-model="form.pomMfItem" placeholder="请选择物料">
+              <el-select v-model="form.pomMfItem" placeholder="请选择物料" disabled>
                 <el-option v-for="item in  options.sql_moc_item " :key="item.dictValue" :label="item.dictLabel"
                   :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
-
+          <el-col :lg="12">
+            <el-form-item label="标准工时" prop="pomStdTime">
+              <el-input-number v-model.number="form.pomStdTime" controls-position="right" placeholder="请输入标准工时"
+                disabled />
+            </el-form-item>
+          </el-col>
+          <el-col :lg="24">
+            <el-form-item label="GUID" prop="pomGuid">
+              <el-input v-model="form.pomGuid" placeholder="请输入GUID" disabled :disabled="title==$t('btn.edit')" />
+            </el-form-item>
+          </el-col>
           <el-col :lg="12">
             <el-form-item label="生产日期" prop="pomMfDate">
               <el-date-picker v-model="form.pomMfDate" type="datetime" :teleported="false"
@@ -291,7 +291,7 @@
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="生产班组" prop="pomLineName">
+            <el-form-item label="生产班组" prop="pomLineName" width="300">
               <el-select v-model="form.pomLineName" placeholder="请选择生产班组">
                 <el-option v-for="item in  options.sql_line_list " :key="item.dictValue" :label="item.dictLabel"
                   :value="item.dictValue"></el-option>
@@ -301,138 +301,19 @@
 
           <el-col :lg="12">
             <el-form-item label="直接人数" prop="pomDirect">
-              <el-input-number v-model.number="form.pomDirect" controls-position="right" placeholder="请输入直接人数" />
+              <el-input-number v-model.number="form.pomDirect" controls-position="right" placeholder="请输入直接人数" :min="1"
+                :max="25" @input="CalculateStdOutput" />
             </el-form-item>
           </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="间接人数" prop="pomIndirect">
-              <el-input-number v-model.number="form.pomIndirect" controls-position="right" placeholder="请输入间接人数" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="标准工时" prop="pomStdTime">
-              <el-input-number v-model.number="form.pomStdTime" controls-position="right" placeholder="请输入标准工时" />
-            </el-form-item>
-          </el-col>
-
           <el-col :lg="12">
             <el-form-item label="标准产能" prop="pomStdOutput">
-              <el-input-number v-model.number="form.pomStdOutput" controls-position="right" placeholder="请输入标准产能" />
+              <el-input-number v-model.number="form.pomStdOutput" controls-position="right" disabled />
             </el-form-item>
           </el-col>
-
           <el-col :lg="12">
-            <el-form-item label="uDF01" prop="uDF01">
-              <el-input v-model="form.uDF01" placeholder="请输入uDF01" :disabled="true" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="uDF02" prop="uDF02">
-              <el-input v-model="form.uDF02" placeholder="请输入uDF02" :disabled="true" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="uDF03" prop="uDF03">
-              <el-input v-model="form.uDF03" placeholder="请输入uDF03" :disabled="true" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="uDF04" prop="uDF04">
-              <el-input v-model="form.uDF04" placeholder="请输入uDF04" :disabled="true" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="uDF05" prop="uDF05">
-              <el-input v-model="form.uDF05" placeholder="请输入uDF05" :disabled="true" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="uDF06" prop="uDF06">
-              <el-input v-model="form.uDF06" placeholder="请输入uDF06" :disabled="true" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="uDF51" prop="uDF51">
-              <el-input v-model="form.uDF51" placeholder="请输入uDF51" :disabled="true" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="uDF52" prop="uDF52">
-              <el-input v-model="form.uDF52" placeholder="请输入uDF52" :disabled="true" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="uDF53" prop="uDF53">
-              <el-input v-model="form.uDF53" placeholder="请输入uDF53" :disabled="true" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="uDF54" prop="uDF54">
-              <el-input v-model="form.uDF54" placeholder="请输入uDF54" :disabled="true" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="uDF55" prop="uDF55">
-              <el-input v-model="form.uDF55" placeholder="请输入uDF55" :disabled="true" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="uDF56" prop="uDF56">
-              <el-input v-model="form.uDF56" placeholder="请输入uDF56" :disabled="true" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="软删除" prop="isDeleted">
-              <el-radio-group v-model="form.isDeleted" :disabled="true">
-                <el-radio v-for="item in  options.isDeletedOptions" :key="item.dictValue" :label="item.dictValue">
-                  {{ item.dictLabel }}</el-radio>
-              </el-radio-group>
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="备注" prop="reMark">
-              <el-input v-model="form.reMark" placeholder="请输入备注" :disabled="true" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="createBy" prop="createBy">
-              <el-input v-model="form.createBy" placeholder="请输入createBy" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="createTime" prop="createTime">
-              <el-date-picker v-model="form.createTime" type="datetime" :teleported="false"
-                placeholder="选择日期时间"></el-date-picker>
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="updateBy" prop="updateBy">
-              <el-input v-model="form.updateBy" placeholder="请输入updateBy" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="updateTime" prop="updateTime">
-              <el-date-picker v-model="form.updateTime" type="datetime" :teleported="false"
-                placeholder="选择日期时间"></el-date-picker>
+            <el-form-item label="间接人数" prop="pomIndirect">
+              <el-input-number v-model.number="form.pomIndirect" controls-position="right" placeholder="请输入间接人数"
+                :min="0" :max="10" />
             </el-form-item>
           </el-col>
         </el-row>
@@ -442,7 +323,9 @@
         <el-button type="primary" @click="submitForm">{{ $t('btn.submit') }}</el-button>
       </template>
     </el-dialog>
-
+    <el-dialog v-model="outputDataVisible" draggable width="60%" :lock-scroll="false">
+      <output-data v-model:pomId="pomId"></output-data>
+    </el-dialog>
   </div>
 </template>
 
@@ -572,7 +455,7 @@
   }
   //计算标准产量保留两位小数(直接人数*单位时间(60分钟)/标准工时(st)*效率(0.85)),parseFloat().toFixed(2)保留小数位
   //计算计划产出(标准产能)
-  function CalculateStdOutput(data, val, index, row) {
+  function CalculateStdOutputinline(data, val, index, row) {
 
     if (row.pomStdTime != undefined && row.pomStdTime != null && row.pomStdTime != 0) {
       row.pomStdOutput = parseFloat(Number(val) * 60 / Number(row.pomStdTime) * 0.85).toFixed(2)
@@ -586,7 +469,7 @@
   }
 
   //select选择框，赋值到其它文本框。split(",")分割数组，slice()截取，.join()转字符串parseFloat().toFixed(2)保留小数位
-  function SelAssignment(data, val, index, row) {
+  function SelAssignmentinline(data, val, index, row) {
     //赋值给文本框
     let vals = val
     row.pomGuid = uuidv4()
@@ -610,6 +493,40 @@
     //两种都可以
     this.$set(data, index, row)
     //this.$set(this.topicList,index,row)
+  }
+  //计算标准产量保留两位小数(直接人数*单位时间(60分钟)/标准工时(st)*效率(0.85)),parseFloat().toFixed(2)保留小数位
+  //计算计划产出(标准产能)
+  function CalculateStdOutput(val) {
+
+    if (form.value.pomStdTime != undefined && form.value.pomStdTime != null && form.value.pomStdTime != 0) {
+      form.value.pomStdOutput = parseFloat(Number(val) * 60 / Number(form.value.pomStdTime) * 0.85).toFixed(2)
+    }
+    else {
+      form.value.pomStdOutput = 0
+    }
+  }
+  //select选择框，赋值到其它文本框。split(",")分割数组，slice()截取，.join()转字符串parseFloat().toFixed(2)保留小数位
+  function SelAssignment(val) {
+    //赋值给文本框
+    form.value.pomGuid = uuidv4()
+    form.value.pomOrder = val.split(",").slice(0, 1).join()
+    form.value.pomOrderQty = val.split(",").slice(3, 4).join()
+    form.value.pomOrderSerial = val.split(",").slice(4, 5).join()
+    form.value.pomMflot = val.split(",").slice(2, 3).join()
+    form.value.pomModelName = val.split(",").slice(5, 6).join()
+    form.value.pomMfItem = val.split(",").slice(1, 2).join()
+    form.value.pomStdTime = val.split(",").slice(-1).join()
+    form.value.pomMfDate = getCurrentTime()
+    //计算计划产出(标准产能)
+    //判断直接人数
+    if (form.value.pomDirect != undefined && form.value.pomDirect != null && form.value.pomDirect != 0) {
+      form.value.pomStdOutput = parseFloat(Number(form.value.pomDirect) * 60 / Number(val.split(",").slice(-1).join()) * 0.85).toFixed(2)
+    }
+    else {
+      form.value.pomStdOutput = 0
+    }
+    form.value.pomIndirect = 0
+
   }
   // 重置表单
   function reset() {
