@@ -61,20 +61,21 @@ namespace La.WebApi.Controllers
             return SUCCESS(_SysEtDictService.GetList(parm));
         }
 
+        //跟下面的冲突 GeSysEtDict(long Id)
 
         /// <summary>
         /// 查询电子技术辞典详情
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        [HttpGet("{Id}")]
-        [ActionPermissionFilter(Permission = "sys:etdict:query")]
-        public IActionResult GetSysEtDict(long Id)
-        {
-            var response = _SysEtDictService.GetFirst(x => x.Id == Id);
-            
-            return SUCCESS(response);
-        }
+        //[HttpGet("{Id}")]
+        //[ActionPermissionFilter(Permission = "sys:etdict:query")]
+        //public IActionResult GetSysEtDict(long Id)
+        //{
+        //    var response = _SysEtDictService.GetFirst(x => x.Id == Id);
+
+        //    return SUCCESS(response);
+        //}
         /// <summary>
         /// 查询多语言配置列表
         /// </summary>

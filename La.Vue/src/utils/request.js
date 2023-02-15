@@ -51,7 +51,7 @@ service.interceptors.response.use(
     if (res.request.responseType === 'blob' || res.request.responseType === 'arraybuffer') {
       return res
     }
-    if (code == 401) {
+    if (code == 401 || code === 1011006 || code === 1011007 || code === 1011008 || code === 1011009) {
       ElMessageBox.confirm('登录状态已过期，请重新登录', '系统提示', {
         confirmButtonText: '重新登陆',
         cancelButtonText: '取消',

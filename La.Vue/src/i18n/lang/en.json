@@ -204,12 +204,12 @@
     "copySucceed": "Copy Succeed!"
   },
   "btn": {
-    "dateselect": "Date Selector",
+    "dateselect": "Date Selector:",
     "clean": "Clear all",
-    "enter": "Please enter",
+    "enter": "Please enter:",
     "dateStart": "Start Date",
     "dateEnd": "End Date",
-    "select": "Please select",
+    "select": "Please select:",
     "operation": "Operation",
     "empty": " Cannot be empty!",
     "add": "Add",

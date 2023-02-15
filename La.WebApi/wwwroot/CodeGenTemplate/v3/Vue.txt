@@ -200,9 +200,9 @@ $if(column.IsPK || column.IsIncrement)
           <el-col :lg="${options.ColNum}">
             <el-form-item label="${labelName}" prop="${columnName}">
 $if(column.IsIncrement == true)
-              <el-input-number v-model.number="form.${columnName}" controls-position="right" placeholder="请输入${labelName}" :disabled="title=='修改数据'"/>
+              <el-input-number v-model.number="form.${columnName}" controls-position="right" :placeholder="${t}t('btn.enter')+'${labelName}'" :disabled="title==${t}t('btn.edit')"/>
 $else
-              <el-input v-model="form.${columnName}" controls-position="right" placeholder="请输入${labelName}" :disabled="title=='修改数据'"/>
+              <el-input v-model="form.${columnName}" controls-position="right" :placeholder="${t}t('btn.enter')+'${labelName}'" :disabled="title==${t}t('btn.edit')"/>
 $end
             </el-form-item>
           </el-col>
@@ -211,13 +211,13 @@ $else
 $if(column.HtmlType == "inputNumber" || column.HtmlType == "customInput")
           <el-col :lg="${options.ColNum}">
             <el-form-item label="${labelName}" prop="${columnName}">
-              <el-input-number v-model.number="form.${columnName}" :controls="true" controls-position="right" placeholder="请输入${labelName}" ${column.DisabledStr}/>
+              <el-input-number v-model.number="form.${columnName}" :controls="true" controls-position="right" :placeholder="${t}t('btn.enter')+'${labelName}'" ${column.DisabledStr}/>
             </el-form-item>
           </el-col>
 $elseif(column.HtmlType == "datetime")
           <el-col :lg="${options.ColNum}">
             <el-form-item label="${labelName}" prop="${columnName}">
-              <el-date-picker v-model="form.${columnName}" type="datetime" :teleported="false" placeholder="选择日期时间"${column.DisabledStr}></el-date-picker>
+              <el-date-picker v-model="form.${columnName}" type="datetime" :teleported="false" :placeholder="${t}t('btn.dateselect')"${column.DisabledStr}></el-date-picker>
             </el-form-item>
           </el-col>
 $elseif(column.HtmlType == "imageUpload")
@@ -243,7 +243,7 @@ $elseif(column.HtmlType == "radio")
 $elseif(column.HtmlType == "textarea")
           <el-col :lg="24">
             <el-form-item label="${labelName}" prop="${columnName}">
-              <el-input type="textarea" v-model="form.${columnName}" placeholder="请输入${labelName}"${column.DisabledStr}/>
+              <el-input type="textarea" v-model="form.${columnName}" :placeholder="${t}t('btn.enter')+'${labelName}'"${column.DisabledStr}/>
             </el-form-item>
           </el-col>
 $elseif(column.HtmlType == "editor")
@@ -255,7 +255,7 @@ $elseif(column.HtmlType == "editor")
 $elseif(column.HtmlType == "select" || column.HtmlType == "selectMulti")
           <el-col :lg="${options.ColNum}">
             <el-form-item label="${labelName}" prop="${columnName}">
-              <el-select v-model="form.${columnName}" placeholder="请选择${labelName}"${column.DisabledStr}>
+              <el-select v-model="form.${columnName}" :placeholder="${t}t('btn.select')+'${labelName}'"${column.DisabledStr}>
                 <el-option v-for="item in $if(column.DictType != "") options.${column.DictType} $else options.${column.CsharpFieldFl}Options$end" :key="item.dictValue" :label="item.dictLabel" :value="${value}"></el-option>
               </el-select>
             </el-form-item>
@@ -271,7 +271,7 @@ $elseif(column.HtmlType == "checkbox")
 $else
           <el-col :lg="${options.ColNum}">
             <el-form-item label="${labelName}" prop="${columnName}">
-              <el-input v-model="form.${columnName}" placeholder="请输入${labelName}" ${column.DisabledStr}/>
+              <el-input v-model="form.${columnName}" :placeholder="${t}t('btn.enter')+'${labelName}'" ${column.DisabledStr}/>
             </el-form-item>
           </el-col>
 $end
@@ -474,7 +474,7 @@ const state = reactive({
   rules: {
 $foreach(column in genTable.Columns)
 $if(column.IsRequired && column.IsIncrement == false)
-    ${column.CsharpFieldFl}: [{ required: true, message: "${column.ColumnComment}不能为空", trigger: $if(column.htmlType == "select")"change"$else"blur"$end
+    ${column.CsharpFieldFl}: [{ required: true, message: "${column.ColumnComment}"+proxy.${t}t('btn.empty'), trigger: $if(column.htmlType == "select")"change"$else"blur"$end
 $if(column.CsharpType == "int" || column.CsharpType == "long"), type: "number"$end }],
 $end
 $end
@@ -516,7 +516,7 @@ $end
 function handleAdd() {
   reset();
   open.value = true
-  title.value = '添加'
+  title.value = proxy.${t}t('btn.add')
   opertype.value = 1
 }
 
@@ -528,7 +528,7 @@ function handleUpdate(row) {
     const { code, data } = res
     if (code == 200) {
       open.value = true
-      title.value = "修改数据"
+      title.value = proxy.${t}t('btn.edit')
       opertype.value = 2
 
       form.value = {
@@ -554,14 +554,14 @@ $end
 $end
       if (form.value.${replaceDto.FistLowerPk} != undefined && opertype.value === 2) {
         update${genTable.BusinessName}(form.value).then((res) => {
-          proxy.${modal}modal.msgSuccess("修改成功")
+          proxy.${modal}modal.msgSuccess(proxy.${t}t('common.Modicompleted'))
           open.value = false
           getList()
         })
         .catch(() => {})
       } else {
         add${genTable.BusinessName}(form.value).then((res) => {
-            proxy.${modal}modal.msgSuccess("新增成功")
+            proxy.${modal}modal.msgSuccess(proxy.${t}t('common.Newcompleted'))
             open.value = false
             getList()
           })
@@ -575,13 +575,13 @@ $end
 function handleDelete(row) {
   const Ids = row.${replaceDto.FistLowerPk} || ids.value
 
-  proxy.${confirm}confirm('是否确认删除参数编号为"' + Ids + '"的数据项？')
+  proxy.${confirm}confirm(proxy.${t}t('common.confirmDel') + Ids +proxy.${t}t('common.confirmDelDataitems'))
   .then(function () {
       return del${genTable.BusinessName}(Ids)
   })
   .then(() => {
       getList()
-      proxy.${modal}modal.msgSuccess("删除成功")
+      proxy.${modal}modal.msgSuccess(proxy.${t}t('common.Delcompleted'))
   })
   .catch(() => {})
 }
@@ -590,9 +590,9 @@ $if(replaceDto.ShowBtnTruncate)
 // 清空
 function handleClear() {
   proxy
-    .${confirm}confirm("是否确认清空所有数据项?", "警告", {
-      confirmButtonText: "确定",
-      cancelButtonText: "取消",
+    .${confirm}confirm(proxy.${t}t('common.confirmClean'), proxy.${t}t('common.warningTips'), {
+      confirmButtonText: proxy.${t}t('btn.submit'),
+      cancelButtonText:proxy.${t}t('btn.cancel'),
       type: "warning",
     })
     .then(function () {
@@ -600,7 +600,7 @@ function handleClear() {
     })
     .then(() => {
       handleQuery()
-      proxy.${modal}modal.msgSuccess('清空成功')
+      proxy.${modal}modal.msgSuccess(proxy.${t}t('common.Cleancompleted'))
     })
 }
 $end
@@ -613,7 +613,7 @@ $if(replaceDto.ShowBtnView)
 function handlePreview(row) {
   reset()
   open.value = true
-  title.value = '查看'
+  title.value =  proxy.${t}t('btn.preview')
   opertype.value = 3
   form.value = row
 }
@@ -623,9 +623,9 @@ $if(replaceDto.ShowBtnExport)
 // 导出按钮操作
 function handleExport() {
   proxy
-    .${confirm}confirm("是否确认导出${genTable.functionName}数据项?", "警告", {
-      confirmButtonText: "确定",
-      cancelButtonText: "取消",
+    .${confirm}confirm(proxy.${t}t('common.confirmExport')+"${genTable.functionName}", proxy.${t}t('common.warningTips'), {
+      confirmButtonText: proxy.${t}t('btn.submit'),
+      cancelButtonText: proxy.${t}t('btn.cancel'),
       type: "warning",
     })
     .then(async () => {

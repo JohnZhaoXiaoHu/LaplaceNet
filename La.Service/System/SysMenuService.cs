@@ -41,7 +41,8 @@ namespace La.Service
                 var userRoles = SysRoleService.SelectUserRoles(userId);
                 menuList = SelectTreeMenuListByRoles(menu, userRoles);
             }
-            return menuList;
+            //return menuList;菜单管理查询为空时报错，增加了查询为空时返回一个默认值；
+            return menuList ?? new List<SysMenu>();
         }
 
         /// <summary>
