@@ -40,6 +40,13 @@ namespace La.WebApi.Extensions
                     DbType = (IocDbType)dbType,
                     IsAutoCloseConnection = true
                 }
+                   ,
+                   new IocConfig() {
+                    ConfigId = "2",
+                    ConnectionString = connStr,
+                    DbType = (IocDbType)dbType,
+                    IsAutoCloseConnection = true
+                }
                    //...增加其他数据库
                 };
             SugarIocServices.AddSqlSugar(iocList);

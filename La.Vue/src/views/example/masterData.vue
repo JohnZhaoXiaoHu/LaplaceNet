@@ -117,6 +117,7 @@
       </el-table-column>
       <el-table-column prop="pomMfItem" label="物料" align="center">
       </el-table-column>
+      <el-table-column prop="pomStdTime" label="标准工时" align="center" />
       <el-table-column prop="pomMfDate" label="生产日期" align="center" :show-overflow-tooltip="true">
         <template #default="scope">
           {{ proxy.$filters.timeFormat(scope.row.pomMfDate) }}
@@ -126,7 +127,7 @@
       </el-table-column>
       <el-table-column prop="pomDirect" label="直接人数" align="center" />
       <el-table-column prop="pomIndirect" label="间接人数" align="center" />
-      <el-table-column prop="pomStdTime" label="标准工时" align="center" />
+
       <el-table-column prop="pomStdOutput" label="标准产能" align="center" />
       <el-table-column label="操作" align="center" width="160">
         <template #default="scope">

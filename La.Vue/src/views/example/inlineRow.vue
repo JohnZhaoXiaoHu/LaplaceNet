@@ -132,6 +132,8 @@
         </el-table-column>
         <el-table-column prop="pomMfItem" label="物料" align="center" v-if="columns.showColumn('pomMfItem')">
         </el-table-column>
+        <el-table-column prop="pomStdTime" label="标准工时" align="center" v-if="columns.showColumn('pomStdTime')">
+        </el-table-column>
         <el-table-column prop="pomMfDate" label="生产日期" align="center" :show-overflow-tooltip="true" format="YYYY-MM-DD"
           v-if="columns.showColumn('pomMfDate')">
           <template #default="scope">
@@ -158,7 +160,7 @@
             <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name">
               <el-input-number v-if="scope.row.isEdit" v-model.number="scope.row.pomDirect" controls-position="right"
                 placeholder="请输入直接人数" :min="1" :max="25"
-                @input="(val) => { CalculateStdOutputinline(dataList, val, scope.$index, scope.row) }" />
+                @input="(val) => { CalculateStdOutput(dataList, val, scope.$index, scope.row) }" />
               <span v-else v-text="scope.row.pomDirect"></span>
             </el-form-item>
           </template>
@@ -172,8 +174,7 @@
             </el-form-item>
           </template>
         </el-table-column>
-        <el-table-column prop="pomStdTime" label="标准工时" align="center" v-if="columns.showColumn('pomStdTime')">
-        </el-table-column>
+
         <el-table-column prop="pomStdOutput" label="标准产能" align="center" v-if="columns.showColumn('pomStdOutput')">
           <template #default="scope">
             <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name">
