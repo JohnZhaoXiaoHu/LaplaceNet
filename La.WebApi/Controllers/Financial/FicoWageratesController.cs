@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <param name="entryString"></param>
         /// <returns></returns>
-            if (UserConstants.NOT_UNIQUE.Equals(_FicoWageratesService.CheckEntryStringUnique(parm.FwId.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_FicoWageratesService.CheckEntryStringUnique(parm.FwYm+parm.FwPlant)))
             {
-                return ToResponse(ApiResult.Error($"新增工厂工资率 '{parm.FwId}'失败，输入的工厂工资率已存在"));
+                return ToResponse(ApiResult.Error($"新增工厂工资率 '{parm.FwYm +","+ parm.FwPlant}'失败，输入的工厂工资率已存在"));
             }
             var modal = parm.Adapt<FicoWagerates>().ToCreate(HttpContext);
 

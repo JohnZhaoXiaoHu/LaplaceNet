@@ -15,7 +15,7 @@ namespace La.Service.Financial
     /// 利润中心Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-01-15
+    /// @date 2023-02-16
     /// </summary>
     [AppService(ServiceType = typeof(IFicoPrctrService), ServiceLifetime = LifeTime.Transient)]
     public class FicoPrctrService : BaseService<FicoPrctr>, IFicoPrctrService
@@ -37,8 +37,6 @@ namespace La.Service.Financial
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FpCode), it => it.FpCode.Contains(parm.FpCode));
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FpName), it => it.FpName.Contains(parm.FpName));
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FpType), it => it.FpType == parm.FpType);
-            predicate = predicate.AndIF(parm.BeginFpActDate == null, it => it.FpActDate >= DateTime.Now.AddDays(-1));
-            predicate = predicate.AndIF(parm.BeginFpActDate != null, it => it.FpActDate >= parm.BeginFpActDate && it.FpActDate <= parm.EndFpActDate);
             var response = Queryable()
                 .Where(predicate.ToExpression())
                 .ToPage<FicoPrctr, FicoPrctrDto>(parm);
@@ -54,7 +52,7 @@ namespace La.Service.Financial
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.FpId.ToString() == entryString);
+            int count = Count(it => it.FpPlnt+ it.FpCode == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

@@ -53,7 +53,7 @@ namespace La.Service.Financial
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.BcPlant + it.BcFy + it.BcFy + it.BcBomItem == entryString);
+            int count = Count(it => Convert.ToDateTime(it.BcBalancedate).ToString("yyyyMMdd") + it.BcPlant + it.BcFy + it.BcFy + it.BcBomItem == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

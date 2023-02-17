@@ -14,10 +14,8 @@ axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
 const service = axios.create({
   // axios中请求配置有baseURL选项，表示请求URL公共部分
   baseURL: import.meta.env.VITE_APP_BASE_API,
-  // axios中请求配置有githubURL选项，表示请求URL公共部分
-  //githubURL: import.meta.env.VITE_GITHUB_API_HOST,
-  // 超时1分钟
-  timeout: 60000
+  // 超时
+  timeout: 30000
 })
 
 // request拦截器
@@ -25,7 +23,6 @@ service.interceptors.request.use(
   (config) => {
     // 是否需要设置 token
     if (getToken()) {
-
       //将token放到请求头发送给服务器,将tokenkey放在请求头中
       config.headers['Authorization'] = 'Bearer ' + getToken()
       config.headers['userid'] = useUserStore().userId
@@ -51,7 +48,7 @@ service.interceptors.response.use(
     if (res.request.responseType === 'blob' || res.request.responseType === 'arraybuffer') {
       return res
     }
-    if (code == 401 || code === 1011006 || code === 1011007 || code === 1011008 || code === 1011009) {
+    if (code == 401) {
       ElMessageBox.confirm('登录状态已过期，请重新登录', '系统提示', {
         confirmButtonText: '重新登陆',
         cancelButtonText: '取消',

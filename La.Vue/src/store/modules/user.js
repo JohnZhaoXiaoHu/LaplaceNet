@@ -3,7 +3,6 @@ import { getToken, setToken, removeToken } from '@/utils/auth'
 import defAva from '@/assets/images/profile.jpg'
 import Cookies from 'js-cookie'
 import { encrypt } from '@/utils/jsencrypt'
-
 const useUserStore = defineStore('user', {
   state: () => ({
     userInfo: '',
@@ -42,7 +41,6 @@ const useUserStore = defineStore('user', {
           })
       })
     },
-
     /**
      * 三方授权登录
      * @param {*} data

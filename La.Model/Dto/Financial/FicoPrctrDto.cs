@@ -16,8 +16,6 @@ namespace La.Model.Dto
         public string FpCode { get; set; }
         public string FpName { get; set; }
         public string FpType { get; set; }
-        public DateTime? BeginFpActDate { get; set; }
-        public DateTime? EndFpActDate { get; set; }
     }
 
     /// <summary>

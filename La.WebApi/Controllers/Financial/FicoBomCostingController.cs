@@ -81,7 +81,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <param name="entryString"></param>
         /// <returns></returns>
-            if (UserConstants.NOT_UNIQUE.Equals(_FicoBomCostingService.CheckEntryStringUnique(parm.BcPlant+parm.BcFy+parm.BcFy+parm.BcBomItem)))
+            if (UserConstants.NOT_UNIQUE.Equals(_FicoBomCostingService.CheckEntryStringUnique(Convert.ToDateTime(parm.BcBalancedate).ToString("yyyyMMdd") + parm.BcPlant+parm.BcFy+parm.BcFy+parm.BcBomItem)))
             {
                 return ToResponse(ApiResult.Error($"新增bom成本核算 '{parm.BcPlant +","+ parm.BcFy + "," + parm.BcFy + "," + parm.BcBomItem}'失败，输入的bom成本核算已存在"));
             }

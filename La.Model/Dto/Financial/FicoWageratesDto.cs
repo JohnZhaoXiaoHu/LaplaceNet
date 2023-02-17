@@ -57,8 +57,8 @@ namespace La.Model.Dto
         [ExcelColumn(Name = "直接加班费")]
         public decimal FwDirectOverTime { get; set; }
 
-        [Required(ErrorMessage = "直接工欠账不能为空")]
-        [ExcelColumn(Name = "直接工欠账")]
+        [Required(ErrorMessage = "直接工资不能为空")]
+        [ExcelColumn(Name = "直接工资")]
         public decimal FwDirectWages { get; set; }
 
         [Required(ErrorMessage = "间接工资率不能为空")]

@@ -8,6 +8,7 @@
 -->
 <template>
   <div>
+
     <el-form :model="queryParams" label-position="right" inline ref="queryRef" v-show="showSearch" @submit.prevent>
       <el-form-item label="工厂" prop="bcPlant">
         <el-select clearable v-model="queryParams.bcPlant" placeholder="请选择工厂">
@@ -83,32 +84,17 @@
       <el-table-column type="selection" width="50" align="center" />
       <el-table-column prop="bcId" label="ID" align="center" v-if="columns.showColumn('bcId')" />
       <el-table-column prop="bcPlant" label="工厂" align="center" v-if="columns.showColumn('bcPlant')">
-        <template #default="scope">
-          <dict-tag :options=" options.sys_plant_list " :value="scope.row.bcPlant" />
-        </template>
       </el-table-column>
       <el-table-column prop="bcFy" label="期间" align="center" v-if="columns.showColumn('bcFy')">
-        <template #default="scope">
-          <dict-tag :options=" options.sql_period_list " :value="scope.row.bcFy" />
-        </template>
       </el-table-column>
       <el-table-column prop="bcYm" label="年月" align="center" v-if="columns.showColumn('bcYm')">
-        <template #default="scope">
-          <dict-tag :options=" options.sql_ym_list " :value="scope.row.bcYm" />
-        </template>
       </el-table-column>
       <el-table-column prop="bcBomItem" label="成品物料" align="center" v-if="columns.showColumn('bcBomItem')">
-        <template #default="scope">
-          <dict-tag :options=" options.sql_moc_item " :value="scope.row.bcBomItem" />
-        </template>
       </el-table-column>
       <el-table-column prop="bcItemText" label="物料文本" align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('bcItemText')" />
       <el-table-column prop="bcBomCost" label="成本" align="center" v-if="columns.showColumn('bcBomCost')" />
       <el-table-column prop="bcCurrency" label="币种" align="center" v-if="columns.showColumn('bcCurrency')">
-        <template #default="scope">
-          <dict-tag :options=" options.sys_ccy_type " :value="scope.row.bcCurrency" />
-        </template>
       </el-table-column>
       <el-table-column prop="bcBalancedate" label="核算日期" align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('bcBalancedate')" />
@@ -128,20 +114,20 @@
 
     <!-- 添加或修改bom成本核算对话框 -->
     <el-dialog :title="title" :lock-scroll="false" v-model="open">
+
       <el-form ref="formRef" :model="form" :rules="rules" label-width="100px">
         <el-row :gutter="20">
 
-          <el-col :lg="12">
+          <!-- <el-col :lg="12">
             <el-form-item label="ID" prop="bcId">
               <el-input-number v-model.number="form.bcId" controls-position="right" :placeholder="$t('btn.enter')+'ID'"
                 :disabled="title==$t('btn.edit')" />
             </el-form-item>
-          </el-col>
-
+          </el-col> -->
 
           <el-col :lg="12">
             <el-form-item label="工厂" prop="bcPlant">
-              <el-select v-model="form.bcPlant" :placeholder="$t('btn.select')+'工厂'">
+              <el-select v-model="form.bcPlant" :placeholder="$t('btn.select')+'工厂'" :disabled="title==$t('btn.edit')">
                 <el-option v-for="item in  options.sys_plant_list " :key="item.dictValue" :label="item.dictLabel"
                   :value="item.dictValue"></el-option>
               </el-select>
@@ -150,7 +136,7 @@
 
           <el-col :lg="12">
             <el-form-item label="期间" prop="bcFy">
-              <el-select v-model="form.bcFy" :placeholder="$t('btn.select')+'期间'">
+              <el-select v-model="form.bcFy" :placeholder="$t('btn.select')+'期间'" :disabled="title==$t('btn.edit')">
                 <el-option v-for="item in  options.sql_period_list " :key="item.dictValue" :label="item.dictLabel"
                   :value="item.dictValue"></el-option>
               </el-select>
@@ -159,7 +145,7 @@
 
           <el-col :lg="12">
             <el-form-item label="年月" prop="bcYm">
-              <el-select v-model="form.bcYm" :placeholder="$t('btn.select')+'年月'">
+              <el-select v-model="form.bcYm" :placeholder="$t('btn.select')+'年月'" :disabled="title==$t('btn.edit')">
                 <el-option v-for="item in  options.sql_ym_list " :key="item.dictValue" :label="item.dictLabel"
                   :value="item.dictValue"></el-option>
               </el-select>
@@ -168,7 +154,8 @@
 
           <el-col :lg="12">
             <el-form-item label="成品物料" prop="bcBomItem">
-              <el-select v-model="form.bcBomItem" :placeholder="$t('btn.select')+'成品物料'" @change="onInstitutionChange">
+              <el-select v-model="form.bcBomItem" :placeholder="$t('btn.select')+'成品物料'" @change="SelAssignment"
+                :disabled="title==$t('btn.edit')">
                 <el-option v-for="item in  options.sql_moc_item " :key="item.dictValue" :label="item.dictLabel"
                   :value="item.dictValue"></el-option>
               </el-select>
@@ -177,20 +164,22 @@
 
           <el-col :lg="12">
             <el-form-item label="物料文本" prop="bcItemText">
-              <el-input v-model="form.bcItemText" :placeholder="$t('btn.enter')+'物料文本'" />
+              <el-input v-model="form.bcItemText" :placeholder="$t('btn.enter')+'物料文本'"
+                :disabled="title==$t('btn.edit')" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="成本" prop="bcBomCost">
               <el-input-number v-model.number="form.bcBomCost" :controls="true" controls-position="right"
-                :placeholder="$t('btn.enter')+'成本'" />
+                :placeholder="$t('btn.enter')+'成本'" :disabled="title==$t('btn.edit')" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="币种" prop="bcCurrency">
-              <el-select v-model="form.bcCurrency" :placeholder="$t('btn.select')+'币种'">
+              <el-select v-model="form.bcCurrency" :placeholder="$t('btn.select')+'币种'"
+                :disabled="title==$t('btn.edit')">
                 <el-option v-for="item in  options.sys_ccy_type " :key="item.dictValue" :label="item.dictLabel"
                   :value="item.dictValue"></el-option>
               </el-select>
@@ -200,15 +189,15 @@
           <el-col :lg="12">
             <el-form-item label="核算日期" prop="bcBalancedate">
               <el-date-picker v-model="form.bcBalancedate" type="datetime" :teleported="false"
-                :placeholder="$t('btn.dateselect')"></el-date-picker>
+                :placeholder="$t('btn.dateselect')" :disabled="title==$t('btn.edit')"></el-date-picker>
             </el-form-item>
           </el-col>
 
-          <el-col :lg="12">
+          <!-- <el-col :lg="12">
             <el-form-item label="软删除" prop="isDelete">
               <el-input v-model="form.isDelete" :placeholder="$t('btn.enter')+'软删除'" :disabled="true" />
             </el-form-item>
-          </el-col>
+          </el-col> -->
 
           <el-col :lg="12">
             <el-form-item label="备注" prop="remark">
@@ -216,7 +205,7 @@
             </el-form-item>
           </el-col>
 
-          <el-col :lg="12">
+          <!-- <el-col :lg="12">
             <el-form-item label="createBy" prop="createBy">
               <el-input v-model="form.createBy" :placeholder="$t('btn.enter')+'createBy'" />
             </el-form-item>
@@ -240,7 +229,7 @@
               <el-date-picker v-model="form.updateTime" type="datetime" :teleported="false"
                 :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
-          </el-col>
+          </el-col> -->
         </el-row>
       </el-form>
       <template #footer v-if="opertype != 3">
@@ -259,6 +248,12 @@
 
   }
     from '@/api/financial/ficobomcosting.js'
+  // 引入 ppmanhours操作方法
+  import {
+    listPpManhours,
+
+  }
+    from '@/api/production/ppmanhours.js'
   //获取当前组件实例
   const { proxy } = getCurrentInstance()
   // 选中bcId数组数组
@@ -428,11 +423,19 @@
     };
     proxy.resetForm("formRef")
   }
-  function onInstitutionChange(val) {
 
-    form.value.bcItemText = val
+  function SelAssignment(val) {
+    /**状态改变事件*/
+    form.value.bcBomItem = val.split(",").slice(0, 1).join()
+    form.value.bcItemText = val.split(",").slice(-1).join()
 
   }
+
+
+
+
+
+
 
 
   // 添加按钮操作

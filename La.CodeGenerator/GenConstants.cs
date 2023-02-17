@@ -67,15 +67,14 @@ namespace La.CodeGenerator
         public static string[] COLUMNTYPE_TIME = { "datetime", "time", "date", "timestamp" };
 
         /** 页面不需要编辑字段 */
-        public static string[] COLUMNNAME_NOT_EDIT = { "id", "create_by", "create_time", "delFlag" };
+        public static string[] COLUMNNAME_NOT_EDIT = { "id", "create_by", "create_time", "delFlag", "IsDeleted","update_by", "update_time" };
 
         /** 页面不需要显示的列表字段 */
-        public static string[] COLUMNNAME_NOT_LIST = { "create_by", "create_time", "delFlag", "update_by",
+        public static string[] COLUMNNAME_NOT_LIST = { "create_by", "create_time", "delFlag", "IsDeleted", "update_by",
             "update_time" , "password"};
 
         /** 页面不需要查询字段 */
-        public static string[] COLUMNNAME_NOT_QUERY = { "id", "create_by", "create_time", "delFlag", "update_by",
-            "update_time", "remark" };
+        public static string[] COLUMNNAME_NOT_QUERY = { "id", "create_by", "create_time", "update_by","update_time", "remark" };
 
         /** Entity基类字段 */
         public static string[] BASE_ENTITY = { "createBy", "createTime", "updateBy", "updateTime", "remark" };

@@ -69,7 +69,7 @@ namespace La.Model.Models
         public decimal FwDirectOverTime { get; set; }
 
         /// <summary>
-        /// 描述 :直接工欠账 
+        /// 描述 :直接工资 
         /// 空值 :false 
         /// </summary>
         public decimal FwDirectWages { get; set; }

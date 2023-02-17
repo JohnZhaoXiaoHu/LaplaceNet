@@ -50,7 +50,7 @@ namespace La.Service.Financial
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.FwId.ToString() == entryString);
+            int count = Count(it => it.FwYm+ it.FwPlant == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;
@@ -96,19 +96,6 @@ namespace La.Service.Financial
         {
             var response = Update(w => w.FwId == parm.FwId, it => new FicoWagerates()
             {
-                FwYm = parm.FwYm,
-                FwPlant = parm.FwPlant,
-                FwCcy = parm.FwCcy,
-                FwSalesVolume = parm.FwSalesVolume,
-                FwWorkingDays = parm.FwWorkingDays,
-                FwDirectWageRate = parm.FwDirectWageRate,
-                FwDirect = parm.FwDirect,
-                FwDirectOverTime = parm.FwDirectOverTime,
-                FwDirectWages = parm.FwDirectWages,
-                FwInDirectWageRate = parm.FwInDirectWageRate,
-                FwInDirect = parm.FwInDirect,
-                FwInDirectOverTime = parm.FwInDirectOverTime,
-                FwInDirectWages = parm.FwInDirectWages,
                 ReMark = parm.ReMark,
                 UpdateBy = parm.UpdateBy,
                 UpdateTime = parm.UpdateTime,

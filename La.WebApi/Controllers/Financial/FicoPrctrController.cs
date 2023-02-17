@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName fico_prctr
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-01-15
+    /// @date 2023-02-16
     /// </summary>
     [Verify]
     [Route("financial/FicoPrctr")]
@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <param name="entryString"></param>
         /// <returns></returns>
-            if (UserConstants.NOT_UNIQUE.Equals(_FicoPrctrService.CheckEntryStringUnique(parm.FpId.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_FicoPrctrService.CheckEntryStringUnique(parm.FpPlnt+parm.FpCode)))
             {
-                return ToResponse(ApiResult.Error($"新增利润中心 '{parm.FpId}'失败，输入的利润中心已存在"));
+                return ToResponse(ApiResult.Error($"新增利润中心 '{parm.FpPlnt +","+ parm.FpCode}'失败，输入的利润中心已存在"));
             }
             var modal = parm.Adapt<FicoPrctr>().ToCreate(HttpContext);
 
