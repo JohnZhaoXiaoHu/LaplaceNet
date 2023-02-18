@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName pp_output_slave
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-01-12
+    /// @date 2023-02-18
     /// </summary>
     [Verify]
     [Route("production/PpOutputSlave")]
@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <param name="entryString"></param>
         /// <returns></returns>
-            if (UserConstants.NOT_UNIQUE.Equals(_PpOutputSlaveService.CheckEntryStringUnique(parm.PosId.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_PpOutputSlaveService.CheckEntryStringUnique(parm.PomGuid + parm.PosStartEndTime)))
             {
-                return ToResponse(ApiResult.Error($"新增oph从表 '{parm.PosId}'失败，输入的oph从表已存在"));
+                return ToResponse(ApiResult.Error($"新增oph从表 '{parm.PomGuid +","+ parm.PosStartEndTime}'失败，输入的oph从表已存在"));
             }
             var modal = parm.Adapt<PpOutputSlave>().ToCreate(HttpContext);
 

@@ -4,6 +4,7 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<DocumentationFile>G:\App Develop\VS2023\LaplaceNet\La.WebApi\La.WebApi.xml</DocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>

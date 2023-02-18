@@ -8,6 +8,7 @@ using La.Model.System;
 using La.Repository;
 using La.Service.Production.IProductionService;
 using System.Linq;
+using Aliyun.OSS;
 
 namespace La.Service.Production
 {
@@ -55,7 +56,7 @@ namespace La.Service.Production
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.PomId.ToString() == entryString);
+            int count = Count(it => Convert.ToDateTime(it.PomMfDate).ToString("yyyyMMdd") + it.PomOrder + it.PomMfItem + it.PomLineName == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

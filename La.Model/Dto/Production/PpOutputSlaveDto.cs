@@ -12,6 +12,7 @@ namespace La.Model.Dto
     /// </summary>
     public class PpOutputSlaveQueryDto : PagerInfo 
     {
+        public string PomGuid { get; set; }
     }
 
     /// <summary>

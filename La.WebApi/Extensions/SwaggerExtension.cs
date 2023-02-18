@@ -32,7 +32,7 @@ namespace La.WebApi.Extensions
                         };
                 });
             });
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "LaAdmin v1"));
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "Laplace.Net v1"));
         }
 
         public static void AddSwaggerConfig(this IServiceCollection services)
@@ -44,14 +44,15 @@ namespace La.WebApi.Extensions
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "Laplace.Net Api - .NET7",
+                    Title = "Laplace.Net7 - API Interface",
                     Version = "v1",
-                    Description = "",
+                    Description = "参考文章：https://www.cnblogs.com/ZhuMeng-Chao/p/16216879.html",
+                    Contact = new OpenApiContact { Name = "Davis.Cheng", Email = "32322788@qq.com", Url = new System.Uri("https://laplacenet.github.io/") }
                 });
                 try
                 {
                     //添加文档注释
-                    c.IncludeXmlComments("LaAdmin.xml", true);
+                    c.IncludeXmlComments("La.WebApi.xml", true);
                 }
                 catch (Exception ex)
                 {

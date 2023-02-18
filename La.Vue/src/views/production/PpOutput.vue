@@ -356,20 +356,23 @@
         <el-button type="primary" @click="submitForm">{{ $t('btn.submit') }}</el-button>
       </template>
     </el-dialog>
-    <el-dialog v-model="OutputDataVisible" draggable width="60%" :lock-scroll="false">
+    <el-dialog v-model="OutputDataVisible" draggable width="65%" :lock-scroll="false">
       <Output-data v-model:pomId="pomId"></Output-data>
     </el-dialog>
   </div>
 </template>
 
 <script setup name="ppoutputmaster">
-  import OutputData from '@/views/components/OutputData'
+  import OutputData from '@/views/components/outputData'
   import {
     listPpOutputMaster, addPpOutputMaster, delPpOutputMaster, updatePpOutputMaster, getPpOutputMaster,
 
   }
     from '@/api/production/ppoutputmaster.js'
-
+  import {
+    addPpOutputSlave
+  }
+    from '@/api/production/ppoutputslave.js'
   const { proxy } = getCurrentInstance()
   // 遮罩层(启用)
   const loading = ref(true)
@@ -577,7 +580,10 @@
     title.value = '添加'
     opertype.value = 1
   }
+  // 添加单身按钮操作
+  function slaveAdd() {
 
+  }
   // 修改按钮操作
   function handleUpdate(row) {
     reset()

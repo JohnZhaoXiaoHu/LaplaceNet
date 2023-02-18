@@ -10,7 +10,7 @@ namespace La.Service.Production.IProductionService
     /// oph从表service接口
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-01-12
+    /// @date 2023-02-18
     /// </summary>
     public interface IPpOutputSlaveService : IBaseService<PpOutputSlave>
     {

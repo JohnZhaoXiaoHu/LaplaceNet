@@ -15,7 +15,7 @@ namespace La.Service.Production
     /// oph从表Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-01-12
+    /// @date 2023-02-18
     /// </summary>
     [AppService(ServiceType = typeof(IPpOutputSlaveService), ServiceLifetime = LifeTime.Transient)]
     public class PpOutputSlaveService : BaseService<PpOutputSlave>, IPpOutputSlaveService
@@ -33,6 +33,7 @@ namespace La.Service.Production
             var predicate = Expressionable.Create<PpOutputSlave>();
 
             //搜索条件查询语法参考Sqlsugar
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.PomGuid), it => it.PomGuid.Contains(parm.PomGuid));
             var response = Queryable()
                 .Where(predicate.ToExpression())
                 .ToPage<PpOutputSlave, PpOutputSlaveDto>(parm);
@@ -48,7 +49,7 @@ namespace La.Service.Production
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.PosId.ToString() == entryString);
+            int count = Count(it => it.PomGuid+it.PosStartEndTime == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

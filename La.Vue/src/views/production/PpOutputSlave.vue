@@ -2,13 +2,16 @@
  * @Descripttion: (oph从表/pp_output_slave)
  * @version: (1.0)
  * @Author: (Laplace.Net:Davis.Cheng)
- * @Date: (2023-01-12)
+ * @Date: (2023-02-18)
  * @LastEditors: (Laplace.Net:Davis.Cheng)
- * @LastEditTime: (2023-01-12)
+ * @LastEditTime: (2023-02-18)
 -->
 <template>
   <div>
     <el-form :model="queryParams" label-position="right" inline ref="queryRef" v-show="showSearch" @submit.prevent>
+      <el-form-item label="父GUID" prop="pomGuid">
+        <el-input v-model="queryParams.pomGuid" placeholder="请输入父GUID" />
+      </el-form-item>
       <el-form-item>
         <el-button icon="search" type="primary" @click="handleQuery">{{ $t('btn.search') }}</el-button>
         <el-button icon="refresh" @click="resetQuery">{{ $t('btn.reset') }}</el-button>
@@ -69,10 +72,10 @@
       <el-table-column prop="posRealWorkDiff" label="工时差异" align="center" v-if="columns.showColumn('posRealWorkDiff')"/>
       <el-table-column prop="posRealOutputDiff" label="产能差异" align="center" v-if="columns.showColumn('posRealOutputDiff')"/>
       <el-table-column prop="posAchRatio" label="达成率" align="center" v-if="columns.showColumn('posAchRatio')"/>
-      <el-table-column label="操作" align="center" width="160">
+      <el-table-column :label="$t('btn.operate')" align="center" width="160">
         <template #default="scope">
-          <el-button v-hasPermi="['pp:outputslave:edit']" type="success" icon="edit" title="编辑" @click="handleUpdate(scope.row)"></el-button>
-          <el-button v-hasPermi="['pp:outputslave:delete']" type="danger" icon="delete" title="删除" @click="handleDelete(scope.row)"></el-button>
+          <el-button v-hasPermi="['pp:outputslave:edit']" type="success" icon="edit" :title="$t('btn.edit')" @click="handleUpdate(scope.row)"></el-button>
+          <el-button v-hasPermi="['pp:outputslave:delete']" type="danger" icon="delete" :title="$t('btn.delete')" @click="handleDelete(scope.row)"></el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -85,19 +88,20 @@
     
           <el-col :lg="12">
             <el-form-item label="ID" prop="posId">
-              <span v-html="form.posId"/>
+              <el-input-number v-model.number="form.posId" controls-position="right" :placeholder="$t('btn.enter')+'ID'" :disabled="title==$t('btn.edit')"/>
             </el-form-item>
           </el-col>
 
+
           <el-col :lg="12">
             <el-form-item label="父GUID" prop="pomGuid">
-              <el-input v-model="form.pomGuid" placeholder="请输入父GUID" />
+              <el-input v-model="form.pomGuid" :placeholder="$t('btn.enter')+'父GUID'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="生产时段" prop="posStartEndTime">
-              <el-select v-model="form.posStartEndTime" placeholder="请选择生产时段">
+              <el-select v-model="form.posStartEndTime" :placeholder="$t('btn.select')+'生产时段'">
                 <el-option v-for="item in  options.sys_productive_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
@@ -105,19 +109,19 @@
     
           <el-col :lg="12">
             <el-form-item label="实际产能" prop="posRealOutput">
-              <el-input v-model="form.posRealOutput" placeholder="请输入实际产能" />
+              <el-input v-model="form.posRealOutput" :placeholder="$t('btn.enter')+'实际产能'" />
             </el-form-item>
           </el-col>
     
           <el-col :lg="12">
             <el-form-item label="停线时间" prop="posLineStopTime">
-              <el-input v-model="form.posLineStopTime" placeholder="请输入停线时间" />
+              <el-input v-model="form.posLineStopTime" :placeholder="$t('btn.enter')+'停线时间'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="停线原因" prop="posStopCause">
-              <el-select v-model="form.posStopCause" placeholder="请选择停线原因">
+              <el-select v-model="form.posStopCause" :placeholder="$t('btn.select')+'停线原因'">
                 <el-option v-for="item in  options.sql_stop_line " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
@@ -125,13 +129,13 @@
 
           <el-col :lg="12">
             <el-form-item label="停线说明" prop="posStopMemo">
-              <el-input v-model="form.posStopMemo" placeholder="请输入停线说明" />
+              <el-input v-model="form.posStopMemo" :placeholder="$t('btn.enter')+'停线说明'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="未达成原因" prop="posBadCause">
-              <el-select v-model="form.posBadCause" placeholder="请选择未达成原因">
+              <el-select v-model="form.posBadCause" :placeholder="$t('btn.select')+'未达成原因'">
                 <el-option v-for="item in  options.sql_notreachebad_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
@@ -139,145 +143,145 @@
 
           <el-col :lg="12">
             <el-form-item label="未达成说明" prop="posBadMemo">
-              <el-input v-model="form.posBadMemo" placeholder="请输入未达成说明" />
+              <el-input v-model="form.posBadMemo" :placeholder="$t('btn.enter')+'未达成说明'" />
             </el-form-item>
           </el-col>
     
           <el-col :lg="12">
             <el-form-item label="实际工数" prop="posRealTime">
-              <el-input v-model="form.posRealTime" placeholder="请输入实际工数" />
+              <el-input v-model="form.posRealTime" :placeholder="$t('btn.enter')+'实际工数'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="实际工时" prop="posRealWork">
-              <el-input v-model="form.posRealWork" placeholder="请输入实际工时" />
+              <el-input v-model="form.posRealWork" :placeholder="$t('btn.enter')+'实际工时'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="工时差异" prop="posRealWorkDiff">
-              <el-input v-model="form.posRealWorkDiff" placeholder="请输入工时差异" />
+              <el-input v-model="form.posRealWorkDiff" :placeholder="$t('btn.enter')+'工时差异'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="产能差异" prop="posRealOutputDiff">
-              <el-input v-model="form.posRealOutputDiff" placeholder="请输入产能差异" />
+              <el-input v-model="form.posRealOutputDiff" :placeholder="$t('btn.enter')+'产能差异'" />
             </el-form-item>
           </el-col>
     
           <el-col :lg="12">
             <el-form-item label="达成率" prop="posAchRatio">
-              <el-input v-model="form.posAchRatio" placeholder="请输入达成率" />
+              <el-input v-model="form.posAchRatio" :placeholder="$t('btn.enter')+'达成率'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF01" prop="uDF01">
-              <el-input v-model="form.uDF01" placeholder="请输入uDF01"  :disabled="true"/>
+              <el-input v-model="form.uDF01" :placeholder="$t('btn.enter')+'uDF01'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF02" prop="uDF02">
-              <el-input v-model="form.uDF02" placeholder="请输入uDF02"  :disabled="true"/>
+              <el-input v-model="form.uDF02" :placeholder="$t('btn.enter')+'uDF02'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF03" prop="uDF03">
-              <el-input v-model="form.uDF03" placeholder="请输入uDF03"  :disabled="true"/>
+              <el-input v-model="form.uDF03" :placeholder="$t('btn.enter')+'uDF03'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF04" prop="uDF04">
-              <el-input v-model="form.uDF04" placeholder="请输入uDF04"  :disabled="true"/>
+              <el-input v-model="form.uDF04" :placeholder="$t('btn.enter')+'uDF04'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF05" prop="uDF05">
-              <el-input v-model="form.uDF05" placeholder="请输入uDF05"  :disabled="true"/>
+              <el-input v-model="form.uDF05" :placeholder="$t('btn.enter')+'uDF05'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF06" prop="uDF06">
-              <el-input v-model="form.uDF06" placeholder="请输入uDF06"  :disabled="true"/>
+              <el-input v-model="form.uDF06" :placeholder="$t('btn.enter')+'uDF06'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF51" prop="uDF51">
-              <el-input v-model="form.uDF51" placeholder="请输入uDF51"  :disabled="true"/>
+              <el-input v-model="form.uDF51" :placeholder="$t('btn.enter')+'uDF51'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF52" prop="uDF52">
-              <el-input v-model="form.uDF52" placeholder="请输入uDF52"  :disabled="true"/>
+              <el-input v-model="form.uDF52" :placeholder="$t('btn.enter')+'uDF52'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF53" prop="uDF53">
-              <el-input v-model="form.uDF53" placeholder="请输入uDF53"  :disabled="true"/>
+              <el-input v-model="form.uDF53" :placeholder="$t('btn.enter')+'uDF53'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF54" prop="uDF54">
-              <el-input v-model="form.uDF54" placeholder="请输入uDF54"  :disabled="true"/>
+              <el-input v-model="form.uDF54" :placeholder="$t('btn.enter')+'uDF54'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF55" prop="uDF55">
-              <el-input v-model="form.uDF55" placeholder="请输入uDF55"  :disabled="true"/>
+              <el-input v-model="form.uDF55" :placeholder="$t('btn.enter')+'uDF55'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF56" prop="uDF56">
-              <el-input v-model="form.uDF56" placeholder="请输入uDF56"  :disabled="true"/>
+              <el-input v-model="form.uDF56" :placeholder="$t('btn.enter')+'uDF56'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="软删除" prop="isDeleted">
-              <el-input v-model="form.isDeleted" placeholder="请输入软删除"  :disabled="true"/>
+              <el-input v-model="form.isDeleted" :placeholder="$t('btn.enter')+'软删除'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="说明" prop="reMark">
-              <el-input v-model="form.reMark" placeholder="请输入说明"  :disabled="true"/>
+              <el-input v-model="form.reMark" :placeholder="$t('btn.enter')+'说明'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="createBy" prop="createBy">
-              <el-input v-model="form.createBy" placeholder="请输入createBy" />
+              <el-input v-model="form.createBy" :placeholder="$t('btn.enter')+'createBy'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="createTime" prop="createTime">
-              <el-date-picker v-model="form.createTime" type="datetime" :teleported="false" placeholder="选择日期时间"></el-date-picker>
+              <el-date-picker v-model="form.createTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="updateBy" prop="updateBy">
-              <el-input v-model="form.updateBy" placeholder="请输入updateBy" />
+              <el-input v-model="form.updateBy" :placeholder="$t('btn.enter')+'updateBy'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="updateTime" prop="updateTime">
-              <el-date-picker v-model="form.updateTime" type="datetime" :teleported="false" placeholder="选择日期时间"></el-date-picker>
+              <el-date-picker v-model="form.updateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
         </el-row>
@@ -292,24 +296,31 @@
 </template>
 
 <script setup name="ppoutputslave">
+// 引入 ppoutputslave操作方法
 import { listPpOutputSlave, addPpOutputSlave, delPpOutputSlave, updatePpOutputSlave, getPpOutputSlave, 
  
  } 
 from '@/api/production/ppoutputslave.js'
-
+//获取当前组件实例
 const { proxy } = getCurrentInstance()
 // 选中posId数组数组
 const ids = ref([])
+// 非单个禁用
 const single = ref(true)
+// 非多个禁用
 const multiple = ref(true)
 const loading = ref(false)
+  // 显示搜索条件
 const showSearch = ref(true)
+//使用reactive()定义响应式变量,仅支持对象、数组、Map、Set等集合类型有效
 const queryParams = reactive({
   pageNum: 1,
   pageSize: 17,
   sort: '',
   sortType: 'asc',
+  pomGuid: undefined,
 })
+//字段显示控制
 const columns = ref([
   { visible: true, prop: 'posId', label: 'ID' },
   { visible: true, prop: 'pomGuid', label: '父GUID' },
@@ -326,9 +337,13 @@ const columns = ref([
   { visible: false, prop: 'posRealOutputDiff', label: '产能差异' },
   { visible: false, prop: 'posAchRatio', label: '达成率' },
 ])
+  // 总条数
 const total = ref(0)
+  // oph从表表格数据
 const dataList = ref([])
+  // 查询参数
 const queryRef = ref()
+//定义起始时间
 const defaultTime = ref([new Date(2000, 1, 1, 0, 0, 0), new Date(2000, 2, 1, 23, 59, 59)])
 
 
@@ -337,13 +352,13 @@ var dictParams = [
   { dictType: "sql_stop_line" },
   { dictType: "sql_notreachebad_list" },
 ]
-
+//字典定义
 proxy.getDicts(dictParams).then((response) => {
   response.data.forEach((element) => {
     state.options[element.dictType] = element.list
   })
 })
-
+//获取oph从表表记录数据
 function getList(){
   loading.value = true
   listPpOutputSlave(queryParams).then(res => {
@@ -391,22 +406,27 @@ function sortChange(column) {
 }
 
 /*************** form操作 ***************/
+//定义响应式变量
 const formRef = ref()
+  // 弹出层标题
 const title = ref("")
 // 操作类型 1、add 2、edit 3、view
+//定义响应式变量
 const opertype = ref(0)
+//定义对话框打开变更
 const open = ref(false)
+//reactive()定义响应式变量,仅支持对象、数组、Map、Set等集合类型有效
 const state = reactive({
   form: {},
   rules: {
-    pomGuid: [{ required: true, message: "父GUID不能为空", trigger: "blur" }],
-    posRealOutput: [{ required: true, message: "实际产能不能为空", trigger: "blur", type: "number" }],
-    posLineStopTime: [{ required: true, message: "停线时间不能为空", trigger: "blur", type: "number" }],
-    posRealTime: [{ required: true, message: "实际工数不能为空", trigger: "blur", type: "number" }],
-    posRealWork: [{ required: true, message: "实际工时不能为空", trigger: "blur" }],
-    posRealWorkDiff: [{ required: true, message: "工时差异不能为空", trigger: "blur" }],
-    posRealOutputDiff: [{ required: true, message: "产能差异不能为空", trigger: "blur" }],
-    posAchRatio: [{ required: true, message: "达成率不能为空", trigger: "blur", type: "number" }],
+    pomGuid: [{ required: true, message: "父GUID"+proxy.$t('btn.empty'), trigger: "blur" }],
+    posRealOutput: [{ required: true, message: "实际产能"+proxy.$t('btn.empty'), trigger: "blur", type: "number" }],
+    posLineStopTime: [{ required: true, message: "停线时间"+proxy.$t('btn.empty'), trigger: "blur", type: "number" }],
+    posRealTime: [{ required: true, message: "实际工数"+proxy.$t('btn.empty'), trigger: "blur", type: "number" }],
+    posRealWork: [{ required: true, message: "实际工时"+proxy.$t('btn.empty'), trigger: "blur" }],
+    posRealWorkDiff: [{ required: true, message: "工时差异"+proxy.$t('btn.empty'), trigger: "blur" }],
+    posRealOutputDiff: [{ required: true, message: "产能差异"+proxy.$t('btn.empty'), trigger: "blur" }],
+    posAchRatio: [{ required: true, message: "达成率"+proxy.$t('btn.empty'), trigger: "blur", type: "number" }],
   },
   options: {
     // 生产时段 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
@@ -417,7 +437,7 @@ const state = reactive({
     sql_notreachebad_list: [],
   }
 })
-
+//将响应式对象转换成普通对象
 const { form, rules, options } = toRefs(state)
 
 // 关闭dialog
@@ -454,7 +474,7 @@ function reset() {
 function handleAdd() {
   reset();
   open.value = true
-  title.value = '添加'
+  title.value = proxy.$t('btn.add')
   opertype.value = 1
 }
 
@@ -466,7 +486,7 @@ function handleUpdate(row) {
     const { code, data } = res
     if (code == 200) {
       open.value = true
-      title.value = "修改数据"
+      title.value = proxy.$t('btn.edit')
       opertype.value = 2
 
       form.value = {
@@ -482,14 +502,14 @@ function submitForm() {
     if (valid) {
       if (form.value.posId != undefined && opertype.value === 2) {
         updatePpOutputSlave(form.value).then((res) => {
-          proxy.$modal.msgSuccess("修改成功")
+          proxy.$modal.msgSuccess(proxy.$t('common.Modicompleted'))
           open.value = false
           getList()
         })
         .catch(() => {})
       } else {
         addPpOutputSlave(form.value).then((res) => {
-            proxy.$modal.msgSuccess("新增成功")
+            proxy.$modal.msgSuccess(proxy.$t('common.Newcompleted'))
             open.value = false
             getList()
           })
@@ -503,13 +523,13 @@ function submitForm() {
 function handleDelete(row) {
   const Ids = row.posId || ids.value
 
-  proxy.$confirm('是否确认删除参数编号为"' + Ids + '"的数据项？')
+  proxy.$confirm(proxy.$t('common.confirmDel') + Ids +proxy.$t('common.confirmDelDataitems'))
   .then(function () {
       return delPpOutputSlave(Ids)
   })
   .then(() => {
       getList()
-      proxy.$modal.msgSuccess("删除成功")
+      proxy.$modal.msgSuccess(proxy.$t('common.Delcompleted'))
   })
   .catch(() => {})
 }
@@ -519,9 +539,9 @@ function handleDelete(row) {
 // 导出按钮操作
 function handleExport() {
   proxy
-    .$confirm("是否确认导出oph从表数据项?", "警告", {
-      confirmButtonText: "确定",
-      cancelButtonText: "取消",
+    .$confirm(proxy.$t('common.confirmExport')+"oph从表", proxy.$t('common.warningTips'), {
+      confirmButtonText: proxy.$t('btn.submit'),
+      cancelButtonText: proxy.$t('btn.cancel'),
       type: "warning",
     })
     .then(async () => {

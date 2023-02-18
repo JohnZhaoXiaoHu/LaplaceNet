@@ -1,15 +1,14 @@
-@@ -0,0 +1,572 @@
 <!--
  * @Descripttion: (oph主表/pp_output_master)
  * @version: (1.0)
- * @Author: (Laplace)
- * @Date: (2022-12-20)
- * @LastEditors: (Laplace)
- * @LastEditTime: (2022-12-20)
+ * @Author: (Laplace.Net:Davis.Cheng)
+ * @Date: (2023-01-12)
+ * @LastEditors: (Laplace.Net:Davis.Cheng)
+ * @LastEditTime: (2023-01-12)
 -->
 <template>
   <div>
-    <el-form :model="queryParams" ref="queryForm" :inline="true" v-show="showSearch" label-width="68px">
+    <el-form :model="queryParams" label-position="right" inline ref="queryRef" v-show="showSearch" @submit.prevent>
       <el-form-item label="生产工单" prop="pomOrder">
         <el-select clearable v-model="queryParams.pomOrder" placeholder="请选择生产工单">
           <el-option v-for="item in  options.sql_moc_list " :key="item.dictValue" :label="item.dictLabel"
@@ -47,9 +46,9 @@
         </el-select>
       </el-form-item>
       <el-form-item label="生产日期">
-        <el-date-picker v-model="dateRangePomMfDate" style="width: 240px" type="daterange" range-separator="-"
-          start-placeholder="开始日期" end-placeholder="结束日期" placeholder="请选择生产日期" value-format="YYYY-MM-DD HH:mm:ss"
-          :default-time="defaultTime" :shortcuts="dateOptions">
+        <el-date-picker v-model="dateRangePomMfDate" type="datetimerange" range-separator="-" start-placeholder="开始日期"
+          end-placeholder="结束日期" placeholder="请选择生产日期" value-format="YYYY-MM-DD HH:mm:ss" :default-time="defaultTime"
+          :shortcuts="dateOptions">
         </el-date-picker>
       </el-form-item>
       <el-form-item label="生产班组" prop="pomLineName">
@@ -69,75 +68,153 @@
     <!-- 工具区域 -->
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
-        <el-button color="#409EFF" v-hasPermi="['pp:output:add']" plain icon="plus" @click="handleAdd">
+        <el-button type="primary" v-hasPermi="['pp:outputmaster:add']" plain icon="plus" @click="handleAdd">
           {{ $t('btn.add') }}
         </el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button color="#67C23A" :disabled="single" v-hasPermi="['pp:output:edit']" plain icon="edit"
+        <el-button type="success" :disabled="single" v-hasPermi="['pp:outputmaster:edit']" plain icon="edit"
           @click="handleUpdate">
           {{ $t('btn.edit') }}
         </el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button color="#F56C6C" :disabled="multiple" v-hasPermi="['pp:output:delete']" plain icon="delete"
+        <el-button type="danger" :disabled="multiple" v-hasPermi="['pp:outputmaster:delete']" plain icon="delete"
           @click="handleDelete">
           {{ $t('btn.delete') }}
         </el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button color="#E6A23C" plain icon="download" @click="handleExport" v-hasPermi="['pp:output:export']">
+        <el-button color="#FF69B4" plain icon="download" @click="handleExport" v-hasPermi="['pp:outputmaster:export']">
           {{ $t('btn.export') }}
+        </el-button>
+      </el-col>
+      <el-col :span="1.5">
+        <el-button color="#33CCFF" plain icon="plus" @click="handleNew" v-hasPermi="['pp:output:add']">
+          {{ $t('btn.newRow') }}
         </el-button>
       </el-col>
       <right-toolbar v-model:showSearch="showSearch" @queryTable="getList" :columns="columns"></right-toolbar>
     </el-row>
 
     <!-- 数据区域 -->
-    <el-table :data="dataList" v-loading="loading" ref="table" border highlight-current-row @sort-change="sortChange"
-      @selection-change="handleSelectionChange">
-      <el-table-column type="selection" width="50" align="center" />
-      <el-table-column label="OPH编号" align="center" prop="pomId" width="100" />
-      <el-table-column label="GUID" align="center" :show-overflow-tooltip="true">
-        <template #default="scope">
-          <el-link type="primary" @click="showOutputData(scope.row)">{{ scope.row.pomGuid }}</el-link>
-        </template>
-      </el-table-column>
-      <el-table-column prop="pomOrder" label="生产工单" align="center">
-        <template #default="scope">
-          <el-input placeholder="请输入内容" v-show="scope.row.show" v-model="scope.row.pomOrder"></el-input>
-          <span v-show="!scope.row.show">{{ scope.row.pomOrder }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column prop="pomOrderQty" label="工单数量" align="center" />
-      <el-table-column prop="pomOrderSerial" label="管理序列号" align="center" :show-overflow-tooltip="true" />
-      <el-table-column prop="pomMflot" label="生产批次" align="center">
-      </el-table-column>
-      <el-table-column prop="pomModelName" label="机种名" align="center">
-      </el-table-column>
-      <el-table-column prop="pomMfItem" label="物料" align="center">
-      </el-table-column>
-      <el-table-column prop="pomStdTime" label="标准工时" align="center" />
-      <el-table-column prop="pomMfDate" label="生产日期" align="center" :show-overflow-tooltip="true">
-        <template #default="scope">
-          {{ proxy.$filters.timeFormat(scope.row.pomMfDate) }}
-        </template>
-      </el-table-column>
-      <el-table-column prop="pomLineName" label="生产班组" align="center">
-      </el-table-column>
-      <el-table-column prop="pomDirect" label="直接人数" align="center" />
-      <el-table-column prop="pomIndirect" label="间接人数" align="center" />
+    <!-- 数据区域 -->
+    <el-form ref="formRef" :model="form" :rules="rules">
+      <el-table :data="dataList" v-loading="loading" ref="table" :key="dataListKey" max-height="635" stripe border
+        highlight-current-row @sort-change="sortChange" @selection-change="handleSelectionChange">
+        <el-table-column type="selection" width="50" align="center" />
+        <el-table-column prop="pomId" label="ID" align="center" v-if="columns.showColumn('pomId')">
 
-      <el-table-column prop="pomStdOutput" label="标准产能" align="center" />
-      <el-table-column label="操作" align="center" width="160">
-        <template #default="scope">
-          <el-button v-hasPermi="['pp:output:edit']" type="success" icon="edit" title="编辑"
-            @click="handleUpdate(scope.row)"></el-button>
-          <el-button v-hasPermi="['pp:output:delete']" type="danger" icon="delete" title="删除"
-            @click="handleDelete(scope.row)"></el-button>
-        </template>
-      </el-table-column>
-    </el-table>
+        </el-table-column>
+        <el-table-column prop="pomGuid" label="GUID" align="center" :show-overflow-tooltip="true"
+          v-if="columns.showColumn('pomGuid')" />
+        <el-table-column prop="pomOrder" label="生产工单" align="center" v-if="columns.showColumn('pomOrder')">
+          <template #default="scope">
+            <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name" align="center">
+              <el-select v-if="scope.row.isEdit && !scope.row.pomId" v-model="scope.row.pomOrder"
+                @change="(val) => { SelAssignmentinline(dataList, val, scope.$index, scope.row) }">
+                <el-option v-for="item in  options.sql_moc_list " :key="item.dictValue" :label="item.dictLabel"
+                  :value="item.dictValue"></el-option>
+              </el-select>
+              <span v-else v-text="scope.row.pomOrder"></span>
+            </el-form-item>
+          </template>
+        </el-table-column>
+        <el-table-column prop="pomOrderQty" label="工单数量" align="center" v-if="columns.showColumn('pomOrderQty')">
+        </el-table-column>
+        <el-table-column prop="pomOrderSerial" label="管理序列号" align="center" :show-overflow-tooltip="true"
+          v-if="columns.showColumn('pomOrderSerial')">
+        </el-table-column>
+        <el-table-column prop="pomMflot" label="生产批次" align="center" v-if="columns.showColumn('pomMflot')">
+        </el-table-column>
+        <el-table-column prop="pomModelName" label="机种名" align="center" v-if="columns.showColumn('pomModelName')">
+        </el-table-column>
+        <el-table-column prop="pomMfItem" label="物料" align="center" v-if="columns.showColumn('pomMfItem')">
+        </el-table-column>
+        <el-table-column prop="pomStdTime" label="标准工时" align="center" v-if="columns.showColumn('pomStdTime')">
+        </el-table-column>
+        <el-table-column prop="pomMfDate" label="生产日期" align="center" :show-overflow-tooltip="true" format="YYYY-MM-DD"
+          v-if="columns.showColumn('pomMfDate')">
+          <template #default="scope">
+            <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name">
+              <el-date-picker v-if="scope.row.isEdit" v-model="scope.row.pomMfDate" type="date" format="YYYY-MM-DD"
+                value-format="YYYY-MM-DD" />
+              <span v-else v-text="proxy.$filters.timeFormat(scope.row.pomMfDate)"></span>
+            </el-form-item>
+          </template>
+        </el-table-column>
+        <el-table-column prop="pomLineName" label="生产班组" align="center" v-if="columns.showColumn('pomLineName')">
+          <template #default="scope">
+            <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name">
+              <el-select v-if="scope.row.isEdit" v-model="scope.row.pomLineName" placeholder="请选择">
+                <el-option v-for="item in  options.sql_line_list " :key="item.dictValue" :label="item.dictLabel"
+                  :value="item.dictValue"></el-option>
+              </el-select>
+              <span v-else v-text="scope.row.pomLineName"></span>
+            </el-form-item>
+          </template>
+        </el-table-column>
+        <el-table-column prop="pomDirect" label="直接人数" align="center" v-if="columns.showColumn('pomDirect')">
+          <template #default="scope">
+            <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name">
+              <el-input-number v-if="scope.row.isEdit" v-model.number="scope.row.pomDirect" controls-position="right"
+                placeholder="请输入直接人数" :min="1" :max="25"
+                @input="(val) => { CalculateStdOutputinline(dataList, val, scope.$index, scope.row) }" />
+              <span v-else v-text="scope.row.pomDirect"></span>
+            </el-form-item>
+          </template>
+        </el-table-column>
+        <el-table-column prop="pomIndirect" label="间接人数" align="center" v-if="columns.showColumn('pomIndirect')">
+          <template #default="scope">
+            <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name">
+              <el-input-number v-if="scope.row.isEdit" v-model.number="scope.row.pomIndirect" controls-position="right"
+                placeholder="请输入间接人数" :min="1" :max="10" />
+              <span v-else v-text="scope.row.pomIndirect"></span>
+            </el-form-item>
+          </template>
+        </el-table-column>
+
+        <el-table-column prop="pomStdOutput" label="标准产能" align="center" v-if="columns.showColumn('pomStdOutput')">
+          <template #default="scope">
+            <el-form-item :prop="'dataList.' + scope.$index + '.name'" :rules="rules.name">
+              <el-input-number v-if="scope.row.isEdit" v-model.number="scope.row.pomStdOutput" controls-position="right"
+                placeholder="请输入标准产能" />
+              <span v-else v-text="scope.row.pomStdOutput"></span>
+            </el-form-item>
+          </template>
+        </el-table-column>
+        <el-table-column align="center" label="行内编辑" width="160">
+          <template #default="scope">
+            <div v-if="scope.row.isEdit">
+              <el-button v-hasPermi="['pp:output:edit']" type="success" icon="select"
+                @click="handleConfirmEditRow(scope.row, scope.$index)" :title="$t('btn.submit')">
+              </el-button>
+              <el-button v-hasPermi="['pp:output:edit']" type="danger" icon="CloseBold"
+                @click="handleCancelEditRow(scope.row, scope.$index)" :title="$t('btn.cancel')">
+              </el-button>
+            </div>
+            <div v-else>
+              <el-button v-hasPermi="['pp:output:delete']" color="#CCCCCC" icon="minus"
+                @click="handleEraseRow(scope.$index, dataList)" :title="$t('btn.eraseRow')"></el-button>
+              <el-button v-hasPermi="['pp:output:edit']" color="#3366FF" icon="EditPen"
+                @click="handleEditRow(scope.row, scope.$index)" :title="$t('btn.edit')"></el-button>
+
+            </div>
+          </template>
+
+        </el-table-column>
+        <el-table-column label="弹窗操作" align="center" width="160">
+          <template #default="scope">
+            <div v-if="scope.row.pomId">
+              <el-button v-hasPermi="['pp:output:edit']" type="success" icon="edit" :title="$t('btn.edit')"
+                @click="handleUpdate(scope.row)"></el-button>
+              <el-button v-hasPermi="['pp:output:delete']" type="danger" icon="delete" :title="$t('btn.delete')"
+                @click="handleDelete(scope.row)"></el-button>
+            </div>
+          </template>
+        </el-table-column>
+      </el-table>
+    </el-form>
     <pagination class="mt10" background :total="total" v-model:page="queryParams.pageNum"
       v-model:limit="queryParams.pageSize" @pagination="getList" />
 
@@ -253,9 +330,9 @@
 </template>
 
 <script setup name="ppoutputmaster">
-  import outputData from '@/views/components/outputData'
+  import OutputData from '@/views/example/slaveData'
   import {
-    listPpOutputMaster, addPpOutputMaster, delPpOutputMaster, updatePpOutputMaster, getPpOutputMaster,
+    listPpOutputMaster, listPpOutputMasterAll, addPpOutputMaster, delPpOutputMaster, updatePpOutputMaster, getPpOutputMaster,
 
   }
     from '@/api/production/ppoutputmaster.js'
@@ -263,27 +340,137 @@
   import { v4 as uuidv4 } from 'uuid'
   //日期格式化函数
   import { getCurrentTime } from '@/utils/date'
-  //组合式API
   const { proxy } = getCurrentInstance()
-  // 遮罩层
-  const loading = ref(false)
-  // 非单选禁用
-  const single = ref(true)
-  // 非多个禁用
-  const multiple = ref(true)
+  // 遮罩层(启用)
+  const loading = ref(true)
   // 选中pomId数组数组
   const ids = ref([])
+  // 非单个禁用(启用)
+  const single = ref(true)
+  // 非多个禁用(启用)
+  const multiple = ref(true)
+  // 显示搜索条件(启用)
+  const showSearch = ref(true)
   // 总条数
   const total = ref(0)
-  // 显示搜索条件
-  const showSearch = ref(true)
-  // OPH实绩弹出层
-  const outputDataVisible = ref(false)
-
-  // oph Id传值给子组件
-  const pomId = ref(0)
+  // 字典表格数据
+  const typeList = ref([])
+  // 弹出层标题
+  const title = ref('')  //const title = ref("")
   // 是否显示弹出层
-  const open = ref(false)
+  const open = ref(false)//  const open = ref(false)
+  // OPH弹出层
+  const OutputDataVisible = ref(false)
+  // OPH Guid传值给子组件
+  const pomId = ref(0)
+
+  const queryParams = reactive({
+    pageNum: 1,
+    pageSize: 17,
+    sort: '',
+    sortType: 'asc',
+    pomOrder: undefined,
+    pomMflot: undefined,
+    pomModelName: undefined,
+    pomMfItem: undefined,
+    pomMfDate: undefined,
+    pomLineName: undefined,
+  })
+  //表格字段显示
+  const columns = ref([
+    { visible: true, prop: 'pomId', label: 'ID' },
+    { visible: true, prop: 'pomGuid', label: 'GUID' },
+    { visible: true, prop: 'pomOrder', label: '生产工单' },
+    { visible: false, prop: 'pomOrderQty', label: '工单数量' },
+    { visible: false, prop: 'pomOrderSerial', label: '管理序列号' },
+    { visible: true, prop: 'pomMflot', label: '生产批次' },
+    { visible: true, prop: 'pomModelName', label: '机种名' },
+    { visible: true, prop: 'pomMfItem', label: '物料' },
+    { visible: true, prop: 'pomMfDate', label: '生产日期' },
+    { visible: true, prop: 'pomLineName', label: '生产班组' },
+    { visible: true, prop: 'pomDirect', label: '直接人数' },
+    { visible: true, prop: 'pomIndirect', label: '间接人数' },
+    { visible: true, prop: 'pomStdTime', label: '标准工时' },
+    { visible: true, prop: 'pomStdOutput', label: '标准产能' },
+  ])
+  //OPH表格数据
+  const dataList = ref([])
+  const queryRef = ref()
+  const defaultTime = ref([new Date(2000, 1, 1, 0, 0, 0), new Date(2000, 2, 1, 23, 59, 59)])
+
+  // 生产日期时间范围
+  const dateRangePomMfDate = ref([])
+
+  //获取字典
+  var dictParams = [
+    { dictType: "sql_moc_list" },
+    { dictType: "sql_lot_list" },
+    { dictType: "sql_moc_model" },
+    { dictType: "sql_moc_item" },
+    { dictType: "sql_line_list" },
+  ]
+  //获取字典
+  proxy.getDicts(dictParams).then((response) => {
+    response.data.forEach((element) => {
+      state.options[element.dictType] = element.list
+    })
+  })
+  /** 查询OPH Master列表 */
+  function getList() {
+    proxy.addDateRange(queryParams, dateRangePomMfDate.value, 'PomMfDate');
+    loading.value = true
+    listPpOutputMaster(proxy.addDateRange(queryParams, dateRangePomMfDate.value, 'PomMfDate')).then(res => {
+      const { code, data } = res
+      if (code == 200) {
+        dataList.value = data.result
+        total.value = data.totalNum
+        loading.value = false
+      }
+    })
+  }
+
+  // 查询
+  function handleQuery() {
+    queryParams.pageNum = 1
+    getList()
+  }
+
+  // 重置查询操作
+  function resetQuery() {
+    // 生产日期时间范围
+    dateRangePomMfDate.value = []
+    proxy.resetForm("queryRef")
+    handleQuery()
+  }
+
+  // 多选框选中数据
+  function handleSelectionChange(selection) {
+    ids.value = selection.map((item) => item.pomId);
+    single.value = selection.length != 1
+    multiple.value = !selection.length;
+  }
+
+  // 自定义排序
+  function sortChange(column) {
+    var sort = undefined
+    var sortType = undefined
+
+    if (column.prop != null && column.order != null) {
+      sort = column.prop
+      sortType = column.order
+
+    }
+    queryParams.sort = sort
+    queryParams.sortType = sortType
+    handleQuery()
+  }
+
+  /*************** form操作 ***************/
+  const formRef = ref()
+
+  // 操作类型 1、add 2、edit 3、view
+  const opertype = ref(0)
+  //表单验证
   const state = reactive({
     form: {},
     rules: {
@@ -300,88 +487,25 @@
       pomIndirect: [{ required: true, message: "间接人数不能为空", trigger: "blur", type: "number" }],
       pomStdTime: [{ required: true, message: "标准工时不能为空", trigger: "blur" }],
       pomStdOutput: [{ required: true, message: "标准产能不能为空", trigger: "blur" }],
+      uDF54: [{ required: true, message: "不能为空", trigger: "blur" }],
+      uDF55: [{ required: true, message: "不能为空", trigger: "blur" }],
+      uDF56: [{ required: true, message: "不能为空", trigger: "blur" }],
     },
     options: {
-      //  生产工单 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
+      // 生产工单 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
       sql_moc_list: [],
-      //  生产批次 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
+      // 生产批次 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
       sql_lot_list: [],
-      //  机种名 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
+      // 机种名 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
       sql_moc_model: [],
-      //  物料 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
+      // 物料 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
       sql_moc_item: [],
-      //  生产班组 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
+      // 生产班组 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
       sql_line_list: [],
-      //  软删除 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
-      isDeletedOptions: [],
-    },
-    queryParams: {
-      pageNum: 1,
-      pageSize: 10,
-      sort: undefined,
-      sortType: undefined,
-      pomOrder: undefined,
-      pomMflot: undefined,
-      pomModelName: undefined,
-      pomMfItem: undefined,
-      pomMfDate: undefined,
-      pomLineName: undefined,
     }
   })
-  const { form, rules, options, queryParams } = toRefs(state)
-  //报表默认显示字段
-  const columns = ref([
-    { visible: true, prop: 'pomId', label: 'ID' },
-    { visible: true, prop: 'pomGuid', label: 'GUID' },
-    { visible: true, prop: 'pomOrder', label: '生产工单' },
-    { visible: true, prop: 'pomOrderQty', label: '工单数量' },
-    { visible: true, prop: 'pomOrderSerial', label: '管理序列号' },
-    { visible: true, prop: 'pomMflot', label: '生产批次' },
-    { visible: true, prop: 'pomModelName', label: '机种名' },
-    { visible: true, prop: 'pomMfItem', label: '物料' },
-    { visible: false, prop: 'pomMfDate', label: '生产日期' },
-    { visible: false, prop: 'pomLineName', label: '生产班组' },
-    { visible: false, prop: 'pomDirect', label: '直接人数' },
-    { visible: false, prop: 'pomIndirect', label: '间接人数' },
-    { visible: false, prop: 'pomStdTime', label: '标准工时' },
-    { visible: false, prop: 'pomStdOutput', label: '标准产能' },
-  ])
-  // 弹出层标题
-  const title = ref("")
-  // 操作类型 1、add 2、edit 3、view
-  const opertype = ref(0)
 
-  //
-  const dataList = ref([])
-  //ref属性
-  const queryRef = ref()
-  // 查询参数
-  const formRef = ref()
-  // 生产日期时间范围
-  const dateRangePomMfDate = ref([])
-
-  var dictParams = [
-    { dictType: "sql_moc_list" },
-    { dictType: "sql_lot_list" },
-    { dictType: "sql_moc_model" },
-    { dictType: "sql_moc_item" },
-    { dictType: "sql_line_list" },
-  ]
-
-  proxy.getDicts(dictParams).then((response) => {
-    response.data.forEach((element) => {
-      state.options[element.dictType] = element.list
-    })
-  })
-  function getList() {
-
-    loading.value = true
-    listPpOutputMaster(proxy.addDateRange(queryParams.value, dateRangePomMfDate.value, 'PomMfDate')).then((response) => {
-      dataList.value = response.data.result
-      total.value = response.data.totalNum
-      loading.value = false
-    })
-  }
+  const { form, rules, options } = toRefs(state)
 
   // 关闭dialog
   function cancel() {
@@ -405,6 +529,9 @@
       pomIndirect: undefined,
       pomStdTime: undefined,
       pomStdOutput: undefined,
+      uDF54: undefined,
+      uDF55: undefined,
+      uDF56: undefined,
       createBy: undefined,
       createTime: undefined,
       updateBy: undefined,
@@ -412,32 +539,46 @@
     };
     proxy.resetForm("formRef")
   }
+  //计算标准产量保留两位小数(直接人数*单位时间(60分钟)/标准工时(st)*效率(0.85)),parseFloat().toFixed(2)保留小数位
+  //计算计划产出(标准产能)
+  function CalculateStdOutputinline(data, val, index, row) {
 
-  // 查询
-  function handleQuery() {
-    queryParams.value.pageNum = 1
-    getList()
+    if (row.pomStdTime != undefined && row.pomStdTime != null && row.pomStdTime != 0) {
+      row.pomStdOutput = parseFloat(Number(val) * 60 / Number(row.pomStdTime) * 0.85).toFixed(2)
+    }
+    else {
+      row.pomStdOutput = 0
+    }
+    //两种都可以
+    this.$set(data, index, row)
+    //this.$set(this.topicList,index,row)
   }
-  const onInit = () => {
-    dataList.value.push({
-      pomGuid: undefined,
-      pomOrder: undefined,
-      pomOrderQty: undefined,
-      pomOrderSerial: undefined,
-      pomMflot: undefined,
-      pomModelName: undefined,
-      pomMfItem: undefined,
-      pomMfDate: undefined,
-      pomLineName: undefined,
-      pomDirect: undefined,
-      pomIndirect: undefined,
-      pomStdTime: undefined,
-      pomStdOutput: undefined,
-      createBy: undefined,
-      createTime: undefined,
-      updateBy: undefined,
-      updateTime: undefined,
-    })
+
+  //select选择框，赋值到其它文本框。split(",")分割数组，slice()截取，.join()转字符串parseFloat().toFixed(2)保留小数位
+  function SelAssignmentinline(data, val, index, row) {
+    //赋值给文本框
+    let vals = val
+    row.pomGuid = uuidv4()
+    row.pomOrder = vals.split(",").slice(0, 1).join()
+    row.pomOrderQty = 1000// val.split(",").slice(3, 4).join()
+    row.pomOrderSerial = vals.split(",").slice(4, 5).join()
+    row.pomMflot = vals.split(",").slice(2, 3).join()
+    row.pomModelName = vals.split(",").slice(5, 6).join()
+    row.pomMfItem = vals.split(",").slice(1, 2).join()
+    row.pomStdTime = vals.split(",").slice(-1).join()
+    row.pomMfDate = getCurrentTime()
+    //计算计划产出(标准产能)
+    //判断直接人数
+    if (row.pomDirect != undefined && row.pomDirect != null && row.pomDirect != 0) {
+      row.pomStdOutput = parseFloat(Number(row.pomDirect) * 60 / Number(val.split(",").slice(-1).join()) * 0.85).toFixed(2)
+    }
+    else {
+      row.pomStdOutput = 0
+    }
+    row.pomIndirect = 0
+    //两种都可以
+    this.$set(data, index, row)
+    //this.$set(this.topicList,index,row)
   }
   //计算标准产量保留两位小数(直接人数*单位时间(60分钟)/标准工时(st)*效率(0.85)),parseFloat().toFixed(2)保留小数位
   //计算计划产出(标准产能)
@@ -473,27 +614,132 @@
     form.value.pomIndirect = 0
 
   }
-  // 添加
+  //行内编辑 删除指定行
+  function handleEraseRow(index, row) {
+    row.splice(index, 1);
+  }
+  //行内编辑 保存前确认
+  function handleConfirmEditRow(row, index) {
+    row.isEdit = false
+
+    // for (let key in row) {
+    //   // 判断一行字段是否输入完整
+    //   if (row[key] === '' || row[key] === null || row[key] == 0 || typeof row[key] === 'undefined') {
+    //     proxy.$modal.msgSuccess('Please complete the information')
+    //     return
+    //   }
+    //   else {
+
+    //     RowdataSave(row, index)
+
+    //   }
+    // }
+    RowdataSave(row, index)
+    //var resss = 'pomGuid:' + row.pomGuid + ',' + row.pomOrder + ',' + row.pomOrderQty + ',' + row.pomOrderSerial + ',' + row.pomMflot + ',' + row.pomModelName + ',' + row.pomMfItem + ',' + row.pomMfDate + ',' + row.pomLineName + ',' + row.pomDirect + ',' + row.pomIndirect + ',' + row.pomStdTime + ',' + row.pomStdOutput
+    //row.pomId = _this.row.pomGuid//pars.split(',') // jsonstr是json字符串
+    //row.pomId = row.pomDirect
+    // if (proxy.isEmpty(row.pomLineName) || proxy.isEmpty(row.pomDirect) || proxy.isEmpty(row.pomIndirect) || proxy.isEmpty(row.pomMfDate) || proxy.isEmpty(row.pomStdOutput)) {
+    //   proxy.$modal.msgSuccess("请输入")
+    // }
+    // else {
+    //   RowdataSave(row, index)
+
+    // }
+
+
+  }
+
+  //行内编辑 保存
+
+  function RowdataSave(row, index) {
+
+
+    let parm = {
+      pomId: row.pomId,
+      pomGuid: row.pomGuid,
+      pomOrder: row.pomOrder,
+      pomOrderQty: row.pomOrderQty,
+      pomOrderSerial: row.pomOrderSerial,
+      pomMflot: row.pomMflot,
+      pomModelName: row.pomModelName,
+      pomMfItem: row.pomMfItem,
+      pomMfDate: row.pomMfDate,
+      pomLineName: row.pomLineName,
+      pomDirect: row.pomDirect,
+      pomIndirect: row.pomIndirect,
+      pomStdTime: row.pomStdTime,
+      pomStdOutput: row.pomStdOutput
+    }
+    //!row.pomId && row.pomId != undefined
+    if (row.pomId != undefined) {
+      updatePpOutputMaster(parm).then(response => {
+        proxy.$modal.msgSuccess("修改成功")
+        getList()
+      }).catch(e => {
+        this.resetRow()
+        this.handleDelete(row)
+      })
+    } else {
+      addPpOutputMaster(parm).then(response => {
+        proxy.$modal.msgSuccess("添加成功")
+        getList()
+      }).catch(e => {
+        this.resetRow()
+        this.handleDelete(row)
+      });
+    }
+  }
+
+  //行内编辑 取消
+  function handleCancelEditRow(row, index) {
+    row.isEdit = false
+
+  }
+  // 增加一个空行, 用于录入或显示第一行
+  function handleNew() {
+    //row.isEdit = !row.isEdit;
+
+    onInit()
+    //row.isEdit = true;
+    //const Ids = row.pomId
+
+
+  }
+  // 函数增加空行
+  const onInit = () => {
+
+    dataList.value.push({
+      // pomGuid: uuidv4(),
+      // pomOrder: '',
+      // pomOrderQty: '',
+      // pomOrderSerial: '',
+      // pomMflot: '',
+      // pomModelName: '',
+      // pomMfItem: '',
+      // pomMfDate: getCurrentTime(),
+      // pomLineName: '',
+      // pomDirect: 10,
+      // pomIndirect: 2,
+      // pomStdTime: 10,
+      // pomStdOutput: 10,
+    })
+  }
+
+  //行内编辑 
+  function handleEditRow(row, index) {
+    row.isEdit = true
+    //Input disabled编辑属性
+    //v-if="scope.row.isEdit && !scope.row.pomId"
+
+
+
+  }
+  // 添加按钮操作
   function handleAdd() {
     reset();
     open.value = true
     title.value = '添加'
     opertype.value = 1
-  }
-
-  // 删除按钮操作
-  function handleDelete(row) {
-    const Ids = row.pomId || ids.value
-
-    proxy.$confirm('是否确认删除参数编号为"' + Ids + '"的数据项？')
-      .then(function () {
-        return delPpOutputMaster(Ids)
-      })
-      .then(() => {
-        handleQuery()
-        proxy.$modal.msgSuccess("删除成功")
-      })
-      .catch(() => { })
   }
 
   // 修改按钮操作
@@ -514,7 +760,7 @@
     })
   }
 
-  // 表单提交
+  // 添加&修改 表单提交
   function submitForm() {
     proxy.$refs["formRef"].validate((valid) => {
       if (valid) {
@@ -531,45 +777,47 @@
             open.value = false
             getList()
           })
-            .catch((err) => {
-              //TODO 错误逻辑
-            })
+            .catch(() => { })
         }
       }
     })
   }
 
-  // 重置查询操作
-  function resetQuery() {
-    // 生产日期时间范围
-    dateRangePomMfDate.value = []
-    proxy.resetForm("queryForm")
-    handleQuery()
-  }
-  // 多选框选中数据
-  function handleSelectionChange(selection) {
-    ids.value = selection.map((item) => item.pomId);
-    single.value = selection.length != 1
-    multiple.value = !selection.length;
+  // 删除按钮操作
+  function handleDelete(row) {
+    const Ids = row.pomId || ids.value
+
+    proxy.$confirm('是否确认删除参数编号为"' + Ids + '"的数据项？')
+      .then(function () {
+        return delPpOutputMaster(Ids)
+      })
+      .then(() => {
+        getList()
+        proxy.$modal.msgSuccess("删除成功")
+      })
+      .catch(() => { })
   }
 
-  // 自定义排序
-  function sortChange(column) {
-    if (column.prop == null || column.order == null) {
-      queryParams.sort = undefined
-      queryParams.sortType = undefined
-    } else {
-      queryParams.sort = column.prop
-      queryParams.sortType = column.order
-    }
 
-    handleQuery()
+
+  // 导出按钮操作
+  function handleExport() {
+    proxy
+      .$confirm("是否确认导出oph主表数据项?", "警告", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning",
+      })
+      .then(async () => {
+        await proxy.downFile('/production/PpOutputMaster/export', { ...queryParams })
+      })
   }
+
+  handleQuery()
+
   function showOutputData(row) {
     pomId.value = row.pomId
-    outputDataVisible.value = true
-
+    OutputDataVisible.value = true
   }
   getList()
-  handleQuery()
 </script>

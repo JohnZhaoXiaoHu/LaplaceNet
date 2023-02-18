@@ -15,7 +15,7 @@ namespace La.WebApi.Extensions
             //var github = HttpHelper.HttpGet("https://api.github.com/repos/Lean365/LaplaceNet/releases");
             Console.WriteLine(content);
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("swagger: http://localhost:8888/swagger/index.html");
+            Console.WriteLine("SwaggerDoc: La.WebApi.xml");
             Console.WriteLine("源码地址: https://github.com/Lean365/LaplaceNet");
             Console.WriteLine("官方文档：https://laplacenet.github.io/");
             Console.WriteLine("打赏作者：https://laplacenet.github.io/docs/others/donate.html");

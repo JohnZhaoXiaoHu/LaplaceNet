@@ -8,6 +8,7 @@
 -->
 <template>
   <div>
+    <!-- <div>{{ queryParams }},,,{{ GuidOptions }}999{{ dataList }}</div> -->
     <el-form :model="queryParams" ref="queryForm" :inline="true" label-width="68px">
       <el-form-item label="GUID" prop="pomGuid">
         <el-select clearable v-model="queryParams.pomGuid">
@@ -19,6 +20,7 @@
       <el-form-item>
         <el-button icon="search" type="primary" @click="handleQuery">{{ $t('btn.search') }}</el-button>
         <el-button icon="refresh" @click="resetQuery">{{ $t('btn.reset') }}</el-button>
+
       </el-form-item>
     </el-form>
     <!-- 工具区域 -->
@@ -32,36 +34,25 @@
     </el-row>
 
     <!-- 数据区域 -->
-    <el-table :data="dataList">
+    <el-table :data="dataList" v-loading="loading" ref="table" border highlight-current-row @sort-change="sortChange"
+      @selection-change="handleSelectionChange" height="452" style="width: 100%">
       <el-table-column type="selection" width="50" align="center" />
-      <el-table-column prop="pomGuid" label="父GUID" align="center" :show-overflow-tooltip="true"
-        v-if="columns.showColumn('pomGuid')" />
-      <el-table-column prop="posStartEndTime" label="生产时段" align="center" v-if="columns.showColumn('posStartEndTime')">
-        <template slot-scope="scope">
-          <el-input placeholder="请输入内容" v-show="scope.row.show" v-model="scope.row.posStartEndTime"></el-input>
-          <span v-show="!scope.row.show">{{ scope.row.posStartEndTime }}</span>
-        </template>
+      <!-- <el-table-column prop="pomGuid" label="父GUID" align="center" /> -->
+      <el-table-column prop="posStartEndTime" label="生产时段" align="center">
       </el-table-column>
-      <el-table-column prop="posRealOutput" label="实际产能" align="center" v-if="columns.showColumn('posRealOutput')" />
-      <el-table-column prop="posLineStopTime" label="停线时间" align="center"
-        v-if="columns.showColumn('posLineStopTime')" />
-      <el-table-column prop="posStopCause" label="停线原因" align="center" v-if="columns.showColumn('posStopCause')">
-
+      <el-table-column prop="posRealOutput" label="实际产能" align="center" />
+      <el-table-column prop="posLineStopTime" label="停线时间" align="center" />
+      <el-table-column prop="posStopCause" label="停线原因" align="center">
       </el-table-column>
-      <el-table-column prop="posStopMemo" label="停线说明" align="center" :show-overflow-tooltip="true"
-        v-if="columns.showColumn('posStopMemo')" />
-      <el-table-column prop="posBadCause" label="不良原因" align="center" v-if="columns.showColumn('posBadCause')">
-
+      <el-table-column prop="posStopMemo" label="停线说明" align="center" :show-overflow-tooltip="true" />
+      <el-table-column prop="posBadCause" label="不良原因" align="center">
       </el-table-column>
-      <el-table-column prop="posBadMemo" label="不良说明" align="center" :show-overflow-tooltip="true"
-        v-if="columns.showColumn('posBadMemo')" />
-      <el-table-column prop="posRealTime" label="实际工数" align="center" v-if="columns.showColumn('posRealTime')" />
-      <el-table-column prop="posRealWork" label="实际工时" align="center" v-if="columns.showColumn('posRealWork')" />
-      <el-table-column prop="posRealWorkDiff" label="工时差异" align="center"
-        v-if="columns.showColumn('posRealWorkDiff')" />
-      <el-table-column prop="posRealOutputDiff" label="产能差异" align="center"
-        v-if="columns.showColumn('posRealOutputDiff')" />
-      <el-table-column prop="posAchRatio" label="达成率" align="center" v-if="columns.showColumn('posAchRatio')" />
+      <el-table-column prop="posBadMemo" label="不良说明" align="center" :show-overflow-tooltip="true" />
+      <el-table-column prop="posRealTime" label="实际工数" align="center" />
+      <el-table-column prop="posRealWork" label="实际工时" align="center" />
+      <el-table-column prop="posRealWorkDiff" label="工时差异" align="center" />
+      <el-table-column prop="posRealOutputDiff" label="产能差异" align="center" />
+      <el-table-column prop="posAchRatio" label="达成率" align="center" />
       <el-table-column label="操作" align="center" width="160">
         <template #default="scope">
           <el-button v-hasPermi="['pp:output:edit']" type="success" icon="edit" title="编辑"
@@ -147,13 +138,13 @@
   </div>
 </template>
 
-<script setup name="ppoutputslave">
+<script setup name="OutputData">
   import {
     listPpOutputSlave, addPpOutputSlave, delPpOutputSlave, updatePpOutputSlave, getPpOutputSlave,
     exportPpOutputSlave,
   }
     from '@/api/production/ppoutputslave.js'
-  import { listPpOutputMaster, getPpOutputMaster } from '@/api/production/ppoutputmaster.js'
+  import { listPpOutputMaster, listPpOutputMasterAll, getPpOutputMaster } from '@/api/production/ppoutputmaster.js'
   const { proxy } = getCurrentInstance()
   const props = defineProps({
     pomId: {
@@ -262,7 +253,7 @@
 
   /** 查询OPH列表 */
   function getGuidList() {
-    listPpOutputMaster().then((response) => {
+    listPpOutputMasterAll().then((response) => {
       GuidOptions.value = response.data.result
     })
   }

@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <param name="entryString"></param>
         /// <returns></returns>
-            if (UserConstants.NOT_UNIQUE.Equals(_PpOutputMasterService.CheckEntryStringUnique(parm.PomId.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_PpOutputMasterService.CheckEntryStringUnique(Convert.ToDateTime(parm.PomMfDate).ToString("yyyyMMdd") + parm.PomOrder+ parm.PomMfItem+ parm.PomLineName)))
             {
-                return ToResponse(ApiResult.Error($"新增oph主表 '{parm.PomId}'失败，输入的oph主表已存在"));
+                return ToResponse(ApiResult.Error($"新增oph主表 '{Convert.ToDateTime(parm.PomMfDate).ToString("yyyy-MM-dd") +","+ parm.PomOrder + "," + parm.PomMfItem + "," + parm.PomLineName}'失败，输入的oph主表已存在"));
             }
             var modal = parm.Adapt<PpOutputMaster>().ToCreate(HttpContext);
 
