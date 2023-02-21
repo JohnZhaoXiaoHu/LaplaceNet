@@ -29,7 +29,9 @@ namespace ${options.ApiControllerNamespace}.Controllers
         /// ${genTable.FunctionName}接口
         /// </summary>
         private readonly I${replaceDto.ModelTypeName}Service _${replaceDto.ModelTypeName}Service;
-
+        /// <summary>
+        /// ${genTable.FunctionName}Controller
+        /// </summary>
         public ${replaceDto.ModelTypeName}Controller(I${replaceDto.ModelTypeName}Service ${replaceDto.ModelTypeName}Service)
         {
             _${replaceDto.ModelTypeName}Service = ${replaceDto.ModelTypeName}Service;
@@ -91,11 +93,9 @@ $if(replaceDto.ShowBtnAdd)
             {
                 throw new CustomException("请求参数错误");
             }
-        /// <summary>
-        /// 校验输入项目是否唯一
-        /// </summary>
-        /// <param name="entryString"></param>
-        /// <returns></returns>
+
+           // 校验输入项目是否唯一
+
             if (UserConstants.NOT_UNIQUE.Equals(_${replaceDto.ModelTypeName}Service.CheckEntryStringUnique(parm.${replaceDto.PKName}.ToString())))
             {
                 return ToResponse(ApiResult.Error($"新增${genTable.FunctionName} '{parm.${replaceDto.PKName}}'失败，输入的${genTable.FunctionName}已存在"));

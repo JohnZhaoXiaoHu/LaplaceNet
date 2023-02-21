@@ -29,7 +29,9 @@ namespace La.WebApi.Controllers
         /// 生产工单接口
         /// </summary>
         private readonly IPpMfgOrderService _PpMfgOrderService;
-
+        /// <summary>
+        /// 生产工单接口
+        /// </summary>
         public PpMfgOrderController(IPpMfgOrderService PpMfgOrderService)
         {
             _PpMfgOrderService = PpMfgOrderService;
@@ -76,11 +78,7 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-        /// <summary>
-        /// 校验输入项目是否唯一
-        /// </summary>
-        /// <param name="entryString"></param>
-        /// <returns></returns>
+            // 校验输入项目是否唯一
             if (UserConstants.NOT_UNIQUE.Equals(_PpMfgOrderService.CheckEntryStringUnique(parm.MoOrderNo.ToString())))
             {
                 return ToResponse(ApiResult.Error($"新增生产工单 '{parm.MoOrderNo}'失败，输入的生产工单已存在"));

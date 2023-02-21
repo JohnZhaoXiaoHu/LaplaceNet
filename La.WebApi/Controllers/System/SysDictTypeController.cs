@@ -23,7 +23,10 @@ namespace La.WebApi.Controllers.System
     public class SysDictTypeController : BaseController
     {
         private readonly ISysDictService SysDictService;
-
+        /// <summary>
+        /// 数据字典
+        /// </summary>
+        /// <param name="sysDictService"></param>
         public SysDictTypeController(ISysDictService sysDictService)
         {
             SysDictService = sysDictService;

@@ -29,7 +29,9 @@ namespace La.WebApi.Controllers
         /// 标准工时接口
         /// </summary>
         private readonly IPpManhoursService _PpManhoursService;
-
+        /// <summary>
+        /// 标准工时接口
+        /// </summary>
         public PpManhoursController(IPpManhoursService PpManhoursService)
         {
             _PpManhoursService = PpManhoursService;
@@ -76,11 +78,7 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-        /// <summary>
-        /// 校验输入项目是否唯一
-        /// </summary>
-        /// <param name="entryString"></param>
-        /// <returns></returns>
+            // 校验输入项目是否唯一
             if (UserConstants.NOT_UNIQUE.Equals(_PpManhoursService.CheckEntryStringUnique(parm.MhPlant+ parm.MhItem)))
             {
                 return ToResponse(ApiResult.Error($"新增标准工时 '{parm.MhPlant+","+parm.MhItem}'失败，输入的标准工时已存在"));

@@ -8,20 +8,44 @@ using La.Model.System;
 
 namespace La.WebApi.Extensions
 {
+    /// <summary>
+    /// 数据访问框架
+    /// </summary>
     public static class DbExtension
     {
+        /// <summary>
+        /// logger
+        /// </summary>
         private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
         //全部数据权限
+        /// <summary>
+        /// DATA_SCOPE_ALL
+        /// </summary>
         public static string DATA_SCOPE_ALL = "1";
+        /// <summary>
+        /// DATA_SCOPE_CUSTOM
+        /// </summary>
         //自定数据权限
         public static string DATA_SCOPE_CUSTOM = "2";
+        /// <summary>
+        /// DATA_SCOPE_DEPT
+        /// </summary>
         //部门数据权限
         public static string DATA_SCOPE_DEPT = "3";
+        /// <summary>
+        /// DATA_SCOPE_DEPT_AND_CHILD
+        /// </summary>
         //部门及以下数据权限
         public static string DATA_SCOPE_DEPT_AND_CHILD = "4";
+        /// <summary>
+        /// DATA_SCOPE_SELF
+        /// </summary>
         //仅本人数据权限
         public static string DATA_SCOPE_SELF = "5";
-
+        /// <summary>
+        /// 新增DB
+        /// </summary>
+        /// <param name="Configuration"></param>
         public static void AddDb(IConfiguration Configuration)
         {
             string connStr = Configuration.GetConnectionString("conn_db");
@@ -61,7 +85,11 @@ namespace La.WebApi.Extensions
                 });
             });
         }
-
+        /// <summary>
+        /// 设置sqlsugar 多租户设置AOP
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="iocConfig"></param>
         private static void SetSugarAop(SqlSugarClient db, IocConfig iocConfig)
         {
             var config = db.GetConnection(iocConfig.ConfigId).CurrentConnectionConfig;

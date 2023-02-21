@@ -29,7 +29,10 @@ namespace La.WebApi.Controllers
         /// 会计科目接口
         /// </summary>
         private readonly IFicoTitleService _FicoTitleService;
-
+        /// <summary>
+        /// 会计科目Controller
+        /// </summary>
+        /// <param name="FicoTitleService"></param>
         public FicoTitleController(IFicoTitleService FicoTitleService)
         {
             _FicoTitleService = FicoTitleService;
@@ -76,11 +79,9 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-        /// <summary>
-        /// 校验输入项目是否唯一
-        /// </summary>
-        /// <param name="entryString"></param>
-        /// <returns></returns>
+
+        // 校验输入项目是否唯一
+
             if (UserConstants.NOT_UNIQUE.Equals(_FicoTitleService.CheckEntryStringUnique(parm.FtId.ToString())))
             {
                 return ToResponse(ApiResult.Error($"新增会计科目 '{parm.FtId}'失败，输入的会计科目已存在"));

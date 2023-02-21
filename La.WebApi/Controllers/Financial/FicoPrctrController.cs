@@ -29,7 +29,9 @@ namespace La.WebApi.Controllers
         /// 利润中心接口
         /// </summary>
         private readonly IFicoPrctrService _FicoPrctrService;
-
+        /// <summary>
+        /// 利润中心接口
+        /// </summary>
         public FicoPrctrController(IFicoPrctrService FicoPrctrService)
         {
             _FicoPrctrService = FicoPrctrService;
@@ -76,11 +78,7 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-        /// <summary>
-        /// 校验输入项目是否唯一
-        /// </summary>
-        /// <param name="entryString"></param>
-        /// <returns></returns>
+            // 校验输入项目是否唯一
             if (UserConstants.NOT_UNIQUE.Equals(_FicoPrctrService.CheckEntryStringUnique(parm.FpPlnt+parm.FpCode)))
             {
                 return ToResponse(ApiResult.Error($"新增利润中心 '{parm.FpPlnt +","+ parm.FpCode}'失败，输入的利润中心已存在"));

@@ -22,7 +22,12 @@ namespace La.WebApi.Controllers.System
         private readonly ISysRoleService sysRoleService;
         private readonly ISysMenuService sysMenuService;
         private readonly ISysRoleMenuService sysRoleMenuService;
-
+        /// <summary>
+        /// SysMenuController
+        /// </summary>
+        /// <param name="sysRoleService"></param>
+        /// <param name="sysMenuService"></param>
+        /// <param name="sysRoleMenuService"></param>
         public SysMenuController(
             ISysRoleService sysRoleService,
             ISysMenuService sysMenuService,

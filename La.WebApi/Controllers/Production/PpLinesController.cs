@@ -29,7 +29,9 @@ namespace La.WebApi.Controllers
         /// 生产班组接口
         /// </summary>
         private readonly IPpLinesService _PpLinesService;
-
+        /// <summary>
+        /// 生产班组接口
+        /// </summary>
         public PpLinesController(IPpLinesService PpLinesService)
         {
             _PpLinesService = PpLinesService;
@@ -76,11 +78,7 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-        /// <summary>
-        /// 校验输入项目是否唯一
-        /// </summary>
-        /// <param name="entryString"></param>
-        /// <returns></returns>
+            // 校验输入项目是否唯一
             if (UserConstants.NOT_UNIQUE.Equals(_PpLinesService.CheckEntryStringUnique(parm.PlLineCode)))
             {
                 return ToResponse(ApiResult.Error($"新增生产班组 '{parm.PlLineCode}'失败，输入的生产班组已存在"));

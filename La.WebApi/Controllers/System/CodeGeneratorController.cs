@@ -35,6 +35,12 @@ namespace La.WebApi.Controllers.System
         private readonly IGenTableColumnService GenTableColumnService;
 
         private readonly IWebHostEnvironment WebHostEnvironment;
+        /// <summary>
+        /// 代码生成接口
+        /// </summary>
+        /// <param name="genTableService"></param>
+        /// <param name="genTableColumnService"></param>
+        /// <param name="webHostEnvironment"></param>
         public CodeGeneratorController(
             IGenTableService genTableService,
             IGenTableColumnService genTableColumnService,

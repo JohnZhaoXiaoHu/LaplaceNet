@@ -29,7 +29,9 @@ namespace La.WebApi.Controllers
         /// 抽样标准接口
         /// </summary>
         private readonly IQmCheckAqlService _QmCheckAqlService;
-
+        /// <summary>
+        /// 抽样标准接口
+        /// </summary>
         public QmCheckAqlController(IQmCheckAqlService QmCheckAqlService)
         {
             _QmCheckAqlService = QmCheckAqlService;
@@ -76,11 +78,7 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-        /// <summary>
-        /// 校验输入项目是否唯一
-        /// </summary>
-        /// <param name="entryString"></param>
-        /// <returns></returns>
+            // 校验输入项目是否唯一
             if (UserConstants.NOT_UNIQUE.Equals(_QmCheckAqlService.CheckEntryStringUnique(parm.QcaqlGuid.ToString())))
             {
                 return ToResponse(ApiResult.Error($"新增抽样标准 '{parm.QcaqlGuid}'失败，输入的抽样标准已存在"));

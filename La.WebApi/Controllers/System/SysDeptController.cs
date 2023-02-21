@@ -11,14 +11,25 @@ using La.Service.System.IService;
 namespace La.WebApi.Controllers.System
 {
     /// <summary>
-    /// 部门
+    /// 部门Controller
     /// </summary>
     [Verify]
     [Route("system/dept")]
     public class SysDeptController : BaseController
     {
+        /// <summary>
+        /// 部门接口DeptService
+        /// </summary>
         public ISysDeptService DeptService;
+        /// <summary>
+        /// 用户接口UserService
+        /// </summary>
         public ISysUserService UserService;
+        /// <summary>
+        /// 部门Controller
+        /// </summary>
+        /// <param name="deptService"></param>
+        /// <param name="userService"></param>
         public SysDeptController(ISysDeptService deptService
             , ISysUserService userService)
         {

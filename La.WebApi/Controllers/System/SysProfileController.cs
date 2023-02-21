@@ -30,7 +30,15 @@ namespace La.WebApi.Controllers.System
         private readonly ISysDeptService DeptService;
         private readonly ISysFileService FileService;
         private IWebHostEnvironment hostEnvironment;
-
+        /// <summary>
+        /// 个人中心
+        /// </summary>
+        /// <param name="userService"></param>
+        /// <param name="roleService"></param>
+        /// <param name="postService"></param>
+        /// <param name="deptService"></param>
+        /// <param name="sysFileService"></param>
+        /// <param name="hostEnvironment"></param>
         public SysProfileController(
             ISysUserService userService,
             ISysRoleService roleService,

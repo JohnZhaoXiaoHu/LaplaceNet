@@ -10,8 +10,16 @@ using System.Threading.Tasks;
 
 namespace La.WebApi.Framework
 {
+    /// <summary>
+    /// cookie
+    /// </summary>
     public class CookieUtil
     {
+        /// <summary>
+        /// cookie
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="claims"></param>
         public static void WhiteCookie(HttpContext context, List<Claim> claims)
         {
             //2.创建声明主题 指定认证方式 这里使用cookie

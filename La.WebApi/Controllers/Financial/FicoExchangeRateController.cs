@@ -29,7 +29,10 @@ namespace La.WebApi.Controllers
         /// 汇率表接口
         /// </summary>
         private readonly IFicoExchangeRateService _FicoExchangeRateService;
-
+        /// <summary>
+        /// 汇率表Controller
+        /// </summary>
+        /// <param name="FicoExchangeRateService"></param>
         public FicoExchangeRateController(IFicoExchangeRateService FicoExchangeRateService)
         {
             _FicoExchangeRateService = FicoExchangeRateService;
@@ -78,11 +81,9 @@ namespace La.WebApi.Controllers
             }
             //日期格式转换方便比较
             //string ss = Convert.ToDateTime(parm.ErEffDate).ToString("yyyyMMdd");
-        /// <summary>
-        /// 校验输入项目是否唯一
-        /// </summary>
-        /// <param name="entryString"></param>
-        /// <returns></returns>
+
+        // 校验输入项目是否唯一
+
             if (UserConstants.NOT_UNIQUE.Equals(_FicoExchangeRateService.CheckEntryStringUnique(Convert.ToDateTime(parm.ErEffDate).ToString("yyyyMMdd") + parm.ErfmCcy)))
             {
                 return ToResponse(ApiResult.Error($"新增汇率表 '{Convert.ToDateTime(parm.ErEffDate).ToString("yyyy-MM-dd") + ":"+ parm.ErfmCcy}'失败，输入的汇率表已存在"));

@@ -12,6 +12,11 @@ namespace La.WebApi.Extensions
     /// </summary>
     public static class TasksExtension
     {
+        /// <summary>
+        /// 定时任务扩展方法
+        /// </summary>
+        /// <param name="services"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public static void AddTaskSchedulers(this IServiceCollection services)
         {
             if (services == null) throw new ArgumentNullException(nameof(services));

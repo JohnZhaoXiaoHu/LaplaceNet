@@ -19,6 +19,11 @@ namespace La.WebApi.Controllers.monitor
         private OptionsSetting Options;
         private IWebHostEnvironment HostEnvironment;
         private NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+        /// <summary>
+        /// 监控接口
+        /// </summary>
+        /// <param name="options"></param>
+        /// <param name="hostEnvironment"></param>
         public MonitorController(IOptions<OptionsSetting> options, IWebHostEnvironment hostEnvironment)
         {
             this.HostEnvironment = hostEnvironment;

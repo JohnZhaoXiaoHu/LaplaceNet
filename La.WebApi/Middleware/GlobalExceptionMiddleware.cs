@@ -17,22 +17,29 @@ using La.Service.System.IService;
 namespace La.WebApi.Middleware
 {
     /// <summary>
-    /// 全局异常处理中间件
-    /// 调用 app.UseMiddleware<GlobalExceptionMiddleware>();
+    /// 全局异常处理中间件调用
+    /// 
     /// </summary>
     public class GlobalExceptionMiddleware
     {
+        //app.UseMiddleware<GlobalExceptionMiddleware>()
         private readonly RequestDelegate next;
         private readonly ISysOperLogService SysOperLogService;
 
         static readonly Logger Logger = LogManager.GetCurrentClassLogger();//声明NLog变量
-
+        /// <summary>
+        /// 全局异常处理中间件调用
+        /// </summary>
         public GlobalExceptionMiddleware(RequestDelegate next, ISysOperLogService sysOperLog)
         {
             this.next = next;
             this.SysOperLogService = sysOperLog;
         }
-
+        /// <summary>
+        /// 任务
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public async Task Invoke(HttpContext context)
         {
             try
@@ -44,7 +51,12 @@ namespace La.WebApi.Middleware
                 await HandleExceptionAsync(context, ex);
             }
         }
-
+        /// <summary>
+        /// .NET全局异常处理HandleExceptionAsync
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="ex"></param>
+        /// <returns></returns>
         private async Task HandleExceptionAsync(HttpContext context, Exception ex)
         {
             NLog.LogLevel logLevel = NLog.LogLevel.Info;
@@ -123,7 +135,12 @@ namespace La.WebApi.Middleware
             WxNoticeHelper.SendMsg("系统出错", sysOperLog.ErrorMsg);
             SysOperLogService.InsertOperlog(sysOperLog);
         }
-
+        /// <summary>
+        /// 终结点路由GetEndpoint
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static Endpoint GetEndpoint(HttpContext context)
         {
             if (context == null)

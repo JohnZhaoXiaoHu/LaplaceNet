@@ -29,7 +29,10 @@ namespace La.WebApi.Controllers
         /// 工作流接口
         /// </summary>
         private readonly ISysWorkFlowService _SysWorkFlowService;
-
+        /// <summary>
+        /// 工作流接口
+        /// </summary>
+        /// <param name="SysWorkFlowService"></param>
         public SysWorkFlowController(ISysWorkFlowService SysWorkFlowService)
         {
             _SysWorkFlowService = SysWorkFlowService;
@@ -76,11 +79,10 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-        /// <summary>
-        /// 校验输入项目是否唯一
-        /// </summary>
-        /// <param name="entryString"></param>
-        /// <returns></returns>
+
+
+         //校验输入项目是否唯一            
+            
             if (UserConstants.NOT_UNIQUE.Equals(_SysWorkFlowService.CheckEntryStringUnique(parm.WorkflowId.ToString())))
             {
                 return ToResponse(ApiResult.Error($"新增工作流 '{parm.WorkflowId}'失败，输入的工作流已存在"));

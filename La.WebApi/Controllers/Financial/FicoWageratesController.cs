@@ -29,7 +29,9 @@ namespace La.WebApi.Controllers
         /// 工厂工资率接口
         /// </summary>
         private readonly IFicoWageratesService _FicoWageratesService;
-
+        /// <summary>
+        /// 工厂工资率接口
+        /// </summary>
         public FicoWageratesController(IFicoWageratesService FicoWageratesService)
         {
             _FicoWageratesService = FicoWageratesService;
@@ -76,11 +78,7 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-        /// <summary>
-        /// 校验输入项目是否唯一
-        /// </summary>
-        /// <param name="entryString"></param>
-        /// <returns></returns>
+            // 校验输入项目是否唯一
             if (UserConstants.NOT_UNIQUE.Equals(_FicoWageratesService.CheckEntryStringUnique(parm.FwYm+parm.FwPlant)))
             {
                 return ToResponse(ApiResult.Error($"新增工厂工资率 '{parm.FwYm +","+ parm.FwPlant}'失败，输入的工厂工资率已存在"));

@@ -29,7 +29,9 @@ namespace La.WebApi.Controllers
         /// 原因类别接口
         /// </summary>
         private readonly IPpCauseTypeService _PpCauseTypeService;
-
+        /// <summary>
+        /// 原因类别接口
+        /// </summary>
         public PpCauseTypeController(IPpCauseTypeService PpCauseTypeService)
         {
             _PpCauseTypeService = PpCauseTypeService;
@@ -76,11 +78,7 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-        /// <summary>
-        /// 校验输入项目是否唯一
-        /// </summary>
-        /// <param name="entryString"></param>
-        /// <returns></returns>
+            // 校验输入项目是否唯一
             if (UserConstants.NOT_UNIQUE.Equals(_PpCauseTypeService.CheckEntryStringUnique(parm.CtId.ToString())))
             {
                 return ToResponse(ApiResult.Error($"新增原因类别 '{parm.CtId}'失败，输入的原因类别已存在"));

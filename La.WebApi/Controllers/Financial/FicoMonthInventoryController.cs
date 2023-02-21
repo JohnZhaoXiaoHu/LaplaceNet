@@ -29,7 +29,9 @@ namespace La.WebApi.Controllers
         /// 月度存货明细接口
         /// </summary>
         private readonly IFicoMonthInventoryService _FicoMonthInventoryService;
-
+        /// <summary>
+        /// 月度存货明细接口
+        /// </summary>
         public FicoMonthInventoryController(IFicoMonthInventoryService FicoMonthInventoryService)
         {
             _FicoMonthInventoryService = FicoMonthInventoryService;
@@ -76,11 +78,8 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-        /// <summary>
-        /// 校验输入项目是否唯一
-        /// </summary>
-        /// <param name="entryString"></param>
-        /// <returns></returns>
+            // 校验输入项目是否唯一
+
             if (UserConstants.NOT_UNIQUE.Equals(_FicoMonthInventoryService.CheckEntryStringUnique(parm.MiId.ToString())))
             {
                 return ToResponse(ApiResult.Error($"新增月度存货明细 '{parm.MiId}'失败，输入的月度存货明细已存在"));

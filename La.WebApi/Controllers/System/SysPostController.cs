@@ -22,6 +22,10 @@ namespace La.WebApi.Controllers.System
     public class SysPostController : BaseController
     {
         private readonly ISysPostService PostService;
+        /// <summary>
+        /// 岗位管理
+        /// </summary>
+        /// <param name="postService"></param>
         public SysPostController(ISysPostService postService)
         {
             PostService = postService;

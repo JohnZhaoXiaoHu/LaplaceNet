@@ -22,6 +22,7 @@ namespace La.Infra
             postData = postData ?? "";
             using (HttpClient client = new HttpClient())
             {
+                client.Timeout = new TimeSpan(0, 0, timeOut);
                 if (headers != null)
                 {
                     foreach (var header in headers)

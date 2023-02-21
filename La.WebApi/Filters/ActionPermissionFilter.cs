@@ -19,7 +19,14 @@ namespace La.WebApi.Filters
         public string Permission { get; set; }
         private bool HasPermi { get; set; }
         private bool HasRole { get; set; }
+        /// <summary>
+        /// API授权判断
+        /// </summary>
         public ActionPermissionFilter() { }
+        /// <summary>
+        /// API授权判断
+        /// </summary>
+        /// <param name="permission"></param>
         public ActionPermissionFilter(string permission)
         {
             Permission = permission;

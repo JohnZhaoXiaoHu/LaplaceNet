@@ -4,6 +4,24 @@
         <name>La.WebApi</name>
     </assembly>
     <members>
+        <member name="T:La.WebApi.Controllers.BaseController">
+            <summary>
+            BaseController
+            
+            @author Laplace.Net:Davis.Cheng
+            @date 2023-01-15
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.BaseController.TIME_FORMAT_FULL">
+            <summary>
+            定义时间1
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.BaseController.TIME_FORMAT_FULL_2">
+            <summary>
+            定义时间2
+            </summary>
+        </member>
         <member name="M:La.WebApi.Controllers.BaseController.SUCCESS(System.Object,System.String)">
             <summary>
             返回成功封装
@@ -18,6 +36,22 @@
             </summary>
             <param name="apiResult"></param>
             <param name="timeFormatStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.BaseController.ToResponse(System.Int64,System.String)">
+            <summary>
+            ToResponse
+            </summary>
+            <param name="rows"></param>
+            <param name="timeFormatStr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.BaseController.ToResponse(La.Infra.ResultCode,System.String)">
+            <summary>
+            ToResponse
+            </summary>
+            <param name="resultCode"></param>
+            <param name="msg"></param>
             <returns></returns>
         </member>
         <member name="M:La.WebApi.Controllers.BaseController.ExportExcel(System.String,System.String)">
@@ -35,12 +69,36 @@
             <param name="rows">受影响行数</param>
             <returns></returns>
         </member>
+        <member name="M:La.WebApi.Controllers.BaseController.ToJson(System.Int64,System.Object)">
+            <summary>
+            ToJson
+            </summary>
+            <param name="rows"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
         <member name="M:La.WebApi.Controllers.BaseController.GetApiResult(La.Infra.ResultCode,System.Object)">
             <summary>
             全局Code使用
             </summary>
             <param name="resultCode"></param>
             <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.BaseController.GetApiResult(La.Infra.ResultCode,System.String)">
+            <summary>
+            GetApiResult
+            </summary>
+            <param name="resultCode"></param>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.BaseController.GetJsonStr(La.Infra.Model.ApiResult,System.String)">
+            <summary>
+            GetJsonStr
+            </summary>
+            <param name="apiResult"></param>
+            <param name="timeFormatStr"></param>
             <returns></returns>
         </member>
         <member name="M:La.WebApi.Controllers.BaseController.ExportExcel``1(System.Collections.Generic.List{``0},System.String,System.String)">
@@ -51,6 +109,16 @@
             <param name="list"></param>
             <param name="sheetName"></param>
             <param name="fileName"></param>
+        </member>
+        <member name="M:La.WebApi.Controllers.BaseController.ExportExcelMini``1(System.Collections.Generic.List{``0},System.String,System.String)">
+            <summary>
+            ExportExcelMini
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="sheetName"></param>
+            <param name="fileName"></param>
+            <returns></returns>
         </member>
         <member name="M:La.WebApi.Controllers.BaseController.ExportExcelMini(System.Collections.Generic.Dictionary{System.String,System.Object},System.String)">
             <summary>
@@ -66,9 +134,25 @@
             </summary>
             <typeparam name="T"></typeparam>
             <param name="list"></param>
-            <param name="stream"></param>
-            <param name="fileName">下载文件名</param>
+            <param name="fileName"></param>
             <returns></returns>
+        </member>
+        <member name="T:La.WebApi.Controllers.BaseExcelController`1">
+            <summary>
+            标准ExcelController
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:La.WebApi.Controllers.BaseExcelController`1._repository">
+            <summary>
+            标准ExcelController
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.BaseExcelController`1.#ctor(La.Repository.IRepository{`0})">
+            <summary>
+            BaseExcelController
+            </summary>
+            <param name="repository"></param>
         </member>
         <member name="M:La.WebApi.Controllers.BaseExcelController`1.Template">
             <summary>
@@ -93,6 +177,19 @@
             公共模块
             </summary>
         </member>
+        <member name="F:La.WebApi.Controllers.CommonController.OptionsSetting">
+            <summary>
+            公共模块Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.CommonController.#ctor(Microsoft.Extensions.Options.IOptions{La.Infra.OptionsSetting},Microsoft.AspNetCore.Hosting.IWebHostEnvironment,La.Service.System.IService.ISysFileService)">
+            <summary>
+            公共模块Controller
+            </summary>
+            <param name="options"></param>
+            <param name="webHostEnvironment"></param>
+            <param name="fileService"></param>
+        </member>
         <member name="M:La.WebApi.Controllers.CommonController.Index">
             <summary>
             hello
@@ -114,6 +211,11 @@
             <param name="storeType">上传类型1、保存到本地 2、保存到阿里云</param>
             <returns></returns>
         </member>
+        <member name="T:La.WebApi.Controllers.UploadDto">
+            <summary>
+            对象传输
+            </summary>
+        </member>
         <member name="P:La.WebApi.Controllers.UploadDto.FileName">
             <summary>
             自定文件名
@@ -129,6 +231,11 @@
             文件名生成类型 1 原文件名 2 自定义 3 自动生成
             </summary>
         </member>
+        <member name="P:La.WebApi.Controllers.UploadDto.File">
+            <summary>
+            文件
+            </summary>
+        </member>
         <member name="T:La.WebApi.Controllers.FicoBomCostingController">
             <summary>
             bom成本核算Controller
@@ -142,6 +249,12 @@
             <summary>
             bom成本核算接口
             </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.FicoBomCostingController.#ctor(La.Service.Financial.IFinancialService.IFicoBomCostingService)">
+            <summary>
+            bom成本核算Controller
+            </summary>
+            <param name="FicoBomCostingService"></param>
         </member>
         <member name="M:La.WebApi.Controllers.FicoBomCostingController.QueryFicoBomCosting(La.Model.Dto.FicoBomCostingQueryDto)">
             <summary>
@@ -195,6 +308,12 @@
             预算实际明细接口
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.FicoBudgetactualCostController.#ctor(La.Service.Financial.IFinancialService.IFicoBudgetactualCostService)">
+            <summary>
+            预算实际明细接口
+            </summary>
+            <param name="FicoBudgetactualCostService"></param>
+        </member>
         <member name="M:La.WebApi.Controllers.FicoBudgetactualCostController.QueryFicoBudgetactualCost(La.Model.Dto.FicoBudgetactualCostQueryDto)">
             <summary>
             查询预算实际明细列表
@@ -247,6 +366,12 @@
             部门消耗接口
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.FicoDeptConsumingController.#ctor(La.Service.Financial.IFinancialService.IFicoDeptConsumingService)">
+            <summary>
+            部门消耗Controller
+            </summary>
+            <param name="FicoDeptConsumingService"></param>
+        </member>
         <member name="M:La.WebApi.Controllers.FicoDeptConsumingController.QueryFicoDeptConsuming(La.Model.Dto.FicoDeptConsumingQueryDto)">
             <summary>
             查询部门消耗列表
@@ -292,6 +417,12 @@
             <summary>
             汇率表接口
             </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.FicoExchangeRateController.#ctor(La.Service.Financial.IFinancialService.IFicoExchangeRateService)">
+            <summary>
+            汇率表Controller
+            </summary>
+            <param name="FicoExchangeRateService"></param>
         </member>
         <member name="M:La.WebApi.Controllers.FicoExchangeRateController.QueryFicoExchangeRate(La.Model.Dto.FicoExchangeRateQueryDto)">
             <summary>
@@ -341,6 +472,11 @@
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.FicoMonthInventoryController._FicoMonthInventoryService">
+            <summary>
+            月度存货明细接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.FicoMonthInventoryController.#ctor(La.Service.Financial.IFinancialService.IFicoMonthInventoryService)">
             <summary>
             月度存货明细接口
             </summary>
@@ -397,6 +533,11 @@
             财务期间接口
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.FicoPeriodController.#ctor(La.Service.Financial.IFinancialService.IFicoPeriodService)">
+            <summary>
+            财务期间接口
+            </summary>
+        </member>
         <member name="M:La.WebApi.Controllers.FicoPeriodController.QueryFicoPeriod(La.Model.Dto.FicoPeriodQueryDto)">
             <summary>
             查询财务期间列表
@@ -445,6 +586,11 @@
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.FicoPrctrController._FicoPrctrService">
+            <summary>
+            利润中心接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.FicoPrctrController.#ctor(La.Service.Financial.IFinancialService.IFicoPrctrService)">
             <summary>
             利润中心接口
             </summary>
@@ -501,6 +647,12 @@
             会计科目接口
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.FicoTitleController.#ctor(La.Service.Financial.IFinancialService.IFicoTitleService)">
+            <summary>
+            会计科目Controller
+            </summary>
+            <param name="FicoTitleService"></param>
+        </member>
         <member name="M:La.WebApi.Controllers.FicoTitleController.QueryFicoTitle(La.Model.Dto.FicoTitleQueryDto)">
             <summary>
             查询会计科目列表
@@ -549,6 +701,11 @@
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.FicoWageratesController._FicoWageratesService">
+            <summary>
+            工厂工资率接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.FicoWageratesController.#ctor(La.Service.Financial.IFinancialService.IFicoWageratesService)">
             <summary>
             工厂工资率接口
             </summary>
@@ -605,6 +762,11 @@
             原因类别接口
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.PpCauseTypeController.#ctor(La.Service.Production.IProductionService.IPpCauseTypeService)">
+            <summary>
+            原因类别接口
+            </summary>
+        </member>
         <member name="M:La.WebApi.Controllers.PpCauseTypeController.QueryPpCauseType(La.Model.Dto.PpCauseTypeQueryDto)">
             <summary>
             查询原因类别列表
@@ -653,6 +815,11 @@
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.PpLinesController._PpLinesService">
+            <summary>
+            生产班组接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpLinesController.#ctor(La.Service.Production.IProductionService.IPpLinesService)">
             <summary>
             生产班组接口
             </summary>
@@ -709,6 +876,11 @@
             标准工时接口
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.PpManhoursController.#ctor(La.Service.Production.IProductionService.IPpManhoursService)">
+            <summary>
+            标准工时接口
+            </summary>
+        </member>
         <member name="M:La.WebApi.Controllers.PpManhoursController.QueryPpManhours(La.Model.Dto.PpManhoursQueryDto)">
             <summary>
             查询标准工时列表
@@ -757,6 +929,11 @@
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.PpMfgOrderController._PpMfgOrderService">
+            <summary>
+            生产工单接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpMfgOrderController.#ctor(La.Service.Production.IProductionService.IPpMfgOrderService)">
             <summary>
             生产工单接口
             </summary>
@@ -813,6 +990,11 @@
             oph主表接口
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.PpOutputMasterController.#ctor(La.Service.Production.IProductionService.IPpOutputMasterService)">
+            <summary>
+            oph主表接口
+            </summary>
+        </member>
         <member name="M:La.WebApi.Controllers.PpOutputMasterController.QueryPpOutputMaster(La.Model.Dto.PpOutputMasterQueryDto)">
             <summary>
             查询oph主表列表
@@ -861,6 +1043,11 @@
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.PpOutputSlaveController._PpOutputSlaveService">
+            <summary>
+            oph从表接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpOutputSlaveController.#ctor(La.Service.Production.IProductionService.IPpOutputSlaveService)">
             <summary>
             oph从表接口
             </summary>
@@ -917,6 +1104,11 @@
             抽样标准接口
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.QmCheckAqlController.#ctor(La.Service.Quality.IQualityService.IQmCheckAqlService)">
+            <summary>
+            抽样标准接口
+            </summary>
+        </member>
         <member name="M:La.WebApi.Controllers.QmCheckAqlController.QueryQmCheckAql(La.Model.Dto.QmCheckAqlQueryDto)">
             <summary>
             查询抽样标准列表
@@ -961,6 +1153,11 @@
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.System.ArticleCategoryController._ArticleCategoryService">
+            <summary>
+            文章目录接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.System.ArticleCategoryController.#ctor(La.Service.System.IService.IArticleCategoryService)">
             <summary>
             文章目录接口
             </summary>
@@ -1026,6 +1223,11 @@
             文章接口
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.System.ArticleController.#ctor(La.Service.System.IService.IArticleService,La.Service.System.IService.IArticleCategoryService)">
+            <summary>
+            文章接口
+            </summary>
+        </member>
         <member name="M:La.WebApi.Controllers.System.ArticleController.Query(La.Model.System.Dto.ArticleQueryDto)">
             <summary>
             查询文章列表
@@ -1067,6 +1269,14 @@
             <summary>
             代码生成
             </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.System.CodeGeneratorController.#ctor(La.Service.System.IService.IGenTableService,La.Service.System.IService.IGenTableColumnService,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            代码生成接口
+            </summary>
+            <param name="genTableService"></param>
+            <param name="genTableColumnService"></param>
+            <param name="webHostEnvironment"></param>
         </member>
         <member name="M:La.WebApi.Controllers.System.CodeGeneratorController.GetListDataBase">
             <summary>
@@ -1160,6 +1370,11 @@
             多语言配置接口
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.System.CommonLangController.#ctor(La.Service.System.IService.ICommonLangService)">
+            <summary>
+            多语言配置接口
+            </summary>
+        </member>
         <member name="M:La.WebApi.Controllers.System.CommonLangController.QueryCommonLang(La.Model.Dto.CommonLangQueryDto)">
             <summary>
             查询多语言配置列表
@@ -1215,6 +1430,11 @@
             参数配置接口
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.System.SysConfigController.#ctor(La.Service.System.ISysConfigService)">
+            <summary>
+            参数配置接口
+            </summary>
+        </member>
         <member name="M:La.WebApi.Controllers.System.SysConfigController.QuerySysConfig(La.Model.System.Dto.SysConfigQueryDto)">
             <summary>
             查询参数配置列表
@@ -1255,8 +1475,25 @@
         </member>
         <member name="T:La.WebApi.Controllers.System.SysDeptController">
             <summary>
-            部门
+            部门Controller
             </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.System.SysDeptController.DeptService">
+            <summary>
+            部门接口DeptService
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.System.SysDeptController.UserService">
+            <summary>
+            用户接口UserService
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.System.SysDeptController.#ctor(La.Service.System.IService.ISysDeptService,La.Service.System.IService.ISysUserService)">
+            <summary>
+            部门Controller
+            </summary>
+            <param name="deptService"></param>
+            <param name="userService"></param>
         </member>
         <member name="M:La.WebApi.Controllers.System.SysDeptController.List(La.Model.System.SysDept)">
             <summary>
@@ -1317,6 +1554,13 @@
             数据字典信息
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.System.SysDictDataController.#ctor(La.Service.System.IService.ISysDictService,La.Service.System.IService.ISysDictDataService)">
+            <summary>
+            数据 字典接口
+            </summary>
+            <param name="sysDictService"></param>
+            <param name="sysDictDataService"></param>
+        </member>
         <member name="M:La.WebApi.Controllers.System.SysDictDataController.List(La.Model.System.SysDictData,La.Model.PagerInfo)">
             <summary>
             搜索
@@ -1372,6 +1616,12 @@
             数据字典信息
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.System.SysDictTypeController.#ctor(La.Service.System.IService.ISysDictService)">
+            <summary>
+            数据字典
+            </summary>
+            <param name="sysDictService"></param>
+        </member>
         <member name="M:La.WebApi.Controllers.System.SysDictTypeController.List(La.Model.System.SysDictType,La.Model.PagerInfo)">
             <summary>
             查询
@@ -1417,6 +1667,20 @@
             <summary>
             登录
             </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.System.SysLoginController.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,La.Service.System.IService.ISysMenuService,La.Service.System.IService.ISysUserService,La.Service.System.IService.ISysLoginService,La.Service.System.IService.ISysPermissionService,La.Service.System.ISysConfigService,La.Service.System.IService.ISysRoleService,Hei.Captcha.SecurityCodeHelper,Microsoft.Extensions.Options.IOptions{La.Infra.OptionsSetting})">
+            <summary>
+            日志接口
+            </summary>
+            <param name="contextAccessor"></param>
+            <param name="sysMenuService"></param>
+            <param name="sysUserService"></param>
+            <param name="sysLoginService"></param>
+            <param name="permissionService"></param>
+            <param name="configService"></param>
+            <param name="sysRoleService"></param>
+            <param name="captcha"></param>
+            <param name="jwtSettings"></param>
         </member>
         <member name="M:La.WebApi.Controllers.System.SysLoginController.Login(La.Model.System.Dto.LoginBodyDto)">
             <summary>
@@ -1475,6 +1739,14 @@
             <summary>
             系统菜单
             </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.System.SysMenuController.#ctor(La.Service.System.IService.ISysRoleService,La.Service.System.IService.ISysMenuService,La.Service.System.IService.ISysRoleMenuService)">
+            <summary>
+            SysMenuController
+            </summary>
+            <param name="sysRoleService"></param>
+            <param name="sysMenuService"></param>
+            <param name="sysRoleMenuService"></param>
         </member>
         <member name="M:La.WebApi.Controllers.System.SysMenuController.TreeMenuList(La.Model.System.Dto.MenuQueryDto)">
             <summary>
@@ -1543,6 +1815,11 @@
             通知公告表接口
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.System.SysNoticeController.#ctor(La.Service.System.IService.ISysNoticeService,Microsoft.AspNetCore.SignalR.IHubContext{La.WebApi.Hubs.MessageHub})">
+            <summary>
+            通知公告表接口
+            </summary>
+        </member>
         <member name="M:La.WebApi.Controllers.System.SysNoticeController.QueryNotice(La.Model.System.Dto.SysNoticeQueryDto)">
             <summary>
             查询通知公告表列表
@@ -1597,6 +1874,12 @@
             岗位管理
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.System.SysPostController.#ctor(La.Service.System.IService.ISysPostService)">
+            <summary>
+            岗位管理
+            </summary>
+            <param name="postService"></param>
+        </member>
         <member name="M:La.WebApi.Controllers.System.SysPostController.List(La.Model.System.SysPost,La.Model.PagerInfo)">
             <summary>
             岗位列表查询
@@ -1647,6 +1930,17 @@
             个人中心
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.System.SysProfileController.#ctor(La.Service.System.IService.ISysUserService,La.Service.System.IService.ISysRoleService,La.Service.System.IService.ISysUserPostService,La.Service.System.IService.ISysDeptService,La.Service.System.IService.ISysFileService,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            个人中心
+            </summary>
+            <param name="userService"></param>
+            <param name="roleService"></param>
+            <param name="postService"></param>
+            <param name="deptService"></param>
+            <param name="sysFileService"></param>
+            <param name="hostEnvironment"></param>
+        </member>
         <member name="M:La.WebApi.Controllers.System.SysProfileController.Profile">
             <summary>
             个人中心用户信息获取
@@ -1676,6 +1970,12 @@
             <summary>
             角色信息
             </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.System.SysRoleController.#ctor(La.Service.System.IService.ISysRoleService)">
+            <summary>
+            角色信息
+            </summary>
+            <param name="sysRoleService"></param>
         </member>
         <member name="M:La.WebApi.Controllers.System.SysRoleController.List(La.Model.System.SysRole,La.Model.PagerInfo)">
             <summary>
@@ -1735,6 +2035,15 @@
             <summary>
             用户管理
             </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.System.SysUserController.#ctor(La.Service.System.IService.ISysUserService,La.Service.System.IService.ISysRoleService,La.Service.System.IService.ISysPostService,La.Service.System.IService.ISysUserPostService)">
+            <summary>
+            SysUserController
+            </summary>
+            <param name="userService"></param>
+            <param name="roleService"></param>
+            <param name="postService"></param>
+            <param name="userPostService"></param>
         </member>
         <member name="M:La.WebApi.Controllers.System.SysUserController.List(La.Model.System.SysUser,La.Model.PagerInfo)">
             <summary>
@@ -1809,6 +2118,13 @@
             用户角色管理
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.System.SysUserRoleController.#ctor(La.Service.System.IService.ISysUserRoleService,La.Service.System.IService.ISysUserService)">
+            <summary>
+            
+            </summary>
+            <param name="sysUserRoleService"></param>
+            <param name="userService"></param>
+        </member>
         <member name="M:La.WebApi.Controllers.System.SysUserRoleController.GetList(La.Model.System.Dto.RoleUserQueryDto)">
             <summary>
             根据角色编号获取已分配的用户
@@ -1840,6 +2156,13 @@
             <summary>
             计划任务
             </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.System.TasksController.#ctor(La.Service.System.IService.ISysTasksQzService,La.Tasks.ITaskSchedulerServer)">
+            <summary>
+            计划任务TasksController
+            </summary>
+            <param name="sysTasksQzService"></param>
+            <param name="taskScheduler"></param>
         </member>
         <member name="M:La.WebApi.Controllers.System.TasksController.ListTask(La.Model.System.Dto.TasksQueryDto,La.Model.PagerInfo)">
             <summary>
@@ -1902,6 +2225,12 @@
             任务日志
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.System.TasksLogController.#ctor(La.Service.System.IService.ISysTasksLogService)">
+            <summary>
+            任务日志TasksLogController
+            </summary>
+            <param name="tasksLogService"></param>
+        </member>
         <member name="M:La.WebApi.Controllers.System.TasksLogController.GetList(La.Model.PagerInfo,La.Model.System.Dto.TasksLogQueryDto)">
             <summary>
             查询日志
@@ -1934,6 +2263,13 @@
             系统监控
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.monitor.MonitorController.#ctor(Microsoft.Extensions.Options.IOptions{La.Infra.OptionsSetting},Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            监控接口
+            </summary>
+            <param name="options"></param>
+            <param name="hostEnvironment"></param>
+        </member>
         <member name="M:La.WebApi.Controllers.monitor.MonitorController.GetCache">
             <summary>
             获取缓存监控数据
@@ -1950,6 +2286,12 @@
             <summary>
             系统访问记录
             </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.monitor.SysLogininforController.#ctor(La.Service.System.IService.ISysLoginService)">
+            <summary>
+            日志接口
+            </summary>
+            <param name="sysLoginService"></param>
         </member>
         <member name="M:La.WebApi.Controllers.monitor.SysLogininforController.LoignLogList(La.Model.System.SysLogininfor,La.Model.PagerInfo)">
             <summary>
@@ -1982,6 +2324,13 @@
             操作日志记录
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.monitor.SysOperlogController.#ctor(La.Service.System.IService.ISysOperLogService,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            操作接口
+            </summary>
+            <param name="sysOperLogService"></param>
+            <param name="hostEnvironment"></param>
+        </member>
         <member name="M:La.WebApi.Controllers.monitor.SysOperlogController.OperList(La.Model.System.Dto.SysOperLogDto)">
             <summary>
             查询操作日志
@@ -2013,6 +2362,13 @@
             在线管理
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.monitor.SysUserOnlineController.#ctor(Microsoft.Extensions.Logging.ILogger{La.WebApi.Controllers.monitor.SysUserOnlineController},Microsoft.AspNetCore.SignalR.IHubContext{La.WebApi.Hubs.MessageHub})">
+            <summary>
+            在线日志
+            </summary>
+            <param name="logger"></param>
+            <param name="hub"></param>
+        </member>
         <member name="M:La.WebApi.Controllers.monitor.SysUserOnlineController.PageList(La.WebApi.Hubs.OnlineUsers)">
             <summary>
             动态条件获取当前在线用户
@@ -2029,60 +2385,53 @@
         </member>
         <member name="T:La.WebApi.Controllers.SysEtDictController">
             <summary>
-            电子技术辞典Controller
+            电子辞典Controller
             
             @tableName sys_et_dict
             @author Laplace.Net:Davis.Cheng
-            @date 2023-02-10
+            @date 2023-02-18
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.SysEtDictController._SysEtDictService">
             <summary>
-            电子技术辞典接口
+            电子辞典接口
             </summary>
         </member>
-        <member name="M:La.WebApi.Controllers.SysEtDictController.QuerySysEtDict(La.Model.Dto.EtDictQueryDto)">
+        <member name="M:La.WebApi.Controllers.SysEtDictController.#ctor(La.Service.System.ISystemService.ISysEtDictService)">
             <summary>
-            查询电子技术辞典列表
+            电子辞典接口
+            </summary>
+            <param name="SysEtDictService"></param>
+        </member>
+        <member name="M:La.WebApi.Controllers.SysEtDictController.QuerySysEtDict(La.Model.Dto.SysEtDictQueryDto)">
+            <summary>
+            查询电子辞典列表
             </summary>
             <param name="parm"></param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.SysEtDictController.QuerySysEtDicts(System.String)">
+        <member name="M:La.WebApi.Controllers.SysEtDictController.GetSysEtDict(System.Int64)">
             <summary>
-            查询多语言配置列表
+            查询电子辞典详情
+            </summary>
+            <param name="EtGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SysEtDictController.AddSysEtDict(La.Model.Dto.SysEtDictDto)">
+            <summary>
+            添加电子辞典
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.SysEtDictController.GeSysEtDict(System.Int64)">
+        <member name="M:La.WebApi.Controllers.SysEtDictController.UpdateSysEtDict(La.Model.Dto.SysEtDictDto)">
             <summary>
-            查询多语言配置详情
-            </summary>
-            <param name="Id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.SysEtDictController.GetSysEtDictByKey(System.String)">
-            <summary>
-            查询多语言配置详情
-            </summary>
-            <param name="langKey"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.SysEtDictController.UpdateSysEtDict(La.Model.Dto.EtDictDto)">
-            <summary>
-            更新多语言配置
+            更新电子辞典
             </summary>
             <returns></returns>
         </member>
         <member name="M:La.WebApi.Controllers.SysEtDictController.DeleteSysEtDict(System.String)">
             <summary>
-            删除多语言配置
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.SysEtDictController.AddSysEtDict(La.Model.Dto.EtDictDto)">
-            <summary>
-            添加电子技术辞典
+            删除电子辞典
             </summary>
             <returns></returns>
         </member>
@@ -2092,6 +2441,11 @@
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.SysFileController._SysFileService">
+            <summary>
+            文件存储接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.SysFileController.#ctor(La.Service.System.IService.ISysFileService)">
             <summary>
             文件存储接口
             </summary>
@@ -2136,6 +2490,12 @@
             工作流接口
             </summary>
         </member>
+        <member name="M:La.WebApi.Controllers.SysWorkFlowController.#ctor(La.Service.Workflow.IWorkflowService.ISysWorkFlowService)">
+            <summary>
+            工作流接口
+            </summary>
+            <param name="SysWorkFlowService"></param>
+        </member>
         <member name="M:La.WebApi.Controllers.SysWorkFlowController.QuerySysWorkFlow(La.Model.Dto.SysWorkFlowQueryDto)">
             <summary>
             查询工作流列表
@@ -2168,6 +2528,54 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:La.WebApi.Extensions.DbExtension">
+            <summary>
+            数据访问框架
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Extensions.DbExtension.logger">
+            <summary>
+            logger
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Extensions.DbExtension.DATA_SCOPE_ALL">
+            <summary>
+            DATA_SCOPE_ALL
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Extensions.DbExtension.DATA_SCOPE_CUSTOM">
+            <summary>
+            DATA_SCOPE_CUSTOM
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Extensions.DbExtension.DATA_SCOPE_DEPT">
+            <summary>
+            DATA_SCOPE_DEPT
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Extensions.DbExtension.DATA_SCOPE_DEPT_AND_CHILD">
+            <summary>
+            DATA_SCOPE_DEPT_AND_CHILD
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Extensions.DbExtension.DATA_SCOPE_SELF">
+            <summary>
+            DATA_SCOPE_SELF
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Extensions.DbExtension.AddDb(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            新增DB
+            </summary>
+            <param name="Configuration"></param>
+        </member>
+        <member name="M:La.WebApi.Extensions.DbExtension.SetSugarAop(SqlSugar.SqlSugarClient,SqlSugar.IOC.IocConfig)">
+            <summary>
+            设置sqlsugar 多租户设置AOP
+            </summary>
+            <param name="db"></param>
+            <param name="iocConfig"></param>
+        </member>
         <member name="M:La.WebApi.Extensions.DbExtension.InitDb(System.IServiceProvider)">
             <summary>
             初始化db
@@ -2179,6 +2587,29 @@
             数据过滤
             </summary>
             <param name="configId">多库id</param>
+        </member>
+        <member name="T:La.WebApi.Extensions.EntityExtension">
+            <summary>
+            实体扩展
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Extensions.EntityExtension.ToCreate``1(``0,Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            创建默认字段
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Extensions.EntityExtension.ToUpdate``1(``0,Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            更新默认字段
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <param name="context"></param>
+            <returns></returns>
         </member>
         <member name="T:La.WebApi.Extensions.HttpContextExtension">
             <summary>
@@ -2197,6 +2628,13 @@
             获取客户端IP
             </summary>
             <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Extensions.HttpContextExtension.IsIP(System.String)">
+            <summary>
+            获取客户端IP
+            </summary>
+            <param name="ip"></param>
             <returns></returns>
         </member>
         <member name="M:La.WebApi.Extensions.HttpContextExtension.GetUId(Microsoft.AspNetCore.Http.HttpContext)">
@@ -2227,9 +2665,37 @@
             <param name="context"></param>
             <returns></returns>
         </member>
+        <member name="M:La.WebApi.Extensions.HttpContextExtension.GetUserAgent(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            用户代理
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
         <member name="M:La.WebApi.Extensions.HttpContextExtension.GetToken(Microsoft.AspNetCore.Http.HttpContext)">
             <summary>
             获取请求令牌
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Extensions.HttpContextExtension.GetClientInfo(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            ClientInfo
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Extensions.HttpContextExtension.GetRequestUrl(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            GetRequestUrl
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Extensions.HttpContextExtension.GetQueryString(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            GetQueryString
             </summary>
             <param name="context"></param>
             <returns></returns>
@@ -2241,16 +2707,59 @@
             <param name="operLog"></param>
             <param name="context"></param>
         </member>
+        <member name="T:La.WebApi.Extensions.IPRateExtension">
+            <summary>
+            加载Ip规则
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Extensions.IPRateExtension.AddIPRate(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            加载Ip规则
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:La.WebApi.Extensions.LogoExtension">
+            <summary>
+            加载Logo
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Extensions.LogoExtension.AddLogo(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            加载Logo
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:La.WebApi.Extensions.SwaggerExtension">
+            <summary>
+            UseSwagger
+            </summary>
+        </member>
         <member name="M:La.WebApi.Extensions.SwaggerExtension.UseSwagger(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
             <summary>
-            
+            UseSwagger
             </summary>
             <param name="app"></param>
+        </member>
+        <member name="M:La.WebApi.Extensions.SwaggerExtension.AddSwaggerConfig(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            AddSwaggerConfig
+            </summary>
+            <param name="services"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="T:La.WebApi.Extensions.TasksExtension">
             <summary>
             定时任务扩展方法
             </summary>
+        </member>
+        <member name="M:La.WebApi.Extensions.TasksExtension.AddTaskSchedulers(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            定时任务扩展方法
+            </summary>
+            <param name="services"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
         </member>
         <member name="M:La.WebApi.Extensions.TasksExtension.UseAddTaskSchedulers(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
             <summary>
@@ -2269,6 +2778,17 @@
             权限字符串，例如 system:user:view
             </summary>
         </member>
+        <member name="M:La.WebApi.Filters.ActionPermissionFilter.#ctor">
+            <summary>
+            API授权判断
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Filters.ActionPermissionFilter.#ctor(System.String)">
+            <summary>
+            API授权判断
+            </summary>
+            <param name="permission"></param>
+        </member>
         <member name="M:La.WebApi.Filters.ActionPermissionFilter.OnActionExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext,Microsoft.AspNetCore.Mvc.Filters.ActionExecutionDelegate)">
             <summary>
             执行Action前校验是否有权限访问
@@ -2276,6 +2796,17 @@
             <param name="context"></param>
             <param name="next"></param>
             <returns></returns>
+        </member>
+        <member name="T:La.WebApi.Filters.GlobalActionMonitor">
+            <summary>
+            全局Action请求
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Filters.GlobalActionMonitor.#ctor(La.Service.System.IService.ISysOperLogService)">
+            <summary>
+            Action请求
+            </summary>
+            <param name="operLogService"></param>
         </member>
         <member name="M:La.WebApi.Filters.GlobalActionMonitor.OnActionExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext,Microsoft.AspNetCore.Mvc.Filters.ActionExecutionDelegate)">
             <summary>
@@ -2291,6 +2822,13 @@
             </summary>
             <param name="context"></param>
         </member>
+        <member name="M:La.WebApi.Filters.GlobalActionMonitor.GetLogAttribute(Microsoft.AspNetCore.Mvc.Controllers.ControllerActionDescriptor)">
+            <summary>
+            Action请求
+            </summary>
+            <param name="controllerActionDescriptor"></param>
+            <returns></returns>
+        </member>
         <member name="T:La.WebApi.Filters.VerifyAttribute">
             <summary>
             授权校验访问
@@ -2303,6 +2841,74 @@
             如果需要判断权限的在Action上加上ApiActionPermission属性标识权限类别，ActionPermissionFilter作权限处理
             </summary>
             <param name="context"></param>
+        </member>
+        <member name="T:La.WebApi.Framework.CookieUtil">
+            <summary>
+            cookie
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Framework.CookieUtil.WhiteCookie(Microsoft.AspNetCore.Http.HttpContext,System.Collections.Generic.List{System.Security.Claims.Claim})">
+            <summary>
+            cookie
+            </summary>
+            <param name="context"></param>
+            <param name="claims"></param>
+        </member>
+        <member name="T:La.WebApi.Framework.JsonConverterUtil">
+            <summary>
+            JsonConverterUtil
+            </summary>
+        </member>
+        <member name="T:La.WebApi.Framework.JsonConverterUtil.DateTimeNullConverter">
+            <summary>
+            JsonConverter
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Framework.JsonConverterUtil.DateTimeNullConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Read
+            </summary>
+            <param name="reader"></param>
+            <param name="typeToConvert"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Framework.JsonConverterUtil.DateTimeNullConverter.Write(System.Text.Json.Utf8JsonWriter,System.Nullable{System.DateTime},System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Write
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="T:La.WebApi.Framework.JsonConverterUtil.DateTimeConverter">
+            <summary>
+            JsonConverter
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Framework.JsonConverterUtil.DateTimeConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Read
+            </summary>
+            <param name="reader"></param>
+            <param name="typeToConvert"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Framework.JsonConverterUtil.DateTimeConverter.Write(System.Text.Json.Utf8JsonWriter,System.DateTime,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Write
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:La.WebApi.Framework.JsonConverterUtil.ParseDateTime(System.String)">
+            <summary>
+            ParseDateTime
+            </summary>
+            <param name="dateStr"></param>
+            <returns></returns>
         </member>
         <member name="T:La.WebApi.Framework.JwtUtil">
             <summary>
@@ -2351,6 +2957,38 @@
              <param name="user"></param>
              <returns></returns>
         </member>
+        <member name="T:La.WebApi.Hubs.MessageHub">
+            <summary>
+            用户数据
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Hubs.MessageHub.clientUsers">
+            <summary>
+            用户数据
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Hubs.MessageHub.logger">
+            <summary>
+            logger
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Hubs.MessageHub.SysNoticeService">
+            <summary>
+            接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Hubs.MessageHub.#ctor(La.Service.System.IService.ISysNoticeService)">
+            <summary>
+            用户数据
+            </summary>
+            <param name="noticeService"></param>
+        </member>
+        <member name="M:La.WebApi.Hubs.MessageHub.SendNotice">
+            <summary>
+            用户数据
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:La.WebApi.Hubs.MessageHub.OnConnectedAsync">
             <summary>
             客户端连接的时候调用
@@ -2372,6 +3010,22 @@
             <param name="message"></param>
             <returns></returns>
         </member>
+        <member name="T:La.WebApi.Hubs.OnlineUsers">
+            <summary>
+            在线用户
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Hubs.OnlineUsers.#ctor">
+            <summary>
+            在线用户
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Hubs.OnlineUsers.#ctor(System.String)">
+            <summary>
+            在线用户
+            </summary>
+            <param name="connnectionId"></param>
+        </member>
         <member name="P:La.WebApi.Hubs.OnlineUsers.ConnnectionId">
             <summary>
             客户端连接Id
@@ -2382,12 +3036,87 @@
             用户id
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "T:La.WebApi.Middleware.GlobalExceptionMiddleware" -->
+        <member name="P:La.WebApi.Hubs.OnlineUsers.UserName">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="P:La.WebApi.Hubs.OnlineUsers.LoginTime">
+            <summary>
+            登入时间
+            </summary>
+        </member>
+        <member name="P:La.WebApi.Hubs.OnlineUsers.Ipaddr">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="P:La.WebApi.Hubs.OnlineUsers.LoginLocation">
+            <summary>
+            登入位置
+            </summary>
+        </member>
+        <member name="P:La.WebApi.Hubs.OnlineUsers.Os">
+            <summary>
+            系统
+            </summary>
+        </member>
+        <member name="P:La.WebApi.Hubs.OnlineUsers.Browser">
+            <summary>
+            浏览器
+            </summary>
+        </member>
+        <member name="T:La.WebApi.Middleware.GlobalExceptionMiddleware">
+            <summary>
+            全局异常处理中间件调用
+            
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Middleware.GlobalExceptionMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,La.Service.System.IService.ISysOperLogService)">
+            <summary>
+            全局异常处理中间件调用
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Middleware.GlobalExceptionMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            任务
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Middleware.GlobalExceptionMiddleware.HandleExceptionAsync(Microsoft.AspNetCore.Http.HttpContext,System.Exception)">
+            <summary>
+            .NET全局异常处理HandleExceptionAsync
+            </summary>
+            <param name="context"></param>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Middleware.GlobalExceptionMiddleware.GetEndpoint(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            终结点路由GetEndpoint
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
         <member name="T:LaAdmin.Filters.GlobalExceptionFilter">
             <summary>
             全局异常捕获
             暂时没用了，改为中间件 2021-2-26
             </summary>
+        </member>
+        <member name="M:LaAdmin.Filters.GlobalExceptionFilter.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            全局异常捕获
+            </summary>
+            <param name="environment"></param>
+        </member>
+        <member name="M:LaAdmin.Filters.GlobalExceptionFilter.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            全局异常捕获
+            </summary>
+            <param name="context"></param>
         </member>
     </members>
 </doc>

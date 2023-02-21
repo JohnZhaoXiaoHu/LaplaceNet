@@ -21,7 +21,10 @@ namespace La.WebApi.Controllers.System
     public class TasksLogController : BaseController
     {
         private readonly ISysTasksLogService tasksLogService;
-
+        /// <summary>
+        /// 任务日志TasksLogController
+        /// </summary>
+        /// <param name="tasksLogService"></param>
         public TasksLogController(ISysTasksLogService tasksLogService)
         {
             this.tasksLogService = tasksLogService;

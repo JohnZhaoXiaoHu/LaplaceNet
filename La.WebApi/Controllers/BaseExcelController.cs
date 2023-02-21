@@ -11,10 +11,23 @@ using FF = System.IO;
 
 namespace La.WebApi.Controllers
 {
+    /// <summary>
+    /// 标准ExcelController
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     [ApiController]
+
+
     public class BaseExcelController<T> : ControllerBase where T : class, new()
     {
+        /// <summary>
+        /// 标准ExcelController
+        /// </summary>
         protected IRepository<T> _repository;
+        /// <summary>
+        /// BaseExcelController
+        /// </summary>
+        /// <param name="repository"></param>
         public BaseExcelController(IRepository<T> repository)
         {
             _repository = repository;

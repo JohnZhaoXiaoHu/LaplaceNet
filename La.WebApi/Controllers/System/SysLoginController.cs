@@ -36,7 +36,18 @@ namespace La.WebApi.Controllers.System
         private readonly ISysConfigService sysConfigService;
         private readonly ISysRoleService roleService;
         private readonly OptionsSetting jwtSettings;
-
+        /// <summary>
+        /// 日志接口
+        /// </summary>
+        /// <param name="contextAccessor"></param>
+        /// <param name="sysMenuService"></param>
+        /// <param name="sysUserService"></param>
+        /// <param name="sysLoginService"></param>
+        /// <param name="permissionService"></param>
+        /// <param name="configService"></param>
+        /// <param name="sysRoleService"></param>
+        /// <param name="captcha"></param>
+        /// <param name="jwtSettings"></param>
         public SysLoginController(
             IHttpContextAccessor contextAccessor,
             ISysMenuService sysMenuService,

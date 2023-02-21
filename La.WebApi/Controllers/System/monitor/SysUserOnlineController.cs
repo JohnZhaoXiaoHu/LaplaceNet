@@ -27,6 +27,11 @@ namespace La.WebApi.Controllers.monitor
     {
         private ILogger<SysUserOnlineController> _logger;
         private IHubContext<MessageHub> _hub;
+        /// <summary>
+        /// 在线日志
+        /// </summary>
+        /// <param name="logger"></param>
+        /// <param name="hub"></param>
         public SysUserOnlineController(ILogger<SysUserOnlineController> logger, IHubContext<MessageHub> hub)
         {
             _logger = logger;

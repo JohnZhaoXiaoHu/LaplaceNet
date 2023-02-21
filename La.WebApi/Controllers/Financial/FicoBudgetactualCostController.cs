@@ -29,7 +29,10 @@ namespace La.WebApi.Controllers
         /// 预算实际明细接口
         /// </summary>
         private readonly IFicoBudgetactualCostService _FicoBudgetactualCostService;
-
+        /// <summary>
+        /// 预算实际明细接口
+        /// </summary>
+        /// <param name="FicoBudgetactualCostService"></param>
         public FicoBudgetactualCostController(IFicoBudgetactualCostService FicoBudgetactualCostService)
         {
             _FicoBudgetactualCostService = FicoBudgetactualCostService;
@@ -76,11 +79,8 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-        /// <summary>
-        /// 校验输入项目是否唯一
-        /// </summary>
-        /// <param name="entryString"></param>
-        /// <returns></returns>
+// 校验输入项目是否唯一
+
             if (UserConstants.NOT_UNIQUE.Equals(_FicoBudgetactualCostService.CheckEntryStringUnique(parm.FbId.ToString())))
             {
                 return ToResponse(ApiResult.Error($"新增预算实际明细 '{parm.FbId}'失败，输入的预算实际明细已存在"));

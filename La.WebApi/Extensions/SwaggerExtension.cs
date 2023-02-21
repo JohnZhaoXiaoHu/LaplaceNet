@@ -5,10 +5,13 @@ using Swashbuckle.AspNetCore.Filters;
 
 namespace La.WebApi.Extensions
 {
+    /// <summary>
+    /// UseSwagger
+    /// </summary>
     public static class SwaggerExtension
     {
         /// <summary>
-        /// 
+        /// UseSwagger
         /// </summary>
         /// <param name="app"></param>
         public static void UseSwagger(this IApplicationBuilder app)
@@ -34,7 +37,11 @@ namespace La.WebApi.Extensions
             });
             app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "Laplace.Net v1"));
         }
-
+        /// <summary>
+        /// AddSwaggerConfig
+        /// </summary>
+        /// <param name="services"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public static void AddSwaggerConfig(this IServiceCollection services)
         {
             if (services == null) throw new ArgumentNullException(nameof(services));

@@ -29,7 +29,9 @@ namespace La.WebApi.Controllers
         /// oph从表接口
         /// </summary>
         private readonly IPpOutputSlaveService _PpOutputSlaveService;
-
+        /// <summary>
+        /// oph从表接口
+        /// </summary>
         public PpOutputSlaveController(IPpOutputSlaveService PpOutputSlaveService)
         {
             _PpOutputSlaveService = PpOutputSlaveService;
@@ -76,11 +78,7 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-        /// <summary>
-        /// 校验输入项目是否唯一
-        /// </summary>
-        /// <param name="entryString"></param>
-        /// <returns></returns>
+            // 校验输入项目是否唯一
             if (UserConstants.NOT_UNIQUE.Equals(_PpOutputSlaveService.CheckEntryStringUnique(parm.PomGuid + parm.PosStartEndTime)))
             {
                 return ToResponse(ApiResult.Error($"新增oph从表 '{parm.PomGuid +","+ parm.PosStartEndTime}'失败，输入的oph从表已存在"));

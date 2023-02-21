@@ -1,11 +1,3 @@
-<!--
- * @Descripttion: (导航/页面路径)
- * @version: (1.0)
- * @Author: (Laplace.Net:Davis.Cheng)
- * @Date: (2023-01-15)
- * @LastEditors: (Laplace.Net:Davis.Cheng)
- * @LastEditTime: (2023-01-15)
--->
 <template>
   <div class="navbar" :data-theme="sideTheme" :class="appStore.device">
     <hamburger id="hamburger-container" :is-active="appStore.sidebar.opened" class="hamburger-container"
@@ -16,15 +8,15 @@
     </template>
 
     <div class="right-menu">
-      <header-search id="header-search" :title="$t('btn.search')" class="right-menu-item" />
+      <header-search id="header-search" class="right-menu-item" />
       <template v-if="appStore.device == 'desktop'">
-        <LaplaceNet-git :title="$t('layout.codeSourceAddress')" class="right-menu-item" />
-        <LaplaceNet-doc :title="$t('layout.helpguide')" class="right-menu-item" />
-        <screenfull :title="$t('layout.fullscreen')" class="right-menu-item" />
+        <La-git title="源码地址" class="right-menu-item" />
+        <La-doc title="文档地址" class="right-menu-item" />
+        <screenfull title="全屏" class="right-menu-item" />
       </template>
-      <size-select :title="$t('layout.sizeSelect')" class="right-menu-item" />
-      <LangSelect :title="$t('layout.multiLanguage')" class="right-menu-item" />
-      <Notice :title="$t('layout.notice')" class="right-menu-item" />
+      <size-select title="布局大小" class="right-menu-item" />
+      <LangSelect title="语言设置" class="right-menu-item" />
+      <Notice title="通知" class="right-menu-item" />
 
       <el-dropdown @command="handleCommand" class="right-menu-item avatar-container" trigger="hover">
         <span class="avatar-wrapper">
@@ -43,7 +35,7 @@
               <span>{{ $t('layout.layoutSetting') }}</span>
             </el-dropdown-item>
             <el-dropdown-item command="copyToken">
-              <span>{{ $t('layout.myToken') }}</span>
+              <span>复制token</span>
             </el-dropdown-item>
             <el-dropdown-item divided command="logout">
               <span>{{ $t('layout.logOut') }}</span>
@@ -62,14 +54,16 @@
   import Screenfull from '@/components/Screenfull'
   import SizeSelect from '@/components/SizeSelect'
   import HeaderSearch from '@/components/HeaderSearch'
-  import LaplaceNetGit from '@/components/LaplaceNet/Git'
-  import LaplaceNetDoc from '@/components/LaplaceNet/Doc'
+  import LaGit from '@/components/LaplaceNet/Git'
+  import LaDoc from '@/components/LaplaceNet/Doc'
   import Notice from '@/components/Notice/Index'
   import LangSelect from '@/components/LangSelect/index'
   import useAppStore from '@/store/modules/app'
   import useUserStore from '@/store/modules/user'
   import useSettingsStore from '@/store/modules/settings'
-  import { useClipboard } from '@vueuse/core'
+  // import { useClipboard } from '@vueuse/core'
+  import useClipboard from 'vue-clipboard3'
+  const { toClipboard } = useClipboard()
   const { proxy } = getCurrentInstance()
   const appStore = useAppStore()
   const userStore = useUserStore()
@@ -96,21 +90,20 @@
     }
   }
 
-  const { copy, isSupported } = useClipboard()
   const copyText = async (val) => {
-    if (isSupported) {
-      copy('Bearer ' + val)
-      proxy.$modal.msgSuccess(proxy.$t('common.copySucceed'))
-    } else {
-      alert(val)
-      proxy.$modal.msgError(proxy.$t('layout.mybrowserNg'))
+    try {
+      await toClipboard(val)
+      proxy.$modal.msgSuccess('复制成功！')
+    } catch (e) {
+      console.log(e)
+      proxy.$modal.msgError('当前浏览器不支持')
     }
   }
   function logout() {
     proxy
       .$confirm(proxy.$t('layout.logOutConfirm'), proxy.$t('common.tips'), {
-        confirmButtonText: proxy.$t('btn.submit'),
-        cancelButtonText: proxy.$t('btn.cancel'),
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
         type: 'warning'
       })
       .then(() => {

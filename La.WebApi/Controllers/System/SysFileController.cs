@@ -22,7 +22,9 @@ namespace La.WebApi.Controllers
         /// 文件存储接口
         /// </summary>
         private readonly ISysFileService _SysFileService;
-
+        /// <summary>
+        /// 文件存储接口
+        /// </summary>
         public SysFileController(ISysFileService SysFileService)
         {
             _SysFileService = SysFileService;

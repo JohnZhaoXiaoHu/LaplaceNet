@@ -20,7 +20,10 @@ namespace La.WebApi.Controllers.System
     public class SysRoleController : BaseController
     {
         private readonly ISysRoleService sysRoleService;
-
+        /// <summary>
+        /// 角色信息
+        /// </summary>
+        /// <param name="sysRoleService"></param>
         public SysRoleController(
             ISysRoleService sysRoleService)
         {

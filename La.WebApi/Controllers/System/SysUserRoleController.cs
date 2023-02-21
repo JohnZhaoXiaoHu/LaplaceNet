@@ -16,7 +16,11 @@ namespace La.WebApi.Controllers.System
     {
         private readonly ISysUserRoleService SysUserRoleService;
         private readonly ISysUserService UserService;
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sysUserRoleService"></param>
+        /// <param name="userService"></param>
         public SysUserRoleController(
             ISysUserRoleService sysUserRoleService,
             ISysUserService userService)

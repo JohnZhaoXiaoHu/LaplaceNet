@@ -5,8 +5,17 @@ using System;
 
 namespace La.WebApi.Extensions
 {
+    /// <summary>
+    /// 加载Ip规则
+    /// </summary>
     public static class IPRateExtension
     {
+        /// <summary>
+        /// 加载Ip规则
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="configuration"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public static void AddIPRate(this IServiceCollection services, IConfiguration configuration)
         {
             if (services == null) throw new ArgumentNullException(nameof(services));

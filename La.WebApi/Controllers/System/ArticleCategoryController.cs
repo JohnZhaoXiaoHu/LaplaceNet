@@ -24,7 +24,9 @@ namespace La.WebApi.Controllers.System
         /// 文章目录接口
         /// </summary>
         private readonly IArticleCategoryService _ArticleCategoryService;
-
+        /// <summary>
+        /// 文章目录接口
+        /// </summary>
         public ArticleCategoryController(IArticleCategoryService ArticleCategoryService)
         {
             _ArticleCategoryService = ArticleCategoryService;

@@ -27,11 +27,20 @@ namespace La.WebApi.Controllers
     [Route("[controller]/[action]")]
     public class CommonController : BaseController
     {
+        /// <summary>
+        /// 公共模块Controller
+        /// </summary>
         private OptionsSetting OptionsSetting;
         private NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
         private IWebHostEnvironment WebHostEnvironment;
         private ISysFileService SysFileService;
+        /// <summary>
+        /// 公共模块Controller
+        /// </summary>
+        /// <param name="options"></param>
+        /// <param name="webHostEnvironment"></param>
+        /// <param name="fileService"></param>
         public CommonController(IOptions<OptionsSetting> options, IWebHostEnvironment webHostEnvironment, ISysFileService fileService)
         {
             WebHostEnvironment = webHostEnvironment;
@@ -164,7 +173,9 @@ namespace La.WebApi.Controllers
 
         #endregion
     }
-
+    /// <summary>
+    /// 对象传输
+    /// </summary>
     public class UploadDto
     {
         /// <summary>
@@ -179,6 +190,9 @@ namespace La.WebApi.Controllers
         /// 文件名生成类型 1 原文件名 2 自定义 3 自动生成
         /// </summary>
         public int FileNameType { get; set; }
+        /// <summary>
+        /// 文件
+        /// </summary>
         public IFormFile? File { get; set; }
     }
 }

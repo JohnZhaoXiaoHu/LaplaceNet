@@ -29,7 +29,10 @@ namespace La.WebApi.Controllers
         /// bom成本核算接口
         /// </summary>
         private readonly IFicoBomCostingService _FicoBomCostingService;
-
+        /// <summary>
+        /// bom成本核算Controller
+        /// </summary>
+        /// <param name="FicoBomCostingService"></param>
         public FicoBomCostingController(IFicoBomCostingService FicoBomCostingService)
         {
             _FicoBomCostingService = FicoBomCostingService;
@@ -76,11 +79,9 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-        /// <summary>
-        /// 校验输入项目是否唯一
-        /// </summary>
-        /// <param name="entryString"></param>
-        /// <returns></returns>
+      
+        // 校验输入项目是否唯一
+
             if (UserConstants.NOT_UNIQUE.Equals(_FicoBomCostingService.CheckEntryStringUnique(Convert.ToDateTime(parm.BcBalancedate).ToString("yyyyMMdd") + parm.BcPlant+parm.BcFy+parm.BcFy+parm.BcBomItem)))
             {
                 return ToResponse(ApiResult.Error($"新增bom成本核算 '{parm.BcPlant +","+ parm.BcFy + "," + parm.BcFy + "," + parm.BcBomItem}'失败，输入的bom成本核算已存在"));

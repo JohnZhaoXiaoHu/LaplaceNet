@@ -27,7 +27,9 @@ namespace La.WebApi.Controllers.System
         /// 多语言配置接口
         /// </summary>
         private readonly ICommonLangService _CommonLangService;
-
+        /// <summary>
+        /// 多语言配置接口
+        /// </summary>
         public CommonLangController(ICommonLangService CommonLangService)
         {
             _CommonLangService = CommonLangService;

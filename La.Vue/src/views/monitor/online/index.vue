@@ -101,7 +101,7 @@
   }
   /** 强退按钮操作 */
   function handleForceLogout(row) {
-    proxy.$modal.confirm('是否确认强退名称为"' + row.userName + '"的用户?').then(function () {
+    proxy.$modal.confirm(row.connnectionId + '是否确认强退名称为"' + row.userName + '"的用户?').then(function () {
       return forceLogout(row.connnectionId);
     }).then(() => {
       getList();

@@ -27,7 +27,11 @@ namespace La.WebApi.Controllers.System
     {
         private ISysTasksQzService _tasksQzService;
         private ITaskSchedulerServer _schedulerServer;
-
+        /// <summary>
+        /// 计划任务TasksController
+        /// </summary>
+        /// <param name="sysTasksQzService"></param>
+        /// <param name="taskScheduler"></param>
         public TasksController(
             ISysTasksQzService sysTasksQzService,
             ITaskSchedulerServer taskScheduler)

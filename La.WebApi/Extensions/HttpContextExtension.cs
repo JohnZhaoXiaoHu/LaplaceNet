@@ -59,7 +59,11 @@ namespace La.WebApi.Extensions
             result = IsIP(result) ? result : "127.0.0.1";
             return result;
         }
-
+        /// <summary>
+        /// 获取客户端IP
+        /// </summary>
+        /// <param name="ip"></param>
+        /// <returns></returns>
         public static bool IsIP(string ip)
         {
             return Regex.IsMatch(ip, @"^((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)$");
@@ -115,8 +119,12 @@ namespace La.WebApi.Extensions
 
         //    return int.Parse(roleid);
         //}
-
-        public static string GetUserAgent(this HttpContext context)
+        /// <summary>
+        /// 用户代理
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public static string? GetUserAgent(this HttpContext context)
         {
             return context.Request.Headers["User-Agent"];
         }
@@ -126,11 +134,15 @@ namespace La.WebApi.Extensions
         /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>
-        public static string GetToken(this HttpContext context)
+        public static string? GetToken(this HttpContext context)
         {
             return context.Request.Headers!["Authorization"];
         }
-
+        /// <summary>
+        /// ClientInfo
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public static ClientInfo GetClientInfo(this HttpContext context)
         {
             var str = GetUserAgent(context);
@@ -139,11 +151,21 @@ namespace La.WebApi.Extensions
 
             return c;
         }
+        /// <summary>
+        /// GetRequestUrl
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
 
         public static string? GetRequestUrl(this HttpContext context)
         {
             return context != null ? context.Request.Path.Value : "";
         }
+        /// <summary>
+        /// GetQueryString
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public static string GetQueryString(this HttpContext context)
         {
             return context != null ? context.Request.QueryString.Value : "";

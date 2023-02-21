@@ -29,7 +29,9 @@ namespace La.WebApi.Controllers.System
         /// </summary>
         private readonly ISysNoticeService _SysNoticeService;
         private readonly IHubContext<MessageHub> _hubContext;
-
+        /// <summary>
+        /// 通知公告表接口
+        /// </summary>
         public SysNoticeController(ISysNoticeService SysNoticeService, IHubContext<MessageHub> hubContext)
         {
             _SysNoticeService = SysNoticeService;

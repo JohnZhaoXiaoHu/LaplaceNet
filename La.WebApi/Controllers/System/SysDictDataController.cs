@@ -20,7 +20,11 @@ namespace La.WebApi.Controllers.System
     {
         private readonly ISysDictDataService SysDictDataService;
         private readonly ISysDictService SysDictService;
-
+        /// <summary>
+        /// 数据 字典接口
+        /// </summary>
+        /// <param name="sysDictService"></param>
+        /// <param name="sysDictDataService"></param>
         public SysDictDataController(ISysDictService sysDictService, ISysDictDataService sysDictDataService)
         {
             SysDictService = sysDictService;

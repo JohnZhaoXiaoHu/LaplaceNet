@@ -21,7 +21,11 @@ namespace La.WebApi.Controllers.monitor
     {
         private ISysOperLogService sysOperLogService;
         private IWebHostEnvironment WebHostEnvironment;
-
+        /// <summary>
+        /// 操作接口
+        /// </summary>
+        /// <param name="sysOperLogService"></param>
+        /// <param name="hostEnvironment"></param>
         public SysOperlogController(ISysOperLogService sysOperLogService, IWebHostEnvironment hostEnvironment)
         {
             this.sysOperLogService = sysOperLogService;

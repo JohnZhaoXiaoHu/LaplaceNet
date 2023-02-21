@@ -14,18 +14,36 @@ using La.Infra.Enums;
 
 namespace La.WebApi.Hubs
 {
+    /// <summary>
+    /// 用户数据
+    /// </summary>
     public class MessageHub : Hub
     {
         //创建用户集合，用于存储所有链接的用户数据
+        /// <summary>
+        /// 用户数据
+        /// </summary>
         public static readonly List<OnlineUsers> clientUsers = new();
+        /// <summary>
+        /// logger
+        /// </summary>
         private readonly NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+        /// <summary>
+        /// 接口
+        /// </summary>
         private readonly ISysNoticeService SysNoticeService;
-
+        /// <summary>
+        /// 用户数据
+        /// </summary>
+        /// <param name="noticeService"></param>
         public MessageHub(ISysNoticeService noticeService)
         {
             SysNoticeService = noticeService;
         }
-
+        /// <summary>
+        /// 用户数据
+        /// </summary>
+        /// <returns></returns>
         private ApiResult SendNotice()
         {
             var result = SysNoticeService.GetSysNotices();

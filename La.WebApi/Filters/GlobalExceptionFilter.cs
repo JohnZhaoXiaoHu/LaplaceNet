@@ -17,11 +17,19 @@ namespace LaAdmin.Filters
 
         private IWebHostEnvironment _hostingEnvironment;
 
+        /// <summary>
+        /// 全局异常捕获
+        /// </summary>
+        /// <param name="environment"></param>
         public GlobalExceptionFilter(IWebHostEnvironment environment)
         {
             _hostingEnvironment = environment;
         }
 
+        /// <summary>
+        /// 全局异常捕获
+        /// </summary>
+        /// <param name="context"></param>
         public void OnException(ExceptionContext context)
         {
             Exception ex = context.Exception;

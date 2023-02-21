@@ -29,7 +29,10 @@ namespace La.WebApi.Controllers
         /// 部门消耗接口
         /// </summary>
         private readonly IFicoDeptConsumingService _FicoDeptConsumingService;
-
+        /// <summary>
+        /// 部门消耗Controller
+        /// </summary>
+        /// <param name="FicoDeptConsumingService"></param>
         public FicoDeptConsumingController(IFicoDeptConsumingService FicoDeptConsumingService)
         {
             _FicoDeptConsumingService = FicoDeptConsumingService;
@@ -76,11 +79,9 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-        /// <summary>
-        /// 校验输入项目是否唯一
-        /// </summary>
-        /// <param name="entryString"></param>
-        /// <returns></returns>
+       
+        // 校验输入项目是否唯一
+
             if (UserConstants.NOT_UNIQUE.Equals(_FicoDeptConsumingService.CheckEntryStringUnique(parm.DcId.ToString())))
             {
                 return ToResponse(ApiResult.Error($"新增部门消耗 '{parm.DcId}'失败，输入的部门消耗已存在"));

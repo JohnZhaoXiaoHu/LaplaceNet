@@ -28,7 +28,9 @@ namespace La.WebApi.Controllers.System
         /// 参数配置接口
         /// </summary>
         private readonly ISysConfigService _SysConfigService;
-
+        /// <summary>
+        /// 参数配置接口
+        /// </summary>
         public SysConfigController(ISysConfigService SysConfigService)
         {
             _SysConfigService = SysConfigService;

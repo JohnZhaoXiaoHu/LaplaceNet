@@ -29,7 +29,9 @@ namespace La.WebApi.Controllers
         /// 财务期间接口
         /// </summary>
         private readonly IFicoPeriodService _FicoPeriodService;
-
+        /// <summary>
+        /// 财务期间接口
+        /// </summary>
         public FicoPeriodController(IFicoPeriodService FicoPeriodService)
         {
             _FicoPeriodService = FicoPeriodService;
@@ -76,11 +78,9 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-        /// <summary>
-        /// 校验输入项目是否唯一
-        /// </summary>
-        /// <param name="entryString"></param>
-        /// <returns></returns>
+
+            // 校验输入项目是否唯一
+
             if (UserConstants.NOT_UNIQUE.Equals(_FicoPeriodService.CheckEntryStringUnique(parm.FpId.ToString())))
             {
                 return ToResponse(ApiResult.Error($"新增财务期间 '{parm.FpId}'失败，输入的财务期间已存在"));

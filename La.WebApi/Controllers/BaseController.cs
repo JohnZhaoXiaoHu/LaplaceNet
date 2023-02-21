@@ -13,9 +13,21 @@ using FF = System.IO;
 
 namespace La.WebApi.Controllers
 {
+    /// <summary>
+    /// BaseController
+    /// 
+    /// @author Laplace.Net:Davis.Cheng
+    /// @date 2023-01-15
+    /// </summary>
     public class BaseController : ControllerBase
     {
+        /// <summary>
+        /// 定义时间1
+        /// </summary>
         public static string TIME_FORMAT_FULL = "yyyy-MM-dd HH:mm:ss";
+        /// <summary>
+        /// 定义时间2
+        /// </summary>
         public static string TIME_FORMAT_FULL_2 = "MM-dd HH:mm:ss";
 
         /// <summary>
@@ -42,14 +54,24 @@ namespace La.WebApi.Controllers
 
             return Content(jsonStr, "application/json");
         }
-
+        /// <summary>
+        /// ToResponse
+        /// </summary>
+        /// <param name="rows"></param>
+        /// <param name="timeFormatStr"></param>
+        /// <returns></returns>
         protected IActionResult ToResponse(long rows, string timeFormatStr = "yyyy-MM-dd HH:mm:ss")
         {
             string jsonStr = GetJsonStr(ToJson(rows), timeFormatStr);
 
             return Content(jsonStr, "application/json");
         }
-
+        /// <summary>
+        /// ToResponse
+        /// </summary>
+        /// <param name="resultCode"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
         protected IActionResult ToResponse(ResultCode resultCode, string msg = "")
         {
             return ToResponse(GetApiResult(resultCode, msg));
@@ -81,6 +103,12 @@ namespace La.WebApi.Controllers
         {
             return rows > 0 ? GetApiResult(ResultCode.SUCCESS) : GetApiResult(ResultCode.FAIL);
         }
+        /// <summary>
+        /// ToJson
+        /// </summary>
+        /// <param name="rows"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
         protected ApiResult ToJson(long rows, object data)
         {
             return rows > 0 ? GetApiResult(ResultCode.SUCCESS, data) : GetApiResult(ResultCode.FAIL);
@@ -100,10 +128,22 @@ namespace La.WebApi.Controllers
 
             return apiResult;
         }
+        /// <summary>
+        /// GetApiResult
+        /// </summary>
+        /// <param name="resultCode"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
         protected ApiResult GetApiResult(ResultCode resultCode, string msg)
         {
             return new ApiResult((int)resultCode, msg);
         }
+        /// <summary>
+        /// GetJsonStr
+        /// </summary>
+        /// <param name="apiResult"></param>
+        /// <param name="timeFormatStr"></param>
+        /// <returns></returns>
         private static string GetJsonStr(ApiResult apiResult, string timeFormatStr)
         {
             if (string.IsNullOrEmpty(timeFormatStr))
@@ -132,7 +172,14 @@ namespace La.WebApi.Controllers
         {
             return ExportExcelMini(list, sheetName, fileName).Item1;
         }
-
+        /// <summary>
+        /// ExportExcelMini
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        /// <param name="sheetName"></param>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         protected (string, string) ExportExcelMini<T>(List<T> list, string sheetName, string fileName)
         {
             IWebHostEnvironment webHostEnvironment = (IWebHostEnvironment)App.ServiceProvider.GetService(typeof(IWebHostEnvironment));
@@ -162,14 +209,12 @@ namespace La.WebApi.Controllers
             MiniExcel.SaveAs(fullPath, sheets);
             return (sFileName, fullPath);
         }
-
         /// <summary>
         /// 下载导入模板
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
-        /// <param name="stream"></param>
-        /// <param name="fileName">下载文件名</param>
+        /// <param name="fileName"></param>
         /// <returns></returns>
         protected string DownloadImportTemplate<T>(List<T> list, string fileName)
         {

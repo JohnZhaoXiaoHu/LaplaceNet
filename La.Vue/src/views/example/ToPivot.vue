@@ -1,57 +1,60 @@
 <template>
-  <div>
-    <el-table :data="dataList" v-loading="loading" ref="table" border highlight-current-row height="602"
-      style="width: 100%">
-      <el-table-column type="selection" width="50" align="center" />
-      <el-table-column prop="fpId" label="Id主键" align="center" />
-      <el-table-column prop="fpPlnt" label="工厂" align="center">
-      </el-table-column>
-      <el-table-column prop="fpCode" label="代码" align="center" />
-      <el-table-column prop="fpName" label="名称" align="center" />
-      <el-table-column prop="fpType" label="类别" align="center">
-      </el-table-column>
-      <el-table-column prop="fpActDate" label="有效从" align="center" />
-      <el-table-column prop="fpExpDate" label="有效到" align="center" />
-
-    </el-table>
-
-    <div>{{total}}</div>
-  </div>
+  <el-table :data="resultList" style="width: 100%" :header-cell-class-name="handleCellclass"
+    :cell-class-name="handleCellclass">
+    <el-table-column prop="title" label="" width="100">
+      <template slot-scope="scope">
+        <span>{{identifyResultList[scope.$index].title}}</span>
+      </template>
+    </el-table-column>
+    <el-table-column v-for="(item,index) in tableData" :key="index" :label="'识别结果'+(index+1)"
+      :width="tableDataTopWidth(index)">
+      <template slot-scope="scope">
+        <span>{{item[scope.row.label] || '-'}}</span>
+      </template>
+    </el-table-column>
+  </el-table>
 </template>
-
-<script setup name="pivot">
-  // 引入 ficoprctr操作方法
-  import {
-    listFicoPrctr, listFicoPrctrAll, addFicoPrctr, delFicoPrctr, updateFicoPrctr, getFicoPrctr,
-
-  }
-    from '@/api/financial/ficoprctr.js'
-  //获取当前组件实例
-  const { proxy } = getCurrentInstance()
-
-  // 总条数
-  const total = ref(0)
-
-  // 利润中心表格数据
-  const dataList = ref([])
-  const dataLists = ref([])
-  function GetList() {
-    listFicoPrctrAll().then(res => {
-      const { code, data } = res
-      if (code == 200) {
-        dataList.value = data.result
-        total.value = data.totalNum
+<script>
+  export default {
+    data() {
+      return {
+        tableData: [
+          {
+            batchNo: "2020102801",
+            createDate: "2020-10-28 19:21:56",
+            id: 5062,
+            aaa: 'asdsd',
+            bbb: '2432',
+            ccc: 'aaaawewewqccc'
+          },
+          {
+            batchNo: "2020102801",
+            createDate: "2020-10-28 19:21:56",
+            id: 5062,
+            aaa: 'asdsd',
+            bbb: '2432',
+            ccc: 'aaaawewewqccc'
+          }
+        ],
+        resultList: [
+          { title: '批次号', label: 'batchNo' },
+          { title: 'id', label: 'id' },
+          { title: 'aaa', label: 'aaa' },
+          { title: 'bbb', label: 'bbb' },
+          { title: 'ccc', label: 'ccc' },
+          { title: '时间', label: 'createDate' },
+        ],
       }
-    })
+    }
   }
-  const loadLocale = computed(() => {
-    listFicoPrctrAll().then(res => {
-      const { code, data } = res
-      if (code == 200) {
-        dataLists = data.totalNum
+  methods: {
+    handleCellclass({ column, columnIndex }) {
+      if (columnIndex !== 0 && column.label.indexOf("识别结果") !== -1) {
+        return "tableColumnClass"
+      } else {
+        return ''
       }
-    })
-  })
+    }
+  }
 
-  GetList()
 </script>

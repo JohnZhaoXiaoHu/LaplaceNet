@@ -5,8 +5,15 @@ using La.Common;
 using La.Infra;
 namespace La.WebApi.Extensions
 {
+    /// <summary>
+    /// 加载Logo
+    /// </summary>
     public static class LogoExtension
     {
+        /// <summary>
+        /// 加载Logo
+        /// </summary>
+        /// <param name="services"></param>
         public static void AddLogo(this IServiceCollection services)
         {
             Console.ForegroundColor = ConsoleColor.Blue;

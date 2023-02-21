@@ -29,7 +29,9 @@ namespace La.WebApi.Controllers
         /// oph主表接口
         /// </summary>
         private readonly IPpOutputMasterService _PpOutputMasterService;
-
+        /// <summary>
+        /// oph主表接口
+        /// </summary>
         public PpOutputMasterController(IPpOutputMasterService PpOutputMasterService)
         {
             _PpOutputMasterService = PpOutputMasterService;
@@ -76,11 +78,7 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-        /// <summary>
-        /// 校验输入项目是否唯一
-        /// </summary>
-        /// <param name="entryString"></param>
-        /// <returns></returns>
+            // 校验输入项目是否唯一
             if (UserConstants.NOT_UNIQUE.Equals(_PpOutputMasterService.CheckEntryStringUnique(Convert.ToDateTime(parm.PomMfDate).ToString("yyyyMMdd") + parm.PomOrder+ parm.PomMfItem+ parm.PomLineName)))
             {
                 return ToResponse(ApiResult.Error($"新增oph主表 '{Convert.ToDateTime(parm.PomMfDate).ToString("yyyy-MM-dd") +","+ parm.PomOrder + "," + parm.PomMfItem + "," + parm.PomLineName}'失败，输入的oph主表已存在"));
