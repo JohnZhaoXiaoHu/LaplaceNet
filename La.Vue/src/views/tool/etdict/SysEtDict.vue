@@ -1,37 +1,14 @@
 <!--
- * @Descripttion: (多语言配置/)
+ * @Descripttion: (电子辞典/sys_et_dict)
  * @version: (1.0)
- * @Author: (zr)
- * @Date: (2022-05-06)
- * @LastEditors: (zr)
- * @LastEditTime: (2022-5-14)
+ * @Author: (Laplace.Net:Davis.Cheng)
+ * @Date: (2023-02-22)
+ * @LastEditors: (Laplace.Net:Davis.Cheng)
+ * @LastEditTime: (2023-02-22)
 -->
 <template>
-  <div class="app-container">
-    <!-- :model属性用于表单验证使用 比如下面的el-form-item 的 prop属性用于对表单值进行验证操作 -->
+  <div>
     <el-form :model="queryParams" label-position="right" inline ref="queryRef" v-show="showSearch" @submit.prevent>
-      <el-form-item :label="$t('language')" prop="etLangcode">
-        <el-select v-model="queryParams.etLangcode" placeholder="请选择语言code">
-          <el-option v-for="item in options.sys_lang_type" :key="item.dictValue" :label="item.dictLabel"
-            :value="item.dictValue"></el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item :label="$t('languageKey')" prop="etPhrase">
-        <el-input v-model="queryParams.etPhrase" placeholder="请输入语言key" />
-      </el-form-item>
-      <el-form-item :label="$t('showWay')">
-        <el-radio-group v-model="queryParams.showMode">
-          <el-radio-button label="1">表格</el-radio-button>
-          <el-radio-button label="2">行列</el-radio-button>
-        </el-radio-group>
-      </el-form-item>
-      <el-form-item :label="$t('common.addTime')">
-        <el-date-picker v-model="dateRangeAddtime" style="width: 240px" type="daterange" range-separator="-"
-          start-placeholder="开始日期" end-placeholder="结束日期" placeholder="请选择添加时间" value-format="YYYY-MM-DD HH:mm:ss"
-          :shortcuts="dateOptions">
-        </el-date-picker>
-      </el-form-item>
-
       <el-form-item>
         <el-button icon="search" type="primary" @click="handleQuery">{{ $t('btn.search') }}</el-button>
         <el-button icon="refresh" @click="resetQuery">{{ $t('btn.reset') }}</el-button>
@@ -40,374 +17,343 @@
     <!-- 工具区域 -->
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
-        <el-button type="primary" v-hasPermi="['system:lang:add']" plain icon="plus" @click="handleAdd">{{ $t('btn.add')
-          }}</el-button>
+        <el-button type="primary" v-hasPermi="['sys:etdict:add']" plain icon="plus" @click="handleAdd">
+          {{ $t('btn.add') }}
+        </el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button type="success" :disabled="single" v-hasPermi="['system:lang:edit']" plain icon="edit"
-          @click="handleUpdate">
+        <el-button type="success" :disabled="single" v-hasPermi="['sys:etdict:edit']" plain icon="edit" @click="handleUpdate">
           {{ $t('btn.edit') }}
         </el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button type="danger" :disabled="multiple" v-hasPermi="['system:lang:delete']" plain icon="delete"
-          @click="handleDelete">
+        <el-button type="danger" :disabled="multiple" v-hasPermi="['sys:etdict:delete']" plain icon="delete" @click="handleDelete">
           {{ $t('btn.delete') }}
         </el-button>
       </el-col>
-      <el-col :span="1.5">
-        <el-button type="warning" plain icon="download" @click="handleExport" v-hasPermi="['system:lang:export']">{{
-          $t('btn.export') }}</el-button>
-      </el-col>
-      <right-toolbar v-model:showSearch="showSearch" @queryTable="getList"></right-toolbar>
+      <right-toolbar v-model:showSearch="showSearch" @queryTable="getList" :columns="columns"></right-toolbar>
     </el-row>
 
     <!-- 数据区域 -->
-    <el-table v-if="queryParams.showMode == 1" :data="dataList" v-loading="loading" ref="table" border
-      highlight-current-row @sort-change="sortChange" @selection-change="handleSelectionChange">
-      <el-table-column type="selection" width="50" align="center" />
-
-      <el-table-column prop="id" label="id" align="center" />
-      <el-table-column prop="etLangcode" :label="$t('language')" align="center">
+    <el-table :data="dataList" v-loading="loading" ref="table" border highlight-current-row @sort-change="sortChange" @selection-change="handleSelectionChange" height="602"
+      style="width: 100%">
+      <el-table-column type="selection" width="50" align="center"/>
+      <el-table-column prop="etGuid" label="Guid" align="center" v-if="columns.showColumn('etGuid')"/>
+      <el-table-column prop="etType" label="类别" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('etType')"/>
+      <el-table-column prop="etLetter" label="字母" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('etLetter')"/>
+      <el-table-column prop="etLangKey" label="语言" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('etLangKey')"/>
+      <el-table-column prop="etPhrase" label="短语" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('etPhrase')"/>
+      <el-table-column prop="etExplain" label="解释" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('etExplain')"/>
+      <el-table-column prop="etArea" label="隶属范围" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('etArea')"/>
+      <el-table-column prop="remark" label="备注" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('remark')"/>
+      <el-table-column :label="$t('btn.operate')" align="center" width="160">
         <template #default="scope">
-          <dict-tag :options="options.sys_lang_type" :value="scope.row.etLangcode" />
-        </template>
-      </el-table-column>
-      <el-table-column prop="etPhrase" :label="$t('languageKey')" align="center" :show-overflow-tooltip="true" />
-      <el-table-column prop="etExplain" :label="$t('common.content')" align="center" :show-overflow-tooltip="true" />
-      <el-table-column prop="CreateTime" :label="$t('common.addTime')" align="center" :show-overflow-tooltip="true" />
-
-      <el-table-column :label="$t('btn.operate')" align="center" width="140">
-        <template #default="scope">
-          <el-button v-hasPermi="['system:lang:edit']" text size="small" icon="edit" title="编辑"
-            @click="handleUpdate(scope.row)"></el-button>
-          <el-button v-hasPermi="['system:lang:delete']" text size="small" icon="delete" title="删除"
-            @click="handleDelete(scope.row)"></el-button>
+          <el-button v-hasPermi="['sys:etdict:edit']" type="success" icon="edit" :title="$t('btn.edit')" @click="handleUpdate(scope.row)"></el-button>
+          <el-button v-hasPermi="['sys:etdict:delete']" type="danger" icon="delete" :title="$t('btn.delete')" @click="handleDelete(scope.row)"></el-button>
         </template>
       </el-table-column>
     </el-table>
+    <pagination class="mt10" background :total="total" v-model:page="queryParams.pageNum" v-model:limit="queryParams.pageSize" @pagination="getList" />
 
-    <!-- 行列显示 -->
-    <el-table v-if="queryParams.showMode == 2" :data="dataList" v-loading="loading" ref="table" border
-      highlight-current-row @sort-change="sortChange" @selection-change="handleSelectionChange">
-      <el-table-column prop="etPhrase" :label="$t('languageKey')" align="center" :show-overflow-tooltip="true" />
-      <el-table-column prop="zh-cn" :label="$t('common.chinese')" align="center" :show-overflow-tooltip="true" />
-      <el-table-column prop="en" :label="$t('common.english')" align="center" :show-overflow-tooltip="true" />
-      <el-table-column prop="ja" :label="$t('common.japanese')" align="center" :show-overflow-tooltip="true" />
-      <el-table-column prop="ko" :label="$t('common.korean')" align="center" :show-overflow-tooltip="true" />
-      <el-table-column prop="zh-tw" :label="$t('common.Traditional')" align="center" :show-overflow-tooltip="true" />
-
-      <el-table-column :label="$t('btn.operate')" align="center" width="140">
-        <template #default="scope">
-          <el-button v-hasPermi="['system:lang:edit']" text size="small" icon="edit" title="编辑"
-            @click="handleUpdateP(scope.row)">
-            {{ $t('btn.edit') }}
-          </el-button>
-          <!-- <el-button v-hasPermi="['system:lang:delete']" type="danger" icon="delete" title="删除" @click="handleDeleteP(scope.row)"></el-button> -->
-        </template>
-      </el-table-column>
-    </el-table>
-
-    <pagination v-if="total > 0" class="mt10" background :total="total" v-model:page="queryParams.pageNum"
-      v-model:limit="queryParams.pageSize" @pagination="getList" />
-
-    <!-- 添加或修改多语言配置对话框 -->
-    <el-dialog :title="title" :lock-scroll="false" v-model="open" width="550px">
-      <el-form ref="formRef" :model="form" :rules="rules" label-width="140px">
+    <!-- 添加或修改电子辞典对话框 -->
+    <el-dialog :title="title" :lock-scroll="false" v-model="open" >
+      <el-form ref="formRef" :model="form" :rules="rules" label-width="100px">
         <el-row :gutter="20">
-          <el-col :lg="24">
-            <el-form-item prop="etPhrase">
-              <template #label>
-                <el-tooltip content="翻译key,eg:message.title" placement="top">
-                  <el-icon :size="15">
-                    <questionFilled />
-                  </el-icon>
-                </el-tooltip>
-                {{ $t('languageKey') }}
-              </template>
-              <el-input v-model="form.etPhrase" placeholder="请输入语言key" />
+    
+          <el-col :lg="12">
+            <el-form-item label="Guid" prop="etGuid">
+              <el-input-number v-model.number="form.etGuid" controls-position="right" :placeholder="$t('btn.enter')+'Guid'" :disabled="title==$t('btn.edit')"/>
+            </el-form-item>
+          </el-col>
+
+
+          <el-col :lg="12">
+            <el-form-item label="类别" prop="etType">
+              <el-input v-model="form.etType" :placeholder="$t('btn.enter')+'类别'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="字母" prop="etLetter">
+              <el-input v-model="form.etLetter" :placeholder="$t('btn.enter')+'字母'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="语言" prop="etLangKey">
+              <el-input v-model="form.etLangKey" :placeholder="$t('btn.enter')+'语言'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="短语" prop="etPhrase">
+              <el-input v-model="form.etPhrase" :placeholder="$t('btn.enter')+'短语'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="解释" prop="etExplain">
+              <el-input v-model="form.etExplain" :placeholder="$t('btn.enter')+'解释'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="隶属范围" prop="etArea">
+              <el-input v-model="form.etArea" :placeholder="$t('btn.enter')+'隶属范围'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="备注" prop="remark">
+              <el-input v-model="form.remark" :placeholder="$t('btn.enter')+'备注'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="createBy" prop="createBy">
+              <el-input v-model="form.createBy" :placeholder="$t('btn.enter')+'createBy'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="createTime" prop="createTime">
+              <el-date-picker v-model="form.createTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="updateBy" prop="updateBy">
+              <el-input v-model="form.updateBy" :placeholder="$t('btn.enter')+'updateBy'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="updateTime" prop="updateTime">
+              <el-date-picker v-model="form.updateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
         </el-row>
-        <el-row>
-          <el-table :data="form.langList">
-            <el-table-column :label="$t('language')" align="center" prop="etLangcode" width="100">
-              <template #default="scope">
-                {{ scope.row.label }} <br />
-                {{ scope.row.etLangcode }}
-              </template>
-            </el-table-column>
-            <el-table-column :label="$t('common.content')" align="center">
-              <template #default="scope">
-                <el-input type="textarea" rows="2" prop="etExplain" v-model="scope.row.etExplain"></el-input>
-              </template>
-            </el-table-column>
-          </el-table>
-        </el-row>
       </el-form>
-      <template #footer>
+      <template #footer v-if="opertype != 3">
         <el-button text @click="cancel">{{ $t('btn.cancel') }}</el-button>
         <el-button type="primary" @click="submitForm">{{ $t('btn.submit') }}</el-button>
       </template>
     </el-dialog>
+
   </div>
 </template>
 
 <script setup name="sysetdict">
-  import {
-    listSysEtDict, delSysEtDict, updateSysEtDict, getSysEtDict, getSysEtDictByKey
-
-  }
-    from '@/api/system/sysetdict.js'
-
-  import { isEmpty } from '@/utils/ruoyi.js'
-  const { proxy } = getCurrentInstance()
-  // 选中id数组数组
-  const ids = ref([])
-  // 非单选禁用
-  const single = ref(true)
-  // 非多个禁用
-  const multiple = ref(true)
-  // 遮罩层
-  const loading = ref(false)
+// 引入 sysetdict操作方法
+import { listSysEtDict, addSysEtDict, delSysEtDict, updateSysEtDict, getSysEtDict, 
+ 
+ } 
+from '@/api/system/sysetdict.js'
+//获取当前组件实例
+const { proxy } = getCurrentInstance()
+// 选中etGuid数组数组
+const ids = ref([])
+// 非单个禁用
+const single = ref(true)
+// 非多个禁用
+const multiple = ref(true)
+const loading = ref(false)
   // 显示搜索条件
-  const showSearch = ref(true)
+const showSearch = ref(true)
+//使用reactive()定义响应式变量,仅支持对象、数组、Map、Set等集合类型有效
+const queryParams = reactive({
+  pageNum: 1,
+  pageSize: 17,
+  sort: '',
+  sortType: 'asc',
+})
+//字段显示控制
+const columns = ref([
+  { visible: true, prop: 'etGuid', label: 'Guid' },
+  { visible: true, prop: 'etType', label: '类别' },
+  { visible: true, prop: 'etLetter', label: '字母' },
+  { visible: true, prop: 'etLangKey', label: '语言' },
+  { visible: true, prop: 'etPhrase', label: '短语' },
+  { visible: true, prop: 'etExplain', label: '解释' },
+  { visible: true, prop: 'etArea', label: '隶属范围' },
+  { visible: true, prop: 'remark', label: '备注' },
+])
+  // 总条数
+const total = ref(0)
+  // 电子辞典表格数据
+const dataList = ref([])
   // 查询参数
-  const queryParams = reactive({
-    pageNum: 1,
-    pageSize: 17,
-    sort: undefined,
-    sortType: undefined,
-    etLangcode: undefined,
-    etPhrase: undefined,
-    addtime: undefined,
-    showMode: 2, // 显示模式 1、table显示 2、行列显示
+const queryRef = ref()
+//定义起始时间
+const defaultTime = ref([new Date(2000, 1, 1, 0, 0, 0), new Date(2000, 2, 1, 23, 59, 59)])
+
+
+var dictParams = [
+]
+//字典定义
+//获取电子辞典表记录数据
+function getList(){
+  loading.value = true
+  listSysEtDict(queryParams).then(res => {
+    const { code, data } = res
+    if (code == 200) {
+      dataList.value = data.result
+      total.value = data.totalNum
+      loading.value = false
+    }
   })
+}
+
+// 查询
+function handleQuery() {
+  queryParams.pageNum = 1
+  getList()
+}
+
+// 重置查询操作
+function resetQuery(){
+  proxy.resetForm("queryRef")
+  handleQuery()
+}
+
+// 多选框选中数据
+function handleSelectionChange(selection) {
+  ids.value = selection.map((item) => item.etGuid);
+  single.value = selection.length != 1
+  multiple.value = !selection.length;
+}
+
+// 自定义排序
+function sortChange(column) {
+  var sort = undefined
+  var sortType = undefined
+
+  if (column.prop != null && column.order != null) {
+    sort = column.prop
+    sortType = column.order
+
+  }
+  queryParams.sort = sort
+  queryParams.sortType = sortType
+  handleQuery()
+}
+
+/*************** form操作 ***************/
+//定义响应式变量
+const formRef = ref()
   // 弹出层标题
-  const title = ref('')
-  // 操作类型 1、add 2、edit
-  const opertype = ref(0)
-  // 是否显示弹出层
-  const open = ref(false)
-  // 表单参数
-  const state = reactive({
-    form: {},
-    rules: {
-      id: [{ required: true, message: 'id不能为空', trigger: 'blur', type: 'number' }],
-      // etLangcode: [{ required: true, message: '语言code不能为空', trigger: 'change' }],
-      etPhrase: [{ required: true, pattern: /^[A-Za-z].+$/, message: '语言key不能为空', trigger: 'change' }],
-      etExplain: [{ required: true, message: '内容不能为空', trigger: 'blur' }],
-    },
-    options: {},
-  })
+const title = ref("")
+// 操作类型 1、add 2、edit 3、view
+//定义响应式变量
+const opertype = ref(0)
+//定义对话框打开变更
+const open = ref(false)
+//reactive()定义响应式变量,仅支持对象、数组、Map、Set等集合类型有效
+const state = reactive({
+  form: {},
+  rules: {
+    etType: [{ required: true, message: "类别"+proxy.$t('btn.empty'), trigger: "blur" }],
+    etLetter: [{ required: true, message: "字母"+proxy.$t('btn.empty'), trigger: "blur" }],
+    etLangKey: [{ required: true, message: "语言"+proxy.$t('btn.empty'), trigger: "blur" }],
+    etPhrase: [{ required: true, message: "短语"+proxy.$t('btn.empty'), trigger: "blur" }],
+    etExplain: [{ required: true, message: "解释"+proxy.$t('btn.empty'), trigger: "blur" }],
+  },
+  options: {
+  }
+})
+//将响应式对象转换成普通对象
+const { form, rules, options } = toRefs(state)
 
-  var dictParams = [{ dictType: 'sys_lang_type' }]
-  proxy.getDicts(dictParams).then((response) => {
-    response.data.forEach((element) => {
-      state.options[element.dictType] = element.list
-    })
-  })
-  const { form, rules, options } = toRefs(state)
-  // 总记录数
-  const total = ref(0)
-  const dataList = ref([])
-  const queryRef = ref()
-  const formRef = ref()
-  // 语言code选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
-  const sys_lang_type = ref([])
-  // 添加时间时间范围
-  const dateRangeAddtime = ref([])
+// 关闭dialog
+function cancel(){
+  open.value = false
+  reset()
+}
 
-  watch(
-    () => queryParams.showMode,
-    () => {
-      getList()
-    },
-    { immediate: true },
-  )
-  function getList() {
-    proxy.addDateRange(queryParams, proxy.dateRangeAddtime, 'Addtime')
-    loading.value = true
-    listSysEtDict(queryParams).then((res) => {
-      if (res.code == 200) {
-        dataList.value = res.data.result
-        total.value = res.data.totalNum
-        loading.value = false
+// 重置表单
+function reset() {
+  form.value = {
+    etType: undefined,
+    etLetter: undefined,
+    etLangKey: undefined,
+    etPhrase: undefined,
+    etExplain: undefined,
+    etArea: undefined,
+    remark: undefined,
+    createBy: undefined,
+    createTime: undefined,
+    updateBy: undefined,
+    updateTime: undefined,
+  };
+  proxy.resetForm("formRef")
+}
+
+// 添加按钮操作
+function handleAdd() {
+  reset();
+  open.value = true
+  title.value = proxy.$t('btn.add')
+  opertype.value = 1
+}
+
+// 修改按钮操作
+function handleUpdate(row) {
+  reset()
+  const id = row.etGuid || ids.value
+  getSysEtDict(id).then((res) => {
+    const { code, data } = res
+    if (code == 200) {
+      open.value = true
+      title.value = proxy.$t('btn.edit')
+      opertype.value = 2
+
+      form.value = {
+      ...data,
       }
-    })
-  }
-
-  // 关闭dialog
-  function cancel() {
-    open.value = false
-    reset()
-  }
-
-  // 重置表单
-  function reset() {
-    form.value = {
-      etPhrase: undefined,
-      langList: [
-        {
-          etLangcode: 'zh-cn',
-          label: proxy.$t('common.chinese'),
-          etExplain: undefined,
-        },
-        {
-          etLangcode: 'ja',
-          label: proxy.$t('common.japanese'),
-          etExplain: undefined,
-        },
-        {
-          etLangcode: 'en',
-          label: proxy.$t('common.english'),
-          etExplain: undefined,
-        },
-        {
-          etLangcode: 'ko',
-          label: proxy.$t('common.korean'),
-          etExplain: undefined,
-        },
-        {
-          etLangcode: 'zh-tw',
-          label: proxy.$t('common.Traditional'),
-          etExplain: undefined,
-        },
-      ],
     }
-    proxy.resetForm('formRef')
-  }
+  })
+}
 
-  // 查询
-  function handleQuery() {
-    queryParams.pageNum = 1
-    getList()
-  }
-
-  // 添加
-  function handleAdd() {
-    reset()
-    open.value = true
-    title.value = proxy.$t('btn.add')
-    opertype.value = 1
-  }
-
-  // 删除按钮操作
-  function handleDelete(row) {
-    const Ids = row.id || ids.value
-
-    proxy
-      .$confirm('是否确认删除参数编号为"' + Ids + '"的数据项？')
-      .then(function () {
-        return delSysEtDict(Ids)
-      })
-      .then(() => {
-        handleQuery()
-        proxy.$modal.msgSuccess('删除成功')
-      })
-      .catch(() => { })
-  }
-
-  // 修改按钮操作
-  function handleUpdate(row) {
-    reset()
-    const id = row.id || ids.value
-    getSysEtDict(id).then((res) => {
-      const { code, data } = res
-      if (code == 200) {
-        open.value = true
-        title.value = '修改数据'
-        opertype.value = 2
-
-        form.value = {
-          ...data,
-        }
-      }
-    })
-  }
-  function handleUpdateP(row) {
-    reset()
-    getSysEtDictByKey(row.etPhrase).then((res) => {
-      const { code, data } = res
-      if (code == 200) {
-        open.value = true
-        title.value = proxy.$t('btn.edit')
-        opertype.value = 2
-
-        form.value = {
-          ...data,
-        }
-      }
-    })
-  }
-
-  // 表单提交
-  function submitForm() {
-    const formValid = ref(true)
-    form.value.langList.forEach((item) => {
-      if (isEmpty(item.etExplain)) {
-        formValid.value = false
-      }
-    })
-    if (!formValid.value) {
-      proxy.$modal.msgError(`请完成表格内容填写`)
-      return
-    }
-    proxy.$refs['formRef'].validate((valid) => {
-      if (valid) {
-        updateSysEtDict(form.value)
-          .then((res) => {
-            proxy.$modal.msgSuccess('操作成功')
+// 添加&修改 表单提交
+function submitForm() {
+  proxy.$refs["formRef"].validate((valid) => {
+    if (valid) {
+      if (form.value.etGuid != undefined && opertype.value === 2) {
+        updateSysEtDict(form.value).then((res) => {
+          proxy.$modal.msgSuccess(proxy.$t('common.Modicompleted'))
+          open.value = false
+          getList()
+        })
+        .catch(() => {})
+      } else {
+        addSysEtDict(form.value).then((res) => {
+            proxy.$modal.msgSuccess(proxy.$t('common.Newcompleted'))
             open.value = false
             getList()
           })
-          .catch(() => { })
+          .catch(() => {})
       }
-    })
-  }
-
-  // 重置查询操作
-  function resetQuery() {
-    // 添加时间时间范围
-    dateRangeAddtime.value = []
-    proxy.resetForm('queryRef')
-    handleQuery()
-  }
-  // 导出按钮操作
-  function handleExport() {
-    proxy
-      .$confirm('是否确认导出所有多语言配置数据项?', '警告', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning',
-      })
-      .then(function () {
-        return exportCommonLang(queryParams)
-      })
-      .then((response) => {
-        proxy.download(response.data.path)
-      })
-  }
-
-  // 多选框选中数据
-  function handleSelectionChange(selection) {
-    ids.value = selection.map((item) => item.id)
-    single.value = selection.length != 1
-    multiple.value = !selection.length
-  }
-
-  // 自定义排序
-  function sortChange(column) {
-    if (column.prop == null || column.order == null) {
-      queryParams.sort = undefined
-      queryParams.sortType = undefined
-    } else {
-      queryParams.sort = column.prop
-      queryParams.sortType = column.order
     }
+  })
+}
 
-    handleQuery()
-  }
-  handleQuery()
-  reset()
+// 删除按钮操作
+function handleDelete(row) {
+  const Ids = row.etGuid || ids.value
+
+  proxy.$confirm(proxy.$t('common.confirmDel') + Ids +proxy.$t('common.confirmDelDataitems'))
+  .then(function () {
+      return delSysEtDict(Ids)
+  })
+  .then(() => {
+      getList()
+      proxy.$modal.msgSuccess(proxy.$t('common.Delcompleted'))
+  })
+  .catch(() => {})
+}
+
+
+
+
+handleQuery()
 </script>

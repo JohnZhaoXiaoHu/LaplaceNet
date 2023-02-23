@@ -92,13 +92,8 @@ namespace La.Service.System
             var storage = Storageable(langs)
                 .WhereColumns(it => new { it.LangKey, it.LangCode })
                 .ToStorage();
-            //雪花ID
-            //SnowFlakeSingle.WorkId = 唯一数字; 
-            //从配置文件读取一定要不一样
-            //服务器时间修改一定也要修改WorkId
-            //在程序启动时设置一次就行
-            storage.AsInsertable.ExecuteReturnSnowflakeIdList();//执行插入返回雪花ID 看文档3.0具体用法（在最底部)
-            //storage.AsInsertable.ExecuteReturnIdentity();//执行插入返回自增列
+
+            storage.AsInsertable.ExecuteReturnSnowflakeIdList();//执行插入
             storage.AsUpdateable.UpdateColumns(it => new { it.LangName }).ExecuteCommand();//执行修改
         }
 

@@ -2383,58 +2383,6 @@
             <param name="connnectionId"></param>
             <returns></returns>
         </member>
-        <member name="T:La.WebApi.Controllers.SysEtDictController">
-            <summary>
-            电子辞典Controller
-            
-            @tableName sys_et_dict
-            @author Laplace.Net:Davis.Cheng
-            @date 2023-02-18
-            </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.SysEtDictController._SysEtDictService">
-            <summary>
-            电子辞典接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.SysEtDictController.#ctor(La.Service.System.ISystemService.ISysEtDictService)">
-            <summary>
-            电子辞典接口
-            </summary>
-            <param name="SysEtDictService"></param>
-        </member>
-        <member name="M:La.WebApi.Controllers.SysEtDictController.QuerySysEtDict(La.Model.Dto.SysEtDictQueryDto)">
-            <summary>
-            查询电子辞典列表
-            </summary>
-            <param name="parm"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.SysEtDictController.GetSysEtDict(System.Int64)">
-            <summary>
-            查询电子辞典详情
-            </summary>
-            <param name="EtGuid"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.SysEtDictController.AddSysEtDict(La.Model.Dto.SysEtDictDto)">
-            <summary>
-            添加电子辞典
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.SysEtDictController.UpdateSysEtDict(La.Model.Dto.SysEtDictDto)">
-            <summary>
-            更新电子辞典
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.SysEtDictController.DeleteSysEtDict(System.String)">
-            <summary>
-            删除电子辞典
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:La.WebApi.Controllers.SysFileController">
             <summary>
             文件存储Controller

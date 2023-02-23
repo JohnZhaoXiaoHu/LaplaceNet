@@ -15,4 +15,9 @@
     <ProjectReference Include="..\La.Infra\La.Infra.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dto\System\" />
+    <Folder Include="Models\System\" />
+  </ItemGroup>
+
 </Project>

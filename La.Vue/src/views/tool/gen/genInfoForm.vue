@@ -19,7 +19,7 @@
         <el-form-item prop="baseNameSpace">
           <template #label>
             生成命名空间前缀
-            <el-tooltip content="比如 ZR." placement="top">
+            <el-tooltip content="比如 LA." placement="top">
               <el-icon>
                 <question-filled />
               </el-icon>
@@ -119,18 +119,18 @@
         <el-form-item prop="genType">
           <template #label>
             生成代码方式
-            <el-tooltip content="默认为zip压缩包下载" placement="top">
+            <el-tooltip content="默认为保存到当前Web项目下,请依据情况自定义" placement="top">
               <el-icon>
                 <question-filled />
               </el-icon>
             </el-tooltip>
           </template>
-          <el-radio v-model="info.genType" label="0">zip压缩包</el-radio>
-          <el-radio v-model="info.genType" label="1">自定义路径</el-radio>
+          <el-radio v-model="info.genType" label="0">自定义路径</el-radio>
+          <el-radio v-model="info.genType" label="1">zip压缩包</el-radio>
         </el-form-item>
       </el-col>
 
-      <el-col :lg="12" v-if="info.genType == '1'">
+      <el-col :lg="12" v-if="info.genType == '0'">
         <el-form-item prop="genPath">
           <template #label>
             自定义路径
@@ -140,7 +140,7 @@
               </el-icon>
             </el-tooltip>
           </template>
-          <el-input v-model="info.genPath"></el-input>
+          <el-input v-model="info.genPath">mmmm</el-input>
         </el-form-item>
       </el-col>
       <el-col :lg="24">
@@ -288,7 +288,7 @@
 
   const subColumns = ref([])
   const menuOptions = ref([])
-
+  const genType = ref('1')
   const props = defineProps({
     info: {
       type: Object,

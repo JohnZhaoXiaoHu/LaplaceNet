@@ -19,16 +19,6 @@
       </div>
     </div>
   </div>
-  <el-table :data="projectData" border stripe height="150" style="width: 100%" :cell-style="cellStyle">
-    <el-table-column prop="name1"></el-table-column>
-    <el-table-column prop="value1">
-    </el-table-column>
-    <el-table-column prop="name2"></el-table-column>
-    <el-table-column prop="value2">
-    </el-table-column>
-  </el-table>
-
-
   <h2 style="float:center">{{ $t('layout.technicalSelection') }}</h2>
   <el-row class="mt10">
     <el-col :sm="24" :lg="12">
@@ -57,6 +47,7 @@
     </el-col>
   </el-row>
   <div>
+
     <el-row class="mt10">
       <el-col :sm="24" :lg="12">
         <el-card>
@@ -75,20 +66,12 @@
           <el-table :data="depData" border stripe height="602" style="width: 100%">
             <el-table-column type="index" :label="$t('layout.indexNo')" style="width: 10%"></el-table-column>
             <el-table-column prop="name" :label="$t('layout.dependenciesName')" style="width: 20%"></el-table-column>
-            <el-table-column prop="version" :label="$t('layout.dependenciesVersion')"
-              style="width: 20%"></el-table-column>
+            <el-table-column prop="version" :label="$t('layout.dependenciesVersion')" style="width: 20%">
+            </el-table-column>
           </el-table>
         </el-card>
       </el-col>
     </el-row>
-    <div>
-      <el-table :data="GitData" border stripe height="602" style="width: 100%">
-        <el-table-column type="index" :label="$t('layout.indexNo')" style="width: 10%"></el-table-column>
-        <el-table-column prop="url" :label="$t('layout.dependenciesName')" style="width: 20%"></el-table-column>
-        <el-table-column prop="published_at" :label="$t('layout.dependenciesName')"
-          style="width: 20%"></el-table-column>
-      </el-table>
-    </div>
   </div>
 </template>
 <script setup>
@@ -98,93 +81,10 @@
   const data = reactive({
     github: 'https://github.com/Lean365/LaplaceNet',
     gitee: 'https://github.com/Lean365/LaplaceNet',
-    release: 'https://github.com/Lean365/LaplaceNet/releases',
+    release: 'https://github.com/Lean365/LaplaceNet/actions/workflows/release.yml',
   })
 
-  const GitDatas = [
-    {
-      "url": "https://api.github.com/repos/Lean365/LaplaceNet/releases/88682639",
-      "assets_url": "https://api.github.com/repos/Lean365/LaplaceNet/releases/88682639/assets",
-      "upload_url": "https://uploads.github.com/repos/Lean365/LaplaceNet/releases/88682639/assets{?name,label}",
-      "html_url": "https://github.com/Lean365/LaplaceNet/releases/tag/v1.0.1",
-      "id": 88682639,
-      "author": {
-        "login": "Lean365",
-        "id": 101301991,
-        "node_id": "U_kgDOBgm-5w",
-        "avatar_url": "https://avatars.githubusercontent.com/u/101301991?v=4",
-        "gravatar_id": "",
-        "url": "https://api.github.com/users/Lean365",
-        "html_url": "https://github.com/Lean365",
-        "followers_url": "https://api.github.com/users/Lean365/followers",
-        "following_url": "https://api.github.com/users/Lean365/following{/other_user}",
-        "gists_url": "https://api.github.com/users/Lean365/gists{/gist_id}",
-        "starred_url": "https://api.github.com/users/Lean365/starred{/owner}{/repo}",
-        "subscriptions_url": "https://api.github.com/users/Lean365/subscriptions",
-        "organizations_url": "https://api.github.com/users/Lean365/orgs",
-        "repos_url": "https://api.github.com/users/Lean365/repos",
-        "events_url": "https://api.github.com/users/Lean365/events{/privacy}",
-        "received_events_url": "https://api.github.com/users/Lean365/received_events",
-        "type": "User",
-        "site_admin": false
-      },
-      "node_id": "RE_kwDOIwUpv84FSTCP",
-      "tag_name": "v1.0.1",
-      "target_commitish": "master",
-      "name": " LaplaceNet",
-      "draft": false,
-      "prerelease": false,
-      "created_at": "2023-01-12T03:02:34Z",
-      "published_at": "2023-01-12T06:25:36Z",
-      "assets": [
 
-      ],
-      "tarball_url": "https://api.github.com/repos/Lean365/LaplaceNet/tarball/v1.0.1",
-      "zipball_url": "https://api.github.com/repos/Lean365/LaplaceNet/zipball/v1.0.1",
-      "body": ""
-    },
-    {
-      "url": "https://api.github.com/repos/Lean365/LaplaceNet/releases/88526859",
-      "assets_url": "https://api.github.com/repos/Lean365/LaplaceNet/releases/88526859/assets",
-      "upload_url": "https://uploads.github.com/repos/Lean365/LaplaceNet/releases/88526859/assets{?name,label}",
-      "html_url": "https://github.com/Lean365/LaplaceNet/releases/tag/v1.0.0",
-      "id": 88526859,
-      "author": {
-        "login": "Lean365",
-        "id": 101301991,
-        "node_id": "U_kgDOBgm-5w",
-        "avatar_url": "https://avatars.githubusercontent.com/u/101301991?v=4",
-        "gravatar_id": "",
-        "url": "https://api.github.com/users/Lean365",
-        "html_url": "https://github.com/Lean365",
-        "followers_url": "https://api.github.com/users/Lean365/followers",
-        "following_url": "https://api.github.com/users/Lean365/following{/other_user}",
-        "gists_url": "https://api.github.com/users/Lean365/gists{/gist_id}",
-        "starred_url": "https://api.github.com/users/Lean365/starred{/owner}{/repo}",
-        "subscriptions_url": "https://api.github.com/users/Lean365/subscriptions",
-        "organizations_url": "https://api.github.com/users/Lean365/orgs",
-        "repos_url": "https://api.github.com/users/Lean365/repos",
-        "events_url": "https://api.github.com/users/Lean365/events{/privacy}",
-        "received_events_url": "https://api.github.com/users/Lean365/received_events",
-        "type": "User",
-        "site_admin": false
-      },
-      "node_id": "RE_kwDOIwUpv84FRtAL",
-      "tag_name": "v1.0.0",
-      "target_commitish": "master",
-      "name": " LaplaceNet bata",
-      "draft": false,
-      "prerelease": false,
-      "created_at": "2023-01-11T02:43:55Z",
-      "published_at": "2023-01-11T02:58:06Z",
-      "assets": [
-
-      ],
-      "tarball_url": "https://api.github.com/repos/Lean365/LaplaceNet/tarball/v1.0.0",
-      "zipball_url": "https://api.github.com/repos/Lean365/LaplaceNet/zipball/v1.0.0",
-      "body": "Initial commit"
-    }
-  ]
   const githubHandle = () => {
     window.open(data.github)
   }
@@ -198,25 +98,6 @@
     window.open(data.oscs)
   }
 
-
-  let projectData = [
-    {
-      name1: proxy.$t('layout.currentVersion'),
-      value1: config.version,
-
-      name2: proxy.$t('layout.lastBulid'),
-      value2: '2023/1/13',
-    }, {
-      name1: proxy.$t('layout.helpguide'),
-      value1: 'https://github.com/Lean365/LaplaceNet',
-      name2: proxy.$t('layout.codeSourceAddress'),
-      value2: 'https://github.com/Lean365/LaplaceNet',
-    }, {
-      name1: 'Github',
-      value1: 'https://github.com/Lean365/LaplaceNet',
-      name2: 'Gitee',
-      value2: 'https://github.com/Lean365/LaplaceNet',
-    }]
 
   //单元格的 style 的回调方法
   const cellStyle = ({ row, column, rowIndex, columnIndex }) => {

@@ -35,7 +35,7 @@
 
       <div style="display: flex; justify-content: space-between">
         <el-checkbox v-model="loginForm.rememberMe">{{ $t('login.rememberMe') }}</el-checkbox>
-        <router-link class="link-type" :to="'/register'">{{ $t('login.register') }}</router-link>
+        <router-link class="link-type" :to="'/register'" v-if="register">{{ $t('login.register') }}</router-link>
       </div>
 
       <el-form-item style="width: 100%">
@@ -118,6 +118,7 @@
         userStore
           .login(loginForm.value)
           .then(() => {
+            //localStorage.getItem("lastClickTime", new Date().getTime());
             proxy.$modal.msgSuccess(proxy.$t('login.loginSuccess'))
             router.push({ path: redirect.value || '/' })
           })

@@ -35,6 +35,8 @@ import { downFile } from '@/utils/request'
 import signalR from '@/utils/signalR'
 import vueI18n from './i18n/index'
 import pinia from '@/store/index'
+//过期退出
+import isTimeOut from '@/store/modules/isTimeOut'
 //引入UUID
 import { v4 as uuidv4 } from 'uuid'
 // svg图标
@@ -66,6 +68,14 @@ import dateOptions from '@/utils/dateOptions'
 //格式化日期
 import moment from "moment"
 
+//VXE Table组件
+// import 'xe-utils'
+// import VXETable from 'vxe-table'
+// import 'vxe-table/lib/style.css'
+// VXETable.setup({
+//   // 对组件内置的提示语进行国际化翻译
+//   i18n: (key, args) => i18n.global.t(key, args)
+// })
 const app = createApp(App)
 
 app.config.globalProperties.$filters = {
@@ -110,4 +120,5 @@ app.use(pinia)
   .use(ElementPlus, {})
   .use(elementIcons)
   .use(vueI18n)
+  .use(isTimeOut)
   .mount('#app')

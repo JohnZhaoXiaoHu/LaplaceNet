@@ -49,6 +49,11 @@ namespace La.Service.System
             }
             return list;
         }
+        /// <summary>
+        /// 根据字典类型查询
+        /// </summary>
+        /// <param name="dictTypes"></param>
+        /// <returns></returns>
         public List<SysDictData> SelectDictDataByTypes(string[] dictTypes)
         {
             string CK = $"SelectDictDataByTypes_{dictTypes}";

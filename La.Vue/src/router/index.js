@@ -28,10 +28,10 @@ export const constantRoutes = [
     component: Layout,
     hidden: true,
     children: [
-    {
-      path: '/redirect/:path(.*)',
-      component: () => import('@/views/redirect/index.vue')
-    }]
+      {
+        path: '/redirect/:path(.*)',
+        component: () => import('@/views/redirect/index.vue')
+      }]
   },
   {
     path: '/login',
@@ -63,12 +63,12 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/index',
     children: [
-    {
-      path: '/index',
-      component: () => import('@/views/index'),
-      name: 'Index',
-      meta: { title: '首页', icon: 'dashboard', affix: true, titleKey: 'menu.home' }
-    }]
+      {
+        path: '/index',
+        component: () => import('@/views/index'),
+        name: 'Index',
+        meta: { title: '首页', icon: 'dashboard', affix: true, titleKey: 'menu.home' }
+      }]
   },
   {
     path: '/user',
@@ -76,12 +76,12 @@ export const constantRoutes = [
     hidden: true,
     redirect: 'noredirect',
     children: [
-    {
-      path: 'profile',
-      component: () => import('@/views/system/user/profile/index'),
-      name: 'Profile',
-      meta: { title: '个人中心', icon: 'user', titleKey: 'menu.personalCenter' }
-    }]
+      {
+        path: 'profile',
+        component: () => import('@/views/system/user/profile/index'),
+        name: 'Profile',
+        meta: { title: '个人中心', icon: 'user', titleKey: 'menu.personalCenter' }
+      }]
   },
   // 不用可删掉
   {
@@ -90,15 +90,19 @@ export const constantRoutes = [
     hidden: false,
     meta: { title: '组件示例', icon: 'icon', noCache: 'fasle' },
     children: [
-    {
-      path: 'icon',
-      component: () => import('@/views/components/icons/index'),
-      name: 'icon',
-      meta: { title: '图标icon', icon: 'icon1', noCache: 'fasle', titleKey: 'menu.icon' }
-    }]
+      {
+        path: 'icon',
+        component: () => import('@/views/components/icons/index'),
+        name: 'icon',
+        meta: { title: '图标icon', icon: 'icon1', noCache: 'fasle', titleKey: 'menu.icon' }
+      }]
   },
 ];
-
+// 防止连续点击多次路由报错
+// let routerPush = Router.prototype.push;
+// Router.prototype.push = function push(location) {
+//   return routerPush.call(this, location).catch(err => err)
+// }
 const router = createRouter({
   history: createWebHistory(
     import.meta.env.VITE_APP_ROUTER_PREFIX),

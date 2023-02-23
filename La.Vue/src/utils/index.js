@@ -91,7 +91,92 @@ export function param(json) {
     })
   ).join('&')
 }
+/**
+ * @description: json 转 param
+ * @param {Object} json json数据
+ * @return {*}
+ * @author: DavisCheng
+ */
+export function parseJson2Param(json) {
+  let result = ''
+  result = Object.keys(json)
+    .map(key => {
+      if (!json[key]) return ''
+      const temp = encodeURIComponent(key) + '=' + encodeURIComponent(json[key])
+      return temp
+    })
+    .join('&')
+  return result
+}
 
+/**
+ * @description: param 转 json
+ * @param {String} url 链接
+ * @return {*}
+ * @author: DavisCheng
+ */
+export function parseParam2Json(url) {
+  const result = {}
+  const search = decodeURIComponent(url.split('?')[1]).replace(/\+/gu, ' ')
+  if (search) {
+    const searchArr = search.split('&')
+    searchArr.forEach(r => {
+      const index = r.indexOf('=')
+      if (index !== -1) {
+        const key = r.substring(0, index)
+        const val = r.substring(index + 1, r.length)
+        result[key] = val
+      }
+    })
+  }
+  return result
+}
+
+/**
+ * @description: 置空json数据
+ * @param {*} data json数据
+ * @return {*}
+ * @author: DavisCheng
+ */
+export function clearJson(data) {
+  const json = data
+  let key
+  for (key in json) {
+    if (json[key] instanceof Array) {
+      json[key] = []
+    } else if (typeof json[key] === 'object' && Object.prototype.toString.call(json[key]).toLowerCase() === '[object object]' && !json[key].length) {
+      json[key] = {}
+    } else {
+      json[key] = ''
+    }
+  }
+}
+
+/**
+ * @description: 判断是否有按钮级权限
+ * @param {String} permission 多个使用 & 或 | 分隔开
+ * @param {String} separator 分隔符：&-并且 |-或者
+ * @return {*}
+ * @author: DavisCheng
+ */
+export function havePermission(permission, separator = '&') {
+  let result = false
+  const permissions = permission.split(separator)
+  let fn = ''
+  switch (separator) {
+    case '&':
+      fn = 'every'
+      break
+    case '|':
+      fn = 'some'
+      break
+  }
+  const list = store.getters['menu/permissions']
+  result = fn && permissions[fn](item => {
+    return list.indexOf(item) !== -1
+  })
+  return result
+}
 /**
  * @param {string} url
  * @returns {Object}

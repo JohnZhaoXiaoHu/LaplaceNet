@@ -48,9 +48,9 @@
 
 <script setup name="Online">
   import { forceLogout, list as initData } from "@/api/monitor/online";
-
+  import useUserStore from '@/store/modules/user'
   const { proxy } = getCurrentInstance();
-
+  const userStore = useUserStore()
   const onlineList = ref([]);
   const loading = ref(true);
   const total = ref(0);
@@ -104,6 +104,9 @@
     proxy.$modal.confirm(row.connnectionId + '是否确认强退名称为"' + row.userName + '"的用户?').then(function () {
       return forceLogout(row.connnectionId);
     }).then(() => {
+      // userStore.fedLogOut().then(() => {
+      //   location.href = import.meta.env.VITE_APP_ROUTER_PREFIX + 'index'
+      // })
       getList();
       proxy.$modal.msgSuccess("删除成功");
     }).catch(() => { });

@@ -1,5 +1,6 @@
 <template>
 
+  <div>{{gitinfo}}</div>
   <h2 style="color: red;">{{ $t('layout.ProjectInformation') }}</h2>
   <h5 style="color: rgb(42, 3, 184);">
     {{ $t('layout.projectInfo') }}
@@ -9,7 +10,7 @@
       <div class="margin_t-10">
         <el-button size="small" type="warning" @click="releaseHandle()" round><svg-icon name="log" />{{
           $t('layout.changeLog') }}</el-button>
-        <el-button size="small" type="success" @click="guideHandle()" round><svg-icon name="file-code" />{{
+        <el-button size="small" type="success" @click="releaseHandle()" round><svg-icon name="file-code" />{{
           $t('layout.helpguide') }}</el-button>
         <el-button size="small" type="info" @click="releaseHandle()" round><svg-icon name="github"
             color="BlueViolet" />GitHub</el-button>
@@ -18,15 +19,6 @@
       </div>
     </div>
   </div>
-  <el-table :data="projectData" border stripe height="150" style="width: 100%" :cell-style="cellStyle">
-    <el-table-column prop="name1"></el-table-column>
-    <el-table-column prop="value1">
-    </el-table-column>
-    <el-table-column prop="name2"></el-table-column>
-    <el-table-column prop="value2">
-    </el-table-column>
-  </el-table>
-
   <h2 style="float:center">{{ $t('layout.technicalSelection') }}</h2>
   <el-row class="mt10">
     <el-col :sm="24" :lg="12">
@@ -55,6 +47,7 @@
     </el-col>
   </el-row>
   <div>
+
     <el-row class="mt10">
       <el-col :sm="24" :lg="12">
         <el-card>
@@ -73,8 +66,8 @@
           <el-table :data="depData" border stripe height="602" style="width: 100%">
             <el-table-column type="index" :label="$t('layout.indexNo')" style="width: 10%"></el-table-column>
             <el-table-column prop="name" :label="$t('layout.dependenciesName')" style="width: 20%"></el-table-column>
-            <el-table-column prop="version" :label="$t('layout.dependenciesVersion')"
-              style="width: 20%"></el-table-column>
+            <el-table-column prop="version" :label="$t('layout.dependenciesVersion')" style="width: 20%">
+            </el-table-column>
           </el-table>
         </el-card>
       </el-col>
@@ -83,17 +76,15 @@
 </template>
 <script setup>
   import config from '../../package.json'
-
-
   const { proxy } = getCurrentInstance()
   const versionstring = config.description + ':v' + config.version;
   const data = reactive({
     github: 'https://github.com/Lean365/LaplaceNet',
     gitee: 'https://github.com/Lean365/LaplaceNet',
-    release: 'https://github.com/Lean365/LaplaceNet/releases',
-    guide: 'https://laplacenet.github.io/',
-
+    release: 'https://github.com/Lean365/LaplaceNet/actions/workflows/release.yml',
   })
+
+
   const githubHandle = () => {
     window.open(data.github)
   }
@@ -103,27 +94,10 @@
   const releaseHandle = () => {
     window.open(data.release)
   }
-  const guideHandle = () => {
-    window.open(data.guide)
+  const oscsHandle = () => {
+    window.open(data.oscs)
   }
-  let projectData = [
-    {
-      name1: proxy.$t('layout.currentVersion'),
-      value1: config.version,
 
-      name2: proxy.$t('layout.lastBulid'),
-      value2: '2023/1/13',
-    }, {
-      name1: proxy.$t('layout.helpguide'),
-      value1: 'https://laplacenet.github.io/',
-      name2: proxy.$t('layout.codeSourceAddress'),
-      value2: 'https://github.com/Lean365/LaplaceNet',
-    }, {
-      name1: 'Github',
-      value1: 'https://github.com/Lean365/LaplaceNet',
-      name2: 'Gitee',
-      value2: 'https://github.com/Lean365/LaplaceNet',
-    }]
 
   //单元格的 style 的回调方法
   const cellStyle = ({ row, column, rowIndex, columnIndex }) => {
@@ -201,7 +175,7 @@
     { Name: 'Composition api', Fun: '组合式API' },
     { Name: 'I18n', Fun: '国际化' },
   ]
-  let devDependencies = config.devDependencies
+
   let depData = [
     { name: '@element-plus/icons-vue', version: config.dependencies['@element-plus/icons-vue'] },
     { name: '@microsoft/signalr', version: config.dependencies['@microsoft/signalr'] },
@@ -246,12 +220,7 @@
 
 </script>
 
-<style>
-  .el-table .warning-row {
-    --el-table-tr-bg-color: var(--el-color-warning-light-9);
-  }
 
-  .el-table .success-row {
-    --el-table-tr-bg-color: var(--el-color-success-light-9);
-  }
+<style lang="scss" scoped>
+
 </style>
