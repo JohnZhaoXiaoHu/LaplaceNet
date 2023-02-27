@@ -49,7 +49,7 @@ namespace La.Service.Production
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.PomGuid+it.PosStartEndTime == entryString);
+            int count = Count(it => it.PomGuid.ToString()+it.PosStartEndTime == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

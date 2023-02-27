@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace La.Infra.Extensions
 {
+    /// <summary>
+    /// 扩展枚举
+    /// </summary>
     public static partial class Extensions
     {
         #region 枚举成员转成dictionary类型

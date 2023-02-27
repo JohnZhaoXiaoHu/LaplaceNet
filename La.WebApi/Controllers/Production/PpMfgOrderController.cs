@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName pp_mfg_order
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-09
+    /// @date 2023-02-25
     /// </summary>
     [Verify]
     [Route("production/PpMfgOrder")]
@@ -30,7 +30,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         private readonly IPpMfgOrderService _PpMfgOrderService;
         /// <summary>
-        /// 生产工单接口
+        /// 生产工单Controller
         /// </summary>
         public PpMfgOrderController(IPpMfgOrderService PpMfgOrderService)
         {
@@ -78,7 +78,9 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-            // 校验输入项目是否唯一
+
+           // 校验输入项目是否唯一
+
             if (UserConstants.NOT_UNIQUE.Equals(_PpMfgOrderService.CheckEntryStringUnique(parm.MoOrderNo.ToString())))
             {
                 return ToResponse(ApiResult.Error($"新增生产工单 '{parm.MoOrderNo}'失败，输入的生产工单已存在"));

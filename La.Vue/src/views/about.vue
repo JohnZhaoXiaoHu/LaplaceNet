@@ -157,6 +157,7 @@
     { Name: 'JWT', Fun: 'JSON Web Tokens基于JSON的开放标准((RFC 7519)' },
     { Name: 'SqlSugar', Fun: '开源 ORM 框架' },
     { Name: 'Quartz.Net', Fun: '任务调度框架' },
+    { Name: 'MsSql', Fun: '指微软的SQLServer数据库服务器,最新SQL Server 2022' },
     { Name: 'MySql', Fun: '关系型数据库管理系统,MariaDB数据库管理系统是MySQL的一个分支' },
     { Name: 'Mapster', Fun: '高性能对象映射框架' },
     { Name: 'MiniExcel', Fun: '.NET操作Excel高效低内存的开源框架' },
@@ -166,6 +167,7 @@
   ]
   let frontend = [
     { Name: 'Vue3', Fun: 'JavaScript 框架' },
+    { Name: 'Vue Router', Fun: '它与 Vue.js 核心深度集成，让用 Vue.js 构建单页应用变得轻而易举。' },
     { Name: 'Vuex', Fun: '状态管理模式 + 库' },
     { Name: 'Element plus', Fun: 'Vue3 UI组件库' },
     { Name: 'Axios', Fun: 'Web数据交互方式' },
@@ -174,6 +176,7 @@
     { Name: 'Vite', Fun: '前端构建工具' },
     { Name: 'Composition api', Fun: '组合式API' },
     { Name: 'I18n', Fun: '国际化' },
+    { Name: 'ECharts', Fun: '基于JavaScript的数据可视化图表库' },
   ]
 
   let depData = [

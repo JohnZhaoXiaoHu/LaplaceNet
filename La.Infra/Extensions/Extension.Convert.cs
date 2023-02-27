@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace La.Infra.Extensions
 {
+    /// <summary>
+    /// 扩展
+    /// </summary>
     public static partial class Extensions
     {
         #region 转换为long
@@ -368,6 +371,12 @@ namespace La.Infra.Extensions
                 return string.Empty;
             }
         }
+        /// <summary>
+        /// 转字串
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static string ParseToStrings<T>(this object obj)
         {
             try

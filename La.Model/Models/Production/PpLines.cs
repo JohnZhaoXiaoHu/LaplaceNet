@@ -8,7 +8,7 @@ namespace La.Model.Models
     /// 生产班组，数据实体对象
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-09
+    /// @date 2023-02-25
     /// </summary>
     [SugarTable("pp_lines")]
     public class PpLines
@@ -31,27 +31,6 @@ namespace La.Model.Models
         /// 空值 :false 
         /// </summary>
         public string PlLineCode { get; set; }
-
-        /// <summary>
-        /// 描述 :班组名称_ZH 
-        /// 空值 :false 
-        /// </summary>
-        [SugarColumn(ColumnName = "plLineName_Zh")]
-        public string PllinenameZh { get; set; }
-
-        /// <summary>
-        /// 描述 :班组名称_EN 
-        /// 空值 :false 
-        /// </summary>
-        [SugarColumn(ColumnName = "plLineName_En")]
-        public string PllinenameEn { get; set; }
-
-        /// <summary>
-        /// 描述 :班组名称_JA 
-        /// 空值 :false 
-        /// </summary>
-        [SugarColumn(ColumnName = "plLineName_Ja")]
-        public string PllinenameJa { get; set; }
 
         /// <summary>
         /// 描述 :软件删除 
@@ -92,6 +71,12 @@ namespace La.Model.Models
         /// </summary>
         [SugarColumn(ColumnName = "update_time")]
         public DateTime? UpdateTime { get; set; }
+
+        /// <summary>
+        /// 描述 :班组名称 
+        /// 空值 :true 
+        /// </summary>
+        public string PlLineName { get; set; }
 
 
 

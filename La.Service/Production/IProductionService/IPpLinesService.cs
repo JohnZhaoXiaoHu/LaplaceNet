@@ -10,7 +10,7 @@ namespace La.Service.Production.IProductionService
     /// 生产班组service接口
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-09
+    /// @date 2023-02-25
     /// </summary>
     public interface IPpLinesService : IBaseService<PpLines>
     {

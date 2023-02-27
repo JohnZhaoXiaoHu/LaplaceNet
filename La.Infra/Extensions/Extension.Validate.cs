@@ -2,8 +2,16 @@
 
 namespace La.Infra.Extensions
 {
+    /// <summary>
+    /// 扩展.验证
+    /// </summary>
     public static partial class Extensions
     {
+        /// <summary>
+        /// 判断空
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static bool IsEmpty(this object value)
         {
             if (value != null && !string.IsNullOrEmpty(value.ParseToString()))
@@ -15,10 +23,20 @@ namespace La.Infra.Extensions
                 return true;
             }
         }
+        /// <summary>
+        /// 不为空
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static bool IsNotEmpty(this object value)
         {
             return !IsEmpty(value);
         }
+        /// <summary>
+        /// 0哐空
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static bool IsNullOrZero(this object value)
         {
             if (value == null || value.ParseToString().Trim() == "0")

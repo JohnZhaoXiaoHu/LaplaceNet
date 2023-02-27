@@ -8,7 +8,7 @@ namespace La.Model.Models
     /// 生产工单，数据实体对象
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-09
+    /// @date 2023-02-25
     /// </summary>
     [SugarTable("pp_mfg_order")]
     public class PpMfgOrder

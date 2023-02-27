@@ -39,8 +39,17 @@ namespace La.Model
             }
             set { }
         }
+        /// <summary>
+        /// Result
+        /// </summary>
         public List<T> Result { get; set; }
+        /// <summary>
+        /// Extra
+        /// </summary>
         public Dictionary<string, object> Extra { get; set; } = new Dictionary<string, object>();
+        /// <summary>
+        /// PagedInfo
+        /// </summary>
         public PagedInfo()
         {
         }

@@ -78,7 +78,7 @@ namespace La.WebApi.Controllers.monitor
         [HttpDelete("{connnectionId}")]
         [ActionPermissionFilter(Permission = "monitor:online:forceLogout")]
         [Log(Title = "在线用户", BusinessType = BusinessType.FORCE)]
-        public async Task<Result> forceLogout(string connnectionId)
+        public async Task<Result> forceOut(string connnectionId)
         {
             if (MessageHub.clientUsers.Exists(u => u.ConnnectionId == connnectionId))
             {

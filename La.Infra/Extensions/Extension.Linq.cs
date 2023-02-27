@@ -7,31 +7,74 @@ using System.Threading.Tasks;
 
 namespace La.Infra.Extensions
 {
+    /// <summary>
+    /// Linq扩展
+    /// </summary>
     public static class LinqExtensions
     {
+        /// <summary>
+        /// 元素对象的属性
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
         public static Expression Property(this Expression expression, string propertyName)
         {
             return Expression.Property(expression, propertyName);
         }
+        /// <summary>
+        /// 此外AndAlso
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
         public static Expression AndAlso(this Expression left, Expression right)
         {
             return Expression.AndAlso(left, right);
         }
+        /// <summary>
+        /// Call
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <param name="methodName"></param>
+        /// <param name="arguments"></param>
+        /// <returns></returns>
         public static Expression Call(this Expression instance, string methodName, params Expression[] arguments)
         {
             return Expression.Call(instance, instance.Type.GetMethod(methodName), arguments);
         }
+        /// <summary>
+        /// GreaterThan
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
         public static Expression GreaterThan(this Expression left, Expression right)
         {
             return Expression.GreaterThan(left, right);
         }
+        /// <summary>
+        /// ToLambda
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="body"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         public static Expression<T> ToLambda<T>(this Expression body, params ParameterExpression[] parameters)
         {
             return Expression.Lambda<T>(body, parameters);
         }
-
+        /// <summary>
+        /// 组合True
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static Expression<Func<T, bool>> True<T>() { return param => true; }
-
+        /// <summary>
+        /// 组合False
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static Expression<Func<T, bool>> False<T>() { return param => false; }
 
         /// <summary>

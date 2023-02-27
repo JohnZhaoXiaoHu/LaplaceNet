@@ -748,6 +748,63 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:La.WebApi.Controllers.MmMatsController">
+            <summary>
+            物料信息Controller
+            
+            @tableName mm_mats
+            @author Laplace.Net:Davis.Cheng
+            @date 2023-02-25
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.MmMatsController._MmMatsService">
+            <summary>
+            物料信息接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.MmMatsController.#ctor(La.Service.Material.IMaterialService.IMmMatsService)">
+            <summary>
+            物料信息Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.MmMatsController.QueryMmMats(La.Model.Dto.MmMatsQueryDto)">
+            <summary>
+            查询物料信息列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.MmMatsController.GetMmMats(System.Int32)">
+            <summary>
+            查询物料信息详情
+            </summary>
+            <param name="MmId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.MmMatsController.AddMmMats(La.Model.Dto.MmMatsDto)">
+            <summary>
+            添加物料信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.MmMatsController.UpdateMmMats(La.Model.Dto.MmMatsDto)">
+            <summary>
+            更新物料信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.MmMatsController.DeleteMmMats(System.String)">
+            <summary>
+            删除物料信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.MmMatsController.Export(La.Model.Dto.MmMatsQueryDto)">
+            <summary>
+            导出物料信息
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:La.WebApi.Controllers.PpCauseTypeController">
             <summary>
             原因类别Controller
@@ -805,13 +862,70 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:La.WebApi.Controllers.PpEcMasterController">
+            <summary>
+            主设变信息表Controller
+            
+            @tableName pp_ec_master
+            @author Laplace.Net:Davis.Cheng
+            @date 2023-02-24
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.PpEcMasterController._PpEcMasterService">
+            <summary>
+            主设变信息表接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcMasterController.#ctor(La.Service.Production.IProductionService.IPpEcMasterService)">
+            <summary>
+            主设变信息表Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcMasterController.QueryPpEcMaster(La.Model.Dto.PpEcMasterQueryDto)">
+            <summary>
+            查询主设变信息表列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcMasterController.GetPpEcMaster(System.Int32)">
+            <summary>
+            查询主设变信息表详情
+            </summary>
+            <param name="EmId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcMasterController.AddPpEcMaster(La.Model.Dto.PpEcMasterDto)">
+            <summary>
+            添加主设变信息表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcMasterController.UpdatePpEcMaster(La.Model.Dto.PpEcMasterDto)">
+            <summary>
+            更新主设变信息表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcMasterController.DeletePpEcMaster(System.String)">
+            <summary>
+            删除主设变信息表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcMasterController.Export(La.Model.Dto.PpEcMasterQueryDto)">
+            <summary>
+            导出主设变信息表
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:La.WebApi.Controllers.PpLinesController">
             <summary>
             生产班组Controller
             
             @tableName pp_lines
             @author Laplace.Net:Davis.Cheng
-            @date 2023-02-09
+            @date 2023-02-25
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.PpLinesController._PpLinesService">
@@ -821,7 +935,7 @@
         </member>
         <member name="M:La.WebApi.Controllers.PpLinesController.#ctor(La.Service.Production.IProductionService.IPpLinesService)">
             <summary>
-            生产班组接口
+            生产班组Controller
             </summary>
         </member>
         <member name="M:La.WebApi.Controllers.PpLinesController.QueryPpLines(La.Model.Dto.PpLinesQueryDto)">
@@ -925,7 +1039,7 @@
             
             @tableName pp_mfg_order
             @author Laplace.Net:Davis.Cheng
-            @date 2023-02-09
+            @date 2023-02-25
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.PpMfgOrderController._PpMfgOrderService">
@@ -935,7 +1049,7 @@
         </member>
         <member name="M:La.WebApi.Controllers.PpMfgOrderController.#ctor(La.Service.Production.IProductionService.IPpMfgOrderService)">
             <summary>
-            生产工单接口
+            生产工单Controller
             </summary>
         </member>
         <member name="M:La.WebApi.Controllers.PpMfgOrderController.QueryPpMfgOrder(La.Model.Dto.PpMfgOrderQueryDto)">
@@ -2376,11 +2490,62 @@
             <param name="online"></param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.monitor.SysUserOnlineController.forceLogout(System.String)">
+        <member name="M:La.WebApi.Controllers.monitor.SysUserOnlineController.forceOut(System.String)">
             <summary>
             强制退出用户
             </summary>
             <param name="connnectionId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:La.WebApi.Controllers.SysEtDictController">
+            <summary>
+            电子辞典Controller
+            
+            @tableName sys_et_dict
+            @author Laplace.Net:Davis.Cheng
+            @date 2023-02-24
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.SysEtDictController._SysEtDictService">
+            <summary>
+            电子辞典接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.SysEtDictController.#ctor(La.Service.System.ISystemService.ISysEtDictService)">
+            <summary>
+            电子辞典Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.SysEtDictController.QuerySysEtDict(La.Model.Dto.SysEtDictQueryDto)">
+            <summary>
+            查询电子辞典列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SysEtDictController.GetSysEtDict(System.Int64)">
+            <summary>
+            查询电子辞典详情
+            </summary>
+            <param name="EtGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SysEtDictController.AddSysEtDict(La.Model.Dto.SysEtDictDto)">
+            <summary>
+            添加电子辞典
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SysEtDictController.UpdateSysEtDict(La.Model.Dto.SysEtDictDto)">
+            <summary>
+            更新电子辞典
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SysEtDictController.DeleteSysEtDict(System.String)">
+            <summary>
+            删除电子辞典
+            </summary>
             <returns></returns>
         </member>
         <member name="T:La.WebApi.Controllers.SysFileController">
@@ -2421,6 +2586,63 @@
         <member name="M:La.WebApi.Controllers.SysFileController.Export">
             <summary>
             文件存储导出
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:La.WebApi.Controllers.SysRefStrategyController">
+            <summary>
+            单据编码Controller
+            
+            @tableName sys_ref_strategy
+            @author Laplace.Net:Davis.Cheng
+            @date 2023-02-24
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.SysRefStrategyController._SysRefStrategyService">
+            <summary>
+            单据编码接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.SysRefStrategyController.#ctor(La.Service.System.ISystemService.ISysRefStrategyService)">
+            <summary>
+            单据编码Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.SysRefStrategyController.QuerySysRefStrategy(La.Model.Dto.SysRefStrategyQueryDto)">
+            <summary>
+            查询单据编码列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SysRefStrategyController.GetSysRefStrategy(System.Int64)">
+            <summary>
+            查询单据编码详情
+            </summary>
+            <param name="RefId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SysRefStrategyController.AddSysRefStrategy(La.Model.Dto.SysRefStrategyDto)">
+            <summary>
+            添加单据编码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SysRefStrategyController.UpdateSysRefStrategy(La.Model.Dto.SysRefStrategyDto)">
+            <summary>
+            更新单据编码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SysRefStrategyController.DeleteSysRefStrategy(System.String)">
+            <summary>
+            删除单据编码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SysRefStrategyController.Export(La.Model.Dto.SysRefStrategyQueryDto)">
+            <summary>
+            导出单据编码
             </summary>
             <returns></returns>
         </member>

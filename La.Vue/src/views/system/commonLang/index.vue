@@ -1,9 +1,9 @@
 <!--
  * @Descripttion: (多语言配置/)
  * @version: (1.0)
- * @Author: (zr)
+ * @Author: (la)
  * @Date: (2022-05-06)
- * @LastEditors: (zr)
+ * @LastEditors: (la)
  * @LastEditTime: (2022-5-14)
 -->
 <template>

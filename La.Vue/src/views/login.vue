@@ -1,6 +1,10 @@
 <template>
   <starBackground></starBackground>
   <div class="login">
+    <div class="drawer-item" style="display: flex; justify-content: flex-start">
+      <img src="../assets/logo/logo.png" class="image" />
+      <h6 class="slogan">{{ $t('layout.slogan') }}</h6>
+    </div>
     <el-form ref="loginRef" :model="loginForm" :rules="loginRules" class="login-form">
       <h3 class="title">{{ defaultSettings.title }}</h3>
 
@@ -35,7 +39,8 @@
 
       <div style="display: flex; justify-content: space-between">
         <el-checkbox v-model="loginForm.rememberMe">{{ $t('login.rememberMe') }}</el-checkbox>
-        <router-link class="link-type" :to="'/register'" v-if="register">{{ $t('login.register') }}</router-link>
+        <router-link class="link-type" :to="'/register'" v-if="defaultSettings.register">{{ $t('login.register')
+          }}</router-link>
       </div>
 
       <el-form-item style="width: 100%">
@@ -43,7 +48,9 @@
           <span v-if="!loading">{{ $t('login.btnLogin') }}</span>
           <span v-else>{{ $t('layout.loggingIn') }}</span>
         </el-button>
+
       </el-form-item>
+
       <div class="other-login" v-if="defaultSettings.showOtherLogin">
         <el-divider>{{ $t('login.otherLoginWay') }}</el-divider>
         <img src="../assets/icons/gitee-fill-round.png" alt="" class="login-icon" @click="onAuth('GITEE')" />
@@ -92,12 +99,14 @@
   // 验证码开关
   const captchaOnOff = ref('')
   // 注册开关
-  const register = ref(false)
+  const register = ref()
+
   const redirect = ref()
   redirect.value = route.query.redirect
   // proxy.getConfigKey('sys.account.captchaOnOff').then((response) => {
   //   captchaOnOff.value = response.data
   // })
+
 
   function handleLogin() {
     proxy.$refs.loginRef.validate((valid) => {
@@ -158,7 +167,7 @@
 
     switch (type) {
       default:
-        window.location.href = import.meta.env.VITE_APP_BASE_API + '/auth/Authorization?authSource=' + type
+        window.location.href = import.meta.env.VITE_GITHUB_API_HOST + '/auth/Authorization?authSource=' + type
         break
     }
   }
@@ -203,6 +212,32 @@
     /*safari 浏览器支持*/
     letter-spacing: 2px;
     /*字符间距*/
+  }
+
+  .drawer-item {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    padding: 0px 10px 5px;
+
+    .image {
+      width: 5%;
+      height: 5%;
+      padding: 0px 10px 5px;
+
+    }
+
+    .slogan {
+      position: absolute;
+      left: 50px;
+      top: -20px;
+      width: 105%;
+      height: 105%;
+      padding: 0px 10px 5px;
+      color: white;
+
+    }
+
   }
 
   .other-login {

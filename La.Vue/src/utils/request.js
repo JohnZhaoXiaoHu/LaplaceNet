@@ -23,8 +23,8 @@ const service = axios.create({
 /**
  * 定义一个检查token 是否过期的方法
  */
-// 2 个小时  7200000 ms 就是 时间戳 2 个小时 是 token 过期的时间期限
-const tokenLoginTime = 1000 * 60 * 60 * 1;
+// 2 天  172800000 ms (1天86400000 ms)就是 时间戳 2 天 是 token 过期的时间期限
+const tokenLoginTime = 1000 * 60 * 60 * 24;
 function checkTimeOut() {
   // 当前时间 发送请求的时间 在请求拦截器调用这个函数 就是发送请求的当前时间
   const curTime = Date.now();

@@ -6,6 +6,9 @@ using System.Reflection;
 
 namespace La.Infra.Extensions
 {
+    /// <summary>
+    /// 应用服务扩展
+    /// </summary>
     public static class AppServiceExtensions
     {
         /// <summary>
@@ -23,7 +26,11 @@ namespace La.Infra.Extensions
                 Register(services, assembly);
             }
         }
-
+        /// <summary>
+        /// 注册
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="assembly"></param>
         private static void Register(IServiceCollection services, Assembly assembly)
         {
             foreach (var type in assembly.GetTypes())

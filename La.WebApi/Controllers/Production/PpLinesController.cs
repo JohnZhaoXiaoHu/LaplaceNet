@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName pp_lines
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-09
+    /// @date 2023-02-25
     /// </summary>
     [Verify]
     [Route("Production/PpLines")]
@@ -30,7 +30,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         private readonly IPpLinesService _PpLinesService;
         /// <summary>
-        /// 生产班组接口
+        /// 生产班组Controller
         /// </summary>
         public PpLinesController(IPpLinesService PpLinesService)
         {
@@ -78,8 +78,10 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-            // 校验输入项目是否唯一
-            if (UserConstants.NOT_UNIQUE.Equals(_PpLinesService.CheckEntryStringUnique(parm.PlLineCode)))
+
+           // 校验输入项目是否唯一
+
+            if (UserConstants.NOT_UNIQUE.Equals(_PpLinesService.CheckEntryStringUnique(parm.PlLineCode.ToString())))
             {
                 return ToResponse(ApiResult.Error($"新增生产班组 '{parm.PlLineCode}'失败，输入的生产班组已存在"));
             }

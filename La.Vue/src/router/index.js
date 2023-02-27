@@ -67,7 +67,7 @@ export const constantRoutes = [
         path: '/index',
         component: () => import('@/views/index'),
         name: 'Index',
-        meta: { title: '首页', icon: 'dashboard', affix: true, titleKey: 'menu.home' }
+        meta: { title: '首页', icon: 'house-solid', affix: true, titleKey: 'menu.home' }
       }]
   },
   {
@@ -94,7 +94,7 @@ export const constantRoutes = [
         path: 'icon',
         component: () => import('@/views/components/icons/index'),
         name: 'icon',
-        meta: { title: '图标icon', icon: 'icon1', noCache: 'fasle', titleKey: 'menu.icon' }
+        meta: { title: '图标icon', icon: 'font-awesome', noCache: 'fasle', titleKey: 'menu.icon' }
       }]
   },
 ];

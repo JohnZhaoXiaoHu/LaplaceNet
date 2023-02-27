@@ -15,7 +15,7 @@ namespace La.Service.Production
     /// 生产班组Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-09
+    /// @date 2023-02-25
     /// </summary>
     [AppService(ServiceType = typeof(IPpLinesService), ServiceLifetime = LifeTime.Transient)]
     public class PpLinesService : BaseService<PpLines>, IPpLinesService
@@ -69,12 +69,10 @@ namespace La.Service.Production
             {
                 it.PlLineType,
                 it.PlLineCode,
-                it.PllinenameZh,
-                it.PllinenameEn,
-                it.PllinenameJa,
                 it.Remark,
                 it.CreateBy,
                 it.CreateTime,
+                it.PlLineName,
             });
             return response;
         }
@@ -88,12 +86,10 @@ namespace La.Service.Production
         {
             var response = Update(w => w.PlId == parm.PlId, it => new PpLines()
             {
-                PllinenameZh = parm.PllinenameZh,
-                PllinenameEn = parm.PllinenameEn,
-                PllinenameJa = parm.PllinenameJa,
                 Remark = parm.Remark,
                 UpdateBy = parm.UpdateBy,
                 UpdateTime = parm.UpdateTime,
+                PlLineName = parm.PlLineName,
             });
             return response;
         }

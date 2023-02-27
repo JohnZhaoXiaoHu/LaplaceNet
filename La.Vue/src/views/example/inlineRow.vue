@@ -481,7 +481,7 @@
     row.pomModelName = vals.split(",").slice(5, 6).join()
     row.pomMfItem = vals.split(",").slice(1, 2).join()
     row.pomStdTime = vals.split(",").slice(-1).join()
-    row.pomMfDate = getCurrentTime()
+    row.pomMfDate = new Date()
     //计算计划产出(标准产能)
     //判断直接人数
     if (row.pomDirect != undefined && row.pomDirect != null && row.pomDirect != 0) {
@@ -517,7 +517,7 @@
     form.value.pomModelName = val.split(",").slice(5, 6).join()
     form.value.pomMfItem = val.split(",").slice(1, 2).join()
     form.value.pomStdTime = val.split(",").slice(-1).join()
-    form.value.pomMfDate = getCurrentTime()
+    form.value.pomMfDate = new Date()
     //计算计划产出(标准产能)
     //判断直接人数
     if (form.value.pomDirect != undefined && form.value.pomDirect != null && form.value.pomDirect != 0) {

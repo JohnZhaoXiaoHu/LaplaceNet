@@ -15,7 +15,7 @@ namespace La.Service.Production
     /// 生产工单Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-09
+    /// @date 2023-02-25
     /// </summary>
     [AppService(ServiceType = typeof(IPpMfgOrderService), ServiceLifetime = LifeTime.Transient)]
     public class PpMfgOrderService : BaseService<PpMfgOrder>, IPpMfgOrderService
@@ -96,11 +96,6 @@ namespace La.Service.Production
         {
             var response = Update(w => w.MoId == parm.MoId, it => new PpMfgOrder()
             {
-                MoPlant = parm.MoPlant,
-                MoOrderType = parm.MoOrderType,
-                MoOrderNo = parm.MoOrderNo,
-                MoOrderItem = parm.MoOrderItem,
-                MoOrderlot = parm.MoOrderlot,
                 MoOrderQty = parm.MoOrderQty,
                 MoOrderProQty = parm.MoOrderProQty,
                 MoOrderDate = parm.MoOrderDate,

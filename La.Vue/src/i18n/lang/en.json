@@ -48,6 +48,7 @@
   },
   "layout": {
     "projectInfo": "Laplace.Net is based on the newest development stack of vue and it has a built-in i18n solution, typical templates for enterprise applications, and lots of awesome features. It helps you build large and complex Single-Page Applications. I believe whatever your needs are, this project will help you.",
+    "slogan": "Changing the Concept,Continuous improvement and Lean Manufacturing",
     "returnLogin": "Return",
     "loggingIn": "Signing in...",
     "rewardUser": "Reward the author",
@@ -66,6 +67,7 @@
     "switchingLanguage": "Convert language,waiting...",
     "personalCenter": "Personal center",
     "layoutSetting": "Layout setting",
+    "showWatermark": "Water Mark",
     "myToken": "Copy myToken",
     "myTokenCopy": "Copy succeeded",
     "mybrowserNg": "The current browser does not support Token！",

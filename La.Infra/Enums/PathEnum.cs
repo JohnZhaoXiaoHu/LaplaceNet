@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace La.Infra.Enums
 {
+    /// <summary>
+    /// 路径枚举 
+    /// </summary>
     public enum PathEnum
     {
         Excel,

@@ -3,6 +3,8 @@ import { getToken, setToken, removeToken } from '@/utils/auth'
 import defAva from '@/assets/images/profile.jpg'
 import Cookies from 'js-cookie'
 import { encrypt } from '@/utils/jsencrypt'
+
+
 const useUserStore = defineStore('user', {
   state: () => ({
     userInfo: '',
@@ -28,6 +30,7 @@ const useUserStore = defineStore('user', {
         login(username, password, code, uuid)
           .then((res) => {
             if (res.code == 200) {
+
               setToken(res.data)
               this.token = res.data
 

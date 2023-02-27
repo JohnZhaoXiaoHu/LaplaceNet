@@ -6,10 +6,22 @@ using System.Threading;
 
 namespace Microsoft.AspNetCore.Http
 {
+    /// <summary>
+    /// Http上下文
+    /// </summary>
     public static class HttpContextLocal
     {
+        /// <summary>
+        /// 异步本地访问器
+        /// </summary>
         private static Func<object> _asyncLocalAccessor;
+        /// <summary>
+        /// 保持器访问器
+        /// </summary>
         private static Func<object, object> _holderAccessor;
+        /// <summary>
+        /// Http上下文访问器
+        /// </summary>
         private static Func<object, HttpContext> _httpContextAccessor;
 
         /// <summary>

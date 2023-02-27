@@ -4,6 +4,9 @@ using System.Text;
 
 namespace La.Infra.Constant
 {
+    /// <summary>
+    /// Http状态码
+    /// </summary>
     public class HttpStatus
     {
         /// <summary>

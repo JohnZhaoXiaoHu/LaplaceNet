@@ -33,18 +33,6 @@ namespace La.Model.Dto
         [ExcelColumn(Name = "班组代码")]
         public string PlLineCode { get; set; }
 
-        [Required(ErrorMessage = "班组名称_ZH不能为空")]
-        [ExcelColumn(Name = "班组名称_ZH")]
-        public string PllinenameZh { get; set; }
-
-        [Required(ErrorMessage = "班组名称_EN不能为空")]
-        [ExcelColumn(Name = "班组名称_EN")]
-        public string PllinenameEn { get; set; }
-
-        [Required(ErrorMessage = "班组名称_JA不能为空")]
-        [ExcelColumn(Name = "班组名称_JA")]
-        public string PllinenameJa { get; set; }
-
         [ExcelColumn(Name = "软件删除")]
         public bool IsDelete { get; set; }
 
@@ -62,6 +50,9 @@ namespace La.Model.Dto
 
         [ExcelIgnore]
         public DateTime? UpdateTime { get; set; }
+
+        [ExcelColumn(Name = "班组名称")]
+        public string PlLineName { get; set; }
 
 
 

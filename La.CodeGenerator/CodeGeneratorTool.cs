@@ -468,6 +468,7 @@ namespace La.CodeGenerator
         /// <returns></returns>
         private static GenTableColumn InitColumnField(GenTable genTable, DbColumnInfo column)
         {
+            //插入
             GenTableColumn genTableColumn = new()
             {
                 ColumnName = column.DbColumnName.FirstLowerCase(),
@@ -488,25 +489,29 @@ namespace La.CodeGenerator
                 IsExport = true,
                 HtmlType = GenConstants.HTML_INPUT,
             };
-
+            //图片
             if (GenConstants.imageFiled.Any(f => column.DbColumnName.ToLower().Contains(f.ToLower())))
             {
                 genTableColumn.HtmlType = GenConstants.HTML_IMAGE_UPLOAD;
             }
+            //数据库时间类型
             else if (GenConstants.COLUMNTYPE_TIME.Any(f => genTableColumn.CsharpType.ToLower().Contains(f.ToLower())))
             {
                 genTableColumn.HtmlType = GenConstants.HTML_DATETIME;
             }
+            //单选
             else if (GenConstants.radioFiled.Any(f => column.DbColumnName.EndsWith(f, StringComparison.OrdinalIgnoreCase)) ||
                 GenConstants.radioFiled.Any(f => column.DbColumnName.StartsWith(f, StringComparison.OrdinalIgnoreCase)))
             {
                 genTableColumn.HtmlType = GenConstants.HTML_RADIO;
             }
+            //多选
             else if (GenConstants.selectFiled.Any(f => column.DbColumnName == f) ||
                 GenConstants.selectFiled.Any(f => column.DbColumnName.EndsWith(f, StringComparison.OrdinalIgnoreCase)))
             {
                 genTableColumn.HtmlType = GenConstants.HTML_SELECT;
             }
+            //文本
             else if (column.Length > 500)
             {
                 genTableColumn.HtmlType = GenConstants.HTML_TEXTAREA;

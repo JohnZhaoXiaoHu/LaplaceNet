@@ -2,9 +2,9 @@
  * @Descripttion: (生产班组/pp_lines)
  * @version: (1.0)
  * @Author: (Laplace.Net:Davis.Cheng)
- * @Date: (2023-02-09)
+ * @Date: (2023-02-25)
  * @LastEditors: (Laplace.Net:Davis.Cheng)
- * @LastEditTime: (2023-02-09)
+ * @LastEditTime: (2023-02-25)
 -->
 <template>
   <div>
@@ -54,27 +54,22 @@
     </el-row>
 
     <!-- 数据区域 -->
-    <el-table :data="dataList" :default-sort="{ prop: 'plLineType', order: 'descending' }" v-loading="loading"
-      ref="table" border highlight-current-row @sort-change="sortChange" @selection-change="handleSelectionChange"
-      height="602" style="width: 100%">
+    <el-table :data="dataList" v-loading="loading" ref="table" border highlight-current-row @sort-change="sortChange"
+      @selection-change="handleSelectionChange" height="602" style="width: 100%">
       <el-table-column type="selection" width="50" align="center" />
       <el-table-column prop="plId" label="ID" align="center" v-if="columns.showColumn('plId')" />
-      <el-table-column prop="plLineType" label="班组类别" sortable align="center" v-if="columns.showColumn('plLineType')">
+      <el-table-column prop="plLineType" label="班组类别" align="center" v-if="columns.showColumn('plLineType')">
         <template #default="scope">
           <dict-tag :options=" options.sys_line_type " :value="scope.row.plLineType" />
         </template>
       </el-table-column>
       <el-table-column prop="plLineCode" label="班组代码" align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('plLineCode')" />
-      <el-table-column prop="pllinenameZh" label="班组名称_ZH" align="center" :show-overflow-tooltip="true"
-        v-if="columns.showColumn('pllinenameZh')" />
-      <el-table-column prop="pllinenameEn" label="班组名称_EN" align="center" :show-overflow-tooltip="true"
-        v-if="columns.showColumn('pllinenameEn')" />
-      <el-table-column prop="pllinenameJa" label="班组名称_JA" align="center" :show-overflow-tooltip="true"
-        v-if="columns.showColumn('pllinenameJa')" />
       <el-table-column prop="isDelete" label="软件删除" align="center" v-if="columns.showColumn('isDelete')" />
       <el-table-column prop="remark" label="remark" align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('remark')" />
+      <el-table-column prop="plLineName" label="班组名称" align="center" :show-overflow-tooltip="true"
+        v-if="columns.showColumn('plLineName')" />
       <el-table-column :label="$t('btn.operate')" align="center" width="160">
         <template #default="scope">
           <el-button v-hasPermi="['pp:lines:edit']" type="success" icon="edit" :title="$t('btn.edit')"
@@ -92,84 +87,74 @@
       <el-form ref="formRef" :model="form" :rules="rules" label-width="100px">
         <el-row :gutter="20">
 
-          <el-col :lg="12">
+          <!-- <el-col :lg="12">
             <el-form-item label="ID" prop="plId">
-              <el-input-number v-model.number="form.plId" controls-position="right" placeholder="请输入ID"
-                :disabled="title=='修改数据'" />
+              <el-input-number v-model.number="form.plId" controls-position="right" :placeholder="$t('btn.enter')+'ID'" :disabled="title==$t('btn.edit')"/>
             </el-form-item>
-          </el-col>
+          </el-col> -->
 
 
-          <el-col :lg="12">
+          <el-col :lg="24">
             <el-form-item label="班组类别" prop="plLineType">
-              <el-select v-model="form.plLineType" placeholder="请选择班组类别">
+              <el-select v-model="form.plLineType" :placeholder="$t('btn.select')+'班组类别'"
+                :disabled="title==proxy.$t('btn.edit')">
                 <el-option v-for="item in  options.sys_line_type " :key="item.dictValue" :label="item.dictLabel"
                   :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
 
-          <el-col :lg="12">
+          <el-col :lg="24">
             <el-form-item label="班组代码" prop="plLineCode">
-              <el-input v-model="form.plLineCode" placeholder="请输入班组代码" />
+              <el-input v-model="form.plLineCode" :placeholder="$t('btn.enter')+'班组代码'"
+                :disabled="title==proxy.$t('btn.edit')" />
             </el-form-item>
           </el-col>
 
-          <el-col :lg="12">
-            <el-form-item label="班组名称_ZH" prop="pllinenameZh">
-              <el-input v-model="form.pllinenameZh" placeholder="请输入班组名称_ZH" />
+          <el-col :lg="24">
+            <el-form-item label="班组名称" prop="plLineName">
+              <el-input v-model="form.plLineName" :placeholder="$t('btn.enter')+'班组名称'"
+                :disabled="title==proxy.$t('btn.edit')" />
             </el-form-item>
           </el-col>
 
-          <el-col :lg="12">
-            <el-form-item label="班组名称_EN" prop="pllinenameEn">
-              <el-input v-model="form.pllinenameEn" placeholder="请输入班组名称_EN" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="班组名称_JA" prop="pllinenameJa">
-              <el-input v-model="form.pllinenameJa" placeholder="请输入班组名称_JA" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
+          <!-- <el-col :lg="12">
             <el-form-item label="软件删除" prop="isDelete">
-              <el-input v-model="form.isDelete" placeholder="请输入软件删除" :disabled="true" />
+              <el-input v-model="form.isDelete" :placeholder="$t('btn.enter')+'软件删除'"  :disabled="true"/>
             </el-form-item>
-          </el-col>
+          </el-col> -->
 
-          <el-col :lg="12">
+          <!-- <el-col :lg="12">
             <el-form-item label="remark" prop="remark">
-              <el-input v-model="form.remark" placeholder="请输入remark" />
+              <el-input v-model="form.remark" :placeholder="$t('btn.enter')+'remark'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="createBy" prop="createBy">
-              <el-input v-model="form.createBy" placeholder="请输入createBy" />
+              <el-input v-model="form.createBy" :placeholder="$t('btn.enter')+'createBy'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="createTime" prop="createTime">
-              <el-date-picker v-model="form.createTime" type="datetime" :teleported="false"
-                placeholder="选择日期时间"></el-date-picker>
+              <el-date-picker v-model="form.createTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="updateBy" prop="updateBy">
-              <el-input v-model="form.updateBy" placeholder="请输入updateBy" />
+              <el-input v-model="form.updateBy" :placeholder="$t('btn.enter')+'updateBy'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="updateTime" prop="updateTime">
-              <el-date-picker v-model="form.updateTime" type="datetime" :teleported="false"
-                placeholder="选择日期时间"></el-date-picker>
+              <el-date-picker v-model="form.updateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
-          </el-col>
+          </el-col> -->
+
+
         </el-row>
       </el-form>
       <template #footer v-if="opertype != 3">
@@ -213,11 +198,9 @@
     { visible: true, prop: 'plId', label: 'ID' },
     { visible: true, prop: 'plLineType', label: '班组类别' },
     { visible: true, prop: 'plLineCode', label: '班组代码' },
-    { visible: true, prop: 'pllinenameZh', label: '班组名称_ZH' },
-    { visible: true, prop: 'pllinenameEn', label: '班组名称_EN' },
-    { visible: true, prop: 'pllinenameJa', label: '班组名称_JA' },
-    { visible: true, prop: 'isDelete', label: '软件删除' },
-    { visible: true, prop: 'remark', label: '' },
+    { visible: false, prop: 'isDelete', label: '软件删除' },
+    { visible: false, prop: 'remark', label: '' },
+    { visible: true, prop: 'plLineName', label: '班组名称' },
   ])
   // 总条数
   const total = ref(0)
@@ -299,11 +282,8 @@
   const state = reactive({
     form: {},
     rules: {
-      plLineType: [{ required: true, message: "班组类别不能为空", trigger: "change" }],
-      plLineCode: [{ required: true, message: "班组代码不能为空", trigger: "blur" }],
-      pllinenameZh: [{ required: true, message: "班组名称_ZH不能为空", trigger: "blur" }],
-      pllinenameEn: [{ required: true, message: "班组名称_EN不能为空", trigger: "blur" }],
-      pllinenameJa: [{ required: true, message: "班组名称_JA不能为空", trigger: "blur" }],
+      plLineType: [{ required: true, message: "班组类别" + proxy.$t('btn.empty'), trigger: "change" }],
+      plLineCode: [{ required: true, message: "班组代码" + proxy.$t('btn.empty'), trigger: "blur" }],
     },
     options: {
       // 班组类别 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
@@ -324,14 +304,12 @@
     form.value = {
       plLineType: undefined,
       plLineCode: undefined,
-      pllinenameZh: undefined,
-      pllinenameEn: undefined,
-      pllinenameJa: undefined,
       remark: undefined,
       createBy: undefined,
       createTime: undefined,
       updateBy: undefined,
       updateTime: undefined,
+      plLineName: undefined,
     };
     proxy.resetForm("formRef")
   }
@@ -340,7 +318,7 @@
   function handleAdd() {
     reset();
     open.value = true
-    title.value = '添加'
+    title.value = proxy.$t('btn.add')
     opertype.value = 1
   }
 
@@ -352,7 +330,7 @@
       const { code, data } = res
       if (code == 200) {
         open.value = true
-        title.value = "修改数据"
+        title.value = proxy.$t('btn.edit')
         opertype.value = 2
 
         form.value = {
@@ -368,14 +346,14 @@
       if (valid) {
         if (form.value.plId != undefined && opertype.value === 2) {
           updatePpLines(form.value).then((res) => {
-            proxy.$modal.msgSuccess("修改成功")
+            proxy.$modal.msgSuccess(proxy.$t('common.Modicompleted'))
             open.value = false
             getList()
           })
             .catch(() => { })
         } else {
           addPpLines(form.value).then((res) => {
-            proxy.$modal.msgSuccess("新增成功")
+            proxy.$modal.msgSuccess(proxy.$t('common.Newcompleted'))
             open.value = false
             getList()
           })
@@ -389,13 +367,13 @@
   function handleDelete(row) {
     const Ids = row.plId || ids.value
 
-    proxy.$confirm('是否确认删除参数编号为"' + Ids + '"的数据项？')
+    proxy.$confirm(proxy.$t('common.confirmDel') + Ids + proxy.$t('common.confirmDelDataitems'))
       .then(function () {
         return delPpLines(Ids)
       })
       .then(() => {
         getList()
-        proxy.$modal.msgSuccess("删除成功")
+        proxy.$modal.msgSuccess(proxy.$t('common.Delcompleted'))
       })
       .catch(() => { })
   }
@@ -405,9 +383,9 @@
   // 导出按钮操作
   function handleExport() {
     proxy
-      .$confirm("是否确认导出生产班组数据项?", "警告", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
+      .$confirm(proxy.$t('common.confirmExport') + "生产班组", proxy.$t('common.warningTips'), {
+        confirmButtonText: proxy.$t('btn.submit'),
+        cancelButtonText: proxy.$t('btn.cancel'),
         type: "warning",
       })
       .then(async () => {

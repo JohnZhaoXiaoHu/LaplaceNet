@@ -10,6 +10,9 @@ namespace La.Model
         /// 当前页码
         /// </summary>
         public int PageNum { get; set; }
+        /// <summary>
+        /// 每页显示多少条
+        /// </summary>
         public int PageSize { get; set; }
         /// <summary>
         /// 总记录数
@@ -42,7 +45,11 @@ namespace La.Model
             PageNum = 1;
             PageSize = 20;
         }
-
+        /// <summary>
+        /// 页面信息
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
         public PagerInfo(int page = 1, int pageSize = 20)
         {
             PageNum = page;

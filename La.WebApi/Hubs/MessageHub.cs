@@ -92,7 +92,7 @@ namespace La.WebApi.Hubs
             }
 
             Clients.All.SendAsync(HubsConstant.OnlineNum, clientUsers.Count);
-            Clients.All.SendAsync(HubsConstant.OnlineUser, clientUsers);
+            //Clients.All.SendAsync(HubsConstant.OnlineUser, clientUsers);
             return base.OnConnectedAsync();
         }
 
@@ -108,7 +108,7 @@ namespace La.WebApi.Hubs
             {
                 clientUsers.Remove(user);
                 Clients.All.SendAsync(HubsConstant.OnlineNum, clientUsers.Count);
-                Clients.All.SendAsync(HubsConstant.OnlineUser, clientUsers);
+                //Clients.All.SendAsync(HubsConstant.OnlineUser, clientUsers);
                 Console.WriteLine($"用户{user?.UserName}离开了，当前已连接{clientUsers.Count}个");
             }
             return base.OnDisconnectedAsync(exception);

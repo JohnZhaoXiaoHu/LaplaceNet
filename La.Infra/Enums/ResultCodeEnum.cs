@@ -3,7 +3,7 @@
 namespace La.Infra.Enums
 {
     /// <summary>
-    /// 文件存储位置
+    /// 结果代码枚举
     /// </summary>
     public enum ResultCodeEnum
     {

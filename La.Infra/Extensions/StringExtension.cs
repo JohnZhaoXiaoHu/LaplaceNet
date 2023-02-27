@@ -5,6 +5,9 @@ using System.Text.RegularExpressions;
 
 namespace La.Infra.Extensions
 {
+    /// <summary>
+    /// 字串扩展
+    /// </summary>
     public static class StringExtension
     {
 

@@ -1,5 +1,5 @@
 <template>
-  <div>{{ queryParams }},,,{{ typeOptions }}999{{ dataList }}</div>
+
   <el-form :model="queryParams" ref="queryForm" :inline="true" label-width="68px">
     <el-form-item label="字典名称" prop="dictType">
       <el-select v-model="queryParams.dictType">

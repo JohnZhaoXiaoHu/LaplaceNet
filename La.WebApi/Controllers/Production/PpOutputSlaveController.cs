@@ -79,7 +79,7 @@ namespace La.WebApi.Controllers
                 throw new CustomException("请求参数错误");
             }
             // 校验输入项目是否唯一
-            if (UserConstants.NOT_UNIQUE.Equals(_PpOutputSlaveService.CheckEntryStringUnique(parm.PomGuid + parm.PosStartEndTime)))
+            if (UserConstants.NOT_UNIQUE.Equals(_PpOutputSlaveService.CheckEntryStringUnique(parm.PomGuid.ToString() + parm.PosStartEndTime)))
             {
                 return ToResponse(ApiResult.Error($"新增oph从表 '{parm.PomGuid +","+ parm.PosStartEndTime}'失败，输入的oph从表已存在"));
             }

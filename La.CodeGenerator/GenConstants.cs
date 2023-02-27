@@ -18,7 +18,7 @@ namespace La.CodeGenerator
         /// <summary>
         /// InputDto输入实体是不包含字段
         /// </summary>
-        public static readonly string[] inputDtoNoField = new string[] { "createTime", "updateTime", "addtime", "create_time", "update_time" };
+        public static readonly string[] inputDtoNoField = new string[] { "createTime", "update_by", "UpdateBy", "UpdateTime", "updateTime", "addtime", "create_time", "update_time", "IsDeleted", "UDF01", "UDF51", "uDF02", "uDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
         /// <summary>
         /// 图片字段
         /// </summary>
@@ -67,11 +67,11 @@ namespace La.CodeGenerator
         public static string[] COLUMNTYPE_TIME = { "datetime", "time", "date", "timestamp" };
 
         /** 页面不需要编辑字段 */
-        public static string[] COLUMNNAME_NOT_EDIT = { "id", "create_by", "create_time", "delFlag", "IsDeleted","update_by", "update_time" };
+        public static string[] COLUMNNAME_NOT_EDIT = { "id", "create_by", "create_time", "delFlag", "IsDeleted", "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
 
         /** 页面不需要显示的列表字段 */
         public static string[] COLUMNNAME_NOT_LIST = { "create_by", "create_time", "delFlag", "IsDeleted", "update_by",
-            "update_time" , "password"};
+            "update_time" , "password","UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56"};
 
         /** 页面不需要查询字段 */
         public static string[] COLUMNNAME_NOT_QUERY = { "id", "create_by", "create_time", "update_by","update_time", "remark" };

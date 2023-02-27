@@ -24,5 +24,14 @@ INSERT INTO sys_menu(menuName, parentId, orderNum, path, component, isFrame, isC
 VALUES ('导出', @menuId, 5, '#', NULL, 0, 0, 'F', '0', '0', 'pp:lines:export', '', 'system', GETDATE());
 
 
+
+-- 生产班组多语言
+INSERT INTO sys_common_lang(lang_code, lang_key, lang_name, addtime) 
+VALUES ('zh-cn', 'menu.PpLines', '生产班组', GETDATE());
+INSERT INTO sys_common_lang(lang_code, lang_key, lang_name, addtime) 
+VALUES ('en', 'menu.PpLines', '生产班组', GETDATE());
+INSERT INTO sys_common_lang(lang_code, lang_key, lang_name, addtime) 
+VALUES ('ja', 'menu.PpLines', '生产班组', GETDATE());
+
 SELECT * FROM sys_menu WHERE parentId = @menuId;
 SELECT * FROM sys_menu WHERE menuId = @menuId;

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace La.Infra.Enums
 {
+    /// <summary>
+    /// 消息枚举
+    /// </summary>
     public enum HubTypeEnum
     {
         /// <summary>
