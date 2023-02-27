@@ -2,9 +2,9 @@ import request from '@/utils/request'
 import { downFile } from '@/utils/request'
 
 
-export function genCode(ruleCode) {
+export function genCode(initNumber) {
   return request({
-    url: '/system/autocode/get/' + ruleCode,
+    url: '/system/SysRefStrategy/get/' + initNumber,
     method: 'get'
   })
 }

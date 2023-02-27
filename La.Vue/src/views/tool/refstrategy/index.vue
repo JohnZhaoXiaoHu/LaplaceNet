@@ -124,7 +124,7 @@
 
           <el-col :lg="12">
             <el-form-item label="模块" prop="refModule">
-              <el-select v-model="form.refModule" placeholder="请选择模块">
+              <el-select v-model="form.refModule" placeholder="请选择模块" clearable @change="selrefModule">
                 <el-option v-for="item in  options.sys_module_list " :key="item.dictValue" :label="item.dictLabel"
                   :value="item.dictValue"></el-option>
               </el-select>
@@ -133,9 +133,9 @@
 
           <el-col :lg="12">
             <el-form-item label="类别" prop="refCategory">
-              <el-select v-model="form.refCategory" placeholder="请选择类别">
+              <el-select v-model="form.refCategory" placeholder="请选择类别" clearable @change="selrefCategory">
                 <el-option v-for="item in  options.sys_ref_type " :key="item.dictValue" :label="item.dictLabel"
-                  :value="item.dictValue"></el-option>
+                  :value="item.dictValue" :disabled="item.disabled"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
@@ -354,9 +354,213 @@
     queryParams.pageNum = 1
     getList()
   }
-  //文本框@input事件
+  //模块类别下拉框选中事件
+  function selrefModule(val) {
 
-  function InitrefPrefix(val) {
+    switch (val) {
+      case 'FI':
+        form.value.refPrefix = 'FI'
+        //禁用其它项
+        state.options["sys_ref_type"].forEach(item => {
+          //if (item.dictValue != 'Form') { item.disabled = true };
+          if (item.dictValue === 'Notify') { item.disabled = true };
+          if (item.dictValue === 'Notice') { item.disabled = true };
+          if (item.dictValue === 'Matnr') { item.disabled = true };
+          if (item.dictValue === 'Vendor') { item.disabled = true };
+          if (item.dictValue === 'Client') { item.disabled = true };
+
+        })
+        form.value.refCategory = 'Form'
+        break;
+      case 'CO':
+        form.value.refPrefix = 'CO'
+        //禁用其它项
+        state.options["sys_ref_type"].forEach(item => {
+          //if (item.dictValue != 'Form') { item.disabled = true };
+          if (item.dictValue === 'Notify') { item.disabled = true };
+          if (item.dictValue === 'Notice') { item.disabled = true };
+          if (item.dictValue === 'Matnr') { item.disabled = true };
+          if (item.dictValue === 'Vendor') { item.disabled = true };
+          if (item.dictValue === 'Client') { item.disabled = true };
+        })
+        form.value.refCategory = 'Form'
+        break;
+      case 'MM':
+        form.value.refPrefix = 'MM'
+        //禁用其它项
+        state.options["sys_ref_type"].forEach(item => {
+          //if (item.dictValue != 'Form') { item.disabled = true };
+          if (item.dictValue === 'Notify') { item.disabled = true };
+          if (item.dictValue === 'Notice') { item.disabled = true };
+          //if (item.dictValue === 'Matnr') { item.disabled = true };
+          //if (item.dictValue === 'Vendor') { item.disabled = true };
+          if (item.dictValue === 'Client') { item.disabled = true };
+        })
+        form.value.refCategory = 'Form'
+        break;
+      case 'SD':
+        form.value.refPrefix = 'SD'
+        form.value.refPrefix = 'MM'
+        //禁用其它项
+        state.options["sys_ref_type"].forEach(item => {
+          //if (item.dictValue != 'Form') { item.disabled = true };
+          if (item.dictValue === 'Notify') { item.disabled = true };
+          if (item.dictValue === 'Notice') { item.disabled = true };
+          if (item.dictValue === 'Matnr') { item.disabled = true };
+          if (item.dictValue === 'Vendor') { item.disabled = true };
+          //if (item.dictValue === 'Client') { item.disabled = true };
+        })
+        form.value.refCategory = 'Form'
+        break;
+      case 'HR':
+        form.value.refPrefix = 'HR'
+        break;
+      case 'PP':
+        form.value.refPrefix = 'PP'
+        break;
+      case 'QM':
+        form.value.refPrefix = 'QM'
+        break;
+      case 'PM':
+        form.value.refPrefix = 'PM'
+        break;
+      case 'PS':
+        form.value.refPrefix = 'PS'
+        break;
+      case 'BW':
+        form.value.refPrefix = 'BW'
+        break;
+      case 'AM':
+        form.value.refPrefix = 'AM'
+        break;
+      case 'WF':
+        form.value.refPrefix = 'WF'
+        break;
+      case 'IS':
+        form.value.refPrefix = 'IS'
+        break;
+      case 'CS':
+        form.value.refPrefix = 'CS'
+        break;
+      default:
+        form.value.refPrefix = 'CO'
+        break;
+    }
+    switch (form.value.refCategory) {
+      case 'Form':
+        form.value.refPrefix = form.value.refPrefix + 'FM'
+
+        break;
+      case 'Notify':
+        form.value.refPrefix = form.value.refPrefix + 'NY'
+        break;
+      case 'Notice':
+        form.value.refPrefix = form.value.refPrefix + 'NE'
+        break;
+      case 'Matnr':
+        form.value.refPrefix = form.value.refPrefix + 'MA'
+        break;
+      case 'Vendor':
+        form.value.refPrefix = form.value.refPrefix + 'VE'
+        break;
+      case 'Client':
+        form.value.refPrefix = form.value.refPrefix + 'CL'
+        break;
+
+      default:
+        form.value.refPrefix = form.value.refPrefix + 'CO'
+        break;
+    }
+
+  }
+
+  function typeChange() {
+
+  }
+
+  //表单类别下拉框选中事件
+  function selrefCategory(val) {
+
+    switch (form.value.refModule) {
+      case 'FI':
+        form.value.refPrefix = 'FI'
+        form.value.refCategory = 'Form'
+        break;
+      case 'CO':
+        form.value.refPrefix = 'CO'
+        break;
+      case 'MM':
+        form.value.refPrefix = 'MM'
+        break;
+      case 'SD':
+        form.value.refPrefix = 'SD'
+        break;
+      case 'HR':
+        form.value.refPrefix = 'HR'
+        break;
+      case 'PP':
+        form.value.refPrefix = 'PP'
+        break;
+      case 'QM':
+        form.value.refPrefix = 'QM'
+        break;
+      case 'PM':
+        form.value.refPrefix = 'PM'
+        break;
+      case 'PS':
+        form.value.refPrefix = 'PS'
+        break;
+      case 'BW':
+        form.value.refPrefix = 'BW'
+        break;
+      case 'AM':
+        form.value.refPrefix = 'AM'
+        break;
+      case 'WF':
+        form.value.refPrefix = 'WF'
+        break;
+      case 'IS':
+        form.value.refPrefix = 'IS'
+        break;
+      case 'CS':
+        form.value.refPrefix = 'CS'
+        break;
+      default:
+        form.value.refPrefix = 'CO'
+        break;
+    }
+    switch (val) {
+      case 'Form':
+        form.value.refPrefix = form.value.refPrefix + 'FM'
+
+        break;
+      case 'Notify':
+        form.value.refPrefix = form.value.refPrefix + 'NY'
+        break;
+      case 'Notice':
+        form.value.refPrefix = form.value.refPrefix + 'NE'
+        break;
+      case 'Matnr':
+        form.value.refPrefix = form.value.refPrefix + 'MA'
+        break;
+      case 'Vendor':
+        form.value.refPrefix = form.value.refPrefix + 'VE'
+        break;
+      case 'Client':
+        form.value.refPrefix = form.value.refPrefix + 'CL'
+        break;
+
+      default:
+        form.value.refPrefix = form.value.refPrefix + 'CO'
+        break;
+    }
+    form.value.isoNumber = 'DTA-05-'
+    form.value.refLenth = '4'
+    InitrefPrefix()
+  }
+  //编号前缀文本框@input事件
+
+  function InitrefPrefix() {
 
     if ((form.value.refPattern) != null || (form.value.refLenth) != null) {
 
@@ -364,67 +568,85 @@
         //padStart()用于头部补全，padEnd()用于尾部补全
         case '1':
           //form.value.refLenth = 10
-          form.value.initNumber = form.value.refPrefix.padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth), 0)
+          //form.value.initNumber = form.value.refPrefix.padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth), 0)
+
+          form.value.initNumber = form.value.refPrefix + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         case '2':
-          form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString()).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().length), 0)
+          //form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString()).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().length), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString() + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         case '3':
-          form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(2)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(2).length), 0)
+          //form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(2)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(2).length), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString().substring(2) + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         case '4':
-          form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(0, 6)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(0, 6).length), 0)
+          //form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(0, 6)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(0, 6).length), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString().substring(0, 6) + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         case '5':
-          form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(2, 6)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(2, 6).length), 0)
+          //form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(2, 6)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(2, 6).length), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString().substring(2, 6) + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         case '6':
-          form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(0, 4)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(0, 4).length), 0)
+          //form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(0, 4)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(0, 4).length), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString().substring(0, 4) + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         case '7':
-          form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().slice(2, 4)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().slice(2, 4).length), 0)
+          //form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().slice(2, 4)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().slice(2, 4).length), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString().slice(2, 4) + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         default:
-          form.value.initNumber = form.value.refPrefix.padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth), 0)
+          //form.value.initNumber = form.value.refPrefix.padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString().substring(2) + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
       }
     }
   }
-  function InitrefLenth(val) {
+  //编号位数文本框@input事件
+  function InitrefLenth() {
     if ((form.value.refPattern) != null || (form.value.refPrefix) != null) {
       switch (form.value.refPattern) {
         //padStart()用于头部补全，padEnd()用于尾部补全
         case '1':
           //form.value.refLenth = 10
-          form.value.initNumber = form.value.refPrefix.padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth), 0)
+          //form.value.initNumber = form.value.refPrefix.padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth), 0)
+
+          form.value.initNumber = form.value.refPrefix + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         case '2':
-          form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString()).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().length), 0)
+          //form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString()).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().length), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString() + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         case '3':
-          form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(2)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(2).length), 0)
+          //form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(2)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(2).length), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString().substring(2) + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         case '4':
-          form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(0, 6)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(0, 6).length), 0)
+          //form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(0, 6)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(0, 6).length), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString().substring(0, 6) + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         case '5':
-          form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(2, 6)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(2, 6).length), 0)
+          //form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(2, 6)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(2, 6).length), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString().substring(2, 6) + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         case '6':
-          form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(0, 4)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(0, 4).length), 0)
+          //form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(0, 4)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(0, 4).length), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString().substring(0, 4) + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         case '7':
-          form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().slice(2, 4)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().slice(2, 4).length), 0)
+          //form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().slice(2, 4)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().slice(2, 4).length), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString().slice(2, 4) + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         default:
-          form.value.initNumber = form.value.refPrefix.padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth), 0)
+          //form.value.initNumber = form.value.refPrefix.padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString().substring(2) + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
       }
     }
   }
 
-  //下拉框选中事件
-
+  //编码规则下拉框选中事件
   function selrefPattern(val) {
     //let refPrefixLen=parseInt((form.value.refPrefix.length) + (form.value.refLenth)) + 8
 
@@ -433,29 +655,38 @@
       switch (val) {
         //padStart()用于头部补全，padEnd()用于尾部补全
         case '1':
-          form.value.refLenth = 10
-          form.value.initNumber = form.value.refPrefix.padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth), 0)
+          //form.value.refLenth = 10
+          //form.value.initNumber = form.value.refPrefix.padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth), 0)
+
+          form.value.initNumber = form.value.refPrefix + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         case '2':
-          form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString()).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().length), 0)
+          //form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString()).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().length), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString() + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         case '3':
-          form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(2)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(2).length), 0)
+          //form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(2)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(2).length), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString().substring(2) + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         case '4':
-          form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(0, 6)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(0, 6).length), 0)
+          //form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(0, 6)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(0, 6).length), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString().substring(0, 6) + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         case '5':
-          form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(2, 6)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(2, 6).length), 0)
+          //form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(2, 6)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(2, 6).length), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString().substring(2, 6) + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         case '6':
-          form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(0, 4)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(0, 4).length), 0)
+          //form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().substring(0, 4)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().substring(0, 4).length), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString().substring(0, 4) + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         case '7':
-          form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().slice(2, 4)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().slice(2, 4).length), 0)
+          //form.value.initNumber = (form.value.refPrefix + getCurrentDate().toString().slice(2, 4)).padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth) + parseInt(getCurrentDate().toString().slice(2, 4).length), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString().slice(2, 4) + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
         default:
-          form.value.initNumber = form.value.refPrefix.padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth), 0)
+          //form.value.initNumber = form.value.refPrefix.padEnd(parseInt(form.value.refPrefix.length) + parseInt(form.value.refLenth), 0)
+          form.value.initNumber = form.value.refPrefix + getCurrentDate().toString().substring(2) + '1'.padStart(parseInt(form.value.refLenth), 0)
           break;
       }
     }
@@ -465,7 +696,7 @@
     reset();
     open.value = true
     title.value = '添加'
-    form.value.isoNumber = 'DTA-05-'
+
     opertype.value = 1
   }
 

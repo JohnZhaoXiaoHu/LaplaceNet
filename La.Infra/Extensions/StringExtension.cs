@@ -231,5 +231,19 @@ namespace La.Infra.Extensions
 
             return result;
         }
+        /// <summary>
+        /// GetDateTime
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static DateTime? GetDateTime(this object obj)
+        {
+            if (System.DBNull.Value.Equals(obj) || null == obj)
+                return null;
+            bool result = DateTime.TryParse(obj.ToString(), out DateTime dateTime);
+            if (!result)
+                return null;
+            return dateTime;
+        }
     }
 }
