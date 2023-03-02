@@ -16,12 +16,20 @@ namespace La.WebApi.Extensions
         /// <param name="services"></param>
         public static void AddLogo(this IServiceCollection services)
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.White;
             var contentTpl = JnHelper.ReadTemplate("", "logo.txt");
             var content = contentTpl?.Render();
             //var github = HttpHelper.HttpGet("https://api.github.com/repos/Lean365/LaplaceNet/releases");
+
             Console.WriteLine(content);
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            string LaAuthor = "Author: Davis.Cheng";
+            Console.Write(new string(' ', (Console.WindowWidth - LaAuthor.Length) / 2));
+            Console.WriteLine(LaAuthor);
+            string LaDate ="Date:"+ DateTime.Now.ToString("yyyy-MM-dd");
+            Console.Write(new string(' ', (Console.WindowWidth - LaDate.Length) / 2));
+            Console.WriteLine(LaDate);
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("SwaggerDoc: La.WebApi.xml");
             Console.WriteLine("源码地址: https://github.com/Lean365/LaplaceNet");
             Console.WriteLine("官方文档：https://laplacenet.github.io/");

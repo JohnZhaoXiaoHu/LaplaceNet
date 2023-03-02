@@ -2615,6 +2615,13 @@
             <param name="parm"></param>
             <returns></returns>
         </member>
+        <member name="M:La.WebApi.Controllers.SysRefStrategyController.QuerySysRefStrategyss(La.Model.Dto.SysRefStrategyQueryDto)">
+            <summary>
+            查询单据编码列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
         <member name="M:La.WebApi.Controllers.SysRefStrategyController.GetSysRefStrategy(System.Int64)">
             <summary>
             查询单据编码详情

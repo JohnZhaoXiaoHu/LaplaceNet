@@ -47,6 +47,15 @@
     "closeFullscreen": "クローズ全画面"
   },
   "layout": {
+    "hostName": "Laplace.Net",
+    "week": "",
+    "sunday": "日曜日",
+    "monday": "月曜日",
+    "tuesday": "火曜日",
+    "wednesday": "水曜日",
+    "thursday": "木曜日",
+    "friday": "金曜日",
+    "saturday": "土曜日",
     "projectInfo": "Laplace.NET は管理画面のフロントエンドのインタフェースで、vue と element-plusを使っています。i18nの多言語対応、可変ルート、権限、典型的なビジネスアプリテンプレートであり、豊富なコンポーネントを提供しています。素早くビジネス用の管理画面の現型を構築に役立ちます。",
     "slogan": "グロバール企業としてのプライドを持ちQCDSへの限りない挑戦。",
     "returnLogin": "戻る",

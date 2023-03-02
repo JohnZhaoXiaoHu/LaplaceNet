@@ -110,9 +110,7 @@
     debugger;
     if (autoGenFlag) {
       listSysRefStrategy(queryParams).then(res => {
-
         matscode.value = res.data.result
-
         form.value.workorderCode = res.data.result
       })
     } else {

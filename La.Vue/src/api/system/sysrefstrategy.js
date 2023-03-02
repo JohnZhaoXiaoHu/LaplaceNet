@@ -1,15 +1,6 @@
 import request from '@/utils/request'
 import { downFile } from '@/utils/request'
 
-
-export function genCode(initNumber) {
-  return request({
-    url: '/system/SysRefStrategy/get/' + initNumber,
-    method: 'get'
-  })
-}
-
-
 /**
 * 单据编码分页查询
 * @param {查询条件} data

@@ -1,0 +1,17 @@
+	SELECT
+    province.code,province.name, city.code,city.name, area.code,area.name, street.code,street.name, village.code,village.name from sys_region_village village
+	INNER JOIN
+    sys_region_street street ON (village.streetCode = street.code)
+INNER JOIN
+    sys_region_area area ON (village.[areaCode] = area.code)
+
+	INNER JOIN
+    sys_region_city city ON (village.[cityCode] = city.[code]) 
+
+	INNER JOIN
+    sys_region_province province ON (village.[provinceCode] = province.[code]) 	
+
+	order by 
+	village.code
+
+FOR JSON AUTO 

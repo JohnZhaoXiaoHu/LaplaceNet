@@ -70,6 +70,7 @@
             </div>
           </template>
           <div class="info">
+            <P>{{onlineUsers}}</P>
             <el-scrollbar wrap-class="scrollbar-wrapper">
               <div class="info-scroll">
                 <ul class="info-ul">

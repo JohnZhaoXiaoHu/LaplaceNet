@@ -1,6 +1,7 @@
 <template>
-
-  <div>{{gitinfo}}</div>
+  <div class="chart-warp-top">
+    <ChartHead />
+  </div>
   <h2 style="color: red;">{{ $t('layout.ProjectInformation') }}</h2>
   <h5 style="color: rgb(42, 3, 184);">
     {{ $t('layout.projectInfo') }}
@@ -83,6 +84,9 @@
     gitee: 'https://github.com/Lean365/LaplaceNet',
     release: 'https://github.com/Lean365/LaplaceNet/actions/workflows/release.yml',
   })
+  import dayjs from "dayjs";  //时间转换插件
+  // 引入组件
+  const ChartHead = defineAsyncComponent(() => import('@/utils/ontime.vue'));
 
 
   const githubHandle = () => {

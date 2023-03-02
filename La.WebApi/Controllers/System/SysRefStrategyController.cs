@@ -52,6 +52,19 @@ namespace La.WebApi.Controllers
 
 
         /// <summary>
+        /// 查询单据编码列表
+        /// </summary>
+        /// <param name="parm"></param>
+        /// <returns></returns>
+        [HttpGet("list")]
+        [ActionPermissionFilter(Permission = "sys:refstrategy:list")]
+        public IActionResult QuerySysRefStrategyss([FromQuery] SysRefStrategyQueryDto parm)
+        {
+            var response = _SysRefStrategyService.GetList(parm);
+            return SUCCESS(response);
+        }
+
+        /// <summary>
         /// 查询单据编码详情
         /// </summary>
         /// <param name="RefId"></param>

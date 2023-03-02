@@ -1,5 +1,6 @@
+
 // 获取当前时间并格式化2022-12-12 10:00:000
-export function getCurrentTime () {
+export function getCurrentTime() {
   var date = new Date()
   var month = date.getMonth() + 1
   var day = date.getDate()
@@ -14,16 +15,99 @@ export function getCurrentTime () {
 
 // 获取当前时间并格式化20221212  
 //padStart()用于头部补全，padEnd()用于尾部补全
-export function getCurrentDate () {
+export function getCurrentDate() {
   var date = new Date()
   var month = (date.getMonth() + 1).toString().padStart(2, 0)
   var day = date.getDate().toString().padStart(2, 0)
   return date.getFullYear().toString() + month.toString() + day.toString()
 }
+/**
+ * 时间日期转换
+ * @param date 当前时间，new Date() 格式
+ * @param format 需要转换的时间格式字符串
+ * @description format 字符串随意，如 `YYYY-mm、YYYY-mm-dd`
+ * @description format 季度："YYYY-mm-dd HH:MM:SS QQQQ"
+ * @description format 星期："YYYY-mm-dd HH:MM:SS WWW"
+ * @description format 几周："YYYY-mm-dd HH:MM:SS ZZZ"
+ * @description format 季度 + 星期 + 几周："YYYY-mm-dd HH:MM:SS WWW QQQQ ZZZ"
+ * @returns 返回拼接后的时间字符串
+ */
+export function formatNowDateTime(date, format) {
+  let we = date.getDay(); // 星期
+  let z = getWeek(date); // 周
+  let qut = Math.floor((date.getMonth() + 3) / 3).toString(); // 季度
+  const opt = {
+    'Y+': date.getFullYear().toString(), // 年
+    'm+': (date.getMonth() + 1).toString(), // 月(月份从0开始，要+1)
+    'd+': date.getDate().toString(), // 日
+    'H+': date.getHours().toString(), // 时
+    'M+': date.getMinutes().toString(), // 分
+    'S+': date.getSeconds().toString(), // 秒
+    'q+': qut, // 季度
+  };
+  // 中文数字 (星期)
+  const week = {
+    // '0': 'Sunday',
+    // '1': 'monday',
+    // '2': 'tuesday',
+    // '3': 'wednesday',
+    // '4': 'thursday',
+    // '5': 'friday',
+    // '6': 'saturday',
+
+    '0': '日',
+    '1': '一',
+    '2': '二',
+    '3': '三',
+    '4': '四',
+    '5': '五',
+    '6': '六',
+  };
+  // 中文数字（季度）
+  const quarter = {
+    '1': '一',
+    '2': '二',
+    '3': '三',
+    '4': '四',
+  };
+  if (/(W+)/.test(format))
+    format = format.replace(RegExp.$1, RegExp.$1.length > 1 ? (RegExp.$1.length > 2 ? '星期' + week[we] : '周' + week[we]) : week[we]);
+  if (/(Q+)/.test(format)) format = format.replace(RegExp.$1, RegExp.$1.length == 4 ? '第' + quarter[qut] + '季度' : quarter[qut]);
+  if (/(Z+)/.test(format)) format = format.replace(RegExp.$1, RegExp.$1.length == 3 ? '第' + z + '周' : z + '');
+  for (let k in opt) {
+    let r = new RegExp('(' + k + ')').exec(format);
+    // 若输入的长度不为1，则前面补零
+    if (r) format = format.replace(r[1], RegExp.$1.length == 1 ? opt[k] : opt[k].padStart(RegExp.$1.length, '0'));
+  }
+  return format;
+}
+
+/**
+ * 获取当前日期是第几周
+ * @param dateTime 当前传入的日期值
+ * @returns 返回第几周数字值
+ */
+export function getWeek(dateTime) {
+  let temptTime = new Date(dateTime.getTime());
+  // 周几
+  let weekday = temptTime.getDay() || 7;
+  // 周1+5天=周六
+  temptTime.setDate(temptTime.getDate() - weekday + 1 + 5);
+  let firstDay = new Date(temptTime.getFullYear(), 0, 1);
+  let dayOfWeek = firstDay.getDay();
+  let spendDay = 1;
+  if (dayOfWeek != 0) spendDay = 7 - dayOfWeek + 1;
+  firstDay = new Date(temptTime.getFullYear(), 0, 1 + spendDay);
+  let d = Math.ceil((temptTime.valueOf() - firstDay.valueOf()) / 86400000);
+  let result = Math.ceil(d / 7);
+  return result;
+}
+
+
 
 
 // 时间格式化
-export function formatTime (v) {
+export function formatTime(v) {
   var date = new Date(v)
   var month = date.getMonth() + 1
   var day = date.getDate()
@@ -37,7 +121,7 @@ export function formatTime (v) {
 }
 
 // 日期格式化
-export function formatDate (v) {
+export function formatDate(v) {
   var date = new Date(v)
   var month = date.getMonth() + 1
   var day = date.getDate()
@@ -51,7 +135,7 @@ export function formatDate (v) {
 }
 
 // 获取前、后n天 
-export function getRangeDate (num, time) {
+export function getRangeDate(num, time) {
   let n = num;
   let d = '';
   if (time) {
@@ -79,7 +163,7 @@ export function getRangeDate (num, time) {
 }
 
 //获取某个月的起始、终止日期
-export function getMonthDate (y, m) {
+export function getMonthDate(y, m) {
   let start = new Date(y, m - 1, 1)
   let year = start.getFullYear();
   let mon = start.getMonth() + 1;
@@ -102,7 +186,7 @@ export function getMonthDate (y, m) {
   d是当前日期是今年第多少天
   用d + 当前年的第一天的周差距的和在除以7就是本年第几周
 */
-export function getYearWeek (a, b, c) {
+export function getYearWeek(a, b, c) {
   var date1 = new Date(a, parseInt(b) - 1, c),
     date2 = new Date(a, 0, 1),
     d = Math.round((date1.valueOf() - date2.valueOf()) / 86400000)
@@ -111,7 +195,7 @@ export function getYearWeek (a, b, c) {
 }
 
 // 计算某年某周的日期范围 
-export function weekGetDate (year, weeks) {
+export function weekGetDate(year, weeks) {
   var date = new Date(year, "0", "1")
   var time = date.getTime() // 获取当前星期几,0:星期一     
   var _week = date.getDay()    //当这一年的1月1日为周日时则本年有54周,否则没有54周,没有则去除第54周的提示    
@@ -253,7 +337,7 @@ export function weekGetDate (year, weeks) {
 }
 
 // 计算某年某月的日期范围
-export function monthGetDate (year, months) {
+export function monthGetDate(year, months) {
   var year = year
   var month = months
   month = month < 10 ? "0" + month : month
@@ -274,7 +358,7 @@ export function monthGetDate (year, months) {
 }
 
 //生成随机字符串方法
-export function getString () {
+export function getString() {
   let time = new Date()
   time = time.getTime()
 
@@ -282,7 +366,7 @@ export function getString () {
 }
 
 //升序排序
-export function bubbleSortUp (arr, flag) {
+export function bubbleSortUp(arr, flag) {
   for (var i = 0; i < arr.length; i++) {
     for (var j = 0; j < arr.length - i - 1; j++) {
       if (arr[j][flag] > arr[j + 1][flag]) {
@@ -297,7 +381,7 @@ export function bubbleSortUp (arr, flag) {
 }
 
 //降序排序
-export function bubbleSortDown (arr, flag) {
+export function bubbleSortDown(arr, flag) {
   for (var i = 0; i < arr.length; i++) {
     for (var j = 0; j < arr.length - i - 1; j++) {
       if (arr[j][flag] < arr[j + 1][flag]) {
@@ -312,7 +396,7 @@ export function bubbleSortDown (arr, flag) {
 }
 
 //减法精度处理
-export function floatSub (arg1, arg2) {
+export function floatSub(arg1, arg2) {
   var r1, r2, m, n;
   try { r1 = arg1.toString().split(".")[1].length } catch (e) { r1 = 0 }
   try { r2 = arg2.toString().split(".")[1].length } catch (e) { r2 = 0 }
