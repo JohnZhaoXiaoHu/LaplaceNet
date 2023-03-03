@@ -63,7 +63,7 @@
   // 引入 mmmats操作方法
   // 引入 sysrefstrategy操作方法
   import {
-    genCode, listSysRefStrategy, addSysRefStrategy, delSysRefStrategy, updateSysRefStrategy, getSysRefStrategy,
+    listSysRefStrategy, addSysRefStrategy, delSysRefStrategy, updateSysRefStrategy, getSysRefStrategy,
 
   }
     from '@/api/system/sysrefstrategy.js'

@@ -9,15 +9,20 @@
         <el-button size="small" type="primary" @click="showJson">生成JSON</el-button>
         <el-button size="small" type="success" @click="showOption">生成Options</el-button>
         <el-button size="small" type="danger" @click="showTemplate">生成组件</el-button>
+        <el-button size="small" @click="changeLocale">中英切换</el-button>
       </div>
     </div>
-    <fc-designer ref="designer" />
+    <fc-designer ref="designer" :locale="locale" />
   </div>
 </template>
 
 <script setup>
   const TITLE = ['生成规则', '表单规则', '生成组件', '设置生成规则', '设置表单规则'];
-
+  function showJson() {
+    this.state = true;
+    this.type = 0;
+    this.value = this.$refs.designer.getRule();
+  }
 
 
 </script>

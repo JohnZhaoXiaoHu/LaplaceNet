@@ -45,7 +45,7 @@
         </div>
       </el-form-item>
       <p style="color:rgb(87, 1, 75); font-weight:bolder">當前地址:
-        {{form.hkmotwprovince}}-{{form.hkmotwcity}}-{{form.hkmotwregion}}</p>
+        {{form.hkmotwprovince}}-{{form.hkmotwcity}}-{{form.hkmotwregion}}-{{form.hkmotwstreet}}</p>
       <el-form-item label="行政区划">
         <div>
           <el-select v-model="form.hkmotwprovince" placeholder="省级" @change="changehkmotwPr">
@@ -56,8 +56,12 @@
             <el-option v-for="item in hkmotwcityList" :key="item.code" :label="item.label" :value="item.name">
             </el-option>
           </el-select>
-          <el-select v-model="form.hkmotwregion" placeholder="区级">
+          <el-select v-model="form.hkmotwregion" placeholder="区级" @change="changehkmotwSt">
             <el-option v-for="item in hkmotwregionList" :key="item.code" :label="item.label" :value="item.name">
+            </el-option>
+          </el-select>
+          <el-select v-model="form.hkmotwstreet" placeholder="乡镇" @change="changeSt">
+            <el-option v-for="item in hkmotwstreetList" :key="item.code" :label="item.label" :value="item.name">
             </el-option>
           </el-select>
         </div>
@@ -87,7 +91,7 @@
       hkmotwprovince: '', // hkmotw行政区划--省
       hkmotwcity: '', // hkmotw行政区划--市
       hkmotwregion: '', // hkmotw行政区划--区
-
+      hkmotwstreet: '', // hkmotw行政区划--乡
     },
   })
   const pacsv = pacasv
@@ -112,7 +116,7 @@
   const hkmotwprovinceList = hkmotwpac // hkmotw行政区划--省集合
   const hkmotwcityList = ref([]) // hkmotw行政区划--市集合
   const hkmotwregionList = ref([]) // hkmotw行政区划--区集合
-
+  const hkmotwstreetList = ref([]) // hkmotw行政区划--乡集合
   function changePr() {
     for (var key of pacasv) {
       if (key.name == form.value.province) {
@@ -179,6 +183,16 @@
       if (item.name == form.value.hkmotwcity) {
         hkmotwregionList.value = item.children
         form.value.hkmotwregion = item.children[0].name //默认选择第一个显示
+
+      }
+    })
+    changehkmotwSt()
+  }
+  function changehkmotwSt() {
+    hkmotwregionList.value.forEach((item, index) => {
+      if (item.name == form.value.hkmotwregion) {
+        hkmotwstreetList.value = item.children
+        form.value.hkmotwstreet = item.children[0].name //默认选择第一个显示
 
       }
     })

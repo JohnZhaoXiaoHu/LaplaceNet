@@ -23,6 +23,7 @@
     "@wangeditor/editor": "^5.1.23",
     "@wangeditor/editor-for-vue": "^5.1.12",
     "axios": "^1.2.2",
+    "codemirror": "^6.0.1",
     "countup.js": "^2.3.2",
     "echarts": "^5.4.1",
     "echarts-wordcloud": "^2.1.0",
@@ -32,6 +33,7 @@
     "highlight.js": "^11.7.0",
     "js-cookie": "3.0.1",
     "jsencrypt": "^3.3.1",
+    "jsonlint-mod": "^1.7.6",
     "md-editor-v3": "^2.7.2",
     "moment": "^2.29.4",
     "nprogress": "0.2.0",
@@ -48,6 +50,7 @@
     "vue3-seamless-scroll": "^2.0.1"
   },
   "devDependencies": {
+    "@types/codemirror": "^5.60.7",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/compiler-sfc": "^3.2.45",
     "sass": "^1.57.1",

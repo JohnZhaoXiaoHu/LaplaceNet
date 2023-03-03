@@ -1261,6 +1261,234 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:La.WebApi.Controllers.SdClientController">
+            <summary>
+            客户信息Controller
+            
+            @tableName sd_client
+            @author Laplace.Net:Davis.Cheng
+            @date 2023-03-03
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.SdClientController._SdClientService">
+            <summary>
+            客户信息接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdClientController.#ctor(La.Service.Sales.ISalesService.ISdClientService)">
+            <summary>
+            客户信息Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdClientController.QuerySdClient(La.Model.Dto.SdClientQueryDto)">
+            <summary>
+            查询客户信息列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdClientController.GetSdClient(System.Int64)">
+            <summary>
+            查询客户信息详情
+            </summary>
+            <param name="ScId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdClientController.AddSdClient(La.Model.Dto.SdClientDto)">
+            <summary>
+            添加客户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdClientController.UpdateSdClient(La.Model.Dto.SdClientDto)">
+            <summary>
+            更新客户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdClientController.DeleteSdClient(System.String)">
+            <summary>
+            删除客户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdClientController.Export(La.Model.Dto.SdClientQueryDto)">
+            <summary>
+            导出客户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:La.WebApi.Controllers.SdCustomerController">
+            <summary>
+            顾客信息Controller
+            
+            @tableName sd_customer
+            @author Laplace.Net:Davis.Cheng
+            @date 2023-03-03
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.SdCustomerController._SdCustomerService">
+            <summary>
+            顾客信息接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdCustomerController.#ctor(La.Service.Sales.ISalesService.ISdCustomerService)">
+            <summary>
+            顾客信息Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdCustomerController.QuerySdCustomer(La.Model.Dto.SdCustomerQueryDto)">
+            <summary>
+            查询顾客信息列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdCustomerController.GetSdCustomer(System.Int64)">
+            <summary>
+            查询顾客信息详情
+            </summary>
+            <param name="ScId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdCustomerController.AddSdCustomer(La.Model.Dto.SdCustomerDto)">
+            <summary>
+            添加顾客信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdCustomerController.UpdateSdCustomer(La.Model.Dto.SdCustomerDto)">
+            <summary>
+            更新顾客信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdCustomerController.DeleteSdCustomer(System.String)">
+            <summary>
+            删除顾客信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdCustomerController.Export(La.Model.Dto.SdCustomerQueryDto)">
+            <summary>
+            导出顾客信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:La.WebApi.Controllers.SdSalesProofController">
+            <summary>
+            销售凭证Controller
+            
+            @tableName sd_sales_proof
+            @author Laplace.Net:Davis.Cheng
+            @date 2023-03-03
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.SdSalesProofController._SdSalesProofService">
+            <summary>
+            销售凭证接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdSalesProofController.#ctor(La.Service.Sales.ISalesService.ISdSalesProofService)">
+            <summary>
+            销售凭证Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdSalesProofController.QuerySdSalesProof(La.Model.Dto.SdSalesProofQueryDto)">
+            <summary>
+            查询销售凭证列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdSalesProofController.GetSdSalesProof(System.Int64)">
+            <summary>
+            查询销售凭证详情
+            </summary>
+            <param name="SpId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdSalesProofController.AddSdSalesProof(La.Model.Dto.SdSalesProofDto)">
+            <summary>
+            添加销售凭证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdSalesProofController.UpdateSdSalesProof(La.Model.Dto.SdSalesProofDto)">
+            <summary>
+            更新销售凭证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdSalesProofController.DeleteSdSalesProof(System.String)">
+            <summary>
+            删除销售凭证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdSalesProofController.Export(La.Model.Dto.SdSalesProofQueryDto)">
+            <summary>
+            导出销售凭证
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:La.WebApi.Controllers.SdSellingpriceController">
+            <summary>
+            销售价格Controller
+            
+            @tableName sd_sellingprice
+            @author Laplace.Net:Davis.Cheng
+            @date 2023-03-03
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.SdSellingpriceController._SdSellingpriceService">
+            <summary>
+            销售价格接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdSellingpriceController.#ctor(La.Service.Sales.ISalesService.ISdSellingpriceService)">
+            <summary>
+            销售价格Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdSellingpriceController.QuerySdSellingprice(La.Model.Dto.SdSellingpriceQueryDto)">
+            <summary>
+            查询销售价格列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdSellingpriceController.GetSdSellingprice(System.Int64)">
+            <summary>
+            查询销售价格详情
+            </summary>
+            <param name="SpId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdSellingpriceController.AddSdSellingprice(La.Model.Dto.SdSellingpriceDto)">
+            <summary>
+            添加销售价格
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdSellingpriceController.UpdateSdSellingprice(La.Model.Dto.SdSellingpriceDto)">
+            <summary>
+            更新销售价格
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdSellingpriceController.DeleteSdSellingprice(System.String)">
+            <summary>
+            删除销售价格
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.SdSellingpriceController.Export(La.Model.Dto.SdSellingpriceQueryDto)">
+            <summary>
+            导出销售价格
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:La.WebApi.Controllers.System.ArticleCategoryController">
             <summary>
             文章目录Controller
