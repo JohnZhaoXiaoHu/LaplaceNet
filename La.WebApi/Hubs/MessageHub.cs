@@ -92,7 +92,7 @@ namespace La.WebApi.Hubs
             }
 
             Clients.All.SendAsync(HubsConstant.OnlineNum, clientUsers.Count);
-            //Clients.All.SendAsync(HubsConstant.OnlineUser, clientUsers);
+            Clients.All.SendAsync(HubsConstant.OnlineUser, clientUsers);
             return base.OnConnectedAsync();
         }
 

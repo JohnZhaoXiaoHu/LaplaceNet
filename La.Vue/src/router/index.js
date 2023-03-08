@@ -30,32 +30,32 @@ export const constantRoutes = [
     children: [
       {
         path: '/redirect/:path(.*)',
-        component: () => import('@/views/redirect/index.vue')
+        component: (resolve) => import('@/views/redirect/index.vue', resolve)
       }]
   },
   {
     path: '/login',
-    component: () => import('@/views/login'),
+    component: (resolve) => import('@/views/login', resolve),
     hidden: true
   },
   {
     path: '/sociallogin',
-    component: () => import('@/views/socialLogin'),
+    component: (resolve) => import('@/views/socialLogin', resolve),
     hidden: true
   },
   {
     path: '/register',
-    component: () => import('@/views/register'),
+    component: (resolve) => import('@/views/register', resolve),
     hidden: true
   },
   {
     path: "/:pathMatch(.*)*",
-    component: () => import('@/views/error/404'),
+    component: (resolve) => import('@/views/error/404', resolve),
     hidden: true
   },
   {
     path: '/401',
-    component: () => import('@/views/error/401'),
+    component: (resolve) => import('@/views/error/401', resolve),
     hidden: true
   },
   {
@@ -65,7 +65,7 @@ export const constantRoutes = [
     children: [
       {
         path: '/index',
-        component: () => import('@/views/index'),
+        component: (resolve) => import('@/views/index', resolve),
         name: 'Index',
         meta: { title: '首页', icon: 'house-solid', affix: true, titleKey: 'menu.home' }
       }]
@@ -78,7 +78,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'profile',
-        component: () => import('@/views/system/user/profile/index'),
+        component: (resolve) => import('@/views/system/user/profile/index', resolve),
         name: 'Profile',
         meta: { title: '个人中心', icon: 'user', titleKey: 'menu.personalCenter' }
       }]
@@ -92,7 +92,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'icon',
-        component: () => import('@/views/components/icons/index'),
+        component: (resolve) => import('@/views/components/icons/index', resolve),
         name: 'icon',
         meta: { title: '图标icon', icon: 'font-awesome', noCache: 'fasle', titleKey: 'menu.icon' }
       }]

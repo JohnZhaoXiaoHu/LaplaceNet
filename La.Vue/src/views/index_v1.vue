@@ -75,9 +75,9 @@
               <div class="info-scroll">
                 <ul class="info-ul">
                   <li v-for="(v, k) in onlineUsers" :key="k" class="info-item">
-                    <div class="info-item-left">{{ v.userName }}({{ v.connnectionId }})</div>
-                    <div>{{ v.ipaddr }}({{ v.loginLocation }})</div>
-                    <div class="info-item-right" v-text="dayjs(v.loginTime).format('MM/DD日HH:mm:ss')"></div>
+                    <div class="info-item-left">{{ v.name }}({{ v.connnectionId }})</div>
+                    <div>{{ v.userIP }}({{ v.location }})</div>
+                    <div class="info-item-right" v-text="dayjs(v.loginTime).format('YYYY-MM-DD HH:mm:ss')"></div>
                     <el-button text @click="onChat(v)" icon="bell" type="success" v-hasRole="['admin']">{{
                       $t('layout.notice') }}</el-button>
                   </li>
