@@ -90,44 +90,44 @@ Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、
 
 <table>
     <tr>
-        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/1.png"/></td>
-        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/2.png"/></td>
+        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/1.png"/></td>
+        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/2.png"/></td>
     </tr>
     <tr>
-        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/3.png"/></td>
-        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/4.png"/></td>
+        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/3.png"/></td>
+        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/4.png"/></td>
     </tr>
     <tr>
-        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/5.png"/></td>
-        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/6.png"/></td>
+        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/5.png"/></td>
+        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/6.png"/></td>
     </tr>
 	<tr>
-        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/7.png"/></td>
-        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/8.png"/></td>
+        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/7.png"/></td>
+        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/8.png"/></td>
     </tr>	
 	<tr>
-        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/9.png"/></td>
-        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/10.png"/></td>
+        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/9.png"/></td>
+        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/10.png"/></td>
     </tr>
 	<tr>
-        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/11.png"/></td>
-        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/12.png"/></td>
+        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/11.png"/></td>
+        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/12.png"/></td>
     </tr>
 	<tr>
-        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/13.png"/></td>
-        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/14.png"/></td>
+        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/13.png"/></td>
+        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/14.png"/></td>
     </tr>
 	<tr>
-        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/15.png"/></td>
-        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/16.png"/></td>
+        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/15.png"/></td>
+        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/16.png"/></td>
     </tr>
 	<tr>
-        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/17.png"/></td>
-		<td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/18.png"/></td>
+        <td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/17.png"/></td>
+		<td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/18.png"/></td>
     </tr>
 	<tr>
-		<td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/19.png"/></td>
-		<td><img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/20.png"/></td>
+		<td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/19.png"/></td>
+		<td><img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/20.png"/></td>
 	</tr>
 </table>
 
@@ -151,7 +151,7 @@ Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、
 
 ## 🎀捐赠
 如果你觉得这个项目帮助到了你，你可以帮作者买一杯果汁表示鼓励 🍹 
-<img src="https://github.com/Lean365/LaplaceNET/raw/master/document/images/pay.jpg"/>
+<img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/pay.jpg"/>
 
 
 ## 💡Browsers support
