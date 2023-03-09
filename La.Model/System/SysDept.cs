@@ -46,7 +46,7 @@ namespace La.Model.System
         [SugarColumn(IsOnlyIgnoreInsert = true)]
         public string DelFlag { get; set; }
 
-        /** 父部门名称 */
+       // /** 父部门名称 */
         //[SugarColumn(IsIgnore = true)]
         //public string ParentName { get; set; }
 

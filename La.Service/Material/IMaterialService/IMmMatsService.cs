@@ -10,7 +10,7 @@ namespace La.Service.Material.IMaterialService
     /// 物料信息service接口
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-25
+    /// @date 2023-03-09
     /// </summary>
     public interface IMmMatsService : IBaseService<MmMats>
     {

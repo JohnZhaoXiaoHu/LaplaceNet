@@ -2,9 +2,9 @@
  * @Descripttion: (标准工时/pp_manhours)
  * @version: (1.0)
  * @Author: (Laplace.Net:Davis.Cheng)
- * @Date: (2023-02-09)
+ * @Date: (2023-03-09)
  * @LastEditors: (Laplace.Net:Davis.Cheng)
- * @LastEditTime: (2023-02-09)
+ * @LastEditTime: (2023-03-09)
 -->
 <template>
   <div>
@@ -16,14 +16,14 @@
           range-separator="-"
           :start-placeholder="$t('btn.dateStart')" 
           :end-placeholder="$t('btn.dateEnd')" 
-          placeholder="请选择生效日期"
+          :placeholder="$t('btn.select')+'生效日期'"
           value-format="YYYY-MM-DD HH:mm:ss"
           :default-time="defaultTime"
           :shortcuts="dateOptions">
         </el-date-picker>
       </el-form-item>
       <el-form-item label="工厂" prop="mhPlant">
-        <el-select clearable  v-model="queryParams.mhPlant" placeholder="请选择工厂">
+        <el-select filterable clearable  v-model="queryParams.mhPlant" :placeholder="$t('btn.select')+'工厂'">
           <el-option v-for="item in  options.sys_plant_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -31,7 +31,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="机种名" prop="mhModelType">
-        <el-select clearable  v-model="queryParams.mhModelType" placeholder="请选择机种名">
+        <el-select filterable clearable  v-model="queryParams.mhModelType" :placeholder="$t('btn.select')+'机种名'">
           <el-option v-for="item in  options.sql_moc_model " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -39,7 +39,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="仕向别" prop="mhRegionType">
-        <el-select clearable  v-model="queryParams.mhRegionType" placeholder="请选择仕向别">
+        <el-select filterable clearable  v-model="queryParams.mhRegionType" :placeholder="$t('btn.select')+'仕向别'">
           <el-option v-for="item in  options.sql_region_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -47,7 +47,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="物料" prop="mhItem">
-        <el-select clearable  v-model="queryParams.mhItem" placeholder="请选择物料">
+        <el-select filterable clearable  v-model="queryParams.mhItem" :placeholder="$t('btn.select')+'物料'">
           <el-option v-for="item in  options.sql_moc_item " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -143,20 +143,20 @@
     
           <el-col :lg="12">
             <el-form-item label="ID" prop="mhId">
-              <el-input-number v-model.number="form.mhId" controls-position="right" placeholder="请输入ID" :disabled="title=='修改数据'"/>
+              <el-input-number clearable v-model.number="form.mhId" controls-position="right" :placeholder="$t('btn.enter')+'ID'" :disabled="title==$t('btn.edit')"/>
             </el-form-item>
           </el-col>
 
 
           <el-col :lg="12">
             <el-form-item label="生效日期" prop="mhEffDate">
-              <el-date-picker v-model="form.mhEffDate" type="datetime" :teleported="false" placeholder="选择日期时间"></el-date-picker>
+              <el-date-picker clearable v-model="form.mhEffDate" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="工厂" prop="mhPlant">
-              <el-select v-model="form.mhPlant" placeholder="请选择工厂">
+              <el-select v-model="form.mhPlant" filterable clearable  :placeholder="$t('btn.select')+'工厂'">
                 <el-option v-for="item in  options.sys_plant_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
@@ -164,7 +164,7 @@
 
           <el-col :lg="12">
             <el-form-item label="机种名" prop="mhModelType">
-              <el-select v-model="form.mhModelType" placeholder="请选择机种名">
+              <el-select v-model="form.mhModelType" filterable clearable  :placeholder="$t('btn.select')+'机种名'">
                 <el-option v-for="item in  options.sql_moc_model " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
@@ -172,7 +172,7 @@
 
           <el-col :lg="12">
             <el-form-item label="仕向别" prop="mhRegionType">
-              <el-select v-model="form.mhRegionType" placeholder="请选择仕向别">
+              <el-select v-model="form.mhRegionType" filterable clearable  :placeholder="$t('btn.select')+'仕向别'">
                 <el-option v-for="item in  options.sql_region_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
@@ -180,7 +180,7 @@
 
           <el-col :lg="12">
             <el-form-item label="物料" prop="mhItem">
-              <el-select v-model="form.mhItem" placeholder="请选择物料">
+              <el-select v-model="form.mhItem" filterable clearable  :placeholder="$t('btn.select')+'物料'">
                 <el-option v-for="item in  options.sql_moc_item " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
@@ -188,31 +188,31 @@
 
           <el-col :lg="12">
             <el-form-item label="物料文本" prop="mhItemText">
-              <el-input v-model="form.mhItemText" placeholder="请输入物料文本" />
+              <el-input clearable v-model="form.mhItemText" :placeholder="$t('btn.enter')+'物料文本'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="工作中心" prop="mhWcName">
-              <el-input v-model="form.mhWcName" placeholder="请输入工作中心" />
+              <el-input clearable v-model="form.mhWcName" :placeholder="$t('btn.enter')+'工作中心'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="工作中心文本" prop="mhWcText">
-              <el-input v-model="form.mhWcText" placeholder="请输入工作中心文本" />
+              <el-input clearable v-model="form.mhWcText" :placeholder="$t('btn.enter')+'工作中心文本'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="标准点数" prop="mhStdShort">
-              <el-input-number v-model.number="form.mhStdShort" :controls="true" controls-position="right" placeholder="请输入标准点数" />
+              <el-input-number clearable v-model.number="form.mhStdShort" :controls="true" controls-position="right" :placeholder="$t('btn.enter')+'标准点数'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="Short单位" prop="mhShortUnit">
-              <el-select v-model="form.mhShortUnit" placeholder="请选择Short单位">
+              <el-select v-model="form.mhShortUnit" filterable clearable  :placeholder="$t('btn.select')+'Short单位'">
                 <el-option v-for="item in  options.sys_unit_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
@@ -220,19 +220,19 @@
 
           <el-col :lg="12">
             <el-form-item label="点数换算汇率" prop="mhToMinRate">
-              <el-input v-model="form.mhToMinRate" placeholder="请输入点数换算汇率" />
+              <el-input clearable v-model="form.mhToMinRate" :placeholder="$t('btn.enter')+'点数换算汇率'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="标准工时" prop="mhStdTime">
-              <el-input-number v-model.number="form.mhStdTime" :controls="true" controls-position="right" placeholder="请输入标准工时" />
+              <el-input-number clearable v-model.number="form.mhStdTime" :controls="true" controls-position="right" :placeholder="$t('btn.enter')+'标准工时'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="工时单位" prop="mhTimeUnit">
-              <el-select v-model="form.mhTimeUnit" placeholder="请选择工时单位">
+              <el-select v-model="form.mhTimeUnit" filterable clearable  :placeholder="$t('btn.select')+'工时单位'">
                 <el-option v-for="item in  options.sys_unit_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
@@ -240,37 +240,37 @@
 
           <el-col :lg="12">
             <el-form-item label="软删除" prop="isDelete">
-              <el-input v-model="form.isDelete" placeholder="请输入软删除"  :disabled="true"/>
+              <el-input clearable v-model="form.isDelete" :placeholder="$t('btn.enter')+'软删除'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="remark" prop="remark">
-              <el-input v-model="form.remark" placeholder="请输入remark" />
+              <el-input clearable v-model="form.remark" :placeholder="$t('btn.enter')+'remark'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="createBy" prop="createBy">
-              <el-input v-model="form.createBy" placeholder="请输入createBy" />
+              <el-input clearable v-model="form.createBy" :placeholder="$t('btn.enter')+'createBy'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="createTime" prop="createTime">
-              <el-date-picker v-model="form.createTime" type="datetime" :teleported="false" placeholder="选择日期时间"></el-date-picker>
+              <el-date-picker clearable v-model="form.createTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="updateBy" prop="updateBy">
-              <el-input v-model="form.updateBy" placeholder="请输入updateBy" />
+              <el-input clearable v-model="form.updateBy" :placeholder="$t('btn.enter')+'updateBy'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="updateTime" prop="updateTime">
-              <el-date-picker v-model="form.updateTime" type="datetime" :teleported="false" placeholder="选择日期时间"></el-date-picker>
+              <el-date-picker clearable v-model="form.updateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
         </el-row>
@@ -422,12 +422,12 @@ const open = ref(false)
 const state = reactive({
   form: {},
   rules: {
-    mhPlant: [{ required: true, message: "工厂不能为空", trigger: "change" }],
-    mhModelType: [{ required: true, message: "机种名不能为空", trigger: "change" }],
-    mhWcName: [{ required: true, message: "工作中心不能为空", trigger: "blur" }],
-    mhStdShort: [{ required: true, message: "标准点数不能为空", trigger: "blur" }],
-    mhToMinRate: [{ required: true, message: "点数换算汇率不能为空", trigger: "blur" }],
-    mhStdTime: [{ required: true, message: "标准工时不能为空", trigger: "blur" }],
+    mhPlant: [{ required: true, message: "工厂"+proxy.$t('btn.empty'), trigger: "change" }],
+    mhModelType: [{ required: true, message: "机种名"+proxy.$t('btn.empty'), trigger: "change" }],
+    mhWcName: [{ required: true, message: "工作中心"+proxy.$t('btn.empty'), trigger: "blur" }],
+    mhStdShort: [{ required: true, message: "标准点数"+proxy.$t('btn.empty'), trigger: "blur" }],
+    mhToMinRate: [{ required: true, message: "点数换算汇率"+proxy.$t('btn.empty'), trigger: "blur" }],
+    mhStdTime: [{ required: true, message: "标准工时"+proxy.$t('btn.empty'), trigger: "blur" }],
   },
   options: {
     // 工厂 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
@@ -482,7 +482,7 @@ function reset() {
 function handleAdd() {
   reset();
   open.value = true
-  title.value = '添加'
+  title.value = proxy.$t('btn.add')
   opertype.value = 1
 }
 
@@ -494,7 +494,7 @@ function handleUpdate(row) {
     const { code, data } = res
     if (code == 200) {
       open.value = true
-      title.value = "修改数据"
+      title.value = proxy.$t('btn.edit')
       opertype.value = 2
 
       form.value = {
@@ -510,14 +510,14 @@ function submitForm() {
     if (valid) {
       if (form.value.mhId != undefined && opertype.value === 2) {
         updatePpManhours(form.value).then((res) => {
-          proxy.$modal.msgSuccess("修改成功")
+          proxy.$modal.msgSuccess(proxy.$t('common.Modicompleted'))
           open.value = false
           getList()
         })
         .catch(() => {})
       } else {
         addPpManhours(form.value).then((res) => {
-            proxy.$modal.msgSuccess("新增成功")
+            proxy.$modal.msgSuccess(proxy.$t('common.Newcompleted'))
             open.value = false
             getList()
           })
@@ -531,13 +531,13 @@ function submitForm() {
 function handleDelete(row) {
   const Ids = row.mhId || ids.value
 
-  proxy.$confirm('是否确认删除参数编号为"' + Ids + '"的数据项？')
+  proxy.$confirm(proxy.$t('common.confirmDel') + Ids +proxy.$t('common.confirmDelDataitems'))
   .then(function () {
       return delPpManhours(Ids)
   })
   .then(() => {
       getList()
-      proxy.$modal.msgSuccess("删除成功")
+      proxy.$modal.msgSuccess(proxy.$t('common.Delcompleted'))
   })
   .catch(() => {})
 }
@@ -547,9 +547,9 @@ function handleDelete(row) {
 // 导出按钮操作
 function handleExport() {
   proxy
-    .$confirm("是否确认导出标准工时数据项?", "警告", {
-      confirmButtonText: "确定",
-      cancelButtonText: "取消",
+    .$confirm(proxy.$t('common.confirmExport')+"标准工时", proxy.$t('common.warningTips'), {
+      confirmButtonText: proxy.$t('btn.submit'),
+      cancelButtonText: proxy.$t('btn.cancel'),
       type: "warning",
     })
     .then(async () => {

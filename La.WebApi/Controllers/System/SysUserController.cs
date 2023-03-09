@@ -208,15 +208,10 @@ namespace La.WebApi.Controllers.System
         public IActionResult ImportTemplateExcel()
         {
             List<SysUser> user = new List<SysUser>();
-            //创建一个流，其后备存储为内存
-            var stream = new MemoryStream();
-            stream.SaveAs(user);
-            //只导出表头
-            stream.Seek(0, SeekOrigin.Begin);
-            string sFileName = DownloadImportTemplate(user, "用户列表");
-            return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", $"{sFileName}");
+            MemoryStream stream = new MemoryStream();
 
-
+            string sFileName = DownloadImportTemplate(user, stream, "用户列表");
+            return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", $"{sFileName}");
         }
 
 

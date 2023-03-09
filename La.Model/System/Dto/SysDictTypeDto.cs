@@ -2,8 +2,14 @@
 
 namespace La.Model.System.Dto
 {
+    /// <summary>
+    /// 字典类型输入
+    /// </summary>
     public class SysDictTypeDto
     {
+        /// <summary>
+        /// ID
+        /// </summary>
         public long DictId { get; set; }
         /// <summary>
         /// 字典名称
@@ -15,6 +21,9 @@ namespace La.Model.System.Dto
         [Required(ErrorMessage = "字典类型不能为空")]
         [RegularExpression(pattern: "^[a-z][a-z0-9_]*$", ErrorMessage = "字典类型必须以字母开头,且字典类型只能由小写字母或加下划线还有数字组成")]
         public string DictType { get; set; }
+        /// <summary>
+        /// 状态
+        /// </summary>
         public string Status { get; set; }
         /// <summary>
         /// 系统内置 Y是 N否

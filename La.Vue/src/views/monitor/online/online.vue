@@ -21,12 +21,12 @@
         </template>
       </el-table-column>
       <el-table-column label="会话编号" align="center" prop="connnectionId" :show-overflow-tooltip="true" />
-      <el-table-column label="登录名称" align="center" prop="name" :show-overflow-tooltip="true" />
+      <el-table-column label="登录名称" align="center" prop="userName" :show-overflow-tooltip="true" />
       <el-table-column label="主机" align="center" prop="ipaddr" :show-overflow-tooltip="true" />
-      <el-table-column label="登录地点" align="center" prop="location" :show-overflow-tooltip="true" />
+      <el-table-column label="登录地点" align="center" prop="loginLocation" :show-overflow-tooltip="true" />
       <el-table-column label="操作系统" align="center" prop="os" :show-overflow-tooltip="true" />
       <el-table-column label="浏览器" align="center" prop="browser" :show-overflow-tooltip="true" />
-      <el-table-column label="登录时间" align="center" prop="LoginTime" width="180">
+      <el-table-column label="登录时间" align="center" prop="loginTime" width="180">
         <template #default="scope">
           <span>{{ parseTime(scope.row.loginTime) }}</span>
         </template>
@@ -67,13 +67,11 @@
   /** 查询登录日志列表 */
   function getList() {
     loading.value = true;
-
     initData(queryParams.value).then(response => {
       onlineList.value = response.data.data;
       total.value = response.data.total;
       loading.value = false;
     });
-
   }
   /** 搜索按钮操作 */
   function handleQuery() {

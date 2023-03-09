@@ -26,9 +26,7 @@ namespace La.Infra.Attribute
         /// </summary>
         public bool InterfaceServiceType { get; set; }
     }
-    /// <summary>
-    /// 生命周期
-    /// </summary>
+
     public enum LifeTime
     {
         Transient, Scoped, Singleton

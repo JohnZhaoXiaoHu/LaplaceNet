@@ -5,10 +5,16 @@ using System.ComponentModel;
 
 namespace La.Model.System
 {
+    /// <summary>
+    /// 操作日志
+    /// </summary>
     [SugarTable("sys_oper_log")]
     [Tenant("0")]
     public class SysOperLog
     {
+        /// <summary>
+        /// ID
+        /// </summary>
         [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
         public long OperId { get; set; }
         /** 操作模块 */
@@ -42,7 +48,7 @@ namespace La.Model.System
         [DisplayName("操作人员")]
         public string OperName { get; set; }
 
-        /** 部门名称 */
+        // /** 部门名称 */
         //[DisplayName("部门名称")]
         //public string DeptName { get; set; }
 

@@ -5,13 +5,24 @@ using System.Text;
 
 namespace La.Model.System.Dto
 {
+    /// <summary>
+    /// 用户角色查询
+    /// </summary>
     public class RoleUserQueryDto : PagerInfo
     {
+        /// <summary>
+        /// ID
+        /// </summary>
         public long RoleId { get; set; }
+        /// <summary>
+        /// 用户
+        /// </summary>
 
         public string UserName { get; set; }
     }
-
+    /// <summary>
+    /// 用户角色新建
+    /// </summary>
     public class RoleUsersCreateDto
     {
         /// <summary>
@@ -28,7 +39,7 @@ namespace La.Model.System.Dto
         /// 空值 : False
         /// 默认 : 
         /// </summary>
-        [Display(Name = "用户编码 [1,2,3,4]")]
+        [Display(Name = "用户编码 [1,2,3,4]")]        
         public List<long> UserIds { get; set; }
     }
 }

@@ -10,8 +10,17 @@ namespace La.Model.System
     /// </summary>
     public class LoginUser
     {
+        /// <summary>
+        /// 用户iD
+        /// </summary>
         public long UserId { get; set; }
+        /// <summary>
+        /// 部门ID
+        /// </summary>
         public long DeptId { get; set; }
+        /// <summary>
+        /// 用户史
+        /// </summary>
         public string UserName { get; set; }
         /// <summary>
         /// 角色集合
@@ -25,9 +34,18 @@ namespace La.Model.System
         /// 权限集合
         /// </summary>
         public List<string> Permissions { get; set; } = new List<string>();
+        /// <summary>
+        /// 登录用户信息存储
+        /// </summary>
         public LoginUser()
         {
         }
+        /// <summary>
+        /// 登录用户信息存储
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="roles"></param>
+        /// <param name="permissions"></param>
 
         public LoginUser(SysUser user, List<SysRole> roles, List<string> permissions)
         {

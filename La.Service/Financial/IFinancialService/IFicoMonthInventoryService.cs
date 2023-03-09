@@ -10,7 +10,7 @@ namespace La.Service.Financial.IFinancialService
     /// 月度存货明细service接口
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-16
+    /// @date 2023-03-09
     /// </summary>
     public interface IFicoMonthInventoryService : IBaseService<FicoMonthInventory>
     {

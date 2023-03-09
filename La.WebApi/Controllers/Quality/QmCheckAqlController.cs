@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName qm_check_aql
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-15
+    /// @date 2023-03-09
     /// </summary>
     [Verify]
     [Route("quality/QmCheckAql")]
@@ -30,7 +30,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         private readonly IQmCheckAqlService _QmCheckAqlService;
         /// <summary>
-        /// 抽样标准接口
+        /// 抽样标准Controller
         /// </summary>
         public QmCheckAqlController(IQmCheckAqlService QmCheckAqlService)
         {
@@ -78,7 +78,9 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-            // 校验输入项目是否唯一
+
+           // 校验输入项目是否唯一
+
             if (UserConstants.NOT_UNIQUE.Equals(_QmCheckAqlService.CheckEntryStringUnique(parm.QcaqlGuid.ToString())))
             {
                 return ToResponse(ApiResult.Error($"新增抽样标准 '{parm.QcaqlGuid}'失败，输入的抽样标准已存在"));

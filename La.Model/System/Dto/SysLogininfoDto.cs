@@ -5,8 +5,14 @@ using La.Model.System;
 
 namespace La.Model.System.Dto
 {
+    /// <summary>
+    /// 登入日志输入
+    /// </summary>
     public class SysLogininfoDto : SysBase
     {
+        /// <summary>
+        /// 页码
+        /// </summary>
         public int pageNum { get; set; }
         /// <summary>
         /// IP 地址

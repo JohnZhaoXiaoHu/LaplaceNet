@@ -15,7 +15,7 @@ namespace La.Service.Production
     /// 生产班组Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-25
+    /// @date 2023-03-09
     /// </summary>
     [AppService(ServiceType = typeof(IPpLinesService), ServiceLifetime = LifeTime.Transient)]
     public class PpLinesService : BaseService<PpLines>, IPpLinesService
@@ -50,7 +50,7 @@ namespace La.Service.Production
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.PlLineCode.ToString() == entryString);
+            int count = Count(it => it.PlId.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

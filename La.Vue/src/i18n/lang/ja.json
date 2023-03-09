@@ -37,7 +37,7 @@
     "cacheMonitor": "Cacheモニタ"
   },
   "tagsView": {
-    "refresh": "再描画",
+    "refresh": "リフレッシュ",
     "close": "クローズ",
     "closeOther": "クローズ其它",
     "closeLeft": "クローズ左側",

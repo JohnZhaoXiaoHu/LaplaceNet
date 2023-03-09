@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName fico_title
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-16
+    /// @date 2023-03-09
     /// </summary>
     [Verify]
     [Route("financial/FicoTitle")]
@@ -32,7 +32,6 @@ namespace La.WebApi.Controllers
         /// <summary>
         /// 会计科目Controller
         /// </summary>
-        /// <param name="FicoTitleService"></param>
         public FicoTitleController(IFicoTitleService FicoTitleService)
         {
             _FicoTitleService = FicoTitleService;
@@ -80,7 +79,7 @@ namespace La.WebApi.Controllers
                 throw new CustomException("请求参数错误");
             }
 
-        // 校验输入项目是否唯一
+           // 校验输入项目是否唯一
 
             if (UserConstants.NOT_UNIQUE.Equals(_FicoTitleService.CheckEntryStringUnique(parm.FtId.ToString())))
             {

@@ -15,7 +15,7 @@ namespace La.Service.Production
     /// 原因类别Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-10
+    /// @date 2023-03-09
     /// </summary>
     [AppService(ServiceType = typeof(IPpCauseTypeService), ServiceLifetime = LifeTime.Transient)]
     public class PpCauseTypeService : BaseService<PpCauseType>, IPpCauseTypeService

@@ -2,7 +2,7 @@ use Laplace_PRD;
 
 -- 利润中心菜单
 INSERT INTO sys_menu(menuName, parentId, orderNum, path, component, isFrame, isCache, menuType, visible, status, perms, icon, create_by, create_time,menuName_key) 
-VALUES ('利润中心', 1094, 999, 'FicoPrctr', 'financial/FicoPrctr', 0, 0, 'C', '0', '0', 'fico:prctr:list', 'icon1', 'system', GETDATE(), 'menu.FicoPrctr');
+VALUES ('利润中心', 1094, 999, lower('FicoPrctr'), 'financial/FicoPrctr', 0, 0, 'C', '0', '0', 'fico:prctr:list', 'icon1', 'system', GETDATE(), 'menu.FicoPrctr');
 
 -- 按钮父菜单id
 declare @menuId int = @@identity
@@ -24,14 +24,17 @@ INSERT INTO sys_menu(menuName, parentId, orderNum, path, component, isFrame, isC
 VALUES ('导出', @menuId, 5, '#', NULL, 0, 0, 'F', '0', '0', 'fico:prctr:export', '', 'system', GETDATE());
 
 
-
--- 利润中心多语言
-INSERT INTO sys_common_lang(lang_code, lang_key, lang_name, addtime) 
-VALUES ('zh-cn', 'menu.FicoPrctr', '利润中心', GETDATE());
-INSERT INTO sys_common_lang(lang_code, lang_key, lang_name, addtime) 
-VALUES ('en', 'menu.FicoPrctr', '利润中心', GETDATE());
-INSERT INTO sys_common_lang(lang_code, lang_key, lang_name, addtime) 
-VALUES ('ja', 'menu.FicoPrctr', '利润中心', GETDATE());
-
 SELECT * FROM sys_menu WHERE parentId = @menuId;
 SELECT * FROM sys_menu WHERE menuId = @menuId;
+
+
+
+-- 利润中心多语言
+INSERT INTO sys_common_lang(id,lang_code, lang_key, lang_name, addtime) 
+VALUES (1631535213331094001,'zh-cn', 'menu.FicoPrctr', '利润中心', GETDATE());
+
+INSERT INTO sys_common_lang(id,lang_code, lang_key, lang_name, addtime) 
+VALUES (1631535213331094002,'en', 'menu.FicoPrctr', '利润中心', GETDATE());
+
+INSERT INTO sys_common_lang(id,lang_code, lang_key, lang_name, addtime) 
+VALUES (1631535213331094003,'ja', 'menu.FicoPrctr', '利润中心', GETDATE());

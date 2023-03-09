@@ -2,7 +2,7 @@ use Laplace_PRD;
 
 -- 工作流菜单
 INSERT INTO sys_menu(menuName, parentId, orderNum, path, component, isFrame, isCache, menuType, visible, status, perms, icon, create_by, create_time,menuName_key) 
-VALUES ('工作流', 0, 999, 'SysWflow', 'workflow/SysWflow', 0, 0, 'C', '0', '0', 'sys:wflow:list', 'icon1', 'system', GETDATE(), 'menu.SysWflow');
+VALUES ('工作流', 0, 999, lower('SysWflow'), 'workflow/SysWflow', 0, 0, 'C', '0', '0', 'sys:wflow:list', 'icon1', 'system', GETDATE(), 'menu.SysWflow');
 
 -- 按钮父菜单id
 declare @menuId int = @@identity
@@ -24,3 +24,15 @@ VALUES ('修改', @menuId, 4, '#', NULL, 0, 0, 'F', '0', '0', 'sys:wflow:edit', 
 
 SELECT * FROM sys_menu WHERE parentId = @menuId;
 SELECT * FROM sys_menu WHERE menuId = @menuId;
+
+
+
+-- 工作流多语言
+INSERT INTO sys_common_lang(id,lang_code, lang_key, lang_name, addtime) 
+VALUES (1631535213330001,'zh-cn', 'menu.SysWflow', '工作流', GETDATE());
+
+INSERT INTO sys_common_lang(id,lang_code, lang_key, lang_name, addtime) 
+VALUES (1631535213330002,'en', 'menu.SysWflow', '工作流', GETDATE());
+
+INSERT INTO sys_common_lang(id,lang_code, lang_key, lang_name, addtime) 
+VALUES (1631535213330003,'ja', 'menu.SysWflow', '工作流', GETDATE());

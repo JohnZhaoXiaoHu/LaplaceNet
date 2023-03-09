@@ -12,16 +12,7 @@ export function listFicoPrctr(query) {
     params: query,
   })
 }
-/**
-* 利润中心查询
-* @param {查询条件} data
-*/
-export function listFicoPrctrAll() {
-  return request({
-    url: 'financial/FicoPrctr/list',
-    method: 'get',
-  })
-}
+
 
 /**
 * 新增利润中心

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace La.Model.Query
 {
+    /// <summary>
+    /// 扩展查询参数
+    /// </summary>
     public static class QueryParametersExtensions
     {
 

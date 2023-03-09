@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName sys_et_dict
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-24
+    /// @date 2023-03-09
     /// </summary>
     [Verify]
     [Route("system/SysEtDict")]
@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
 
            // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_SysEtDictService.CheckEntryStringUnique(parm.EtPhrase.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_SysEtDictService.CheckEntryStringUnique(parm.EtGuid.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增电子辞典 '{parm.EtPhrase}'失败，输入的电子辞典已存在"));
+                return ToResponse(ApiResult.Error($"新增电子辞典 '{parm.EtGuid}'失败，输入的电子辞典已存在"));
             }
             var modal = parm.Adapt<SysEtDict>().ToCreate(HttpContext);
 

@@ -15,7 +15,7 @@ namespace La.Service.Financial
     /// 工厂工资率Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-16
+    /// @date 2023-03-09
     /// </summary>
     [AppService(ServiceType = typeof(IFicoWageratesService), ServiceLifetime = LifeTime.Transient)]
     public class FicoWageratesService : BaseService<FicoWagerates>, IFicoWageratesService
@@ -50,7 +50,7 @@ namespace La.Service.Financial
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.FwYm+ it.FwPlant == entryString);
+            int count = Count(it => it.FwId.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

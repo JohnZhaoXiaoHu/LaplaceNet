@@ -73,19 +73,31 @@ namespace La.Model.System
         /// </summary>
         [SugarColumn(IsIgnore = true)]
         public int UserNum { get; set; }
-
+        /// <summary>
+        /// 角色
+        /// </summary>
         public SysRole() { }
-
+        /// <summary>
+        /// 角色
+        /// </summary>
+        /// <param name="roleId"></param>
         public SysRole(long roleId)
         {
             RoleId = roleId;
         }
-
+        /// <summary>
+        /// 超级用户判断
+        /// </summary>
+        /// <returns></returns>
         public bool IsAdmin()
         {
             return IsAdmin(RoleId);
         }
-
+        /// <summary>
+        /// 超级用户判断
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <returns></returns>
         public static bool IsAdmin(long roleId)
         {
             return 1 == roleId;

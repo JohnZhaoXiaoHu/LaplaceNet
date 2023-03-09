@@ -2,7 +2,7 @@ use Laplace_PRD;
 
 -- 客户信息菜单
 INSERT INTO sys_menu(menuName, parentId, orderNum, path, component, isFrame, isCache, menuType, visible, status, perms, icon, create_by, create_time,menuName_key) 
-VALUES ('客户信息', 1095, 999, 'SdClient', 'sales/SdClient', 0, 0, 'C', '0', '0', 'sd:client:list', 'icon1', 'system', GETDATE(), 'menu.SdClient');
+VALUES ('客户信息', 1095, 999, lower('SdClient'), 'sales/SdClient', 0, 0, 'C', '0', '0', 'sd:client:list', 'icon1', 'system', GETDATE(), 'menu.SdClient');
 
 -- 按钮父菜单id
 declare @menuId int = @@identity
@@ -24,14 +24,17 @@ INSERT INTO sys_menu(menuName, parentId, orderNum, path, component, isFrame, isC
 VALUES ('导出', @menuId, 5, '#', NULL, 0, 0, 'F', '0', '0', 'sd:client:export', '', 'system', GETDATE());
 
 
-
--- 客户信息多语言
-INSERT INTO sys_common_lang(lang_code, lang_key, lang_name, addtime) 
-VALUES ('zh-cn', 'menu.SdClient', '客户信息', GETDATE());
-INSERT INTO sys_common_lang(lang_code, lang_key, lang_name, addtime) 
-VALUES ('en', 'menu.SdClient', '客户信息', GETDATE());
-INSERT INTO sys_common_lang(lang_code, lang_key, lang_name, addtime) 
-VALUES ('ja', 'menu.SdClient', '客户信息', GETDATE());
-
 SELECT * FROM sys_menu WHERE parentId = @menuId;
 SELECT * FROM sys_menu WHERE menuId = @menuId;
+
+
+
+-- 客户信息多语言
+INSERT INTO sys_common_lang(id,lang_code, lang_key, lang_name, addtime) 
+VALUES (1631535213331095001,'zh-cn', 'menu.SdClient', '客户信息', GETDATE());
+
+INSERT INTO sys_common_lang(id,lang_code, lang_key, lang_name, addtime) 
+VALUES (1631535213331095002,'en', 'menu.SdClient', '客户信息', GETDATE());
+
+INSERT INTO sys_common_lang(id,lang_code, lang_key, lang_name, addtime) 
+VALUES (1631535213331095003,'ja', 'menu.SdClient', '客户信息', GETDATE());

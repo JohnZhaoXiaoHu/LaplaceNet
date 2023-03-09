@@ -5,6 +5,9 @@ using System.Text;
 
 namespace La.Model.System.Dto
 {
+    /// <summary>
+    /// 任务管理输入输出
+    /// </summary>
     public class TasksQueryDto
     {
         /// <summary>
@@ -14,7 +17,13 @@ namespace La.Model.System.Dto
         /// </summary>
         [Display(Name = "查询字符串")]
         public string QueryText { get; set; }
+        /// <summary>
+        /// 任务类型
+        /// </summary>
         public int? TaskType { get; set; }
+        /// <summary>
+        /// 触发器类型
+        /// </summary>
         public int? TriggerType { get; set; }
     }
 
@@ -123,11 +132,17 @@ namespace La.Model.System.Dto
         /// </summary>
         [Display(Name = "传入参数")]
         public string JobParams { get; set; }
+        /// <summary>
+        /// API地址
+        /// </summary>
         public string ApiUrl { get; set; }
         /// <summary>
         /// 1、程序集任务 2、apiUrl任务 3、SQL语句
         /// </summary>
         public int TaskType { get; set; }
+        /// <summary>
+        /// SQL文本
+        /// </summary>
         public string SqlText { get; set; }
 
         /// <summary>

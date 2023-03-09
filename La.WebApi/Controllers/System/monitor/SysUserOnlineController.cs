@@ -12,7 +12,7 @@ using La.Model.System.Dto;
 using La.Service.System;
 using La.Service.System.IService;
 using La.Infra.Attribute;
-
+using La.Infra.Model;
 namespace La.WebApi.Controllers.monitor
 {
     /// <summary>
@@ -61,13 +61,7 @@ namespace La.WebApi.Controllers.monitor
             return Result.Success().SetData(new PageModel<List<OnlineUsers>>() { Total = data.Count, Data =dataWhere.ToList() });
         }
 
-        //public IActionResult PageList([FromQuery] OnlineUsers online, [FromQuery] PagerInfo pagerInfo)
-        //{
-        //    var data = MessageHub.clientUsers;
-        //    //var list = sysLoginService.GetLoginLog(SysUserOnlineDto, pagerInfo);
 
-        //    return SUCCESS(data, TIME_FORMAT_FULL);
-        //}
         /// <summary>
         /// 强制退出用户
         /// </summary>

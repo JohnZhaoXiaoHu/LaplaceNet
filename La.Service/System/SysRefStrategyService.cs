@@ -15,7 +15,7 @@ namespace La.Service.System
     /// 单据编码Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-24
+    /// @date 2023-03-09
     /// </summary>
     [AppService(ServiceType = typeof(ISysRefStrategyService), ServiceLifetime = LifeTime.Transient)]
     public class SysRefStrategyService : BaseService<SysRefStrategy>, ISysRefStrategyService
@@ -51,7 +51,7 @@ namespace La.Service.System
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.InitNumber.ToString() == entryString);
+            int count = Count(it => it.RefId.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

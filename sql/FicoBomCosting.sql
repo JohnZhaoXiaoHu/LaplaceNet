@@ -2,7 +2,7 @@ use Laplace_PRD;
 
 -- bom成本核算菜单
 INSERT INTO sys_menu(menuName, parentId, orderNum, path, component, isFrame, isCache, menuType, visible, status, perms, icon, create_by, create_time,menuName_key) 
-VALUES ('bom成本核算', 1094, 999, 'FicoBomCosting', 'financial/FicoBomCosting', 0, 0, 'C', '0', '0', 'fico:bomcosting:list', 'icon1', 'system', GETDATE(), 'menu.FicoBomCosting');
+VALUES ('bom成本核算', 1094, 999, lower('FicoBomCosting'), 'financial/FicoBomCosting', 0, 0, 'C', '0', '0', 'fico:bomcosting:list', 'icon1', 'system', GETDATE(), 'menu.FicoBomCosting');
 
 -- 按钮父菜单id
 declare @menuId int = @@identity
@@ -24,14 +24,17 @@ INSERT INTO sys_menu(menuName, parentId, orderNum, path, component, isFrame, isC
 VALUES ('导出', @menuId, 5, '#', NULL, 0, 0, 'F', '0', '0', 'fico:bomcosting:export', '', 'system', GETDATE());
 
 
-
--- bom成本核算多语言
-INSERT INTO sys_common_lang(lang_code, lang_key, lang_name, addtime) 
-VALUES ('zh-cn', 'menu.FicoBomCosting', 'bom成本核算', GETDATE());
-INSERT INTO sys_common_lang(lang_code, lang_key, lang_name, addtime) 
-VALUES ('en', 'menu.FicoBomCosting', 'bom成本核算', GETDATE());
-INSERT INTO sys_common_lang(lang_code, lang_key, lang_name, addtime) 
-VALUES ('ja', 'menu.FicoBomCosting', 'bom成本核算', GETDATE());
-
 SELECT * FROM sys_menu WHERE parentId = @menuId;
 SELECT * FROM sys_menu WHERE menuId = @menuId;
+
+
+
+-- bom成本核算多语言
+INSERT INTO sys_common_lang(id,lang_code, lang_key, lang_name, addtime) 
+VALUES (1631535213331094001,'zh-cn', 'menu.FicoBomCosting', 'bom成本核算', GETDATE());
+
+INSERT INTO sys_common_lang(id,lang_code, lang_key, lang_name, addtime) 
+VALUES (1631535213331094002,'en', 'menu.FicoBomCosting', 'bom成本核算', GETDATE());
+
+INSERT INTO sys_common_lang(id,lang_code, lang_key, lang_name, addtime) 
+VALUES (1631535213331094003,'ja', 'menu.FicoBomCosting', 'bom成本核算', GETDATE());

@@ -8,7 +8,7 @@ namespace La.Model.Models
     /// 标准工时，数据实体对象
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-09
+    /// @date 2023-03-09
     /// </summary>
     [SugarTable("pp_manhours")]
     public class PpManhours

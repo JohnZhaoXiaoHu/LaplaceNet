@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName mm_mats
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-25
+    /// @date 2023-03-09
     /// </summary>
     [Verify]
     [Route("material/MmMats")]
@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
 
            // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_MmMatsService.CheckEntryStringUnique(parm.MmPlnt + parm.MmMatItem)))
+            if (UserConstants.NOT_UNIQUE.Equals(_MmMatsService.CheckEntryStringUnique(parm.MmId.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增物料信息 '{parm.MmPlnt +","+ parm.MmMatItem}'失败，输入的物料信息已存在"));
+                return ToResponse(ApiResult.Error($"新增物料信息 '{parm.MmId}'失败，输入的物料信息已存在"));
             }
             var modal = parm.Adapt<MmMats>().ToCreate(HttpContext);
 

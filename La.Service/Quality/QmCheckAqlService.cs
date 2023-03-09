@@ -15,7 +15,7 @@ namespace La.Service.Quality
     /// 抽样标准Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-15
+    /// @date 2023-03-09
     /// </summary>
     [AppService(ServiceType = typeof(IQmCheckAqlService), ServiceLifetime = LifeTime.Transient)]
     public class QmCheckAqlService : BaseService<QmCheckAql>, IQmCheckAqlService

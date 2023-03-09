@@ -11,11 +11,29 @@ namespace La.Model.System.Dto
     /// </summary>
     public class SysNoticeDto
     {
+        /// <summary>
+        /// ID
+        /// </summary>
         public int NoticeId { get; set; }
+        /// <summary>
+        /// 标题
+        /// </summary>
         public string NoticeTitle { get; set; }
+        /// <summary>
+        /// 类型
+        /// </summary>
         public string NoticeType { get; set; }
+        /// <summary>
+        /// 内容
+        /// </summary>
         public string NoticeContent { get; set; }
+        /// <summary>
+        /// 状态
+        /// </summary>
         public string Status { get; set; }
+        /// <summary>
+        /// 备注
+        /// </summary>
         public string Remark { get; set; }
     }
 
@@ -24,9 +42,21 @@ namespace La.Model.System.Dto
     /// </summary>
     public class SysNoticeQueryDto : PagerInfo
     {
+        /// <summary>
+        /// 标题
+        /// </summary>
         public string NoticeTitle { get; set; }
+        /// <summary>
+        /// 类型
+        /// </summary>
         public string NoticeType { get; set; }
+        /// <summary>
+        /// 创建人
+        /// </summary>
         public string CreateBy { get; set; }
+        /// <summary>
+        /// 状态
+        /// </summary>
         public string Status { get; set; }
     }
 }

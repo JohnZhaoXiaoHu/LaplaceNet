@@ -12,8 +12,14 @@ namespace La.Model.System
     [Tenant("0")]
     public class SysUserRole
     {
+        /// <summary>
+        /// 用户ID
+        /// </summary>
         [SqlSugar.SugarColumn(ColumnName = "user_id", IsPrimaryKey = true)]
         public long UserId { get; set; }
+        /// <summary>
+        /// 角色ID
+        /// </summary>
 
         [SqlSugar.SugarColumn(ColumnName = "role_id", IsPrimaryKey = true)]
         public long RoleId { get; set; }

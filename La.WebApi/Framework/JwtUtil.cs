@@ -125,7 +125,7 @@ namespace La.WebApi.Framework
         {
             try
             {
-                var userData = jwtToken.FirstOrDefault(x => x.Type == ClaimTypes.UserData!).Value;
+                var userData = jwtToken.FirstOrDefault(x => x.Type == ClaimTypes.UserData).Value;
                 var loginUser = JsonConvert.DeserializeObject<LoginUser>(userData);
                 var permissions = CacheService.GetUserPerms(GlobalConstant.UserPermKEY + loginUser?.UserId);
                 if (loginUser?.UserName == GlobalConstant.AdminRole)
@@ -158,7 +158,6 @@ namespace La.WebApi.Framework
                 {
                     new Claim(ClaimTypes.PrimarySid, user.UserId.ToString()),
                     new Claim(ClaimTypes.Name, user.UserName),
-
                     new Claim(ClaimTypes.UserData, JsonConvert.SerializeObject(user))
                 };
 

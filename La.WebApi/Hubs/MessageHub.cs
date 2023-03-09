@@ -83,7 +83,7 @@ namespace La.WebApi.Hubs
                     //用户
                     UserName = loginUser.UserName ?? "",
                     //ID
-                    UserId= loginUser.UserId,
+                    UserId = loginUser.UserId,
                 };
                 clientUsers.Add(users);
                 Console.WriteLine($"{DateTime.Now}：{name},{Context.ConnectionId}连接服务端success，当前已连接{clientUsers.Count}个");
@@ -128,7 +128,7 @@ namespace La.WebApi.Hubs
         public async Task SendMessage(string connectId, string userName, string message)
         {
             Console.WriteLine($"{connectId},message={message}");
-            
+
             await Clients.Client(connectId).SendAsync("receiveChat", new { userName, message });
         }
     }

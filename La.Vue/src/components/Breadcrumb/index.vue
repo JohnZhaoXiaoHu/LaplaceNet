@@ -7,35 +7,40 @@
  * @LastEditTime: (2023-01-15)
 -->
 <template>
+
   <el-breadcrumb class="app-breadcrumb" separator="/">
     <!-- <transition-group name="breadcrumb"> -->
     <el-breadcrumb-item v-for="(item, index) in levelList" :key="item.path">
       <span v-if="item.redirect === 'noRedirect' || index == levelList.length - 1" class="no-redirect">
-        {{ $t(item.meta.title) }}
+        {{ $t(item.meta.titleKey) }}
       </span>
       <span v-else @click.prevent="handleLink(item)" style="cursor: pointer">
-        {{ $t(item.meta.title) }}
+        {{ $t(item.meta.titleKey) }}
       </span>
     </el-breadcrumb-item>
     <!-- </transition-group> -->
+
   </el-breadcrumb>
+
 </template>
 
 <script setup>
   const route = useRoute()
   const router = useRouter()
   const levelList = ref([])
+  //meta.title: 'title'                  // 设置该路由在侧边栏和面包屑中展示的名字
+  //meta.titleKey: '',                   //国际和翻译key值，如果不为空将使用i18n
   //Breadcrumb 面包屑(显示当前页面的路径，快速返回之前的任意页面)
   function getBreadcrumb() {
     // only show routes with meta.title
-    let matched = route.matched.filter((item) => item.meta && item.meta.title)
+    let matched = route.matched.filter((item) => item.meta && item.meta.titleKey)
     const first = matched[0]
     // 判断是否为首页
     if (!isDashboard(first)) {
       matched = [{ path: '/index', meta: { title: 'menu.home' } }].concat(matched)
     }
 
-    levelList.value = matched.filter((item) => item.meta && item.meta.title && item.meta.breadcrumb !== false)
+    levelList.value = matched.filter((item) => item.meta && item.meta.titleKey && item.meta.breadcrumb !== false)
   }
 
   function isDashboard(route) {
@@ -43,6 +48,7 @@
     if (!name) {
       return false
     }
+    //return name.trim().toLocaleLowerCase() === 'Index'.toLocaleLowerCase()
     return name.trim() === 'Index'
   }
   function handleLink(item) {

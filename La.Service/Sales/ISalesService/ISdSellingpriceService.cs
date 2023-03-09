@@ -10,7 +10,7 @@ namespace La.Service.Sales.ISalesService
     /// 销售价格service接口
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-03
+    /// @date 2023-03-09
     /// </summary>
     public interface ISdSellingpriceService : IBaseService<SdSellingprice>
     {

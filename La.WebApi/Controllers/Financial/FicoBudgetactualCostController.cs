@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName fico_budgetactual_cost
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-16
+    /// @date 2023-03-09
     /// </summary>
     [Verify]
     [Route("financial/FicoBudgetactualCost")]
@@ -30,9 +30,8 @@ namespace La.WebApi.Controllers
         /// </summary>
         private readonly IFicoBudgetactualCostService _FicoBudgetactualCostService;
         /// <summary>
-        /// 预算实际明细接口
+        /// 预算实际明细Controller
         /// </summary>
-        /// <param name="FicoBudgetactualCostService"></param>
         public FicoBudgetactualCostController(IFicoBudgetactualCostService FicoBudgetactualCostService)
         {
             _FicoBudgetactualCostService = FicoBudgetactualCostService;
@@ -79,7 +78,8 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-// 校验输入项目是否唯一
+
+           // 校验输入项目是否唯一
 
             if (UserConstants.NOT_UNIQUE.Equals(_FicoBudgetactualCostService.CheckEntryStringUnique(parm.FbId.ToString())))
             {

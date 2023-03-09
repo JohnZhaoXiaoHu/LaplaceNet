@@ -54,6 +54,12 @@ export function parseTime(time, pattern = 'YYYY-MM-DD HH:mm:ss') {
   // return time_str
 }
 
+//时间转换字符串
+export function parseDate2Str(date, format) {
+  format = format || "YYYY-MM-DDTHH:mm:ss "
+  return dayjs(date).format(format)
+}
+
 // 表单重置
 export function resetForm(refName) {
   if (this.$refs[refName]) {

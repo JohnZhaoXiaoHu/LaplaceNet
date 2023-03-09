@@ -2,15 +2,15 @@
  * @Descripttion: (顾客信息/sd_customer)
  * @version: (1.0)
  * @Author: (Laplace.Net:Davis.Cheng)
- * @Date: (2023-03-03)
+ * @Date: (2023-03-09)
  * @LastEditors: (Laplace.Net:Davis.Cheng)
- * @LastEditTime: (2023-03-03)
+ * @LastEditTime: (2023-03-09)
 -->
 <template>
   <div>
     <el-form :model="queryParams" label-position="right" inline ref="queryRef" v-show="showSearch" @submit.prevent>
       <el-form-item label="销售组织" prop="scOrg">
-        <el-select filterable clearable  v-model="queryParams.scOrg" placeholder="请选择销售组织">
+        <el-select filterable clearable  v-model="queryParams.scOrg" :placeholder="$t('btn.select')+'销售组织'">
           <el-option v-for="item in  options.sys_crop_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -18,7 +18,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="销售工厂" prop="scPlant">
-        <el-select filterable clearable  v-model="queryParams.scPlant" placeholder="请选择销售工厂">
+        <el-select filterable clearable  v-model="queryParams.scPlant" :placeholder="$t('btn.select')+'销售工厂'">
           <el-option v-for="item in  options.sys_plant_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -26,7 +26,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="行业类别" prop="scIndustryType">
-        <el-select filterable clearable  v-model="queryParams.scIndustryType" placeholder="请选择行业类别">
+        <el-select filterable clearable  v-model="queryParams.scIndustryType" :placeholder="$t('btn.select')+'行业类别'">
           <el-option v-for="item in  options.sys_nature_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -34,7 +34,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="企业性质" prop="scEnterpriseNature">
-        <el-select filterable clearable  v-model="queryParams.scEnterpriseNature" placeholder="请选择企业性质">
+        <el-select filterable clearable  v-model="queryParams.scEnterpriseNature" :placeholder="$t('btn.select')+'企业性质'">
           <el-option v-for="item in  options.sys_nature_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -42,7 +42,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="交易币种" prop="scCcy">
-        <el-select filterable clearable  v-model="queryParams.scCcy" placeholder="请选择交易币种">
+        <el-select filterable clearable  v-model="queryParams.scCcy" :placeholder="$t('btn.select')+'交易币种'">
           <el-option v-for="item in  options.sys_ccy_type " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -50,7 +50,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="付款条件" prop="scPayTerms">
-        <el-select filterable clearable  v-model="queryParams.scPayTerms" placeholder="请选择付款条件">
+        <el-select filterable clearable  v-model="queryParams.scPayTerms" :placeholder="$t('btn.select')+'付款条件'">
           <el-option v-for="item in  options.sys_payment_terms " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -58,7 +58,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="付款方式" prop="scPayMethod">
-        <el-select filterable clearable  v-model="queryParams.scPayMethod" placeholder="请选择付款方式">
+        <el-select filterable clearable  v-model="queryParams.scPayMethod" :placeholder="$t('btn.select')+'付款方式'">
           <el-option v-for="item in  options.sys_payment_method " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -174,11 +174,7 @@
       <el-table-column prop="scBankAddr2" label="银行地址2" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('scBankAddr2')"/>
       <el-table-column prop="scBankAccount" label="银行账号" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('scBankAccount')"/>
       <el-table-column prop="scBankSwiftNo" label="SWIFT代码" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('scBankSwiftNo')"/>
-      <el-table-column prop="scRegionCode" label="国家地区" align="center" v-if="columns.showColumn('scRegionCode')">
-        <template #default="scope">
-          <dict-tag :options=" options.sql_street_list " :value="scope.row.scRegionCode" />
-        </template>
-      </el-table-column>
+      <el-table-column prop="scRegionCode" label="国家地区" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('scRegionCode')"/>
       <el-table-column prop="scState" label="州省" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('scState')"/>
       <el-table-column prop="scCity" label="市" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('scCity')"/>
       <el-table-column prop="scCounty" label="县" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('scCounty')"/>
@@ -211,7 +207,7 @@
     
           <el-col :lg="12">
             <el-form-item label="ID" prop="scId">
-              <el-input-number v-model.number="form.scId" controls-position="right" :placeholder="$t('btn.enter')+'ID'" :disabled="title==$t('btn.edit')"/>
+              <el-input-number clearable v-model.number="form.scId" controls-position="right" :placeholder="$t('btn.enter')+'ID'" :disabled="title==$t('btn.edit')"/>
             </el-form-item>
           </el-col>
 
@@ -250,37 +246,37 @@
 
           <el-col :lg="12">
             <el-form-item label="客户代码" prop="scCode">
-              <el-input v-model="form.scCode" :placeholder="$t('btn.enter')+'客户代码'" />
+              <el-input clearable v-model="form.scCode" :placeholder="$t('btn.enter')+'客户代码'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="客户简称" prop="scAbbr">
-              <el-input v-model="form.scAbbr" :placeholder="$t('btn.enter')+'客户简称'" />
+              <el-input clearable v-model="form.scAbbr" :placeholder="$t('btn.enter')+'客户简称'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="客户名称" prop="scName">
-              <el-input v-model="form.scName" :placeholder="$t('btn.enter')+'客户名称'" />
+              <el-input clearable v-model="form.scName" :placeholder="$t('btn.enter')+'客户名称'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="企业法人" prop="scEbe">
-              <el-input v-model="form.scEbe" :placeholder="$t('btn.enter')+'企业法人'" />
+              <el-input clearable v-model="form.scEbe" :placeholder="$t('btn.enter')+'企业法人'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="营业执照" prop="scBusinessNo">
-              <el-input v-model="form.scBusinessNo" :placeholder="$t('btn.enter')+'营业执照'" />
+              <el-input clearable v-model="form.scBusinessNo" :placeholder="$t('btn.enter')+'营业执照'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="税号" prop="scTaxNo">
-              <el-input v-model="form.scTaxNo" :placeholder="$t('btn.enter')+'税号'" />
+              <el-input clearable v-model="form.scTaxNo" :placeholder="$t('btn.enter')+'税号'" />
             </el-form-item>
           </el-col>
 
@@ -294,7 +290,7 @@
 
           <el-col :lg="12">
             <el-form-item label="主营业务" prop="scMainBusiness">
-              <el-input v-model="form.scMainBusiness" :placeholder="$t('btn.enter')+'主营业务'" />
+              <el-input clearable v-model="form.scMainBusiness" :placeholder="$t('btn.enter')+'主营业务'" />
             </el-form-item>
           </el-col>
 
@@ -324,19 +320,19 @@
 
           <el-col :lg="12">
             <el-form-item label="统驭科目" prop="scRecAccount">
-              <el-input v-model="form.scRecAccount" :placeholder="$t('btn.enter')+'统驭科目'" />
+              <el-input clearable v-model="form.scRecAccount" :placeholder="$t('btn.enter')+'统驭科目'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="贸易条件" prop="scTradeTerms">
-              <el-input v-model="form.scTradeTerms" :placeholder="$t('btn.enter')+'贸易条件'" />
+              <el-input clearable v-model="form.scTradeTerms" :placeholder="$t('btn.enter')+'贸易条件'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="装运条件" prop="scShippingTerms">
-              <el-input v-model="form.scShippingTerms" :placeholder="$t('btn.enter')+'装运条件'" />
+              <el-input clearable v-model="form.scShippingTerms" :placeholder="$t('btn.enter')+'装运条件'" />
             </el-form-item>
           </el-col>
 
@@ -358,159 +354,157 @@
 
           <el-col :lg="12">
             <el-form-item label="首次交易" prop="scFirstTransDate">
-              <el-date-picker v-model="form.scFirstTransDate" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+              <el-date-picker clearable v-model="form.scFirstTransDate" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="最近交易" prop="scLastTransDate">
-              <el-date-picker v-model="form.scLastTransDate" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+              <el-date-picker clearable v-model="form.scLastTransDate" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="银行代码" prop="scBankCode">
-              <el-input v-model="form.scBankCode" :placeholder="$t('btn.enter')+'银行代码'" />
+              <el-input clearable v-model="form.scBankCode" :placeholder="$t('btn.enter')+'银行代码'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="银行名称" prop="scBankName">
-              <el-input v-model="form.scBankName" :placeholder="$t('btn.enter')+'银行名称'" />
+              <el-input clearable v-model="form.scBankName" :placeholder="$t('btn.enter')+'银行名称'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="分行名称" prop="scBranchName">
-              <el-input v-model="form.scBranchName" :placeholder="$t('btn.enter')+'分行名称'" />
+              <el-input clearable v-model="form.scBranchName" :placeholder="$t('btn.enter')+'分行名称'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="银行所在国" prop="scBankCountry">
-              <el-input v-model="form.scBankCountry" :placeholder="$t('btn.enter')+'银行所在国'" />
+              <el-input clearable v-model="form.scBankCountry" :placeholder="$t('btn.enter')+'银行所在国'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="银行所在州省" prop="scBankState">
-              <el-input v-model="form.scBankState" :placeholder="$t('btn.enter')+'银行所在州省'" />
+              <el-input clearable v-model="form.scBankState" :placeholder="$t('btn.enter')+'银行所在州省'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="银行所在市" prop="scBankCity">
-              <el-input v-model="form.scBankCity" :placeholder="$t('btn.enter')+'银行所在市'" />
+              <el-input clearable v-model="form.scBankCity" :placeholder="$t('btn.enter')+'银行所在市'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="银行所在县" prop="scBankCounty">
-              <el-input v-model="form.scBankCounty" :placeholder="$t('btn.enter')+'银行所在县'" />
+              <el-input clearable v-model="form.scBankCounty" :placeholder="$t('btn.enter')+'银行所在县'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="银行地址" prop="scBankAddr">
-              <el-input v-model="form.scBankAddr" :placeholder="$t('btn.enter')+'银行地址'" />
+              <el-input clearable v-model="form.scBankAddr" :placeholder="$t('btn.enter')+'银行地址'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="银行地址1" prop="scBankAddr1">
-              <el-input v-model="form.scBankAddr1" :placeholder="$t('btn.enter')+'银行地址1'" />
+              <el-input clearable v-model="form.scBankAddr1" :placeholder="$t('btn.enter')+'银行地址1'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="银行地址2" prop="scBankAddr2">
-              <el-input v-model="form.scBankAddr2" :placeholder="$t('btn.enter')+'银行地址2'" />
+              <el-input clearable v-model="form.scBankAddr2" :placeholder="$t('btn.enter')+'银行地址2'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="银行账号" prop="scBankAccount">
-              <el-input v-model="form.scBankAccount" :placeholder="$t('btn.enter')+'银行账号'" />
+              <el-input clearable v-model="form.scBankAccount" :placeholder="$t('btn.enter')+'银行账号'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="SWIFT代码" prop="scBankSwiftNo">
-              <el-input v-model="form.scBankSwiftNo" :placeholder="$t('btn.enter')+'SWIFT代码'" />
+              <el-input clearable v-model="form.scBankSwiftNo" :placeholder="$t('btn.enter')+'SWIFT代码'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="国家地区" prop="scRegionCode">
-              <el-select v-model="form.scRegionCode" filterable clearable  :placeholder="$t('btn.select')+'国家地区'">
-                <el-option v-for="item in  options.sql_street_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
-              </el-select>
+              <el-input clearable v-model="form.scRegionCode" :placeholder="$t('btn.enter')+'国家地区'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="州省" prop="scState">
-              <el-input v-model="form.scState" :placeholder="$t('btn.enter')+'州省'" />
+              <el-input clearable v-model="form.scState" :placeholder="$t('btn.enter')+'州省'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="市" prop="scCity">
-              <el-input v-model="form.scCity" :placeholder="$t('btn.enter')+'市'" />
+              <el-input clearable v-model="form.scCity" :placeholder="$t('btn.enter')+'市'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="县" prop="scCounty">
-              <el-input v-model="form.scCounty" :placeholder="$t('btn.enter')+'县'" />
+              <el-input clearable v-model="form.scCounty" :placeholder="$t('btn.enter')+'县'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="地址" prop="scAddr">
-              <el-input v-model="form.scAddr" :placeholder="$t('btn.enter')+'地址'" />
+              <el-input clearable v-model="form.scAddr" :placeholder="$t('btn.enter')+'地址'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="地址1" prop="scAddr1">
-              <el-input v-model="form.scAddr1" :placeholder="$t('btn.enter')+'地址1'" />
+              <el-input clearable v-model="form.scAddr1" :placeholder="$t('btn.enter')+'地址1'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="地址2" prop="scAddr2">
-              <el-input v-model="form.scAddr2" :placeholder="$t('btn.enter')+'地址2'" />
+              <el-input clearable v-model="form.scAddr2" :placeholder="$t('btn.enter')+'地址2'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="联系人" prop="scContacts">
-              <el-input v-model="form.scContacts" :placeholder="$t('btn.enter')+'联系人'" />
+              <el-input clearable v-model="form.scContacts" :placeholder="$t('btn.enter')+'联系人'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="电邮" prop="scEmail">
-              <el-input v-model="form.scEmail" :placeholder="$t('btn.enter')+'电邮'" />
+              <el-input clearable v-model="form.scEmail" :placeholder="$t('btn.enter')+'电邮'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="电话" prop="scTelNo">
-              <el-input v-model="form.scTelNo" :placeholder="$t('btn.enter')+'电话'" />
+              <el-input clearable v-model="form.scTelNo" :placeholder="$t('btn.enter')+'电话'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="传真" prop="scFaxNp">
-              <el-input v-model="form.scFaxNp" :placeholder="$t('btn.enter')+'传真'" />
+              <el-input clearable v-model="form.scFaxNp" :placeholder="$t('btn.enter')+'传真'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="手机" prop="scPhoneNo">
-              <el-input v-model="form.scPhoneNo" :placeholder="$t('btn.enter')+'手机'" />
+              <el-input clearable v-model="form.scPhoneNo" :placeholder="$t('btn.enter')+'手机'" />
             </el-form-item>
           </el-col>
 
@@ -524,109 +518,109 @@
 
           <el-col :lg="12">
             <el-form-item label="uDF01" prop="uDF01">
-              <el-input v-model="form.uDF01" :placeholder="$t('btn.enter')+'uDF01'"  :disabled="true"/>
+              <el-input clearable v-model="form.uDF01" :placeholder="$t('btn.enter')+'uDF01'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF02" prop="uDF02">
-              <el-input v-model="form.uDF02" :placeholder="$t('btn.enter')+'uDF02'"  :disabled="true"/>
+              <el-input clearable v-model="form.uDF02" :placeholder="$t('btn.enter')+'uDF02'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF03" prop="uDF03">
-              <el-input v-model="form.uDF03" :placeholder="$t('btn.enter')+'uDF03'"  :disabled="true"/>
+              <el-input clearable v-model="form.uDF03" :placeholder="$t('btn.enter')+'uDF03'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF04" prop="uDF04">
-              <el-input v-model="form.uDF04" :placeholder="$t('btn.enter')+'uDF04'"  :disabled="true"/>
+              <el-input clearable v-model="form.uDF04" :placeholder="$t('btn.enter')+'uDF04'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF05" prop="uDF05">
-              <el-input v-model="form.uDF05" :placeholder="$t('btn.enter')+'uDF05'"  :disabled="true"/>
+              <el-input clearable v-model="form.uDF05" :placeholder="$t('btn.enter')+'uDF05'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF06" prop="uDF06">
-              <el-input v-model="form.uDF06" :placeholder="$t('btn.enter')+'uDF06'"  :disabled="true"/>
+              <el-input clearable v-model="form.uDF06" :placeholder="$t('btn.enter')+'uDF06'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF51" prop="uDF51">
-              <el-input v-model="form.uDF51" :placeholder="$t('btn.enter')+'uDF51'"  :disabled="true"/>
+              <el-input clearable v-model="form.uDF51" :placeholder="$t('btn.enter')+'uDF51'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF52" prop="uDF52">
-              <el-input v-model="form.uDF52" :placeholder="$t('btn.enter')+'uDF52'"  :disabled="true"/>
+              <el-input clearable v-model="form.uDF52" :placeholder="$t('btn.enter')+'uDF52'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF53" prop="uDF53">
-              <el-input v-model="form.uDF53" :placeholder="$t('btn.enter')+'uDF53'"  :disabled="true"/>
+              <el-input clearable v-model="form.uDF53" :placeholder="$t('btn.enter')+'uDF53'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF54" prop="uDF54">
-              <el-input v-model="form.uDF54" :placeholder="$t('btn.enter')+'uDF54'"  :disabled="true"/>
+              <el-input clearable v-model="form.uDF54" :placeholder="$t('btn.enter')+'uDF54'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF55" prop="uDF55">
-              <el-input v-model="form.uDF55" :placeholder="$t('btn.enter')+'uDF55'"  :disabled="true"/>
+              <el-input clearable v-model="form.uDF55" :placeholder="$t('btn.enter')+'uDF55'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="uDF56" prop="uDF56">
-              <el-input v-model="form.uDF56" :placeholder="$t('btn.enter')+'uDF56'"  :disabled="true"/>
+              <el-input clearable v-model="form.uDF56" :placeholder="$t('btn.enter')+'uDF56'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="说明" prop="remark">
-              <el-input v-model="form.remark" :placeholder="$t('btn.enter')+'说明'"  :disabled="true"/>
+              <el-input clearable v-model="form.remark" :placeholder="$t('btn.enter')+'说明'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="软删除" prop="isDeleted">
-              <el-input v-model="form.isDeleted" :placeholder="$t('btn.enter')+'软删除'"  :disabled="true"/>
+              <el-input clearable v-model="form.isDeleted" :placeholder="$t('btn.enter')+'软删除'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="createBy" prop="createBy">
-              <el-input v-model="form.createBy" :placeholder="$t('btn.enter')+'createBy'" />
+              <el-input clearable v-model="form.createBy" :placeholder="$t('btn.enter')+'createBy'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="createTime" prop="createTime">
-              <el-date-picker v-model="form.createTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+              <el-date-picker clearable v-model="form.createTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="updateBy" prop="updateBy">
-              <el-input v-model="form.updateBy" :placeholder="$t('btn.enter')+'updateBy'" />
+              <el-input clearable v-model="form.updateBy" :placeholder="$t('btn.enter')+'updateBy'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="updateTime" prop="updateTime">
-              <el-date-picker v-model="form.updateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+              <el-date-picker clearable v-model="form.updateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
         </el-row>
@@ -743,7 +737,6 @@ var dictParams = [
   { dictType: "sys_payment_method" },
   { dictType: "sys_grade_list" },
   { dictType: "sys_credit_list" },
-  { dictType: "sql_street_list" },
   { dictType: "sys_flag_list" },
 ]
 //字典定义
@@ -863,8 +856,6 @@ const state = reactive({
     sys_grade_list: [],
     // 客户信用 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
     sys_credit_list: [],
-    // 国家地区 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
-    sql_street_list: [],
     // 冻结标记 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
     sys_flag_list: [],
   }

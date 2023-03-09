@@ -8,7 +8,7 @@ namespace La.Model.Models
     /// 销售价格，数据实体对象
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-03
+    /// @date 2023-03-09
     /// </summary>
     [SugarTable("sd_sellingprice")]
     public class SdSellingprice

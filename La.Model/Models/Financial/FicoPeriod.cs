@@ -8,7 +8,7 @@ namespace La.Model.Models
     /// 财务期间，数据实体对象
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-01-11
+    /// @date 2023-03-09
     /// </summary>
     [SugarTable("fico_period")]
     public class FicoPeriod

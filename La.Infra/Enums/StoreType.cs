@@ -3,7 +3,7 @@
 namespace La.Infra.Enums
 {
     /// <summary>
-    /// 类型枚举
+    /// 文件存储位置
     /// </summary>
     public enum StoreType
     {

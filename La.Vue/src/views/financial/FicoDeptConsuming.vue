@@ -2,27 +2,27 @@
  * @Descripttion: (部门消耗/fico_dept_consuming)
  * @version: (1.0)
  * @Author: (Laplace.Net:Davis.Cheng)
- * @Date: (2023-02-16)
+ * @Date: (2023-03-09)
  * @LastEditors: (Laplace.Net:Davis.Cheng)
- * @LastEditTime: (2023-02-16)
+ * @LastEditTime: (2023-03-09)
 -->
 <template>
   <div>
     <el-form :model="queryParams" label-position="right" inline ref="queryRef" v-show="showSearch" @submit.prevent>
       <el-form-item label="期间" prop="dcFy">
-        <el-input v-model="queryParams.dcFy" placeholder="请输入期间" />
+        <el-input clearable v-model="queryParams.dcFy" :placeholder="$t('btn.enter')+'期间'" />
       </el-form-item>
       <el-form-item label="年月" prop="dcYm">
-        <el-input v-model="queryParams.dcYm" placeholder="请输入年月" />
+        <el-input clearable v-model="queryParams.dcYm" :placeholder="$t('btn.enter')+'年月'" />
       </el-form-item>
       <el-form-item label="公司代码" prop="dcCorpCode">
-        <el-input v-model="queryParams.dcCorpCode" placeholder="请输入公司代码" />
+        <el-input clearable v-model="queryParams.dcCorpCode" :placeholder="$t('btn.enter')+'公司代码'" />
       </el-form-item>
       <el-form-item label="工厂" prop="dcPlant">
-        <el-input v-model="queryParams.dcPlant" placeholder="请输入工厂" />
+        <el-input clearable v-model="queryParams.dcPlant" :placeholder="$t('btn.enter')+'工厂'" />
       </el-form-item>
       <el-form-item label="物料" prop="dcMateriel">
-        <el-input v-model="queryParams.dcMateriel" placeholder="请输入物料" />
+        <el-input clearable v-model="queryParams.dcMateriel" :placeholder="$t('btn.enter')+'物料'" />
       </el-form-item>
       <el-form-item>
         <el-button icon="search" type="primary" @click="handleQuery">{{ $t('btn.search') }}</el-button>
@@ -95,188 +95,188 @@
     
           <el-col :lg="12">
             <el-form-item label="ID" prop="dcId">
-              <el-input-number v-model.number="form.dcId" controls-position="right" :placeholder="$t('btn.enter')+'ID'" :disabled="title==$t('btn.edit')"/>
+              <el-input-number clearable v-model.number="form.dcId" controls-position="right" :placeholder="$t('btn.enter')+'ID'" :disabled="title==$t('btn.edit')"/>
             </el-form-item>
           </el-col>
 
 
           <el-col :lg="12">
             <el-form-item label="期间" prop="dcFy">
-              <el-input v-model="form.dcFy" :placeholder="$t('btn.enter')+'期间'" />
+              <el-input clearable v-model="form.dcFy" :placeholder="$t('btn.enter')+'期间'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="年月" prop="dcYm">
-              <el-input v-model="form.dcYm" :placeholder="$t('btn.enter')+'年月'" />
+              <el-input clearable v-model="form.dcYm" :placeholder="$t('btn.enter')+'年月'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="公司代码" prop="dcCorpCode">
-              <el-input v-model="form.dcCorpCode" :placeholder="$t('btn.enter')+'公司代码'" />
+              <el-input clearable v-model="form.dcCorpCode" :placeholder="$t('btn.enter')+'公司代码'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="公司名称" prop="dcCorpName">
-              <el-input v-model="form.dcCorpName" :placeholder="$t('btn.enter')+'公司名称'" />
+              <el-input clearable v-model="form.dcCorpName" :placeholder="$t('btn.enter')+'公司名称'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="统计类别" prop="dcExpCategory">
-              <el-input v-model="form.dcExpCategory" :placeholder="$t('btn.enter')+'统计类别'" />
+              <el-input clearable v-model="form.dcExpCategory" :placeholder="$t('btn.enter')+'统计类别'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="成本代码" prop="dcCostCode">
-              <el-input v-model="form.dcCostCode" :placeholder="$t('btn.enter')+'成本代码'" />
+              <el-input clearable v-model="form.dcCostCode" :placeholder="$t('btn.enter')+'成本代码'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="成本名称" prop="dcCostName">
-              <el-input v-model="form.dcCostName" :placeholder="$t('btn.enter')+'成本名称'" />
+              <el-input clearable v-model="form.dcCostName" :placeholder="$t('btn.enter')+'成本名称'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="科目代码" prop="dcTitleCode">
-              <el-input v-model="form.dcTitleCode" :placeholder="$t('btn.enter')+'科目代码'" />
+              <el-input clearable v-model="form.dcTitleCode" :placeholder="$t('btn.enter')+'科目代码'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="科目名称" prop="dcTitleName">
-              <el-input v-model="form.dcTitleName" :placeholder="$t('btn.enter')+'科目名称'" />
+              <el-input clearable v-model="form.dcTitleName" :placeholder="$t('btn.enter')+'科目名称'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="科目分类" prop="dcTitleNote">
-              <el-input v-model="form.dcTitleNote" :placeholder="$t('btn.enter')+'科目分类'" />
+              <el-input clearable v-model="form.dcTitleNote" :placeholder="$t('btn.enter')+'科目分类'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="预算" prop="dcBudgetAmt">
-              <el-input v-model="form.dcBudgetAmt" :placeholder="$t('btn.enter')+'预算'" />
+              <el-input clearable v-model="form.dcBudgetAmt" :placeholder="$t('btn.enter')+'预算'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="实际" prop="dcActualAmt">
-              <el-input v-model="form.dcActualAmt" :placeholder="$t('btn.enter')+'实际'" />
+              <el-input clearable v-model="form.dcActualAmt" :placeholder="$t('btn.enter')+'实际'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="差异" prop="dcDiffAmt">
-              <el-input v-model="form.dcDiffAmt" :placeholder="$t('btn.enter')+'差异'" />
+              <el-input clearable v-model="form.dcDiffAmt" :placeholder="$t('btn.enter')+'差异'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="工厂" prop="dcPlant">
-              <el-input v-model="form.dcPlant" :placeholder="$t('btn.enter')+'工厂'" />
+              <el-input clearable v-model="form.dcPlant" :placeholder="$t('btn.enter')+'工厂'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="物料" prop="dcMateriel">
-              <el-input v-model="form.dcMateriel" :placeholder="$t('btn.enter')+'物料'" />
+              <el-input clearable v-model="form.dcMateriel" :placeholder="$t('btn.enter')+'物料'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="仓库" prop="dcStorageLocation">
-              <el-input v-model="form.dcStorageLocation" :placeholder="$t('btn.enter')+'仓库'" />
+              <el-input clearable v-model="form.dcStorageLocation" :placeholder="$t('btn.enter')+'仓库'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="移动类型" prop="dcMoveType">
-              <el-input v-model="form.dcMoveType" :placeholder="$t('btn.enter')+'移动类型'" />
+              <el-input clearable v-model="form.dcMoveType" :placeholder="$t('btn.enter')+'移动类型'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="物料凭证" prop="dcMaterielDoc">
-              <el-input v-model="form.dcMaterielDoc" :placeholder="$t('btn.enter')+'物料凭证'" />
+              <el-input clearable v-model="form.dcMaterielDoc" :placeholder="$t('btn.enter')+'物料凭证'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="凭证明细" prop="dcMaterielDocDetails">
-              <el-input v-model="form.dcMaterielDocDetails" :placeholder="$t('btn.enter')+'凭证明细'" />
+              <el-input clearable v-model="form.dcMaterielDocDetails" :placeholder="$t('btn.enter')+'凭证明细'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="数量" prop="dcUseQty">
-              <el-input v-model="form.dcUseQty" :placeholder="$t('btn.enter')+'数量'" />
+              <el-input clearable v-model="form.dcUseQty" :placeholder="$t('btn.enter')+'数量'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="金额" prop="dcUseAmt">
-              <el-input v-model="form.dcUseAmt" :placeholder="$t('btn.enter')+'金额'" />
+              <el-input clearable v-model="form.dcUseAmt" :placeholder="$t('btn.enter')+'金额'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="预留单" prop="dcReserveDoc">
-              <el-input v-model="form.dcReserveDoc" :placeholder="$t('btn.enter')+'预留单'" />
+              <el-input clearable v-model="form.dcReserveDoc" :placeholder="$t('btn.enter')+'预留单'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="预留明细" prop="dcAccountant">
-              <el-input v-model="form.dcAccountant" :placeholder="$t('btn.enter')+'预留明细'" />
+              <el-input clearable v-model="form.dcAccountant" :placeholder="$t('btn.enter')+'预留明细'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="登录日期" prop="dcBalanceDate">
-              <el-date-picker v-model="form.dcBalanceDate" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+              <el-date-picker clearable v-model="form.dcBalanceDate" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="软删除" prop="isDeleted">
-              <el-input v-model="form.isDeleted" :placeholder="$t('btn.enter')+'软删除'"  :disabled="true"/>
+              <el-input clearable v-model="form.isDeleted" :placeholder="$t('btn.enter')+'软删除'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="说明" prop="remark">
-              <el-input v-model="form.remark" :placeholder="$t('btn.enter')+'说明'" />
+              <el-input clearable v-model="form.remark" :placeholder="$t('btn.enter')+'说明'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="createBy" prop="createBy">
-              <el-input v-model="form.createBy" :placeholder="$t('btn.enter')+'createBy'" />
+              <el-input clearable v-model="form.createBy" :placeholder="$t('btn.enter')+'createBy'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="createTime" prop="createTime">
-              <el-date-picker v-model="form.createTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+              <el-date-picker clearable v-model="form.createTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="updateBy" prop="updateBy">
-              <el-input v-model="form.updateBy" :placeholder="$t('btn.enter')+'updateBy'" />
+              <el-input clearable v-model="form.updateBy" :placeholder="$t('btn.enter')+'updateBy'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="updateTime" prop="updateTime">
-              <el-date-picker v-model="form.updateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+              <el-date-picker clearable v-model="form.updateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
         </el-row>

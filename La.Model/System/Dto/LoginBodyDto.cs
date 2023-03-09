@@ -2,6 +2,9 @@
 
 namespace La.Model.System.Dto
 {
+    /// <summary>
+    /// 登入输入
+    /// </summary>
     public class LoginBodyDto
     {
         /// <summary>
@@ -25,6 +28,9 @@ namespace La.Model.System.Dto
          * 唯一标识
          */
         public string Uuid { get; set; } = "";
+        /// <summary>
+        /// 登入IP
+        /// </summary>
         public string LoginIP { get; set; }
     }
 }

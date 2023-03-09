@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName pp_lines
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-25
+    /// @date 2023-03-09
     /// </summary>
     [Verify]
     [Route("Production/PpLines")]
@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
 
            // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_PpLinesService.CheckEntryStringUnique(parm.PlLineCode.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_PpLinesService.CheckEntryStringUnique(parm.PlId.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增生产班组 '{parm.PlLineCode}'失败，输入的生产班组已存在"));
+                return ToResponse(ApiResult.Error($"新增生产班组 '{parm.PlId}'失败，输入的生产班组已存在"));
             }
             var modal = parm.Adapt<PpLines>().ToCreate(HttpContext);
 

@@ -4,6 +4,9 @@ using System.Text;
 
 namespace La.Model.System
 {
+    /// <summary>
+    /// 用户常量
+    /// </summary>
     public class UserConstants
     {
         /**
@@ -49,7 +52,7 @@ namespace La.Model.System
 
         /** 菜单类型（按钮） */
         public static string TYPE_BUTTON = "F";
-        /** 菜单类型（链接） */
+        // /** 菜单类型（链接） */
         //public static string TYPE_LINK = "L";
 
         /** Layout组件标识 */
@@ -60,6 +63,9 @@ namespace La.Model.System
         public static string INNER_LINK = "InnerLink";
         /** 校验返回结果码 */
         public static string UNIQUE = "0";
+        /// <summary>
+        /// 不唯一
+        /// </summary>
         public static string NOT_UNIQUE = "1";
 
         /// <summary>

@@ -10,7 +10,7 @@ namespace La.Service.Quality.IQualityService
     /// 抽样标准service接口
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-15
+    /// @date 2023-03-09
     /// </summary>
     public interface IQmCheckAqlService : IBaseService<QmCheckAql>
     {

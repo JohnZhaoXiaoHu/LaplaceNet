@@ -17,11 +17,23 @@ namespace ${options.DtosNamespace}.Dto
 $foreach(item in genTable.Columns)
 $if(item.IsQuery)
 $if(item.htmlType == "datetime")
+        /// <summary>
+        /// 描述 :开始时间
+        /// </summary>
         public DateTime? Begin$item.CsharpField { get; set; }
+        /// <summary>
+        /// 描述 :结束时间
+        /// </summary>
         public DateTime? End$item.CsharpField { get; set; }
 $elseif(item.htmlType == "selectMulti")
+        /// <summary>
+        /// 描述 :${item.ColumnComment} ${item.Remark}
+        /// </summary>
         public ${item.CsharpType}[] $item.CsharpField { get; set; }
 $else
+        /// <summary>
+        /// 描述 :${item.ColumnComment} ${item.Remark}
+        /// </summary>
         public $item.CsharpType$if(item.CsharpType != "string")?$end $item.CsharpField { get; set; }
 $end
 $end
@@ -34,11 +46,15 @@ $end
     public class ${replaceDto.ModelTypeName}Dto
     {
 $foreach(item in genTable.Columns)
+        /// <summary>
+        /// 描述 :${item.ColumnComment} ${item.Remark}
+        /// </summary>
 $if(item.IsRequired)
         [Required(ErrorMessage = "${item.ColumnComment}不能为空")]
 $end
 $if(replaceDto.ShowBtnExport)
 $if(item.IsExport)
+
         [ExcelColumn(Name = "$if(item.ColumnComment == "")${item.CsharpField}${else}${item.ColumnComment}${end}"$if(item.CsharpType == "DateTime"), Format = "yyyy-MM-dd HH:mm:ss"$end)]
 $else
         [ExcelIgnore]

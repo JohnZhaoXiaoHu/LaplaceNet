@@ -15,7 +15,7 @@ namespace La.Service.Production
     /// 标准工时Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-09
+    /// @date 2023-03-09
     /// </summary>
     [AppService(ServiceType = typeof(IPpManhoursService), ServiceLifetime = LifeTime.Transient)]
     public class PpManhoursService : BaseService<PpManhours>, IPpManhoursService
@@ -54,7 +54,7 @@ namespace La.Service.Production
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.MhPlant+ it.MhItem == entryString);
+            int count = Count(it => it.MhId.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

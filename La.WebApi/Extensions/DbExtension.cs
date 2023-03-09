@@ -8,44 +8,20 @@ using La.Model.System;
 
 namespace La.WebApi.Extensions
 {
-    /// <summary>
-    /// 数据访问框架
-    /// </summary>
     public static class DbExtension
     {
-        /// <summary>
-        /// logger
-        /// </summary>
         private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
         //全部数据权限
-        /// <summary>
-        /// DATA_SCOPE_ALL
-        /// </summary>
         public static string DATA_SCOPE_ALL = "1";
-        /// <summary>
-        /// DATA_SCOPE_CUSTOM
-        /// </summary>
         //自定数据权限
         public static string DATA_SCOPE_CUSTOM = "2";
-        /// <summary>
-        /// DATA_SCOPE_DEPT
-        /// </summary>
         //部门数据权限
         public static string DATA_SCOPE_DEPT = "3";
-        /// <summary>
-        /// DATA_SCOPE_DEPT_AND_CHILD
-        /// </summary>
         //部门及以下数据权限
         public static string DATA_SCOPE_DEPT_AND_CHILD = "4";
-        /// <summary>
-        /// DATA_SCOPE_SELF
-        /// </summary>
         //仅本人数据权限
         public static string DATA_SCOPE_SELF = "5";
-        /// <summary>
-        /// 新增DB
-        /// </summary>
-        /// <param name="Configuration"></param>
+
         public static void AddDb(IConfiguration Configuration)
         {
             string connStr = Configuration.GetConnectionString("conn_db");
@@ -53,27 +29,28 @@ namespace La.WebApi.Extensions
 
             var iocList = new List<IocConfig>() {
                    new IocConfig() {
-                    ConfigId = "0",//默认db
+                    ConfigId = "0",//默认MySql
                     ConnectionString = connStr,
                     DbType = (IocDbType)dbType,
                     IsAutoCloseConnection = true
                 },
                    new IocConfig() {
-                    ConfigId = "1",
+                    ConfigId = "1",//SqlServer
                     ConnectionString = connStr,
                     DbType = (IocDbType)dbType,
                     IsAutoCloseConnection = true
-                }
-                   ,
+                },
                    new IocConfig() {
-                    ConfigId = "2",
+                    ConfigId = "2",//Sqlite
                     ConnectionString = connStr,
                     DbType = (IocDbType)dbType,
                     IsAutoCloseConnection = true
                 }
+
                    //...增加其他数据库
                 };
             SugarIocServices.AddSqlSugar(iocList);
+            ICacheService cache = new SqlSugarCache();
             SugarIocServices.ConfigurationSugar(db =>
             {
                 //db0数据过滤
@@ -81,16 +58,12 @@ namespace La.WebApi.Extensions
 
                 iocList.ForEach(iocConfig =>
                 {
-                   SetSugarAop(db, iocConfig);
+                    SetSugarAop(db, iocConfig, cache);
                 });
             });
         }
-        /// <summary>
-        /// 设置sqlsugar 多租户设置AOP
-        /// </summary>
-        /// <param name="db"></param>
-        /// <param name="iocConfig"></param>
-        private static void SetSugarAop(SqlSugarClient db, IocConfig iocConfig)
+
+        private static void SetSugarAop(SqlSugarClient db, IocConfig iocConfig, ICacheService cache)
         {
             var config = db.GetConnection(iocConfig.ConfigId).CurrentConnectionConfig;
             
@@ -98,18 +71,27 @@ namespace La.WebApi.Extensions
             db.GetConnectionScope(configId).Aop.OnLogExecuting = (sql, pars) =>
             {
                 string log = $"【db{configId} SQL语句】{UtilMethods.GetSqlString(config.DbType, sql, pars)}\n";
-                if (sql.StartsWith("SELECT", StringComparison.OrdinalIgnoreCase))
-                    logger.Info(log);
                 if (sql.StartsWith("UPDATE", StringComparison.OrdinalIgnoreCase) || sql.StartsWith("INSERT", StringComparison.OrdinalIgnoreCase))
                     logger.Warn(log);
-                if (sql.StartsWith("DELETE", StringComparison.OrdinalIgnoreCase) || sql.StartsWith("TRUNCATE", StringComparison.OrdinalIgnoreCase))
+                else if (sql.StartsWith("DELETE", StringComparison.OrdinalIgnoreCase) || sql.StartsWith("TRUNCATE", StringComparison.OrdinalIgnoreCase))
                     logger.Error(log);
+                else
+                    logger.Info(log);
             };
 
             db.GetConnectionScope(configId).Aop.OnError = (e) =>
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 logger.Error(e, $"执行SQL出错：{e.Message}");
+            };
+
+            db.GetConnectionScope(configId).CurrentConnectionConfig.MoreSettings = new ConnMoreSettings()
+            {
+                IsAutoRemoveDataCache = true
+            };
+            db.GetConnectionScope(configId).CurrentConnectionConfig.ConfigureExternalServices = new ConfigureExternalServices()
+            {
+                DataInfoCacheService = cache
             };
         }
 
@@ -173,8 +155,9 @@ namespace La.WebApi.Extensions
                 }
                 else if (DATA_SCOPE_SELF.Equals(dataScope))//仅本人数据
                 {
-                    var filter1 = new TableFilterItem<SysUser>(it => it.UserId == user.UserId, true);
-                    db.QueryFilter.Add(filter1);
+                    //var filter1 = new TableFilterItem<SysUser>(it => it.UserId == user.UserId, true);
+                    //db.QueryFilter.Add(filter1);
+                    db.QueryFilter.AddTableFilter<SysUser>(it => it.UserId == user.UserId);
                 }
             }
         }

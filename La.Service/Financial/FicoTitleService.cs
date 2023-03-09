@@ -15,7 +15,7 @@ namespace La.Service.Financial
     /// 会计科目Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-16
+    /// @date 2023-03-09
     /// </summary>
     [AppService(ServiceType = typeof(IFicoTitleService), ServiceLifetime = LifeTime.Transient)]
     public class FicoTitleService : BaseService<FicoTitle>, IFicoTitleService

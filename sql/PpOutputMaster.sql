@@ -2,7 +2,7 @@ use Laplace_PRD;
 
 -- oph主表菜单
 INSERT INTO sys_menu(menuName, parentId, orderNum, path, component, isFrame, isCache, menuType, visible, status, perms, icon, create_by, create_time,menuName_key) 
-VALUES ('oph主表', 1091, 999, 'PpOutputMaster', 'production/PpOutputMaster', 0, 0, 'C', '0', '0', 'pp:outputmaster:list', 'icon1', 'system', GETDATE(), 'menu.PpOutputMaster');
+VALUES ('oph主表', 1091, 999, lower('PpOutputMaster'), 'production/PpOutputMaster', 0, 0, 'C', '0', '0', 'pp:outputmaster:list', 'icon1', 'system', GETDATE(), 'menu.PpOutputMaster');
 
 -- 按钮父菜单id
 declare @menuId int = @@identity
@@ -26,3 +26,15 @@ VALUES ('导出', @menuId, 5, '#', NULL, 0, 0, 'F', '0', '0', 'pp:outputmaster:e
 
 SELECT * FROM sys_menu WHERE parentId = @menuId;
 SELECT * FROM sys_menu WHERE menuId = @menuId;
+
+
+
+-- oph主表多语言
+INSERT INTO sys_common_lang(id,lang_code, lang_key, lang_name, addtime) 
+VALUES (1631535213331091001,'zh-cn', 'menu.PpOutputMaster', 'oph主表', GETDATE());
+
+INSERT INTO sys_common_lang(id,lang_code, lang_key, lang_name, addtime) 
+VALUES (1631535213331091002,'en', 'menu.PpOutputMaster', 'oph主表', GETDATE());
+
+INSERT INTO sys_common_lang(id,lang_code, lang_key, lang_name, addtime) 
+VALUES (1631535213331091003,'ja', 'menu.PpOutputMaster', 'oph主表', GETDATE());

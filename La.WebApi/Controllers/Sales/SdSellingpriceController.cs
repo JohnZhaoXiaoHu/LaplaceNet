@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName sd_sellingprice
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-03
+    /// @date 2023-03-09
     /// </summary>
     [Verify]
     [Route("sales/SdSellingprice")]

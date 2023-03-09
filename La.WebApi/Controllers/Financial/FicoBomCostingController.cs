@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName fico_bom_costing
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-16
+    /// @date 2023-03-09
     /// </summary>
     [Verify]
     [Route("financial/FicoBomCosting")]
@@ -32,7 +32,6 @@ namespace La.WebApi.Controllers
         /// <summary>
         /// bom成本核算Controller
         /// </summary>
-        /// <param name="FicoBomCostingService"></param>
         public FicoBomCostingController(IFicoBomCostingService FicoBomCostingService)
         {
             _FicoBomCostingService = FicoBomCostingService;
@@ -79,12 +78,12 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-      
-        // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_FicoBomCostingService.CheckEntryStringUnique(Convert.ToDateTime(parm.BcBalancedate).ToString("yyyyMMdd") + parm.BcPlant+parm.BcFy+parm.BcFy+parm.BcBomItem)))
+           // 校验输入项目是否唯一
+
+            if (UserConstants.NOT_UNIQUE.Equals(_FicoBomCostingService.CheckEntryStringUnique(parm.BcId.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增bom成本核算 '{parm.BcPlant +","+ parm.BcFy + "," + parm.BcFy + "," + parm.BcBomItem}'失败，输入的bom成本核算已存在"));
+                return ToResponse(ApiResult.Error($"新增bom成本核算 '{parm.BcId}'失败，输入的bom成本核算已存在"));
             }
             var modal = parm.Adapt<FicoBomCosting>().ToCreate(HttpContext);
 

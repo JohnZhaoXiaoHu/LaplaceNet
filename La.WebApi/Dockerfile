@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 #创建 /app文件夹
 WORKDIR /app
 #创建挂载目录,用于将程序部署在服务器本地

@@ -11,14 +11,23 @@ namespace La.Model.System.Generate
     [Tenant("0")]
     public class GenTableColumn : SysBase
     {
+        /// <summary>
+        /// 代码生成表列ID
+        /// </summary>
         [SugarColumn(IsIdentity = true, IsPrimaryKey = true)]
         public int ColumnId { get; set; }
         /// <summary>
         /// 导入代码生成表列名 首字母转了小写
         /// </summary>
         public string ColumnName { get; set; }
+        /// <summary>
+        /// 代码生成表ID
+        /// </summary>
         [SugarColumn(IsOnlyIgnoreUpdate = true)]
         public int TableId { get; set; }
+        /// <summary>
+        /// 代码生成表名称
+        /// </summary>
 
         [SugarColumn(IsOnlyIgnoreUpdate = true)]
         public string TableName { get; set; }
@@ -86,6 +95,9 @@ namespace La.Model.System.Generate
         /// 查询类型（等于、不等于、大于、小于、范围）
         /// </summary>
         public string QueryType { get; set; } = "EQ";
+        /// <summary>
+        /// 排序
+        /// </summary>
         public int Sort { get; set; }
         /// <summary>
         /// 字典类型
@@ -93,6 +105,9 @@ namespace La.Model.System.Generate
         public string DictType { get; set; } = "";
 
         #region 额外字段
+        /// <summary>
+        /// 必填字串
+        /// </summary>
         [SugarColumn(IsIgnore = true)]
         public string RequiredStr
         {

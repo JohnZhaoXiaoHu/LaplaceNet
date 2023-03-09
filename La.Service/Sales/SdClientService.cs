@@ -15,7 +15,7 @@ namespace La.Service.Sales
     /// 客户信息Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-03
+    /// @date 2023-03-09
     /// </summary>
     [AppService(ServiceType = typeof(ISdClientService), ServiceLifetime = LifeTime.Transient)]
     public class SdClientService : BaseService<SdClient>, ISdClientService

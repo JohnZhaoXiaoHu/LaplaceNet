@@ -15,7 +15,7 @@ namespace La.Service.Financial
     /// 月度存货明细Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-16
+    /// @date 2023-03-09
     /// </summary>
     [AppService(ServiceType = typeof(IFicoMonthInventoryService), ServiceLifetime = LifeTime.Transient)]
     public class FicoMonthInventoryService : BaseService<FicoMonthInventory>, IFicoMonthInventoryService

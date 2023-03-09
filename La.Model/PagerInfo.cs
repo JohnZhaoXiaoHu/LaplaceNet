@@ -4,6 +4,9 @@ using System.Text;
 
 namespace La.Model
 {
+    /// <summary>
+    /// 页面信息
+    /// </summary>
     public class PagerInfo
     {
         /// <summary>
@@ -40,6 +43,9 @@ namespace La.Model
         /// 排序类型,前端传入的是"ascending"，"descending"
         /// </summary>
         public string SortType { get; set; } = string.Empty;
+        /// <summary>
+        /// 页面信息
+        /// </summary>
         public PagerInfo()
         {
             PageNum = 1;

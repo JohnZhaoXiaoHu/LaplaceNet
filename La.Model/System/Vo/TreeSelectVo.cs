@@ -19,9 +19,14 @@ namespace La.Model.System.Vo
         /// 节点名称
         /// </summary>
         public string Label { get; set; }
-
+        /// <summary>
+        /// Treeselect树结构
+        /// </summary>
         public TreeSelectVo() { }
-
+        /// <summary>
+        /// Treeselect树结构
+        /// </summary>
+        /// <param name="menu"></param>
         public TreeSelectVo(SysMenu menu)
         {
             Id = menu.MenuId;
@@ -37,6 +42,10 @@ namespace La.Model.System.Vo
             Children = child;
         }
 
+        /// <summary>
+        /// Treeselect树结构
+        /// </summary>
+        /// <param name="dept"></param>
         public TreeSelectVo(SysDept dept)
         {
             Id = dept.DeptId;
@@ -51,8 +60,11 @@ namespace La.Model.System.Vo
 
             Children = child;
         }
-
+        /// <summary>
+        /// 子项
+        /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+
         public List<TreeSelectVo> Children { get; set; }
     }
 }

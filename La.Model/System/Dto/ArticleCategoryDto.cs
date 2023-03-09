@@ -11,11 +11,23 @@ namespace La.Model.Dto
     /// </summary>
     public class ArticleCategoryDto
     {
+        /// <summary>
+        /// 目录id
+        /// </summary>
         [Required(ErrorMessage = "目录id不能为空")]
         public int CategoryId { get; set; }
-        [Required(ErrorMessage = "目录名不能为空")]
+        /// <summary>
+        /// 目录名
+        /// </summary>
+        [Required(ErrorMessage = "目录名不能为空")]        
         public string Name { get; set; }
+        /// <summary>
+        /// 创建时间
+        /// </summary>
         public DateTime? CreateTime { get; set; }
+        /// <summary>
+        /// 父ID
+        /// </summary>
         public int? ParentId { get; set; }
     }
 

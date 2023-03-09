@@ -9,6 +9,9 @@ namespace La.Model.System.Dto
     /// </summary>
     public class SysFileDto
     {
+        /// <summary>
+        /// ID
+        /// </summary>
         public long Id { get; set; }
         /// <summary>
         /// 文件原名
@@ -63,8 +66,20 @@ namespace La.Model.System.Dto
         /// 空值 : true  
         /// </summary>
         public string AccessUrl { get; set; }
-
+        /// <summary>
+        /// 文件输入
+        /// </summary>
         public SysFileDto() { }
+        /// <summary>
+        /// 文件输入
+        /// </summary>
+        /// <param name="originFileName"></param>
+        /// <param name="fileName"></param>
+        /// <param name="ext"></param>
+        /// <param name="fileSize"></param>
+        /// <param name="storePath"></param>
+        /// <param name="accessUrl"></param>
+        /// <param name="create_by"></param>
         public SysFileDto(string originFileName, string fileName, string ext, string fileSize, string storePath, string accessUrl, string create_by)
         {
             StorePath = storePath;
@@ -77,11 +92,26 @@ namespace La.Model.System.Dto
             Create_time = DateTime.Now;
         }
     }
+    /// <summary>
+    /// 文件查询输入
+    /// </summary>
     public class SysFileQueryDto : PagerInfo
     {
+        /// <summary>
+        /// 创建时间
+        /// </summary>
         public DateTime? BeginCreate_time { get; set; }
+        /// <summary>
+        /// 结束时间
+        /// </summary>
         public DateTime? EndCreate_time { get; set; }
+        /// <summary>
+        /// 类型
+        /// </summary>
         public int? StoreType { get; set; }
+        /// <summary>
+        /// ID
+        /// </summary>
         public long? FileId { get; set; }
     }
 }

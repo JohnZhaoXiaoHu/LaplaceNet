@@ -4,6 +4,9 @@ using System;
 
 namespace La.Model.System
 {
+    /// <summary>
+    /// 文件
+    /// </summary>
     [Tenant("0")]
     [SugarTable("sys_file")]
     public class SysFile
@@ -68,8 +71,19 @@ namespace La.Model.System
         /// 空值 : true  
         /// </summary>
         public string AccessUrl { get; set; }
-
+        /// <summary>
+        /// 文件
+        /// </summary>
         public SysFile() { }
+        /// <summary>
+        /// 文件
+        /// </summary>
+        /// <param name="originFileName"></param>
+        /// <param name="fileName"></param>
+        /// <param name="ext"></param>
+        /// <param name="fileSize"></param>
+        /// <param name="storePath"></param>
+        /// <param name="create_by"></param>
         public SysFile(string originFileName, string fileName, string ext, string fileSize, string storePath, string create_by)
         {
             StorePath = storePath;

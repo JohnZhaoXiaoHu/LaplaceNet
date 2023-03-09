@@ -8,7 +8,7 @@ namespace La.Model.Models
     /// 汇率表，数据实体对象
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-16
+    /// @date 2023-03-09
     /// </summary>
     [SugarTable("fico_exchange_rate")]
     public class FicoExchangeRate

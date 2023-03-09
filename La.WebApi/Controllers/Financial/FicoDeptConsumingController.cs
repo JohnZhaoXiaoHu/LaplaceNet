@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName fico_dept_consuming
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-16
+    /// @date 2023-03-09
     /// </summary>
     [Verify]
     [Route("financial/FicoDeptConsuming")]
@@ -32,7 +32,6 @@ namespace La.WebApi.Controllers
         /// <summary>
         /// 部门消耗Controller
         /// </summary>
-        /// <param name="FicoDeptConsumingService"></param>
         public FicoDeptConsumingController(IFicoDeptConsumingService FicoDeptConsumingService)
         {
             _FicoDeptConsumingService = FicoDeptConsumingService;
@@ -79,8 +78,8 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-       
-        // 校验输入项目是否唯一
+
+           // 校验输入项目是否唯一
 
             if (UserConstants.NOT_UNIQUE.Equals(_FicoDeptConsumingService.CheckEntryStringUnique(parm.DcId.ToString())))
             {

@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName pp_ec_master
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-24
+    /// @date 2023-03-09
     /// </summary>
     [Verify]
     [Route("production/PpEcMaster")]
@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
 
            // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_PpEcMasterService.CheckEntryStringUnique(parm.EmEcNo.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_PpEcMasterService.CheckEntryStringUnique(parm.EmId.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增主设变信息表 '{parm.EmEcNo}'失败，输入的主设变信息表已存在"));
+                return ToResponse(ApiResult.Error($"新增主设变信息表 '{parm.EmId}'失败，输入的主设变信息表已存在"));
             }
             var modal = parm.Adapt<PpEcMaster>().ToCreate(HttpContext);
 

@@ -5,18 +5,18 @@
         <el-input v-model="queryParams.tableName" clearable placeholder="输入要查询的表名" />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" icon="search" @click="getList()">查询</el-button>
+        <el-button type="primary" icon="search" @click="getList()">{{ $t('btn.search') }}</el-button>
       </el-form-item>
     </el-form>
 
     <el-row :gutter="10" class="mb10">
       <el-col :span="1.5">
-        <el-button type="info" plain icon="upload" @click="openImportTable"
-          v-hasPermi="['tool:gen:import']">导入</el-button>
+        <el-button type="info" plain icon="upload" @click="openImportTable" v-hasPermi="['tool:gen:import']">{{
+          $t('btn.import') }}</el-button>
       </el-col>
       <el-col :span="1.5">
         <el-button type="danger" :disabled="multiple" plain icon="delete" @click="handleDelete"
-          v-hasPermi="['tool:gen:remove']"> 删除</el-button>
+          v-hasPermi="['tool:gen:remove']"> {{ $t('btn.delete') }}</el-button>
       </el-col>
     </el-row>
     <el-table ref="gridtable" v-loading="tableloading" :data="tableList" border
@@ -34,11 +34,13 @@
       <el-table-column prop="className" label="实体" :show-overflow-tooltip="true" />
       <el-table-column prop="createTime" label="创建时间" sortable />
       <el-table-column prop="updateTime" label="更新时间" sortable />
-      <el-table-column label="操作" align="center" width="220">
+      <el-table-column :label="$t('btn.operate')" align="center" width="220">
         <template #default="scope">
-          <el-button text icon="view" @click="handlePreview(scope.row)" v-hasPermi="['tool:gen:preview']"> 预览
+          <el-button text icon="view" @click="handlePreview(scope.row)" v-hasPermi="['tool:gen:preview']"> {{
+            $t('btn.preview') }}
           </el-button>
-          <el-button text icon="edit" @click="handleEditTable(scope.row)" v-hasPermi="['tool:gen:edit']"> 编辑
+          <el-button text icon="edit" @click="handleEditTable(scope.row)" v-hasPermi="['tool:gen:edit']"> {{
+            $t('btn.edit') }}
           </el-button>
 
           <el-dropdown @command="handleCommand($event, scope.row)">
@@ -53,17 +55,17 @@
               <el-dropdown-menu>
                 <div v-hasPermi="['tool:gen:code']">
                   <el-dropdown-item command="generate">
-                    <el-button icon="download" link>生成代码</el-button>
+                    <el-button icon="download" link>{{ $t('btn.generateCode') }}</el-button>
                   </el-dropdown-item>
                 </div>
                 <div v-hasPermi="['tool:gen:edit']">
                   <el-dropdown-item command="sync">
-                    <el-button icon="refresh" link> 同步 </el-button>
+                    <el-button icon="refresh" link> {{ $t('btn.synchronize') }} </el-button>
                   </el-dropdown-item>
                 </div>
                 <div v-hasPermi="['tool:gen:remove']">
                   <el-dropdown-item command="delete">
-                    <el-button icon="delete" type="danger" link> 删除 </el-button>
+                    <el-button icon="delete" type="danger" link> {{ $t('btn.delete') }} </el-button>
                   </el-dropdown-item>
                 </div>
               </el-dropdown-menu>
@@ -80,7 +82,8 @@
       <el-tabs v-model="preview.activeName">
         <el-tab-pane v-for="(item, key) in preview.data" :label="item.title" :id="key" :name="key.toString()"
           :key="key">
-          <el-link :underline="false" icon="DocumentCopy" @click="onCopy(item.content)" class="btn-copy">复制 </el-link>
+          <el-link :underline="false" icon="DocumentCopy" @click="onCopy(item.content)" class="btn-copy">{{
+            $t('btn.copy') }} </el-link>
           <pre><code class="hljs" v-html="highlightedCode(item.content, item.title)"></code></pre>
         </el-tab-pane>
       </el-tabs>

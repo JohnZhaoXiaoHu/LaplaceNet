@@ -8,7 +8,6 @@ using La.Model.System;
 using La.Repository;
 using La.Service.Financial.IFinancialService;
 using System.Linq;
-using Aliyun.OSS;
 
 namespace La.Service.Financial
 {
@@ -16,7 +15,7 @@ namespace La.Service.Financial
     /// bom成本核算Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-16
+    /// @date 2023-03-09
     /// </summary>
     [AppService(ServiceType = typeof(IFicoBomCostingService), ServiceLifetime = LifeTime.Transient)]
     public class FicoBomCostingService : BaseService<FicoBomCosting>, IFicoBomCostingService
@@ -53,7 +52,7 @@ namespace La.Service.Financial
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => Convert.ToDateTime(it.BcBalancedate).ToString("yyyyMMdd") + it.BcPlant + it.BcFy + it.BcFy + it.BcBomItem == entryString);
+            int count = Count(it => it.BcId.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

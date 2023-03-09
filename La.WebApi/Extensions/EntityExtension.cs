@@ -4,18 +4,8 @@ using System;
 
 namespace La.WebApi.Extensions
 {
-    /// <summary>
-    /// 实体扩展
-    /// </summary>
     public static class EntityExtension
     {
-        /// <summary>
-        /// 创建默认字段
-        /// </summary>
-        /// <typeparam name="TSource"></typeparam>
-        /// <param name="source"></param>
-        /// <param name="context"></param>
-        /// <returns></returns>
         public static TSource ToCreate<TSource>(this TSource source, HttpContext? context = null)
         {
             var types = source?.GetType();
@@ -51,13 +41,7 @@ namespace La.WebApi.Extensions
             }
             return source;
         }
-        /// <summary>
-        /// 更新默认字段
-        /// </summary>
-        /// <typeparam name="TSource"></typeparam>
-        /// <param name="source"></param>
-        /// <param name="context"></param>
-        /// <returns></returns>
+
         public static TSource ToUpdate<TSource>(this TSource source, HttpContext? context = null)
         {
             var types = source?.GetType();

@@ -8,7 +8,6 @@ using La.Model.System;
 using La.Repository;
 using La.Service.Production.IProductionService;
 using System.Linq;
-using Aliyun.OSS;
 
 namespace La.Service.Production
 {
@@ -16,7 +15,7 @@ namespace La.Service.Production
     /// oph主表Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-01-12
+    /// @date 2023-03-09
     /// </summary>
     [AppService(ServiceType = typeof(IPpOutputMasterService), ServiceLifetime = LifeTime.Transient)]
     public class PpOutputMasterService : BaseService<PpOutputMaster>, IPpOutputMasterService
@@ -56,7 +55,7 @@ namespace La.Service.Production
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => Convert.ToDateTime(it.PomMfDate).ToString("yyyyMMdd") + it.PomOrder + it.PomMfItem + it.PomLineName == entryString);
+            int count = Count(it => it.PomId.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

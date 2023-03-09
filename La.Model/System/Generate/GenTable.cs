@@ -68,6 +68,9 @@ namespace La.Model.System.Generate
         /// 生成代码方式（0zip压缩包 1自定义路径）
         /// </summary>
         public string GenType { get; set; }
+        /// <summary>
+        /// 代码生成路径
+        /// </summary>
         public string GenPath { get; set; }
         /// <summary>
         /// 其他生成选项
@@ -88,14 +91,38 @@ namespace La.Model.System.Generate
         #endregion
     }
 
+    /// <summary>
+    /// 选项
+    /// </summary>
     public class Options
     {
+        /// <summary>
+        /// 主菜单ID
+        /// </summary>
         public long ParentMenuId { get; set; } = 0;
+        /// <summary>
+        /// 排序类别：升序默认
+        /// </summary>
         public string SortType { get; set; } = "asc";
+        /// <summary>
+        /// 排序ID
+        /// </summary>
         public string SortField { get; set; } = string.Empty;
+        /// <summary>
+        /// 树代码
+        /// </summary>
         public string TreeCode { get; set; } = string.Empty;
+        /// <summary>
+        /// 树名称
+        /// </summary>
         public string TreeName { get; set; } = string.Empty;
+        /// <summary>
+        /// 主树代码
+        /// </summary>
         public string TreeParentCode { get; set; } = string.Empty;
+        /// <summary>
+        /// 权限前缀
+        /// </summary>
         public string PermissionPrefix { get; set; } = string.Empty;
         /// <summary>
         /// 额外参数字符串

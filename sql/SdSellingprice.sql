@@ -2,7 +2,7 @@ use Laplace_PRD;
 
 -- 销售价格菜单
 INSERT INTO sys_menu(menuName, parentId, orderNum, path, component, isFrame, isCache, menuType, visible, status, perms, icon, create_by, create_time,menuName_key) 
-VALUES ('销售价格', 1095, 999, 'SdSellingprice', 'sales/SdSellingprice', 0, 0, 'C', '0', '0', 'sd:sellingprice:list', 'icon1', 'system', GETDATE(), 'menu.SdSellingprice');
+VALUES ('销售价格', 1095, 999, lower('SdSellingprice'), 'sales/SdSellingprice', 0, 0, 'C', '0', '0', 'sd:sellingprice:list', 'icon1', 'system', GETDATE(), 'menu.SdSellingprice');
 
 -- 按钮父菜单id
 declare @menuId int = @@identity

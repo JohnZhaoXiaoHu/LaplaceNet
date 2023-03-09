@@ -12,17 +12,10 @@ using La.Service.System.IService;
 
 namespace La.WebApi.Filters
 {
-    /// <summary>
-    /// 全局Action请求
-    /// </summary>
     public class GlobalActionMonitor : ActionFilterAttribute
     {
         static readonly Logger logger = LogManager.GetCurrentClassLogger();
         private ISysOperLogService OperLogService;
-        /// <summary>
-        /// Action请求
-        /// </summary>
-        /// <param name="operLogService"></param>
         public GlobalActionMonitor(ISysOperLogService operLogService)
         {
             OperLogService = operLogService;
@@ -118,7 +111,7 @@ namespace La.WebApi.Filters
                 if (logAttribute != null)
                 {
                     sysOperLog.Title = logAttribute?.Title;
-                    sysOperLog.BusinessType = (int)logAttribute?.BusinessType!;
+                    sysOperLog.BusinessType = (int)logAttribute?.BusinessType;
                     sysOperLog.OperParam = logAttribute.IsSaveRequestData ? sysOperLog.OperParam : "";
                     sysOperLog.JsonResult = logAttribute.IsSaveResponseData ? sysOperLog.JsonResult : "";
                 }
@@ -137,11 +130,6 @@ namespace La.WebApi.Filters
                 logger.Error(ex, $"记录操作日志出错了#{ex.Message}");
             }
         }
-        /// <summary>
-        /// Action请求
-        /// </summary>
-        /// <param name="controllerActionDescriptor"></param>
-        /// <returns></returns>
 
         private LogAttribute? GetLogAttribute(ControllerActionDescriptor controllerActionDescriptor)
         {

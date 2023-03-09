@@ -5,6 +5,7 @@ namespace La.Infra.Model
 {
     public class ApiResult
     {
+
         public int Code { get; set; }
         public string Msg { get; set; }
         /// <summary>

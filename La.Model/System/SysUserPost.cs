@@ -13,7 +13,13 @@ namespace La.Model.System
     [Tenant("0")]
     public class SysUserPost
     {
+        /// <summary>
+        /// 用户ID
+        /// </summary>
         public long UserId { get; set; }
+        /// <summary>
+        /// 岗位ID
+        /// </summary>
         public long PostId { get; set; }
     }
 }

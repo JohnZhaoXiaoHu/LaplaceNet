@@ -8,7 +8,7 @@ namespace La.Model.Models
     /// oph主表，数据实体对象
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-01-12
+    /// @date 2023-03-09
     /// </summary>
     [SugarTable("pp_output_master")]
     public class PpOutputMaster

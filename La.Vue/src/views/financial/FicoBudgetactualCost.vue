@@ -2,15 +2,15 @@
  * @Descripttion: (预算实际明细/fico_budgetactual_cost)
  * @version: (1.0)
  * @Author: (Laplace.Net:Davis.Cheng)
- * @Date: (2023-02-16)
+ * @Date: (2023-03-09)
  * @LastEditors: (Laplace.Net:Davis.Cheng)
- * @LastEditTime: (2023-02-16)
+ * @LastEditTime: (2023-03-09)
 -->
 <template>
   <div>
     <el-form :model="queryParams" label-position="right" inline ref="queryRef" v-show="showSearch" @submit.prevent>
       <el-form-item label="期间" prop="fbFy">
-        <el-select clearable  v-model="queryParams.fbFy" placeholder="请选择期间">
+        <el-select filterable clearable  v-model="queryParams.fbFy" :placeholder="$t('btn.select')+'期间'">
           <el-option v-for="item in  options.sql_period_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -18,7 +18,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="年月" prop="fbYm">
-        <el-select clearable  v-model="queryParams.fbYm" placeholder="请选择年月">
+        <el-select filterable clearable  v-model="queryParams.fbYm" :placeholder="$t('btn.select')+'年月'">
           <el-option v-for="item in  options.sql_ym_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -26,7 +26,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="公司代码" prop="fbCorpCode">
-        <el-select clearable  v-model="queryParams.fbCorpCode" placeholder="请选择公司代码">
+        <el-select filterable clearable  v-model="queryParams.fbCorpCode" :placeholder="$t('btn.select')+'公司代码'">
           <el-option v-for="item in  options.sys_crop_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -34,7 +34,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="统计类别" prop="fbExpCategory">
-        <el-select clearable  v-model="queryParams.fbExpCategory" placeholder="请选择统计类别">
+        <el-select filterable clearable  v-model="queryParams.fbExpCategory" :placeholder="$t('btn.select')+'统计类别'">
           <el-option v-for="item in  options.fbExpCategoryOptions" :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -42,7 +42,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="成本代码" prop="fbCostCode">
-        <el-select clearable  v-model="queryParams.fbCostCode" placeholder="请选择成本代码">
+        <el-select filterable clearable  v-model="queryParams.fbCostCode" :placeholder="$t('btn.select')+'成本代码'">
           <el-option v-for="item in  options.fbCostCodeOptions" :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -50,7 +50,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="科目代码" prop="fbTitleCode">
-        <el-select clearable  v-model="queryParams.fbTitleCode" placeholder="请选择科目代码">
+        <el-select filterable clearable  v-model="queryParams.fbTitleCode" :placeholder="$t('btn.select')+'科目代码'">
           <el-option v-for="item in  options.fbTitleCodeOptions" :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -58,7 +58,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="科目分类" prop="fbTitleNote">
-        <el-select clearable  v-model="queryParams.fbTitleNote" placeholder="请选择科目分类">
+        <el-select filterable clearable  v-model="queryParams.fbTitleNote" :placeholder="$t('btn.select')+'科目分类'">
           <el-option v-for="item in  options.fbTitleNoteOptions" :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -160,14 +160,14 @@
     
           <el-col :lg="12">
             <el-form-item label="ID" prop="fbId">
-              <el-input-number v-model.number="form.fbId" controls-position="right" :placeholder="$t('btn.enter')+'ID'" :disabled="title==$t('btn.edit')"/>
+              <el-input-number clearable v-model.number="form.fbId" controls-position="right" :placeholder="$t('btn.enter')+'ID'" :disabled="title==$t('btn.edit')"/>
             </el-form-item>
           </el-col>
 
 
           <el-col :lg="12">
             <el-form-item label="期间" prop="fbFy">
-              <el-select v-model="form.fbFy" :placeholder="$t('btn.select')+'期间'">
+              <el-select v-model="form.fbFy" filterable clearable  :placeholder="$t('btn.select')+'期间'">
                 <el-option v-for="item in  options.sql_period_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
@@ -175,7 +175,7 @@
 
           <el-col :lg="12">
             <el-form-item label="年月" prop="fbYm">
-              <el-select v-model="form.fbYm" :placeholder="$t('btn.select')+'年月'">
+              <el-select v-model="form.fbYm" filterable clearable  :placeholder="$t('btn.select')+'年月'">
                 <el-option v-for="item in  options.sql_ym_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
@@ -183,7 +183,7 @@
 
           <el-col :lg="12">
             <el-form-item label="公司代码" prop="fbCorpCode">
-              <el-select v-model="form.fbCorpCode" :placeholder="$t('btn.select')+'公司代码'">
+              <el-select v-model="form.fbCorpCode" filterable clearable  :placeholder="$t('btn.select')+'公司代码'">
                 <el-option v-for="item in  options.sys_crop_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
@@ -191,13 +191,13 @@
 
           <el-col :lg="12">
             <el-form-item label="公司名称" prop="fbCorpName">
-              <el-input v-model="form.fbCorpName" :placeholder="$t('btn.enter')+'公司名称'" />
+              <el-input clearable v-model="form.fbCorpName" :placeholder="$t('btn.enter')+'公司名称'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="统计类别" prop="fbExpCategory">
-              <el-select v-model="form.fbExpCategory" :placeholder="$t('btn.select')+'统计类别'">
+              <el-select v-model="form.fbExpCategory" filterable clearable  :placeholder="$t('btn.select')+'统计类别'">
                 <el-option v-for="item in  options.fbExpCategoryOptions" :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
@@ -205,7 +205,7 @@
 
           <el-col :lg="12">
             <el-form-item label="成本代码" prop="fbCostCode">
-              <el-select v-model="form.fbCostCode" :placeholder="$t('btn.select')+'成本代码'">
+              <el-select v-model="form.fbCostCode" filterable clearable  :placeholder="$t('btn.select')+'成本代码'">
                 <el-option v-for="item in  options.fbCostCodeOptions" :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
@@ -213,13 +213,13 @@
 
           <el-col :lg="12">
             <el-form-item label="成本名称" prop="fbCostName">
-              <el-input v-model="form.fbCostName" :placeholder="$t('btn.enter')+'成本名称'" />
+              <el-input clearable v-model="form.fbCostName" :placeholder="$t('btn.enter')+'成本名称'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="科目代码" prop="fbTitleCode">
-              <el-select v-model="form.fbTitleCode" :placeholder="$t('btn.select')+'科目代码'">
+              <el-select v-model="form.fbTitleCode" filterable clearable  :placeholder="$t('btn.select')+'科目代码'">
                 <el-option v-for="item in  options.fbTitleCodeOptions" :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
@@ -227,13 +227,13 @@
 
           <el-col :lg="12">
             <el-form-item label="科目名称" prop="fbTitleName">
-              <el-input v-model="form.fbTitleName" :placeholder="$t('btn.enter')+'科目名称'" />
+              <el-input clearable v-model="form.fbTitleName" :placeholder="$t('btn.enter')+'科目名称'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="科目分类" prop="fbTitleNote">
-              <el-select v-model="form.fbTitleNote" :placeholder="$t('btn.select')+'科目分类'">
+              <el-select v-model="form.fbTitleNote" filterable clearable  :placeholder="$t('btn.select')+'科目分类'">
                 <el-option v-for="item in  options.fbTitleNoteOptions" :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
@@ -241,67 +241,67 @@
 
           <el-col :lg="12">
             <el-form-item label="预算" prop="fbBudgetAmt">
-              <el-input-number v-model.number="form.fbBudgetAmt" :controls="true" controls-position="right" :placeholder="$t('btn.enter')+'预算'" />
+              <el-input-number clearable v-model.number="form.fbBudgetAmt" :controls="true" controls-position="right" :placeholder="$t('btn.enter')+'预算'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="实际" prop="fbActualAmt">
-              <el-input-number v-model.number="form.fbActualAmt" :controls="true" controls-position="right" :placeholder="$t('btn.enter')+'实际'" />
+              <el-input-number clearable v-model.number="form.fbActualAmt" :controls="true" controls-position="right" :placeholder="$t('btn.enter')+'实际'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="差异" prop="fbDiffAmt">
-              <el-input-number v-model.number="form.fbDiffAmt" :controls="true" controls-position="right" :placeholder="$t('btn.enter')+'差异'" />
+              <el-input-number clearable v-model.number="form.fbDiffAmt" :controls="true" controls-position="right" :placeholder="$t('btn.enter')+'差异'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="会计人员" prop="fbAccountant">
-              <el-input v-model="form.fbAccountant" :placeholder="$t('btn.enter')+'会计人员'" />
+              <el-input clearable v-model="form.fbAccountant" :placeholder="$t('btn.enter')+'会计人员'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="日期" prop="fbBalanceDate">
-              <el-date-picker v-model="form.fbBalanceDate" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+              <el-date-picker clearable v-model="form.fbBalanceDate" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="删除" prop="isDeleted">
-              <el-input v-model="form.isDeleted" :placeholder="$t('btn.enter')+'删除'"  :disabled="true"/>
+              <el-input clearable v-model="form.isDeleted" :placeholder="$t('btn.enter')+'删除'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="说明" prop="reMark">
-              <el-input v-model="form.reMark" :placeholder="$t('btn.enter')+'说明'" />
+              <el-input clearable v-model="form.reMark" :placeholder="$t('btn.enter')+'说明'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="createBy" prop="createBy">
-              <el-input v-model="form.createBy" :placeholder="$t('btn.enter')+'createBy'" />
+              <el-input clearable v-model="form.createBy" :placeholder="$t('btn.enter')+'createBy'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="createTime" prop="createTime">
-              <el-date-picker v-model="form.createTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+              <el-date-picker clearable v-model="form.createTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="updateBy" prop="updateBy">
-              <el-input v-model="form.updateBy" :placeholder="$t('btn.enter')+'updateBy'" />
+              <el-input clearable v-model="form.updateBy" :placeholder="$t('btn.enter')+'updateBy'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="updateTime" prop="updateTime">
-              <el-date-picker v-model="form.updateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+              <el-date-picker clearable v-model="form.updateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
         </el-row>

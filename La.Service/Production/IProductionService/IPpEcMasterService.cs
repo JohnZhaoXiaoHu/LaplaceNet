@@ -10,7 +10,7 @@ namespace La.Service.Production.IProductionService
     /// 主设变信息表service接口
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-24
+    /// @date 2023-03-09
     /// </summary>
     public interface IPpEcMasterService : IBaseService<PpEcMaster>
     {

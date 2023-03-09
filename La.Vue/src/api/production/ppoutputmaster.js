@@ -12,13 +12,6 @@ export function listPpOutputMaster(query) {
     params: query,
   })
 }
-export function listPpOutputMasterAll() {
-  return request({
-    url: 'production/PpOutputMaster/list',
-    method: 'get',
-
-  })
-}
 
 
 /**

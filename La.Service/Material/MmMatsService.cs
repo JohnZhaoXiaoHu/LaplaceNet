@@ -15,7 +15,7 @@ namespace La.Service.Material
     /// 物料信息Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-25
+    /// @date 2023-03-09
     /// </summary>
     [AppService(ServiceType = typeof(IMmMatsService), ServiceLifetime = LifeTime.Transient)]
     public class MmMatsService : BaseService<MmMats>, IMmMatsService
@@ -62,7 +62,7 @@ namespace La.Service.Material
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.MmPlnt+ it.MmMatItem == entryString);
+            int count = Count(it => it.MmId.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

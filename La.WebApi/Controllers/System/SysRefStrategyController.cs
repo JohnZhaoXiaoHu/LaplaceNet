@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName sys_ref_strategy
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-24
+    /// @date 2023-03-09
     /// </summary>
     [Verify]
     [Route("system/SysRefStrategy")]
@@ -52,19 +52,6 @@ namespace La.WebApi.Controllers
 
 
         /// <summary>
-        /// 查询单据编码列表
-        /// </summary>
-        /// <param name="parm"></param>
-        /// <returns></returns>
-        [HttpGet("list")]
-        [ActionPermissionFilter(Permission = "sys:refstrategy:list")]
-        public IActionResult QuerySysRefStrategyss([FromQuery] SysRefStrategyQueryDto parm)
-        {
-            var response = _SysRefStrategyService.GetList(parm);
-            return SUCCESS(response);
-        }
-
-        /// <summary>
         /// 查询单据编码详情
         /// </summary>
         /// <param name="RefId"></param>
@@ -94,9 +81,9 @@ namespace La.WebApi.Controllers
 
            // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_SysRefStrategyService.CheckEntryStringUnique(parm.InitNumber.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_SysRefStrategyService.CheckEntryStringUnique(parm.RefId.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增单据编码 '{parm.InitNumber}'失败，输入的单据编码已存在"));
+                return ToResponse(ApiResult.Error($"新增单据编码 '{parm.RefId}'失败，输入的单据编码已存在"));
             }
             var modal = parm.Adapt<SysRefStrategy>().ToCreate(HttpContext);
 

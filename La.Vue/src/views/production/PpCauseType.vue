@@ -2,15 +2,15 @@
  * @Descripttion: (原因类别/pp_cause_type)
  * @version: (1.0)
  * @Author: (Laplace.Net:Davis.Cheng)
- * @Date: (2023-02-10)
+ * @Date: (2023-03-09)
  * @LastEditors: (Laplace.Net:Davis.Cheng)
- * @LastEditTime: (2023-02-10)
+ * @LastEditTime: (2023-03-09)
 -->
 <template>
   <div>
     <el-form :model="queryParams" label-position="right" inline ref="queryRef" v-show="showSearch" @submit.prevent>
       <el-form-item label="原因类别" prop="ctCauseType">
-        <el-select clearable  v-model="queryParams.ctCauseType" placeholder="请选择原因类别">
+        <el-select filterable clearable  v-model="queryParams.ctCauseType" :placeholder="$t('btn.select')+'原因类别'">
           <el-option v-for="item in  options.sys_cause_type " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -77,14 +77,14 @@
     
           <el-col :lg="12">
             <el-form-item label="ID" prop="ctId">
-              <el-input-number v-model.number="form.ctId" controls-position="right" placeholder="请输入ID" :disabled="title=='修改数据'"/>
+              <el-input-number clearable v-model.number="form.ctId" controls-position="right" :placeholder="$t('btn.enter')+'ID'" :disabled="title==$t('btn.edit')"/>
             </el-form-item>
           </el-col>
 
 
           <el-col :lg="12">
             <el-form-item label="原因类别" prop="ctCauseType">
-              <el-select v-model="form.ctCauseType" placeholder="请选择原因类别">
+              <el-select v-model="form.ctCauseType" filterable clearable  :placeholder="$t('btn.select')+'原因类别'">
                 <el-option v-for="item in  options.sys_cause_type " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
@@ -92,55 +92,55 @@
 
           <el-col :lg="12">
             <el-form-item label="原因名称ZH" prop="ctcausetextZh">
-              <el-input v-model="form.ctcausetextZh" placeholder="请输入原因名称ZH" />
+              <el-input clearable v-model="form.ctcausetextZh" :placeholder="$t('btn.enter')+'原因名称ZH'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="原因名称EN" prop="ctcausetextEn">
-              <el-input v-model="form.ctcausetextEn" placeholder="请输入原因名称EN" />
+              <el-input clearable v-model="form.ctcausetextEn" :placeholder="$t('btn.enter')+'原因名称EN'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="原因名称JA" prop="ctcausetextJa">
-              <el-input v-model="form.ctcausetextJa" placeholder="请输入原因名称JA" />
+              <el-input clearable v-model="form.ctcausetextJa" :placeholder="$t('btn.enter')+'原因名称JA'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="软删除" prop="isDelete">
-              <el-input v-model="form.isDelete" placeholder="请输入软删除"  :disabled="true"/>
+              <el-input clearable v-model="form.isDelete" :placeholder="$t('btn.enter')+'软删除'"  :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="备注" prop="remark">
-              <el-input v-model="form.remark" placeholder="请输入备注" />
+              <el-input clearable v-model="form.remark" :placeholder="$t('btn.enter')+'备注'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="createBy" prop="createBy">
-              <el-input v-model="form.createBy" placeholder="请输入createBy" />
+              <el-input clearable v-model="form.createBy" :placeholder="$t('btn.enter')+'createBy'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="createTime" prop="createTime">
-              <el-date-picker v-model="form.createTime" type="datetime" :teleported="false" placeholder="选择日期时间"></el-date-picker>
+              <el-date-picker clearable v-model="form.createTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="updateBy" prop="updateBy">
-              <el-input v-model="form.updateBy" placeholder="请输入updateBy" />
+              <el-input clearable v-model="form.updateBy" :placeholder="$t('btn.enter')+'updateBy'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="updateTime" prop="updateTime">
-              <el-date-picker v-model="form.updateTime" type="datetime" :teleported="false" placeholder="选择日期时间"></el-date-picker>
+              <el-date-picker clearable v-model="form.updateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
         </el-row>
@@ -268,10 +268,10 @@ const open = ref(false)
 const state = reactive({
   form: {},
   rules: {
-    ctCauseType: [{ required: true, message: "原因类别不能为空", trigger: "change" }],
-    ctcausetextZh: [{ required: true, message: "原因名称ZH不能为空", trigger: "blur" }],
-    ctcausetextEn: [{ required: true, message: "原因名称EN不能为空", trigger: "blur" }],
-    ctcausetextJa: [{ required: true, message: "原因名称JA不能为空", trigger: "blur" }],
+    ctCauseType: [{ required: true, message: "原因类别"+proxy.$t('btn.empty'), trigger: "change" }],
+    ctcausetextZh: [{ required: true, message: "原因名称ZH"+proxy.$t('btn.empty'), trigger: "blur" }],
+    ctcausetextEn: [{ required: true, message: "原因名称EN"+proxy.$t('btn.empty'), trigger: "blur" }],
+    ctcausetextJa: [{ required: true, message: "原因名称JA"+proxy.$t('btn.empty'), trigger: "blur" }],
   },
   options: {
     // 原因类别 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
@@ -307,7 +307,7 @@ function reset() {
 function handleAdd() {
   reset();
   open.value = true
-  title.value = '添加'
+  title.value = proxy.$t('btn.add')
   opertype.value = 1
 }
 
@@ -319,7 +319,7 @@ function handleUpdate(row) {
     const { code, data } = res
     if (code == 200) {
       open.value = true
-      title.value = "修改数据"
+      title.value = proxy.$t('btn.edit')
       opertype.value = 2
 
       form.value = {
@@ -335,14 +335,14 @@ function submitForm() {
     if (valid) {
       if (form.value.ctId != undefined && opertype.value === 2) {
         updatePpCauseType(form.value).then((res) => {
-          proxy.$modal.msgSuccess("修改成功")
+          proxy.$modal.msgSuccess(proxy.$t('common.Modicompleted'))
           open.value = false
           getList()
         })
         .catch(() => {})
       } else {
         addPpCauseType(form.value).then((res) => {
-            proxy.$modal.msgSuccess("新增成功")
+            proxy.$modal.msgSuccess(proxy.$t('common.Newcompleted'))
             open.value = false
             getList()
           })
@@ -356,13 +356,13 @@ function submitForm() {
 function handleDelete(row) {
   const Ids = row.ctId || ids.value
 
-  proxy.$confirm('是否确认删除参数编号为"' + Ids + '"的数据项？')
+  proxy.$confirm(proxy.$t('common.confirmDel') + Ids +proxy.$t('common.confirmDelDataitems'))
   .then(function () {
       return delPpCauseType(Ids)
   })
   .then(() => {
       getList()
-      proxy.$modal.msgSuccess("删除成功")
+      proxy.$modal.msgSuccess(proxy.$t('common.Delcompleted'))
   })
   .catch(() => {})
 }
@@ -372,9 +372,9 @@ function handleDelete(row) {
 // 导出按钮操作
 function handleExport() {
   proxy
-    .$confirm("是否确认导出原因类别数据项?", "警告", {
-      confirmButtonText: "确定",
-      cancelButtonText: "取消",
+    .$confirm(proxy.$t('common.confirmExport')+"原因类别", proxy.$t('common.warningTips'), {
+      confirmButtonText: proxy.$t('btn.submit'),
+      cancelButtonText: proxy.$t('btn.cancel'),
       type: "warning",
     })
     .then(async () => {

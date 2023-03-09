@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName pp_output_master
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-01-12
+    /// @date 2023-03-09
     /// </summary>
     [Verify]
     [Route("production/PpOutputMaster")]
@@ -30,7 +30,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         private readonly IPpOutputMasterService _PpOutputMasterService;
         /// <summary>
-        /// oph主表接口
+        /// oph主表Controller
         /// </summary>
         public PpOutputMasterController(IPpOutputMasterService PpOutputMasterService)
         {
@@ -78,10 +78,12 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-            // 校验输入项目是否唯一
-            if (UserConstants.NOT_UNIQUE.Equals(_PpOutputMasterService.CheckEntryStringUnique(Convert.ToDateTime(parm.PomMfDate).ToString("yyyyMMdd") + parm.PomOrder+ parm.PomMfItem+ parm.PomLineName)))
+
+           // 校验输入项目是否唯一
+
+            if (UserConstants.NOT_UNIQUE.Equals(_PpOutputMasterService.CheckEntryStringUnique(parm.PomId.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增oph主表 '{Convert.ToDateTime(parm.PomMfDate).ToString("yyyy-MM-dd") +","+ parm.PomOrder + "," + parm.PomMfItem + "," + parm.PomLineName}'失败，输入的oph主表已存在"));
+                return ToResponse(ApiResult.Error($"新增oph主表 '{parm.PomId}'失败，输入的oph主表已存在"));
             }
             var modal = parm.Adapt<PpOutputMaster>().ToCreate(HttpContext);
 

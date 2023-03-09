@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName pp_cause_type
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-10
+    /// @date 2023-03-09
     /// </summary>
     [Verify]
     [Route("production/PpCauseType")]
@@ -30,7 +30,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         private readonly IPpCauseTypeService _PpCauseTypeService;
         /// <summary>
-        /// 原因类别接口
+        /// 原因类别Controller
         /// </summary>
         public PpCauseTypeController(IPpCauseTypeService PpCauseTypeService)
         {
@@ -78,7 +78,9 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-            // 校验输入项目是否唯一
+
+           // 校验输入项目是否唯一
+
             if (UserConstants.NOT_UNIQUE.Equals(_PpCauseTypeService.CheckEntryStringUnique(parm.CtId.ToString())))
             {
                 return ToResponse(ApiResult.Error($"新增原因类别 '{parm.CtId}'失败，输入的原因类别已存在"));

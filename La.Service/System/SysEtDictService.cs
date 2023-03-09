@@ -15,7 +15,7 @@ namespace La.Service.System
     /// 电子辞典Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-24
+    /// @date 2023-03-09
     /// </summary>
     [AppService(ServiceType = typeof(ISysEtDictService), ServiceLifetime = LifeTime.Transient)]
     public class SysEtDictService : BaseService<SysEtDict>, ISysEtDictService
@@ -48,7 +48,7 @@ namespace La.Service.System
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.EtPhrase.ToString() == entryString);
+            int count = Count(it => it.EtGuid.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

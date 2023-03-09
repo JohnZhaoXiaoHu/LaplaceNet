@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace LaAdmin.Filters
+namespace Laplace.Filters
 {
     /// <summary>
     /// 全局异常捕获
@@ -17,19 +17,11 @@ namespace LaAdmin.Filters
 
         private IWebHostEnvironment _hostingEnvironment;
 
-        /// <summary>
-        /// 全局异常捕获
-        /// </summary>
-        /// <param name="environment"></param>
         public GlobalExceptionFilter(IWebHostEnvironment environment)
         {
             _hostingEnvironment = environment;
         }
 
-        /// <summary>
-        /// 全局异常捕获
-        /// </summary>
-        /// <param name="context"></param>
         public void OnException(ExceptionContext context)
         {
             Exception ex = context.Exception;
@@ -58,9 +50,9 @@ namespace LaAdmin.Filters
                 // 获取异常堆栈
                 var traceFrame = new StackTrace(ex, true).GetFrame(0);
                 // 获取出错的文件名
-                var exceptionFileName = traceFrame!.GetFileName();
+                var exceptionFileName = traceFrame.GetFileName();
                 // 获取出错的行号
-                var exceptionFileLineNumber = traceFrame!.GetFileLineNumber();
+                var exceptionFileLineNumber = traceFrame.GetFileLineNumber();
                 var errorMsg = $"{ex.Message}##{traceFrame}##{exceptionFileName}##行号:{exceptionFileLineNumber}";
 
                 logger.Error(ex, $"系统出错了error={ex.Message}#{errorMsg}");

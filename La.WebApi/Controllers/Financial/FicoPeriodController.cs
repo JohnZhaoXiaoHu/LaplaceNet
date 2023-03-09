@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName fico_period
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-01-11
+    /// @date 2023-03-09
     /// </summary>
     [Verify]
     [Route("financial/FicoPeriod")]
@@ -30,7 +30,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         private readonly IFicoPeriodService _FicoPeriodService;
         /// <summary>
-        /// 财务期间接口
+        /// 财务期间Controller
         /// </summary>
         public FicoPeriodController(IFicoPeriodService FicoPeriodService)
         {
@@ -79,7 +79,7 @@ namespace La.WebApi.Controllers
                 throw new CustomException("请求参数错误");
             }
 
-            // 校验输入项目是否唯一
+           // 校验输入项目是否唯一
 
             if (UserConstants.NOT_UNIQUE.Equals(_FicoPeriodService.CheckEntryStringUnique(parm.FpId.ToString())))
             {

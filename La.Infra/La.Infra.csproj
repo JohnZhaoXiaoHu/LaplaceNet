@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <PackageReference Include="AspectCore.Abstractions" Version="2.3.0" />
-    <PackageReference Include="EPPlus" Version="6.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
     <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />

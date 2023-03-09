@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName fico_exchange_rate
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-16
+    /// @date 2023-03-09
     /// </summary>
     [Verify]
     [Route("financial/FicoExchangeRate")]
@@ -32,7 +32,6 @@ namespace La.WebApi.Controllers
         /// <summary>
         /// 汇率表Controller
         /// </summary>
-        /// <param name="FicoExchangeRateService"></param>
         public FicoExchangeRateController(IFicoExchangeRateService FicoExchangeRateService)
         {
             _FicoExchangeRateService = FicoExchangeRateService;
@@ -79,14 +78,12 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-            //日期格式转换方便比较
-            //string ss = Convert.ToDateTime(parm.ErEffDate).ToString("yyyyMMdd");
 
-        // 校验输入项目是否唯一
+           // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_FicoExchangeRateService.CheckEntryStringUnique(Convert.ToDateTime(parm.ErEffDate).ToString("yyyyMMdd") + parm.ErfmCcy)))
+            if (UserConstants.NOT_UNIQUE.Equals(_FicoExchangeRateService.CheckEntryStringUnique(parm.ErId.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增汇率表 '{Convert.ToDateTime(parm.ErEffDate).ToString("yyyy-MM-dd") + ":"+ parm.ErfmCcy}'失败，输入的汇率表已存在"));
+                return ToResponse(ApiResult.Error($"新增汇率表 '{parm.ErId}'失败，输入的汇率表已存在"));
             }
             var modal = parm.Adapt<FicoExchangeRate>().ToCreate(HttpContext);
 

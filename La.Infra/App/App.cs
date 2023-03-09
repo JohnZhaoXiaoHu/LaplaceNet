@@ -5,9 +5,6 @@ using System.Security.Claims;
 
 namespace La.Infra
 {
-    /// <summary>
-    /// 应用
-    /// </summary>
     public static class App
     {
         /// <summary>

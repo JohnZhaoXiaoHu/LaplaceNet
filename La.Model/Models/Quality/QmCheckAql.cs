@@ -8,7 +8,7 @@ namespace La.Model.Models
     /// 抽样标准，数据实体对象
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-15
+    /// @date 2023-03-09
     /// </summary>
     [SugarTable("qm_check_aql")]
     public class QmCheckAql

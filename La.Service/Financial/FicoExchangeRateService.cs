@@ -8,7 +8,6 @@ using La.Model.System;
 using La.Repository;
 using La.Service.Financial.IFinancialService;
 using System.Linq;
-using Aliyun.OSS;
 
 namespace La.Service.Financial
 {
@@ -16,7 +15,7 @@ namespace La.Service.Financial
     /// 汇率表Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-16
+    /// @date 2023-03-09
     /// </summary>
     [AppService(ServiceType = typeof(IFicoExchangeRateService), ServiceLifetime = LifeTime.Transient)]
     public class FicoExchangeRateService : BaseService<FicoExchangeRate>, IFicoExchangeRateService
@@ -52,7 +51,7 @@ namespace La.Service.Financial
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => Convert.ToDateTime(it.ErEffDate).ToString("yyyyMMdd") + it.ErfmCcy == entryString);
+            int count = Count(it => it.ErId.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

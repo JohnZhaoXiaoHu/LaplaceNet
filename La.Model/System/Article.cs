@@ -12,10 +12,22 @@ namespace La.Model.System
     [Tenant("0")]
     public class Article
     {
+        /// <summary>
+        /// ID
+        /// </summary>
         [SugarColumn(IsIdentity = true, IsPrimaryKey = true)]
         public int Cid { get; set; }
+        /// <summary>
+        /// 标题
+        /// </summary>
         public string Title { get; set; }
+        /// <summary>
+        /// 新建时间
+        /// </summary>
         public DateTime? CreateTime { get; set; }
+        /// <summary>
+        /// 更新时间
+        /// </summary>
         [SugarColumn(IsOnlyIgnoreInsert = true)]
         public DateTime UpdateTime { get; set; }
         /// <summary>
@@ -26,10 +38,11 @@ namespace La.Model.System
         /// 作者名
         /// </summary>
         public string AuthorName { get; set; }
-        public long UserId { get; set; }
         /// <summary>
-        /// 
+        /// 用户
         /// </summary>
+        public long UserId { get; set; }
+
         //public string Type { get; set; }
         /// <summary>
         /// 文章状态 1、发布 2、草稿
@@ -43,7 +56,13 @@ namespace La.Model.System
         /// 文章标签eg：Net5,java
         /// </summary>
         public string Tags { get; set; }
+        /// <summary>
+        /// 描述：
+        /// </summary>
         public int Hits { get; set; }
+        /// <summary>
+        /// 类型ID
+        /// </summary>
         public int Category_Id { get; set; }
         /// <summary>
         /// 封面地址

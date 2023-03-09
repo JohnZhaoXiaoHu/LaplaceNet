@@ -15,7 +15,7 @@ namespace La.Service.Production
     /// oph从表Service业务层处理
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-18
+    /// @date 2023-03-09
     /// </summary>
     [AppService(ServiceType = typeof(IPpOutputSlaveService), ServiceLifetime = LifeTime.Transient)]
     public class PpOutputSlaveService : BaseService<PpOutputSlave>, IPpOutputSlaveService
@@ -49,7 +49,7 @@ namespace La.Service.Production
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.PomGuid.ToString()+it.PosStartEndTime == entryString);
+            int count = Count(it => it.PosId.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

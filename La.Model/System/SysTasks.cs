@@ -12,6 +12,9 @@ namespace La.Model.System
     [Tenant("0")]
     public class SysTasks
     {
+        /// <summary>
+        /// 计划任务
+        /// </summary>
         public SysTasks()
         {
         }
@@ -129,7 +132,9 @@ namespace La.Model.System
         /// </summary>
         [Display(Name = "传入参数")]
         public string JobParams { get; set; }
-
+        /// <summary>
+        /// 新建
+        /// </summary>
         [SugarColumn(IsOnlyIgnoreUpdate = true)]//设置后修改不会有此字段
         [JsonProperty(propertyName: "CreateBy")]
         public string Create_by { get; set; }
@@ -143,12 +148,16 @@ namespace La.Model.System
         [SugarColumn(IsOnlyIgnoreUpdate = true)]//设置后修改不会有此字段
         [JsonProperty(propertyName: "CreateTime")]
         public DateTime Create_time { get; set; } = DateTime.Now;
-
+        /// <summary>
+        /// 更新
+        /// </summary>
         [JsonIgnore]
         [JsonProperty(propertyName: "UpdateBy")]
         [SugarColumn(IsOnlyIgnoreInsert = true)]
         public string Update_by { get; set; }
-
+        /// <summary>
+        /// 更新时间
+        /// </summary>
         [SugarColumn(IsOnlyIgnoreInsert = true)]//设置后插入数据不会有此字段
         [JsonProperty(propertyName: "UpdateTime")]
         public DateTime Update_time { get; set; } = DateTime.Now;

@@ -10,7 +10,7 @@ namespace La.Service.Sales.ISalesService
     /// 顾客信息service接口
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-03
+    /// @date 2023-03-09
     /// </summary>
     public interface ISdCustomerService : IBaseService<SdCustomer>
     {

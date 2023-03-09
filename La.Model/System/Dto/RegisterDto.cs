@@ -5,6 +5,9 @@ using System.Text;
 
 namespace La.Model.System.Dto
 {
+    /// <summary>
+    /// 用户注册输入
+    /// </summary>
     public class RegisterDto
     {
         /// <summary>
@@ -18,6 +21,9 @@ namespace La.Model.System.Dto
         /// </summary>
         [Required(ErrorMessage = "密码不能为空")]
         public string Password { get; set; }
+        /// <summary>
+        /// 密码确认
+        /// </summary>
         [Required(ErrorMessage = "确认密码不能为空")]
         public string ConfirmPassword { get; set; }
         /**

@@ -10,7 +10,7 @@ namespace La.Service.Financial.IFinancialService
     /// 部门消耗service接口
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-16
+    /// @date 2023-03-09
     /// </summary>
     public interface IFicoDeptConsumingService : IBaseService<FicoDeptConsuming>
     {

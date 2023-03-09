@@ -2,31 +2,23 @@
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using La.Common;
-using La.Infra;
+
 namespace La.WebApi.Extensions
 {
-    /// <summary>
-    /// 加载Logo
-    /// </summary>
     public static class LogoExtension
     {
-        /// <summary>
-        /// 加载Logo
-        /// </summary>
-        /// <param name="services"></param>
         public static void AddLogo(this IServiceCollection services)
         {
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Blue;
             var contentTpl = JnHelper.ReadTemplate("", "logo.txt");
             var content = contentTpl?.Render();
-            //var github = HttpHelper.HttpGet("https://api.github.com/repos/Lean365/LaplaceNet/releases");
-
+            //Console.Write(new string(' ', (Console.WindowWidth - content.Length) / 2));
             Console.WriteLine(content);
             Console.ForegroundColor = ConsoleColor.DarkGray;
             string LaAuthor = "Author: Davis.Cheng";
             Console.Write(new string(' ', (Console.WindowWidth - LaAuthor.Length) / 2));
             Console.WriteLine(LaAuthor);
-            string LaDate ="Date:"+ DateTime.Now.ToString("yyyy-MM-dd");
+            string LaDate = "Date:" + DateTime.Now.ToString("yyyy-MM-dd");
             Console.Write(new string(' ', (Console.WindowWidth - LaDate.Length) / 2));
             Console.WriteLine(LaDate);
             Console.ForegroundColor = ConsoleColor.Magenta;
@@ -35,7 +27,6 @@ namespace La.WebApi.Extensions
             Console.WriteLine("官方文档：https://laplacenet.github.io/");
             Console.WriteLine("打赏作者：https://laplacenet.github.io/docs/others/donate.html");
             //Console.WriteLine("打赏作者："+ github);
-
         }
     }
 }

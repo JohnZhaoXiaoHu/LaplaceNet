@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName pp_manhours
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-09
+    /// @date 2023-03-09
     /// </summary>
     [Verify]
     [Route("production/PpManhours")]
@@ -30,7 +30,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         private readonly IPpManhoursService _PpManhoursService;
         /// <summary>
-        /// 标准工时接口
+        /// 标准工时Controller
         /// </summary>
         public PpManhoursController(IPpManhoursService PpManhoursService)
         {
@@ -78,10 +78,12 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-            // 校验输入项目是否唯一
-            if (UserConstants.NOT_UNIQUE.Equals(_PpManhoursService.CheckEntryStringUnique(parm.MhPlant+ parm.MhItem)))
+
+           // 校验输入项目是否唯一
+
+            if (UserConstants.NOT_UNIQUE.Equals(_PpManhoursService.CheckEntryStringUnique(parm.MhId.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增标准工时 '{parm.MhPlant+","+parm.MhItem}'失败，输入的标准工时已存在"));
+                return ToResponse(ApiResult.Error($"新增标准工时 '{parm.MhId}'失败，输入的标准工时已存在"));
             }
             var modal = parm.Adapt<PpManhours>().ToCreate(HttpContext);
 

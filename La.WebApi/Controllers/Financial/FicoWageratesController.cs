@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName fico_wagerates
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-16
+    /// @date 2023-03-09
     /// </summary>
     [Verify]
     [Route("financial/FicoWagerates")]
@@ -30,7 +30,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         private readonly IFicoWageratesService _FicoWageratesService;
         /// <summary>
-        /// 工厂工资率接口
+        /// 工厂工资率Controller
         /// </summary>
         public FicoWageratesController(IFicoWageratesService FicoWageratesService)
         {
@@ -78,10 +78,12 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("请求参数错误");
             }
-            // 校验输入项目是否唯一
-            if (UserConstants.NOT_UNIQUE.Equals(_FicoWageratesService.CheckEntryStringUnique(parm.FwYm+parm.FwPlant)))
+
+           // 校验输入项目是否唯一
+
+            if (UserConstants.NOT_UNIQUE.Equals(_FicoWageratesService.CheckEntryStringUnique(parm.FwId.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增工厂工资率 '{parm.FwYm +","+ parm.FwPlant}'失败，输入的工厂工资率已存在"));
+                return ToResponse(ApiResult.Error($"新增工厂工资率 '{parm.FwId}'失败，输入的工厂工资率已存在"));
             }
             var modal = parm.Adapt<FicoWagerates>().ToCreate(HttpContext);
 

@@ -5,8 +5,14 @@ using La.Model.System;
 
 namespace La.Model.System.Dto
 {
+    /// <summary>
+    /// 在线用户输入输出
+    /// </summary>
     public class SysUserOnlineDto : SysBase
     {
+        /// <summary>
+        /// 页码
+        /// </summary>
         public int pageNum { get; set; }
         /// <summary>
         /// IP 地址

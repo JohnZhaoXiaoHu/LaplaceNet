@@ -8,7 +8,7 @@ namespace La.Model.Models
     /// 工厂工资率，数据实体对象
     ///
     /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-02-16
+    /// @date 2023-03-09
     /// </summary>
     [SugarTable("fico_wagerates")]
     public class FicoWagerates
