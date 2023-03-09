@@ -189,28 +189,28 @@ namespace La.Model.Models
         public string Remark { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :CreateBy 
         /// 空值 :true 
         /// </summary>
         [SugarColumn(ColumnName = "create_by")]
         public string CreateBy { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :CreateTime 
         /// 空值 :true 
         /// </summary>
         [SugarColumn(ColumnName = "create_time")]
         public DateTime? CreateTime { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UpdateBy 
         /// 空值 :true 
         /// </summary>
         [SugarColumn(ColumnName = "update_by")]
         public string UpdateBy { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UpdateTime 
         /// 空值 :true 
         /// </summary>
         [SugarColumn(ColumnName = "update_time")]

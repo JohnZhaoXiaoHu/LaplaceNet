@@ -4151,22 +4151,22 @@
         </member>
         <member name="P:La.Model.Dto.SdSalesProofDto.CreateBy">
             <summary>
-            描述 : 
+            描述 :CreateBy 
             </summary>
         </member>
         <member name="P:La.Model.Dto.SdSalesProofDto.CreateTime">
             <summary>
-            描述 : 
+            描述 :CreateTime 
             </summary>
         </member>
         <member name="P:La.Model.Dto.SdSalesProofDto.UpdateBy">
             <summary>
-            描述 : 
+            描述 :UpdateBy 
             </summary>
         </member>
         <member name="P:La.Model.Dto.SdSalesProofDto.UpdateTime">
             <summary>
-            描述 : 
+            描述 :UpdateTime 
             </summary>
         </member>
         <member name="T:La.Model.Dto.SdSellingpriceQueryDto">
@@ -4306,22 +4306,22 @@
         </member>
         <member name="P:La.Model.Dto.SdSellingpriceDto.CreateBy">
             <summary>
-            描述 : 
+            描述 :CreateBy 
             </summary>
         </member>
         <member name="P:La.Model.Dto.SdSellingpriceDto.CreateTime">
             <summary>
-            描述 : 
+            描述 :CreateTime 
             </summary>
         </member>
         <member name="P:La.Model.Dto.SdSellingpriceDto.UpdateBy">
             <summary>
-            描述 : 
+            描述 :UpdateBy 
             </summary>
         </member>
         <member name="P:La.Model.Dto.SdSellingpriceDto.UpdateTime">
             <summary>
-            描述 : 
+            描述 :UpdateTime 
             </summary>
         </member>
         <member name="T:La.Model.Dto.SysEtDictQueryDto">
@@ -8959,25 +8959,25 @@
         </member>
         <member name="P:La.Model.Models.SdSalesProof.CreateBy">
             <summary>
-            描述 : 
+            描述 :CreateBy 
             空值 :true 
             </summary>
         </member>
         <member name="P:La.Model.Models.SdSalesProof.CreateTime">
             <summary>
-            描述 : 
+            描述 :CreateTime 
             空值 :true 
             </summary>
         </member>
         <member name="P:La.Model.Models.SdSalesProof.UpdateBy">
             <summary>
-            描述 : 
+            描述 :UpdateBy 
             空值 :true 
             </summary>
         </member>
         <member name="P:La.Model.Models.SdSalesProof.UpdateTime">
             <summary>
-            描述 : 
+            描述 :UpdateTime 
             空值 :true 
             </summary>
         </member>
@@ -9105,25 +9105,25 @@
         </member>
         <member name="P:La.Model.Models.SdSellingprice.CreateBy">
             <summary>
-            描述 : 
+            描述 :CreateBy 
             空值 :true 
             </summary>
         </member>
         <member name="P:La.Model.Models.SdSellingprice.CreateTime">
             <summary>
-            描述 : 
+            描述 :CreateTime 
             空值 :true 
             </summary>
         </member>
         <member name="P:La.Model.Models.SdSellingprice.UpdateBy">
             <summary>
-            描述 : 
+            描述 :UpdateBy 
             空值 :true 
             </summary>
         </member>
         <member name="P:La.Model.Models.SdSellingprice.UpdateTime">
             <summary>
-            描述 : 
+            描述 :UpdateTime 
             空值 :true 
             </summary>
         </member>
@@ -11135,6 +11135,11 @@
         <member name="P:La.Model.System.Generate.GenTableColumn.TableName">
             <summary>
             代码生成表名称
+            </summary>
+        </member>
+        <member name="F:La.Model.System.Generate.GenTableColumn.columnComment">
+            <summary>
+            列说明
             </summary>
         </member>
         <member name="P:La.Model.System.Generate.GenTableColumn.ColumnComment">

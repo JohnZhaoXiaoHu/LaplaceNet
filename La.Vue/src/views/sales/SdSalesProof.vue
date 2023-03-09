@@ -330,25 +330,25 @@
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="createBy" prop="createBy">
-              <el-input clearable v-model="form.createBy" :placeholder="$t('btn.enter')+'createBy'" />
+            <el-form-item label="CreateBy" prop="createBy">
+              <el-input clearable v-model="form.createBy" :placeholder="$t('btn.enter')+'CreateBy'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="createTime" prop="createTime">
+            <el-form-item label="CreateTime" prop="createTime">
               <el-date-picker clearable v-model="form.createTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="updateBy" prop="updateBy">
-              <el-input clearable v-model="form.updateBy" :placeholder="$t('btn.enter')+'updateBy'" />
+            <el-form-item label="UpdateBy" prop="updateBy">
+              <el-input clearable v-model="form.updateBy" :placeholder="$t('btn.enter')+'UpdateBy'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="updateTime" prop="updateTime">
+            <el-form-item label="UpdateTime" prop="updateTime">
               <el-date-picker clearable v-model="form.updateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>

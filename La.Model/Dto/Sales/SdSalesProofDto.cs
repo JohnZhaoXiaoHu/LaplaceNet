@@ -269,25 +269,25 @@ namespace La.Model.Dto
         public string Remark { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :CreateBy 
         /// </summary>
         [ExcelIgnore]
         public string CreateBy { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :CreateTime 
         /// </summary>
         [ExcelIgnore]
         public DateTime? CreateTime { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UpdateBy 
         /// </summary>
         [ExcelIgnore]
         public string UpdateBy { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UpdateTime 
         /// </summary>
         [ExcelIgnore]
         public DateTime? UpdateTime { get; set; }

@@ -1,14 +1,16 @@
 ﻿using La.Infra;
 using La.Infra.Extensions;
 using JinianNet.JNTemplate;
+using La.CodeGenerator.Model;
+using La.CodeGenerator;
+using La.Common;
+using La.Model.System.Generate;
 using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using La.CodeGenerator.Model;
-using La.Common;
-using La.Model.System.Generate;
+
 
 namespace La.CodeGenerator
 {
@@ -19,10 +21,6 @@ namespace La.CodeGenerator
     public class CodeGeneratorTool
     {
         private static readonly string CodeTemplateDir = "CodeGenTemplate";
-        /// <summary>
-        /// 代码生成器配置
-        /// </summary>
-        private static CodeGenerateOption _option = new CodeGenerateOption();
 
         /// <summary>
         /// 代码生成器入口方法
@@ -30,26 +28,18 @@ namespace La.CodeGenerator
         /// <param name="dto"></param>
         public static void Generate(GenerateDto dto)
         {
-            _option.BaseNamespace =dto.GenTable.BaseNameSpace;//"La.";//默认命名空间前缀
-            _option.SubNamespace = dto.GenTable.ModuleName.FirstUpperCase();
-            _option.DtosNamespace = _option.BaseNamespace + "Model";
-            _option.ModelsNamespace = _option.BaseNamespace + "Model";
-            _option.RepositoriesNamespace = _option.BaseNamespace + "Repository";
-            _option.IRepositoriesNamespace = _option.BaseNamespace + "Repository";
-            _option.IServicsNamespace = _option.BaseNamespace + "Service";
-            _option.ServicesNamespace = _option.BaseNamespace + "Service";
-            _option.ApiControllerNamespace = _option.BaseNamespace + "WebApi";
-
             var vuePath = AppSettings.GetConfig("gen:vuePath");
             dto.VueParentPath = dto.VueVersion == 3 ? "La.Vue" : "La.Vue";
             if (!vuePath.IsEmpty())
             {
                 dto.VueParentPath = vuePath;
             }
-            dto.GenOptions = _option;
+            dto.GenOptions = GenerateOption(dto.GenTable);
+            if (dto.GenTable.SubTable != null)
+            {
+                dto.SubTableOptions = GenerateOption(dto.GenTable.SubTable);
+            }
 
-            string PKName = "Id";
-            string PKType = "int";
             ReplaceDto replaceDto = new()
             {
                 ModelTypeName = dto.GenTable.ClassName,//表名对应C# 实体类名
@@ -63,29 +53,15 @@ namespace La.CodeGenerator
                 ShowBtnTruncate = dto.GenTable.Options.CheckedBtn.Any(f => f == 6),
                 ShowBtnImport = dto.GenTable.Options.CheckedBtn.Any(f => f == 7),
             };
+            var columns = dto.GenTable.Columns;
 
-            //循环表字段信息
-            foreach (GenTableColumn dbFieldInfo in dto.GenTable.Columns.OrderBy(x => x.Sort))
-            {
-                if (dbFieldInfo.IsPk || dbFieldInfo.IsIncrement)
-                {
-                    PKName = dbFieldInfo.CsharpField;
-                    PKType = dbFieldInfo.CsharpType;
-                }
-                if (dbFieldInfo.HtmlType.Equals(GenConstants.HTML_IMAGE_UPLOAD) || dbFieldInfo.HtmlType.Equals(GenConstants.HTML_FILE_UPLOAD))
-                {
-                    replaceDto.UploadFile = 1;
-                }
-                if (dbFieldInfo.HtmlType.Equals(GenConstants.HTML_SELECT_MULTI))
-                {
-                    replaceDto.SelectMulti = 1;
-                }
-                dbFieldInfo.CsharpFieldFl = dbFieldInfo.CsharpField.FirstLowerCase();
-            }
+            replaceDto.PKName = columns.Find(f => f.IsPk || f.IsIncrement).CsharpField ?? "Id";
+            replaceDto.PKType = columns.Find(f => f.IsPk || f.IsIncrement).CsharpType ?? "int";
 
-            replaceDto.PKName = PKName;
-            replaceDto.PKType = PKType;
-            replaceDto.FistLowerPk = PKName.FirstLowerCase();
+            replaceDto.UploadFile = columns.Any(f => f.HtmlType.Equals(GenConstants.HTML_IMAGE_UPLOAD) || f.HtmlType.Equals(GenConstants.HTML_FILE_UPLOAD)) ? 1 : 0;
+            replaceDto.SelectMulti = columns.Any(f => f.HtmlType.Equals(GenConstants.HTML_SELECT_MULTI)) ? 1 : 0;
+            replaceDto.ShowEditor = columns.Any(f => f.HtmlType.Equals(GenConstants.HTML_EDITOR)) ? 1 : 0;
+            replaceDto.FistLowerPk = replaceDto.PKName.FirstLowerCase();
             InitJntTemplate(dto, replaceDto);
 
             GenerateModels(replaceDto, dto);
@@ -119,6 +95,23 @@ namespace La.CodeGenerator
             }
         }
 
+        private static CodeGenerateOption GenerateOption(GenTable genTable)
+        {
+            CodeGenerateOption _option = new()
+            {
+                BaseNamespace = genTable.BaseNameSpace,
+                SubNamespace = genTable.ModuleName.FirstUpperCase()
+            };
+            _option.DtosNamespace = _option.BaseNamespace + "Model.Dto";
+            _option.ModelsNamespace = _option.BaseNamespace + "Model";
+            _option.RepositoriesNamespace = _option.BaseNamespace + "Repository";
+            //_option.IRepositoriesNamespace = _option.BaseNamespace + "Repository";
+            _option.IServicsNamespace = _option.BaseNamespace + "Service";
+            _option.ServicesNamespace = _option.BaseNamespace + "Service";
+            _option.ApiControllerNamespace = _option.BaseNamespace + "WebApi";
+            return _option;
+        }
+
         #region 读取模板
 
         /// <summary>
@@ -131,8 +124,8 @@ namespace La.CodeGenerator
             var tpl = JnHelper.ReadTemplate(CodeTemplateDir, "TplModel.txt");
             var tplDto = JnHelper.ReadTemplate(CodeTemplateDir, "TplDto.txt");
 
-            string fullPath = Path.Combine(_option.ModelsNamespace, "Models", _option.SubNamespace, replaceDto.ModelTypeName + ".cs");
-            string fullPathDto = Path.Combine(_option.ModelsNamespace, "Dto", _option.SubNamespace, $"{replaceDto.ModelTypeName}Dto.cs");
+            string fullPath = Path.Combine(generateDto.GenOptions.ModelsNamespace, "Models", generateDto.GenOptions.SubNamespace, replaceDto.ModelTypeName + ".cs");
+            string fullPathDto = Path.Combine(generateDto.GenOptions.ModelsNamespace, "Dto", generateDto.GenOptions.SubNamespace, replaceDto.ModelTypeName + "Dto.cs");
 
             generateDto.GenCodes.Add(new GenCode(1, "Model.cs", fullPath, tpl.Render()));
             generateDto.GenCodes.Add(new GenCode(2, "Dto.cs", fullPathDto, tplDto.Render()));
@@ -147,7 +140,7 @@ namespace La.CodeGenerator
         {
             var tpl = JnHelper.ReadTemplate(CodeTemplateDir, "TplRepository.txt");
             var result = tpl.Render();
-            var fullPath = Path.Combine(_option.RepositoriesNamespace, _option.SubNamespace, $"{replaceDto.ModelTypeName}Repository.cs");
+            var fullPath = Path.Combine(generateDto.GenOptions.RepositoriesNamespace, generateDto.GenOptions.SubNamespace, $"{replaceDto.ModelTypeName}Repository.cs");
 
             generateDto.GenCodes.Add(new GenCode(3, "Repository.cs", fullPath, result));
         }
@@ -160,8 +153,8 @@ namespace La.CodeGenerator
             var tpl = JnHelper.ReadTemplate(CodeTemplateDir, "TplService.txt");
             var tpl2 = JnHelper.ReadTemplate(CodeTemplateDir, "TplIService.txt");
 
-            var fullPath = Path.Combine(_option.ServicesNamespace, _option.SubNamespace, $"{replaceDto.ModelTypeName}Service.cs");
-            var fullPath2 = Path.Combine(_option.IServicsNamespace, _option.SubNamespace, $"I{_option.SubNamespace}Service", $"I{replaceDto.ModelTypeName}Service.cs");
+            var fullPath = Path.Combine(generateDto.GenOptions.ServicesNamespace, generateDto.GenOptions.SubNamespace, $"{replaceDto.ModelTypeName}Service.cs");
+            var fullPath2 = Path.Combine(generateDto.GenOptions.IServicsNamespace, generateDto.GenOptions.SubNamespace, $"I{generateDto.GenOptions.SubNamespace}Service", $"I{replaceDto.ModelTypeName}Service.cs");
 
             generateDto.GenCodes.Add(new GenCode(4, "Service.cs", fullPath, tpl.Render()));
             generateDto.GenCodes.Add(new GenCode(4, "IService.cs", fullPath2, tpl2.Render()));
@@ -176,7 +169,7 @@ namespace La.CodeGenerator
             tpl.Set("QueryCondition", replaceDto.QueryCondition);
             var result = tpl.Render();
 
-            var fullPath = Path.Combine(_option.ApiControllerNamespace, "Controllers", _option.SubNamespace, $"{replaceDto.ModelTypeName}Controller.cs");
+            var fullPath = Path.Combine(generateDto.GenOptions.ApiControllerNamespace, "Controllers", generateDto.GenOptions.SubNamespace, $"{replaceDto.ModelTypeName}Controller.cs");
             generateDto.GenCodes.Add(new GenCode(5, "Controller.cs", fullPath, result));
         }
 
@@ -184,27 +177,12 @@ namespace La.CodeGenerator
         /// 生成Vue页面
         private static void GenerateVueViews(ReplaceDto replaceDto, GenerateDto generateDto)
         {
-            string fileName = string.Empty;
-            switch (generateDto.GenTable.TplCategory)
+            string fileName = generateDto.GenTable.TplCategory switch
             {
-                case "tree":
-                    fileName = "TplTreeVue.txt";
-                    break;
-                case "crud":
-                    fileName = "TplVue.txt";
-                    break;
-                case "subNav":
-                    fileName = "TplVue.txt";
-                    break;
-                case "subNavMore":
-                    fileName = "TplVue.txt";
-                    break;
-                case "select":
-                    fileName = "TplVueSelect.txt";
-                    break;
-                default:
-                    break;
-            }
+                "tree" => "TplTreeVue.txt",
+                "select" => "TplVueSelect.txt",
+                _ => "TplVue.txt",
+            };
             var tpl = JnHelper.ReadTemplate(CodeTemplateDir, fileName);
             tpl.Set("vueQueryFormHtml", replaceDto.VueQueryFormHtml);
             tpl.Set("VueViewFormContent", replaceDto.VueViewFormHtml);//添加、修改表单
@@ -226,10 +204,6 @@ namespace La.CodeGenerator
             string fileName = generateDto.GenTable.TplCategory switch
             {
                 "tree" => "TreeVue.txt",
-                "crud" => "Vue.txt",
-                //case "select":
-                //    fileName = "TplVueSelect.txt";
-                //    break;
                 _ => "Vue.txt",
             };
             fileName = Path.Combine("v3", fileName);
@@ -403,11 +377,6 @@ namespace La.CodeGenerator
             return sTempDatatype;
         }
 
-        public static bool IsNumber(string tableDataType)
-        {
-            string[] arr = new string[] { "int", "long" };
-            return arr.Any(f => f.Contains(GetCSharpDatatype(tableDataType)));
-        }
         #endregion
 
         #region 初始化信息
@@ -425,8 +394,8 @@ namespace La.CodeGenerator
             GenTable genTable = new()
             {
                 DbName = dbName,
-                BaseNameSpace = "La.",//导入默认命名空间前缀
-                ModuleName = "xxx",//导入默认模块名
+                BaseNameSpace = "ZR.",//导入默认命名空间前缀
+                ModuleName = "business",//导入默认模块名
                 ClassName = GetClassName(tableName).FirstUpperCase(),
                 BusinessName = tableName.UnderScoreToCamelCase().FirstUpperCase(),
                 FunctionAuthor = AppSettings.GetConfig(GenConstants.Gen_author),
@@ -468,7 +437,6 @@ namespace La.CodeGenerator
         /// <returns></returns>
         private static GenTableColumn InitColumnField(GenTable genTable, DbColumnInfo column)
         {
-            //插入
             GenTableColumn genTableColumn = new()
             {
                 ColumnName = column.DbColumnName.FirstLowerCase(),
@@ -489,29 +457,25 @@ namespace La.CodeGenerator
                 IsExport = true,
                 HtmlType = GenConstants.HTML_INPUT,
             };
-            //图片
+
             if (GenConstants.imageFiled.Any(f => column.DbColumnName.ToLower().Contains(f.ToLower())))
             {
                 genTableColumn.HtmlType = GenConstants.HTML_IMAGE_UPLOAD;
             }
-            //数据库时间类型
             else if (GenConstants.COLUMNTYPE_TIME.Any(f => genTableColumn.CsharpType.ToLower().Contains(f.ToLower())))
             {
                 genTableColumn.HtmlType = GenConstants.HTML_DATETIME;
             }
-            //单选
             else if (GenConstants.radioFiled.Any(f => column.DbColumnName.EndsWith(f, StringComparison.OrdinalIgnoreCase)) ||
                 GenConstants.radioFiled.Any(f => column.DbColumnName.StartsWith(f, StringComparison.OrdinalIgnoreCase)))
             {
                 genTableColumn.HtmlType = GenConstants.HTML_RADIO;
             }
-            //多选
             else if (GenConstants.selectFiled.Any(f => column.DbColumnName == f) ||
                 GenConstants.selectFiled.Any(f => column.DbColumnName.EndsWith(f, StringComparison.OrdinalIgnoreCase)))
             {
                 genTableColumn.HtmlType = GenConstants.HTML_SELECT;
             }
-            //文本
             else if (column.Length > 500)
             {
                 genTableColumn.HtmlType = GenConstants.HTML_TEXTAREA;
@@ -563,7 +527,9 @@ namespace La.CodeGenerator
                 options.Data.Set("nextTick", "$");
                 options.Data.Set("replaceDto", replaceDto);
                 options.Data.Set("options", dto.GenOptions);
+                options.Data.Set("subTableOptions", dto.SubTableOptions);
                 options.Data.Set("genTable", dto.GenTable);
+                options.Data.Set("genSubTable", dto.GenTable?.SubTable);
                 options.Data.Set("showCustomInput", showCustomInput);
                 options.Data.Set("tool", new CodeGeneratorTool());
                 options.Data.Set("codeTool", new CodeGenerateTemplate());

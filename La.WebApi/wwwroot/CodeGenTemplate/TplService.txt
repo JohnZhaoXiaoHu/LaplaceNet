@@ -5,7 +5,7 @@ using ${options.ModelsNamespace};
 using ${options.ModelsNamespace}.Dto;
 using ${options.ModelsNamespace}.Models;
 using ${options.ModelsNamespace}.System;
-using ${options.IRepositoriesNamespace};
+using La.Repository;
 using ${options.IServicsNamespace}.${options.SubNamespace}.I${options.SubNamespace}Service;
 using System.Linq;
 $if(genTable.TplCategory == "tree")
@@ -52,7 +52,7 @@ $end
 $end
             var response = Queryable()
 $if(null != genTable.SubTableName && "" != genTable.SubTableName)
-                .Includes(it => it.${genTable.SubTable.ClassName}.MappingField(z => z.${genTable.SubTableFkName}, () => it.${replaceDto.PKName}))
+                .Includes(x => x.${genTable.SubTable.ClassName}Nav) //填充子对象 //.Includes(it => it.${genTable.SubTable.ClassName}.MappingField(z => z.${genTable.SubTableFkName}, () => it.${replaceDto.PKName}))
 $end
 $if(genTable.Options.SortField != "" && genTable.Options.SortField != null)
                 //.OrderBy("${genTable.Options.SortField} ${genTable.Options.SortType}")

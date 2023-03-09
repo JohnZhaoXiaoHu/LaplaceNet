@@ -33,13 +33,13 @@ $if(genTable.TplCategory == "tree")
 $end
 
 $if(genTable.TplCategory == "subNav" && genTable.SubTable != null)
-        [Navigate(NavigateType.Dynamic, null)] //自定义关系映射
-        public ${genTable.SubTable.ClassName} ${genTable.SubTable.ClassName} { get; set; }
+        [Navigate(NavigateType.OneToOne, nameof(${replaceDto.PKName}))]   //自定义关系映射//[Navigate(NavigateType.Dynamic, null)] //自定义关系映射
+        public ${genTable.SubTable.ClassName} ${genTable.SubTable.ClassName}Nav { get; set; }  //public ${genTable.SubTable.ClassName} ${genTable.SubTable.ClassName} { get; set; }
 $end
 
 $if(genTable.TplCategory == "subNavMore" && genTable.SubTable != null)
-        [Navigate(NavigateType.Dynamic, null)] //自定义关系映射
-        public List<${genTable.SubTable.ClassName}> ${genTable.SubTable.ClassName} { get; set; }
+        [Navigate(NavigateType.OneToMany, nameof(${genTable.SubTable.ClassName}.${genTable.SubTableFkName}), nameof(${replaceDto.PKName}))] //自定义关系映射 //[Navigate(NavigateType.Dynamic, null)] //自定义关系映射
+        public List<${genTable.SubTable.ClassName}> ${genTable.SubTable.ClassName}Nav { get; set; } //public List<${genTable.SubTable.ClassName}> ${genTable.SubTable.ClassName} { get; set; }
 $end
     }
 }
