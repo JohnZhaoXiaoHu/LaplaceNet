@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using La.Model;
+using JinianNet.JNTemplate;
+using La.Infra;
+using Org.BouncyCastle.Asn1.Pkcs;
 
 namespace La.CodeGenerator.Service
 {
@@ -13,10 +16,24 @@ namespace La.CodeGenerator.Service
         /// <returns></returns>
         public List<string> GetAllDataBases()
         {
+            //读取配置文件中数据库名称(AppSettings.json)
+            string connStr = AppSettings.GetConfig(GenConstants.Gen_conn); 
+            string[] AppSettoArrey = connStr.Split(';'); //字符串转数组
+            string AppSetName = AppSettoArrey[4];
+            int sindex = AppSettoArrey[4].IndexOf('=') + 1;
+            int eindex = AppSettoArrey[4].Length - AppSettoArrey[4].IndexOf('=') - 1;
+            var AppSetDataBase = AppSetName.Substring(sindex, eindex);
+
+            //读取数据库名称
             var db = GetSugarDbContext();
             var templist = db.DbMaintenance.GetDataBaseList(db);
 
-            return templist;
+            //只读取当前数据库
+            var Currentdatabase = (from s in templist
+                           where s.Contains(AppSetDataBase)
+                           select s).ToList();
+
+            return Currentdatabase;
         }
 
         /// <summary>

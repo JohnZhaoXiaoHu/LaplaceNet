@@ -1,12 +1,15 @@
 ﻿using La.Infra;
 using La.Infra.Extensions;
+using La.Model.Models;
 using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace La.CodeGenerator
 {
@@ -27,6 +30,13 @@ namespace La.CodeGenerator
             string connStr = AppSettings.GetConfig(GenConstants.Gen_conn);
             int dbType = AppSettings.GetAppConfig(GenConstants.Gen_conn_dbType, 0);
 
+           // //读取数据库名称
+           // string[] arrayDb = connStr.Split(';'); //字符串转数组
+           // string DbName= arrayDb[4];
+           // int sindex = arrayDb[4].IndexOf('=')+1;
+           // int eindex = arrayDb[4].Length - arrayDb[4].IndexOf('=')-1;
+           //var AppDataBaseName= DbName.Substring(sindex, eindex);
+
             if (!string.IsNullOrEmpty(dbName))
             {
                 string replaceStr = GetValue(connStr, "Database=", ";");
@@ -44,6 +54,7 @@ namespace La.CodeGenerator
             {
                 new ConnectionConfig(){
                     ConnectionString = connStr,
+                    ConfigId = "1",//设置库的唯一标识
                     DbType = (DbType)dbType,
                     IsAutoCloseConnection = true,//开启自动释放模式和EF原理一样
                     InitKeyType = InitKeyType.Attribute,//从特性读取主键和自增列信息
