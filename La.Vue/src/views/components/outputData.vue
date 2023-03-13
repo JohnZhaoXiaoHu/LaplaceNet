@@ -139,12 +139,24 @@
 </template>
 
 <script setup name="OutputData">
+  // 引入 ppoutputslave操作方法
   import {
     listPpOutputSlave, addPpOutputSlave, delPpOutputSlave, updatePpOutputSlave, getPpOutputSlave,
-    exportPpOutputSlave,
+
   }
     from '@/api/production/ppoutputslave.js'
-  import { listPpOutputMaster, listPpOutputMasterAll, getPpOutputMaster } from '@/api/production/ppoutputmaster.js'
+  // 引入 ppoutputmaster操作方法
+  import {
+    listPpOutputMaster, getPpOutputMaster,
+  }
+    from '@/api/production/ppoutputmaster.js'
+
+  import {
+    listPpOutputMasterAll,
+
+  }
+
+    from '@/api/production/ppoutputmasterall.js'
   const { proxy } = getCurrentInstance()
   const props = defineProps({
     pomId: {

@@ -13,18 +13,13 @@ import '@/assets/styles/index.scss' // global css
 
 //引入element-plus库
 import ElementPlus from 'element-plus'
-//引入element-plus样式
-//import 'element-plus/dist/index.css'
-//引入VForm3库
-//import VForm3 from 'vform3-builds'
-//引入VForm3样式
-//import 'vform3-builds/dist/designer.style.css'
-
-//引入form-create V3库
-import formCreate from '@form-create/element-ui'
-import FcDesigner from '@form-create/designer'
+//引用element-plus样式
 import ElementUI from 'element-plus/es/index'
 import 'element-plus/dist/index.css'
+//VForm3 可视化动态表单平台及h5页面搭建平台
+import VForm3 from 'vform3-builds'  //引入VForm 3库
+import 'vform3-builds/dist/designer.style.css'  //引入VForm3样式
+import VFormRender from 'vform3-builds/dist/render.umd.js'  //引入VFormRender组件
 //引入jsPlumb流程图绘制
 import App from './App'
 import router from './router'
@@ -113,8 +108,8 @@ directive(app)
 //window.axios = axios
 app.use(pinia)
   .use(router)
-  .use(formCreate)
-  .use(FcDesigner)
+  .use(VForm3)
+  .use(VFormRender)
   .use(plugins)
   .use(ElementUI)
   .use(ElementPlus, {})

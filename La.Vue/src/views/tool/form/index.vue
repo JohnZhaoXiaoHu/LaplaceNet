@@ -1,106 +1,50 @@
 <template>
   <div id="app">
-    <div class="_fc-t-header">
-      <img class="_fc-t-logo" src="http://form-create.com/logo.png">
-      <div class="_fc-t-name">form-create-designer</div>
-      <div class="_fc-t-menu">
-        <el-button size="small" @click="setJson"> 导入JSON</el-button>
-        <el-button size="small" @click="setOption"> 导入Options</el-button>
-        <el-button size="small" type="primary" @click="showJson">生成JSON</el-button>
-        <el-button size="small" type="success" @click="showOption">生成Options</el-button>
-        <el-button size="small" type="danger" @click="showTemplate">生成组件</el-button>
-        <el-button size="small" @click="changeLocale">中英切换</el-button>
-      </div>
-    </div>
-    <fc-designer ref="designer" :locale="locale" />
+    <v-form-designer ref="vfDesigner" :field-list-api="fieldListApi" :banned-widgets="testBanned"
+      :designer-config="designerConfig">
+      <!-- 自定义按钮插槽演示 -->
+      <template #customToolButtons>
+        <el-button type="text" @click="saveFormJson">保存</el-button>
+      </template>
+    </v-form-designer>
+
   </div>
 </template>
 
 <script setup>
-  const TITLE = ['生成规则', '表单规则', '生成组件', '设置生成规则', '设置表单规则'];
-  function showJson() {
-    this.state = true;
-    this.type = 0;
-    this.value = this.$refs.designer.getRule();
+  import { ref, reactive } from 'vue'
+  import { ElMessage } from 'element-plus'
+
+  const vfDesigner = ref(null)
+  const fieldListApi = reactive({
+    URL: 'https://www.fastmock.site/mock/2de212e0dc4b8e0885fea44ab9f2e1d0/vform/listField',
+    labelKey: 'fieldLabel',
+    nameKey: 'fieldName'
+  })
+  const testBanned = ref([
+    //'sub-form',
+    //'alert',
+  ])
+  const designerConfig = reactive({
+    languageMenu: true,
+    //externalLink: false,
+    //formTemplates: false,
+    //eventCollapse: false,
+    //clearDesignerButton: false,
+    //previewFormButton: false,
+
+    //presetCssCode: '.abc { font-size: 16px; }',
+  })
+
+  const saveFormJson = () => {
+    let formJson = vfDesigner.value.getFormJson()
+    //TODO: 将formJson提交给后端保存接口，需自行实现！！
+    ElMessage.success('表单已保存！')
   }
-
-
 </script>
 
-<style>
-  ._fc-t-header {
-    height: 60px;
-    margin: 0 20px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    cursor: default;
-  }
-
-  ._fc-t-logo {
-    height: 26px;
-  }
-
-  ._fc-t-name {
-    display: inline-block;
-    color: rgba(0, 0, 0, 0.8);
-    font-size: 20px;
-    font-weight: 600;
-    margin-left: 5px;
-  }
-
-  ._fc-t-menu {
-    position: absolute;
-    right: 0;
-  }
-
-  ._fc-t-menu i {
-    font-size: 12px;
-  }
-
-  body {
-    min-height: 100vh;
-    padding: 0;
-    margin: 0;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
+<style lang="scss">
   #app {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  ._fc-copyright {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0 20px;
-    font-size: 16px;
-    border-top: 1px solid #ECECEC;
-    background-color: #fff;
-    cursor: pointer;
-  }
-
-  ._fc-t-dialog .CodeMirror {
-    height: 450px;
-  }
-
-  ._fc-t-dialog .CodeMirror-line {
-    line-height: 16px !important;
-    font-size: 13px !important;
-  }
-
-  .CodeMirror-lint-tooltip {
-    z-index: 2021 !important;
-  }
-
-  ._fc-t-dialog .el-dialog__body {
-    padding: 0px 20px;
-  }
-
-  ._fc-b-item {
-    display: flex;
+    height: 100%;
   }
 </style>
