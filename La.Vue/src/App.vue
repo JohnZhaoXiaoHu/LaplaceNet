@@ -1,7 +1,12 @@
 <template>
+
   <!-- 添加点击事件 -->
   <el-config-provider :locale="locale" :size="size">
-    <router-view />
+    <router-view v-slot="{ Component, route }">
+      <!-- <transition name="fade"> -->
+      <component :is="Component" :key="route.path" />
+      <!-- </transition> -->
+    </router-view>
   </el-config-provider>
 </template>
 <script setup>
@@ -15,10 +20,15 @@
   // import en from 'vxe-table/lib/locale/lang/en-US'
   // import ja from 'vxe-table/lib/locale/lang/ja-JP'
   import defaultSettings from '@/settings'
+  import { useRoute } from 'vue-router'
   //import login from './modules/login'
   const { proxy } = getCurrentInstance()
   // 设置超时时间:30分钟
-  const zIndex = 3000
+  const route = useRoute(() => {
+    return route
+  })
+
+
   const token = computed(() => {
     return useUserStore().token
   })

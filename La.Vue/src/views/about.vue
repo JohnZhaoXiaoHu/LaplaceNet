@@ -1,5 +1,4 @@
 <template>
-
   <div class="chart-warp-top">
     <ChartHead />
   </div>

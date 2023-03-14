@@ -60,7 +60,7 @@ namespace La.WebApi.Extensions
                 c.SwaggerDoc("Model", new OpenApiInfo                 
                 { 
                     Title = "实体层类库", 
-                    Version = "Model" 
+                    Version = "V1.0.0" 
                 });   //分组显示
                 try
                 {

@@ -234,7 +234,7 @@
       width: 105%;
       height: 105%;
       padding: 0px 10px 5px;
-      color: white;
+      color: #304156;
 
     }
 

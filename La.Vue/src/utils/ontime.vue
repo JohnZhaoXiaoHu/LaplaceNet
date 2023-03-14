@@ -8,6 +8,9 @@
       <span>{{$t('layout.hostName')}}</span>
     </div>
   </div>
+  <div class="">
+    <img src="@/assets/logo/logo.png" style="width:128px;height:128px;display:block; margin:0 auto;">
+  </div>
 </template>
 
 <script setup name="chartHead">

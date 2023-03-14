@@ -394,8 +394,8 @@ namespace La.CodeGenerator
             GenTable genTable = new()
             {
                 DbName = dbName,
-                BaseNameSpace = "ZR.",//导入默认命名空间前缀
-                ModuleName = "business",//导入默认模块名
+                BaseNameSpace = "La.",//导入默认命名空间前缀
+                ModuleName = "La",//导入默认模块名
                 ClassName = GetClassName(tableName).FirstUpperCase(),
                 BusinessName = tableName.UnderScoreToCamelCase().FirstUpperCase(),
                 FunctionAuthor = AppSettings.GetConfig(GenConstants.Gen_author),
