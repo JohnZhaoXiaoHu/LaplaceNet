@@ -1,5 +1,5 @@
 <!--
- * @Descripttion: (自定义表单/wf_customform)
+ * @Descripttion: (审批流程/wf_workflowtable)
  * @version: (1.0)
  * @Author: (Davis.Cheng)
  * @Date: (2023-03-14)
@@ -17,22 +17,22 @@
     <!-- 工具区域 -->
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
-        <el-button type="primary" v-hasPermi="['wf:customform:add']" plain icon="plus" @click="handleAdd">
+        <el-button type="primary" v-hasPermi="['la:wfworkflowtable:add']" plain icon="plus" @click="handleAdd">
           {{ $t('btn.add') }}
         </el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button type="success" :disabled="single" v-hasPermi="['wf:customform:edit']" plain icon="edit" @click="handleUpdate">
+        <el-button type="success" :disabled="single" v-hasPermi="['la:wfworkflowtable:edit']" plain icon="edit" @click="handleUpdate">
           {{ $t('btn.edit') }}
         </el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button type="danger" :disabled="multiple" v-hasPermi="['wf:customform:delete']" plain icon="delete" @click="handleDelete">
+        <el-button type="danger" :disabled="multiple" v-hasPermi="['la:wfworkflowtable:delete']" plain icon="delete" @click="handleDelete">
           {{ $t('btn.delete') }}
         </el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button color="#FF69B4" plain icon="download" @click="handleExport" v-hasPermi="['wf:customform:export']">
+        <el-button color="#FF69B4" plain icon="download" @click="handleExport" v-hasPermi="['la:wfworkflowtable:export']">
           {{ $t('btn.export') }}
         </el-button>
       </el-col>
@@ -43,53 +43,87 @@
     <el-table :data="dataList" v-loading="loading" ref="table" border highlight-current-row @sort-change="sortChange" @selection-change="handleSelectionChange" height="602"
       style="width: 100%">
       <el-table-column type="selection" width="50" align="center"/>
-      <el-table-column prop="id" label="ID" align="center" v-if="columns.showColumn('id')"/>
-      <el-table-column prop="name" label="名称" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('name')"/>
-      <el-table-column prop="sort" label="排序" align="center" v-if="columns.showColumn('sort')"/>
-      <el-table-column prop="flowInstanceId" label="流程实例模板Id" align="center" v-if="columns.showColumn('flowInstanceId')"/>
-      <el-table-column prop="remark" label="备注" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('remark')"/>
+      <el-table-column prop="workflowtableId" label="ID" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('workflowtableId')"/>
+      <el-table-column prop="workflowId" label="流程id" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('workflowId')"/>
+      <el-table-column prop="workName" label="流程名称" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('workName')"/>
+      <el-table-column prop="workTableKey" label="表主键id" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('workTableKey')"/>
+      <el-table-column prop="workTable" label="表名" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('workTable')"/>
+      <el-table-column prop="workTableName" label="业务名称" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('workTableName')"/>
+      <el-table-column prop="currentOrderId" label="当前审批节点" align="center" v-if="columns.showColumn('currentOrderId')"/>
+      <el-table-column prop="auditStatus" label="审批状态" align="center" v-if="columns.showColumn('auditStatus')">
+        <template #default="scope">
+          <dict-tag :options=" options.auditStatusOptions" :value="scope.row.auditStatus" />
+        </template>
+      </el-table-column>
+      <el-table-column prop="enable" label="启用" align="center" v-if="columns.showColumn('enable')"/>
       <el-table-column :label="$t('btn.operate')" align="center" width="160">
         <template #default="scope">
-          <el-button v-hasPermi="['wf:customform:edit']" type="success" icon="edit" :title="$t('btn.edit')" @click="handleUpdate(scope.row)"></el-button>
-          <el-button v-hasPermi="['wf:customform:delete']" type="danger" icon="delete" :title="$t('btn.delete')" @click="handleDelete(scope.row)"></el-button>
+          <el-button v-hasPermi="['la:wfworkflowtable:edit']" type="success" icon="edit" :title="$t('btn.edit')" @click="handleUpdate(scope.row)"></el-button>
+          <el-button v-hasPermi="['la:wfworkflowtable:delete']" type="danger" icon="delete" :title="$t('btn.delete')" @click="handleDelete(scope.row)"></el-button>
         </template>
       </el-table-column>
     </el-table>
     <pagination class="mt10" background :total="total" v-model:page="queryParams.pageNum" v-model:limit="queryParams.pageSize" @pagination="getList" />
 
-    <!-- 添加或修改自定义表单对话框 -->
+    <!-- 添加或修改审批流程对话框 -->
     <el-dialog :title="title" :lock-scroll="false" v-model="open" >
       <el-form ref="formRef" :model="form" :rules="rules" label-width="100px">
         <el-row :gutter="20">
-    
+
           <el-col :lg="12">
-            <el-form-item label="ID" prop="id">
-              <el-input clearable v-model="form.id" controls-position="right" :placeholder="$t('btn.enter')+'ID'" :disabled="title==$t('btn.edit')"/>
+            <el-form-item label="ID" prop="workflowtableId">
+              <el-input clearable v-model="form.workflowtableId" controls-position="right" :placeholder="$t('btn.enter')+'ID'" :disabled="title==$t('btn.edit')"/>
             </el-form-item>
           </el-col>
 
 
           <el-col :lg="12">
-            <el-form-item label="名称" prop="name">
-              <el-input clearable v-model="form.name" :placeholder="$t('btn.enter')+'名称'" />
-            </el-form-item>
-          </el-col>
-    
-          <el-col :lg="12">
-            <el-form-item label="排序" prop="sort">
-              <el-input clearable v-model="form.sort" :placeholder="$t('btn.enter')+'排序'" />
-            </el-form-item>
-          </el-col>
-    
-          <el-col :lg="12">
-            <el-form-item label="流程实例模板Id" prop="flowInstanceId">
-              <el-input clearable v-model="form.flowInstanceId" :placeholder="$t('btn.enter')+'流程实例模板Id'" />
+            <el-form-item label="流程id" prop="workflowId">
+              <el-input clearable v-model="form.workflowId" :placeholder="$t('btn.enter')+'流程id'" />
             </el-form-item>
           </el-col>
 
-          <el-col :lg="24">
-            <el-form-item label="备注" prop="remark">
-              <el-input clearable type="textarea" v-model="form.remark" :placeholder="$t('btn.enter')+'备注'"/>
+          <el-col :lg="12">
+            <el-form-item label="流程名称" prop="workName">
+              <el-input clearable v-model="form.workName" :placeholder="$t('btn.enter')+'流程名称'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="表主键id" prop="workTableKey">
+              <el-input clearable v-model="form.workTableKey" :placeholder="$t('btn.enter')+'表主键id'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="表名" prop="workTable">
+              <el-input clearable v-model="form.workTable" :placeholder="$t('btn.enter')+'表名'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="业务名称" prop="workTableName">
+              <el-input clearable v-model="form.workTableName" :placeholder="$t('btn.enter')+'业务名称'" />
+            </el-form-item>
+          </el-col>
+    
+          <el-col :lg="12">
+            <el-form-item label="当前审批节点" prop="currentOrderId">
+              <el-input clearable v-model="form.currentOrderId" :placeholder="$t('btn.enter')+'当前审批节点'" />
+            </el-form-item>
+          </el-col>
+    
+          <el-col :lg="12">
+            <el-form-item label="审批状态" prop="auditStatus">
+              <el-radio-group v-model="form.auditStatus">
+                <el-radio v-for="item in  options.auditStatusOptions" :key="item.dictValue" :label="parseInt(item.dictValue)">{{item.dictLabel}}</el-radio>
+              </el-radio-group>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="启用" prop="enable">
+              <el-input clearable v-model="form.enable" :placeholder="$t('btn.enter')+'启用'" />
             </el-form-item>
           </el-col>
 
@@ -127,15 +161,15 @@
   </div>
 </template>
 
-<script setup name="wfcustomform">
-// 引入 wfcustomform操作方法
-import { listWfCustomform, addWfCustomform, delWfCustomform, updateWfCustomform, getWfCustomform, 
+<script setup name="wfworkflowtable">
+// 引入 wfworkflowtable操作方法
+import { listWfWorkflowtable, addWfWorkflowtable, delWfWorkflowtable, updateWfWorkflowtable, getWfWorkflowtable, 
  
  } 
-from '@/api/workflow/wfcustomform.js'
+from '@/api/workflow/wfworkflowtable.js'
 //获取当前组件实例
 const { proxy } = getCurrentInstance()
-// 选中id数组数组
+// 选中workflowtableId数组数组
 const ids = ref([])
 // 非单个禁用
 const single = ref(true)
@@ -153,15 +187,19 @@ const queryParams = reactive({
 })
 //字段显示控制
 const columns = ref([
-  { visible: true, prop: 'id', label: 'ID' },
-  { visible: true, prop: 'name', label: '名称' },
-  { visible: true, prop: 'sort', label: '排序' },
-  { visible: true, prop: 'flowInstanceId', label: '流程实例模板Id' },
-  { visible: true, prop: 'remark', label: '备注' },
+  { visible: true, prop: 'workflowtableId', label: 'ID' },
+  { visible: true, prop: 'workflowId', label: '流程id' },
+  { visible: true, prop: 'workName', label: '流程名称' },
+  { visible: true, prop: 'workTableKey', label: '表主键id' },
+  { visible: true, prop: 'workTable', label: '表名' },
+  { visible: true, prop: 'workTableName', label: '业务名称' },
+  { visible: true, prop: 'currentOrderId', label: '当前审批节点' },
+  { visible: true, prop: 'auditStatus', label: '审批状态' },
+  { visible: false, prop: 'enable', label: '启用' },
 ])
   // 总条数
 const total = ref(0)
-  // 自定义表单表格数据
+  // 审批流程表格数据
 const dataList = ref([])
   // 查询参数
 const queryRef = ref()
@@ -172,10 +210,10 @@ const defaultTime = ref([new Date(2000, 1, 1, 0, 0, 0), new Date(2000, 2, 1, 23,
 var dictParams = [
 ]
 //字典定义
-//获取自定义表单表记录数据
+//获取审批流程表记录数据
 function getList(){
   loading.value = true
-  listWfCustomform(queryParams).then(res => {
+  listWfWorkflowtable(queryParams).then(res => {
     const { code, data } = res
     if (code == 200) {
       dataList.value = data.result
@@ -199,7 +237,7 @@ function resetQuery(){
 
 // 多选框选中数据
 function handleSelectionChange(selection) {
-  ids.value = selection.map((item) => item.id);
+  ids.value = selection.map((item) => item.workflowtableId);
   single.value = selection.length != 1
   multiple.value = !selection.length;
 }
@@ -233,11 +271,11 @@ const open = ref(false)
 const state = reactive({
   form: {},
   rules: {
-    id: [{ required: true, message: "ID"+proxy.$t('btn.empty'), trigger: "blur", type: "number" }],
-    sort: [{ required: true, message: "排序"+proxy.$t('btn.empty'), trigger: "blur", type: "number" }],
-    flowInstanceId: [{ required: true, message: "流程实例模板Id"+proxy.$t('btn.empty'), trigger: "blur", type: "number" }],
+    workflowtableId: [{ required: true, message: "ID"+proxy.$t('btn.empty'), trigger: "blur" }],
   },
   options: {
+    // 审批状态 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
+    auditStatusOptions: [],
   }
 })
 //将响应式对象转换成普通对象
@@ -252,11 +290,15 @@ function cancel(){
 // 重置表单
 function reset() {
   form.value = {
-    id: undefined,
-    name: undefined,
-    sort: undefined,
-    flowInstanceId: undefined,
-    remark: undefined,
+    workflowtableId: undefined,
+    workflowId: undefined,
+    workName: undefined,
+    workTableKey: undefined,
+    workTable: undefined,
+    workTableName: undefined,
+    currentOrderId: undefined,
+    auditStatus: undefined,
+    enable: undefined,
     createBy: undefined,
     createTime: undefined,
     updateBy: undefined,
@@ -276,8 +318,8 @@ function handleAdd() {
 // 修改按钮操作
 function handleUpdate(row) {
   reset()
-  const id = row.id || ids.value
-  getWfCustomform(id).then((res) => {
+  const id = row.workflowtableId || ids.value
+  getWfWorkflowtable(id).then((res) => {
     const { code, data } = res
     if (code == 200) {
       open.value = true
@@ -295,15 +337,15 @@ function handleUpdate(row) {
 function submitForm() {
   proxy.$refs["formRef"].validate((valid) => {
     if (valid) {
-      if (form.value.id != undefined && opertype.value === 2) {
-        updateWfCustomform(form.value).then((res) => {
+      if (form.value.workflowtableId != undefined && opertype.value === 2) {
+        updateWfWorkflowtable(form.value).then((res) => {
           proxy.$modal.msgSuccess(proxy.$t('common.Modicompleted'))
           open.value = false
           getList()
         })
         .catch(() => {})
       } else {
-        addWfCustomform(form.value).then((res) => {
+        addWfWorkflowtable(form.value).then((res) => {
             proxy.$modal.msgSuccess(proxy.$t('common.Newcompleted'))
             open.value = false
             getList()
@@ -316,11 +358,11 @@ function submitForm() {
 
 // 删除按钮操作
 function handleDelete(row) {
-  const Ids = row.id || ids.value
+  const Ids = row.workflowtableId || ids.value
 
   proxy.$confirm(proxy.$t('common.confirmDel') + Ids +proxy.$t('common.confirmDelDataitems'))
   .then(function () {
-      return delWfCustomform(Ids)
+      return delWfWorkflowtable(Ids)
   })
   .then(() => {
       getList()
@@ -334,13 +376,13 @@ function handleDelete(row) {
 // 导出按钮操作
 function handleExport() {
   proxy
-    .$confirm(proxy.$t('common.confirmExport')+"自定义表单", proxy.$t('common.warningTips'), {
+    .$confirm(proxy.$t('common.confirmExport')+"审批流程", proxy.$t('common.warningTips'), {
       confirmButtonText: proxy.$t('btn.submit'),
       cancelButtonText: proxy.$t('btn.cancel'),
       type: "warning",
     })
     .then(async () => {
-      await proxy.downFile('/workflow/WfCustomform/export', { ...queryParams })
+      await proxy.downFile('/workflow/WfWorkflowtable/export', { ...queryParams })
     })
 }
 

@@ -1104,6 +1104,2366 @@
             描述 : 
             </summary>
         </member>
+        <member name="T:La.Model.Dto.MmMaraQueryDto">
+            <summary>
+            常规物料数据查询对象
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.MmMaraDto">
+            <summary>
+            常规物料数据输入输出对象
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraID">
+            <summary>
+            描述 :ID主键 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraADPROF">
+            <summary>
+            描述 :调整参数文件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraAEKLK">
+            <summary>
+            描述 :净改变成本核算 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraAENAM">
+            <summary>
+            描述 :更改者  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraAESZN">
+            <summary>
+            描述 :文档变更号  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraallowPmatIgno">
+            <summary>
+            描述 :允许的变式价格 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraanimalOrigin">
+            <summary>
+            描述 :动物源  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraANP">
+            <summary>
+            描述 :ANP Code 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraATTYP">
+            <summary>
+            描述 :物料类别 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraBBTYP">
+            <summary>
+            描述 :分类清单类型 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraBEGRU">
+            <summary>
+            描述 :权限组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraBEHVO">
+            <summary>
+            描述 :容器 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraBFLME">
+            <summary>
+            描述 :后勤变量 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraBISMT">
+            <summary>
+            描述 :旧物料号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraBLANZ">
+            <summary>
+            描述 :页数 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraBLATT">
+            <summary>
+            描述 :页号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraBMATN">
+            <summary>
+            描述 :内部物料编号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarabrandId">
+            <summary>
+            描述 :商标 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraBREIT">
+            <summary>
+            描述 :宽度 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraBRGEW">
+            <summary>
+            描述 :毛重 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraBSTAT">
+            <summary>
+            描述 :创建状态  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraBSTME">
+            <summary>
+            描述 :订单单位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraBWSCL">
+            <summary>
+            描述 :货源 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraBWVOR">
+            <summary>
+            描述 :采购规则 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraCADKZ">
+            <summary>
+            描述 :CAD 标识 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaracareCode">
+            <summary>
+            描述 :护理代码 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraCMETH">
+            <summary>
+            描述 :转换方法 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraCMREL">
+            <summary>
+            描述 :CM 相关 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraCOLOR">
+            <summary>
+            描述 :颜色 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaracolorAtinn">
+            <summary>
+            描述 :内部特性  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraCOMMODITY">
+            <summary>
+            描述 :实物商品 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraCOMPL">
+            <summary>
+            描述 :完成水平 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraCUOBF">
+            <summary>
+            描述 :内部对象号  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraCWQPROC">
+            <summary>
+            描述 :CW 参数文件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraCWQREL">
+            <summary>
+            描述 :称重物料相关 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraCWQTOLGR">
+            <summary>
+            描述 :CW 容差组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraDATAB">
+            <summary>
+            描述 :有效起始日  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaradgPackStatus">
+            <summary>
+            描述 :危险品包装状态 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraDISST">
+            <summary>
+            描述 :低层代码 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraEAN11">
+            <summary>
+            描述 :EAN/UPC 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraEANNR">
+            <summary>
+            描述 :EAN 号  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraEKWSL">
+            <summary>
+            描述 :采购值代码  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraENTAR">
+            <summary>
+            描述 :取消激活字段  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraERGEI">
+            <summary>
+            描述 :重量单位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraERGEW">
+            <summary>
+            描述 :允许的包装重量 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraERNAM">
+            <summary>
+            描述 :创建者  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraERSDA">
+            <summary>
+            描述 :创建日期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraERVOE">
+            <summary>
+            描述 :体积单位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraERVOL">
+            <summary>
+            描述 :允许的体积  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraETIAG">
+            <summary>
+            描述 :给物料组加标签 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraETIAR">
+            <summary>
+            描述 :标号类型 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraETIFO">
+            <summary>
+            描述 :标签格式 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraEXTWG">
+            <summary>
+            描述 :外部物料组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraFASHGRD">
+            <summary>
+            描述 :时装等级 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraFERTH">
+            <summary>
+            描述 :生产/检验备忘录 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarafiberCode1">
+            <summary>
+            描述 :组件1 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarafiberCode2">
+            <summary>
+            描述 :组件2 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarafiberCode3">
+            <summary>
+            描述 :组件3 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarafiberCode4">
+            <summary>
+            描述 :组件4 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarafiberCode5">
+            <summary>
+            描述 :组件5 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarafiberPart1">
+            <summary>
+            描述 :百分比共享1 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarafiberPart2">
+            <summary>
+            描述 :百分比共享2 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarafiberPart3">
+            <summary>
+            描述 :百分比共享3 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarafiberPart4">
+            <summary>
+            描述 :百分比共享4 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarafiberPart5">
+            <summary>
+            描述 :百分比共享5 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraFORMT">
+            <summary>
+            描述 :页格式  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarafreeChar">
+            <summary>
+            描述 :特性值  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarafshMgAt1">
+            <summary>
+            描述 :Fashion 属性 1 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarafshMgAt2">
+            <summary>
+            描述 :Fashion 属性 2 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarafshMgAt3">
+            <summary>
+            描述 :Fashion 属性 3 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarafshScMid">
+            <summary>
+            描述 :物料转换标识 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarafshSeaim">
+            <summary>
+            描述 :库存管理中激活季节 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarafshSealv">
+            <summary>
+            描述 :季节使用 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraFUELG">
+            <summary>
+            描述 :最大层次  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaragdsRelevant">
+            <summary>
+            描述 :GDS 相关 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraGENNR">
+            <summary>
+            描述 :一般物料  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraGEWEI">
+            <summary>
+            描述 :重量单位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraGEWTO">
+            <summary>
+            描述 :超重量容差  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraGROES">
+            <summary>
+            描述 :大小/量纲 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaragtinVariant">
+            <summary>
+            描述 :EAN变式 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraHAZMAT">
+            <summary>
+            描述 :危险物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraHERKL">
+            <summary>
+            描述 :原产地国 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraHNDLCODE">
+            <summary>
+            描述 :处理标识 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraHOEHE">
+            <summary>
+            描述 :高度 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraHUTYP">
+            <summary>
+            描述 :处理单位类型 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarahutypDflt">
+            <summary>
+            描述 :标准处理单位类 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraIHIVI">
+            <summary>
+            描述 :高粘性的 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraILOOS">
+            <summary>
+            描述 :以大批/液体 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraIMATN">
+            <summary>
+            描述 :完全互换组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraINHAL">
+            <summary>
+            描述 :净内容 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraINHBR">
+            <summary>
+            描述 :毛内容  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraINHME">
+            <summary>
+            描述 :内容单位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraIPMIPPRODUCT">
+            <summary>
+            描述 :知识产权 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraIPRKZ">
+            <summary>
+            描述 :期间标识 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraKOSCH">
+            <summary>
+            描述 :产品分配 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraKUNNR">
+            <summary>
+            描述 :竞争者  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraKZEFF">
+            <summary>
+            描述 :参数有效值·  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraKZGVH">
+            <summary>
+            描述 :密闭的  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraKZKFG">
+            <summary>
+            描述 :可配置  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraKZKUP">
+            <summary>
+            描述 :联产品  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraKZNFM">
+            <summary>
+            描述 :后继的物料  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraKZREV">
+            <summary>
+            描述 :修订等级 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraKZUMW">
+            <summary>
+            描述 :环境是相关的 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraKZWSM">
+            <summary>
+            描述 :测量单位用法 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraLABOR">
+            <summary>
+            描述 :实验室/办公室  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraLAEDA">
+            <summary>
+            描述 :上次更改 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraLAENG">
+            <summary>
+            描述 :长度 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraLIQDT">
+            <summary>
+            描述 :有效至  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraloglevReto">
+            <summary>
+            描述 :退货到后勤等级 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraLOGUNIT">
+            <summary>
+            描述 :后勤计量单位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraLVORM">
+            <summary>
+            描述 :集团级的 DF 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMAGRV">
+            <summary>
+            描述 :物料组包装物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMANDT">
+            <summary>
+            描述 :集团 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMATFI">
+            <summary>
+            描述 :物料被锁定  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMATKL">
+            <summary>
+            描述 :物料组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMATNR">
+            <summary>
+            描述 :物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMAXB">
+            <summary>
+            描述 :最大包宽度 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMAXC">
+            <summary>
+            描述 :最大容量  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaramaxcTol">
+            <summary>
+            描述 :超过容量容差 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaramaxdimUom">
+            <summary>
+            描述 :计量单位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMAXH">
+            <summary>
+            描述 :最大高度  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMAXL">
+            <summary>
+            描述 :最大长度  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMBRSH">
+            <summary>
+            描述 :行业领域 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMCOND">
+            <summary>
+            描述 :物料条件管理 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMEABM">
+            <summary>
+            描述 :单位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMEDIUM">
+            <summary>
+            描述 :中间 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMEINS">
+            <summary>
+            描述 :基本单位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMFRGR">
+            <summary>
+            描述 :物料运输组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMFRNR">
+            <summary>
+            描述 :制造商 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMFRPN">
+            <summary>
+            描述 :制造商零件编号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMHDHB">
+            <summary>
+            描述 :总货架寿命  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMHDLP">
+            <summary>
+            描述 :仓储 % 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMHDRZ">
+            <summary>
+            描述 :剩余货架寿命 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMLGUT">
+            <summary>
+            描述 :含空BOM 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMPROF">
+            <summary>
+            描述 :制造商部件参数文 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMSTAE">
+            <summary>
+            描述 :跨工厂物料状态 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMSTAV">
+            <summary>
+            描述 :跨分销链状态  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMSTDE">
+            <summary>
+            描述 :有效起始期  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMSTDV">
+            <summary>
+            描述 :有效从  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraMTART">
+            <summary>
+            描述 :物料类型 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaramtposMara">
+            <summary>
+            描述 :普通项目类别组 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraNORMT">
+            <summary>
+            描述 :行业标准描述 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraNRFHG">
+            <summary>
+            描述 :折扣类型 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraNSNID">
+            <summary>
+            描述 :NIIN 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraNTGEW">
+            <summary>
+            描述 :净重  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraNUMTP">
+            <summary>
+            描述 :EAN 类别 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraPACKCODE">
+            <summary>
+            描述 :Packaging Code 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraPICNUM">
+            <summary>
+            描述 :链编号  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraPILFERABLE">
+            <summary>
+            描述 :可偷窃的 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraPLGTP">
+            <summary>
+            描述 :价格标记类型 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraPMATA">
+            <summary>
+            描述 :定价参考物料  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraPRDHA">
+            <summary>
+            描述 :产品层次 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraPROFL">
+            <summary>
+            描述 :DG标识参数文件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraPRZUS">
+            <summary>
+            描述 :产品成分 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarapsSmartform">
+            <summary>
+            描述 :表格名  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraPSTAT">
+            <summary>
+            描述 :维护状态  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraQGRP">
+            <summary>
+            描述 :质量检查组 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraQMPUR">
+            <summary>
+            描述 :QM 采购 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraQQTIME">
+            <summary>
+            描述 :隔离期间 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraQQTIMEUOM">
+            <summary>
+            描述 :时间单位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraRAUBE">
+            <summary>
+            描述 :存储条件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraRBNRM">
+            <summary>
+            描述 :类别参数文件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraRDMHD">
+            <summary>
+            描述 :舍入规则 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraRETDELC">
+            <summary>
+            描述 :返回代码 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraRMATP">
+            <summary>
+            描述 :包装的参考物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraSAISJ">
+            <summary>
+            描述 :季度年  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraSAISO">
+            <summary>
+            描述 :季节 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraSAITY">
+            <summary>
+            描述 :展开 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraSATNR">
+            <summary>
+            描述 :一般可配置物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraSERIAL">
+            <summary>
+            描述 :序列号参数文件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraSERLV">
+            <summary>
+            描述 :序列化层次  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarasgtCovsa">
+            <summary>
+            描述 :分段策略 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarasgtCsgr">
+            <summary>
+            描述 :分段结构 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarasgtRel">
+            <summary>
+            描述 :分段相关 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarasgtScope">
+            <summary>
+            描述 :分段范围 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarasgtStat">
+            <summary>
+            描述 :分段状态  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraSIZE1">
+            <summary>
+            描述 :主尺寸  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.Marasize1Atinn">
+            <summary>
+            描述 :内部特性  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraSIZE2">
+            <summary>
+            描述 :次尺寸  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.Marasize2Atinn">
+            <summary>
+            描述 :内部特性  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MarasledBbd">
+            <summary>
+            描述 :过期日期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraSPART">
+            <summary>
+            描述 :产品组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraSPROF">
+            <summary>
+            描述 :定价参数文件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraSTFAK">
+            <summary>
+            描述 :堆栈因子 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraSTOFF">
+            <summary>
+            描述 :危险物料号  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraTAKLV">
+            <summary>
+            描述 :税收分类 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaratareVar">
+            <summary>
+            描述 :可变皮重 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraTEMPB">
+            <summary>
+            描述 :温度 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaratextileCompInd">
+            <summary>
+            描述 :纺织组分活动 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraTRAGR">
+            <summary>
+            描述 :运输组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraVABME">
+            <summary>
+            描述 :可变的订单单位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraVHART">
+            <summary>
+            描述 :包装物料类型 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraVOLEH">
+            <summary>
+            描述 :体积单位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraVOLTO">
+            <summary>
+            描述 :超过体积容差 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraVOLUM">
+            <summary>
+            描述 :业务量  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraVPREH">
+            <summary>
+            描述 :比较价格单位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraVPSTA">
+            <summary>
+            描述 :完整状态  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraWEORA">
+            <summary>
+            描述 :原始接受 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraWESCH">
+            <summary>
+            描述 :GR单数量  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraWHMATGR">
+            <summary>
+            描述 :仓库物料组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraWHSTC">
+            <summary>
+            描述 :仓库存储条件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraWRKST">
+            <summary>
+            描述 :基本物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraXCHPF">
+            <summary>
+            描述 :批次管理需求  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraXGCHP">
+            <summary>
+            描述 :需要批量记录  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraZEIAR">
+            <summary>
+            描述 :凭证类型 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraZEIFO">
+            <summary>
+            描述 :页面大小 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraZEINR">
+            <summary>
+            描述 :凭证 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.MaraZEIVR">
+            <summary>
+            描述 :凭证版本 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.UDF01">
+            <summary>
+            描述 :UDF01 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.UDF02">
+            <summary>
+            描述 :UDF02 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.UDF03">
+            <summary>
+            描述 :UDF03 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.UDF04">
+            <summary>
+            描述 :UDF04 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.UDF05">
+            <summary>
+            描述 :UDF05 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.UDF06">
+            <summary>
+            描述 :UDF06 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.UDF51">
+            <summary>
+            描述 :UDF51 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.UDF52">
+            <summary>
+            描述 :UDF52 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.UDF53">
+            <summary>
+            描述 :UDF53 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.UDF54">
+            <summary>
+            描述 :UDF54 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.UDF55">
+            <summary>
+            描述 :UDF55 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.UDF56">
+            <summary>
+            描述 :UDF56 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.IsDeleted">
+            <summary>
+            描述 :IsDeleted 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.Remark">
+            <summary>
+            描述 :Remark 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMaraDto.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.MmMarcQueryDto">
+            <summary>
+            工厂物料数据查询对象
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.MmMarcDto">
+            <summary>
+            工厂物料数据输入输出对象
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcID">
+            <summary>
+            描述 :ID主键 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcABCIN">
+            <summary>
+            描述 :CC 库存盘点 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcABFAC">
+            <summary>
+            描述 :空气浮力因子 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcAHDIS">
+            <summary>
+            描述 :MRP 相关需求  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcALTSL">
+            <summary>
+            描述 :选择方法 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcAPLAL">
+            <summary>
+            描述 :组计数器 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcAPOKZ">
+            <summary>
+            描述 :相关于 APO 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcATPKZ">
+            <summary>
+            描述 :替换部件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcAUFTL">
+            <summary>
+            描述 :分割标识 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcAUSDT">
+            <summary>
+            描述 :中断日期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcAUSME">
+            <summary>
+            描述 :发货单位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcAUSSS">
+            <summary>
+            描述 :装配报废 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcAUTRU">
+            <summary>
+            描述 :自动重置 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcAWSLS">
+            <summary>
+            描述 :差异码  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcBASMG">
+            <summary>
+            描述 :基准数量 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcBEARZ">
+            <summary>
+            描述 :处理时间 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcBESKZ">
+            <summary>
+            描述 :采购 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcBSTFE">
+            <summary>
+            描述 :固定批量大小 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcBSTMA">
+            <summary>
+            描述 :最大批量  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcBSTMI">
+            <summary>
+            描述 :最小批量大小  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcBSTRF">
+            <summary>
+            描述 :舍入值  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcBWESB">
+            <summary>
+            描述 :评估收货锁定库存 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcBWSCL">
+            <summary>
+            描述 :货源 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcBWTTY">
+            <summary>
+            描述 :评估类别 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcCASNR">
+            <summary>
+            描述 :CAS 号（药品）  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcCCFIX">
+            <summary>
+            描述 :周期标识被固定 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcCOMPL">
+            <summary>
+            描述 :该字段不再使用 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcconsProcg">
+            <summary>
+            描述 :寄售控制 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcCONVT">
+            <summary>
+            描述 :转换类型 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcCOPAM">
+            <summary>
+            描述 :字段名  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcCUOBJ">
+            <summary>
+            描述 :内部对象号  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcCUOBV">
+            <summary>
+            描述 :内部对象号  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcDIBER">
+            <summary>
+            描述 :MRP  范围存在 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcDISGR">
+            <summary>
+            描述 :MRP组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcDISLS">
+            <summary>
+            描述 :批量大小 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcDISMM">
+            <summary>
+            描述 :MRP 类型 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcDISPO">
+            <summary>
+            描述 :MRP 控制者  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcDISPR">
+            <summary>
+            描述 :MRP 参数文件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcDPLFS">
+            <summary>
+            描述 :公平分享规则 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcDPLHO">
+            <summary>
+            描述 :发布界限 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcDPLPU">
+            <summary>
+            描述 :推式分配 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcDZEIT">
+            <summary>
+            描述 :厂内生产时间 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcEISBE">
+            <summary>
+            描述 :安全库存 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcEISLO">
+            <summary>
+            描述 :最小安全库存  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcEKGRP">
+            <summary>
+            描述 :采购组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcEPRIO">
+            <summary>
+            描述 :库存确定组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcEXPME">
+            <summary>
+            描述 :商品代码单位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcFABKZ">
+            <summary>
+            描述 :JIT 标识 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcFEVOR">
+            <summary>
+            描述 :生产管理员  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcFFREI">
+            <summary>
+            描述 :自动批准 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcFHORI">
+            <summary>
+            描述 :计划边际码  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcFIXLS">
+            <summary>
+            描述 :固定批量大小 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcFPRFM">
+            <summary>
+            描述 :分配 prof. 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcFRTME">
+            <summary>
+            描述 :生产单位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcfshMgArunReq">
+            <summary>
+            描述 :订单分配运行 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcfshSeaim">
+            <summary>
+            描述 :库存管理中激活季节 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcFVIDK">
+            <summary>
+            描述 :生产版本 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcFXHOR">
+            <summary>
+            描述 :计划的时界  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcFXPRU">
+            <summary>
+            描述 :固定价格联产品 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcgiPrTime">
+            <summary>
+            描述 :发货处理时间 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcGLGMG">
+            <summary>
+            描述 :有约束的虚拟 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcGPMKZ">
+            <summary>
+            描述 :粗略计划 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcGPNUM">
+            <summary>
+            描述 :PRODCOM号  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcHERBL">
+            <summary>
+            描述 :生产状态  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcHERKL">
+            <summary>
+            描述 :原产地国 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcHERKR">
+            <summary>
+            描述 :货源地  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcINDUS">
+            <summary>
+            描述 :物料类别 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcINSMK">
+            <summary>
+            描述 :过帐到检验库存 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcITARK">
+            <summary>
+            描述 :军用物资 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarciuidRelevant">
+            <summary>
+            描述 :IUID 相关 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarciuidType">
+            <summary>
+            描述 :IUID 类型 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcKAUSF">
+            <summary>
+            描述 :组件报废 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcKAUTB">
+            <summary>
+            描述 :自动采购单  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcKORDB">
+            <summary>
+            描述 :源清单  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcKZAGL">
+            <summary>
+            描述 :平滑促销消耗  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcKZAUS">
+            <summary>
+            描述 :非连续标识  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcKZBED">
+            <summary>
+            描述 :需求分组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcKZDIE">
+            <summary>
+            描述 :MRP控制者=买者  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcKZDKZ">
+            <summary>
+            描述 :凭证需求  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcKZECH">
+            <summary>
+            描述 :输入批量 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcKZKFK">
+            <summary>
+            描述 :修正因子 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcKZKRI">
+            <summary>
+            描述 :关键组件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcKZKUP">
+            <summary>
+            描述 :联产品  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcKZPPV">
+            <summary>
+            描述 :检查计划标识  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcKZPRO">
+            <summary>
+            描述 :从产品货位提取 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcKZPSP">
+            <summary>
+            描述 :跨项目  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcLADGR">
+            <summary>
+            描述 :装载组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcLAGPR">
+            <summary>
+            描述 :库存成本 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcLFGJA">
+            <summary>
+            描述 :年  当前期间 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcLFMON">
+            <summary>
+            描述 :本期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcLFRHY">
+            <summary>
+            描述 :计划周期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcLGFSB">
+            <summary>
+            描述 :外部采购仓储地 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcLGPRO">
+            <summary>
+            描述 :生产仓储地点 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcLGRAD">
+            <summary>
+            描述 :服务水平 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcLIZYK">
+            <summary>
+            描述 :取消激活的 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcLOGGR">
+            <summary>
+            描述 :后勤组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcLOSFX">
+            <summary>
+            描述 :订购成本 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcLOSGR">
+            <summary>
+            描述 :成本核算批量 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcLTINC">
+            <summary>
+            描述 :批尺寸增加  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcLVORM">
+            <summary>
+            描述 :工厂级 DF 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcLZEIH">
+            <summary>
+            描述 :时间单位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMAABC">
+            <summary>
+            描述 :ABC 标识 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMABST">
+            <summary>
+            描述 :最大库存水平  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMANDT">
+            <summary>
+            描述 :集团 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMATGR">
+            <summary>
+            描述 :物料分组 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMATNR">
+            <summary>
+            描述 :物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcmaxTroc">
+            <summary>
+            描述 :最大目标范围  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMAXLS">
+            <summary>
+            描述 :最大批量大小  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMAXLZ">
+            <summary>
+            描述 :最大存储期间  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMCRUE">
+            <summary>
+            描述 :最后的MARD 期间之前，MARDH 记 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMDACH">
+            <summary>
+            描述 :活动控制 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMEGRU">
+            <summary>
+            描述 :计量单位组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMFRGR">
+            <summary>
+            描述 :物料运输组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcminTroc">
+            <summary>
+            描述 :最小目标范围  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMINBE">
+            <summary>
+            描述 :再订货点 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMINLS">
+            <summary>
+            描述 :最小批量大小  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMISKZ">
+            <summary>
+            描述 :综合MRP 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMMSTA">
+            <summary>
+            描述 :P-S 物料状态  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMMSTD">
+            <summary>
+            描述 :有效起始期  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMOGRU">
+            <summary>
+            描述 :CAP 产品组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMOWNR">
+            <summary>
+            描述 :EU 产品清单编号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMPDAU">
+            <summary>
+            描述 :平均检查持续期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMRPPP">
+            <summary>
+            描述 :计划日历 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMTVER">
+            <summary>
+            描述 :出口/进口组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcMTVFP">
+            <summary>
+            描述 :可用性检查  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcmultipleEkgrp">
+            <summary>
+            描述 :交叉的采购组 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcNCOST">
+            <summary>
+            描述 :无成本核算  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcNFMAT">
+            <summary>
+            描述 :后继物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcNKMPR">
+            <summary>
+            描述 :下一次检查  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcOBJID">
+            <summary>
+            描述 :对象标识 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcOCMPF">
+            <summary>
+            描述 :总体参数文件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcOTYPE">
+            <summary>
+            描述 :对象类型 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcPERIV">
+            <summary>
+            描述 :会计年度变式 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcPERKZ">
+            <summary>
+            描述 :期间标识 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcPFREI">
+            <summary>
+            描述 :自动更改工厂订单 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcPLIFZ">
+            <summary>
+            描述 :计划交货时间 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcPLNNR">
+            <summary>
+            描述 :组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcPLNTY">
+            <summary>
+            描述 :任务清单类型 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcPLVAR">
+            <summary>
+            描述 :计划版本 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcPRCTR">
+            <summary>
+            描述 :利润中心 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcPREFE">
+            <summary>
+            描述 :优先权  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcPRENC">
+            <summary>
+            描述 :免税证书 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcPREND">
+            <summary>
+            描述 :发放证书日  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcPRENE">
+            <summary>
+            描述 :供应商申报  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcPRENG">
+            <summary>
+            描述 :供应商申报日期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcPRENO">
+            <summary>
+            描述 :免税证书编号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcPRFRQ">
+            <summary>
+            描述 :检查间隔  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcPSTAT">
+            <summary>
+            描述 :维护状态  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcQMATA">
+            <summary>
+            描述 :QM 物料授权 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcQMATV">
+            <summary>
+            描述 :检验设置  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcQSSYS">
+            <summary>
+            描述 :目标 QM 系统 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcQUAZT">
+            <summary>
+            描述 :隔离 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcQZGTP">
+            <summary>
+            描述 :证书类型 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcRDPRF">
+            <summary>
+            描述 :舍入参数文件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcrefSchema">
+            <summary>
+            描述 :确定方案 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcRESVP">
+            <summary>
+            描述 :调整期间 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcRGEKZ">
+            <summary>
+            描述 :反冲 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcrotationDate">
+            <summary>
+            描述 :库存入库/出库 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcRUEZT">
+            <summary>
+            描述 :准备时间 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcRWPRO">
+            <summary>
+            描述 :供货天数参文件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSAUFT">
+            <summary>
+            描述 :重复生产 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSBDKZ">
+            <summary>
+            描述 :独立/集中 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSCHGT">
+            <summary>
+            描述 :散装物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSERNP">
+            <summary>
+            描述 :序列号参数文件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSERVG">
+            <summary>
+            描述 :服务水平 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSFCPF">
+            <summary>
+            描述 :生产参数文  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSFEPR">
+            <summary>
+            描述 :REM 参数文件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcsgtChint">
+            <summary>
+            描述 :离散批次编号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcsgtCovs">
+            <summary>
+            描述 :分段策略 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcsgtMrpsi">
+            <summary>
+            描述 :库存排序方法 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcsgtPrcm">
+            <summary>
+            描述 :消耗优先级 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcsgtScope">
+            <summary>
+            描述 :分段范围 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcsgtStatc">
+            <summary>
+            描述 :分段状态 MRP 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcsgtStkPrt">
+            <summary>
+            描述 :库存保护 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSHFLG">
+            <summary>
+            描述 :安全时间标识 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSHPRO">
+            <summary>
+            描述 :ST 期间参数文件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSHZET">
+            <summary>
+            描述 :安全时间 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSOBSK">
+            <summary>
+            描述 :特殊工艺类型 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSOBSL">
+            <summary>
+            描述 :特殊采购 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSPROZ">
+            <summary>
+            描述 :样本% 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSSQSS">
+            <summary>
+            描述 :QM 控制码  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSTAWN">
+            <summary>
+            描述 :Comm./imp. code 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSTDPD">
+            <summary>
+            描述 :可配置的物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSTEUC">
+            <summary>
+            描述 :控制代码 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSTLAL">
+            <summary>
+            描述 :备选  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSTLAN">
+            <summary>
+            描述 :用途  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcSTRGR">
+            <summary>
+            描述 :策略组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcTAKZT">
+            <summary>
+            描述 :间隔时间 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarctargetStock">
+            <summary>
+            描述 :目标库存 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcTRAME">
+            <summary>
+            描述 :在途库存  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcTRANZ">
+            <summary>
+            描述 :工序间  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcUCHKZ">
+            <summary>
+            描述 :OB管理 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcUCMAT">
+            <summary>
+            描述 :OB参考物料  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcUEETK">
+            <summary>
+            描述 :无限的  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcUEETO">
+            <summary>
+            描述 :过度交货允差 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcuidIea">
+            <summary>
+            描述 :外部分配 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcUMLMC">
+            <summary>
+            描述 :中转库存 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcUMRSL">
+            <summary>
+            描述 :转换组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcUNETO">
+            <summary>
+            描述 :不足交货允差 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcUOMGR">
+            <summary>
+            描述 :计量单位组  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcUSEQU">
+            <summary>
+            描述 :配额使用安排 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcVBAMG">
+            <summary>
+            描述 :基准数量 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcVBEAZ">
+            <summary>
+            描述 :处理时间 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcVERKZ">
+            <summary>
+            描述 :版本 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcVINT1">
+            <summary>
+            描述 :逆向消耗期间  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcVINT2">
+            <summary>
+            描述 :向前消耗期间  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcVKGLG">
+            <summary>
+            描述 :SlsVal.TiedEmpt 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcVKTRW">
+            <summary>
+            描述 :运输库存/SP 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcVKUMC">
+            <summary>
+            描述 :库存转移 SV 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcVRBDT">
+            <summary>
+            描述 :日期到  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcVRBFK">
+            <summary>
+            描述 :乘数 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcVRBMT">
+            <summary>
+            描述 :参考物料:消耗  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcVRBWK">
+            <summary>
+            描述 :参考工厂：寄存 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcVRMOD">
+            <summary>
+            描述 :消耗模式  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcVRVEZ">
+            <summary>
+            描述 :准备时间 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcVSPVB">
+            <summary>
+            描述 :提议供应区域 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcVZUSL">
+            <summary>
+            描述 :附加费 % 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcWEBAZ">
+            <summary>
+            描述 :收货处理时间 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcWERKS">
+            <summary>
+            描述 :工厂 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcWSTGH">
+            <summary>
+            描述 :活动性物质  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcWZEIT">
+            <summary>
+            描述 :总补货提前时间 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcXCHAR">
+            <summary>
+            描述 :批次 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcXCHPF">
+            <summary>
+            描述 :批次管理需求  
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.MarcXMCNG">
+            <summary>
+            描述 :负的库存 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.UDF01">
+            <summary>
+            描述 :UDF01 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.UDF02">
+            <summary>
+            描述 :UDF02 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.UDF03">
+            <summary>
+            描述 :UDF03 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.UDF04">
+            <summary>
+            描述 :UDF04 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.UDF05">
+            <summary>
+            描述 :UDF05 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.UDF06">
+            <summary>
+            描述 :UDF06 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.UDF51">
+            <summary>
+            描述 :UDF51 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.UDF52">
+            <summary>
+            描述 :UDF52 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.UDF53">
+            <summary>
+            描述 :UDF53 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.UDF54">
+            <summary>
+            描述 :UDF54 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.UDF55">
+            <summary>
+            描述 :UDF55 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.UDF56">
+            <summary>
+            描述 :UDF56 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.IsDeleted">
+            <summary>
+            描述 :IsDeleted 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.Remark">
+            <summary>
+            描述 :Remark 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.MmMarcDto.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            </summary>
+        </member>
         <member name="T:La.Model.Dto.MmMatsQueryDto">
             <summary>
             物料信息查询对象
@@ -5079,6 +7439,336 @@
             描述 :UpdateTime 
             </summary>
         </member>
+        <member name="T:La.Model.Dto.WfWorkflowQueryDto">
+            <summary>
+            审批流程查询对象
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.WfWorkflowDto">
+            <summary>
+            审批流程输入输出对象
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowDto.WorkflowId">
+            <summary>
+            描述 :ID 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowDto.WorkName">
+            <summary>
+            描述 :流程名称 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowDto.WorkTable">
+            <summary>
+            描述 :表名 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowDto.WorkTableName">
+            <summary>
+            描述 :功能菜单 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowDto.NodeConfig">
+            <summary>
+            描述 :节点信息 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowDto.LineConfig">
+            <summary>
+            描述 :连接配置 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowDto.Remark">
+            <summary>
+            描述 :备注 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowDto.Enable">
+            <summary>
+            描述 :是否启用 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowDto.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowDto.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowDto.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowDto.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowDto.WfWorkflowstep">
+            <summary>
+            审批节点
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.WfWorkflowstepQueryDto">
+            <summary>
+            审批节点配置查询对象
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.WfWorkflowstepDto">
+            <summary>
+            审批节点配置输入输出对象
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowstepDto.WorkstepflowId">
+            <summary>
+            描述 :ID 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowstepDto.WorkflowId">
+            <summary>
+            描述 :流程主表id 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowstepDto.StepId">
+            <summary>
+            描述 :流程节点Id 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowstepDto.StepName">
+            <summary>
+            描述 :节点名称 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowstepDto.StepType">
+            <summary>
+            描述 :节点类型 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowstepDto.StepValue">
+            <summary>
+            描述 :审批用户id或角色id 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowstepDto.OrderId">
+            <summary>
+            描述 :审批顺序 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowstepDto.Remark">
+            <summary>
+            描述 :备注 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowstepDto.Enable">
+            <summary>
+            描述 :Enable 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowstepDto.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowstepDto.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowstepDto.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowstepDto.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.WfWorkflowtableQueryDto">
+            <summary>
+            审批流程查询对象
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.WfWorkflowtableDto">
+            <summary>
+            审批流程输入输出对象
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtableDto.WorkflowtableId">
+            <summary>
+            描述 :ID 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtableDto.WorkflowId">
+            <summary>
+            描述 :流程id 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtableDto.WorkName">
+            <summary>
+            描述 :流程名称 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtableDto.WorkTableKey">
+            <summary>
+            描述 :表主键id 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtableDto.WorkTable">
+            <summary>
+            描述 :表名 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtableDto.WorkTableName">
+            <summary>
+            描述 :业务名称 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtableDto.CurrentOrderId">
+            <summary>
+            描述 :当前审批节点 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtableDto.AuditStatus">
+            <summary>
+            描述 :审批状态 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtableDto.Enable">
+            <summary>
+            描述 :启用 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtableDto.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtableDto.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtableDto.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtableDto.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtableDto.WfWorkflowtablestep">
+            <summary>
+            审批节点
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.WfWorkflowtablestepQueryDto">
+            <summary>
+            审批节点查询对象
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.WfWorkflowtablestepDto">
+            <summary>
+            审批节点输入输出对象
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.SysWorkflowtablestepId">
+            <summary>
+            描述 :ID 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.WorkflowtableId">
+            <summary>
+            描述 :主表id 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.WorkflowId">
+            <summary>
+            描述 :流程id 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.StepId">
+            <summary>
+            描述 :节点id 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.StepName">
+            <summary>
+            描述 :节名称 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.StepType">
+            <summary>
+            描述 :审批类型 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.StepValue">
+            <summary>
+            描述 :节点类型 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.OrderId">
+            <summary>
+            描述 :审批顺序 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.AuditId">
+            <summary>
+            描述 :审核人id 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.Auditor">
+            <summary>
+            描述 :审核人 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.AuditStatus">
+            <summary>
+            描述 :审核状态 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.AuditDate">
+            <summary>
+            描述 :审核时间 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.Remark">
+            <summary>
+            描述 :备注 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.Enable">
+            <summary>
+            描述 :启用 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            </summary>
+        </member>
         <member name="T:La.Model.Dto.ArticleCategoryDto">
             <summary>
             文章目录输入对象
@@ -6246,6 +8936,2830 @@
         <member name="P:La.Model.Models.FicoWagerates.UpdateTime">
             <summary>
             描述 : 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="T:La.Model.Models.MmMara">
+             <summary>
+             常规物料数据，数据实体对象
+            
+             @author Laplace.Net:Davis.Cheng
+             @date 2023-03-14
+             </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraID">
+            <summary>
+            描述 :ID主键 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraADPROF">
+            <summary>
+            描述 :调整参数文件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraAEKLK">
+            <summary>
+            描述 :净改变成本核算 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraAENAM">
+            <summary>
+            描述 :更改者  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraAESZN">
+            <summary>
+            描述 :文档变更号  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraallowPmatIgno">
+            <summary>
+            描述 :允许的变式价格 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraanimalOrigin">
+            <summary>
+            描述 :动物源  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraANP">
+            <summary>
+            描述 :ANP Code 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraATTYP">
+            <summary>
+            描述 :物料类别 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraBBTYP">
+            <summary>
+            描述 :分类清单类型 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraBEGRU">
+            <summary>
+            描述 :权限组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraBEHVO">
+            <summary>
+            描述 :容器 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraBFLME">
+            <summary>
+            描述 :后勤变量 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraBISMT">
+            <summary>
+            描述 :旧物料号 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraBLANZ">
+            <summary>
+            描述 :页数 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraBLATT">
+            <summary>
+            描述 :页号 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraBMATN">
+            <summary>
+            描述 :内部物料编号 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarabrandId">
+            <summary>
+            描述 :商标 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraBREIT">
+            <summary>
+            描述 :宽度 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraBRGEW">
+            <summary>
+            描述 :毛重 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraBSTAT">
+            <summary>
+            描述 :创建状态  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraBSTME">
+            <summary>
+            描述 :订单单位 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraBWSCL">
+            <summary>
+            描述 :货源 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraBWVOR">
+            <summary>
+            描述 :采购规则 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraCADKZ">
+            <summary>
+            描述 :CAD 标识 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaracareCode">
+            <summary>
+            描述 :护理代码 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraCMETH">
+            <summary>
+            描述 :转换方法 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraCMREL">
+            <summary>
+            描述 :CM 相关 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraCOLOR">
+            <summary>
+            描述 :颜色 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaracolorAtinn">
+            <summary>
+            描述 :内部特性  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraCOMMODITY">
+            <summary>
+            描述 :实物商品 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraCOMPL">
+            <summary>
+            描述 :完成水平 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraCUOBF">
+            <summary>
+            描述 :内部对象号  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraCWQPROC">
+            <summary>
+            描述 :CW 参数文件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraCWQREL">
+            <summary>
+            描述 :称重物料相关 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraCWQTOLGR">
+            <summary>
+            描述 :CW 容差组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraDATAB">
+            <summary>
+            描述 :有效起始日  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaradgPackStatus">
+            <summary>
+            描述 :危险品包装状态 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraDISST">
+            <summary>
+            描述 :低层代码 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraEAN11">
+            <summary>
+            描述 :EAN/UPC 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraEANNR">
+            <summary>
+            描述 :EAN 号  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraEKWSL">
+            <summary>
+            描述 :采购值代码  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraENTAR">
+            <summary>
+            描述 :取消激活字段  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraERGEI">
+            <summary>
+            描述 :重量单位 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraERGEW">
+            <summary>
+            描述 :允许的包装重量 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraERNAM">
+            <summary>
+            描述 :创建者  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraERSDA">
+            <summary>
+            描述 :创建日期 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraERVOE">
+            <summary>
+            描述 :体积单位 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraERVOL">
+            <summary>
+            描述 :允许的体积  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraETIAG">
+            <summary>
+            描述 :给物料组加标签 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraETIAR">
+            <summary>
+            描述 :标号类型 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraETIFO">
+            <summary>
+            描述 :标签格式 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraEXTWG">
+            <summary>
+            描述 :外部物料组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraFASHGRD">
+            <summary>
+            描述 :时装等级 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraFERTH">
+            <summary>
+            描述 :生产/检验备忘录 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarafiberCode1">
+            <summary>
+            描述 :组件1 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarafiberCode2">
+            <summary>
+            描述 :组件2 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarafiberCode3">
+            <summary>
+            描述 :组件3 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarafiberCode4">
+            <summary>
+            描述 :组件4 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarafiberCode5">
+            <summary>
+            描述 :组件5 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarafiberPart1">
+            <summary>
+            描述 :百分比共享1 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarafiberPart2">
+            <summary>
+            描述 :百分比共享2 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarafiberPart3">
+            <summary>
+            描述 :百分比共享3 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarafiberPart4">
+            <summary>
+            描述 :百分比共享4 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarafiberPart5">
+            <summary>
+            描述 :百分比共享5 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraFORMT">
+            <summary>
+            描述 :页格式  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarafreeChar">
+            <summary>
+            描述 :特性值  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarafshMgAt1">
+            <summary>
+            描述 :Fashion 属性 1 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarafshMgAt2">
+            <summary>
+            描述 :Fashion 属性 2 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarafshMgAt3">
+            <summary>
+            描述 :Fashion 属性 3 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarafshScMid">
+            <summary>
+            描述 :物料转换标识 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarafshSeaim">
+            <summary>
+            描述 :库存管理中激活季节 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarafshSealv">
+            <summary>
+            描述 :季节使用 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraFUELG">
+            <summary>
+            描述 :最大层次  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaragdsRelevant">
+            <summary>
+            描述 :GDS 相关 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraGENNR">
+            <summary>
+            描述 :一般物料  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraGEWEI">
+            <summary>
+            描述 :重量单位 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraGEWTO">
+            <summary>
+            描述 :超重量容差  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraGROES">
+            <summary>
+            描述 :大小/量纲 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaragtinVariant">
+            <summary>
+            描述 :EAN变式 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraHAZMAT">
+            <summary>
+            描述 :危险物料 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraHERKL">
+            <summary>
+            描述 :原产地国 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraHNDLCODE">
+            <summary>
+            描述 :处理标识 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraHOEHE">
+            <summary>
+            描述 :高度 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraHUTYP">
+            <summary>
+            描述 :处理单位类型 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarahutypDflt">
+            <summary>
+            描述 :标准处理单位类 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraIHIVI">
+            <summary>
+            描述 :高粘性的 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraILOOS">
+            <summary>
+            描述 :以大批/液体 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraIMATN">
+            <summary>
+            描述 :完全互换组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraINHAL">
+            <summary>
+            描述 :净内容 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraINHBR">
+            <summary>
+            描述 :毛内容  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraINHME">
+            <summary>
+            描述 :内容单位 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraIPMIPPRODUCT">
+            <summary>
+            描述 :知识产权 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraIPRKZ">
+            <summary>
+            描述 :期间标识 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraKOSCH">
+            <summary>
+            描述 :产品分配 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraKUNNR">
+            <summary>
+            描述 :竞争者  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraKZEFF">
+            <summary>
+            描述 :参数有效值·  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraKZGVH">
+            <summary>
+            描述 :密闭的  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraKZKFG">
+            <summary>
+            描述 :可配置  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraKZKUP">
+            <summary>
+            描述 :联产品  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraKZNFM">
+            <summary>
+            描述 :后继的物料  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraKZREV">
+            <summary>
+            描述 :修订等级 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraKZUMW">
+            <summary>
+            描述 :环境是相关的 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraKZWSM">
+            <summary>
+            描述 :测量单位用法 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraLABOR">
+            <summary>
+            描述 :实验室/办公室  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraLAEDA">
+            <summary>
+            描述 :上次更改 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraLAENG">
+            <summary>
+            描述 :长度 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraLIQDT">
+            <summary>
+            描述 :有效至  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraloglevReto">
+            <summary>
+            描述 :退货到后勤等级 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraLOGUNIT">
+            <summary>
+            描述 :后勤计量单位 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraLVORM">
+            <summary>
+            描述 :集团级的 DF 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMAGRV">
+            <summary>
+            描述 :物料组包装物料 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMANDT">
+            <summary>
+            描述 :集团 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMATFI">
+            <summary>
+            描述 :物料被锁定  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMATKL">
+            <summary>
+            描述 :物料组  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMATNR">
+            <summary>
+            描述 :物料 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMAXB">
+            <summary>
+            描述 :最大包宽度 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMAXC">
+            <summary>
+            描述 :最大容量  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaramaxcTol">
+            <summary>
+            描述 :超过容量容差 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaramaxdimUom">
+            <summary>
+            描述 :计量单位 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMAXH">
+            <summary>
+            描述 :最大高度  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMAXL">
+            <summary>
+            描述 :最大长度  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMBRSH">
+            <summary>
+            描述 :行业领域 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMCOND">
+            <summary>
+            描述 :物料条件管理 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMEABM">
+            <summary>
+            描述 :单位 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMEDIUM">
+            <summary>
+            描述 :中间 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMEINS">
+            <summary>
+            描述 :基本单位 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMFRGR">
+            <summary>
+            描述 :物料运输组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMFRNR">
+            <summary>
+            描述 :制造商 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMFRPN">
+            <summary>
+            描述 :制造商零件编号 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMHDHB">
+            <summary>
+            描述 :总货架寿命  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMHDLP">
+            <summary>
+            描述 :仓储 % 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMHDRZ">
+            <summary>
+            描述 :剩余货架寿命 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMLGUT">
+            <summary>
+            描述 :含空BOM 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMPROF">
+            <summary>
+            描述 :制造商部件参数文 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMSTAE">
+            <summary>
+            描述 :跨工厂物料状态 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMSTAV">
+            <summary>
+            描述 :跨分销链状态  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMSTDE">
+            <summary>
+            描述 :有效起始期  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMSTDV">
+            <summary>
+            描述 :有效从  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraMTART">
+            <summary>
+            描述 :物料类型 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaramtposMara">
+            <summary>
+            描述 :普通项目类别组 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraNORMT">
+            <summary>
+            描述 :行业标准描述 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraNRFHG">
+            <summary>
+            描述 :折扣类型 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraNSNID">
+            <summary>
+            描述 :NIIN 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraNTGEW">
+            <summary>
+            描述 :净重  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraNUMTP">
+            <summary>
+            描述 :EAN 类别 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraPACKCODE">
+            <summary>
+            描述 :Packaging Code 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraPICNUM">
+            <summary>
+            描述 :链编号  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraPILFERABLE">
+            <summary>
+            描述 :可偷窃的 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraPLGTP">
+            <summary>
+            描述 :价格标记类型 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraPMATA">
+            <summary>
+            描述 :定价参考物料  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraPRDHA">
+            <summary>
+            描述 :产品层次 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraPROFL">
+            <summary>
+            描述 :DG标识参数文件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraPRZUS">
+            <summary>
+            描述 :产品成分 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarapsSmartform">
+            <summary>
+            描述 :表格名  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraPSTAT">
+            <summary>
+            描述 :维护状态  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraQGRP">
+            <summary>
+            描述 :质量检查组 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraQMPUR">
+            <summary>
+            描述 :QM 采购 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraQQTIME">
+            <summary>
+            描述 :隔离期间 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraQQTIMEUOM">
+            <summary>
+            描述 :时间单位 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraRAUBE">
+            <summary>
+            描述 :存储条件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraRBNRM">
+            <summary>
+            描述 :类别参数文件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraRDMHD">
+            <summary>
+            描述 :舍入规则 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraRETDELC">
+            <summary>
+            描述 :返回代码 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraRMATP">
+            <summary>
+            描述 :包装的参考物料 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraSAISJ">
+            <summary>
+            描述 :季度年  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraSAISO">
+            <summary>
+            描述 :季节 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraSAITY">
+            <summary>
+            描述 :展开 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraSATNR">
+            <summary>
+            描述 :一般可配置物料 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraSERIAL">
+            <summary>
+            描述 :序列号参数文件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraSERLV">
+            <summary>
+            描述 :序列化层次  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarasgtCovsa">
+            <summary>
+            描述 :分段策略 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarasgtCsgr">
+            <summary>
+            描述 :分段结构 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarasgtRel">
+            <summary>
+            描述 :分段相关 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarasgtScope">
+            <summary>
+            描述 :分段范围 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarasgtStat">
+            <summary>
+            描述 :分段状态  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraSIZE1">
+            <summary>
+            描述 :主尺寸  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.Marasize1Atinn">
+            <summary>
+            描述 :内部特性  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraSIZE2">
+            <summary>
+            描述 :次尺寸  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.Marasize2Atinn">
+            <summary>
+            描述 :内部特性  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MarasledBbd">
+            <summary>
+            描述 :过期日期 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraSPART">
+            <summary>
+            描述 :产品组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraSPROF">
+            <summary>
+            描述 :定价参数文件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraSTFAK">
+            <summary>
+            描述 :堆栈因子 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraSTOFF">
+            <summary>
+            描述 :危险物料号  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraTAKLV">
+            <summary>
+            描述 :税收分类 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaratareVar">
+            <summary>
+            描述 :可变皮重 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraTEMPB">
+            <summary>
+            描述 :温度 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaratextileCompInd">
+            <summary>
+            描述 :纺织组分活动 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraTRAGR">
+            <summary>
+            描述 :运输组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraVABME">
+            <summary>
+            描述 :可变的订单单位 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraVHART">
+            <summary>
+            描述 :包装物料类型 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraVOLEH">
+            <summary>
+            描述 :体积单位 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraVOLTO">
+            <summary>
+            描述 :超过体积容差 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraVOLUM">
+            <summary>
+            描述 :业务量  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraVPREH">
+            <summary>
+            描述 :比较价格单位 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraVPSTA">
+            <summary>
+            描述 :完整状态  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraWEORA">
+            <summary>
+            描述 :原始接受 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraWESCH">
+            <summary>
+            描述 :GR单数量  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraWHMATGR">
+            <summary>
+            描述 :仓库物料组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraWHSTC">
+            <summary>
+            描述 :仓库存储条件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraWRKST">
+            <summary>
+            描述 :基本物料 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraXCHPF">
+            <summary>
+            描述 :批次管理需求  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraXGCHP">
+            <summary>
+            描述 :需要批量记录  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraZEIAR">
+            <summary>
+            描述 :凭证类型 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraZEIFO">
+            <summary>
+            描述 :页面大小 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraZEINR">
+            <summary>
+            描述 :凭证 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.MaraZEIVR">
+            <summary>
+            描述 :凭证版本 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.UDF01">
+            <summary>
+            描述 :UDF01 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.UDF02">
+            <summary>
+            描述 :UDF02 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.UDF03">
+            <summary>
+            描述 :UDF03 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.UDF04">
+            <summary>
+            描述 :UDF04 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.UDF05">
+            <summary>
+            描述 :UDF05 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.UDF06">
+            <summary>
+            描述 :UDF06 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.UDF51">
+            <summary>
+            描述 :UDF51 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.UDF52">
+            <summary>
+            描述 :UDF52 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.UDF53">
+            <summary>
+            描述 :UDF53 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.UDF54">
+            <summary>
+            描述 :UDF54 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.UDF55">
+            <summary>
+            描述 :UDF55 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.UDF56">
+            <summary>
+            描述 :UDF56 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.IsDeleted">
+            <summary>
+            描述 :IsDeleted 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.Remark">
+            <summary>
+            描述 :Remark 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMara.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="T:La.Model.Models.MmMarc">
+             <summary>
+             工厂物料数据，数据实体对象
+            
+             @author Laplace.Net:Davis.Cheng
+             @date 2023-03-14
+             </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcID">
+            <summary>
+            描述 :ID主键 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcABCIN">
+            <summary>
+            描述 :CC 库存盘点 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcABFAC">
+            <summary>
+            描述 :空气浮力因子 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcAHDIS">
+            <summary>
+            描述 :MRP 相关需求  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcALTSL">
+            <summary>
+            描述 :选择方法 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcAPLAL">
+            <summary>
+            描述 :组计数器 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcAPOKZ">
+            <summary>
+            描述 :相关于 APO 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcATPKZ">
+            <summary>
+            描述 :替换部件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcAUFTL">
+            <summary>
+            描述 :分割标识 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcAUSDT">
+            <summary>
+            描述 :中断日期 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcAUSME">
+            <summary>
+            描述 :发货单位 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcAUSSS">
+            <summary>
+            描述 :装配报废 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcAUTRU">
+            <summary>
+            描述 :自动重置 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcAWSLS">
+            <summary>
+            描述 :差异码  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcBASMG">
+            <summary>
+            描述 :基准数量 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcBEARZ">
+            <summary>
+            描述 :处理时间 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcBESKZ">
+            <summary>
+            描述 :采购 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcBSTFE">
+            <summary>
+            描述 :固定批量大小 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcBSTMA">
+            <summary>
+            描述 :最大批量  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcBSTMI">
+            <summary>
+            描述 :最小批量大小  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcBSTRF">
+            <summary>
+            描述 :舍入值  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcBWESB">
+            <summary>
+            描述 :评估收货锁定库存 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcBWSCL">
+            <summary>
+            描述 :货源 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcBWTTY">
+            <summary>
+            描述 :评估类别 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcCASNR">
+            <summary>
+            描述 :CAS 号（药品）  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcCCFIX">
+            <summary>
+            描述 :周期标识被固定 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcCOMPL">
+            <summary>
+            描述 :该字段不再使用 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcconsProcg">
+            <summary>
+            描述 :寄售控制 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcCONVT">
+            <summary>
+            描述 :转换类型 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcCOPAM">
+            <summary>
+            描述 :字段名  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcCUOBJ">
+            <summary>
+            描述 :内部对象号  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcCUOBV">
+            <summary>
+            描述 :内部对象号  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcDIBER">
+            <summary>
+            描述 :MRP  范围存在 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcDISGR">
+            <summary>
+            描述 :MRP组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcDISLS">
+            <summary>
+            描述 :批量大小 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcDISMM">
+            <summary>
+            描述 :MRP 类型 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcDISPO">
+            <summary>
+            描述 :MRP 控制者  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcDISPR">
+            <summary>
+            描述 :MRP 参数文件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcDPLFS">
+            <summary>
+            描述 :公平分享规则 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcDPLHO">
+            <summary>
+            描述 :发布界限 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcDPLPU">
+            <summary>
+            描述 :推式分配 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcDZEIT">
+            <summary>
+            描述 :厂内生产时间 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcEISBE">
+            <summary>
+            描述 :安全库存 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcEISLO">
+            <summary>
+            描述 :最小安全库存  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcEKGRP">
+            <summary>
+            描述 :采购组  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcEPRIO">
+            <summary>
+            描述 :库存确定组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcEXPME">
+            <summary>
+            描述 :商品代码单位 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcFABKZ">
+            <summary>
+            描述 :JIT 标识 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcFEVOR">
+            <summary>
+            描述 :生产管理员  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcFFREI">
+            <summary>
+            描述 :自动批准 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcFHORI">
+            <summary>
+            描述 :计划边际码  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcFIXLS">
+            <summary>
+            描述 :固定批量大小 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcFPRFM">
+            <summary>
+            描述 :分配 prof. 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcFRTME">
+            <summary>
+            描述 :生产单位 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcfshMgArunReq">
+            <summary>
+            描述 :订单分配运行 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcfshSeaim">
+            <summary>
+            描述 :库存管理中激活季节 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcFVIDK">
+            <summary>
+            描述 :生产版本 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcFXHOR">
+            <summary>
+            描述 :计划的时界  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcFXPRU">
+            <summary>
+            描述 :固定价格联产品 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcgiPrTime">
+            <summary>
+            描述 :发货处理时间 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcGLGMG">
+            <summary>
+            描述 :有约束的虚拟 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcGPMKZ">
+            <summary>
+            描述 :粗略计划 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcGPNUM">
+            <summary>
+            描述 :PRODCOM号  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcHERBL">
+            <summary>
+            描述 :生产状态  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcHERKL">
+            <summary>
+            描述 :原产地国 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcHERKR">
+            <summary>
+            描述 :货源地  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcINDUS">
+            <summary>
+            描述 :物料类别 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcINSMK">
+            <summary>
+            描述 :过帐到检验库存 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcITARK">
+            <summary>
+            描述 :军用物资 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarciuidRelevant">
+            <summary>
+            描述 :IUID 相关 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarciuidType">
+            <summary>
+            描述 :IUID 类型 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcKAUSF">
+            <summary>
+            描述 :组件报废 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcKAUTB">
+            <summary>
+            描述 :自动采购单  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcKORDB">
+            <summary>
+            描述 :源清单  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcKZAGL">
+            <summary>
+            描述 :平滑促销消耗  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcKZAUS">
+            <summary>
+            描述 :非连续标识  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcKZBED">
+            <summary>
+            描述 :需求分组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcKZDIE">
+            <summary>
+            描述 :MRP控制者=买者  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcKZDKZ">
+            <summary>
+            描述 :凭证需求  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcKZECH">
+            <summary>
+            描述 :输入批量 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcKZKFK">
+            <summary>
+            描述 :修正因子 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcKZKRI">
+            <summary>
+            描述 :关键组件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcKZKUP">
+            <summary>
+            描述 :联产品  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcKZPPV">
+            <summary>
+            描述 :检查计划标识  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcKZPRO">
+            <summary>
+            描述 :从产品货位提取 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcKZPSP">
+            <summary>
+            描述 :跨项目  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcLADGR">
+            <summary>
+            描述 :装载组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcLAGPR">
+            <summary>
+            描述 :库存成本 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcLFGJA">
+            <summary>
+            描述 :年  当前期间 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcLFMON">
+            <summary>
+            描述 :本期 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcLFRHY">
+            <summary>
+            描述 :计划周期 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcLGFSB">
+            <summary>
+            描述 :外部采购仓储地 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcLGPRO">
+            <summary>
+            描述 :生产仓储地点 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcLGRAD">
+            <summary>
+            描述 :服务水平 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcLIZYK">
+            <summary>
+            描述 :取消激活的 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcLOGGR">
+            <summary>
+            描述 :后勤组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcLOSFX">
+            <summary>
+            描述 :订购成本 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcLOSGR">
+            <summary>
+            描述 :成本核算批量 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcLTINC">
+            <summary>
+            描述 :批尺寸增加  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcLVORM">
+            <summary>
+            描述 :工厂级 DF 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcLZEIH">
+            <summary>
+            描述 :时间单位 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMAABC">
+            <summary>
+            描述 :ABC 标识 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMABST">
+            <summary>
+            描述 :最大库存水平  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMANDT">
+            <summary>
+            描述 :集团 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMATGR">
+            <summary>
+            描述 :物料分组 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMATNR">
+            <summary>
+            描述 :物料 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcmaxTroc">
+            <summary>
+            描述 :最大目标范围  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMAXLS">
+            <summary>
+            描述 :最大批量大小  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMAXLZ">
+            <summary>
+            描述 :最大存储期间  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMCRUE">
+            <summary>
+            描述 :最后的MARD 期间之前，MARDH 记 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMDACH">
+            <summary>
+            描述 :活动控制 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMEGRU">
+            <summary>
+            描述 :计量单位组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMFRGR">
+            <summary>
+            描述 :物料运输组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcminTroc">
+            <summary>
+            描述 :最小目标范围  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMINBE">
+            <summary>
+            描述 :再订货点 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMINLS">
+            <summary>
+            描述 :最小批量大小  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMISKZ">
+            <summary>
+            描述 :综合MRP 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMMSTA">
+            <summary>
+            描述 :P-S 物料状态  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMMSTD">
+            <summary>
+            描述 :有效起始期  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMOGRU">
+            <summary>
+            描述 :CAP 产品组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMOWNR">
+            <summary>
+            描述 :EU 产品清单编号 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMPDAU">
+            <summary>
+            描述 :平均检查持续期 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMRPPP">
+            <summary>
+            描述 :计划日历 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMTVER">
+            <summary>
+            描述 :出口/进口组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcMTVFP">
+            <summary>
+            描述 :可用性检查  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcmultipleEkgrp">
+            <summary>
+            描述 :交叉的采购组 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcNCOST">
+            <summary>
+            描述 :无成本核算  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcNFMAT">
+            <summary>
+            描述 :后继物料 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcNKMPR">
+            <summary>
+            描述 :下一次检查  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcOBJID">
+            <summary>
+            描述 :对象标识 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcOCMPF">
+            <summary>
+            描述 :总体参数文件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcOTYPE">
+            <summary>
+            描述 :对象类型 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcPERIV">
+            <summary>
+            描述 :会计年度变式 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcPERKZ">
+            <summary>
+            描述 :期间标识 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcPFREI">
+            <summary>
+            描述 :自动更改工厂订单 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcPLIFZ">
+            <summary>
+            描述 :计划交货时间 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcPLNNR">
+            <summary>
+            描述 :组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcPLNTY">
+            <summary>
+            描述 :任务清单类型 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcPLVAR">
+            <summary>
+            描述 :计划版本 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcPRCTR">
+            <summary>
+            描述 :利润中心 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcPREFE">
+            <summary>
+            描述 :优先权  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcPRENC">
+            <summary>
+            描述 :免税证书 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcPREND">
+            <summary>
+            描述 :发放证书日  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcPRENE">
+            <summary>
+            描述 :供应商申报  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcPRENG">
+            <summary>
+            描述 :供应商申报日期 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcPRENO">
+            <summary>
+            描述 :免税证书编号 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcPRFRQ">
+            <summary>
+            描述 :检查间隔  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcPSTAT">
+            <summary>
+            描述 :维护状态  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcQMATA">
+            <summary>
+            描述 :QM 物料授权 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcQMATV">
+            <summary>
+            描述 :检验设置  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcQSSYS">
+            <summary>
+            描述 :目标 QM 系统 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcQUAZT">
+            <summary>
+            描述 :隔离 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcQZGTP">
+            <summary>
+            描述 :证书类型 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcRDPRF">
+            <summary>
+            描述 :舍入参数文件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcrefSchema">
+            <summary>
+            描述 :确定方案 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcRESVP">
+            <summary>
+            描述 :调整期间 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcRGEKZ">
+            <summary>
+            描述 :反冲 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcrotationDate">
+            <summary>
+            描述 :库存入库/出库 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcRUEZT">
+            <summary>
+            描述 :准备时间 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcRWPRO">
+            <summary>
+            描述 :供货天数参文件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSAUFT">
+            <summary>
+            描述 :重复生产 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSBDKZ">
+            <summary>
+            描述 :独立/集中 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSCHGT">
+            <summary>
+            描述 :散装物料 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSERNP">
+            <summary>
+            描述 :序列号参数文件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSERVG">
+            <summary>
+            描述 :服务水平 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSFCPF">
+            <summary>
+            描述 :生产参数文  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSFEPR">
+            <summary>
+            描述 :REM 参数文件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcsgtChint">
+            <summary>
+            描述 :离散批次编号 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcsgtCovs">
+            <summary>
+            描述 :分段策略 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcsgtMrpsi">
+            <summary>
+            描述 :库存排序方法 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcsgtPrcm">
+            <summary>
+            描述 :消耗优先级 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcsgtScope">
+            <summary>
+            描述 :分段范围 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcsgtStatc">
+            <summary>
+            描述 :分段状态 MRP 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcsgtStkPrt">
+            <summary>
+            描述 :库存保护 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSHFLG">
+            <summary>
+            描述 :安全时间标识 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSHPRO">
+            <summary>
+            描述 :ST 期间参数文件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSHZET">
+            <summary>
+            描述 :安全时间 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSOBSK">
+            <summary>
+            描述 :特殊工艺类型 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSOBSL">
+            <summary>
+            描述 :特殊采购 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSPROZ">
+            <summary>
+            描述 :样本% 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSSQSS">
+            <summary>
+            描述 :QM 控制码  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSTAWN">
+            <summary>
+            描述 :Comm./imp. code 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSTDPD">
+            <summary>
+            描述 :可配置的物料 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSTEUC">
+            <summary>
+            描述 :控制代码 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSTLAL">
+            <summary>
+            描述 :备选  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSTLAN">
+            <summary>
+            描述 :用途  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcSTRGR">
+            <summary>
+            描述 :策略组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcTAKZT">
+            <summary>
+            描述 :间隔时间 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarctargetStock">
+            <summary>
+            描述 :目标库存 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcTRAME">
+            <summary>
+            描述 :在途库存  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcTRANZ">
+            <summary>
+            描述 :工序间  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcUCHKZ">
+            <summary>
+            描述 :OB管理 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcUCMAT">
+            <summary>
+            描述 :OB参考物料  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcUEETK">
+            <summary>
+            描述 :无限的  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcUEETO">
+            <summary>
+            描述 :过度交货允差 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcuidIea">
+            <summary>
+            描述 :外部分配 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcUMLMC">
+            <summary>
+            描述 :中转库存 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcUMRSL">
+            <summary>
+            描述 :转换组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcUNETO">
+            <summary>
+            描述 :不足交货允差 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcUOMGR">
+            <summary>
+            描述 :计量单位组  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcUSEQU">
+            <summary>
+            描述 :配额使用安排 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcVBAMG">
+            <summary>
+            描述 :基准数量 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcVBEAZ">
+            <summary>
+            描述 :处理时间 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcVERKZ">
+            <summary>
+            描述 :版本 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcVINT1">
+            <summary>
+            描述 :逆向消耗期间  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcVINT2">
+            <summary>
+            描述 :向前消耗期间  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcVKGLG">
+            <summary>
+            描述 :SlsVal.TiedEmpt 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcVKTRW">
+            <summary>
+            描述 :运输库存/SP 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcVKUMC">
+            <summary>
+            描述 :库存转移 SV 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcVRBDT">
+            <summary>
+            描述 :日期到  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcVRBFK">
+            <summary>
+            描述 :乘数 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcVRBMT">
+            <summary>
+            描述 :参考物料:消耗  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcVRBWK">
+            <summary>
+            描述 :参考工厂：寄存 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcVRMOD">
+            <summary>
+            描述 :消耗模式  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcVRVEZ">
+            <summary>
+            描述 :准备时间 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcVSPVB">
+            <summary>
+            描述 :提议供应区域 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcVZUSL">
+            <summary>
+            描述 :附加费 % 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcWEBAZ">
+            <summary>
+            描述 :收货处理时间 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcWERKS">
+            <summary>
+            描述 :工厂 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcWSTGH">
+            <summary>
+            描述 :活动性物质  
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcWZEIT">
+            <summary>
+            描述 :总补货提前时间 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcXCHAR">
+            <summary>
+            描述 :批次 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcXCHPF">
+            <summary>
+            描述 :批次管理需求  
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.MarcXMCNG">
+            <summary>
+            描述 :负的库存 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.UDF01">
+            <summary>
+            描述 :UDF01 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.UDF02">
+            <summary>
+            描述 :UDF02 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.UDF03">
+            <summary>
+            描述 :UDF03 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.UDF04">
+            <summary>
+            描述 :UDF04 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.UDF05">
+            <summary>
+            描述 :UDF05 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.UDF06">
+            <summary>
+            描述 :UDF06 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.UDF51">
+            <summary>
+            描述 :UDF51 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.UDF52">
+            <summary>
+            描述 :UDF52 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.UDF53">
+            <summary>
+            描述 :UDF53 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.UDF54">
+            <summary>
+            描述 :UDF54 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.UDF55">
+            <summary>
+            描述 :UDF55 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.UDF56">
+            <summary>
+            描述 :UDF56 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.IsDeleted">
+            <summary>
+            描述 :IsDeleted 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.Remark">
+            <summary>
+            描述 :Remark 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.MmMarc.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
             空值 :true 
             </summary>
         </member>
@@ -9893,7 +15407,7 @@
             空值 :true 
             </summary>
         </member>
-        <member name="T:La.Model.Models.WfCustomform">
+        <member name="T:La.Model.Models.Workflow.Flowinstance.WfCustomform">
              <summary>
              自定义表单，数据实体对象
             
@@ -9901,61 +15415,61 @@
              @date 2023-03-14
              </summary>
         </member>
-        <member name="P:La.Model.Models.WfCustomform.Id">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfCustomform.Id">
             <summary>
             描述 :ID 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfCustomform.Name">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfCustomform.Name">
             <summary>
             描述 :名称 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfCustomform.Sort">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfCustomform.Sort">
             <summary>
             描述 :排序 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfCustomform.FlowInstanceId">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfCustomform.FlowInstanceId">
             <summary>
             描述 :流程实例模板Id 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfCustomform.Remark">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfCustomform.Remark">
             <summary>
             描述 :备注 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfCustomform.CreateBy">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfCustomform.CreateBy">
             <summary>
             描述 :CreateBy 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfCustomform.CreateTime">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfCustomform.CreateTime">
             <summary>
             描述 :CreateTime 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfCustomform.UpdateBy">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfCustomform.UpdateBy">
             <summary>
             描述 :UpdateBy 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfCustomform.UpdateTime">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfCustomform.UpdateTime">
             <summary>
             描述 :UpdateTime 
             空值 :true 
             </summary>
         </member>
-        <member name="T:La.Model.Models.WfFlowinstance">
+        <member name="T:La.Model.Models.Workflow.Flowinstance.WfFlowinstance">
              <summary>
              流程实例模板，数据实体对象
             
@@ -9963,187 +15477,315 @@
              @date 2023-03-14
              </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.Id">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.Id">
             <summary>
             描述 :ID 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.InstanceSchemeId">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.InstanceSchemeId">
             <summary>
             描述 :流程实例模板Id 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.Code">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.Code">
             <summary>
             描述 :实例编号 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.CustomName">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.CustomName">
             <summary>
             描述 :自定义名称 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.ActivityId">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.ActivityId">
             <summary>
             描述 :当前节点ID 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.ActivityType">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.ActivityType">
             <summary>
             描述 :当前节点类型（0会签节点） 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.ActivityName">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.ActivityName">
             <summary>
             描述 :当前节点名称 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.PreviousId">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.PreviousId">
             <summary>
             描述 :前一个ID 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.SchemeContent">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.SchemeContent">
             <summary>
             描述 :流程模板内容 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.SchemeId">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.SchemeId">
             <summary>
             描述 :流程模板ID 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.DbName">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.DbName">
             <summary>
             描述 :数据库名称 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.FrmData">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.FrmData">
             <summary>
             描述 :表单数据 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.FrmType">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.FrmType">
             <summary>
             描述 :表单类型 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.FrmContentData">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.FrmContentData">
             <summary>
             描述 :表单中的字段 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.FrmContentParse">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.FrmContentParse">
             <summary>
             描述 :表单字段（冗余) 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.FrmId">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.FrmId">
             <summary>
             描述 :表单ID 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.SchemeType">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.SchemeType">
             <summary>
             描述 :流程类型 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.FlowLevel">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.FlowLevel">
             <summary>
             描述 :等级 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.IsFinish">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.IsFinish">
             <summary>
             描述 :是否完成 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.FrmContent">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.FrmContent">
             <summary>
             描述 :表单参数 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.MakerList">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.MakerList">
             <summary>
             描述 :执行人 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.OrgId">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.OrgId">
             <summary>
             描述 :所属部门 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.Active">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.Active">
             <summary>
             描述 :Active 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.Status">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.Status">
             <summary>
             描述 :状态标识 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.IsDeleted">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.IsDeleted">
             <summary>
             描述 :IsDeleted 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.TenantId">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.TenantId">
             <summary>
             描述 :TenantId 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.Remark">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.Remark">
             <summary>
             描述 :Remark 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.CreateBy">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.CreateBy">
             <summary>
             描述 :CreateBy 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.CreateTime">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.CreateTime">
             <summary>
             描述 :CreateTime 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.UpdateBy">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.UpdateBy">
             <summary>
             描述 :UpdateBy 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.WfFlowinstance.UpdateTime">
+        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="T:La.Model.Models.Workflow.Flowscheme.WfFlowscheme">
+             <summary>
+             流程，数据实体对象
+            
+             @author Davis.Cheng
+             @date 2023-03-14
+             </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.Id">
+            <summary>
+            描述 :ID 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.SchemeCode">
+            <summary>
+            描述 :流程编号 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.SchemeName">
+            <summary>
+            描述 :流程名称 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.SchemeType">
+            <summary>
+            描述 :流程类型 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.SchemeVersion">
+            <summary>
+            描述 :流程版本 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.SchemeCanUser">
+            <summary>
+            描述 :流程使用人 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.SchemeContent">
+            <summary>
+            描述 :流程内容 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.FrmId">
+            <summary>
+            描述 :表单Id 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.FrmType">
+            <summary>
+            描述 :表单类型 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.AuthorizeType">
+            <summary>
+            描述 :权限类型 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.OrgId">
+            <summary>
+            描述 :组织Id 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.Active">
+            <summary>
+            描述 :执行 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.Status">
+            <summary>
+            描述 :状态 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.Sort">
+            <summary>
+            描述 :排序 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.IsDeleted">
+            <summary>
+            描述 :IsDeleted 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.Remark">
+            <summary>
+            描述 :Remark 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.UpdateTime">
             <summary>
             描述 :UpdateTime 
             空值 :true 
@@ -10303,134 +15945,6 @@
             空值 :true 
             </summary>
         </member>
-        <member name="T:La.Model.Models.WfFlowscheme">
-             <summary>
-             流程，数据实体对象
-            
-             @author Davis.Cheng
-             @date 2023-03-14
-             </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.Id">
-            <summary>
-            描述 :ID 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.SchemeCode">
-            <summary>
-            描述 :流程编号 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.SchemeName">
-            <summary>
-            描述 :流程名称 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.SchemeType">
-            <summary>
-            描述 :流程类型 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.SchemeVersion">
-            <summary>
-            描述 :流程版本 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.SchemeCanUser">
-            <summary>
-            描述 :流程使用人 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.SchemeContent">
-            <summary>
-            描述 :流程内容 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.FrmId">
-            <summary>
-            描述 :表单Id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.FrmType">
-            <summary>
-            描述 :表单类型 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.AuthorizeType">
-            <summary>
-            描述 :权限类型 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.OrgId">
-            <summary>
-            描述 :组织Id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.Active">
-            <summary>
-            描述 :执行 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.Status">
-            <summary>
-            描述 :状态 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.Sort">
-            <summary>
-            描述 :排序 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.IsDeleted">
-            <summary>
-            描述 :IsDeleted 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.Remark">
-            <summary>
-            描述 :Remark 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.CreateBy">
-            <summary>
-            描述 :CreateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.CreateTime">
-            <summary>
-            描述 :CreateTime 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowscheme.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            空值 :true 
-            </summary>
-        </member>
         <member name="T:La.Model.Models.WfForm">
              <summary>
              表单，数据实体对象
@@ -10548,6 +16062,374 @@
             </summary>
         </member>
         <member name="P:La.Model.Models.WfForm.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="T:La.Model.Models.WfWorkflow">
+             <summary>
+             审批流程，数据实体对象
+            
+             @author Davis.Cheng
+             @date 2023-03-14
+             </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflow.WorkflowId">
+            <summary>
+            描述 :ID 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflow.WorkName">
+            <summary>
+            描述 :流程名称 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflow.WorkTable">
+            <summary>
+            描述 :表名 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflow.WorkTableName">
+            <summary>
+            描述 :功能菜单 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflow.NodeConfig">
+            <summary>
+            描述 :节点信息 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflow.LineConfig">
+            <summary>
+            描述 :连接配置 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflow.Remark">
+            <summary>
+            描述 :备注 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflow.Enable">
+            <summary>
+            描述 :是否启用 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflow.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflow.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflow.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflow.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="T:La.Model.Models.WfWorkflowstep">
+             <summary>
+             审批节点配置，数据实体对象
+            
+             @author Davis.Cheng
+             @date 2023-03-14
+             </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowstep.WorkstepflowId">
+            <summary>
+            描述 :ID 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowstep.WorkflowId">
+            <summary>
+            描述 :流程主表id 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowstep.StepId">
+            <summary>
+            描述 :流程节点Id 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowstep.StepName">
+            <summary>
+            描述 :节点名称 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowstep.StepType">
+            <summary>
+            描述 :节点类型 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowstep.StepValue">
+            <summary>
+            描述 :审批用户id或角色id 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowstep.OrderId">
+            <summary>
+            描述 :审批顺序 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowstep.Remark">
+            <summary>
+            描述 :备注 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowstep.Enable">
+            <summary>
+            描述 :Enable 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowstep.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowstep.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowstep.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowstep.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="T:La.Model.Models.WfWorkflowtable">
+             <summary>
+             审批流程，数据实体对象
+            
+             @author Davis.Cheng
+             @date 2023-03-14
+             </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtable.WorkflowtableId">
+            <summary>
+            描述 :ID 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtable.WorkflowId">
+            <summary>
+            描述 :流程id 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtable.WorkName">
+            <summary>
+            描述 :流程名称 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtable.WorkTableKey">
+            <summary>
+            描述 :表主键id 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtable.WorkTable">
+            <summary>
+            描述 :表名 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtable.WorkTableName">
+            <summary>
+            描述 :业务名称 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtable.CurrentOrderId">
+            <summary>
+            描述 :当前审批节点 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtable.AuditStatus">
+            <summary>
+            描述 :审批状态 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtable.Enable">
+            <summary>
+            描述 :启用 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtable.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtable.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtable.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtable.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="T:La.Model.Models.WfWorkflowtablestep">
+             <summary>
+             审批节点，数据实体对象
+            
+             @author Davis.Cheng
+             @date 2023-03-14
+             </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtablestep.SysWorkflowtablestepId">
+            <summary>
+            描述 :ID 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtablestep.WorkflowtableId">
+            <summary>
+            描述 :主表id 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtablestep.WorkflowId">
+            <summary>
+            描述 :流程id 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtablestep.StepId">
+            <summary>
+            描述 :节点id 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtablestep.StepName">
+            <summary>
+            描述 :节名称 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtablestep.StepType">
+            <summary>
+            描述 :审批类型 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtablestep.StepValue">
+            <summary>
+            描述 :节点类型 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtablestep.OrderId">
+            <summary>
+            描述 :审批顺序 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtablestep.AuditId">
+            <summary>
+            描述 :审核人id 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtablestep.Auditor">
+            <summary>
+            描述 :审核人 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtablestep.AuditStatus">
+            <summary>
+            描述 :审核状态 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtablestep.AuditDate">
+            <summary>
+            描述 :审核时间 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtablestep.Remark">
+            <summary>
+            描述 :备注 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtablestep.Enable">
+            <summary>
+            描述 :启用 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtablestep.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtablestep.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtablestep.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.WfWorkflowtablestep.UpdateTime">
             <summary>
             描述 :UpdateTime 
             空值 :true 

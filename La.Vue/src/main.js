@@ -16,6 +16,7 @@ import ElementPlus from 'element-plus'
 //引用element-plus样式
 import ElementUI from 'element-plus/es/index'
 import 'element-plus/dist/index.css'
+
 //VForm3 可视化动态表单平台及h5页面搭建平台
 import VForm3 from 'vform3-builds'  //引入VForm 3库
 import 'vform3-builds/dist/designer.style.css'  //引入VForm3样式
@@ -33,7 +34,7 @@ import pinia from '@/store/index'
 //过期退出
 import isTimeOut from '@/store/modules/isTimeOut'
 //引入UUID
-import { v4 as uuidv4 } from 'uuid'
+
 // svg图标
 import 'virtual:svg-icons-register'
 

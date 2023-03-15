@@ -4,7 +4,7 @@
       <el-col :lg="12">
         <el-form-item prop="tplCategory">
           <template #label>生成模板</template>
-          <el-select v-model="info.tplCategory" @change="tplSelectChange">
+          <el-select clearable filterable v-model="info.tplCategory" @change="tplSelectChange">
             <el-option label="单表（增删改查）" value="crud" />
             <!-- <el-option label="单表查询" value="select" /> -->
             <el-option label="树表（增删改查）" value="tree" />
@@ -93,7 +93,7 @@
       </el-col>
       <el-col :lg="12">
         <el-form-item label="默认查询排序字段">
-          <el-select v-model="info.sortField" placeholder="请选择字段" class="mr10" clearable="">
+          <el-select v-model="info.sortField" placeholder="请选择字段" class="mr10" clearable filterable>
             <el-option v-for="item in columns" :key="item.columnId" :label="item.csharpField" :value="item.csharpField">
             </el-option>
           </el-select>

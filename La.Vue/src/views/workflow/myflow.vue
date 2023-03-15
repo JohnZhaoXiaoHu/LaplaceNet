@@ -1,12 +1,15 @@
 <template>
   <div>
-    <p>流程清单</p>
-
+    {{uuid}}
   </div>
+
 </template>
-<script setup name="myflow">
+
+<script setup>
+
+  let uuid = crypto.randomUUID()
+
+
+
+
 </script>
-
-<style>
-
-</style>

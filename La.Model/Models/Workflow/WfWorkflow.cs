@@ -1,48 +1,69 @@
 using System;
 using SqlSugar;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 
 namespace La.Model.Models
 {
     /// <summary>
-    /// 自定义表单，数据实体对象
+    /// 审批流程，数据实体对象
     ///
     /// @author Davis.Cheng
     /// @date 2023-03-14
     /// </summary>
-    [SugarTable("wf_customform")]
-    public class WfCustomform
+    [SugarTable("wf_workflow")]
+    public class WfWorkflow
     {
         /// <summary>
         /// 描述 :ID 
         /// 空值 :false 
         /// </summary>
-        [SugarColumn(IsPrimaryKey = true, IsIdentity = false)]
-        public long Id { get; set; }
+        [SugarColumn(IsPrimaryKey = true, IsIdentity = false, ColumnName = "workFlow_Id")]
+        public string WorkflowId { get; set; }
 
         /// <summary>
-        /// 描述 :名称 
+        /// 描述 :流程名称 
+        /// 空值 :false 
+        /// </summary>
+        public string WorkName { get; set; }
+
+        /// <summary>
+        /// 描述 :表名 
+        /// 空值 :false 
+        /// </summary>
+        public string WorkTable { get; set; }
+
+        /// <summary>
+        /// 描述 :功能菜单 
         /// 空值 :true 
         /// </summary>
-        public string Name { get; set; }
+        public string WorkTableName { get; set; }
 
         /// <summary>
-        /// 描述 :排序 
-        /// 空值 :false 
+        /// 描述 :节点信息 
+        /// 空值 :true 
         /// </summary>
-        public long Sort { get; set; }
+        public string NodeConfig { get; set; }
 
         /// <summary>
-        /// 描述 :流程实例模板Id 
-        /// 空值 :false 
+        /// 描述 :连接配置 
+        /// 空值 :true 
         /// </summary>
-        public long FlowInstanceId { get; set; }
+        public string LineConfig { get; set; }
 
         /// <summary>
         /// 描述 :备注 
         /// 空值 :true 
         /// </summary>
         public string Remark { get; set; }
+
+        /// <summary>
+        /// 描述 :是否启用 
+        /// 空值 :true 
+        /// </summary>
+        public byte Enable { get; set; }
 
         /// <summary>
         /// 描述 :CreateBy 
@@ -71,7 +92,6 @@ namespace La.Model.Models
         /// </summary>
         [SugarColumn(ColumnName = "update_time")]
         public DateTime? UpdateTime { get; set; }
-
 
 
 

@@ -2,7 +2,7 @@ using System;
 using SqlSugar;
 using System.Collections.Generic;
 
-namespace La.Model.Models
+namespace La.Model.Models.Workflow.Flowscheme
 {
     /// <summary>
     /// 流程，数据实体对象

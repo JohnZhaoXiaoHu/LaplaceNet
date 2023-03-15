@@ -20,6 +20,7 @@
   <ItemGroup>
     <Folder Include="Dto\System\" />
     <Folder Include="Models\System\" />
+    <Folder Include="Models\Workflow\FormManage\" />
   </ItemGroup>
 
 </Project>

@@ -2,9 +2,11 @@ import { createI18n } from 'vue-i18n'
 // import useAppStore from '@/store/modules/app'
 import { listLangByLocale } from '@/api/system/commonLang'
 import jsCookie from 'js-cookie'
+const navLang = navigator.language || navigator.userLanguage
+const localLang = navLang || false
 const language = computed(() => {
   // return useAppStore().lang
-  return jsCookie.get('lang') || 'zh-cn'
+  return jsCookie.get('lang') || localLang || 'zh-cn'
 })
 // 导入语言资源
 import zh from './lang/zh-cn.json'//中文

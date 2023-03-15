@@ -336,8 +336,6 @@
     exportPpOutputMaster,
   }
     from '@/api/production/ppoutputmaster.js'
-  //uuid，guid函数
-  import { v4 as uuidv4 } from 'uuid'
   //日期格式化函数
   import { getCurrentTime } from '@/utils/date'
   const { proxy } = getCurrentInstance()
@@ -473,7 +471,7 @@
   function SelAssignmentinline(data, val, index, row) {
     //赋值给文本框
     let vals = val
-    row.pomGuid = uuidv4()
+    row.pomGuid = crypto.randomUUID()
     row.pomOrder = vals.split(",").slice(0, 1).join()
     row.pomOrderQty = 1000// val.split(",").slice(3, 4).join()
     row.pomOrderSerial = vals.split(",").slice(4, 5).join()
@@ -509,7 +507,7 @@
   //select选择框，赋值到其它文本框。split(",")分割数组，slice()截取，.join()转字符串parseFloat().toFixed(2)保留小数位
   function SelAssignment(val) {
     //赋值给文本框
-    form.value.pomGuid = uuidv4()
+    form.value.pomGuid = crypto.randomUUID()
     form.value.pomOrder = val.split(",").slice(0, 1).join()
     form.value.pomOrderQty = val.split(",").slice(3, 4).join()
     form.value.pomOrderSerial = val.split(",").slice(4, 5).join()
