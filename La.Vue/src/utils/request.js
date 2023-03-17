@@ -12,6 +12,7 @@ export let isRelogin = { show: false };
 
 // 解决后端跨域获取不到cookie问题
 // axios.defaults.withCredentials = true
+//axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
 axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
 // 创建axios实例
 const service = axios.create({

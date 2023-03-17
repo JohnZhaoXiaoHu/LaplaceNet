@@ -1,15 +1,9 @@
 <template>
-  <div>
-    {{uuid}}
-  </div>
-
+  <div>{{uuid}}</div>
 </template>
-
 <script setup>
-
   let uuid = crypto.randomUUID()
-
-
-
-
 </script>
+<style>
+
+</style>

@@ -11,6 +11,9 @@ using La.Service.Production.IProductionService;
 using La.WebApi.Extensions;
 using La.WebApi.Filters;
 using La.Common;
+using JinianNet.JNTemplate.Dynamic;
+using SqlSugar;
+using La.Service.Production;
 
 namespace La.WebApi.Controllers
 {
@@ -32,9 +35,12 @@ namespace La.WebApi.Controllers
         /// <summary>
         /// oph主表Controller
         /// </summary>
-        public PpOutputMasterController(IPpOutputMasterService PpOutputMasterService)
+        public PpOutputMasterController(
+            IPpOutputMasterService PpOutputMasterService 
+ )
         {
             _PpOutputMasterService = PpOutputMasterService;
+
         }
 
         /// <summary>
