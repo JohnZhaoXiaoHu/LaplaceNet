@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Hosting;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
@@ -175,5 +176,19 @@ namespace La.Infra
                 Console.WriteLine("写入文件出错了:" + ex.Message);
             }
         }
+        /// <summary>
+        /// 删除文件
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="name"></param>
+        public static void deleteFile(string filePath,string fileName)
+        {
+            if (File.Exists(filePath +  fileName))
+            {
+                File.Delete(filePath +  fileName);
+            }
+            
+        }
+
     }
 }

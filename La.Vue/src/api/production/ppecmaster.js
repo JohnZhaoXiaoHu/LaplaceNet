@@ -1,5 +1,4 @@
 import request from '@/utils/request'
-import { downFile } from '@/utils/request'
 
 /**
 * 主设变信息表分页查询
@@ -7,7 +6,7 @@ import { downFile } from '@/utils/request'
 */
 export function listPpEcMaster(query) {
   return request({
-    url: 'production/PpEcMaster/list',
+    url: 'Production/PpEcMaster/list',
     method: 'get',
     params: query,
   })
@@ -20,7 +19,7 @@ export function listPpEcMaster(query) {
 */
 export function addPpEcMaster(data) {
   return request({
-    url: 'production/PpEcMaster',
+    url: 'Production/PpEcMaster',
     method: 'post',
     data: data,
   })
@@ -32,7 +31,7 @@ export function addPpEcMaster(data) {
 */
 export function updatePpEcMaster(data) {
   return request({
-    url: 'production/PpEcMaster',
+    url: 'Production/PpEcMaster',
     method: 'PUT',
     data: data,
   })
@@ -44,7 +43,7 @@ export function updatePpEcMaster(data) {
 */
 export function getPpEcMaster(id) {
   return request({
-    url: 'production/PpEcMaster/' + id,
+    url: 'Production/PpEcMaster/' + id,
     method: 'get'
   })
 }
@@ -55,7 +54,7 @@ export function getPpEcMaster(id) {
 */
 export function delPpEcMaster(pid) {
   return request({
-    url: 'production/PpEcMaster/' + pid,
+    url: 'Production/PpEcMaster/' + pid,
     method: 'delete'
   })
 }
@@ -63,13 +62,13 @@ export function delPpEcMaster(pid) {
 // 清空主设变信息表
 export function clearPpEcMaster() {
   return request({
-    url: 'production/PpEcMaster/clean',
+    url: 'Production/PpEcMaster/clean',
     method: 'delete'
   })
 }
 
 // 导出主设变信息表
 export async function exportPpEcMaster(query) {
-  await downFile('production/PpEcMaster/export', { ...query })
+  await downFile('Production/PpEcMaster/export', { ...query })
 }
 

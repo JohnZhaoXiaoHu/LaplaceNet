@@ -21,6 +21,12 @@ namespace La.Service.System.IService
         /// <returns>文件对象</returns>
         Task<SysFile> SaveFileToLocal(string rootPath, string fileName, string fileDir, string userName, IFormFile formFile);
 
+        /// <summary>
+        /// 校验输入项目是否唯一
+        /// </summary>
+        /// <param name="entryString"></param>
+        /// <returns></returns>
+        public string CheckEntryStringUnique(string entryString);
         Task<SysFile> SaveFileToAliyun(SysFile file, IFormFile formFile);
         /// <summary>
         /// 按时间来创建文件夹

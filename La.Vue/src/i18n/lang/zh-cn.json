@@ -173,6 +173,8 @@
     "copySucceed": "复制成功"
   },
   "btn": {
+    "down": "下载",
+    "file": "文件",
     "dateselect": "请选择日期:",
     "clean": "清空",
     "enter": "请输入:",

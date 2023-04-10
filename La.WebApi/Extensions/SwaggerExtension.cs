@@ -37,7 +37,7 @@ namespace La.WebApi.Extensions
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("v1/swagger.json", "Laplace v1");
-                c.SwaggerEndpoint("Model/swagger.json", "实体层类库");
+                c.SwaggerEndpoint("v1/swagger.json", "Laplace v2");
 
             });
 
@@ -57,18 +57,20 @@ namespace La.WebApi.Extensions
                     Description = "参考文章：https://www.cnblogs.com/nullcodeworld/p/16734334.html",
                     Contact = new OpenApiContact { Name = "Davis.Cheng", Email = "32322788@qq.com", Url = new System.Uri("https://laplacenet.github.io/") }
                 });
-                c.SwaggerDoc("Model", new OpenApiInfo                 
-                { 
-                    Title = "实体层类库", 
-                    Version = "V1.0.0" 
-                });   //分组显示
+                c.SwaggerDoc("v2", new OpenApiInfo
+                {
+                    Title = "Laplace.Net7 - Model",
+                    Version = "v2",
+                    Description = "参考文章：https://www.cnblogs.com/nullcodeworld/p/16734334.html",
+                    Contact = new OpenApiContact { Name = "Davis.Cheng", Email = "32322788@qq.com", Url = new System.Uri("https://laplacenet.github.io/") }
+                });
                 try
                 {
                     var tempPath = "";// hostEnvironment.ContentRootPath;
                     //添加文档注释
                     c.IncludeXmlComments(Path.Combine(tempPath, "La.WebApi.xml"), true);
                     c.IncludeXmlComments(Path.Combine(tempPath, "La.Model.xml"), true);
-                    //c.IncludeXmlComments(Path.Combine(Directory.GetParent(tempPath).FullName, "La.WebApi", "La.Model.xml"), true);
+                    //c.IncludeXmlComments(Path.Combine(Directory.GetParent(tempPath).FullName, "La.Model", "La.Model.xml"), true);
                 }
 
                 catch (Exception ex)

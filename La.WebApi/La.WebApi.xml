@@ -903,117 +903,54 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:La.WebApi.Controllers.PpEcMasterController">
+        <member name="T:La.WebApi.Controllers.PpEcSlaveController">
             <summary>
-            主设变信息表Controller
+            从设变信息表Controller
             
-            @tableName pp_ec_master
+            @tableName pp_ec_slave
             @author Laplace.Net:Davis.Cheng
-            @date 2023-03-09
+            @date 2023-04-10
             </summary>
         </member>
-        <member name="F:La.WebApi.Controllers.PpEcMasterController._PpEcMasterService">
+        <member name="F:La.WebApi.Controllers.PpEcSlaveController._PpEcSlaveService">
             <summary>
-            主设变信息表接口
+            从设变信息表接口
             </summary>
         </member>
-        <member name="M:La.WebApi.Controllers.PpEcMasterController.#ctor(La.Service.Production.IProductionService.IPpEcMasterService)">
+        <member name="M:La.WebApi.Controllers.PpEcSlaveController.#ctor(La.Service.Production.IProductionService.IPpEcSlaveService)">
             <summary>
-            主设变信息表Controller
+            从设变信息表Controller
             </summary>
         </member>
-        <member name="M:La.WebApi.Controllers.PpEcMasterController.QueryPpEcMaster(La.Model.Dto.PpEcMasterQueryDto)">
+        <member name="M:La.WebApi.Controllers.PpEcSlaveController.QueryPpEcSlave(La.Model.Dto.PpEcSlaveQueryDto)">
             <summary>
-            查询主设变信息表列表
+            查询从设变信息表列表
             </summary>
             <param name="parm"></param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.PpEcMasterController.GetPpEcMaster(System.Int32)">
+        <member name="M:La.WebApi.Controllers.PpEcSlaveController.GetPpEcSlave(System.Int32)">
             <summary>
-            查询主设变信息表详情
+            查询从设变信息表详情
             </summary>
-            <param name="EmId"></param>
+            <param name="EsId"></param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.PpEcMasterController.AddPpEcMaster(La.Model.Dto.PpEcMasterDto)">
+        <member name="M:La.WebApi.Controllers.PpEcSlaveController.AddPpEcSlave(La.Model.Dto.PpEcSlaveDto)">
             <summary>
-            添加主设变信息表
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.PpEcMasterController.UpdatePpEcMaster(La.Model.Dto.PpEcMasterDto)">
-            <summary>
-            更新主设变信息表
+            添加从设变信息表
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.PpEcMasterController.DeletePpEcMaster(System.String)">
+        <member name="M:La.WebApi.Controllers.PpEcSlaveController.UpdatePpEcSlave(La.Model.Dto.PpEcSlaveDto)">
             <summary>
-            删除主设变信息表
+            更新从设变信息表
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.PpEcMasterController.Export(La.Model.Dto.PpEcMasterQueryDto)">
+        <member name="M:La.WebApi.Controllers.PpEcSlaveController.DeletePpEcSlave(System.String)">
             <summary>
-            导出主设变信息表
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.PpLinesController">
-            <summary>
-            生产班组Controller
-            
-            @tableName pp_lines
-            @author Laplace.Net:Davis.Cheng
-            @date 2023-03-09
-            </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.PpLinesController._PpLinesService">
-            <summary>
-            生产班组接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.PpLinesController.#ctor(La.Service.Production.IProductionService.IPpLinesService)">
-            <summary>
-            生产班组Controller
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.PpLinesController.QueryPpLines(La.Model.Dto.PpLinesQueryDto)">
-            <summary>
-            查询生产班组列表
-            </summary>
-            <param name="parm"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.PpLinesController.GetPpLines(System.Int64)">
-            <summary>
-            查询生产班组详情
-            </summary>
-            <param name="PlId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.PpLinesController.AddPpLines(La.Model.Dto.PpLinesDto)">
-            <summary>
-            添加生产班组
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.PpLinesController.UpdatePpLines(La.Model.Dto.PpLinesDto)">
-            <summary>
-            更新生产班组
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.PpLinesController.DeletePpLines(System.String)">
-            <summary>
-            删除生产班组
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.PpLinesController.Export(La.Model.Dto.PpLinesQueryDto)">
-            <summary>
-            导出生产班组
+            删除从设变信息表
             </summary>
             <returns></returns>
         </member>
@@ -2972,6 +2909,63 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:La.WebApi.Controllers.WfFlowCateController">
+            <summary>
+            OA流程分类表Controller
+            
+            @tableName wf_flow_cate
+            @author Davis.Cheng
+            @date 2023-03-17
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.WfFlowCateController._WfFlowCateService">
+            <summary>
+            OA流程分类表接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowCateController.#ctor(La.Service.Workflow.IWorkflowService.IWfFlowCateService)">
+            <summary>
+            OA流程分类表Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowCateController.QueryWfFlowCate(La.Model.Dto.WfFlowCateQueryDto)">
+            <summary>
+            查询OA流程分类表列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowCateController.GetWfFlowCate(System.String)">
+            <summary>
+            查询OA流程分类表详情
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowCateController.AddWfFlowCate(La.Model.Dto.WfFlowCateDto)">
+            <summary>
+            添加OA流程分类表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowCateController.UpdateWfFlowCate(La.Model.Dto.WfFlowCateDto)">
+            <summary>
+            更新OA流程分类表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowCateController.DeleteWfFlowCate(System.String)">
+            <summary>
+            删除OA流程分类表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowCateController.Export(La.Model.Dto.WfFlowCateQueryDto)">
+            <summary>
+            导出OA流程分类表
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:La.WebApi.Controllers.WfFlowinstanceController">
             <summary>
             流程实例模板Controller
@@ -3131,6 +3125,120 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:La.WebApi.Controllers.WfFlowMainController">
+            <summary>
+            OA流程实例表Controller
+            
+            @tableName wf_flow_main
+            @author Davis.Cheng
+            @date 2023-03-17
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.WfFlowMainController._WfFlowMainService">
+            <summary>
+            OA流程实例表接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowMainController.#ctor(La.Service.Workflow.IWorkflowService.IWfFlowMainService)">
+            <summary>
+            OA流程实例表Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowMainController.QueryWfFlowMain(La.Model.Dto.WfFlowMainQueryDto)">
+            <summary>
+            查询OA流程实例表列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowMainController.GetWfFlowMain(System.String)">
+            <summary>
+            查询OA流程实例表详情
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowMainController.AddWfFlowMain(La.Model.Dto.WfFlowMainDto)">
+            <summary>
+            添加OA流程实例表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowMainController.UpdateWfFlowMain(La.Model.Dto.WfFlowMainDto)">
+            <summary>
+            更新OA流程实例表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowMainController.DeleteWfFlowMain(System.String)">
+            <summary>
+            删除OA流程实例表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowMainController.Export(La.Model.Dto.WfFlowMainQueryDto)">
+            <summary>
+            导出OA流程实例表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:La.WebApi.Controllers.WfFlowReceController">
+            <summary>
+            流程使用记录Controller
+            
+            @tableName wf_flow_rece
+            @author Davis.Cheng
+            @date 2023-04-10
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.WfFlowReceController._WfFlowReceService">
+            <summary>
+            流程使用记录接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowReceController.#ctor(La.Service.Workflow.IWorkflowService.IWfFlowReceService)">
+            <summary>
+            流程使用记录Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowReceController.QueryWfFlowRece(La.Model.Dto.WfFlowReceQueryDto)">
+            <summary>
+            查询流程使用记录列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowReceController.GetWfFlowRece(System.String)">
+            <summary>
+            查询流程使用记录详情
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowReceController.AddWfFlowRece(La.Model.Dto.WfFlowReceDto)">
+            <summary>
+            添加流程使用记录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowReceController.UpdateWfFlowRece(La.Model.Dto.WfFlowReceDto)">
+            <summary>
+            更新流程使用记录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowReceController.DeleteWfFlowRece(System.String)">
+            <summary>
+            删除流程使用记录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowReceController.Export(La.Model.Dto.WfFlowReceQueryDto)">
+            <summary>
+            导出流程使用记录
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:La.WebApi.Controllers.WfFlowschemeController">
             <summary>
             流程Controller
@@ -3179,6 +3287,63 @@
         <member name="M:La.WebApi.Controllers.WfFlowschemeController.DeleteWfFlowscheme(System.String)">
             <summary>
             删除流程
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:La.WebApi.Controllers.WfFlowTmplController">
+            <summary>
+            OA流程模板表Controller
+            
+            @tableName wf_flow_tmpl
+            @author Davis.Cheng
+            @date 2023-03-17
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.WfFlowTmplController._WfFlowTmplService">
+            <summary>
+            OA流程模板表接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowTmplController.#ctor(La.Service.Workflow.IWorkflowService.IWfFlowTmplService)">
+            <summary>
+            OA流程模板表Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowTmplController.QueryWfFlowTmpl(La.Model.Dto.WfFlowTmplQueryDto)">
+            <summary>
+            查询OA流程模板表列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowTmplController.GetWfFlowTmpl(System.String)">
+            <summary>
+            查询OA流程模板表详情
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowTmplController.AddWfFlowTmpl(La.Model.Dto.WfFlowTmplDto)">
+            <summary>
+            添加OA流程模板表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowTmplController.UpdateWfFlowTmpl(La.Model.Dto.WfFlowTmplDto)">
+            <summary>
+            更新OA流程模板表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowTmplController.DeleteWfFlowTmpl(System.String)">
+            <summary>
+            删除OA流程模板表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.WfFlowTmplController.Export(La.Model.Dto.WfFlowTmplQueryDto)">
+            <summary>
+            导出OA流程模板表
             </summary>
             <returns></returns>
         </member>

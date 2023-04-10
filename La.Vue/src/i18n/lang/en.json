@@ -173,6 +173,8 @@
     "copySucceed": "Copy Succeed!"
   },
   "btn": {
+    "down": "Download",
+    "file": "FFile",
     "dateselect": "Date Selector:",
     "clean": "Clear all",
     "enter": "Please enter:",

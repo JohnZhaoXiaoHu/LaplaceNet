@@ -7,6 +7,8 @@ using System.Linq;
 using La.Model;
 using La.Model.System.Generate;
 using La.Service.System.IService;
+using System.IO;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace La.Service.System
 {
@@ -29,8 +31,44 @@ namespace La.Service.System
         /// <returns></returns>
         public int DeleteGenTableByIds(long[] tableIds)
         {
+            //读取类名
+            string DelClassname;
+            foreach (var item in tableIds)
+            {
+                var info = GetId(item);
+                DelClassname = info.ClassName;
+                DelectDir("G:\\App Develop\\VS2023\\LaplaceNet", DelClassname);
+                //路径将随着系统位置而变化，注意修改。
+            }
             Delete(f => tableIds.Contains(f.TableId));
             return GenTableColumnService.DeleteGenTableColumn(tableIds);
+        }
+        /// <summary>
+        /// 查找并删除类
+        /// </summary>
+        /// <param name="srcPath"></param>
+        /// <param name="fileName"></param>
+        public static void DelectDir(string srcPath, string fileName)
+        {
+
+            //string[] files = Directory.GetFiles(filepath + @"\", "*.xls");
+            //string[] files = Directory.GetFiles(filepath + @"\", filename);  //查找时不包括子目录
+            try
+            {
+                string[] files = Directory.GetFiles(srcPath + @"\", "*"+fileName+"*.*", SearchOption.AllDirectories);   //查找时包括子目录
+                foreach (string file in files)
+                {
+                    File.Delete(file); //删除指定文件
+                }
+
+
+
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+
         }
 
         /// <summary>

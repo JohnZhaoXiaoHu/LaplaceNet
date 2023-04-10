@@ -89,6 +89,7 @@
       </el-col>
     </el-row>
     <div class="gva-card-box">
+
       <el-card class="gva-card quick-entrance">
         <template #header>
           <div class="card-header">
@@ -166,7 +167,8 @@
       icon: 'monitor',
       name: 'user',
       color: '#ff9c6e',
-      bg: 'rgba(255, 156, 110,.3)'
+      bg: 'rgba(255, 156, 110,.3)',
+      url: 'www.google.com'
     },
     {
       label: '角色管理',

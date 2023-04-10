@@ -173,6 +173,8 @@
     "copySucceed": "コーヒー完了"
   },
   "btn": {
+    "down": "ダウンロード",
+    "file": "ファイル",
     "dateselect": "日付選択:",
     "clean": "クリア",
     "enter": "入力:",

@@ -146,7 +146,9 @@ namespace La.WebApi.Controllers.System
         {
             long[] tableId = Tools.SpitLongArrary(tableIds);
 
+
             int result = GenTableService.DeleteGenTableByIds(tableId);
+           
             return SUCCESS(result);
         }
 

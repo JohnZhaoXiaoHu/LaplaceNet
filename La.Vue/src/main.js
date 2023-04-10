@@ -33,8 +33,11 @@ import vueI18n from './i18n/index'
 import pinia from '@/store/index'
 //过期退出
 import isTimeOut from '@/store/modules/isTimeOut'
-//引入UUID
-
+//引入流程组件bpmn-js
+import "bpmn-js/dist/assets/diagram-js.css"
+import "bpmn-js/dist/assets/bpmn-font/css/bpmn.css"
+import "bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css"
+import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css"
 // svg图标
 import 'virtual:svg-icons-register'
 

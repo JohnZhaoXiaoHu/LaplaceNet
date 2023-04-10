@@ -458,6 +458,20 @@ namespace La.CodeGenerator
                 HtmlType = GenConstants.HTML_INPUT,
             };
 
+
+            if (GenConstants.inputDtoNoField.Any(f => column.DbColumnName.ToLower().Contains(f.ToLower())))
+            {
+                genTableColumn.IsInsert = false; 
+            }
+            if (GenConstants.COLUMNNAME_NOT_REQUIRED.Any(f => column.DbColumnName.ToLower().Contains(f.ToLower())))
+            {
+                genTableColumn.IsRequired = false;
+            }
+            if (GenConstants.COLUMNNAME_NOT_EXPORT.Any(f => column.DbColumnName.ToLower().Contains(f.ToLower())))
+            {
+                genTableColumn.IsExport = false;
+            }
+
             if (GenConstants.imageFiled.Any(f => column.DbColumnName.ToLower().Contains(f.ToLower())))
             {
                 genTableColumn.HtmlType = GenConstants.HTML_IMAGE_UPLOAD;

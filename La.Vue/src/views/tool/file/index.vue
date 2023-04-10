@@ -6,17 +6,13 @@
         <el-input v-model="queryParams.fileId" placeholder="请输入文件id" clearable />
       </el-form-item>
       <el-form-item label="">
-        <el-date-picker
-          v-model="dateRangeAddTime"
-          type="daterange"
-          range-separator="-"
-          start-placeholder="开始日期"
-          end-placeholder="结束日期"
-          placeholder="请选择上传时间"></el-date-picker>
+        <el-date-picker v-model="dateRangeAddTime" type="daterange" range-separator="-" start-placeholder="开始日期"
+          end-placeholder="结束日期" placeholder="请选择上传时间"></el-date-picker>
       </el-form-item>
       <el-form-item label="" prop="storeType">
         <el-select v-model="queryParams.storeType" placeholder="请选择存储类型" clearable="">
-          <el-option v-for="item in storeTypeOptions" :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
+          <el-option v-for="item in storeTypeOptions" :key="item.dictValue" :label="item.dictLabel"
+            :value="item.dictValue"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item>
@@ -32,7 +28,8 @@
         </el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button type="danger" :disabled="multiple" v-hasPermi="['tool:file:delete']" plain icon="delete" @click="handleDelete">
+        <el-button type="danger" :disabled="multiple" v-hasPermi="['tool:file:delete']" plain icon="delete"
+          @click="handleDelete">
           {{ $t('btn.delete') }}
         </el-button>
       </el-col>
@@ -40,30 +37,17 @@
     </el-row>
 
     <!-- 数据区域 -->
-    <el-table :data="dataList" v-loading="loading" ref="table" border highlight-current-row @selection-change="handleSelectionChange">
+    <el-table :data="dataList" v-loading="loading" ref="table" border highlight-current-row
+      @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="50" align="center" />
       <el-table-column prop="id" label="文件id" align="center" width="150" />
-      <el-table-column prop="fileName" label="文件名" align="left" width="180" :show-overflow-tooltip="true">
+      <el-table-column prop="fileName" label="文件名--下载" width="500%" :show-overflow-tooltip="true">
         <template #default="scope">
-          <el-link type="primary" :href="scope.row.accessUrl" target="_blank">{{ scope.row.fileName }}</el-link>
+          <el-link type="primary" :href="scope.row.accessUrl" target="_blank">{{ scope.row.fileName
+            }}</el-link>
         </template>
       </el-table-column>
-      <el-table-column prop="accessUrl" align="center" label="预览图" width="100">
-        <template #default="{ row }">
-          <el-image
-            preview-teleported
-            :src="row.accessUrl"
-            :preview-src-list="[row.accessUrl]"
-            :hide-on-click-modal="true"
-            fit="contain"
-            lazy
-            class="el-avatar">
-            <template #error>
-              <i class="document" />
-            </template>
-          </el-image>
-        </template>
-      </el-table-column>
+
       <el-table-column prop="fileSize" label="文件大小" align="center" :show-overflow-tooltip="true" />
       <el-table-column prop="fileExt" label="扩展名" align="center" :show-overflow-tooltip="true" width="80px" />
       <el-table-column prop="storeType" label="存储类型" align="center">
@@ -74,10 +58,28 @@
       </el-table-column>
       <el-table-column prop="create_by" label="操作人" align="center" />
       <el-table-column prop="create_time" label="创建日期" align="center" width="150" />
+      <el-table-column prop="accessUrl" align="center" label="预览图" width="100">
+        <template #default="{ row }">
+          <el-image preview-teleported :src="row.accessUrl" :preview-src-list="[row.accessUrl]"
+            :hide-on-click-modal="true" fit="contain" lazy class="el-avatar">
+            <template #error>
+              <el-icon class="el-avatar" style="background:rgb(64, 60, 88); color: white">
+                <Hide />
+              </el-icon>
+            </template>
+          </el-image>
+          <!-- <embed :src='row.accessUrl' type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            width="90%" height="700px;" /> -->
+          <!-- <embed :src='row.accessUrl' type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            width="90%" height="700px;" /> -->
+          <!-- <embed :src='row.accessUrl' type="application/pdf" width="90%" height="700px;" /> -->
+        </template>
+      </el-table-column>
       <el-table-column label="操作" align="center" width="230">
         <template #default="scope">
           <el-button text size="small" icon="view" @click="handleView(scope.row)">{{ $t('btn.view') }}</el-button>
-          <el-button class="copy-btn-main" icon="document-copy" text size="small" @click="copyText(scope.row.accessUrl)">
+          <el-button class="copy-btn-main" icon="document-copy" text size="small"
+            @click="copyText(scope.row.accessUrl)">
             {{ $t('btn.copy') }}
           </el-button>
           <el-button v-hasPermi="['tool:file:delete']" text size="small" icon="delete" @click="handleDelete(scope.row)">
@@ -86,7 +88,8 @@
         </template>
       </el-table-column>
     </el-table>
-    <pagination background :total="total" v-model:page="queryParams.pageNum" v-model:limit="queryParams.pageSize" @pagination="getList" />
+    <pagination background :total="total" v-model:page="queryParams.pageNum" v-model:limit="queryParams.pageSize"
+      @pagination="getList" />
 
     <!-- 添加或修改文件存储对话框 -->
     <el-dialog :title="title" :lock-scroll="false" v-model="open" width="400px" draggable>
@@ -103,7 +106,7 @@
           </el-col>
           <el-col :lg="24">
             <el-form-item label="存储文件夹" prop="storePath">
-              <el-input v-model="form.storePath" placeholder="请输入存储文件夹" clearable="" auto-complete="" />
+              <el-input v-model="form.storePath" placeholder="请输入存储文件夹" clearable="" auto-complete="" disabled />
             </el-form-item>
           </el-col>
           <el-col :lg="24">
@@ -121,15 +124,8 @@
             </el-form-item>
           </el-col>
           <el-col :lg="24">
-            <UploadFile
-              ref="uploadRef"
-              v-model="form.accessUrl"
-              :fileType="[]"
-              :fileSize="100"
-              :drag="true"
-              :data="uploadData"
-              :autoUpload="false"
-              @success="handleUploadSuccess" />
+            <UploadFile ref="uploadRef" v-model="form.accessUrl" :fileType="[]" :fileSize="10" :drag="true"
+              :data="uploadData" :autoUpload="false" @success="handleUploadSuccess" />
           </el-col>
         </el-row>
       </el-form>
@@ -195,208 +191,215 @@
   </div>
 </template>
 <script setup name="sysfile">
-import { listSysfile, delSysfile, getSysfile } from '@/api/tool/file.js'
-import { useClipboard } from '@vueuse/core'
-// 选中id数组
-const ids = ref([])
-// 非单个禁用
-const single = ref(true)
-// 非多个禁用
-const multiple = ref(true)
-// 遮罩层
-const loading = ref(true)
-// 显示搜索条件
-const showSearch = ref(true)
-// 弹出层标题
-const title = ref('')
-// 是否显示弹出层
-const open = ref(false)
-const openView = ref(false)
-// 表单
-const formRef = ref(null)
-const formView = ref({})
-const uploadRef = ref(null)
-// 上传时间时间范围
-const dateRangeAddTime = ref([])
-// 存储类型选项列表
-const storeTypeOptions = ref([
-  { dictLabel: '本地存储', dictValue: 1 },
-  { dictLabel: '阿里云存储', dictValue: 2 }
-])
-//文件名产生选项列表
-const fileNameTypeOptions = ref([
-  { dictLabel: '原文件名', dictValue: 1 },
-  { dictLabel: '自定义', dictValue: 2 },
-  { dictLabel: '自动生成', dictValue: 3 }
-])
-// 数据列表
-const dataList = ref([])
-// 总记录数
-const total = ref(0)
-
-const state = reactive({
-  form: {
-    storeType: 1
-  },
-  rules: {
-    accessUrl: [
-      {
-        required: true,
-        message: '上传文件不能为空',
-        trigger: 'blur'
-      }
-    ],
-    storeType: [
-      {
-        required: true,
-        message: '存储类型不能为空',
-        trigger: 'blur'
-      }
-    ],
-    fileName: [
-      {
-        required: true,
-        message: '文件名不能为空',
-        trigger: 'blur'
-      }
-    ]
-  },
-  queryParams: {
-    pageNum: 1,
-    pageSize: 20,
-    storeType: 1, // 存储类型 1、本地 2、阿里云
-    fileId: undefined
-  }
-})
-const { queryParams, form, rules } = toRefs(state)
-const { proxy } = getCurrentInstance()
-const uploadData = ref({})
-// 查询数据
-function getList() {
-  proxy.addDateRange(queryParams.value, dateRangeAddTime.value, 'Create_time')
-  loading.value = true
-  listSysfile(queryParams.value).then((res) => {
-    if (res.code == 200) {
-      dataList.value = res.data.result
-      total.value = res.data.totalNum
-      loading.value = false
-    }
-  })
-}
-// 取消按钮
-function cancel() {
-  open.value = false
-  reset()
-}
-// 重置数据表单
-function reset() {
-  form.value = {
-    fileName: '',
-    fileUrl: '',
-    storePath: '',
-    fileSize: 0,
-    fileExt: '',
-    storeType: 1,
-    accessUrl: '',
-    fileNameType: 3
-  }
-  proxy.resetForm('formRef')
-}
-/** 重置查询操作 */
-function resetQuery() {
+  import { listSysfile, delSysfile, getSysfile } from '@/api/tool/file.js'
+  import { useClipboard } from '@vueuse/core'
+  // 选中id数组
+  const ids = ref([])
+  // 非单个禁用
+  const single = ref(true)
+  // 非多个禁用
+  const multiple = ref(true)
+  // 遮罩层
+  const loading = ref(true)
+  // 显示搜索条件
+  const showSearch = ref(true)
+  // 弹出层标题
+  const title = ref('')
+  // 是否显示弹出层
+  const open = ref(false)
+  const openView = ref(false)
+  // 表单
+  const formRef = ref(null)
+  const formView = ref({})
+  const uploadRef = ref(null)
   // 上传时间时间范围
-  dateRangeAddTime.value = []
-  proxy.resetForm('queryForm')
-  handleQuery()
-}
-// 多选框选中数据
-function handleSelectionChange(selection) {
-  ids.value = selection.map((item) => item.id)
-  single.value = selection.length != 1
-  multiple.value = !selection.length
-}
-/** 搜索按钮操作 */
-function handleQuery() {
-  queryParams.pageNum = 1
-  getList()
-}
-/** 新增按钮操作 */
-function handleAdd() {
-  reset()
-  open.value = true
-  title.value = '上传文件'
-  // form.value.storeType = queryParams.storeType
-}
-/** 删除按钮操作 */
-function handleDelete(row) {
-  const Ids = row.id || ids.value
+  const dateRangeAddTime = ref([])
+  // 存储类型选项列表
+  const storeTypeOptions = ref([
+    { dictLabel: '本地存储', dictValue: 1 },
+    //暂不开放
+    // { dictLabel: '阿里云存储', dictValue: 2 }
+  ])
+  //文件名产生选项列表
+  const fileNameTypeOptions = ref([
+    { dictLabel: '原文件名', dictValue: 1 },
+    //暂不支持
+    //{ dictLabel: '自定义', dictValue: 2 },
+    //{ dictLabel: '自动生成', dictValue: 3 }
+  ])
+  // 数据列表
+  const dataList = ref([])
+  // 总记录数
+  const total = ref(0)
 
-  proxy
-    .$confirm('是否确认删除参数编号为"' + Ids + '"的数据项？')
-    .then(function () {
-      return delSysfile(Ids)
-    })
-    .then(() => {
-      handleQuery()
-      proxy.$modal.msgSuccess('删除成功')
-    })
-    .catch(() => {})
-}
-/** 查看按钮操作 */
-function handleView(row) {
-  const id = row.id || ids.value
-  getSysfile(id).then((res) => {
-    const { code, data } = res
-    if (code == 200) {
-      openView.value = true
-      formView.value = data
+  const state = reactive({
+    form: {
+      storeType: 1
+    },
+    rules: {
+      accessUrl: [
+        {
+          required: true,
+          message: '上传文件不能为空',
+          trigger: 'blur'
+        }
+      ],
+      storeType: [
+        {
+          required: true,
+          message: '存储类型不能为空',
+          trigger: 'blur'
+        }
+      ],
+      fileName: [
+        {
+          required: true,
+          message: '文件名不能为空',
+          trigger: 'blur'
+        }
+      ]
+    },
+    queryParams: {
+      pageNum: 1,
+      pageSize: 20,
+      storeType: 1, // 存储类型 1、本地 2、阿里云
+      fileId: undefined
     }
   })
-}
-// 上传成功方法
-function handleUploadSuccess(filelist) {
-  open.value = false
-  getList()
-}
-// 手动上传
-function submitUpload() {
-  proxy.$refs['formRef'].validate((valid) => {
-    if (valid) {
-      uploadData.value = {
-        fileDir: form.value.storePath,
-        fileName: form.value.fileName,
-        storeType: form.value.storeType,
-        fileNameType: form.value.fileNameType
+  const { queryParams, form, rules } = toRefs(state)
+  const { proxy } = getCurrentInstance()
+  const uploadData = ref({})
+  // 查询数据
+  function getList() {
+    proxy.addDateRange(queryParams.value, dateRangeAddTime.value, 'Create_time')
+    loading.value = true
+    listSysfile(queryParams.value).then((res) => {
+      if (res.code == 200) {
+        dataList.value = res.data.result
+        total.value = res.data.totalNum
+        loading.value = false
       }
-      proxy.$refs.uploadRef.submitUpload()
-    }
-  })
-}
-
-const { copy, isSupported } = useClipboard()
-const copyText = async (val) => {
-  if (isSupported) {
-    copy(val)
-    proxy.$modal.msgSuccess('复制成功！')
-  } else {
-    proxy.$modal.msgError('当前浏览器不支持')
+    })
   }
-}
-handleQuery()
+  // 取消按钮
+  function cancel() {
+    open.value = false
+    reset()
+  }
+  // 重置数据表单
+  function reset() {
+    form.value = {
+      fileName: '',
+      fileUrl: '',
+      storePath: '',
+      fileSize: 0,
+      fileExt: '',
+      storeType: 1,
+      accessUrl: '',
+      fileNameType: 1
+    }
+    proxy.resetForm('formRef')
+  }
+  /** 重置查询操作 */
+  function resetQuery() {
+    // 上传时间时间范围
+    dateRangeAddTime.value = []
+    proxy.resetForm('queryForm')
+    handleQuery()
+  }
+  // 多选框选中数据
+  function handleSelectionChange(selection) {
+    ids.value = selection.map((item) => item.id)
+    single.value = selection.length != 1
+    multiple.value = !selection.length
+  }
+  /** 搜索按钮操作 */
+  function handleQuery() {
+    queryParams.pageNum = 1
+    getList()
+  }
+  /** 新增按钮操作 */
+  function handleAdd() {
+    reset()
+    open.value = true
+    title.value = '上传文件'
+    // form.value.storeType = queryParams.storeType
+  }
+  // 下载
+
+  /** 删除按钮操作 */
+  function handleDelete(row) {
+    const Ids = row.id || ids.value
+    proxy
+      .$confirm('是否确认删除参数编号为"' + Ids + '"的数据项？', proxy.$t('common.warningTips'), {
+        confirmButtonText: proxy.$t('btn.submit'),
+        cancelButtonText: proxy.$t('btn.cancel'),
+        type: "warning",
+      })
+      .then(function () {
+        return delSysfile(Ids)
+      })
+      .then(() => {
+        handleQuery()
+        proxy.$modal.msgSuccess('删除成功')
+      })
+      .catch(() => { })
+  }
+  /** 查看按钮操作 */
+  function handleView(row) {
+    const id = row.id || ids.value
+    getSysfile(id).then((res) => {
+      const { code, data } = res
+      if (code == 200) {
+        openView.value = true
+        formView.value = data
+      }
+    })
+  }
+  // 上传成功方法
+  function handleUploadSuccess(filelist) {
+    open.value = false
+    getList()
+  }
+  // 手动上传
+  function submitUpload() {
+    proxy.$refs['formRef'].validate((valid) => {
+      if (valid) {
+        uploadData.value = {
+          fileDir: form.value.storePath,
+          fileName: form.value.fileName,
+          storeType: form.value.storeType,
+          fileNameType: form.value.fileNameType
+        }
+        proxy.$refs.uploadRef.submitUpload()
+      }
+    })
+  }
+
+  const { copy, isSupported } = useClipboard()
+  const copyText = async (val) => {
+    if (isSupported) {
+      copy(val)
+      proxy.$modal.msgSuccess('复制成功！')
+    } else {
+      proxy.$modal.msgError('当前浏览器不支持')
+    }
+  }
+  handleQuery()
 </script>
 <style scoped>
-.el-avatar {
-  display: inline-block;
-  text-align: center;
-  background: #ccc;
-  color: #fff;
-  white-space: nowrap;
-  position: relative;
-  overflow: hidden;
-  vertical-align: middle;
-  width: 32px;
-  height: 32px;
-  line-height: 32px;
-  border-radius: 16px;
-}
+  .el-avatar {
+    display: inline-block;
+    text-align: center;
+    background: #ccc;
+    color: #fff;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 16px;
+  }
 </style>

@@ -9,7 +9,7 @@ namespace La.Service.System.IService
         List<GenTable> SelectDbTableListByNamess(string[] tableNames);
 
         int ImportGenTable(GenTable tables);
-
+       
         int DeleteGenTableByIds(long[] tableIds);
         int DeleteGenTableByTbName(string tableName);
         PagedInfo<GenTable> GetGenTables(GenTable genTable, PagerInfo pagerInfo);
@@ -23,6 +23,7 @@ namespace La.Service.System.IService
     {
         int InsertGenTableColumn(List<GenTableColumn> tableColumn);
 
+       
         int DeleteGenTableColumn(long tableId);
         int DeleteGenTableColumn(long[] tableIds);
         int DeleteGenTableColumnByTableName(string tableName);

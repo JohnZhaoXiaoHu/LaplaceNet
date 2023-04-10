@@ -1,4 +1,5 @@
 ﻿using La.Infra;
+using La.Infra.Enums;
 using La.Infra.Attribute;
 using La.Infra.Extensions;
 using Microsoft.AspNetCore.Http;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 using La.Common;
 using La.Model.System;
 using La.Service.System.IService;
+using La.Infra.Model;
 
 namespace La.Service.System
 {
@@ -29,6 +31,20 @@ namespace La.Service.System
             SysConfigService = sysConfigService;
             OptionsSetting = options.Value;
         }
+        /// <summary>
+        /// 校验输入项目是否唯一
+        /// </summary>
+        /// <param name="entryString"></param>
+        /// <returns></returns>
+        public string CheckEntryStringUnique(string entryString)
+        {
+            int count = Count(it => it.FileName.ToString() == entryString);
+            if (count > 0)
+            {
+                return UserConstants.NOT_UNIQUE;
+            }
+            return UserConstants.UNIQUE;
+        }
 
         /// <summary>
         /// 存储本地
@@ -41,11 +57,16 @@ namespace La.Service.System
         /// <returns></returns>
         public async Task<SysFile> SaveFileToLocal(string rootPath, string fileName, string fileDir, string userName, IFormFile formFile)
         {
+
+
             string fileExt = Path.GetExtension(formFile.FileName);
             fileName = (fileName.IsEmpty() ? HashFileName() : fileName) + fileExt;
 
             string filePath = GetdirPath(fileDir);
             string finalFilePath = Path.Combine(rootPath, filePath, fileName);
+
+
+
             double fileSize = Math.Round(formFile.Length / 1024.0, 2);
 
             if (!Directory.Exists(Path.GetDirectoryName(finalFilePath)))
@@ -61,7 +82,7 @@ namespace La.Service.System
             string accessPath = string.Concat(uploadUrl, "/", filePath.Replace("\\", "/"), "/", fileName);
             SysFile file = new(formFile.FileName, fileName, fileExt, fileSize + "kb", filePath, userName)
             {
-                StoreType = (int)La.Infra.Enums.StoreType.LOCAL,
+                StoreType = (int)StoreType.LOCAL,
                 FileType = formFile.ContentType,
                 FileUrl = finalFilePath.Replace("\\", "/"),
                 AccessUrl = accessPath
@@ -69,6 +90,9 @@ namespace La.Service.System
             file.Id = await InsertFile(file);
             return file;
         }
+
+
+
 
         /// <summary>
         /// 上传文件到阿里云
