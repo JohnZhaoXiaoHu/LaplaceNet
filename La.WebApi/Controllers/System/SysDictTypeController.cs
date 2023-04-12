@@ -74,8 +74,8 @@ namespace La.WebApi.Controllers.System
             {
                 return ToResponse(ApiResult.Error($"新增字典'{dict.DictName}'失败，字典类型已存在"));
             }
-            dict.Create_by = HttpContext.GetName();
-            dict.Create_time = DateTime.Now;
+            dict.create_by = HttpContext.GetName();
+            dict.create_time = DateTime.Now;
             return SUCCESS(SysDictService.InsertDictType(dict));
         }
 

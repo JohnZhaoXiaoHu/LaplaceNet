@@ -9,8 +9,8 @@ namespace La.Service.Financial.IFinancialService
     /// <summary>
     /// 工厂工资率service接口
     ///
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     public interface IFicoWageratesService : IBaseService<FicoWagerates>
     {

@@ -77,7 +77,7 @@ namespace La.WebApi.Controllers.System
                 throw new CustomException($"修改岗位{post.PostName}失败，岗位编码已存在");
             }
 
-            post.Create_by = HttpContext.GetName();
+            post.create_by = HttpContext.GetName();
             return ToResponse(ToJson(PostService.Add(post)));
         }
 

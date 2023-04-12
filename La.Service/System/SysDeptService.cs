@@ -34,7 +34,7 @@ namespace La.Service.System
         {
             //开始拼装查询条件
             var predicate = Expressionable.Create<SysDept>();
-            predicate = predicate.And(it => it.DelFlag == "0");
+            predicate = predicate.And(it => it.IsDeleted == "0");
             predicate = predicate.AndIF(dept.DeptName.IfNotEmpty(), it => it.DeptName.Contains(dept.DeptName));
             predicate = predicate.AndIF(dept.Status.IfNotEmpty(), it => it.Status == dept.Status);
 

@@ -50,12 +50,12 @@ namespace La.Model.System.Dto
         /// 描述 : 创建人
         /// 空值 : true  
         /// </summary>
-        public string Create_by { get; set; }
+        public string create_by { get; set; }
         /// <summary>
         /// 描述 : 上传时间
         /// 空值 : true  
         /// </summary>
-        public DateTime? Create_time { get; set; }
+        public DateTime? create_time { get; set; }
         /// <summary>
         /// 描述 : 存储类型
         /// 空值 : true  
@@ -88,8 +88,8 @@ namespace La.Model.System.Dto
             FileExt = ext;
             FileSize = fileSize;
             AccessUrl = accessUrl;
-            Create_by = create_by;
-            Create_time = DateTime.Now;
+            create_by = create_by;
+            create_time = DateTime.Now;
         }
     }
     /// <summary>

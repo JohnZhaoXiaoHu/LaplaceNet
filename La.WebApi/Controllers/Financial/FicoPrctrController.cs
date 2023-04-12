@@ -18,8 +18,8 @@ namespace La.WebApi.Controllers
     /// 利润中心Controller
     /// 
     /// @tableName fico_prctr
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     [Verify]
     [Route("financial/FicoPrctr")]
@@ -43,7 +43,7 @@ namespace La.WebApi.Controllers
         /// <param name="parm"></param>
         /// <returns></returns>
         [HttpGet("list")]
-        [ActionPermissionFilter(Permission = "fico:prctr:list")]
+        [ActionPermissionFilter(Permission = "la:ficoprctr:list")]
         public IActionResult QueryFicoPrctr([FromQuery] FicoPrctrQueryDto parm)
         {
             var response = _FicoPrctrService.GetList(parm);
@@ -57,7 +57,7 @@ namespace La.WebApi.Controllers
         /// <param name="FpId"></param>
         /// <returns></returns>
         [HttpGet("{FpId}")]
-        [ActionPermissionFilter(Permission = "fico:prctr:query")]
+        [ActionPermissionFilter(Permission = "la:ficoprctr:query")]
         public IActionResult GetFicoPrctr(long FpId)
         {
             var response = _FicoPrctrService.GetFirst(x => x.FpId == FpId);
@@ -70,7 +70,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [ActionPermissionFilter(Permission = "fico:prctr:add")]
+        [ActionPermissionFilter(Permission = "la:ficoprctr:add")]
         [Log(Title = "利润中心", BusinessType = BusinessType.INSERT)]
         public IActionResult AddFicoPrctr([FromBody] FicoPrctrDto parm)
         {
@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
 
            // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_FicoPrctrService.CheckEntryStringUnique(parm.FpId.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_FicoPrctrService.CheckEntryStringUnique(parm.FpPlnt+parm.FpCode)))
             {
-                return ToResponse(ApiResult.Error($"新增利润中心 '{parm.FpId}'失败，输入的利润中心已存在"));
+                return ToResponse(ApiResult.Error($"新增利润中心 '{parm.FpPlnt+"," + parm.FpCode}'失败，输入的利润中心已存在"));
             }
             var modal = parm.Adapt<FicoPrctr>().ToCreate(HttpContext);
 
@@ -97,7 +97,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPut]
-        [ActionPermissionFilter(Permission = "fico:prctr:edit")]
+        [ActionPermissionFilter(Permission = "la:ficoprctr:edit")]
         [Log(Title = "利润中心", BusinessType = BusinessType.UPDATE)]
         public IActionResult UpdateFicoPrctr([FromBody] FicoPrctrDto parm)
         {
@@ -117,7 +117,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpDelete("{ids}")]
-        [ActionPermissionFilter(Permission = "fico:prctr:delete")]
+        [ActionPermissionFilter(Permission = "la:ficoprctr:delete")]
         [Log(Title = "利润中心", BusinessType = BusinessType.DELETE)]
         public IActionResult DeleteFicoPrctr(string ids)
         {
@@ -135,7 +135,7 @@ namespace La.WebApi.Controllers
         /// <returns></returns>
         [Log(Title = "利润中心", BusinessType = BusinessType.EXPORT, IsSaveResponseData = false)]
         [HttpGet("export")]
-        [ActionPermissionFilter(Permission = "fico:prctr:export")]
+        [ActionPermissionFilter(Permission = "la:ficoprctr:export")]
         public IActionResult Export([FromQuery] FicoPrctrQueryDto parm)
         {
             parm.PageSize = 100000;

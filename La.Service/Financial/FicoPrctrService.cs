@@ -14,8 +14,8 @@ namespace La.Service.Financial
     /// <summary>
     /// 利润中心Service业务层处理
     ///
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     [AppService(ServiceType = typeof(IFicoPrctrService), ServiceLifetime = LifeTime.Transient)]
     public class FicoPrctrService : BaseService<FicoPrctr>, IFicoPrctrService
@@ -35,8 +35,9 @@ namespace La.Service.Financial
             //搜索条件查询语法参考Sqlsugar
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FpPlnt), it => it.FpPlnt == parm.FpPlnt);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FpCode), it => it.FpCode.Contains(parm.FpCode));
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FpName), it => it.FpName.Contains(parm.FpName));
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FpType), it => it.FpType == parm.FpType);
+            predicate = predicate.AndIF(parm.BeginFpActDate == null, it => it.FpActDate >= DateTime.Now.AddDays(-1));
+            predicate = predicate.AndIF(parm.BeginFpActDate != null, it => it.FpActDate >= parm.BeginFpActDate && it.FpActDate <= parm.EndFpActDate);
             var response = Queryable()
                 .Where(predicate.ToExpression())
                 .ToPage<FicoPrctr, FicoPrctrDto>(parm);
@@ -52,7 +53,7 @@ namespace La.Service.Financial
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.FpId.ToString() == entryString);
+            int count = Count(it => it.FpPlnt+it.FpCode == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;
@@ -90,6 +91,8 @@ namespace La.Service.Financial
         {
             var response = Update(w => w.FpId == parm.FpId, it => new FicoPrctr()
             {
+                FpPlnt = parm.FpPlnt,
+                FpCode = parm.FpCode,
                 FpName = parm.FpName,
                 FpType = parm.FpType,
                 FpActDate = parm.FpActDate,

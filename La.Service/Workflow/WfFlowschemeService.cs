@@ -79,7 +79,7 @@ namespace La.Service.Workflow
                 it.Active,
                 it.Status,
                 it.Sort,
-                it.Remark,
+                it.ReMark,
                 it.CreateBy,
                 it.CreateTime,
             });
@@ -108,7 +108,7 @@ namespace La.Service.Workflow
                 Active = parm.Active,
                 Status = parm.Status,
                 Sort = parm.Sort,
-                Remark = parm.Remark,
+                ReMark = parm.ReMark,
                 UpdateBy = parm.UpdateBy,
                 UpdateTime = parm.UpdateTime,
             });

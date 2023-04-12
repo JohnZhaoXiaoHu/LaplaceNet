@@ -44,10 +44,10 @@ namespace La.Service
             var exp = Expressionable.Create<SysUser>();
             exp.AndIF(!string.IsNullOrEmpty(user.UserName), u => u.UserName.Contains(user.UserName));
             exp.AndIF(!string.IsNullOrEmpty(user.Status), u => u.Status == user.Status);
-            exp.AndIF(user.BeginTime != DateTime.MinValue && user.BeginTime != null, u => u.Create_time >= user.BeginTime);
-            exp.AndIF(user.EndTime != DateTime.MinValue && user.EndTime != null, u => u.Create_time <= user.EndTime);
+            exp.AndIF(user.BeginTime != DateTime.MinValue && user.BeginTime != null, u => u.create_time >= user.BeginTime);
+            exp.AndIF(user.EndTime != DateTime.MinValue && user.EndTime != null, u => u.create_time <= user.EndTime);
             exp.AndIF(!user.Phonenumber.IsEmpty(), u => u.Phonenumber == user.Phonenumber);
-            exp.And(u => u.DelFlag == "0");
+            exp.And(u => u.IsDeleted == "0");
 
             if (user.DeptId != 0)
             {
@@ -111,7 +111,7 @@ namespace La.Service
         /// <returns></returns>
         public long InsertUser(SysUser sysUser)
         {
-            sysUser.Create_time = DateTime.Now;
+            sysUser.create_time = DateTime.Now;
             long userId = Insertable(sysUser).ExecuteReturnIdentity();
             sysUser.UserId = userId;
             //新增用户角色信息
@@ -158,7 +158,7 @@ namespace La.Service
                 t.Status,
                 t.Sex,
                 t.PostIds,
-                t.Remark,
+                t.ReMark,
                 t.Update_by,
                 t.Update_time
             }, true);
@@ -197,7 +197,7 @@ namespace La.Service
             UserRoleService.DeleteUserRoleByUserId((int)userid);
             // 删除用户与岗位关联
             UserPostService.Delete(userid);
-            return Update(new SysUser() { UserId = userid, DelFlag = "2" }, it => new { it.DelFlag }, f => f.UserId == userid);
+            return Update(new SysUser() { UserId = userid, IsDeleted = "2" }, it => new { it.IsDeleted }, f => f.UserId == userid);
         }
 
         /// <summary>
@@ -225,13 +225,13 @@ namespace La.Service
             }
             SysUser user = new()
             {
-                Create_time = DateTime.Now,
+                create_time = DateTime.Now,
                 UserName = dto.Username,
                 NickName = dto.Username,
                 Password = password,
                 Status = "0",
                 DeptId = 0,
-                Remark = "用户注册"
+                ReMark = "用户注册"
             };
 
             user.UserId = Insertable(user).ExecuteReturnIdentity();
@@ -274,11 +274,11 @@ namespace La.Service
         {
             users.ForEach(x =>
             {
-                x.Create_time = DateTime.Now;
+                x.create_time = DateTime.Now;
                 x.Status = "0";
-                x.DelFlag = "0";
+                x.IsDeleted = "0";
                 x.Password = "E10ADC3949BA59ABBE56E057F20F883E";
-                x.Remark = "数据导入";
+                x.ReMark = "数据导入";
             });
             var x = Context.Storageable(users)
                 .SplitInsert(it => !it.Any())

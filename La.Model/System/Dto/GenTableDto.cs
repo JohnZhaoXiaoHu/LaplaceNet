@@ -68,7 +68,7 @@ namespace La.Model.System.Dto
         /// 备注
         /// </summary>
         //public string PermissionPrefix { get; set; }
-        public string Remark { get; set; }
+        public string ReMark { get; set; }
         
         /// <summary>
         /// 额外参数
@@ -191,7 +191,7 @@ namespace La.Model.System.Dto
         /// <summary>
         /// 备注
         /// </summary>
-        public string Remark { get; set; }
+        public string ReMark { get; set; }
         /// <summary>
         /// 自动填充类型
         /// </summary>

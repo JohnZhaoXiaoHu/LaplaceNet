@@ -64,7 +64,7 @@ namespace La.WebApi.Controllers.System
 
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.NoticeTitle), m => m.NoticeTitle.Contains(parm.NoticeTitle));
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.NoticeType), m => m.NoticeType == parm.NoticeType);
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.CreateBy), m => m.Create_by.Contains(parm.CreateBy) || m.Update_by.Contains(parm.CreateBy));
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.CreateBy), m => m.create_by.Contains(parm.CreateBy) || m.Update_by.Contains(parm.CreateBy));
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.Status), m => m.Status == parm.Status);
             var response = _SysNoticeService.GetPages(predicate.ToExpression(), parm);
             return SUCCESS(response);
@@ -99,8 +99,8 @@ namespace La.WebApi.Controllers.System
             }
             //从 Dto 映射到 实体
             var modal = parm.Adapt<SysNotice>().ToCreate(HttpContext);
-            modal.Create_by = HttpContext.GetName();
-            modal.Create_time = DateTime.Now;
+            modal.create_by = HttpContext.GetName();
+            modal.create_time = DateTime.Now;
 
             int result = _SysNoticeService.Insert(modal, it => new
             {
@@ -108,9 +108,9 @@ namespace La.WebApi.Controllers.System
                 it.NoticeType,
                 it.NoticeContent,
                 it.Status,
-                it.Remark,
-                it.Create_by,
-                it.Create_time
+                it.ReMark,
+                it.create_by,
+                it.create_time
             });
 
             return SUCCESS(result);
@@ -139,7 +139,7 @@ namespace La.WebApi.Controllers.System
                 NoticeType = model.NoticeType,
                 NoticeContent = model.NoticeContent,
                 Status = model.Status,
-                Remark = model.Remark,
+                ReMark = model.ReMark,
                 Update_by = HttpContext.GetName(),
                 Update_time = DateTime.Now
             });

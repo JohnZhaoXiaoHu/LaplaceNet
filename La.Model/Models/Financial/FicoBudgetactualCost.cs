@@ -5,10 +5,10 @@ using System.Collections.Generic;
 namespace La.Model.Models
 {
     /// <summary>
-    /// 预算实际明细，数据实体对象
+    /// 预算实际，数据实体对象
     ///
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     [SugarTable("fico_budgetactual_cost")]
     public class FicoBudgetactualCost
@@ -123,28 +123,28 @@ namespace La.Model.Models
         public string ReMark { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :CreateBy 
         /// 空值 :true 
         /// </summary>
         [SugarColumn(ColumnName = "create_by")]
         public string CreateBy { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :CreateTime 
         /// 空值 :true 
         /// </summary>
         [SugarColumn(ColumnName = "create_time")]
         public DateTime? CreateTime { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UpdateBy 
         /// 空值 :true 
         /// </summary>
         [SugarColumn(ColumnName = "update_by")]
         public string UpdateBy { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UpdateTime 
         /// 空值 :true 
         /// </summary>
         [SugarColumn(ColumnName = "update_time")]

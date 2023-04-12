@@ -15,22 +15,22 @@ using La.Common;
 namespace La.WebApi.Controllers
 {
     /// <summary>
-    /// 预算实际明细Controller
+    /// 预算实际Controller
     /// 
     /// @tableName fico_budgetactual_cost
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     [Verify]
-    [Route("financial/FicoBudgetactualCost")]
+    [Route("Financial/FicoBudgetactualCost")]
     public class FicoBudgetactualCostController : BaseController
     {
         /// <summary>
-        /// 预算实际明细接口
+        /// 预算实际接口
         /// </summary>
         private readonly IFicoBudgetactualCostService _FicoBudgetactualCostService;
         /// <summary>
-        /// 预算实际明细Controller
+        /// 预算实际Controller
         /// </summary>
         public FicoBudgetactualCostController(IFicoBudgetactualCostService FicoBudgetactualCostService)
         {
@@ -38,12 +38,12 @@ namespace La.WebApi.Controllers
         }
 
         /// <summary>
-        /// 查询预算实际明细列表
+        /// 查询预算实际列表
         /// </summary>
         /// <param name="parm"></param>
         /// <returns></returns>
         [HttpGet("list")]
-        [ActionPermissionFilter(Permission = "fico:budgetactualcost:list")]
+        [ActionPermissionFilter(Permission = "la:ficobudgetactualcost:list")]
         public IActionResult QueryFicoBudgetactualCost([FromQuery] FicoBudgetactualCostQueryDto parm)
         {
             var response = _FicoBudgetactualCostService.GetList(parm);
@@ -52,12 +52,12 @@ namespace La.WebApi.Controllers
 
 
         /// <summary>
-        /// 查询预算实际明细详情
+        /// 查询预算实际详情
         /// </summary>
         /// <param name="FbId"></param>
         /// <returns></returns>
         [HttpGet("{FbId}")]
-        [ActionPermissionFilter(Permission = "fico:budgetactualcost:query")]
+        [ActionPermissionFilter(Permission = "la:ficobudgetactualcost:query")]
         public IActionResult GetFicoBudgetactualCost(long FbId)
         {
             var response = _FicoBudgetactualCostService.GetFirst(x => x.FbId == FbId);
@@ -66,12 +66,12 @@ namespace La.WebApi.Controllers
         }
 
         /// <summary>
-        /// 添加预算实际明细
+        /// 添加预算实际
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [ActionPermissionFilter(Permission = "fico:budgetactualcost:add")]
-        [Log(Title = "预算实际明细", BusinessType = BusinessType.INSERT)]
+        [ActionPermissionFilter(Permission = "la:ficobudgetactualcost:add")]
+        [Log(Title = "预算实际", BusinessType = BusinessType.INSERT)]
         public IActionResult AddFicoBudgetactualCost([FromBody] FicoBudgetactualCostDto parm)
         {
             if (parm == null)
@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
 
            // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_FicoBudgetactualCostService.CheckEntryStringUnique(parm.FbId.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_FicoBudgetactualCostService.CheckEntryStringUnique(parm.FbCostCode + parm.FbTitleCode)))
             {
-                return ToResponse(ApiResult.Error($"新增预算实际明细 '{parm.FbId}'失败，输入的预算实际明细已存在"));
+                return ToResponse(ApiResult.Error($"新增预算实际 '{parm.FbCostCode+"," + parm.FbTitleCode}'失败，输入的预算实际已存在"));
             }
             var modal = parm.Adapt<FicoBudgetactualCost>().ToCreate(HttpContext);
 
@@ -93,12 +93,12 @@ namespace La.WebApi.Controllers
         }
 
         /// <summary>
-        /// 更新预算实际明细
+        /// 更新预算实际
         /// </summary>
         /// <returns></returns>
         [HttpPut]
-        [ActionPermissionFilter(Permission = "fico:budgetactualcost:edit")]
-        [Log(Title = "预算实际明细", BusinessType = BusinessType.UPDATE)]
+        [ActionPermissionFilter(Permission = "la:ficobudgetactualcost:edit")]
+        [Log(Title = "预算实际", BusinessType = BusinessType.UPDATE)]
         public IActionResult UpdateFicoBudgetactualCost([FromBody] FicoBudgetactualCostDto parm)
         {
             if (parm == null)
@@ -113,12 +113,12 @@ namespace La.WebApi.Controllers
         }
 
         /// <summary>
-        /// 删除预算实际明细
+        /// 删除预算实际
         /// </summary>
         /// <returns></returns>
         [HttpDelete("{ids}")]
-        [ActionPermissionFilter(Permission = "fico:budgetactualcost:delete")]
-        [Log(Title = "预算实际明细", BusinessType = BusinessType.DELETE)]
+        [ActionPermissionFilter(Permission = "la:ficobudgetactualcost:delete")]
+        [Log(Title = "预算实际", BusinessType = BusinessType.DELETE)]
         public IActionResult DeleteFicoBudgetactualCost(string ids)
         {
             int[] idsArr = Tools.SpitIntArrary(ids);
@@ -130,12 +130,12 @@ namespace La.WebApi.Controllers
         }
 
         /// <summary>
-        /// 导出预算实际明细
+        /// 导出预算实际
         /// </summary>
         /// <returns></returns>
-        [Log(Title = "预算实际明细", BusinessType = BusinessType.EXPORT, IsSaveResponseData = false)]
+        [Log(Title = "预算实际", BusinessType = BusinessType.EXPORT, IsSaveResponseData = false)]
         [HttpGet("export")]
-        [ActionPermissionFilter(Permission = "fico:budgetactualcost:export")]
+        [ActionPermissionFilter(Permission = "la:ficobudgetactualcost:export")]
         public IActionResult Export([FromQuery] FicoBudgetactualCostQueryDto parm)
         {
             parm.PageSize = 100000;
@@ -144,7 +144,7 @@ namespace La.WebApi.Controllers
             {
                 return ToResponse(ResultCode.FAIL, "没有要导出的数据");
             }
-            var result = ExportExcelMini(list, "预算实际明细", "预算实际明细");
+            var result = ExportExcelMini(list, "预算实际", "预算实际");
             return ExportExcel(result.Item2, result.Item1);
         }
 

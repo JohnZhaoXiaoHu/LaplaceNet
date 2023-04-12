@@ -107,7 +107,7 @@ namespace La.Service
         /// <returns></returns>
         public int AddMenu(SysMenu menu)
         {
-            menu.Create_time = DateTime.Now;
+            menu.create_time = DateTime.Now;
             return InsertReturnIdentity(menu);
         }
 

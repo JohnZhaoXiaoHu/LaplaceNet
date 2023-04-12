@@ -75,10 +75,10 @@ namespace La.Model.Models
         public long IsFinish { get; set; }
 
         /// <summary>
-        /// 描述 :Remark 
+        /// 描述 :ReMark 
         /// 空值 :true 
         /// </summary>
-        public string Remark { get; set; }
+        public string ReMark { get; set; }
 
         /// <summary>
         /// 描述 :创建用户 

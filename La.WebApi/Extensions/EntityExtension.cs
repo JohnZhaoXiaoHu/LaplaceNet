@@ -23,13 +23,13 @@ namespace La.WebApi.Extensions
             {
                 types.GetProperty("UpdateTime")?.SetValue(source, DateTime.Now, null);
             }
-            if (types.GetProperty("Create_by") != null && context != null)
+            if (types.GetProperty("create_by") != null && context != null)
             {
-                types.GetProperty("Create_by")?.SetValue(source, context.GetName(), null);
+                types.GetProperty("create_by")?.SetValue(source, context.GetName(), null);
             }
-            if (types.GetProperty("Create_By") != null && context != null)
+            if (types.GetProperty("create_by") != null && context != null)
             {
-                types.GetProperty("Create_By")?.SetValue(source, context.GetName(), null);
+                types.GetProperty("create_by")?.SetValue(source, context.GetName(), null);
             }
             if (types.GetProperty("CreateBy") != null && context != null)
             {

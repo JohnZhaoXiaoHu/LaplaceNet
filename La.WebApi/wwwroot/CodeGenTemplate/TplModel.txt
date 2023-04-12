@@ -15,7 +15,7 @@ namespace ${options.ModelsNamespace}.Models
     {
 $foreach(item in genTable.Columns)
         /// <summary>
-        /// 描述 :${item.ColumnComment} ${item.Remark}
+        /// 描述 :${item.ColumnComment} ${item.ReMark}
         /// 空值 :$if(item.IsRequired == "True")false${else}true${end} 
         /// </summary>
 $if(item.IsPk || item.IsIncrement)

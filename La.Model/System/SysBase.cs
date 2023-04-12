@@ -17,7 +17,7 @@ namespace La.Model.System
         [SugarColumn(IsOnlyIgnoreUpdate = true)]
         [JsonProperty(propertyName: "CreateBy")]
         [ExcelIgnore]
-        public string Create_by { get; set; }
+        public string create_by { get; set; }
         /// <summary>
         /// 新建时间
         /// </summary>
@@ -25,7 +25,7 @@ namespace La.Model.System
         [SugarColumn(IsOnlyIgnoreUpdate = true)]
         [JsonProperty(propertyName: "CreateTime")]
         [ExcelColumn(Format = "yyyy-MM-dd HH:mm:ss")]
-        public DateTime Create_time { get; set; } = DateTime.Now;
+        public DateTime create_time { get; set; } = DateTime.Now;
         /// <summary>
         /// 更新
         /// </summary>
@@ -45,7 +45,7 @@ namespace La.Model.System
         /// <summary>
         /// 备注
         /// </summary>
-        public string Remark { get; set; }
+        public string ReMark { get; set; }
         /// <summary>
         /// 起始时间
         /// </summary>

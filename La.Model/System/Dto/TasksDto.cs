@@ -91,7 +91,7 @@ namespace La.Model.System.Dto
         /// 默认 : 
         /// </summary>
         [Display(Name = "任务描述")]
-        public string Remark { get; set; }
+        public string ReMark { get; set; }
 
         /// <summary>
         /// 描述 : 开始时间 

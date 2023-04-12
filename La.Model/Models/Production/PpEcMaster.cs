@@ -5,98 +5,140 @@ using System.Collections.Generic;
 namespace La.Model.Models
 {
     /// <summary>
-    /// 工厂工资率，数据实体对象
+    /// 主设变，数据实体对象
     ///
     /// @author Davis.Cheng
-    /// @date 2023-04-11
+    /// @date 2023-04-12
     /// </summary>
-    [SugarTable("fico_wagerates")]
-    public class FicoWagerates
+    [SugarTable("pp_ec_master")]
+    public class PpEcMaster
     {
         /// <summary>
         /// 描述 :ID 
         /// 空值 :false 
         /// </summary>
         [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
-        public int FwId { get; set; }
+        public int EmId { get; set; }
 
         /// <summary>
-        /// 描述 :年月 
+        /// 描述 :发行日 
         /// 空值 :false 
         /// </summary>
-        public string FwYm { get; set; }
+        public DateTime? EmEcIssueDate { get; set; }
 
         /// <summary>
-        /// 描述 :工厂 
+        /// 描述 :设变No. 
         /// 空值 :false 
         /// </summary>
-        public string FwPlant { get; set; }
+        public string EmEcNo { get; set; }
 
         /// <summary>
-        /// 描述 :币种 
-        /// 空值 :false 
+        /// 描述 :关联文件 
+        /// 空值 :true 
         /// </summary>
-        public string FwCcy { get; set; }
+        public string EmEcDoc { get; set; }
 
         /// <summary>
-        /// 描述 :销售额 
+        /// 描述 :状态 
         /// 空值 :false 
         /// </summary>
-        public decimal FwSalesVolume { get; set; }
+        public string EmEcStatus { get; set; }
 
         /// <summary>
-        /// 描述 :工作天数 
+        /// 描述 :标题 
         /// 空值 :false 
         /// </summary>
-        public decimal FwWorkingDays { get; set; }
+        public string EmEcTitle { get; set; }
 
         /// <summary>
-        /// 描述 :直接工资率 
+        /// 描述 :内容 
         /// 空值 :false 
         /// </summary>
-        public decimal FwDirectWageRate { get; set; }
+        public string EmEcContent { get; set; }
 
         /// <summary>
-        /// 描述 :直接人数 
+        /// 描述 :担当 
         /// 空值 :false 
         /// </summary>
-        public decimal FwDirect { get; set; }
+        public string EmEcAssigned { get; set; }
 
         /// <summary>
-        /// 描述 :直接加班费 
+        /// 描述 :损失金额 
         /// 空值 :false 
         /// </summary>
-        public decimal FwDirectOverTime { get; set; }
+        public decimal EmEcLossAmount { get; set; }
 
         /// <summary>
-        /// 描述 :直接工资 
+        /// 描述 :管理区分 
         /// 空值 :false 
         /// </summary>
-        public decimal FwDirectWages { get; set; }
+        public int EmEcManageCategory { get; set; }
 
         /// <summary>
-        /// 描述 :间接工资率 
-        /// 空值 :false 
+        /// 描述 :联络No. 
+        /// 空值 :true 
         /// </summary>
-        public decimal FwInDirectWageRate { get; set; }
+        public string EmEcLiaisonNo { get; set; }
 
         /// <summary>
-        /// 描述 :间接人数 
-        /// 空值 :false 
+        /// 描述 :联络文件 
+        /// 空值 :true 
         /// </summary>
-        public decimal FwInDirect { get; set; }
+        public string EmEcLiaisonDoc { get; set; }
 
         /// <summary>
-        /// 描述 :间接加班费 
-        /// 空值 :false 
+        /// 描述 :EppNo. 
+        /// 空值 :true 
         /// </summary>
-        public decimal FwInDirectOverTime { get; set; }
+        public string EmEcEppLiaisonNo { get; set; }
 
         /// <summary>
-        /// 描述 :间接工资 
+        /// 描述 :Epp文件 
+        /// 空值 :true 
+        /// </summary>
+        public string EmEcEppLiaisonDoc { get; set; }
+
+        /// <summary>
+        /// 描述 :FppNo. 
+        /// 空值 :true 
+        /// </summary>
+        public string EmEcFppLiaisonNo { get; set; }
+
+        /// <summary>
+        /// 描述 :Fpp文件 
+        /// 空值 :true 
+        /// </summary>
+        public string EmEcFppLiaisonDoc { get; set; }
+
+        /// <summary>
+        /// 描述 :外部No. 
+        /// 空值 :true 
+        /// </summary>
+        public string EmEcExternalNo { get; set; }
+
+        /// <summary>
+        /// 描述 :外部文件 
+        /// 空值 :true 
+        /// </summary>
+        public string EmEcExternalDoc { get; set; }
+
+        /// <summary>
+        /// 描述 :实施部门 
         /// 空值 :false 
         /// </summary>
-        public decimal FwInDirectWages { get; set; }
+        public string EmEcImpDept { get; set; }
+
+        /// <summary>
+        /// 描述 :输入日 
+        /// 空值 :false 
+        /// </summary>
+        public DateTime? EmEcEntryDate { get; set; }
+
+        /// <summary>
+        /// 描述 :SOP变更否 
+        /// 空值 :false 
+        /// </summary>
+        public byte IsModifySop { get; set; }
 
         /// <summary>
         /// 描述 :UDF01 
@@ -177,7 +219,7 @@ namespace La.Model.Models
         public bool IsDeleted { get; set; }
 
         /// <summary>
-        /// 描述 :ReMark 
+        /// 描述 :备注 
         /// 空值 :true 
         /// </summary>
         public string ReMark { get; set; }

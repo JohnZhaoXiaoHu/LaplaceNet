@@ -18,8 +18,8 @@ namespace La.WebApi.Controllers
     /// 会计科目Controller
     /// 
     /// @tableName fico_title
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     [Verify]
     [Route("financial/FicoTitle")]
@@ -43,7 +43,7 @@ namespace La.WebApi.Controllers
         /// <param name="parm"></param>
         /// <returns></returns>
         [HttpGet("list")]
-        [ActionPermissionFilter(Permission = "fico:title:list")]
+        [ActionPermissionFilter(Permission = "la:ficotitle:list")]
         public IActionResult QueryFicoTitle([FromQuery] FicoTitleQueryDto parm)
         {
             var response = _FicoTitleService.GetList(parm);
@@ -57,7 +57,7 @@ namespace La.WebApi.Controllers
         /// <param name="FtId"></param>
         /// <returns></returns>
         [HttpGet("{FtId}")]
-        [ActionPermissionFilter(Permission = "fico:title:query")]
+        [ActionPermissionFilter(Permission = "la:ficotitle:query")]
         public IActionResult GetFicoTitle(long FtId)
         {
             var response = _FicoTitleService.GetFirst(x => x.FtId == FtId);
@@ -70,7 +70,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [ActionPermissionFilter(Permission = "fico:title:add")]
+        [ActionPermissionFilter(Permission = "la:ficotitle:add")]
         [Log(Title = "会计科目", BusinessType = BusinessType.INSERT)]
         public IActionResult AddFicoTitle([FromBody] FicoTitleDto parm)
         {
@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
 
            // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_FicoTitleService.CheckEntryStringUnique(parm.FtId.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_FicoTitleService.CheckEntryStringUnique(parm.FtCorpCode + parm.FtTitleCode + parm.FtTitleLang)))
             {
-                return ToResponse(ApiResult.Error($"新增会计科目 '{parm.FtId}'失败，输入的会计科目已存在"));
+                return ToResponse(ApiResult.Error($"新增会计科目 '{parm.FtCorpCode +","+ parm.FtTitleCode + "," + parm.FtTitleLang}'失败，输入的会计科目已存在"));
             }
             var modal = parm.Adapt<FicoTitle>().ToCreate(HttpContext);
 
@@ -97,7 +97,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPut]
-        [ActionPermissionFilter(Permission = "fico:title:edit")]
+        [ActionPermissionFilter(Permission = "la:ficotitle:edit")]
         [Log(Title = "会计科目", BusinessType = BusinessType.UPDATE)]
         public IActionResult UpdateFicoTitle([FromBody] FicoTitleDto parm)
         {
@@ -117,7 +117,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpDelete("{ids}")]
-        [ActionPermissionFilter(Permission = "fico:title:delete")]
+        [ActionPermissionFilter(Permission = "la:ficotitle:delete")]
         [Log(Title = "会计科目", BusinessType = BusinessType.DELETE)]
         public IActionResult DeleteFicoTitle(string ids)
         {
@@ -135,7 +135,7 @@ namespace La.WebApi.Controllers
         /// <returns></returns>
         [Log(Title = "会计科目", BusinessType = BusinessType.EXPORT, IsSaveResponseData = false)]
         [HttpGet("export")]
-        [ActionPermissionFilter(Permission = "fico:title:export")]
+        [ActionPermissionFilter(Permission = "la:ficotitle:export")]
         public IActionResult Export([FromQuery] FicoTitleQueryDto parm)
         {
             parm.PageSize = 100000;

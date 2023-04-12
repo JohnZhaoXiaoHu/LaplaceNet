@@ -155,7 +155,7 @@ namespace La.WebApi.Controllers.System
                 return ToResponse(ApiResult.Error($"新增菜单'{menu.MenuName}'失败，地址必须以http(s)://开头"));
             }
 
-            menu.Create_by = HttpContext.GetName();
+            menu.create_by = HttpContext.GetName();
             int result = sysMenuService.AddMenu(menu);
 
             return ToResponse(result);

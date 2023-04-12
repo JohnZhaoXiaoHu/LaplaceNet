@@ -1,7 +1,8 @@
 import request from '@/utils/request'
+import { downFile } from '@/utils/request'
 
 /**
-* 主设变信息表分页查询
+* 主设变分页查询
 * @param {查询条件} data
 */
 export function listPpEcMaster(query) {
@@ -14,7 +15,7 @@ export function listPpEcMaster(query) {
 
 
 /**
-* 新增主设变信息表
+* 新增主设变
 * @param data
 */
 export function addPpEcMaster(data) {
@@ -26,7 +27,7 @@ export function addPpEcMaster(data) {
 }
 
 /**
-* 修改主设变信息表
+* 修改主设变
 * @param data
 */
 export function updatePpEcMaster(data) {
@@ -38,7 +39,7 @@ export function updatePpEcMaster(data) {
 }
 
 /**
-* 获取主设变信息表详情
+* 获取主设变详情
 * @param {Id}
 */
 export function getPpEcMaster(id) {
@@ -49,7 +50,7 @@ export function getPpEcMaster(id) {
 }
 
 /**
-* 删除主设变信息表
+* 删除主设变
 * @param {主键} pid
 */
 export function delPpEcMaster(pid) {
@@ -59,7 +60,7 @@ export function delPpEcMaster(pid) {
   })
 }
 
-// 清空主设变信息表
+// 清空主设变
 export function clearPpEcMaster() {
   return request({
     url: 'Production/PpEcMaster/clean',
@@ -67,7 +68,7 @@ export function clearPpEcMaster() {
   })
 }
 
-// 导出主设变信息表
+// 导出主设变
 export async function exportPpEcMaster(query) {
   await downFile('Production/PpEcMaster/export', { ...query })
 }

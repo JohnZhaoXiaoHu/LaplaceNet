@@ -7,10 +7,10 @@ using System.Collections.Generic;
 namespace La.Service.Financial.IFinancialService
 {
     /// <summary>
-    /// 月度存货明细service接口
+    /// 月度存货service接口
     ///
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     public interface IFicoMonthInventoryService : IBaseService<FicoMonthInventory>
     {

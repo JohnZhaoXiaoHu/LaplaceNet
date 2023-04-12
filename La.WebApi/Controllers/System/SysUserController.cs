@@ -102,7 +102,7 @@ namespace La.WebApi.Controllers.System
                 return ToResponse(ApiResult.Error($"新增用户 '{user.UserName}'失败，登录账号已存在"));
             }
 
-            user.Create_by = HttpContext.GetName();
+            user.create_by = HttpContext.GetName();
             user.Password = NETCore.Encrypt.EncryptProvider.Md5(user.Password);
 
             return ToResponse(UserService.InsertUser(user));

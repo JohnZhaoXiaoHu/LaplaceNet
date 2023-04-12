@@ -98,9 +98,9 @@ namespace La.Model.Dto
         public int? IsDeleted { get; set; }
 
         /// <summary>
-        /// 描述 :Remark 
+        /// 描述 :ReMark 
         /// </summary>
-        public string Remark { get; set; }
+        public string ReMark { get; set; }
 
         /// <summary>
         /// 描述 :CreateBy 

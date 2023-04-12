@@ -18,8 +18,8 @@ namespace La.WebApi.Controllers
     /// 财务期间Controller
     /// 
     /// @tableName fico_period
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     [Verify]
     [Route("financial/FicoPeriod")]
@@ -43,7 +43,7 @@ namespace La.WebApi.Controllers
         /// <param name="parm"></param>
         /// <returns></returns>
         [HttpGet("list")]
-        [ActionPermissionFilter(Permission = "fico:period:list")]
+        [ActionPermissionFilter(Permission = "la:ficoperiod:list")]
         public IActionResult QueryFicoPeriod([FromQuery] FicoPeriodQueryDto parm)
         {
             var response = _FicoPeriodService.GetList(parm);
@@ -57,7 +57,7 @@ namespace La.WebApi.Controllers
         /// <param name="FpId"></param>
         /// <returns></returns>
         [HttpGet("{FpId}")]
-        [ActionPermissionFilter(Permission = "fico:period:query")]
+        [ActionPermissionFilter(Permission = "la:ficoperiod:query")]
         public IActionResult GetFicoPeriod(int FpId)
         {
             var response = _FicoPeriodService.GetFirst(x => x.FpId == FpId);
@@ -70,7 +70,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [ActionPermissionFilter(Permission = "fico:period:add")]
+        [ActionPermissionFilter(Permission = "la:ficoperiod:add")]
         [Log(Title = "财务期间", BusinessType = BusinessType.INSERT)]
         public IActionResult AddFicoPeriod([FromBody] FicoPeriodDto parm)
         {
@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
 
            // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_FicoPeriodService.CheckEntryStringUnique(parm.FpId.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_FicoPeriodService.CheckEntryStringUnique(parm.FpFy + parm.FpYm)))
             {
-                return ToResponse(ApiResult.Error($"新增财务期间 '{parm.FpId}'失败，输入的财务期间已存在"));
+                return ToResponse(ApiResult.Error($"新增财务期间 '{parm.FpFy +","+ parm.FpYm}'失败，输入的财务期间已存在"));
             }
             var modal = parm.Adapt<FicoPeriod>().ToCreate(HttpContext);
 
@@ -97,7 +97,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPut]
-        [ActionPermissionFilter(Permission = "fico:period:edit")]
+        [ActionPermissionFilter(Permission = "la:ficoperiod:edit")]
         [Log(Title = "财务期间", BusinessType = BusinessType.UPDATE)]
         public IActionResult UpdateFicoPeriod([FromBody] FicoPeriodDto parm)
         {
@@ -117,7 +117,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpDelete("{ids}")]
-        [ActionPermissionFilter(Permission = "fico:period:delete")]
+        [ActionPermissionFilter(Permission = "la:ficoperiod:delete")]
         [Log(Title = "财务期间", BusinessType = BusinessType.DELETE)]
         public IActionResult DeleteFicoPeriod(string ids)
         {
@@ -135,7 +135,7 @@ namespace La.WebApi.Controllers
         /// <returns></returns>
         [Log(Title = "财务期间", BusinessType = BusinessType.EXPORT, IsSaveResponseData = false)]
         [HttpGet("export")]
-        [ActionPermissionFilter(Permission = "fico:period:export")]
+        [ActionPermissionFilter(Permission = "la:ficoperiod:export")]
         public IActionResult Export([FromQuery] FicoPeriodQueryDto parm)
         {
             parm.PageSize = 100000;

@@ -28,10 +28,10 @@ namespace La.Model.System
         /// <summary>
         /// 新建时间
         /// </summary>
-        public DateTime Create_time { get; set; }
+        public DateTime create_time { get; set; }
         /// <summary>
         /// 创建人
         /// </summary>
-        public string Create_by { get; set; }
+        public string create_by { get; set; }
     }
 }

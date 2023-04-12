@@ -15,22 +15,22 @@ using La.Common;
 namespace La.WebApi.Controllers
 {
     /// <summary>
-    /// 月度存货明细Controller
+    /// 月度存货Controller
     /// 
     /// @tableName fico_month_inventory
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     [Verify]
-    [Route("financial/FicoMonthInventory")]
+    [Route("Financial/FicoMonthInventory")]
     public class FicoMonthInventoryController : BaseController
     {
         /// <summary>
-        /// 月度存货明细接口
+        /// 月度存货接口
         /// </summary>
         private readonly IFicoMonthInventoryService _FicoMonthInventoryService;
         /// <summary>
-        /// 月度存货明细Controller
+        /// 月度存货Controller
         /// </summary>
         public FicoMonthInventoryController(IFicoMonthInventoryService FicoMonthInventoryService)
         {
@@ -38,12 +38,12 @@ namespace La.WebApi.Controllers
         }
 
         /// <summary>
-        /// 查询月度存货明细列表
+        /// 查询月度存货列表
         /// </summary>
         /// <param name="parm"></param>
         /// <returns></returns>
         [HttpGet("list")]
-        [ActionPermissionFilter(Permission = "fico:monthinventory:list")]
+        [ActionPermissionFilter(Permission = "la:ficomonthinventory:list")]
         public IActionResult QueryFicoMonthInventory([FromQuery] FicoMonthInventoryQueryDto parm)
         {
             var response = _FicoMonthInventoryService.GetList(parm);
@@ -52,12 +52,12 @@ namespace La.WebApi.Controllers
 
 
         /// <summary>
-        /// 查询月度存货明细详情
+        /// 查询月度存货详情
         /// </summary>
         /// <param name="MiId"></param>
         /// <returns></returns>
         [HttpGet("{MiId}")]
-        [ActionPermissionFilter(Permission = "fico:monthinventory:query")]
+        [ActionPermissionFilter(Permission = "la:ficomonthinventory:query")]
         public IActionResult GetFicoMonthInventory(string MiId)
         {
             var response = _FicoMonthInventoryService.GetFirst(x => x.MiId == MiId);
@@ -66,12 +66,12 @@ namespace La.WebApi.Controllers
         }
 
         /// <summary>
-        /// 添加月度存货明细
+        /// 添加月度存货
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [ActionPermissionFilter(Permission = "fico:monthinventory:add")]
-        [Log(Title = "月度存货明细", BusinessType = BusinessType.INSERT)]
+        [ActionPermissionFilter(Permission = "la:ficomonthinventory:add")]
+        [Log(Title = "月度存货", BusinessType = BusinessType.INSERT)]
         public IActionResult AddFicoMonthInventory([FromBody] FicoMonthInventoryDto parm)
         {
             if (parm == null)
@@ -83,7 +83,7 @@ namespace La.WebApi.Controllers
 
             if (UserConstants.NOT_UNIQUE.Equals(_FicoMonthInventoryService.CheckEntryStringUnique(parm.MiId.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增月度存货明细 '{parm.MiId}'失败，输入的月度存货明细已存在"));
+                return ToResponse(ApiResult.Error($"新增月度存货 '{parm.MiId}'失败，输入的月度存货已存在"));
             }
             var modal = parm.Adapt<FicoMonthInventory>().ToCreate(HttpContext);
 
@@ -93,12 +93,12 @@ namespace La.WebApi.Controllers
         }
 
         /// <summary>
-        /// 更新月度存货明细
+        /// 更新月度存货
         /// </summary>
         /// <returns></returns>
         [HttpPut]
-        [ActionPermissionFilter(Permission = "fico:monthinventory:edit")]
-        [Log(Title = "月度存货明细", BusinessType = BusinessType.UPDATE)]
+        [ActionPermissionFilter(Permission = "la:ficomonthinventory:edit")]
+        [Log(Title = "月度存货", BusinessType = BusinessType.UPDATE)]
         public IActionResult UpdateFicoMonthInventory([FromBody] FicoMonthInventoryDto parm)
         {
             if (parm == null)
@@ -113,12 +113,12 @@ namespace La.WebApi.Controllers
         }
 
         /// <summary>
-        /// 删除月度存货明细
+        /// 删除月度存货
         /// </summary>
         /// <returns></returns>
         [HttpDelete("{ids}")]
-        [ActionPermissionFilter(Permission = "fico:monthinventory:delete")]
-        [Log(Title = "月度存货明细", BusinessType = BusinessType.DELETE)]
+        [ActionPermissionFilter(Permission = "la:ficomonthinventory:delete")]
+        [Log(Title = "月度存货", BusinessType = BusinessType.DELETE)]
         public IActionResult DeleteFicoMonthInventory(string ids)
         {
             int[] idsArr = Tools.SpitIntArrary(ids);
@@ -130,12 +130,12 @@ namespace La.WebApi.Controllers
         }
 
         /// <summary>
-        /// 导出月度存货明细
+        /// 导出月度存货
         /// </summary>
         /// <returns></returns>
-        [Log(Title = "月度存货明细", BusinessType = BusinessType.EXPORT, IsSaveResponseData = false)]
+        [Log(Title = "月度存货", BusinessType = BusinessType.EXPORT, IsSaveResponseData = false)]
         [HttpGet("export")]
-        [ActionPermissionFilter(Permission = "fico:monthinventory:export")]
+        [ActionPermissionFilter(Permission = "la:ficomonthinventory:export")]
         public IActionResult Export([FromQuery] FicoMonthInventoryQueryDto parm)
         {
             parm.PageSize = 100000;
@@ -144,7 +144,7 @@ namespace La.WebApi.Controllers
             {
                 return ToResponse(ResultCode.FAIL, "没有要导出的数据");
             }
-            var result = ExportExcelMini(list, "月度存货明细", "月度存货明细");
+            var result = ExportExcelMini(list, "月度存货", "月度存货");
             return ExportExcel(result.Item2, result.Item1);
         }
 

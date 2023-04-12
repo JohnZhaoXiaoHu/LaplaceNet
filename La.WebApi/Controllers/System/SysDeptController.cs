@@ -127,7 +127,7 @@ namespace La.WebApi.Controllers.System
             {
                 return ToResponse(GetApiResult(ResultCode.CUSTOM_ERROR, $"新增部门{dept.DeptName}失败，部门名称已存在"));
             }
-            dept.Create_by = User.Identity.Name!;
+            dept.create_by = User.Identity.Name!;
             return ToResponse(ToJson(DeptService.InsertDept(dept)));
         }
 
@@ -162,11 +162,11 @@ namespace La.WebApi.Controllers.System
         [Log(Title = "部门管理", BusinessType = BusinessType.DELETE)]
         public IActionResult Remove(long deptId)
         {
-            if (DeptService.Queryable().Count(it => it.ParentId == deptId && it.DelFlag == "0") > 0)
+            if (DeptService.Queryable().Count(it => it.ParentId == deptId && it.IsDeleted == "0") > 0)
             {
                 return ToResponse(GetApiResult(ResultCode.CUSTOM_ERROR, $"存在下级部门，不允许删除"));
             }
-            if (UserService.Queryable().Count(it => it.DeptId == deptId && it.DelFlag == "0") > 0)
+            if (UserService.Queryable().Count(it => it.DeptId == deptId && it.IsDeleted == "0") > 0)
             {
                 return ToResponse(GetApiResult(ResultCode.CUSTOM_ERROR, $"部门存在用户，不允许删除"));
             }

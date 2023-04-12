@@ -107,7 +107,7 @@ namespace La.Service.System
                 //同步修改 dict_data表里面的DictType值
                 DictDataService.UpdateDictDataType(oldDict.DictType, sysDictType.DictType);
             }
-            return Context.Updateable(sysDictType).IgnoreColumns(it => new { sysDictType.Create_by }).ExecuteCommand();
+            return Context.Updateable(sysDictType).IgnoreColumns(it => new { sysDictType.create_by }).ExecuteCommand();
         }
 
         /// <summary>

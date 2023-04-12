@@ -66,7 +66,7 @@ namespace La.Model.System
         /// 删除标志（0代表存在 2代表删除）
         /// </summary>
         [SugarColumn(IsOnlyIgnoreInsert = true)]
-        public string DelFlag { get; set; }
+        public string IsDeleted { get; set; }
 
         /// <summary>
         /// 最后登录IP

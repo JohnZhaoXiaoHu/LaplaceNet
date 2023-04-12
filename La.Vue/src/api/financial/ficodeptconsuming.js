@@ -1,4 +1,5 @@
 import request from '@/utils/request'
+import { downFile } from '@/utils/request'
 
 /**
 * 部门消耗分页查询
@@ -6,7 +7,7 @@ import request from '@/utils/request'
 */
 export function listFicoDeptConsuming(query) {
   return request({
-    url: 'financial/FicoDeptConsuming/list',
+    url: 'Financial/FicoDeptConsuming/list',
     method: 'get',
     params: query,
   })
@@ -19,7 +20,7 @@ export function listFicoDeptConsuming(query) {
 */
 export function addFicoDeptConsuming(data) {
   return request({
-    url: 'financial/FicoDeptConsuming',
+    url: 'Financial/FicoDeptConsuming',
     method: 'post',
     data: data,
   })
@@ -31,7 +32,7 @@ export function addFicoDeptConsuming(data) {
 */
 export function updateFicoDeptConsuming(data) {
   return request({
-    url: 'financial/FicoDeptConsuming',
+    url: 'Financial/FicoDeptConsuming',
     method: 'PUT',
     data: data,
   })
@@ -43,7 +44,7 @@ export function updateFicoDeptConsuming(data) {
 */
 export function getFicoDeptConsuming(id) {
   return request({
-    url: 'financial/FicoDeptConsuming/' + id,
+    url: 'Financial/FicoDeptConsuming/' + id,
     method: 'get'
   })
 }
@@ -54,7 +55,7 @@ export function getFicoDeptConsuming(id) {
 */
 export function delFicoDeptConsuming(pid) {
   return request({
-    url: 'financial/FicoDeptConsuming/' + pid,
+    url: 'Financial/FicoDeptConsuming/' + pid,
     method: 'delete'
   })
 }
@@ -62,13 +63,13 @@ export function delFicoDeptConsuming(pid) {
 // 清空部门消耗
 export function clearFicoDeptConsuming() {
   return request({
-    url: 'financial/FicoDeptConsuming/clean',
+    url: 'Financial/FicoDeptConsuming/clean',
     method: 'delete'
   })
 }
 
 // 导出部门消耗
 export async function exportFicoDeptConsuming(query) {
-  await downFile('financial/FicoDeptConsuming/export', { ...query })
+  await downFile('Financial/FicoDeptConsuming/export', { ...query })
 }
 

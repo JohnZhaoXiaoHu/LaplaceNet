@@ -43,8 +43,8 @@ namespace La.WebApi.Controllers
             //开始拼装查询条件
             var predicate = Expressionable.Create<SysFile>();
             //搜索条件查询语法参考Sqlsugar
-            predicate = predicate.AndIF(parm.BeginCreate_time != null, it => it.Create_time >= parm.BeginCreate_time);
-            predicate = predicate.AndIF(parm.EndCreate_time != null, it => it.Create_time <= parm.EndCreate_time);
+            predicate = predicate.AndIF(parm.BeginCreate_time != null, it => it.create_time >= parm.BeginCreate_time);
+            predicate = predicate.AndIF(parm.EndCreate_time != null, it => it.create_time <= parm.EndCreate_time);
             predicate = predicate.AndIF(parm.StoreType != null, m => m.StoreType == parm.StoreType);
             predicate = predicate.AndIF(parm.FileId != null, m => m.Id == parm.FileId);
 

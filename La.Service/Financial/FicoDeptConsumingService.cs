@@ -8,14 +8,15 @@ using La.Model.System;
 using La.Repository;
 using La.Service.Financial.IFinancialService;
 using System.Linq;
+using Aliyun.OSS;
 
 namespace La.Service.Financial
 {
     /// <summary>
     /// 部门消耗Service业务层处理
     ///
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     [AppService(ServiceType = typeof(IFicoDeptConsumingService), ServiceLifetime = LifeTime.Transient)]
     public class FicoDeptConsumingService : BaseService<FicoDeptConsuming>, IFicoDeptConsumingService
@@ -33,11 +34,9 @@ namespace La.Service.Financial
             var predicate = Expressionable.Create<FicoDeptConsuming>();
 
             //搜索条件查询语法参考Sqlsugar
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.DcFy), it => it.DcFy == parm.DcFy);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.DcYm), it => it.DcYm == parm.DcYm);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.DcCorpCode), it => it.DcCorpCode == parm.DcCorpCode);
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.DcPlant), it => it.DcPlant == parm.DcPlant);
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.DcMateriel), it => it.DcMateriel == parm.DcMateriel);
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.DcExpCategory), it => it.DcExpCategory == parm.DcExpCategory);
             var response = Queryable()
                 .Where(predicate.ToExpression())
                 .ToPage<FicoDeptConsuming, FicoDeptConsumingDto>(parm);
@@ -53,7 +52,7 @@ namespace La.Service.Financial
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.DcId.ToString() == entryString);
+            int count = Count(it => it.DcYm + it.DcCostCode + it.DcPlant + it.DcMateriel + it.DcStorageLocation + it.DcMoveType == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;
@@ -94,7 +93,6 @@ namespace La.Service.Financial
                 it.DcReserveDoc,
                 it.DcAccountant,
                 it.DcBalanceDate,
-                it.Remark,
                 it.CreateBy,
                 it.CreateTime,
             });
@@ -110,7 +108,30 @@ namespace La.Service.Financial
         {
             var response = Update(w => w.DcId == parm.DcId, it => new FicoDeptConsuming()
             {
-                Remark = parm.Remark,
+                DcFy = parm.DcFy,
+                DcYm = parm.DcYm,
+                DcCorpCode = parm.DcCorpCode,
+                DcCorpName = parm.DcCorpName,
+                DcExpCategory = parm.DcExpCategory,
+                DcCostCode = parm.DcCostCode,
+                DcCostName = parm.DcCostName,
+                DcTitleCode = parm.DcTitleCode,
+                DcTitleName = parm.DcTitleName,
+                DcTitleNote = parm.DcTitleNote,
+                DcBudgetAmt = parm.DcBudgetAmt,
+                DcActualAmt = parm.DcActualAmt,
+                DcDiffAmt = parm.DcDiffAmt,
+                DcPlant = parm.DcPlant,
+                DcMateriel = parm.DcMateriel,
+                DcStorageLocation = parm.DcStorageLocation,
+                DcMoveType = parm.DcMoveType,
+                DcMaterielDoc = parm.DcMaterielDoc,
+                DcMaterielDocDetails = parm.DcMaterielDocDetails,
+                DcUseQty = parm.DcUseQty,
+                DcUseAmt = parm.DcUseAmt,
+                DcReserveDoc = parm.DcReserveDoc,
+                DcAccountant = parm.DcAccountant,
+                DcBalanceDate = parm.DcBalanceDate,
                 UpdateBy = parm.UpdateBy,
                 UpdateTime = parm.UpdateTime,
             });

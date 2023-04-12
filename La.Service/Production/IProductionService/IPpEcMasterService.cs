@@ -4,17 +4,17 @@ using La.Model.Dto;
 using La.Model.Models;
 using System.Collections.Generic;
 
-namespace La.Service.Financial.IFinancialService
+namespace La.Service.Production.IProductionService
 {
     /// <summary>
-    /// 利润中心service接口
+    /// 主设变service接口
     ///
     /// @author Davis.Cheng
-    /// @date 2023-04-11
+    /// @date 2023-04-12
     /// </summary>
-    public interface IFicoPrctrService : IBaseService<FicoPrctr>
+    public interface IPpEcMasterService : IBaseService<PpEcMaster>
     {
-        PagedInfo<FicoPrctrDto> GetList(FicoPrctrQueryDto parm);
+        PagedInfo<PpEcMasterDto> GetList(PpEcMasterQueryDto parm);
 
         /// <summary>
         /// 校验输入项目是否唯一
@@ -23,10 +23,10 @@ namespace La.Service.Financial.IFinancialService
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString);
 
-        int AddFicoPrctr(FicoPrctr parm);
+        int AddPpEcMaster(PpEcMaster parm);
 
-        int UpdateFicoPrctr(FicoPrctr parm);
+        int UpdatePpEcMaster(PpEcMaster parm);
         
-        void TruncateFicoPrctr();
+        void TruncatePpEcMaster();
     }
 }

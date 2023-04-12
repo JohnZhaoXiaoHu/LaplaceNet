@@ -75,7 +75,7 @@ namespace La.Service.Workflow
                 it.ToNodeName,
                 it.TransitionSate,
                 it.IsFinish,
-                it.Remark,
+                it.ReMark,
                 it.CreateBy,
                 it.CreateTime,
             });
@@ -100,7 +100,7 @@ namespace La.Service.Workflow
                 ToNodeName = parm.ToNodeName,
                 TransitionSate = parm.TransitionSate,
                 IsFinish = parm.IsFinish,
-                Remark = parm.Remark,
+                ReMark = parm.ReMark,
                 UpdateBy = parm.UpdateBy,
                 UpdateTime = parm.UpdateTime,
             });

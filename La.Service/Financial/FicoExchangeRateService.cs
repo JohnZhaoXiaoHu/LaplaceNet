@@ -8,14 +8,15 @@ using La.Model.System;
 using La.Repository;
 using La.Service.Financial.IFinancialService;
 using System.Linq;
+using Aliyun.OSS;
 
 namespace La.Service.Financial
 {
     /// <summary>
     /// 汇率表Service业务层处理
     ///
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     [AppService(ServiceType = typeof(IFicoExchangeRateService), ServiceLifetime = LifeTime.Transient)]
     public class FicoExchangeRateService : BaseService<FicoExchangeRate>, IFicoExchangeRateService
@@ -36,6 +37,7 @@ namespace La.Service.Financial
             predicate = predicate.AndIF(parm.BeginErEffDate == null, it => it.ErEffDate >= DateTime.Now.AddDays(-1));
             predicate = predicate.AndIF(parm.BeginErEffDate != null, it => it.ErEffDate >= parm.BeginErEffDate && it.ErEffDate <= parm.EndErEffDate);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.ErfmCcy), it => it.ErfmCcy == parm.ErfmCcy);
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.ErtoCcy), it => it.ErtoCcy == parm.ErtoCcy);
             var response = Queryable()
                 .Where(predicate.ToExpression())
                 .ToPage<FicoExchangeRate, FicoExchangeRateDto>(parm);
@@ -51,7 +53,8 @@ namespace La.Service.Financial
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.ErId.ToString() == entryString);
+           
+            int count = Count(it => Convert.ToDateTime(it.ErEffDate).ToString("yyyyMMdd") + it.ErfmCcy + it.ErtoCcy == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;
@@ -73,7 +76,6 @@ namespace La.Service.Financial
                 it.ErfmCcy,
                 it.ErRate,
                 it.ErtoCcy,
-                it.Remark,
                 it.CreateBy,
                 it.CreateTime,
             });
@@ -94,7 +96,6 @@ namespace La.Service.Financial
                 ErfmCcy = parm.ErfmCcy,
                 ErRate = parm.ErRate,
                 ErtoCcy = parm.ErtoCcy,
-                Remark = parm.Remark,
                 UpdateBy = parm.UpdateBy,
                 UpdateTime = parm.UpdateTime,
             });

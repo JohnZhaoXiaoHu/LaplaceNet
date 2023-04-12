@@ -68,7 +68,7 @@ namespace La.Service.Workflow
                 it.Id,
                 it.InstanceId,
                 it.Content,
-                it.Remark,
+                it.ReMark,
                 it.CreateBy,
                 it.CreateTime,
             });
@@ -86,7 +86,7 @@ namespace La.Service.Workflow
             {
                 InstanceId = parm.InstanceId,
                 Content = parm.Content,
-                Remark = parm.Remark,
+                ReMark = parm.ReMark,
                 UpdateBy = parm.UpdateBy,
                 UpdateTime = parm.UpdateTime,
             });

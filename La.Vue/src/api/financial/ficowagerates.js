@@ -7,7 +7,7 @@ import { downFile } from '@/utils/request'
 */
 export function listFicoWagerates(query) {
   return request({
-    url: 'financial/FicoWagerates/list',
+    url: 'Financial/FicoWagerates/list',
     method: 'get',
     params: query,
   })
@@ -20,7 +20,7 @@ export function listFicoWagerates(query) {
 */
 export function addFicoWagerates(data) {
   return request({
-    url: 'financial/FicoWagerates',
+    url: 'Financial/FicoWagerates',
     method: 'post',
     data: data,
   })
@@ -32,7 +32,7 @@ export function addFicoWagerates(data) {
 */
 export function updateFicoWagerates(data) {
   return request({
-    url: 'financial/FicoWagerates',
+    url: 'Financial/FicoWagerates',
     method: 'PUT',
     data: data,
   })
@@ -44,7 +44,7 @@ export function updateFicoWagerates(data) {
 */
 export function getFicoWagerates(id) {
   return request({
-    url: 'financial/FicoWagerates/' + id,
+    url: 'Financial/FicoWagerates/' + id,
     method: 'get'
   })
 }
@@ -55,7 +55,7 @@ export function getFicoWagerates(id) {
 */
 export function delFicoWagerates(pid) {
   return request({
-    url: 'financial/FicoWagerates/' + pid,
+    url: 'Financial/FicoWagerates/' + pid,
     method: 'delete'
   })
 }
@@ -63,13 +63,13 @@ export function delFicoWagerates(pid) {
 // 清空工厂工资率
 export function clearFicoWagerates() {
   return request({
-    url: 'financial/FicoWagerates/clean',
+    url: 'Financial/FicoWagerates/clean',
     method: 'delete'
   })
 }
 
 // 导出工厂工资率
 export async function exportFicoWagerates(query) {
-  await downFile('financial/FicoWagerates/export', { ...query })
+  await downFile('Financial/FicoWagerates/export', { ...query })
 }
 

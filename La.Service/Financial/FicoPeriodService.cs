@@ -14,8 +14,8 @@ namespace La.Service.Financial
     /// <summary>
     /// 财务期间Service业务层处理
     ///
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     [AppService(ServiceType = typeof(IFicoPeriodService), ServiceLifetime = LifeTime.Transient)]
     public class FicoPeriodService : BaseService<FicoPeriod>, IFicoPeriodService
@@ -33,6 +33,7 @@ namespace La.Service.Financial
             var predicate = Expressionable.Create<FicoPeriod>();
 
             //搜索条件查询语法参考Sqlsugar
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FpFy), it => it.FpFy.Contains(parm.FpFy));
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FpYm), it => it.FpYm.Contains(parm.FpYm));
             var response = Queryable()
                 .Where(predicate.ToExpression())
@@ -49,7 +50,7 @@ namespace La.Service.Financial
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.FpId.ToString() == entryString);
+            int count = Count(it => it.FpFy+it.FpYm == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;
@@ -71,7 +72,6 @@ namespace La.Service.Financial
                 it.FpYear,
                 it.FpMonth,
                 it.FpQuarter,
-                it.IsDeleted,
                 it.CreateBy,
                 it.CreateTime,
             });
@@ -87,6 +87,11 @@ namespace La.Service.Financial
         {
             var response = Update(w => w.FpId == parm.FpId, it => new FicoPeriod()
             {
+                FpFy = parm.FpFy,
+                FpYm = parm.FpYm,
+                FpYear = parm.FpYear,
+                FpMonth = parm.FpMonth,
+                FpQuarter = parm.FpQuarter,
                 UpdateBy = parm.UpdateBy,
                 UpdateTime = parm.UpdateTime,
             });

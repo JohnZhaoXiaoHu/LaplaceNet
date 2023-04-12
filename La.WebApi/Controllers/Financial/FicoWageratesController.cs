@@ -18,11 +18,11 @@ namespace La.WebApi.Controllers
     /// 工厂工资率Controller
     /// 
     /// @tableName fico_wagerates
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     [Verify]
-    [Route("financial/FicoWagerates")]
+    [Route("Financial/FicoWagerates")]
     public class FicoWageratesController : BaseController
     {
         /// <summary>
@@ -43,7 +43,7 @@ namespace La.WebApi.Controllers
         /// <param name="parm"></param>
         /// <returns></returns>
         [HttpGet("list")]
-        [ActionPermissionFilter(Permission = "fico:wagerates:list")]
+        [ActionPermissionFilter(Permission = "la:ficowagerates:list")]
         public IActionResult QueryFicoWagerates([FromQuery] FicoWageratesQueryDto parm)
         {
             var response = _FicoWageratesService.GetList(parm);
@@ -57,7 +57,7 @@ namespace La.WebApi.Controllers
         /// <param name="FwId"></param>
         /// <returns></returns>
         [HttpGet("{FwId}")]
-        [ActionPermissionFilter(Permission = "fico:wagerates:query")]
+        [ActionPermissionFilter(Permission = "la:ficowagerates:query")]
         public IActionResult GetFicoWagerates(int FwId)
         {
             var response = _FicoWageratesService.GetFirst(x => x.FwId == FwId);
@@ -70,7 +70,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [ActionPermissionFilter(Permission = "fico:wagerates:add")]
+        [ActionPermissionFilter(Permission = "la:ficowagerates:add")]
         [Log(Title = "工厂工资率", BusinessType = BusinessType.INSERT)]
         public IActionResult AddFicoWagerates([FromBody] FicoWageratesDto parm)
         {
@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
 
            // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_FicoWageratesService.CheckEntryStringUnique(parm.FwId.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_FicoWageratesService.CheckEntryStringUnique(parm.FwPlant+parm.FwYm)))
             {
-                return ToResponse(ApiResult.Error($"新增工厂工资率 '{parm.FwId}'失败，输入的工厂工资率已存在"));
+                return ToResponse(ApiResult.Error($"新增工厂工资率 '{parm.FwPlant +","+ parm.FwYm}'失败，输入的工厂工资率已存在"));
             }
             var modal = parm.Adapt<FicoWagerates>().ToCreate(HttpContext);
 
@@ -97,7 +97,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPut]
-        [ActionPermissionFilter(Permission = "fico:wagerates:edit")]
+        [ActionPermissionFilter(Permission = "la:ficowagerates:edit")]
         [Log(Title = "工厂工资率", BusinessType = BusinessType.UPDATE)]
         public IActionResult UpdateFicoWagerates([FromBody] FicoWageratesDto parm)
         {
@@ -117,7 +117,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpDelete("{ids}")]
-        [ActionPermissionFilter(Permission = "fico:wagerates:delete")]
+        [ActionPermissionFilter(Permission = "la:ficowagerates:delete")]
         [Log(Title = "工厂工资率", BusinessType = BusinessType.DELETE)]
         public IActionResult DeleteFicoWagerates(string ids)
         {
@@ -135,7 +135,7 @@ namespace La.WebApi.Controllers
         /// <returns></returns>
         [Log(Title = "工厂工资率", BusinessType = BusinessType.EXPORT, IsSaveResponseData = false)]
         [HttpGet("export")]
-        [ActionPermissionFilter(Permission = "fico:wagerates:export")]
+        [ActionPermissionFilter(Permission = "la:ficowagerates:export")]
         public IActionResult Export([FromQuery] FicoWageratesQueryDto parm)
         {
             parm.PageSize = 100000;

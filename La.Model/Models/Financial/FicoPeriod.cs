@@ -7,8 +7,8 @@ namespace La.Model.Models
     /// <summary>
     /// 财务期间，数据实体对象
     ///
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     [SugarTable("fico_period")]
     public class FicoPeriod
@@ -51,40 +51,40 @@ namespace La.Model.Models
         public string FpQuarter { get; set; }
 
         /// <summary>
-        /// 描述 : 
-        /// 空值 :false 
+        /// 描述 :IsDeleted 
+        /// 空值 :true 
         /// </summary>
         public bool IsDeleted { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :ReMark 
         /// 空值 :true 
         /// </summary>
         public string ReMark { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :CreateBy 
         /// 空值 :true 
         /// </summary>
         [SugarColumn(ColumnName = "create_by")]
         public string CreateBy { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :CreateTime 
         /// 空值 :true 
         /// </summary>
         [SugarColumn(ColumnName = "create_time")]
         public DateTime? CreateTime { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UpdateBy 
         /// 空值 :true 
         /// </summary>
         [SugarColumn(ColumnName = "update_by")]
         public string UpdateBy { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UpdateTime 
         /// 空值 :true 
         /// </summary>
         [SugarColumn(ColumnName = "update_time")]

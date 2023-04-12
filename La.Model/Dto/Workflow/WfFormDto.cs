@@ -120,11 +120,11 @@ namespace La.Model.Dto
         public int? IsDeleted { get; set; }
 
         /// <summary>
-        /// 描述 :Remark 
+        /// 描述 :ReMark 
         /// </summary>
 
-        [ExcelColumn(Name = "Remark")]
-        public string Remark { get; set; }
+        [ExcelColumn(Name = "ReMark")]
+        public string ReMark { get; set; }
 
         /// <summary>
         /// 描述 :CreateBy 

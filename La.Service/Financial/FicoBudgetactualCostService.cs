@@ -12,10 +12,10 @@ using System.Linq;
 namespace La.Service.Financial
 {
     /// <summary>
-    /// 预算实际明细Service业务层处理
+    /// 预算实际Service业务层处理
     ///
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     [AppService(ServiceType = typeof(IFicoBudgetactualCostService), ServiceLifetime = LifeTime.Transient)]
     public class FicoBudgetactualCostService : BaseService<FicoBudgetactualCost>, IFicoBudgetactualCostService
@@ -23,7 +23,7 @@ namespace La.Service.Financial
         #region 业务逻辑代码
 
         /// <summary>
-        /// 查询预算实际明细列表
+        /// 查询预算实际列表
         /// </summary>
         /// <param name="parm"></param>
         /// <returns></returns>
@@ -33,13 +33,9 @@ namespace La.Service.Financial
             var predicate = Expressionable.Create<FicoBudgetactualCost>();
 
             //搜索条件查询语法参考Sqlsugar
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FbFy), it => it.FbFy == parm.FbFy);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FbYm), it => it.FbYm == parm.FbYm);
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FbCorpCode), it => it.FbCorpCode == parm.FbCorpCode);
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FbExpCategory), it => it.FbExpCategory == parm.FbExpCategory);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FbCostCode), it => it.FbCostCode == parm.FbCostCode);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FbTitleCode), it => it.FbTitleCode == parm.FbTitleCode);
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FbTitleNote), it => it.FbTitleNote == parm.FbTitleNote);
             var response = Queryable()
                 .Where(predicate.ToExpression())
                 .ToPage<FicoBudgetactualCost, FicoBudgetactualCostDto>(parm);
@@ -55,7 +51,7 @@ namespace La.Service.Financial
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.FbId.ToString() == entryString);
+            int count = Count(it => it.FbCostCode+ it.FbTitleCode == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;
@@ -64,7 +60,7 @@ namespace La.Service.Financial
         }
 
         /// <summary>
-        /// 添加预算实际明细
+        /// 添加预算实际
         /// </summary>
         /// <param name="parm"></param>
         /// <returns></returns>
@@ -87,7 +83,6 @@ namespace La.Service.Financial
                 it.FbDiffAmt,
                 it.FbAccountant,
                 it.FbBalanceDate,
-                it.ReMark,
                 it.CreateBy,
                 it.CreateTime,
             });
@@ -95,7 +90,7 @@ namespace La.Service.Financial
         }
 
         /// <summary>
-        /// 修改预算实际明细
+        /// 修改预算实际
         /// </summary>
         /// <param name="parm"></param>
         /// <returns></returns>
@@ -103,7 +98,21 @@ namespace La.Service.Financial
         {
             var response = Update(w => w.FbId == parm.FbId, it => new FicoBudgetactualCost()
             {
-                ReMark = parm.ReMark,
+                FbFy = parm.FbFy,
+                FbYm = parm.FbYm,
+                FbCorpCode = parm.FbCorpCode,
+                FbCorpName = parm.FbCorpName,
+                FbExpCategory = parm.FbExpCategory,
+                FbCostCode = parm.FbCostCode,
+                FbCostName = parm.FbCostName,
+                FbTitleCode = parm.FbTitleCode,
+                FbTitleName = parm.FbTitleName,
+                FbTitleNote = parm.FbTitleNote,
+                FbBudgetAmt = parm.FbBudgetAmt,
+                FbActualAmt = parm.FbActualAmt,
+                FbDiffAmt = parm.FbDiffAmt,
+                FbAccountant = parm.FbAccountant,
+                FbBalanceDate = parm.FbBalanceDate,
                 UpdateBy = parm.UpdateBy,
                 UpdateTime = parm.UpdateTime,
             });
@@ -111,7 +120,7 @@ namespace La.Service.Financial
         }
 
         /// <summary>
-        /// 清空预算实际明细
+        /// 清空预算实际
         /// </summary>
         /// <returns></returns>
         public void TruncateFicoBudgetactualCost()

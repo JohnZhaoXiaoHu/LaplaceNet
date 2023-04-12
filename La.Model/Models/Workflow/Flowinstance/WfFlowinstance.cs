@@ -171,10 +171,10 @@ namespace La.Model.Models.Workflow.Flowinstance
         public long TenantId { get; set; }
 
         /// <summary>
-        /// 描述 :Remark 
+        /// 描述 :ReMark 
         /// 空值 :true 
         /// </summary>
-        public string Remark { get; set; }
+        public string ReMark { get; set; }
 
         /// <summary>
         /// 描述 :CreateBy 

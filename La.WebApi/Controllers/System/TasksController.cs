@@ -109,7 +109,7 @@ namespace La.WebApi.Controllers.System
             }
             //从 Dto 映射到 实体
             var tasksQz = parm.Adapt<SysTasks>().ToCreate();
-            tasksQz.Create_by = HttpContext.GetName();
+            tasksQz.create_by = HttpContext.GetName();
             tasksQz.ID = SnowFlakeSingle.Instance.NextId().ToString();
 
             return SUCCESS(_tasksQzService.AddTasks(tasksQz));

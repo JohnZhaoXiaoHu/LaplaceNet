@@ -108,8 +108,8 @@ namespace La.WebApi.Controllers.System
         [HttpPost()]
         public IActionResult Add([FromBody] SysDictData dict)
         {
-            dict.Create_by = HttpContext.GetName();
-            dict.Create_time = DateTime.Now;
+            dict.create_by = HttpContext.GetName();
+            dict.create_time = DateTime.Now;
             return SUCCESS(SysDictDataService.InsertDictData(dict));
         }
 

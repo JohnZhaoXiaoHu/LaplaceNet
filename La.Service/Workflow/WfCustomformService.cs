@@ -69,7 +69,7 @@ namespace La.Service.Workflow
                 it.Name,
                 it.Sort,
                 it.FlowInstanceId,
-                it.Remark,
+                it.ReMark,
                 it.CreateBy,
                 it.CreateTime,
             });
@@ -88,7 +88,7 @@ namespace La.Service.Workflow
                 Name = parm.Name,
                 Sort = parm.Sort,
                 FlowInstanceId = parm.FlowInstanceId,
-                Remark = parm.Remark,
+                ReMark = parm.ReMark,
                 UpdateBy = parm.UpdateBy,
                 UpdateTime = parm.UpdateTime,
             });

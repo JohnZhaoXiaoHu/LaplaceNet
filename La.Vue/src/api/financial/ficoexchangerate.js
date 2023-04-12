@@ -7,7 +7,7 @@ import { downFile } from '@/utils/request'
 */
 export function listFicoExchangeRate(query) {
   return request({
-    url: 'financial/FicoExchangeRate/list',
+    url: 'Financial/FicoExchangeRate/list',
     method: 'get',
     params: query,
   })
@@ -20,7 +20,7 @@ export function listFicoExchangeRate(query) {
 */
 export function addFicoExchangeRate(data) {
   return request({
-    url: 'financial/FicoExchangeRate',
+    url: 'Financial/FicoExchangeRate',
     method: 'post',
     data: data,
   })
@@ -32,7 +32,7 @@ export function addFicoExchangeRate(data) {
 */
 export function updateFicoExchangeRate(data) {
   return request({
-    url: 'financial/FicoExchangeRate',
+    url: 'Financial/FicoExchangeRate',
     method: 'PUT',
     data: data,
   })
@@ -44,7 +44,7 @@ export function updateFicoExchangeRate(data) {
 */
 export function getFicoExchangeRate(id) {
   return request({
-    url: 'financial/FicoExchangeRate/' + id,
+    url: 'Financial/FicoExchangeRate/' + id,
     method: 'get'
   })
 }
@@ -55,7 +55,7 @@ export function getFicoExchangeRate(id) {
 */
 export function delFicoExchangeRate(pid) {
   return request({
-    url: 'financial/FicoExchangeRate/' + pid,
+    url: 'Financial/FicoExchangeRate/' + pid,
     method: 'delete'
   })
 }
@@ -63,13 +63,13 @@ export function delFicoExchangeRate(pid) {
 // 清空汇率表
 export function clearFicoExchangeRate() {
   return request({
-    url: 'financial/FicoExchangeRate/clean',
+    url: 'Financial/FicoExchangeRate/clean',
     method: 'delete'
   })
 }
 
 // 导出汇率表
 export async function exportFicoExchangeRate(query) {
-  await downFile('financial/FicoExchangeRate/export', { ...query })
+  await downFile('Financial/FicoExchangeRate/export', { ...query })
 }
 

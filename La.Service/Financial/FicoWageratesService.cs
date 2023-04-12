@@ -14,8 +14,8 @@ namespace La.Service.Financial
     /// <summary>
     /// 工厂工资率Service业务层处理
     ///
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     [AppService(ServiceType = typeof(IFicoWageratesService), ServiceLifetime = LifeTime.Transient)]
     public class FicoWageratesService : BaseService<FicoWagerates>, IFicoWageratesService
@@ -50,7 +50,7 @@ namespace La.Service.Financial
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.FwId.ToString() == entryString);
+            int count = Count(it => it.FwPlant+it.FwYm == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;
@@ -80,7 +80,6 @@ namespace La.Service.Financial
                 it.FwInDirect,
                 it.FwInDirectOverTime,
                 it.FwInDirectWages,
-                it.ReMark,
                 it.CreateBy,
                 it.CreateTime,
             });
@@ -96,7 +95,19 @@ namespace La.Service.Financial
         {
             var response = Update(w => w.FwId == parm.FwId, it => new FicoWagerates()
             {
-                ReMark = parm.ReMark,
+                FwYm = parm.FwYm,
+                FwPlant = parm.FwPlant,
+                FwCcy = parm.FwCcy,
+                FwSalesVolume = parm.FwSalesVolume,
+                FwWorkingDays = parm.FwWorkingDays,
+                FwDirectWageRate = parm.FwDirectWageRate,
+                FwDirect = parm.FwDirect,
+                FwDirectOverTime = parm.FwDirectOverTime,
+                FwDirectWages = parm.FwDirectWages,
+                FwInDirectWageRate = parm.FwInDirectWageRate,
+                FwInDirect = parm.FwInDirect,
+                FwInDirectOverTime = parm.FwInDirectOverTime,
+                FwInDirectWages = parm.FwInDirectWages,
                 UpdateBy = parm.UpdateBy,
                 UpdateTime = parm.UpdateTime,
             });

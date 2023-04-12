@@ -11,6 +11,9 @@ using La.Service.Financial.IFinancialService;
 using La.WebApi.Extensions;
 using La.WebApi.Filters;
 using La.Common;
+using System.Globalization;
+using Microsoft.AspNetCore.Http;
+using System.Dynamic;
 
 namespace La.WebApi.Controllers
 {
@@ -18,11 +21,11 @@ namespace La.WebApi.Controllers
     /// 汇率表Controller
     /// 
     /// @tableName fico_exchange_rate
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     [Verify]
-    [Route("financial/FicoExchangeRate")]
+    [Route("Financial/FicoExchangeRate")]
     public class FicoExchangeRateController : BaseController
     {
         /// <summary>
@@ -43,7 +46,7 @@ namespace La.WebApi.Controllers
         /// <param name="parm"></param>
         /// <returns></returns>
         [HttpGet("list")]
-        [ActionPermissionFilter(Permission = "fico:exchangerate:list")]
+        [ActionPermissionFilter(Permission = "la:ficoexchangerate:list")]
         public IActionResult QueryFicoExchangeRate([FromQuery] FicoExchangeRateQueryDto parm)
         {
             var response = _FicoExchangeRateService.GetList(parm);
@@ -57,7 +60,7 @@ namespace La.WebApi.Controllers
         /// <param name="ErId"></param>
         /// <returns></returns>
         [HttpGet("{ErId}")]
-        [ActionPermissionFilter(Permission = "fico:exchangerate:query")]
+        [ActionPermissionFilter(Permission = "la:ficoexchangerate:query")]
         public IActionResult GetFicoExchangeRate(long ErId)
         {
             var response = _FicoExchangeRateService.GetFirst(x => x.ErId == ErId);
@@ -70,7 +73,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [ActionPermissionFilter(Permission = "fico:exchangerate:add")]
+        [ActionPermissionFilter(Permission = "la:ficoexchangerate:add")]
         [Log(Title = "汇率表", BusinessType = BusinessType.INSERT)]
         public IActionResult AddFicoExchangeRate([FromBody] FicoExchangeRateDto parm)
         {
@@ -79,11 +82,17 @@ namespace La.WebApi.Controllers
                 throw new CustomException("请求参数错误");
             }
 
-           // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_FicoExchangeRateService.CheckEntryStringUnique(parm.ErId.ToString())))
+            //日期格式转换方便比较
+            //string ss = Convert.ToDateTime(parm.ErEffDate).ToString("yyyyMMdd");
+
+
+
+            // 校验输入项目是否唯一
+
+            if (UserConstants.NOT_UNIQUE.Equals(_FicoExchangeRateService.CheckEntryStringUnique(Convert.ToDateTime(parm.ErEffDate).ToString("yyyyMMdd") + parm.ErfmCcy + parm.ErtoCcy)))
             {
-                return ToResponse(ApiResult.Error($"新增汇率表 '{parm.ErId}'失败，输入的汇率表已存在"));
+                return ToResponse(ApiResult.Error($"新增汇率表 '{Convert.ToDateTime(parm.ErEffDate).ToString("yyyyMMdd")+"," + parm.ErfmCcy+","+ parm.ErtoCcy}'失败，输入的汇率表已存在"));
             }
             var modal = parm.Adapt<FicoExchangeRate>().ToCreate(HttpContext);
 
@@ -97,7 +106,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPut]
-        [ActionPermissionFilter(Permission = "fico:exchangerate:edit")]
+        [ActionPermissionFilter(Permission = "la:ficoexchangerate:edit")]
         [Log(Title = "汇率表", BusinessType = BusinessType.UPDATE)]
         public IActionResult UpdateFicoExchangeRate([FromBody] FicoExchangeRateDto parm)
         {
@@ -117,7 +126,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpDelete("{ids}")]
-        [ActionPermissionFilter(Permission = "fico:exchangerate:delete")]
+        [ActionPermissionFilter(Permission = "la:ficoexchangerate:delete")]
         [Log(Title = "汇率表", BusinessType = BusinessType.DELETE)]
         public IActionResult DeleteFicoExchangeRate(string ids)
         {
@@ -135,7 +144,7 @@ namespace La.WebApi.Controllers
         /// <returns></returns>
         [Log(Title = "汇率表", BusinessType = BusinessType.EXPORT, IsSaveResponseData = false)]
         [HttpGet("export")]
-        [ActionPermissionFilter(Permission = "fico:exchangerate:export")]
+        [ActionPermissionFilter(Permission = "la:ficoexchangerate:export")]
         public IActionResult Export([FromQuery] FicoExchangeRateQueryDto parm)
         {
             parm.PageSize = 100000;

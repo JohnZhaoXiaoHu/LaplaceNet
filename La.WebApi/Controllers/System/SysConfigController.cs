@@ -49,8 +49,8 @@ namespace La.WebApi.Controllers.System
             predicate = predicate.AndIF(!parm.ConfigType.IsEmpty(), m => m.ConfigType == parm.ConfigType);
             predicate = predicate.AndIF(!parm.ConfigName.IsEmpty(), m => m.ConfigName.Contains(parm.ConfigType));
             predicate = predicate.AndIF(!parm.ConfigKey.IsEmpty(), m => m.ConfigKey.Contains(parm.ConfigKey));
-            predicate = predicate.AndIF(!parm.BeginTime.IsEmpty(), m => m.Create_time >= parm.BeginTime);
-            predicate = predicate.AndIF(!parm.BeginTime.IsEmpty(), m => m.Create_time <= parm.EndTime);
+            predicate = predicate.AndIF(!parm.BeginTime.IsEmpty(), m => m.create_time >= parm.BeginTime);
+            predicate = predicate.AndIF(!parm.BeginTime.IsEmpty(), m => m.create_time <= parm.EndTime);
 
             var response = _SysConfigService.GetPages(predicate.ToExpression(), parm);
 
@@ -106,9 +106,9 @@ namespace La.WebApi.Controllers.System
                 it.ConfigKey,
                 it.ConfigValue,
                 it.ConfigType,
-                it.Create_by,
-                it.Create_time,
-                it.Remark,
+                it.create_by,
+                it.create_time,
+                it.ReMark,
             }));
         }
 
@@ -135,7 +135,7 @@ namespace La.WebApi.Controllers.System
                 ConfigType = model.ConfigType,
                 Update_by = model.Update_by,
                 Update_time = model.Update_time,
-                Remark = model.Remark
+                ReMark = model.ReMark
             });
 
             return SUCCESS(response);

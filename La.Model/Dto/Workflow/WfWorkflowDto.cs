@@ -70,7 +70,7 @@ namespace La.Model.Dto
         /// </summary>
 
         [ExcelColumn(Name = "备注")]
-        public string Remark { get; set; }
+        public string ReMark { get; set; }
 
         /// <summary>
         /// 描述 :是否启用 

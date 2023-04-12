@@ -74,7 +74,7 @@ namespace La.WebApi.Controllers.System
                 return ToResponse(ApiResult.Error((int)ResultCode.CUSTOM_ERROR, $"新增角色'{sysRoleDto.RoleName}'失败，角色权限已存在"));
             }
 
-            sysRoleDto.Create_by = HttpContext.GetName();
+            sysRoleDto.create_by = HttpContext.GetName();
             long roleId = sysRoleService.InsertRole(sysRoleDto);
 
             return ToResponse(ToJson(roleId));
@@ -125,7 +125,7 @@ namespace La.WebApi.Controllers.System
         {
             if (sysRoleDto == null || sysRoleDto.RoleId <= 0) return ToResponse(ApiResult.Error(101, "请求参数错误"));
 
-            sysRoleDto.Create_by = HttpContext.GetName();
+            sysRoleDto.create_by = HttpContext.GetName();
             sysRoleService.CheckRoleAllowed(sysRoleDto);
 
             bool result = sysRoleService.AuthDataScope(sysRoleDto);

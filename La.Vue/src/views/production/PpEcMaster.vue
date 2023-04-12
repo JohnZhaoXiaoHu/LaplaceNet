@@ -1,10 +1,10 @@
 <!--
- * @Descripttion: (主设变信息表/pp_ec_master)
+ * @Descripttion: (主设变/pp_ec_master)
  * @version: (1.0)
  * @Author: (Davis.Cheng)
- * @Date: (2023-04-10)
+ * @Date: (2023-04-12)
  * @LastEditors: (Davis.Cheng)
- * @LastEditTime: (2023-04-10)
+ * @LastEditTime: (2023-04-12)
 -->
 <template>
   <div>
@@ -70,6 +70,16 @@
           {{ $t('btn.delete') }}
         </el-button>
       </el-col>
+      <el-col :span="1.5">
+        <el-button color="#00CED1" plain icon="Upload" @click="handleImport" v-hasPermi="['la:ppecmaster:import']">
+          {{ $t('btn.import') }}
+        </el-button>
+      </el-col>
+      <el-col :span="1.5">
+        <el-button color="#FF69B4" plain icon="download" @click="handleExport" v-hasPermi="['la:ppecmaster:export']">
+          {{ $t('btn.export') }}
+        </el-button>
+      </el-col>
       <right-toolbar v-model:showSearch="showSearch" @queryTable="getList" :columns="columns"></right-toolbar>
     </el-row>
 
@@ -83,7 +93,12 @@
       <el-table-column prop="emEcNo" label="设变No." align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('emEcNo')" />
       <el-table-column prop="emEcDoc" label="关联文件" align="center" :show-overflow-tooltip="true"
-        v-if="columns.showColumn('emEcDoc')" />
+        v-if="columns.showColumn('emEcDoc')">
+        <template #default="scope">
+          <a :href="scope.row.emEcDoc" target="_blank" class="buttonText">{{scope.row.emEcDoc}}</a>
+        </template>
+      </el-table-column>
+
       <el-table-column prop="emEcStatus" label="状态" align="center" v-if="columns.showColumn('emEcStatus')">
         <template #default="scope">
           <dict-tag :options=" options.sys_ec_status " :value="scope.row.emEcStatus" />
@@ -108,19 +123,35 @@
       <el-table-column prop="emEcLiaisonNo" label="联络No." align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('emEcLiaisonNo')" />
       <el-table-column prop="emEcLiaisonDoc" label="联络文件" align="center" :show-overflow-tooltip="true"
-        v-if="columns.showColumn('emEcLiaisonDoc')" />
+        v-if="columns.showColumn('emEcLiaisonDoc')">
+        <template #default="scope">
+          <a :href="scope.row.emEcLiaisonDoc" target="_blank" class="buttonText">{{scope.row.emEcLiaisonDoc}}</a>
+        </template>
+      </el-table-column>
       <el-table-column prop="emEcEppLiaisonNo" label="EppNo." align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('emEcEppLiaisonNo')" />
       <el-table-column prop="emEcEppLiaisonDoc" label="Epp文件" align="center" :show-overflow-tooltip="true"
-        v-if="columns.showColumn('emEcEppLiaisonDoc')" />
+        v-if="columns.showColumn('emEcEppLiaisonDoc')">
+        <template #default="scope">
+          <a :href="scope.row.emEcEppLiaisonDoc" target="_blank" class="buttonText">{{scope.row.emEcEppLiaisonDoc}}</a>
+        </template>
+      </el-table-column>
       <el-table-column prop="emEcFppLiaisonNo" label="FppNo." align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('emEcFppLiaisonNo')" />
       <el-table-column prop="emEcFppLiaisonDoc" label="Fpp文件" align="center" :show-overflow-tooltip="true"
-        v-if="columns.showColumn('emEcFppLiaisonDoc')" />
+        v-if="columns.showColumn('emEcFppLiaisonDoc')">
+        <template #default="scope">
+          <a :href="scope.row.emEcFppLiaisonDoc" target="_blank" class="buttonText">{{scope.row.emEcFppLiaisonDoc}}</a>
+        </template>
+      </el-table-column>
       <el-table-column prop="emEcExternalNo" label="外部No." align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('emEcExternalNo')" />
       <el-table-column prop="emEcExternalDoc" label="外部文件" align="center" :show-overflow-tooltip="true"
-        v-if="columns.showColumn('emEcExternalDoc')" />
+        v-if="columns.showColumn('emEcExternalDoc')">
+        <template #default="scope">
+          <a :href="scope.row.emEcExternalDoc" target="_blank" class="buttonText">{{scope.row.emEcExternalDoc}}</a>
+        </template>
+      </el-table-column>
       <el-table-column prop="emEcImpDept" label="实施部门" align="center" v-if="columns.showColumn('emEcImpDept')">
         <template #default="scope">
           <dict-tag :options=" options.sql_dept_list " :value="scope.row.emEcImpDept" />
@@ -130,7 +161,7 @@
         v-if="columns.showColumn('emEcEntryDate')" />
       <el-table-column prop="isModifySop" label="SOP变更否" align="center" v-if="columns.showColumn('isModifySop')">
         <template #default="scope">
-          <dict-tag :options=" options.sys_flag_list " :value="scope.row.isModifySop" />
+          <dict-tag :options=" options.sys_sop_yn " :value="scope.row.isModifySop" />
         </template>
       </el-table-column>
       <el-table-column :label="$t('btn.operate')" align="center" width="160">
@@ -145,17 +176,17 @@
     <pagination class="mt10" background :total="total" v-model:page="queryParams.pageNum"
       v-model:limit="queryParams.pageSize" @pagination="getList" />
 
-    <!-- 添加或修改主设变信息表对话框 -->
+    <!-- 添加或修改主设变对话框 -->
     <el-dialog :title="title" :lock-scroll="false" v-model="open">
       <el-form ref="formRef" :model="form" :rules="rules" label-width="100px">
         <el-row :gutter="20">
 
-          <el-col :lg="12">
+          <!-- <el-col :lg="12">
             <el-form-item label="ID" prop="emId">
               <el-input-number clearable v-model.number="form.emId" controls-position="right"
                 :placeholder="$t('btn.enter')+'ID'" :disabled="title==$t('btn.edit')" />
             </el-form-item>
-          </el-col>
+          </el-col> -->
 
 
           <el-col :lg="12">
@@ -173,11 +204,14 @@
 
           <el-col :lg="12">
             <el-form-item label="关联文件" prop="emEcDoc">
-              <el-input clearable v-model="form.emEcDoc" :placeholder="$t('btn.enter')+'关联文件'" />
+              <el-button type="primary" v-hasPermi="['tool:file:add']" plain icon="upload" @click="emEcDochandleAdd">
+                {{ $t('btn.upload') }}
+              </el-button>
+              <el-input clearable v-model="form.emEcDoc" :placeholder="$t('btn.enter')+'关联文件'" disabled />
             </el-form-item>
           </el-col>
 
-          <el-col :lg="12">
+          <el-col :lg="24">
             <el-form-item label="状态" prop="emEcStatus">
               <el-radio-group v-model="form.emEcStatus">
                 <el-radio v-for="item in  options.sys_ec_status " :key="item.dictValue"
@@ -192,13 +226,15 @@
             </el-form-item>
           </el-col>
 
-          <el-col :lg="24">
-            <el-form-item label="内容" prop="emEcContent">
-              <el-input clearable type="textarea" v-model="form.emEcContent" :placeholder="$t('btn.enter')+'内容'" />
+
+
+          <el-col :lg="12">
+            <el-form-item label="损失金额" prop="emEcLossAmount">
+              <el-input clearable v-model="form.emEcLossAmount" :placeholder="$t('btn.enter')+'损失金额'" disabled />
             </el-form-item>
           </el-col>
 
-          <el-col :lg="12">
+          <el-col :lg="8">
             <el-form-item label="担当" prop="emEcAssigned">
               <el-select v-model="form.emEcAssigned" filterable clearable :placeholder="$t('btn.select')+'担当'">
                 <el-option v-for="item in  options.sql_ec_group " :key="item.dictValue" :label="item.dictLabel"
@@ -207,19 +243,21 @@
             </el-form-item>
           </el-col>
 
-          <el-col :lg="12">
-            <el-form-item label="损失金额" prop="emEcLossAmount">
-              <el-input-number clearable v-model.number="form.emEcLossAmount" :controls="true" controls-position="right"
-                :placeholder="$t('btn.enter')+'损失金额'" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
+          <el-col :lg="8">
             <el-form-item label="管理区分" prop="emEcManageCategory">
               <el-select v-model="form.emEcManageCategory" filterable clearable :placeholder="$t('btn.select')+'管理区分'">
                 <el-option v-for="item in  options.sys_ec_mgtype " :key="item.dictValue" :label="item.dictLabel"
                   :value="parseInt(item.dictValue)"></el-option>
               </el-select>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="8">
+            <el-form-item label="SOP变更否" prop="isModifySop">
+              <el-radio-group v-model="form.isModifySop">
+                <el-radio v-for="item in  options.sys_sop_yn " :key="parseInt(item.dictValue)"
+                  :label="parseInt(item.dictValue)">{{item.dictLabel}}</el-radio>
+              </el-radio-group>
             </el-form-item>
           </el-col>
 
@@ -231,7 +269,11 @@
 
           <el-col :lg="12">
             <el-form-item label="联络文件" prop="emEcLiaisonDoc">
-              <el-input clearable v-model="form.emEcLiaisonDoc" :placeholder="$t('btn.enter')+'联络文件'" />
+              <el-button type="primary" v-hasPermi="['tool:file:add']" plain icon="upload"
+                @click="emEcLiaisonDochandleAdd">
+                {{ $t('btn.upload') }}
+              </el-button>
+              <el-input clearable v-model="form.emEcLiaisonDoc" :placeholder="$t('btn.enter')+'联络文件'" disabled />
             </el-form-item>
           </el-col>
 
@@ -243,7 +285,11 @@
 
           <el-col :lg="12">
             <el-form-item label="Epp文件" prop="emEcEppLiaisonDoc">
-              <el-input clearable v-model="form.emEcEppLiaisonDoc" :placeholder="$t('btn.enter')+'Epp文件'" />
+              <el-button type="primary" v-hasPermi="['tool:file:add']" plain icon="upload"
+                @click="emEcEppLiaisonDochandleAdd">
+                {{ $t('btn.upload') }}
+              </el-button>
+              <el-input clearable v-model="form.emEcEppLiaisonDoc" :placeholder="$t('btn.enter')+'Epp文件'" disabled />
             </el-form-item>
           </el-col>
 
@@ -255,7 +301,11 @@
 
           <el-col :lg="12">
             <el-form-item label="Fpp文件" prop="emEcFppLiaisonDoc">
-              <el-input clearable v-model="form.emEcFppLiaisonDoc" :placeholder="$t('btn.enter')+'Fpp文件'" />
+              <el-button type="primary" v-hasPermi="['tool:file:add']" plain icon="upload"
+                @click="emEcFppLiaisonDochandleAdd">
+                {{ $t('btn.upload') }}
+              </el-button>
+              <el-input clearable v-model="form.emEcFppLiaisonDoc" :placeholder="$t('btn.enter')+'Fpp文件'" disabled />
             </el-form-item>
           </el-col>
 
@@ -267,7 +317,11 @@
 
           <el-col :lg="12">
             <el-form-item label="外部文件" prop="emEcExternalDoc">
-              <el-input clearable v-model="form.emEcExternalDoc" :placeholder="$t('btn.enter')+'外部文件'" />
+              <el-button type="primary" v-hasPermi="['tool:file:add']" plain icon="upload"
+                @click="emEcExternalDochandleAdd">
+                {{ $t('btn.upload') }}
+              </el-button>
+              <el-input clearable v-model="form.emEcExternalDoc" :placeholder="$t('btn.enter')+'外部文件'" disabled />
             </el-form-item>
           </el-col>
 
@@ -287,16 +341,12 @@
             </el-form-item>
           </el-col>
 
-          <el-col :lg="12">
-            <el-form-item label="SOP变更否" prop="isModifySop">
-              <el-radio-group v-model="form.isModifySop">
-                <el-radio v-for="item in  options.sys_flag_list " :key="item.dictValue"
-                  :label="item.dictValue">{{item.dictLabel}}</el-radio>
-              </el-radio-group>
+          <el-col :lg="24">
+            <el-form-item label="内容" prop="emEcContent">
+              <el-input clearable type="textarea" v-model="form.emEcContent" :placeholder="$t('btn.enter')+'内容'" />
             </el-form-item>
           </el-col>
-
-          <el-col :lg="12">
+          <!-- <el-col :lg="12">
             <el-form-item label="UDF01" prop="uDF01">
               <el-input clearable v-model="form.uDF01" :placeholder="$t('btn.enter')+'UDF01'" :disabled="true" />
             </el-form-item>
@@ -370,13 +420,17 @@
 
           <el-col :lg="12">
             <el-form-item label="软删除" prop="isDeleted">
-              <el-input clearable v-model="form.isDeleted" :placeholder="$t('btn.enter')+'软删除'" :disabled="true" />
+              <el-radio-group v-model="form.isDeleted" :disabled="true">
+                <el-radio v-for="item in  options.isDeletedOptions" :key="item.dictValue"
+                  :label="item.dictValue">{{item.dictLabel}}</el-radio>
+              </el-radio-group>
             </el-form-item>
           </el-col>
 
-          <el-col :lg="12">
+          <el-col :lg="24">
             <el-form-item label="备注" prop="reMark">
-              <el-input clearable v-model="form.reMark" :placeholder="$t('btn.enter')+'备注'" :disabled="true" />
+              <el-input clearable type="textarea" v-model="form.reMark" :placeholder="$t('btn.enter')+'备注'"
+                :disabled="true" />
             </el-form-item>
           </el-col>
 
@@ -404,16 +458,104 @@
               <el-date-picker clearable v-model="form.updateTime" type="datetime" :teleported="false"
                 :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
-          </el-col>
+          </el-col> -->
         </el-row>
       </el-form>
-      {{addstrig}}
       <template #footer v-if="opertype != 3">
         <el-button text @click="cancel">{{ $t('btn.cancel') }}</el-button>
         <el-button type="primary" @click="submitForm">{{ $t('btn.submit') }}</el-button>
       </template>
     </el-dialog>
+    <!-- ec关联文件添加或修改文件存储对话框 -->
+    <el-dialog :title="title" :lock-scroll="false" v-model="emEcDocOpen" width="400px" draggable>
+      <el-form ref="emEcDocformRef" :model="emEcDocform" label-width="90px" label-position="left">
+        <el-row>
+          <el-col :lg="24">
+            <UploadFile ref="emEcDocuploadRef" v-model="emEcDocform.accessUrl" :fileType="['pdf']" :fileSize="10"
+              :drag="false" :data="emEcDocuploadData" :autoUpload="false" @success="emEcDocUploadSuccess" />
+          </el-col>
+        </el-row>
+      </el-form>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button text @click="emEcDoccancel">{{ $t('btn.cancel') }}</el-button>
+          <el-button type="primary" @click="emEcDocsubmitUpload">{{ $t('btn.submit') }}</el-button>
+        </div>
+      </template>
+    </el-dialog>
 
+    <!-- ec关联文件添加或修改文件存储对话框 -->
+    <el-dialog :title="title" :lock-scroll="false" v-model="emEcLiaisonDocOpen" width="400px" draggable>
+      <el-form ref="emEcLiaisonDocformRef" :model="emEcLiaisonDocform" label-width="90px" label-position="left">
+        <el-row>
+          <el-col :lg="24">
+            <UploadFile ref="emEcLiaisonDocuploadRef" v-model="emEcLiaisonDocform.accessUrl" :fileType="['pdf']"
+              :fileSize="10" :drag="false" :data="emEcLiaisonDocuploadData" :autoUpload="false"
+              @success="emEcLiaisonDocUploadSuccess" />
+          </el-col>
+        </el-row>
+      </el-form>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button text @click="emEcLiaisonDoccancel">{{ $t('btn.cancel') }}</el-button>
+          <el-button type="primary" @click="emEcLiaisonDocsubmitUpload">{{ $t('btn.submit') }}</el-button>
+        </div>
+      </template>
+    </el-dialog>
+    <!-- ec关联文件添加或修改文件存储对话框 -->
+    <el-dialog :title="title" :lock-scroll="false" v-model="emEcEppLiaisonDocOpen" width="400px" draggable>
+      <el-form ref="emEcEppLiaisonDocformRef" :model="emEcEppLiaisonDocform" label-width="90px" label-position="left">
+        <el-row>
+          <el-col :lg="24">
+            <UploadFile ref="emEcEppLiaisonDocuploadRef" v-model="emEcEppLiaisonDocform.accessUrl" :fileType="['pdf']"
+              :fileSize="10" :drag="false" :data="emEcEppLiaisonDocuploadData" :autoUpload="false"
+              @success="emEcEppLiaisonDocUploadSuccess" />
+          </el-col>
+        </el-row>
+      </el-form>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button text @click="emEcEppLiaisonDoccancel">{{ $t('btn.cancel') }}</el-button>
+          <el-button type="primary" @click="emEcEppLiaisonDocsubmitUpload">{{ $t('btn.submit') }}</el-button>
+        </div>
+      </template>
+    </el-dialog>
+    <!-- ec关联文件添加或修改文件存储对话框 -->
+    <el-dialog :title="title" :lock-scroll="false" v-model="emEcFppLiaisonDocOpen" width="400px" draggable>
+      <el-form ref="emEcFppLiaisonDocformRef" :model="emEcFppLiaisonDocform" label-width="90px" label-position="left">
+        <el-row>
+          <el-col :lg="24">
+            <UploadFile ref="emEcFppLiaisonDocuploadRef" v-model="emEcFppLiaisonDocform.accessUrl" :fileType="['pdf']"
+              :fileSize="10" :drag="false" :data="emEcFppLiaisonDocuploadData" :autoUpload="false"
+              @success="emEcFppLiaisonDocUploadSuccess" />
+          </el-col>
+        </el-row>
+      </el-form>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button text @click="emEcFppLiaisonDoccancel">{{ $t('btn.cancel') }}</el-button>
+          <el-button type="primary" @click="emEcFppLiaisonDocsubmitUpload">{{ $t('btn.submit') }}</el-button>
+        </div>
+      </template>
+    </el-dialog>
+    <!-- ec关联文件添加或修改文件存储对话框 -->
+    <el-dialog :title="title" :lock-scroll="false" v-model="emEcExternalDocOpen" width="400px" draggable>
+      <el-form ref="emEcExternalDocformRef" :model="emEcExternalDocform" label-width="90px" label-position="left">
+        <el-row>
+          <el-col :lg="24">
+            <UploadFile ref="emEcExternalDocuploadRef" v-model="emEcExternalDocform.accessUrl" :fileType="['pdf']"
+              :fileSize="10" :drag="false" :data="emEcExternalDocuploadData" :autoUpload="false"
+              @success="emEcExternalDocUploadSuccess" />
+          </el-col>
+        </el-row>
+      </el-form>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button text @click="emEcExternalDoccancel">{{ $t('btn.cancel') }}</el-button>
+          <el-button type="primary" @click="emEcExternalDocsubmitUpload">{{ $t('btn.submit') }}</el-button>
+        </div>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
@@ -424,6 +566,244 @@
 
   }
     from '@/api/production/ppecmaster.js'
+  const emEcDocOpen = ref(false)
+  const emEcDocformRef = ref(null)
+  const emEcDocform = ref({})
+  const emEcDocuploadRef = ref(null)
+  const emEcDocuploadData = ref({})
+  // 上传成功方法
+  function emEcDocUploadSuccess(emEcDocfilelist) {
+    // emEcLiaisonDocurl.value = filelist
+
+    form.value.emEcDoc = emEcDocfilelist.split(",")[0]
+  }
+  // 手动上传
+  // 取消按钮
+  function emEcDoccancel() {
+    emEcDocOpen.value = false
+    //reset()
+  }
+  /** 新增按钮操作 */
+  function emEcDochandleAdd() {
+    //reset()
+    emEcDocOpen.value = true
+    //title.value = '上传文件'
+    // form.value.storeType = queryParams.storeType
+  }
+  function emEcDocsubmitUpload() {
+    proxy.$refs['emEcDocformRef'].validate((valid) => {
+      if (valid) {
+        emEcDocuploadData.value = {
+          fileDir: 'uploads\\ec\\docs',
+          fileName: 1,
+          storeType: 1,
+          fileNameType: 1
+        }
+        proxy.$refs.emEcDocuploadRef.submitUpload()
+
+      }
+    })
+    emEcDocOpen.value = false
+    // form.value.emEcDoc = emEcDocform.accessUrl
+    //proxy.$refs.emEcDocuploadRef.clearFiles()
+  }
+
+  const emEcLiaisonDocOpen = ref(false)
+  const emEcLiaisonDocformRef = ref(null)
+  const emEcLiaisonDocform = ref({})
+  const emEcLiaisonDocuploadRef = ref(null)
+  const emEcLiaisonDocuploadData = ref({})
+
+  // 上传成功方法
+  function emEcLiaisonDocUploadSuccess(emEcLiaisonDocfilelist) {
+    //emEcLiaisonDocurl.value = filelist
+
+    form.value.emEcLiaisonDoc = emEcLiaisonDocfilelist.split(",")[0]
+  }
+  // 手动上传
+  // 取消按钮
+  function emEcLiaisonDoccancel() {
+    emEcLiaisonDocOpen.value = false
+    //reset()
+  }
+  /** 新增按钮操作 */
+  function emEcLiaisonDochandleAdd() {
+    //reset()
+    emEcLiaisonDocOpen.value = true
+    //title.value = '上传文件'
+    // form.value.storeType = queryParams.storeType
+  }
+
+  function emEcLiaisonDocsubmitUpload() {
+    proxy.$refs['emEcLiaisonDocformRef'].validate((valid) => {
+      if (valid) {
+        emEcLiaisonDocuploadData.value = {
+          fileDir: 'uploads\\ec\\docs',
+          fileName: 1,
+          storeType: 1,
+          fileNameType: 1
+        }
+        proxy.$refs.emEcLiaisonDocuploadRef.submitUpload()
+
+      }
+
+    })
+
+    //form.value.emEcLiaisonDoc = "sss" + emEcLiaisonDocform.accessUrl
+    //emEcLiaisonDocurl.value = emEcLiaisonDocform.accessUrl
+    //proxy.$refs.emEcLiaisonDocuploadRef.clearFiles()
+    emEcLiaisonDocOpen.value = false
+
+    //form.value.emEcDoc = emEcLiaisonDocform.accessUrl
+
+  }
+  const emEcEppLiaisonDocOpen = ref(false)
+  const emEcEppLiaisonDocformRef = ref(null)
+  const emEcEppLiaisonDocform = ref({})
+  const emEcEppLiaisonDocuploadRef = ref(null)
+  const emEcEppLiaisonDocuploadData = ref({})
+
+  // 上传成功方法
+  function emEcEppLiaisonDocUploadSuccess(emEcEppLiaisonDocfilelist) {
+    //emEcEppLiaisonDocurl.value = filelist
+
+    form.value.emEcEppLiaisonDoc = emEcEppLiaisonDocfilelist.split(",")[0]
+  }
+  // 手动上传
+  // 取消按钮
+  function emEcEppLiaisonDoccancel() {
+    emEcEppLiaisonDocOpen.value = false
+    //reset()
+  }
+  /** 新增按钮操作 */
+  function emEcEppLiaisonDochandleAdd() {
+    //reset()
+    emEcEppLiaisonDocOpen.value = true
+    //title.value = '上传文件'
+    // form.value.storeType = queryParams.storeType
+  }
+
+  function emEcEppLiaisonDocsubmitUpload() {
+    proxy.$refs['emEcEppLiaisonDocformRef'].validate((valid) => {
+      if (valid) {
+        emEcEppLiaisonDocuploadData.value = {
+          fileDir: 'uploads\\ec\\docs',
+          fileName: 1,
+          storeType: 1,
+          fileNameType: 1
+        }
+        proxy.$refs.emEcEppLiaisonDocuploadRef.submitUpload()
+
+      }
+
+    })
+
+    //form.value.emEcEppLiaisonDoc = "sss" + emEcEppLiaisonDocform.accessUrl
+    //emEcEppLiaisonDocurl.value = emEcEppLiaisonDocform.accessUrl
+    //proxy.$refs.emEcEppLiaisonDocuploadRef.clearFiles()
+    emEcEppLiaisonDocOpen.value = false
+
+    //form.value.emEcDoc = emEcEppLiaisonDocform.accessUrl
+
+  }
+  const emEcFppLiaisonDocOpen = ref(false)
+  const emEcFppLiaisonDocformRef = ref(null)
+  const emEcFppLiaisonDocform = ref({})
+  const emEcFppLiaisonDocuploadRef = ref(null)
+  const emEcFppLiaisonDocuploadData = ref({})
+
+  // 上传成功方法
+  function emEcFppLiaisonDocUploadSuccess(emEcFppLiaisonDocfilelist) {
+    //emEcFppLiaisonDocurl.value = filelist
+
+    form.value.emEcFppLiaisonDoc = emEcFppLiaisonDocfilelist.split(",")[0]
+  }
+  // 手动上传
+  // 取消按钮
+  function emEcFppLiaisonDoccancel() {
+    emEcFppLiaisonDocOpen.value = false
+    //reset()
+  }
+  /** 新增按钮操作 */
+  function emEcFppLiaisonDochandleAdd() {
+    //reset()
+    emEcFppLiaisonDocOpen.value = true
+    //title.value = '上传文件'
+    // form.value.storeType = queryParams.storeType
+  }
+
+  function emEcFppLiaisonDocsubmitUpload() {
+    proxy.$refs['emEcFppLiaisonDocformRef'].validate((valid) => {
+      if (valid) {
+        emEcFppLiaisonDocuploadData.value = {
+          fileDir: 'uploads\\ec\\docs',
+          fileName: 1,
+          storeType: 1,
+          fileNameType: 1
+        }
+        proxy.$refs.emEcFppLiaisonDocuploadRef.submitUpload()
+
+      }
+
+    })
+
+    //form.value.emEcFppLiaisonDoc = "sss" + emEcFppLiaisonDocform.accessUrl
+    //emEcFppLiaisonDocurl.value = emEcFppLiaisonDocform.accessUrl
+    //proxy.$refs.emEcFppLiaisonDocuploadRef.clearFiles()
+    emEcFppLiaisonDocOpen.value = false
+
+    //form.value.emEcDoc = emEcFppLiaisonDocform.accessUrl
+
+  }
+  const emEcExternalDocOpen = ref(false)
+  const emEcExternalDocformRef = ref(null)
+  const emEcExternalDocform = ref({})
+  const emEcExternalDocuploadRef = ref(null)
+  const emEcExternalDocuploadData = ref({})
+
+  // 上传成功方法
+  function emEcExternalDocUploadSuccess(emEcExternalDocfilelist) {
+    //emEcExternalDocurl.value = filelist
+    //form.value.emEcExternalDoc = emEcExternalDocform.accessUrl
+    form.value.emEcExternalDoc = emEcExternalDocfilelist.split(",")[0]
+  }
+  // 手动上传
+  // 取消按钮
+  function emEcExternalDoccancel() {
+    emEcExternalDocOpen.value = false
+    //reset()
+  }
+  /** 新增按钮操作 */
+  function emEcExternalDochandleAdd() {
+    //reset()
+    emEcExternalDocOpen.value = true
+    //title.value = '上传文件'
+    // form.value.storeType = queryParams.storeType
+  }
+
+  function emEcExternalDocsubmitUpload() {
+    proxy.$refs['emEcExternalDocformRef'].validate((valid) => {
+      if (valid) {
+        emEcExternalDocuploadData.value = {
+          fileDir: 'uploads\\ec\\docs',
+          fileName: 1,
+          storeType: 1,
+          fileNameType: 1
+        }
+        proxy.$refs.emEcExternalDocuploadRef.submitUpload()
+
+      }
+
+    })
+
+    //form.value.emEcExternalDoc = "sss" + emEcExternalDocform.accessUrl
+    //emEcExternalDocurl.value = emEcExternalDocform.accessUrl
+    //proxy.$refs.emEcExternalDocuploadRef.clearFiles()
+    emEcExternalDocOpen.value = false
+
+    //form.value.emEcDoc = emEcExternalDocform.accessUrl
+
+  }
   //获取当前组件实例
   const { proxy } = getCurrentInstance()
   // 选中emId数组数组
@@ -473,7 +853,7 @@
   ])
   // 总条数
   const total = ref(0)
-  // 主设变信息表表格数据
+  // 主设变表格数据
   const dataList = ref([])
   // 查询参数
   const queryRef = ref()
@@ -489,7 +869,7 @@
     { dictType: "sql_ec_group" },
     { dictType: "sys_ec_mgtype" },
     { dictType: "sql_dept_list" },
-    { dictType: "sys_flag_list" },
+    { dictType: "sys_sop_yn" },
   ]
   //字典定义
   proxy.getDicts(dictParams).then((response) => {
@@ -497,7 +877,7 @@
       state.options[element.dictType] = element.list
     })
   })
-  //获取主设变信息表表记录数据
+  //获取主设变表记录数据
   function getList() {
     proxy.addDateRange(queryParams, dateRangeEmEcIssueDate.value, 'EmEcIssueDate');
     loading.value = true
@@ -583,7 +963,9 @@
       // 实施部门 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
       sql_dept_list: [],
       // SOP变更否 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
-      sys_flag_list: [],
+      sys_sop_yn: [],
+      // 软删除 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
+      isDeletedOptions: [],
     }
   })
   //将响应式对象转换成普通对象
@@ -598,14 +980,14 @@
   // 重置表单
   function reset() {
     form.value = {
-      emEcIssueDate: undefined,
+      emEcIssueDate: new Date(),
       emEcNo: undefined,
       emEcDoc: undefined,
-      emEcStatus: undefined,
+      emEcStatus: "Fixed",
       emEcTitle: undefined,
       emEcContent: undefined,
       emEcAssigned: undefined,
-      emEcLossAmount: undefined,
+      emEcLossAmount: 0,
       emEcManageCategory: undefined,
       emEcLiaisonNo: undefined,
       emEcLiaisonDoc: undefined,
@@ -616,8 +998,8 @@
       emEcExternalNo: undefined,
       emEcExternalDoc: undefined,
       emEcImpDept: undefined,
-      emEcEntryDate: undefined,
-      isModifySop: undefined,
+      emEcEntryDate: new Date(),
+      isModifySop: 1,
       createBy: undefined,
       createTime: undefined,
       updateBy: undefined,
@@ -625,36 +1007,10 @@
     };
     proxy.resetForm("formRef")
   }
-  function Addset() {
-    form.value = {
-      emEcIssueDate: Date.now(),
-      emEcNo: "EA6035",
-      emEcDoc: "undefined",
-      emEcStatus: "Fixed",
-      emEcTitle: "undefined",
-      emEcContent: "undefined",
-      emEcAssigned: "管理员",
-      emEcLossAmount: "0",
-      emEcManageCategory: 4,
-      emEcLiaisonNo: "undefined",
-      emEcLiaisonDoc: "undefined",
-      emEcEppLiaisonNo: "undefined",
-      emEcEppLiaisonDoc: "undefined",
-      emEcFppLiaisonNo: "undefined",
-      emEcFppLiaisonDoc: "undefined",
-      emEcExternalNo: "undefined",
-      emEcExternalDoc: "undefined",
-      emEcImpDept: "101",
-      emEcEntryDate: Date.now(),
-      isModifySop: "1",
 
-    };
-    proxy.resetForm("formRef")
-  }
   // 添加按钮操作
   function handleAdd() {
     reset();
-    Addset();
     open.value = true
     title.value = proxy.$t('btn.add')
     opertype.value = 1
@@ -677,7 +1033,7 @@
       }
     })
   }
-  const addstrig = ref([])
+
   // 添加&修改 表单提交
   function submitForm() {
     proxy.$refs["formRef"].validate((valid) => {
@@ -691,7 +1047,6 @@
             .catch(() => { })
         } else {
           addPpEcMaster(form.value).then((res) => {
-            addstrig.value = res.data
             proxy.$modal.msgSuccess(proxy.$t('common.Newcompleted'))
             open.value = false
             getList()
@@ -719,6 +1074,18 @@
 
 
 
+  // 导出按钮操作
+  function handleExport() {
+    proxy
+      .$confirm(proxy.$t('common.confirmExport') + "主设变", proxy.$t('common.warningTips'), {
+        confirmButtonText: proxy.$t('btn.submit'),
+        cancelButtonText: proxy.$t('btn.cancel'),
+        type: "warning",
+      })
+      .then(async () => {
+        await proxy.downFile('/Production/PpEcMaster/export', { ...queryParams })
+      })
+  }
 
   handleQuery()
 </script>

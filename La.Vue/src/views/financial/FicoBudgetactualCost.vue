@@ -1,41 +1,17 @@
 <!--
- * @Descripttion: (预算实际明细/fico_budgetactual_cost)
+ * @Descripttion: (预算实际/fico_budgetactual_cost)
  * @version: (1.0)
- * @Author: (Laplace.Net:Davis.Cheng)
- * @Date: (2023-03-09)
- * @LastEditors: (Laplace.Net:Davis.Cheng)
- * @LastEditTime: (2023-03-09)
+ * @Author: (Davis.Cheng)
+ * @Date: (2023-04-11)
+ * @LastEditors: (Davis.Cheng)
+ * @LastEditTime: (2023-04-11)
 -->
 <template>
   <div>
     <el-form :model="queryParams" label-position="right" inline ref="queryRef" v-show="showSearch" @submit.prevent>
-      <el-form-item label="期间" prop="fbFy">
-        <el-select filterable clearable  v-model="queryParams.fbFy" :placeholder="$t('btn.select')+'期间'">
-          <el-option v-for="item in  options.sql_period_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
-            <span class="fl">{{ item.dictLabel }}</span>
-            <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
-          </el-option>
-        </el-select>
-      </el-form-item>
       <el-form-item label="年月" prop="fbYm">
         <el-select filterable clearable  v-model="queryParams.fbYm" :placeholder="$t('btn.select')+'年月'">
-          <el-option v-for="item in  options.sql_ym_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
-            <span class="fl">{{ item.dictLabel }}</span>
-            <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
-          </el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item label="公司代码" prop="fbCorpCode">
-        <el-select filterable clearable  v-model="queryParams.fbCorpCode" :placeholder="$t('btn.select')+'公司代码'">
-          <el-option v-for="item in  options.sys_crop_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
-            <span class="fl">{{ item.dictLabel }}</span>
-            <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
-          </el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item label="统计类别" prop="fbExpCategory">
-        <el-select filterable clearable  v-model="queryParams.fbExpCategory" :placeholder="$t('btn.select')+'统计类别'">
-          <el-option v-for="item in  options.fbExpCategoryOptions" :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
+          <el-option v-for="item in  options.sys_lang_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
           </el-option>
@@ -43,7 +19,7 @@
       </el-form-item>
       <el-form-item label="成本代码" prop="fbCostCode">
         <el-select filterable clearable  v-model="queryParams.fbCostCode" :placeholder="$t('btn.select')+'成本代码'">
-          <el-option v-for="item in  options.fbCostCodeOptions" :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
+          <el-option v-for="item in  options.sql_auto_number " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
           </el-option>
@@ -51,15 +27,7 @@
       </el-form-item>
       <el-form-item label="科目代码" prop="fbTitleCode">
         <el-select filterable clearable  v-model="queryParams.fbTitleCode" :placeholder="$t('btn.select')+'科目代码'">
-          <el-option v-for="item in  options.fbTitleCodeOptions" :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
-            <span class="fl">{{ item.dictLabel }}</span>
-            <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
-          </el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item label="科目分类" prop="fbTitleNote">
-        <el-select filterable clearable  v-model="queryParams.fbTitleNote" :placeholder="$t('btn.select')+'科目分类'">
-          <el-option v-for="item in  options.fbTitleNoteOptions" :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
+          <el-option v-for="item in  options.sql_mats_code " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
           </el-option>
@@ -73,22 +41,27 @@
     <!-- 工具区域 -->
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
-        <el-button type="primary" v-hasPermi="['fico:budgetactualcost:add']" plain icon="plus" @click="handleAdd">
+        <el-button type="primary" v-hasPermi="['la:ficobudgetactualcost:add']" plain icon="plus" @click="handleAdd">
           {{ $t('btn.add') }}
         </el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button type="success" :disabled="single" v-hasPermi="['fico:budgetactualcost:edit']" plain icon="edit" @click="handleUpdate">
+        <el-button type="success" :disabled="single" v-hasPermi="['la:ficobudgetactualcost:edit']" plain icon="edit" @click="handleUpdate">
           {{ $t('btn.edit') }}
         </el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button type="danger" :disabled="multiple" v-hasPermi="['fico:budgetactualcost:delete']" plain icon="delete" @click="handleDelete">
+        <el-button type="danger" :disabled="multiple" v-hasPermi="['la:ficobudgetactualcost:delete']" plain icon="delete" @click="handleDelete">
           {{ $t('btn.delete') }}
         </el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button color="#FF69B4" plain icon="download" @click="handleExport" v-hasPermi="['fico:budgetactualcost:export']">
+        <el-button color="#00CED1" plain icon="Upload" @click="handleImport" v-hasPermi="['la:ficobudgetactualcost:import']">
+          {{ $t('btn.import') }}
+        </el-button>
+      </el-col>
+      <el-col :span="1.5">
+        <el-button color="#FF69B4" plain icon="download" @click="handleExport" v-hasPermi="['la:ficobudgetactualcost:export']">
           {{ $t('btn.export') }}
         </el-button>
       </el-col>
@@ -102,40 +75,40 @@
       <el-table-column prop="fbId" label="ID" align="center" v-if="columns.showColumn('fbId')"/>
       <el-table-column prop="fbFy" label="期间" align="center" v-if="columns.showColumn('fbFy')">
         <template #default="scope">
-          <dict-tag :options=" options.sql_period_list " :value="scope.row.fbFy" />
+          <dict-tag :options=" options.sys_lang_list " :value="scope.row.fbFy" />
         </template>
       </el-table-column>
       <el-table-column prop="fbYm" label="年月" align="center" v-if="columns.showColumn('fbYm')">
         <template #default="scope">
-          <dict-tag :options=" options.sql_ym_list " :value="scope.row.fbYm" />
+          <dict-tag :options=" options.sys_lang_list " :value="scope.row.fbYm" />
         </template>
       </el-table-column>
       <el-table-column prop="fbCorpCode" label="公司代码" align="center" v-if="columns.showColumn('fbCorpCode')">
         <template #default="scope">
-          <dict-tag :options=" options.sys_crop_list " :value="scope.row.fbCorpCode" />
+          <dict-tag :options=" options.sys_lang_list " :value="scope.row.fbCorpCode" />
         </template>
       </el-table-column>
       <el-table-column prop="fbCorpName" label="公司名称" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('fbCorpName')"/>
       <el-table-column prop="fbExpCategory" label="统计类别" align="center" v-if="columns.showColumn('fbExpCategory')">
         <template #default="scope">
-          <dict-tag :options=" options.fbExpCategoryOptions" :value="scope.row.fbExpCategory" />
+          <dict-tag :options=" options.sql_auto_number " :value="scope.row.fbExpCategory" />
         </template>
       </el-table-column>
       <el-table-column prop="fbCostCode" label="成本代码" align="center" v-if="columns.showColumn('fbCostCode')">
         <template #default="scope">
-          <dict-tag :options=" options.fbCostCodeOptions" :value="scope.row.fbCostCode" />
+          <dict-tag :options=" options.sql_auto_number " :value="scope.row.fbCostCode" />
         </template>
       </el-table-column>
       <el-table-column prop="fbCostName" label="成本名称" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('fbCostName')"/>
       <el-table-column prop="fbTitleCode" label="科目代码" align="center" v-if="columns.showColumn('fbTitleCode')">
         <template #default="scope">
-          <dict-tag :options=" options.fbTitleCodeOptions" :value="scope.row.fbTitleCode" />
+          <dict-tag :options=" options.sql_mats_code " :value="scope.row.fbTitleCode" />
         </template>
       </el-table-column>
       <el-table-column prop="fbTitleName" label="科目名称" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('fbTitleName')"/>
       <el-table-column prop="fbTitleNote" label="科目分类" align="center" v-if="columns.showColumn('fbTitleNote')">
         <template #default="scope">
-          <dict-tag :options=" options.fbTitleNoteOptions" :value="scope.row.fbTitleNote" />
+          <dict-tag :options=" options.sys_fin_costtype " :value="scope.row.fbTitleNote" />
         </template>
       </el-table-column>
       <el-table-column prop="fbBudgetAmt" label="预算" align="center" v-if="columns.showColumn('fbBudgetAmt')"/>
@@ -143,17 +116,16 @@
       <el-table-column prop="fbDiffAmt" label="差异" align="center" v-if="columns.showColumn('fbDiffAmt')"/>
       <el-table-column prop="fbAccountant" label="会计人员" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('fbAccountant')"/>
       <el-table-column prop="fbBalanceDate" label="日期" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('fbBalanceDate')"/>
-      <el-table-column prop="reMark" label="说明" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('reMark')"/>
       <el-table-column :label="$t('btn.operate')" align="center" width="160">
         <template #default="scope">
-          <el-button v-hasPermi="['fico:budgetactualcost:edit']" type="success" icon="edit" :title="$t('btn.edit')" @click="handleUpdate(scope.row)"></el-button>
-          <el-button v-hasPermi="['fico:budgetactualcost:delete']" type="danger" icon="delete" :title="$t('btn.delete')" @click="handleDelete(scope.row)"></el-button>
+          <el-button v-hasPermi="['la:ficobudgetactualcost:edit']" type="success" icon="edit" :title="$t('btn.edit')" @click="handleUpdate(scope.row)"></el-button>
+          <el-button v-hasPermi="['la:ficobudgetactualcost:delete']" type="danger" icon="delete" :title="$t('btn.delete')" @click="handleDelete(scope.row)"></el-button>
         </template>
       </el-table-column>
     </el-table>
     <pagination class="mt10" background :total="total" v-model:page="queryParams.pageNum" v-model:limit="queryParams.pageSize" @pagination="getList" />
 
-    <!-- 添加或修改预算实际明细对话框 -->
+    <!-- 添加或修改预算实际对话框 -->
     <el-dialog :title="title" :lock-scroll="false" v-model="open" >
       <el-form ref="formRef" :model="form" :rules="rules" label-width="100px">
         <el-row :gutter="20">
@@ -168,7 +140,7 @@
           <el-col :lg="12">
             <el-form-item label="期间" prop="fbFy">
               <el-select v-model="form.fbFy" filterable clearable  :placeholder="$t('btn.select')+'期间'">
-                <el-option v-for="item in  options.sql_period_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
+                <el-option v-for="item in  options.sys_lang_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
@@ -176,7 +148,7 @@
           <el-col :lg="12">
             <el-form-item label="年月" prop="fbYm">
               <el-select v-model="form.fbYm" filterable clearable  :placeholder="$t('btn.select')+'年月'">
-                <el-option v-for="item in  options.sql_ym_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
+                <el-option v-for="item in  options.sys_lang_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
@@ -184,7 +156,7 @@
           <el-col :lg="12">
             <el-form-item label="公司代码" prop="fbCorpCode">
               <el-select v-model="form.fbCorpCode" filterable clearable  :placeholder="$t('btn.select')+'公司代码'">
-                <el-option v-for="item in  options.sys_crop_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
+                <el-option v-for="item in  options.sys_lang_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
@@ -198,7 +170,7 @@
           <el-col :lg="12">
             <el-form-item label="统计类别" prop="fbExpCategory">
               <el-select v-model="form.fbExpCategory" filterable clearable  :placeholder="$t('btn.select')+'统计类别'">
-                <el-option v-for="item in  options.fbExpCategoryOptions" :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
+                <el-option v-for="item in  options.sql_auto_number " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
@@ -206,7 +178,7 @@
           <el-col :lg="12">
             <el-form-item label="成本代码" prop="fbCostCode">
               <el-select v-model="form.fbCostCode" filterable clearable  :placeholder="$t('btn.select')+'成本代码'">
-                <el-option v-for="item in  options.fbCostCodeOptions" :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
+                <el-option v-for="item in  options.sql_auto_number " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
@@ -220,7 +192,7 @@
           <el-col :lg="12">
             <el-form-item label="科目代码" prop="fbTitleCode">
               <el-select v-model="form.fbTitleCode" filterable clearable  :placeholder="$t('btn.select')+'科目代码'">
-                <el-option v-for="item in  options.fbTitleCodeOptions" :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
+                <el-option v-for="item in  options.sql_mats_code " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
@@ -234,7 +206,7 @@
           <el-col :lg="12">
             <el-form-item label="科目分类" prop="fbTitleNote">
               <el-select v-model="form.fbTitleNote" filterable clearable  :placeholder="$t('btn.select')+'科目分类'">
-                <el-option v-for="item in  options.fbTitleNoteOptions" :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
+                <el-option v-for="item in  options.sys_fin_costtype " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
@@ -275,32 +247,32 @@
             </el-form-item>
           </el-col>
 
-          <el-col :lg="12">
+          <el-col :lg="24">
             <el-form-item label="说明" prop="reMark">
-              <el-input clearable v-model="form.reMark" :placeholder="$t('btn.enter')+'说明'" />
+              <el-input clearable type="textarea" v-model="form.reMark" :placeholder="$t('btn.enter')+'说明'" :disabled="true"/>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="createBy" prop="createBy">
-              <el-input clearable v-model="form.createBy" :placeholder="$t('btn.enter')+'createBy'" />
+            <el-form-item label="CreateBy" prop="createBy">
+              <el-input clearable v-model="form.createBy" :placeholder="$t('btn.enter')+'CreateBy'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="createTime" prop="createTime">
+            <el-form-item label="CreateTime" prop="createTime">
               <el-date-picker clearable v-model="form.createTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="updateBy" prop="updateBy">
-              <el-input clearable v-model="form.updateBy" :placeholder="$t('btn.enter')+'updateBy'" />
+            <el-form-item label="UpdateBy" prop="updateBy">
+              <el-input clearable v-model="form.updateBy" :placeholder="$t('btn.enter')+'UpdateBy'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="updateTime" prop="updateTime">
+            <el-form-item label="UpdateTime" prop="updateTime">
               <el-date-picker clearable v-model="form.updateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
@@ -338,13 +310,9 @@ const queryParams = reactive({
   pageSize: 17,
   sort: '',
   sortType: 'asc',
-  fbFy: undefined,
   fbYm: undefined,
-  fbCorpCode: undefined,
-  fbExpCategory: undefined,
   fbCostCode: undefined,
   fbTitleCode: undefined,
-  fbTitleNote: undefined,
 })
 //字段显示控制
 const columns = ref([
@@ -364,11 +332,10 @@ const columns = ref([
   { visible: false, prop: 'fbDiffAmt', label: '差异' },
   { visible: false, prop: 'fbAccountant', label: '会计人员' },
   { visible: false, prop: 'fbBalanceDate', label: '日期' },
-  { visible: false, prop: 'reMark', label: '说明' },
 ])
   // 总条数
 const total = ref(0)
-  // 预算实际明细表格数据
+  // 预算实际表格数据
 const dataList = ref([])
   // 查询参数
 const queryRef = ref()
@@ -377,9 +344,13 @@ const defaultTime = ref([new Date(2000, 1, 1, 0, 0, 0), new Date(2000, 2, 1, 23,
 
 
 var dictParams = [
-  { dictType: "sql_period_list" },
-  { dictType: "sql_ym_list" },
-  { dictType: "sys_crop_list" },
+  { dictType: "sys_lang_list" },
+  { dictType: "sys_lang_list" },
+  { dictType: "sys_lang_list" },
+  { dictType: "sql_auto_number" },
+  { dictType: "sql_auto_number" },
+  { dictType: "sql_mats_code" },
+  { dictType: "sys_fin_costtype" },
 ]
 //字典定义
 proxy.getDicts(dictParams).then((response) => {
@@ -387,7 +358,7 @@ proxy.getDicts(dictParams).then((response) => {
     state.options[element.dictType] = element.list
   })
 })
-//获取预算实际明细表记录数据
+//获取预算实际表记录数据
 function getList(){
   loading.value = true
   listFicoBudgetactualCost(queryParams).then(res => {
@@ -466,19 +437,19 @@ const state = reactive({
   },
   options: {
     // 期间 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
-    sql_period_list: [],
+    sys_lang_list: [],
     // 年月 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
-    sql_ym_list: [],
+    sys_lang_list: [],
     // 公司代码 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
-    sys_crop_list: [],
+    sys_lang_list: [],
     // 统计类别 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
-    fbExpCategoryOptions: [],
+    sql_auto_number: [],
     // 成本代码 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
-    fbCostCodeOptions: [],
+    sql_auto_number: [],
     // 科目代码 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
-    fbTitleCodeOptions: [],
+    sql_mats_code: [],
     // 科目分类 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
-    fbTitleNoteOptions: [],
+    sys_fin_costtype: [],
   }
 })
 //将响应式对象转换成普通对象
@@ -508,7 +479,6 @@ function reset() {
     fbDiffAmt: undefined,
     fbAccountant: undefined,
     fbBalanceDate: undefined,
-    reMark: undefined,
     createBy: undefined,
     createTime: undefined,
     updateBy: undefined,
@@ -586,13 +556,13 @@ function handleDelete(row) {
 // 导出按钮操作
 function handleExport() {
   proxy
-    .$confirm(proxy.$t('common.confirmExport')+"预算实际明细", proxy.$t('common.warningTips'), {
+    .$confirm(proxy.$t('common.confirmExport')+"预算实际", proxy.$t('common.warningTips'), {
       confirmButtonText: proxy.$t('btn.submit'),
       cancelButtonText: proxy.$t('btn.cancel'),
       type: "warning",
     })
     .then(async () => {
-      await proxy.downFile('/financial/FicoBudgetactualCost/export', { ...queryParams })
+      await proxy.downFile('/Financial/FicoBudgetactualCost/export', { ...queryParams })
     })
 }
 

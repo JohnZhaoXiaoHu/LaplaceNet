@@ -121,8 +121,8 @@ namespace La.Repository
             {
                 list = new List<string>()
             {
-                "Create_By",
-                "Create_time"
+                "create_by",
+                "create_time"
             };
             }
             return Context.Updateable(entity).IgnoreColumns(isNull).IgnoreColumns(list.ToArray()).ExecuteCommand();

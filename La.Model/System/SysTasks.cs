@@ -75,7 +75,7 @@ namespace La.Model.System
         /// 默认 : 
         /// </summary>
         [Display(Name = "任务描述")]
-        public string Remark { get; set; }
+        public string ReMark { get; set; }
 
         /// <summary>
         /// 描述 : 执行次数 
@@ -137,7 +137,7 @@ namespace La.Model.System
         /// </summary>
         [SugarColumn(IsOnlyIgnoreUpdate = true)]//设置后修改不会有此字段
         [JsonProperty(propertyName: "CreateBy")]
-        public string Create_by { get; set; }
+        public string create_by { get; set; }
 
         /// <summary>
         /// 描述 : 创建时间 
@@ -147,7 +147,7 @@ namespace La.Model.System
         //[Display(Name = "创建时间")]
         [SugarColumn(IsOnlyIgnoreUpdate = true)]//设置后修改不会有此字段
         [JsonProperty(propertyName: "CreateTime")]
-        public DateTime Create_time { get; set; } = DateTime.Now;
+        public DateTime create_time { get; set; } = DateTime.Now;
         /// <summary>
         /// 更新
         /// </summary>

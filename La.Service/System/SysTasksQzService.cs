@@ -58,7 +58,7 @@ namespace La.Service.System
                 Cron = parm.Cron,
                 AssemblyName = parm.AssemblyName,
                 ClassName = parm.ClassName,
-                Remark = parm.Remark,
+                ReMark = parm.ReMark,
                 TriggerType = parm.TriggerType,
                 IntervalSecond = parm.IntervalSecond,
                 JobParams = parm.JobParams,

@@ -18,11 +18,11 @@ namespace La.WebApi.Controllers
     /// 部门消耗Controller
     /// 
     /// @tableName fico_dept_consuming
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     [Verify]
-    [Route("financial/FicoDeptConsuming")]
+    [Route("Financial/FicoDeptConsuming")]
     public class FicoDeptConsumingController : BaseController
     {
         /// <summary>
@@ -43,7 +43,7 @@ namespace La.WebApi.Controllers
         /// <param name="parm"></param>
         /// <returns></returns>
         [HttpGet("list")]
-        [ActionPermissionFilter(Permission = "fico:deptconsuming:list")]
+        [ActionPermissionFilter(Permission = "la:ficodeptconsuming:list")]
         public IActionResult QueryFicoDeptConsuming([FromQuery] FicoDeptConsumingQueryDto parm)
         {
             var response = _FicoDeptConsumingService.GetList(parm);
@@ -57,7 +57,7 @@ namespace La.WebApi.Controllers
         /// <param name="DcId"></param>
         /// <returns></returns>
         [HttpGet("{DcId}")]
-        [ActionPermissionFilter(Permission = "fico:deptconsuming:query")]
+        [ActionPermissionFilter(Permission = "la:ficodeptconsuming:query")]
         public IActionResult GetFicoDeptConsuming(long DcId)
         {
             var response = _FicoDeptConsumingService.GetFirst(x => x.DcId == DcId);
@@ -70,7 +70,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [ActionPermissionFilter(Permission = "fico:deptconsuming:add")]
+        [ActionPermissionFilter(Permission = "la:ficodeptconsuming:add")]
         [Log(Title = "部门消耗", BusinessType = BusinessType.INSERT)]
         public IActionResult AddFicoDeptConsuming([FromBody] FicoDeptConsumingDto parm)
         {
@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
 
            // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_FicoDeptConsumingService.CheckEntryStringUnique(parm.DcId.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_FicoDeptConsumingService.CheckEntryStringUnique(parm.DcYm+parm.DcCostCode+parm.DcPlant+parm.DcMateriel+parm.DcStorageLocation+parm.DcMoveType)))
             {
-                return ToResponse(ApiResult.Error($"新增部门消耗 '{parm.DcId}'失败，输入的部门消耗已存在"));
+                return ToResponse(ApiResult.Error($"新增部门消耗 '{parm.DcYm +","+ parm.DcCostCode + "," + parm.DcPlant + "," + parm.DcMateriel + "," + parm.DcStorageLocation + "," + parm.DcMoveType}'失败，输入的部门消耗已存在"));
             }
             var modal = parm.Adapt<FicoDeptConsuming>().ToCreate(HttpContext);
 
@@ -97,7 +97,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPut]
-        [ActionPermissionFilter(Permission = "fico:deptconsuming:edit")]
+        [ActionPermissionFilter(Permission = "la:ficodeptconsuming:edit")]
         [Log(Title = "部门消耗", BusinessType = BusinessType.UPDATE)]
         public IActionResult UpdateFicoDeptConsuming([FromBody] FicoDeptConsumingDto parm)
         {
@@ -117,7 +117,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpDelete("{ids}")]
-        [ActionPermissionFilter(Permission = "fico:deptconsuming:delete")]
+        [ActionPermissionFilter(Permission = "la:ficodeptconsuming:delete")]
         [Log(Title = "部门消耗", BusinessType = BusinessType.DELETE)]
         public IActionResult DeleteFicoDeptConsuming(string ids)
         {
@@ -129,6 +129,24 @@ namespace La.WebApi.Controllers
             return ToResponse(response);
         }
 
+        /// <summary>
+        /// 导出部门消耗
+        /// </summary>
+        /// <returns></returns>
+        [Log(Title = "部门消耗", BusinessType = BusinessType.EXPORT, IsSaveResponseData = false)]
+        [HttpGet("export")]
+        [ActionPermissionFilter(Permission = "la:ficodeptconsuming:export")]
+        public IActionResult Export([FromQuery] FicoDeptConsumingQueryDto parm)
+        {
+            parm.PageSize = 100000;
+            var list = _FicoDeptConsumingService.GetList(parm).Result;
+            if (list == null || list.Count <= 0)
+            {
+                return ToResponse(ResultCode.FAIL, "没有要导出的数据");
+            }
+            var result = ExportExcelMini(list, "部门消耗", "部门消耗");
+            return ExportExcel(result.Item2, result.Item1);
+        }
 
 
     }

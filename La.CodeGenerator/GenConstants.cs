@@ -18,7 +18,7 @@ namespace La.CodeGenerator
         /// <summary>
         /// InputDto输入实体是不包含字段
         /// </summary>
-        public static readonly string[] inputDtoNoField = new string[] {  "update_by", "UpdateBy", "UpdateTime", "updateTime",  "update_time", "IsDelete", "Remark", "IsDeleted", "ReMark", "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
+        public static readonly string[] inputDtoNoField = new string[] {  "update_by", "UpdateBy", "UpdateTime", "updateTime",  "update_time", "IsDeleted", "ReMark", "IsDeleted", "ReMark", "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
         /// <summary>
         /// 图片字段
         /// </summary>
@@ -67,23 +67,23 @@ namespace La.CodeGenerator
         public static string[] COLUMNTYPE_TIME = { "datetime", "time", "date", "timestamp" };
 
         /** 页面不需要编辑字段 */
-        public static string[] COLUMNNAME_NOT_EDIT = { "id", "create_by", "create_time", "delFlag", "IsDeleted", "Remark", "isDeleted", "IsDeleted", "ReMark", "remark", "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
+        public static string[] COLUMNNAME_NOT_EDIT = { "id", "create_by", "create_time", "IsDeleted",   "ReMark",  "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
 
         /** 页面不需要显示的列表字段 */
-        public static string[] COLUMNNAME_NOT_LIST = { "create_by", "create_time", "delFlag", "IsDelete", "Remark", "IsDeleted", "update_by","ReMark", "remark",
+        public static string[] COLUMNNAME_NOT_LIST = { "create_by", "create_time", "IsDeleted", "ReMark",  "update_by", 
             "update_time" , "password","UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56"};
 
         /** 页面不需要查询字段 */
-        public static string[] COLUMNNAME_NOT_QUERY = { "id", "create_by", "create_time", "update_by","update_time", "ReMark", "IsDelete", "Remark", "remark", "IsDeleted", "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
+        public static string[] COLUMNNAME_NOT_QUERY = { "id", "create_by", "create_time", "update_by","update_time", "ReMark", "IsDeleted",  "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
 
         /** 页面不需要导出字段 */
-        public static string[] COLUMNNAME_NOT_EXPORT = { "id", "create_by", "create_time", "update_by", "update_time", "ReMark", "IsDelete", "Remark", "remark", "IsDeleted", "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
+        public static string[] COLUMNNAME_NOT_EXPORT = { "id", "create_by", "create_time", "update_by", "update_time", "ReMark", "IsDeleted",  "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
 
         /** 页面不需要填写字段 */
         public static string[] COLUMNNAME_NOT_REQUIRED = {  "IsDeleted", "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
 
         /** Entity基类字段 */
-        public static string[] BASE_ENTITY = { "createBy", "createTime", "updateBy", "updateTime", "ReMark", "remark" };
+        public static string[] BASE_ENTITY = { "createBy", "createTime", "updateBy", "updateTime", "ReMark",  "IsDeleted" };
 
         /** Tree基类字段 */
         public static string[] TREE_ENTITY = { "parentName", "parentId", "orderNum", "ancestors", "children" };

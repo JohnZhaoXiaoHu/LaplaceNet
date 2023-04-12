@@ -12,10 +12,10 @@ using System.Linq;
 namespace La.Service.Financial
 {
     /// <summary>
-    /// 月度存货明细Service业务层处理
+    /// 月度存货Service业务层处理
     ///
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     [AppService(ServiceType = typeof(IFicoMonthInventoryService), ServiceLifetime = LifeTime.Transient)]
     public class FicoMonthInventoryService : BaseService<FicoMonthInventory>, IFicoMonthInventoryService
@@ -23,7 +23,7 @@ namespace La.Service.Financial
         #region 业务逻辑代码
 
         /// <summary>
-        /// 查询月度存货明细列表
+        /// 查询月度存货列表
         /// </summary>
         /// <param name="parm"></param>
         /// <returns></returns>
@@ -34,11 +34,8 @@ namespace La.Service.Financial
 
             //搜索条件查询语法参考Sqlsugar
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.MiPlant), it => it.MiPlant == parm.MiPlant);
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.MiFy), it => it.MiFy == parm.MiFy);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.MiYm), it => it.MiYm == parm.MiYm);
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.MiItem), it => it.MiItem == parm.MiItem);
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.MiValType), it => it.MiValType == parm.MiValType);
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.MiLocalCcy), it => it.MiLocalCcy == parm.MiLocalCcy);
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.MiItem), it => it.MiItem.Contains(parm.MiItem));
             var response = Queryable()
                 .Where(predicate.ToExpression())
                 .ToPage<FicoMonthInventory, FicoMonthInventoryDto>(parm);
@@ -63,7 +60,7 @@ namespace La.Service.Financial
         }
 
         /// <summary>
-        /// 添加月度存货明细
+        /// 添加月度存货
         /// </summary>
         /// <param name="parm"></param>
         /// <returns></returns>
@@ -84,7 +81,6 @@ namespace La.Service.Financial
                 it.MiInventoryQty,
                 it.MiInventoryAmount,
                 it.MiBalancedate,
-                it.Remark,
                 it.CreateBy,
                 it.CreateTime,
             });
@@ -92,7 +88,7 @@ namespace La.Service.Financial
         }
 
         /// <summary>
-        /// 修改月度存货明细
+        /// 修改月度存货
         /// </summary>
         /// <param name="parm"></param>
         /// <returns></returns>
@@ -100,7 +96,18 @@ namespace La.Service.Financial
         {
             var response = Update(w => w.MiId == parm.MiId, it => new FicoMonthInventory()
             {
-                Remark = parm.Remark,
+                MiPlant = parm.MiPlant,
+                MiFy = parm.MiFy,
+                MiYm = parm.MiYm,
+                MiItem = parm.MiItem,
+                MiValType = parm.MiValType,
+                MiPriceControl = parm.MiPriceControl,
+                MiMovingAverage = parm.MiMovingAverage,
+                MiPerUnit = parm.MiPerUnit,
+                MiLocalCcy = parm.MiLocalCcy,
+                MiInventoryQty = parm.MiInventoryQty,
+                MiInventoryAmount = parm.MiInventoryAmount,
+                MiBalancedate = parm.MiBalancedate,
                 UpdateBy = parm.UpdateBy,
                 UpdateTime = parm.UpdateTime,
             });
@@ -108,7 +115,7 @@ namespace La.Service.Financial
         }
 
         /// <summary>
-        /// 清空月度存货明细
+        /// 清空月度存货
         /// </summary>
         /// <returns></returns>
         public void TruncateFicoMonthInventory()

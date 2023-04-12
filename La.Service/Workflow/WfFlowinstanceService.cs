@@ -91,7 +91,7 @@ namespace La.Service.Workflow
                 it.Status,
                 it.IsDeleted,
                 it.TenantId,
-                it.Remark,
+                it.ReMark,
                 it.CreateBy,
                 it.CreateTime,
             });
@@ -131,7 +131,7 @@ namespace La.Service.Workflow
                 Active = parm.Active,
                 Status = parm.Status,
                 TenantId = parm.TenantId,
-                Remark = parm.Remark,
+                ReMark = parm.ReMark,
                 UpdateBy = parm.UpdateBy,
                 UpdateTime = parm.UpdateTime,
             });

@@ -92,7 +92,7 @@ namespace La.Model.Models
         /// 描述 :备注 
         /// 空值 :true 
         /// </summary>
-        public string Remark { get; set; }
+        public string ReMark { get; set; }
 
         /// <summary>
         /// 描述 :启用 

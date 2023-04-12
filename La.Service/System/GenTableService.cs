@@ -126,7 +126,7 @@ namespace La.Service.System
         /// <returns></returns>
         public int ImportGenTable(GenTable table)
         {
-            table.Create_time = DateTime.Now;
+            table.create_time = DateTime.Now;
             //导入前删除现有表
             //DeleteGenTableByIds(new long[] { table.TableId });
             DeleteGenTableByTbName(table.TableName);
@@ -234,7 +234,7 @@ namespace La.Service.System
         /// <returns></returns>
         public int InsertGenTableColumn(List<GenTableColumn> tableColumn)
         {
-            return Context.Insertable(tableColumn).IgnoreColumns(x => new { x.Remark }).ExecuteCommand();
+            return Context.Insertable(tableColumn).IgnoreColumns(x => new { x.ReMark }).ExecuteCommand();
         }
 
         /// <summary>
@@ -262,7 +262,7 @@ namespace La.Service.System
                     it.Update_time,
                     it.DictType,
                     it.Update_by,
-                    it.Remark,
+                    it.ReMark,
                     it.IsSort,
                     it.IsExport
                 })

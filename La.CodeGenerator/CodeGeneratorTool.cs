@@ -94,7 +94,11 @@ namespace La.CodeGenerator
                 FileUtil.WriteAndSave(item.Path, item.Content);
             }
         }
-
+        /// <summary>
+        /// 生成实体类名称
+        /// </summary>
+        /// <param name="genTable"></param>
+        /// <returns></returns>
         private static CodeGenerateOption GenerateOption(GenTable genTable)
         {
             CodeGenerateOption _option = new()
@@ -402,15 +406,27 @@ namespace La.CodeGenerator
                 TableName = tableName,
                 TableComment = desc,
                 FunctionName = desc,
-                Create_by = userName,
+                ReMark = desc,
+                create_by = userName,
                 Options = new Options()
                 {
                     SortType = "asc",
-                    CheckedBtn = new int[] { 1, 2, 3 }
+                    //显示按钮
+                    CheckedBtn = new int[] { 1, 2, 3, 4, 5, 6, 7 }
                 }
             };
-            genTable.Options.PermissionPrefix = $"{genTable.ModuleName.ToLower()}:{genTable.ClassName.ToLower()}";//权限
+            bool isContain = tableName.Contains("_");
+            if (isContain)
+            {
+                //权限前缀，如表sys_user，前缀为sys:user
+                genTable.Options.PermissionPrefix = tableName.ToLower().Substring(0, tableName.IndexOf("_")) + ":" + $"{genTable.ClassName.ToLower().Replace(tableName.ToLower().Substring(0, tableName.IndexOf("_")), "")}";//权限
+            }
+            else
+            {
+                //权限前缀，如表sysuser，前缀为la:sysuser
+                genTable.Options.PermissionPrefix = $"{genTable.ModuleName.ToLower()}:{genTable.ClassName.ToLower()}";//权限
 
+            }
             return genTable;
         }
 
@@ -449,8 +465,8 @@ namespace La.CodeGenerator
                 CsharpField = column.DbColumnName.ConvertToPascal("_"),
                 IsRequired = !column.IsNullable,
                 IsIncrement = column.IsIdentity,
-                Create_by = genTable.Create_by,
-                Create_time = DateTime.Now,
+                create_by = genTable.create_by,
+                create_time = DateTime.Now,
                 IsInsert = !column.IsIdentity || GenConstants.inputDtoNoField.Any(f => f.Contains(column.DbColumnName, StringComparison.OrdinalIgnoreCase)),//非自增字段都需要插入
                 IsEdit = true,
                 IsQuery = false,
@@ -461,7 +477,7 @@ namespace La.CodeGenerator
 
             if (GenConstants.inputDtoNoField.Any(f => column.DbColumnName.ToLower().Contains(f.ToLower())))
             {
-                genTableColumn.IsInsert = false; 
+                genTableColumn.IsInsert = false;
             }
             if (GenConstants.COLUMNNAME_NOT_REQUIRED.Any(f => column.DbColumnName.ToLower().Contains(f.ToLower())))
             {

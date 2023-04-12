@@ -7,10 +7,10 @@ using System.Collections.Generic;
 namespace La.Service.Financial.IFinancialService
 {
     /// <summary>
-    /// 预算实际明细service接口
+    /// 预算实际service接口
     ///
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     public interface IFicoBudgetactualCostService : IBaseService<FicoBudgetactualCost>
     {

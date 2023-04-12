@@ -99,10 +99,10 @@ namespace La.Model.Models
         public int? IsDeleted { get; set; }
 
         /// <summary>
-        /// 描述 :Remark 
+        /// 描述 :ReMark 
         /// 空值 :true 
         /// </summary>
-        public string Remark { get; set; }
+        public string ReMark { get; set; }
 
         /// <summary>
         /// 描述 :CreateBy 

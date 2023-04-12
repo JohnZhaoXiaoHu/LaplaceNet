@@ -180,7 +180,7 @@
         <el-form-item label="是否生成仓储层">
           <template #label>
             是否生成仓储层
-            <el-tooltip content="不勾选代码将不会生成对应的ZR.Repository代码" placement="top">
+            <el-tooltip content="不勾选代码将不会生成对应的La.Repository代码" placement="top">
               <el-icon>
                 <question-filled />
               </el-icon>
@@ -296,7 +296,7 @@
 
   const subColumns = ref([])
   const menuOptions = ref([])
-  const genType = ref('1')
+
   const props = defineProps({
     info: {
       type: Object,

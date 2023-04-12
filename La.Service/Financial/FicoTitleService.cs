@@ -14,8 +14,8 @@ namespace La.Service.Financial
     /// <summary>
     /// 会计科目Service业务层处理
     ///
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Davis.Cheng
+    /// @date 2023-04-11
     /// </summary>
     [AppService(ServiceType = typeof(IFicoTitleService), ServiceLifetime = LifeTime.Transient)]
     public class FicoTitleService : BaseService<FicoTitle>, IFicoTitleService
@@ -35,6 +35,7 @@ namespace La.Service.Financial
             //搜索条件查询语法参考Sqlsugar
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FtCorpCode), it => it.FtCorpCode == parm.FtCorpCode);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FtTitleCode), it => it.FtTitleCode.Contains(parm.FtTitleCode));
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FtTitleName), it => it.FtTitleName.Contains(parm.FtTitleName));
             var response = Queryable()
                 .Where(predicate.ToExpression())
                 .ToPage<FicoTitle, FicoTitleDto>(parm);
@@ -50,7 +51,7 @@ namespace La.Service.Financial
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.FtId.ToString() == entryString);
+            int count = Count(it => it.FtCorpCode+it.FtTitleCode+it.FtTitleLang == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;
@@ -69,10 +70,8 @@ namespace La.Service.Financial
             {
                 it.FtCorpCode,
                 it.FtTitleCode,
-                it.FttitlenameZh,
-                it.FttitlenameEn,
-                it.FttitlenameJa,
-                it.Remark,
+                it.FtTitleName,
+                it.FtTitleLang,
                 it.CreateBy,
                 it.CreateTime,
             });
@@ -90,10 +89,8 @@ namespace La.Service.Financial
             {
                 FtCorpCode = parm.FtCorpCode,
                 FtTitleCode = parm.FtTitleCode,
-                FttitlenameZh = parm.FttitlenameZh,
-                FttitlenameEn = parm.FttitlenameEn,
-                FttitlenameJa = parm.FttitlenameJa,
-                Remark = parm.Remark,
+                FtTitleName = parm.FtTitleName,
+                FtTitleLang = parm.FtTitleLang,
                 UpdateBy = parm.UpdateBy,
                 UpdateTime = parm.UpdateTime,
             });

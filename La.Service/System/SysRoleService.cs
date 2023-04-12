@@ -40,7 +40,7 @@ namespace La.Service
         public PagedInfo<SysRole> SelectRoleList(SysRole sysRole, PagerInfo pager)
         {
             var exp = Expressionable.Create<SysRole>();
-            exp.And(role => role.DelFlag == "0");
+            exp.And(role => role.IsDeleted == "0");
             exp.AndIF(!string.IsNullOrEmpty(sysRole.RoleName), role => role.RoleName.Contains(sysRole.RoleName));
             exp.AndIF(!string.IsNullOrEmpty(sysRole.Status), role => role.Status == sysRole.Status);
             exp.AndIF(!string.IsNullOrEmpty(sysRole.RoleKey), role => role.RoleKey == sysRole.RoleKey);
@@ -64,7 +64,7 @@ namespace La.Service
         public List<SysRole> SelectRoleAll()
         {
             return Queryable()
-                .Where(role => role.DelFlag == "0")
+                .Where(role => role.IsDeleted == "0")
                 .OrderBy(role => role.RoleSort)
                 .ToList();
         }
@@ -77,7 +77,7 @@ namespace La.Service
         public List<SysRole> SelectRolePermissionByUserId(long userId)
         {
             return Queryable()
-                .Where(role => role.DelFlag == "0")
+                .Where(role => role.IsDeleted == "0")
                 .Where(it => SqlFunc.Subqueryable<SysUserRole>().Where(s => s.UserId == userId).Any())
                 .OrderBy(role => role.RoleSort)
                 .ToList();
@@ -157,7 +157,7 @@ namespace La.Service
         /// <returns></returns>
         public long InsertRole(SysRole sysRole)
         {
-            sysRole.Create_time = DateTime.Now;
+            sysRole.create_time = DateTime.Now;
             sysRole.RoleId = InsertReturnBigIdentity(sysRole);
             //插入角色部门数据
             DeptService.InsertRoleDepts(sysRole);
@@ -208,8 +208,8 @@ namespace La.Service
                 {
                     Menu_id = item,
                     Role_id = sysRoleDto.RoleId,
-                    Create_by = sysRoleDto.Create_by,
-                    Create_time = DateTime.Now
+                    create_by = sysRoleDto.create_by,
+                    create_time = DateTime.Now
                 };
                 sysRoleMenus.Add(rm);
             }
@@ -351,7 +351,7 @@ namespace La.Service
             return db.Updateable<SysRole>()
             .SetColumns(it => it.Update_time == sysRole.Update_time)
             .SetColumns(it => it.DataScope == sysRole.DataScope)
-            .SetColumns(it => it.Remark == sysRole.Remark)
+            .SetColumns(it => it.ReMark == sysRole.ReMark)
             .SetColumns(it => it.Update_by == sysRole.Update_by)
             //.SetColumns(it => it.MenuCheckStrictly == sysRole.MenuCheckStrictly)
             .SetColumns(it => it.DeptCheckStrictly == sysRole.DeptCheckStrictly)
