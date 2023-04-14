@@ -127,7 +127,7 @@ namespace La.Model.System.Generate
         /// <summary>
         /// 额外参数字符串
         /// </summary>
-        public int[] CheckedBtn { get; set; } = new int[] { 1, 2, 3 };
+        public int[] CheckedBtn { get; set; } = new int[] { 1, 2, 3, 4, 5, 6, 7 };
         /// <summary>
         /// 列大小 12,24
         /// </summary>

@@ -567,6 +567,69 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:La.WebApi.Controllers.PpEcMaSourceController">
+            <summary>
+            主源设变Controller
+            
+            @tableName pp_ec_ma_source
+            @author Davis.Cheng
+            @date 2023-04-13
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.PpEcMaSourceController._PpEcMaSourceService">
+            <summary>
+            主源设变接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcMaSourceController.#ctor(La.Service.Production.IProductionService.IPpEcMaSourceService)">
+            <summary>
+            主源设变Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcMaSourceController.QueryPpEcMaSource(La.Model.Dto.PpEcMaSourceQueryDto)">
+            <summary>
+            查询主源设变列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcMaSourceController.GetPpEcMaSource(System.String)">
+            <summary>
+            查询主源设变详情
+            </summary>
+            <param name="Guid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcMaSourceController.AddPpEcMaSource(La.Model.Dto.PpEcMaSourceDto)">
+            <summary>
+            添加主源设变
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcMaSourceController.UpdatePpEcMaSource(La.Model.Dto.PpEcMaSourceDto)">
+            <summary>
+            更新主源设变
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcMaSourceController.DeletePpEcMaSource(System.String)">
+            <summary>
+            删除主源设变
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcMaSourceController.Export(La.Model.Dto.PpEcMaSourceQueryDto)">
+            <summary>
+            导出主源设变
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcMaSourceController.Clear">
+            <summary>
+            清空主源设变
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:La.WebApi.Controllers.PpEcMasterController">
             <summary>
             主设变Controller
@@ -621,6 +684,132 @@
         <member name="M:La.WebApi.Controllers.PpEcMasterController.Export(La.Model.Dto.PpEcMasterQueryDto)">
             <summary>
             导出主设变
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:La.WebApi.Controllers.PpEcSlvSourceController">
+            <summary>
+            从源设变Controller
+            
+            @tableName pp_ec_slv_source
+            @author Davis.Cheng
+            @date 2023-04-13
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.PpEcSlvSourceController._PpEcSlvSourceService">
+            <summary>
+            从源设变接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSlvSourceController.#ctor(La.Service.Production.IProductionService.IPpEcSlvSourceService)">
+            <summary>
+            从源设变Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSlvSourceController.QueryPpEcSlvSource(La.Model.Dto.PpEcSlvSourceQueryDto)">
+            <summary>
+            查询从源设变列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSlvSourceController.GetPpEcSlvSource(System.String)">
+            <summary>
+            查询从源设变详情
+            </summary>
+            <param name="Guid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSlvSourceController.AddPpEcSlvSource(La.Model.Dto.PpEcSlvSourceDto)">
+            <summary>
+            添加从源设变
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSlvSourceController.UpdatePpEcSlvSource(La.Model.Dto.PpEcSlvSourceDto)">
+            <summary>
+            更新从源设变
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSlvSourceController.DeletePpEcSlvSource(System.String)">
+            <summary>
+            删除从源设变
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSlvSourceController.Export(La.Model.Dto.PpEcSlvSourceQueryDto)">
+            <summary>
+            导出从源设变
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSlvSourceController.Clear">
+            <summary>
+            清空从源设变
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:La.WebApi.Controllers.PpEcSopController">
+            <summary>
+            SOP确认Controller
+            
+            @tableName pp_ec_sop
+            @author Davis.Cheng
+            @date 2023-04-12
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.PpEcSopController._PpEcSopService">
+            <summary>
+            SOP确认接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSopController.#ctor(La.Service.Production.IProductionService.IPpEcSopService)">
+            <summary>
+            SOP确认Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSopController.QueryPpEcSop(La.Model.Dto.PpEcSopQueryDto)">
+            <summary>
+            查询SOP确认列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSopController.GetPpEcSop(System.Int32)">
+            <summary>
+            查询SOP确认详情
+            </summary>
+            <param name="EsId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSopController.AddPpEcSop(La.Model.Dto.PpEcSopDto)">
+            <summary>
+            添加SOP确认
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSopController.UpdatePpEcSop(La.Model.Dto.PpEcSopDto)">
+            <summary>
+            更新SOP确认
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSopController.DeletePpEcSop(System.String)">
+            <summary>
+            删除SOP确认
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSopController.Export(La.Model.Dto.PpEcSopQueryDto)">
+            <summary>
+            导出SOP确认
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSopController.Clear">
+            <summary>
+            清空SOP确认
             </summary>
             <returns></returns>
         </member>

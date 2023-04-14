@@ -141,8 +141,19 @@
 
           <el-col :lg="24">
             <el-form-item label="汇率" prop="erRate">
+
               <el-input-number clearable v-model.number="form.erRate" :controls="true" controls-position="right"
                 :placeholder="$t('btn.enter')+'汇率'" />
+              <template #label>
+                <span>
+                  <el-tooltip content="http://www.safe.gov.cn/safe/rmbhlzjj/index.html" placement="top">
+                    <el-icon :size="15" color="hotpink">
+                      <questionFilled />
+                    </el-icon>
+                  </el-tooltip>
+                  汇率
+                </span>
+              </template>
             </el-form-item>
           </el-col>
 

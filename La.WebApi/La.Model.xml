@@ -985,6 +985,223 @@
             描述 :UpdateTime 
             </summary>
         </member>
+        <member name="T:La.Model.Dto.PpEcMaSourceQueryDto">
+            <summary>
+            主源设变查询对象
+            @author Davis.Cheng
+            @date 2023-04-13
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceQueryDto.DSapZpabdZ001">
+            <summary>
+            描述 :设变No. 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceQueryDto.DSapZpabdZ003">
+            <summary>
+            描述 :标题 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceQueryDto.DSapZpabdZ004">
+            <summary>
+            描述 :状态 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceQueryDto.BeginDSapZpabdZ005">
+            <summary>
+            描述 :开始时间
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceQueryDto.EndDSapZpabdZ005">
+            <summary>
+            描述 :结束时间
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceQueryDto.IsSolved">
+            <summary>
+            描述 :处理标记 
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.PpEcMaSourceDto">
+            <summary>
+            主源设变输入输出对象
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.Guid">
+            <summary>
+            描述 :ID 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ001">
+            <summary>
+            描述 :设变No. 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ002">
+            <summary>
+            描述 :机种 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ003">
+            <summary>
+            描述 :标题 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ004">
+            <summary>
+            描述 :状态 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ005">
+            <summary>
+            描述 :发行日 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ006">
+            <summary>
+            描述 :担当 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ007">
+            <summary>
+            描述 :依赖 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ008">
+            <summary>
+            描述 :会议 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ009">
+            <summary>
+            描述 :PP番号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ010">
+            <summary>
+            描述 :联络书 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ011">
+            <summary>
+            描述 :实施 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ012">
+            <summary>
+            描述 :主理由 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ013">
+            <summary>
+            描述 :次理由 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ014">
+            <summary>
+            描述 :安规 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ015">
+            <summary>
+            描述 :状况 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ016">
+            <summary>
+            描述 :机番 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ017">
+            <summary>
+            描述 :承认 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ018">
+            <summary>
+            描述 :服务手册订正 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ019">
+            <summary>
+            描述 :用户手册订正 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ020">
+            <summary>
+            描述 :宣传手册订正 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ021">
+            <summary>
+            描述 :SOP订正 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ022">
+            <summary>
+            描述 :信息发行 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ023">
+            <summary>
+            描述 :成本变动 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ024">
+            <summary>
+            描述 :单位成本 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ025">
+            <summary>
+            描述 :模具改造费 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ026">
+            <summary>
+            描述 :图纸 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.DSapZpabdZ027">
+            <summary>
+            描述 :设变内容 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.IsSolved">
+            <summary>
+            描述 :处理标记 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.IsDeleted">
+            <summary>
+            描述 :IsDeleted 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.ReMark">
+            <summary>
+            描述 :ReMark 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMaSourceDto.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            </summary>
+        </member>
         <member name="T:La.Model.Dto.PpEcMasterQueryDto">
             <summary>
             主设变查询对象
@@ -1218,6 +1435,365 @@
             </summary>
         </member>
         <member name="P:La.Model.Dto.PpEcMasterDto.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.PpEcSlvSourceQueryDto">
+            <summary>
+            从源设变查询对象
+            @author Davis.Cheng
+            @date 2023-04-13
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceQueryDto.DSapZpabdS001">
+            <summary>
+            描述 :设变No. 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceQueryDto.DSapZpabdS002">
+            <summary>
+            描述 :完成品 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceQueryDto.DSapZpabdS003">
+            <summary>
+            描述 :上阶 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceQueryDto.DSapZpabdS004">
+            <summary>
+            描述 :旧物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceQueryDto.DSapZpabdS008">
+            <summary>
+            描述 :新物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceQueryDto.IsSolved">
+            <summary>
+            描述 :处理标记 
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.PpEcSlvSourceDto">
+            <summary>
+            从源设变输入输出对象
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.Guid">
+            <summary>
+            描述 :ID 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.DSapZpabdS001">
+            <summary>
+            描述 :设变No. 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.DSapZpabdS002">
+            <summary>
+            描述 :完成品 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.DSapZpabdS003">
+            <summary>
+            描述 :上阶 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.DSapZpabdS004">
+            <summary>
+            描述 :旧物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.DSapZpabdS005">
+            <summary>
+            描述 :品名 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.DSapZpabdS006">
+            <summary>
+            描述 :数量 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.DSapZpabdS007">
+            <summary>
+            描述 :位置 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.DSapZpabdS008">
+            <summary>
+            描述 :新物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.DSapZpabdS009">
+            <summary>
+            描述 :品名 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.DSapZpabdS010">
+            <summary>
+            描述 :数量 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.DSapZpabdS011">
+            <summary>
+            描述 :位置 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.DSapZpabdS012">
+            <summary>
+            描述 :BOM番号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.DSapZpabdS013">
+            <summary>
+            描述 :互换性 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.DSapZpabdS014">
+            <summary>
+            描述 :区分 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.DSapZpabdS015">
+            <summary>
+            描述 :安排指示 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.DSapZpabdS016">
+            <summary>
+            描述 :旧品处理 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.DSapZpabdS017">
+            <summary>
+            描述 :BOM生效 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.IsSolved">
+            <summary>
+            描述 :处理标记 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.IsDeleted">
+            <summary>
+            描述 :软删除 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.ReMark">
+            <summary>
+            描述 :备注 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlvSourceDto.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.PpEcSopQueryDto">
+            <summary>
+            SOP确认查询对象
+            @author Davis.Cheng
+            @date 2023-04-12
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.PpEcSopDto">
+            <summary>
+            SOP确认输入输出对象
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EsId">
+            <summary>
+            描述 :ID 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EsIssueDate">
+            <summary>
+            描述 :发行日期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EsEcNo">
+            <summary>
+            描述 :设变No. 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EsEntryDate">
+            <summary>
+            描述 :输入日期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EsAssigned">
+            <summary>
+            描述 :担当者 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EsModel">
+            <summary>
+            描述 :机种 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EsPeaAssigned">
+            <summary>
+            描述 :生技担当 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.IsPeaModifysop">
+            <summary>
+            描述 :组立变更否 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EsPeaDate">
+            <summary>
+            描述 :日期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EsPeaNote">
+            <summary>
+            描述 :说明 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EsPeaModifier">
+            <summary>
+            描述 :EsPeaModifier 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EsPeaModifyTime">
+            <summary>
+            描述 :EsPeaModifyTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EsPepAssigned">
+            <summary>
+            描述 :生技担当 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.IsPepModifysop">
+            <summary>
+            描述 :PCBA变更否 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EsPepDate">
+            <summary>
+            描述 :日期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EsPepNote">
+            <summary>
+            描述 :说明 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EsPepModifier">
+            <summary>
+            描述 :EsPepModifier 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EsPepModifyTime">
+            <summary>
+            描述 :EsPepModifyTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.UDF01">
+            <summary>
+            描述 :UDF01 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.UDF02">
+            <summary>
+            描述 :UDF02 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.UDF03">
+            <summary>
+            描述 :UDF03 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.UDF04">
+            <summary>
+            描述 :UDF04 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.UDF05">
+            <summary>
+            描述 :UDF05 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.UDF06">
+            <summary>
+            描述 :UDF06 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.UDF51">
+            <summary>
+            描述 :UDF51 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.UDF52">
+            <summary>
+            描述 :UDF52 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.UDF53">
+            <summary>
+            描述 :UDF53 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.UDF54">
+            <summary>
+            描述 :UDF54 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.UDF55">
+            <summary>
+            描述 :UDF55 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.UDF56">
+            <summary>
+            描述 :UDF56 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.IsDeleted">
+            <summary>
+            描述 :IsDeleted 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.ReMark">
+            <summary>
+            描述 :ReMark 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.UpdateTime">
             <summary>
             描述 :UpdateTime 
             </summary>
@@ -3913,6 +4489,224 @@
             空值 :true 
             </summary>
         </member>
+        <member name="T:La.Model.Models.PpEcMaSource">
+             <summary>
+             主源设变，数据实体对象
+            
+             @author Davis.Cheng
+             @date 2023-04-13
+             </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.Guid">
+            <summary>
+            描述 :ID 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ001">
+            <summary>
+            描述 :设变No. 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ002">
+            <summary>
+            描述 :机种 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ003">
+            <summary>
+            描述 :标题 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ004">
+            <summary>
+            描述 :状态 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ005">
+            <summary>
+            描述 :发行日 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ006">
+            <summary>
+            描述 :担当 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ007">
+            <summary>
+            描述 :依赖 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ008">
+            <summary>
+            描述 :会议 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ009">
+            <summary>
+            描述 :PP番号 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ010">
+            <summary>
+            描述 :联络书 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ011">
+            <summary>
+            描述 :实施 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ012">
+            <summary>
+            描述 :主理由 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ013">
+            <summary>
+            描述 :次理由 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ014">
+            <summary>
+            描述 :安规 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ015">
+            <summary>
+            描述 :状况 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ016">
+            <summary>
+            描述 :机番 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ017">
+            <summary>
+            描述 :承认 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ018">
+            <summary>
+            描述 :服务手册订正 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ019">
+            <summary>
+            描述 :用户手册订正 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ020">
+            <summary>
+            描述 :宣传手册订正 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ021">
+            <summary>
+            描述 :SOP订正 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ022">
+            <summary>
+            描述 :信息发行 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ023">
+            <summary>
+            描述 :成本变动 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ024">
+            <summary>
+            描述 :单位成本 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ025">
+            <summary>
+            描述 :模具改造费 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ026">
+            <summary>
+            描述 :图纸 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.DSapZpabdZ027">
+            <summary>
+            描述 :设变内容 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.IsSolved">
+            <summary>
+            描述 :处理标记 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.IsDeleted">
+            <summary>
+            描述 :IsDeleted 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.ReMark">
+            <summary>
+            描述 :ReMark 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcMaSource.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            空值 :true 
+            </summary>
+        </member>
         <member name="T:La.Model.Models.PpEcMaster">
              <summary>
              主设变，数据实体对象
@@ -4150,6 +4944,388 @@
             </summary>
         </member>
         <member name="P:La.Model.Models.PpEcMaster.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="T:La.Model.Models.PpEcSlvSource">
+             <summary>
+             从源设变，数据实体对象
+            
+             @author Davis.Cheng
+             @date 2023-04-13
+             </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.Guid">
+            <summary>
+            描述 :ID 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.DSapZpabdS001">
+            <summary>
+            描述 :设变No. 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.DSapZpabdS002">
+            <summary>
+            描述 :完成品 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.DSapZpabdS003">
+            <summary>
+            描述 :上阶 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.DSapZpabdS004">
+            <summary>
+            描述 :旧物料 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.DSapZpabdS005">
+            <summary>
+            描述 :品名 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.DSapZpabdS006">
+            <summary>
+            描述 :数量 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.DSapZpabdS007">
+            <summary>
+            描述 :位置 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.DSapZpabdS008">
+            <summary>
+            描述 :新物料 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.DSapZpabdS009">
+            <summary>
+            描述 :品名 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.DSapZpabdS010">
+            <summary>
+            描述 :数量 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.DSapZpabdS011">
+            <summary>
+            描述 :位置 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.DSapZpabdS012">
+            <summary>
+            描述 :BOM番号 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.DSapZpabdS013">
+            <summary>
+            描述 :互换性 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.DSapZpabdS014">
+            <summary>
+            描述 :区分 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.DSapZpabdS015">
+            <summary>
+            描述 :安排指示 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.DSapZpabdS016">
+            <summary>
+            描述 :旧品处理 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.DSapZpabdS017">
+            <summary>
+            描述 :BOM生效 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.IsSolved">
+            <summary>
+            描述 :处理标记 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.IsDeleted">
+            <summary>
+            描述 :软删除 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.ReMark">
+            <summary>
+            描述 :备注 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlvSource.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="T:La.Model.Models.PpEcSop">
+             <summary>
+             SOP确认，数据实体对象
+            
+             @author Davis.Cheng
+             @date 2023-04-12
+             </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.EsId">
+            <summary>
+            描述 :ID 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.EsIssueDate">
+            <summary>
+            描述 :发行日期 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.EsEcNo">
+            <summary>
+            描述 :设变No. 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.EsEntryDate">
+            <summary>
+            描述 :输入日期 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.EsAssigned">
+            <summary>
+            描述 :担当者 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.EsModel">
+            <summary>
+            描述 :机种 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.EsPeaAssigned">
+            <summary>
+            描述 :生技担当 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.IsPeaModifysop">
+            <summary>
+            描述 :组立变更否 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.EsPeaDate">
+            <summary>
+            描述 :日期 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.EsPeaNote">
+            <summary>
+            描述 :说明 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.EsPeaModifier">
+            <summary>
+            描述 :EsPeaModifier 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.EsPeaModifyTime">
+            <summary>
+            描述 :EsPeaModifyTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.EsPepAssigned">
+            <summary>
+            描述 :生技担当 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.IsPepModifysop">
+            <summary>
+            描述 :PCBA变更否 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.EsPepDate">
+            <summary>
+            描述 :日期 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.EsPepNote">
+            <summary>
+            描述 :说明 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.EsPepModifier">
+            <summary>
+            描述 :EsPepModifier 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.EsPepModifyTime">
+            <summary>
+            描述 :EsPepModifyTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.UDF01">
+            <summary>
+            描述 :UDF01 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.UDF02">
+            <summary>
+            描述 :UDF02 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.UDF03">
+            <summary>
+            描述 :UDF03 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.UDF04">
+            <summary>
+            描述 :UDF04 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.UDF05">
+            <summary>
+            描述 :UDF05 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.UDF06">
+            <summary>
+            描述 :UDF06 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.UDF51">
+            <summary>
+            描述 :UDF51 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.UDF52">
+            <summary>
+            描述 :UDF52 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.UDF53">
+            <summary>
+            描述 :UDF53 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.UDF54">
+            <summary>
+            描述 :UDF54 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.UDF55">
+            <summary>
+            描述 :UDF55 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.UDF56">
+            <summary>
+            描述 :UDF56 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.IsDeleted">
+            <summary>
+            描述 :IsDeleted 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.ReMark">
+            <summary>
+            描述 :ReMark 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.UpdateTime">
             <summary>
             描述 :UpdateTime 
             空值 :true 

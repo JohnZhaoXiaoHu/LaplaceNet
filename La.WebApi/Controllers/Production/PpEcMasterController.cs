@@ -11,6 +11,8 @@ using La.Service.Production.IProductionService;
 using La.WebApi.Extensions;
 using La.WebApi.Filters;
 using La.Common;
+using La.Service.System.IService;
+using La.Tasks;
 
 namespace La.WebApi.Controllers
 {
@@ -29,6 +31,7 @@ namespace La.WebApi.Controllers
         /// 主设变接口
         /// </summary>
         private readonly IPpEcMasterService _PpEcMasterService;
+
         /// <summary>
         /// 主设变Controller
         /// </summary>
