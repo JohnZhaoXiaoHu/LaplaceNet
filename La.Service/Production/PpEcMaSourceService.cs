@@ -54,7 +54,7 @@ namespace La.Service.Production
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.Guid.ToString() == entryString);
+            int count = Count(it => it.DSapZpabdZ001.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

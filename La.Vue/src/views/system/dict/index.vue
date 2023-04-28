@@ -70,7 +70,7 @@
           <dict-tag :options="statusOptions" :value="scope.row.status" />
         </template>
       </el-table-column>
-      <el-table-column label="备注" align="center" prop="remark" :show-overflow-tooltip="true" />
+      <el-table-column label="备注" align="center" prop="reMark" :show-overflow-tooltip="true" />
       <el-table-column label="创建时间" align="center" prop="createTime" width="180">
         <template #default="scope">
           <span>{{ scope.row.createTime }}</span>
@@ -123,8 +123,8 @@
               }}</el-radio>
           </el-radio-group>
         </el-form-item>
-        <el-form-item label="备注" prop="remark">
-          <el-input v-model="form.remark" type="textarea" placeholder="请输入内容"></el-input>
+        <el-form-item label="备注" prop="reMark">
+          <el-input v-model="form.reMark" type="textarea" placeholder="请输入内容"></el-input>
         </el-form-item>
         <el-form-item label="自定义sql" prop="customSql">
           <template #label>
@@ -232,7 +232,7 @@
       dictType: undefined,
       status: '0',
       type: 'N',
-      remark: undefined
+      reMark: undefined
     }
     proxy.resetForm('formRef')
   }

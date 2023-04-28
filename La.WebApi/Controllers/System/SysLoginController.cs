@@ -1,4 +1,4 @@
-﻿using Hei.Captcha;
+﻿using Lazy.Captcha.Core;
 using La.Infra;
 using La.Infra.Attribute;
 using La.Infra.Model;
@@ -32,7 +32,7 @@ namespace La.WebApi.Controllers.System
         private readonly ISysMenuService sysMenuService;
         private readonly ISysLoginService sysLoginService;
         private readonly ISysPermissionService permissionService;
-        private readonly SecurityCodeHelper SecurityCodeHelper;
+        private readonly ICaptcha SecurityCodeHelper;
         private readonly ISysConfigService sysConfigService;
         private readonly ISysRoleService roleService;
         private readonly OptionsSetting jwtSettings;
@@ -56,7 +56,7 @@ namespace La.WebApi.Controllers.System
             ISysPermissionService permissionService,
             ISysConfigService configService,
             ISysRoleService sysRoleService,
-            SecurityCodeHelper captcha,
+            ICaptcha captcha,
             IOptions<OptionsSetting> jwtSettings)
         {
             httpContextAccessor = contextAccessor;
@@ -165,13 +165,8 @@ namespace La.WebApi.Controllers.System
 
             SysConfig sysConfig = sysConfigService.GetSysConfigByKey("sys.account.captchaOnOff");
             var captchaOff = sysConfig?.ConfigValue ?? "0";
-
-            var length = AppSettings.GetAppConfig<int>("CaptchaOptions:length", 4);
-            var code = SecurityCodeHelper.GetRandomEnDigitalText(length);
-            byte[] imgByte = GenerateCaptcha(captchaOff, code);
-            string base64Str = Convert.ToBase64String(imgByte);
-            CacheHelper.SetCache(uuid, code);
-            var obj = new { captchaOff, uuid, img = base64Str };// File(stream, "image/png")
+            var info = SecurityCodeHelper.Generate(uuid, 60);
+            var obj = new { captchaOff, uuid, img = info.Base64 };// File(stream, "image/png")
 
             return ToJson(1, obj);
         }
@@ -182,28 +177,7 @@ namespace La.WebApi.Controllers.System
         /// <param name="captchaOff"></param>
         /// <param name="code"></param>
         /// <returns></returns>
-        private byte[] GenerateCaptcha(string captchaOff, string code)
-        {
-            byte[] imgByte;
-            if (captchaOff == "1")
-            {
-                imgByte = SecurityCodeHelper.GetGifEnDigitalCodeByte(code);//动态gif数字字母
-            }
-            else if (captchaOff == "2")
-            {
-                imgByte = SecurityCodeHelper.GetGifBubbleCodeByte(code);//动态gif泡泡
-            }
-            else if (captchaOff == "3")
-            {
-                imgByte = SecurityCodeHelper.GetBubbleCodeByte(code);//泡泡
-            }
-            else
-            {
-                imgByte = SecurityCodeHelper.GetEnDigitalCodeByte(code);//英文字母加数字
-            }
 
-            return imgByte;
-        }
 
         /// <summary>
         /// 记录用户登陆信息

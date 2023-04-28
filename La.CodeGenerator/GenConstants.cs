@@ -18,7 +18,7 @@ namespace La.CodeGenerator
         /// <summary>
         /// InputDto输入实体是不包含字段
         /// </summary>
-        public static readonly string[] inputDtoNoField = new string[] {  "update_by", "UpdateBy", "UpdateTime", "updateTime",  "update_time", "IsDeleted", "ReMark", "IsDeleted", "ReMark", "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
+        public static readonly string[] inputDtoNoField = new string[] {  "update_by", "UpdateBy", "UpdateTime", "updateTime",  "update_time",  "ReMark", "IsDeleted", "ReMark", "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
         /// <summary>
         /// 图片字段
         /// </summary>

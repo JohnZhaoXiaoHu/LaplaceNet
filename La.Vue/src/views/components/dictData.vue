@@ -42,7 +42,7 @@
         <dict-tag :options="statusOptions" :value="scope.row.status" />
       </template>
     </el-table-column>
-    <el-table-column label="备注" align="center" prop="remark" :show-overflow-tooltip="true" />
+    <el-table-column label="备注" align="center" prop="reMark" :show-overflow-tooltip="true" />
     <el-table-column label="操作" align="center" class-name="small-padding fixed-width" width="130px">
       <template #default="scope">
         <el-button text size="small" icon="edit" @click="handleUpdate(scope.row)"
@@ -89,8 +89,8 @@
             }}</el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item label="备注" prop="remark">
-        <el-input v-model="form.remark" type="textarea" placeholder="请输入内容"></el-input>
+      <el-form-item label="备注" prop="reMark">
+        <el-input v-model="form.reMark" type="textarea" placeholder="请输入内容"></el-input>
       </el-form-item>
     </el-form>
     <template #footer>
@@ -273,7 +273,7 @@
       dictValue: undefined,
       dictSort: 0,
       status: '0',
-      remark: undefined
+      reMark: undefined
     }
     proxy.resetForm('formRef')
   }

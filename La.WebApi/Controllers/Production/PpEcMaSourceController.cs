@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
 
            // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_PpEcMaSourceService.CheckEntryStringUnique(parm.Guid.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_PpEcMaSourceService.CheckEntryStringUnique(parm.DSapZpabdZ001.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增主源设变 '{parm.Guid}'失败，输入的主源设变已存在"));
+                return ToResponse(ApiResult.Error($"新增主源设变 '{parm.DSapZpabdZ001}'失败，输入的主源设变已存在"));
             }
             var modal = parm.Adapt<PpEcMaSource>().ToCreate(HttpContext);
 

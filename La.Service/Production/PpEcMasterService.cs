@@ -33,9 +33,13 @@ namespace La.Service.Production
             var predicate = Expressionable.Create<PpEcMaster>();
 
             //搜索条件查询语法参考Sqlsugar
-            predicate = predicate.AndIF(parm.BeginEmEcIssueDate == null, it => it.EmEcIssueDate >= DateTime.Now.AddDays(-1));
+            predicate = predicate.AndIF(parm.BeginEmEcIssueDate != null, it => it.EmEcIssueDate >= DateTime.Now.AddDays(-1));
             predicate = predicate.AndIF(parm.BeginEmEcIssueDate != null, it => it.EmEcIssueDate >= parm.BeginEmEcIssueDate && it.EmEcIssueDate <= parm.EndEmEcIssueDate);
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EmEcNo.ToUpper()), it => it.EmEcNo.Contains(parm.EmEcNo.ToUpper()));
+
+
+
+
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EmEcNo), it => it.EmEcNo.Contains(parm.EmEcNo));
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EmEcStatus), it => it.EmEcStatus == parm.EmEcStatus);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EmEcAssigned), it => it.EmEcAssigned == parm.EmEcAssigned);
             predicate = predicate.AndIF(parm.EmEcManageCategory != null, it => it.EmEcManageCategory == parm.EmEcManageCategory);
@@ -54,7 +58,7 @@ namespace La.Service.Production
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.EmId.ToString() == entryString);
+            int count = Count(it => it.EmEcNo.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

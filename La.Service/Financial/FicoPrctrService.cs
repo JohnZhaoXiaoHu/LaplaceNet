@@ -15,7 +15,7 @@ namespace La.Service.Financial
     /// 利润中心Service业务层处理
     ///
     /// @author Davis.Cheng
-    /// @date 2023-04-11
+    /// @date 2023-04-26
     /// </summary>
     [AppService(ServiceType = typeof(IFicoPrctrService), ServiceLifetime = LifeTime.Transient)]
     public class FicoPrctrService : BaseService<FicoPrctr>, IFicoPrctrService
@@ -53,7 +53,7 @@ namespace La.Service.Financial
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.FpPlnt+it.FpCode == entryString);
+            int count = Count(it => it.FpId.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;
@@ -76,6 +76,7 @@ namespace La.Service.Financial
                 it.FpType,
                 it.FpActDate,
                 it.FpExpDate,
+                it.ReMark,
                 it.CreateBy,
                 it.CreateTime,
             });
@@ -97,6 +98,7 @@ namespace La.Service.Financial
                 FpType = parm.FpType,
                 FpActDate = parm.FpActDate,
                 FpExpDate = parm.FpExpDate,
+                ReMark = parm.ReMark,
                 UpdateBy = parm.UpdateBy,
                 UpdateTime = parm.UpdateTime,
             });

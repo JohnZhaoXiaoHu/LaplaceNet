@@ -402,7 +402,7 @@
             
             @tableName fico_prctr
             @author Davis.Cheng
-            @date 2023-04-11
+            @date 2023-04-26
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.FicoPrctrController._FicoPrctrService">
@@ -567,6 +567,69 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:La.WebApi.Controllers.PpEcDigestController">
+            <summary>
+            新旧物料Controller
+            
+            @tableName pp_ec_digest
+            @author Davis.Cheng
+            @date 2023-04-26
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.PpEcDigestController._PpEcDigestService">
+            <summary>
+            新旧物料接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcDigestController.#ctor(La.Service.Production.IProductionService.IPpEcDigestService)">
+            <summary>
+            新旧物料Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcDigestController.QueryPpEcDigest(La.Model.Dto.PpEcDigestQueryDto)">
+            <summary>
+            查询新旧物料列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcDigestController.GetPpEcDigest(System.Int32)">
+            <summary>
+            查询新旧物料详情
+            </summary>
+            <param name="EdId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcDigestController.AddPpEcDigest(La.Model.Dto.PpEcDigestDto)">
+            <summary>
+            添加新旧物料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcDigestController.UpdatePpEcDigest(La.Model.Dto.PpEcDigestDto)">
+            <summary>
+            更新新旧物料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcDigestController.DeletePpEcDigest(System.String)">
+            <summary>
+            删除新旧物料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcDigestController.Export(La.Model.Dto.PpEcDigestQueryDto)">
+            <summary>
+            导出新旧物料
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcDigestController.Clear">
+            <summary>
+            清空新旧物料
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:La.WebApi.Controllers.PpEcMaSourceController">
             <summary>
             主源设变Controller
@@ -684,6 +747,69 @@
         <member name="M:La.WebApi.Controllers.PpEcMasterController.Export(La.Model.Dto.PpEcMasterQueryDto)">
             <summary>
             导出主设变
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:La.WebApi.Controllers.PpEcSlaveController">
+            <summary>
+            从设变Controller
+            
+            @tableName pp_ec_slave
+            @author Davis.Cheng
+            @date 2023-04-26
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.PpEcSlaveController._PpEcSlaveService">
+            <summary>
+            从设变接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSlaveController.#ctor(La.Service.Production.IProductionService.IPpEcSlaveService)">
+            <summary>
+            从设变Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSlaveController.QueryPpEcSlave(La.Model.Dto.PpEcSlaveQueryDto)">
+            <summary>
+            查询从设变列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSlaveController.GetPpEcSlave(System.Int32)">
+            <summary>
+            查询从设变详情
+            </summary>
+            <param name="EsId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSlaveController.AddPpEcSlave(La.Model.Dto.PpEcSlaveDto)">
+            <summary>
+            添加从设变
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSlaveController.UpdatePpEcSlave(La.Model.Dto.PpEcSlaveDto)">
+            <summary>
+            更新从设变
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSlaveController.DeletePpEcSlave(System.String)">
+            <summary>
+            删除从设变
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSlaveController.Export(La.Model.Dto.PpEcSlaveQueryDto)">
+            <summary>
+            导出从设变
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.PpEcSlaveController.Clear">
+            <summary>
+            清空从设变
             </summary>
             <returns></returns>
         </member>
@@ -1448,7 +1574,7 @@
             登录
             </summary>
         </member>
-        <member name="M:La.WebApi.Controllers.System.SysLoginController.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,La.Service.System.IService.ISysMenuService,La.Service.System.IService.ISysUserService,La.Service.System.IService.ISysLoginService,La.Service.System.IService.ISysPermissionService,La.Service.System.ISysConfigService,La.Service.System.IService.ISysRoleService,Hei.Captcha.SecurityCodeHelper,Microsoft.Extensions.Options.IOptions{La.Infra.OptionsSetting})">
+        <member name="M:La.WebApi.Controllers.System.SysLoginController.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,La.Service.System.IService.ISysMenuService,La.Service.System.IService.ISysUserService,La.Service.System.IService.ISysLoginService,La.Service.System.IService.ISysPermissionService,La.Service.System.ISysConfigService,La.Service.System.IService.ISysRoleService,Lazy.Captcha.Core.ICaptcha,Microsoft.Extensions.Options.IOptions{La.Infra.OptionsSetting})">
             <summary>
             日志接口
             </summary>
@@ -1493,15 +1619,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.SysLoginController.GenerateCaptcha(System.String,System.String)">
+        <member name="M:La.WebApi.Controllers.System.SysLoginController.RecordLogInfo(Microsoft.AspNetCore.Http.HttpContext)">
             <summary>
             生成图片验证码
             </summary>
             <param name="captchaOff"></param>
             <param name="code"></param>
             <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.SysLoginController.RecordLogInfo(Microsoft.AspNetCore.Http.HttpContext)">
             <summary>
             记录用户登陆信息
             </summary>
@@ -2038,6 +2162,69 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:La.WebApi.Controllers.EtDictController">
+            <summary>
+            电子辞典Controller
+            
+            @tableName sys_et_dict
+            @author Davis.Cheng
+            @date 2023-04-26
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.EtDictController._EtDictService">
+            <summary>
+            电子辞典接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.EtDictController.#ctor(La.Service.System.ISystemService.IEtDictService)">
+            <summary>
+            电子辞典Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.EtDictController.QueryEtDict(La.Model.Dto.EtDictQueryDto)">
+            <summary>
+            查询电子辞典列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.EtDictController.GetEtDict(System.Int64)">
+            <summary>
+            查询电子辞典详情
+            </summary>
+            <param name="EtGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.EtDictController.AddEtDict(La.Model.Dto.EtDictDto)">
+            <summary>
+            添加电子辞典
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.EtDictController.UpdateEtDict(La.Model.Dto.EtDictDto)">
+            <summary>
+            更新电子辞典
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.EtDictController.DeleteEtDict(System.String)">
+            <summary>
+            删除电子辞典
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.EtDictController.Export(La.Model.Dto.EtDictQueryDto)">
+            <summary>
+            导出电子辞典
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.EtDictController.Clear">
+            <summary>
+            清空电子辞典
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:La.WebApi.Controllers.monitor.MonitorController">
             <summary>
             系统监控
@@ -2163,6 +2350,69 @@
             <param name="connnectionId"></param>
             <returns></returns>
         </member>
+        <member name="T:La.WebApi.Controllers.RefStrategyController">
+            <summary>
+            单据编码Controller
+            
+            @tableName sys_ref_strategy
+            @author Davis.Cheng
+            @date 2023-04-26
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.RefStrategyController._RefStrategyService">
+            <summary>
+            单据编码接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.RefStrategyController.#ctor(La.Service.System.ISystemService.IRefStrategyService)">
+            <summary>
+            单据编码Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.RefStrategyController.QueryRefStrategy(La.Model.Dto.RefStrategyQueryDto)">
+            <summary>
+            查询单据编码列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.RefStrategyController.GetRefStrategy(System.Int64)">
+            <summary>
+            查询单据编码详情
+            </summary>
+            <param name="RefId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.RefStrategyController.AddRefStrategy(La.Model.Dto.RefStrategyDto)">
+            <summary>
+            添加单据编码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.RefStrategyController.UpdateRefStrategy(La.Model.Dto.RefStrategyDto)">
+            <summary>
+            更新单据编码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.RefStrategyController.DeleteRefStrategy(System.String)">
+            <summary>
+            删除单据编码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.RefStrategyController.Export(La.Model.Dto.RefStrategyQueryDto)">
+            <summary>
+            导出单据编码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.RefStrategyController.Clear">
+            <summary>
+            清空单据编码
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:La.WebApi.Controllers.SysFileController">
             <summary>
             文件存储Controller
@@ -2201,786 +2451,6 @@
         <member name="M:La.WebApi.Controllers.SysFileController.Export">
             <summary>
             文件存储导出
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.WfCustomformController">
-            <summary>
-            自定义表单Controller
-            
-            @tableName wf_customform
-            @author Davis.Cheng
-            @date 2023-03-14
-            </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.WfCustomformController._WfCustomformService">
-            <summary>
-            自定义表单接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfCustomformController.#ctor(La.Service.Workflow.IWorkflowService.IWfCustomformService)">
-            <summary>
-            自定义表单Controller
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfCustomformController.QueryWfCustomform(La.Model.Dto.WfCustomformQueryDto)">
-            <summary>
-            查询自定义表单列表
-            </summary>
-            <param name="parm"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfCustomformController.GetWfCustomform(System.Int64)">
-            <summary>
-            查询自定义表单详情
-            </summary>
-            <param name="Id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfCustomformController.AddWfCustomform(La.Model.Dto.WfCustomformDto)">
-            <summary>
-            添加自定义表单
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfCustomformController.UpdateWfCustomform(La.Model.Dto.WfCustomformDto)">
-            <summary>
-            更新自定义表单
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfCustomformController.DeleteWfCustomform(System.String)">
-            <summary>
-            删除自定义表单
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfCustomformController.Export(La.Model.Dto.WfCustomformQueryDto)">
-            <summary>
-            导出自定义表单
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.WfFlowCateController">
-            <summary>
-            OA流程分类表Controller
-            
-            @tableName wf_flow_cate
-            @author Davis.Cheng
-            @date 2023-03-17
-            </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.WfFlowCateController._WfFlowCateService">
-            <summary>
-            OA流程分类表接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowCateController.#ctor(La.Service.Workflow.IWorkflowService.IWfFlowCateService)">
-            <summary>
-            OA流程分类表Controller
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowCateController.QueryWfFlowCate(La.Model.Dto.WfFlowCateQueryDto)">
-            <summary>
-            查询OA流程分类表列表
-            </summary>
-            <param name="parm"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowCateController.GetWfFlowCate(System.String)">
-            <summary>
-            查询OA流程分类表详情
-            </summary>
-            <param name="Id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowCateController.AddWfFlowCate(La.Model.Dto.WfFlowCateDto)">
-            <summary>
-            添加OA流程分类表
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowCateController.UpdateWfFlowCate(La.Model.Dto.WfFlowCateDto)">
-            <summary>
-            更新OA流程分类表
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowCateController.DeleteWfFlowCate(System.String)">
-            <summary>
-            删除OA流程分类表
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowCateController.Export(La.Model.Dto.WfFlowCateQueryDto)">
-            <summary>
-            导出OA流程分类表
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.WfFlowinstanceController">
-            <summary>
-            流程实例模板Controller
-            
-            @tableName wf_flowinstance
-            @author Davis.Cheng
-            @date 2023-03-14
-            </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.WfFlowinstanceController._WfFlowinstanceService">
-            <summary>
-            流程实例模板接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowinstanceController.#ctor(La.Service.Workflow.IWorkflowService.IWfFlowinstanceService)">
-            <summary>
-            流程实例模板Controller
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowinstanceController.QueryWfFlowinstance(La.Model.Dto.WfFlowinstanceQueryDto)">
-            <summary>
-            查询流程实例模板列表
-            </summary>
-            <param name="parm"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowinstanceController.GetWfFlowinstance(System.Int64)">
-            <summary>
-            查询流程实例模板详情
-            </summary>
-            <param name="Id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowinstanceController.AddWfFlowinstance(La.Model.Dto.WfFlowinstanceDto)">
-            <summary>
-            添加流程实例模板
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowinstanceController.UpdateWfFlowinstance(La.Model.Dto.WfFlowinstanceDto)">
-            <summary>
-            更新流程实例模板
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowinstanceController.DeleteWfFlowinstance(System.String)">
-            <summary>
-            删除流程实例模板
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowinstanceController.Export(La.Model.Dto.WfFlowinstanceQueryDto)">
-            <summary>
-            导出流程实例模板
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.WfFlowinstancehisController">
-            <summary>
-            工作流实例流转历史记录Controller
-            
-            @tableName wf_flowinstancehis
-            @author Davis.Cheng
-            @date 2023-03-14
-            </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.WfFlowinstancehisController._WfFlowinstancehisService">
-            <summary>
-            工作流实例流转历史记录接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowinstancehisController.#ctor(La.Service.Workflow.IWorkflowService.IWfFlowinstancehisService)">
-            <summary>
-            工作流实例流转历史记录Controller
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowinstancehisController.QueryWfFlowinstancehis(La.Model.Dto.WfFlowinstancehisQueryDto)">
-            <summary>
-            查询工作流实例流转历史记录列表
-            </summary>
-            <param name="parm"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowinstancehisController.GetWfFlowinstancehis(System.Int64)">
-            <summary>
-            查询工作流实例流转历史记录详情
-            </summary>
-            <param name="Id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowinstancehisController.AddWfFlowinstancehis(La.Model.Dto.WfFlowinstancehisDto)">
-            <summary>
-            添加工作流实例流转历史记录
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowinstancehisController.UpdateWfFlowinstancehis(La.Model.Dto.WfFlowinstancehisDto)">
-            <summary>
-            更新工作流实例流转历史记录
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowinstancehisController.DeleteWfFlowinstancehis(System.String)">
-            <summary>
-            删除工作流实例流转历史记录
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.WfFlowinstanceinfoController">
-            <summary>
-            工作流实例操作记录Controller
-            
-            @tableName wf_flowinstanceinfo
-            @author Davis.Cheng
-            @date 2023-03-14
-            </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.WfFlowinstanceinfoController._WfFlowinstanceinfoService">
-            <summary>
-            工作流实例操作记录接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowinstanceinfoController.#ctor(La.Service.Workflow.IWorkflowService.IWfFlowinstanceinfoService)">
-            <summary>
-            工作流实例操作记录Controller
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowinstanceinfoController.QueryWfFlowinstanceinfo(La.Model.Dto.WfFlowinstanceinfoQueryDto)">
-            <summary>
-            查询工作流实例操作记录列表
-            </summary>
-            <param name="parm"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowinstanceinfoController.GetWfFlowinstanceinfo(System.Int64)">
-            <summary>
-            查询工作流实例操作记录详情
-            </summary>
-            <param name="Id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowinstanceinfoController.AddWfFlowinstanceinfo(La.Model.Dto.WfFlowinstanceinfoDto)">
-            <summary>
-            添加工作流实例操作记录
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowinstanceinfoController.UpdateWfFlowinstanceinfo(La.Model.Dto.WfFlowinstanceinfoDto)">
-            <summary>
-            更新工作流实例操作记录
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowinstanceinfoController.DeleteWfFlowinstanceinfo(System.String)">
-            <summary>
-            删除工作流实例操作记录
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.WfFlowMainController">
-            <summary>
-            OA流程实例表Controller
-            
-            @tableName wf_flow_main
-            @author Davis.Cheng
-            @date 2023-03-17
-            </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.WfFlowMainController._WfFlowMainService">
-            <summary>
-            OA流程实例表接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowMainController.#ctor(La.Service.Workflow.IWorkflowService.IWfFlowMainService)">
-            <summary>
-            OA流程实例表Controller
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowMainController.QueryWfFlowMain(La.Model.Dto.WfFlowMainQueryDto)">
-            <summary>
-            查询OA流程实例表列表
-            </summary>
-            <param name="parm"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowMainController.GetWfFlowMain(System.String)">
-            <summary>
-            查询OA流程实例表详情
-            </summary>
-            <param name="Id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowMainController.AddWfFlowMain(La.Model.Dto.WfFlowMainDto)">
-            <summary>
-            添加OA流程实例表
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowMainController.UpdateWfFlowMain(La.Model.Dto.WfFlowMainDto)">
-            <summary>
-            更新OA流程实例表
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowMainController.DeleteWfFlowMain(System.String)">
-            <summary>
-            删除OA流程实例表
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowMainController.Export(La.Model.Dto.WfFlowMainQueryDto)">
-            <summary>
-            导出OA流程实例表
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.WfFlowReceController">
-            <summary>
-            流程使用记录Controller
-            
-            @tableName wf_flow_rece
-            @author Davis.Cheng
-            @date 2023-04-10
-            </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.WfFlowReceController._WfFlowReceService">
-            <summary>
-            流程使用记录接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowReceController.#ctor(La.Service.Workflow.IWorkflowService.IWfFlowReceService)">
-            <summary>
-            流程使用记录Controller
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowReceController.QueryWfFlowRece(La.Model.Dto.WfFlowReceQueryDto)">
-            <summary>
-            查询流程使用记录列表
-            </summary>
-            <param name="parm"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowReceController.GetWfFlowRece(System.String)">
-            <summary>
-            查询流程使用记录详情
-            </summary>
-            <param name="Id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowReceController.AddWfFlowRece(La.Model.Dto.WfFlowReceDto)">
-            <summary>
-            添加流程使用记录
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowReceController.UpdateWfFlowRece(La.Model.Dto.WfFlowReceDto)">
-            <summary>
-            更新流程使用记录
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowReceController.DeleteWfFlowRece(System.String)">
-            <summary>
-            删除流程使用记录
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowReceController.Export(La.Model.Dto.WfFlowReceQueryDto)">
-            <summary>
-            导出流程使用记录
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.WfFlowschemeController">
-            <summary>
-            流程Controller
-            
-            @tableName wf_flowscheme
-            @author Davis.Cheng
-            @date 2023-03-14
-            </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.WfFlowschemeController._WfFlowschemeService">
-            <summary>
-            流程接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowschemeController.#ctor(La.Service.Workflow.IWorkflowService.IWfFlowschemeService)">
-            <summary>
-            流程Controller
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowschemeController.QueryWfFlowscheme(La.Model.Dto.WfFlowschemeQueryDto)">
-            <summary>
-            查询流程列表
-            </summary>
-            <param name="parm"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowschemeController.GetWfFlowscheme(System.Int64)">
-            <summary>
-            查询流程详情
-            </summary>
-            <param name="Id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowschemeController.AddWfFlowscheme(La.Model.Dto.WfFlowschemeDto)">
-            <summary>
-            添加流程
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowschemeController.UpdateWfFlowscheme(La.Model.Dto.WfFlowschemeDto)">
-            <summary>
-            更新流程
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowschemeController.DeleteWfFlowscheme(System.String)">
-            <summary>
-            删除流程
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.WfFlowTmplController">
-            <summary>
-            OA流程模板表Controller
-            
-            @tableName wf_flow_tmpl
-            @author Davis.Cheng
-            @date 2023-03-17
-            </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.WfFlowTmplController._WfFlowTmplService">
-            <summary>
-            OA流程模板表接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowTmplController.#ctor(La.Service.Workflow.IWorkflowService.IWfFlowTmplService)">
-            <summary>
-            OA流程模板表Controller
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowTmplController.QueryWfFlowTmpl(La.Model.Dto.WfFlowTmplQueryDto)">
-            <summary>
-            查询OA流程模板表列表
-            </summary>
-            <param name="parm"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowTmplController.GetWfFlowTmpl(System.String)">
-            <summary>
-            查询OA流程模板表详情
-            </summary>
-            <param name="Id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowTmplController.AddWfFlowTmpl(La.Model.Dto.WfFlowTmplDto)">
-            <summary>
-            添加OA流程模板表
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowTmplController.UpdateWfFlowTmpl(La.Model.Dto.WfFlowTmplDto)">
-            <summary>
-            更新OA流程模板表
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowTmplController.DeleteWfFlowTmpl(System.String)">
-            <summary>
-            删除OA流程模板表
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFlowTmplController.Export(La.Model.Dto.WfFlowTmplQueryDto)">
-            <summary>
-            导出OA流程模板表
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.WfFormController">
-            <summary>
-            表单Controller
-            
-            @tableName wf_form
-            @author Davis.Cheng
-            @date 2023-03-14
-            </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.WfFormController._WfFormService">
-            <summary>
-            表单接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFormController.#ctor(La.Service.Workflow.IWorkflowService.IWfFormService)">
-            <summary>
-            表单Controller
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFormController.QueryWfForm(La.Model.Dto.WfFormQueryDto)">
-            <summary>
-            查询表单列表
-            </summary>
-            <param name="parm"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFormController.GetWfForm(System.Int64)">
-            <summary>
-            查询表单详情
-            </summary>
-            <param name="Id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFormController.AddWfForm(La.Model.Dto.WfFormDto)">
-            <summary>
-            添加表单
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFormController.UpdateWfForm(La.Model.Dto.WfFormDto)">
-            <summary>
-            更新表单
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFormController.DeleteWfForm(System.String)">
-            <summary>
-            删除表单
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfFormController.Export(La.Model.Dto.WfFormQueryDto)">
-            <summary>
-            导出表单
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.WfWorkflowController">
-            <summary>
-            审批流程Controller
-            
-            @tableName wf_workflow
-            @author Davis.Cheng
-            @date 2023-03-14
-            </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.WfWorkflowController._WfWorkflowService">
-            <summary>
-            审批流程接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowController.#ctor(La.Service.Workflow.IWorkflowService.IWfWorkflowService)">
-            <summary>
-            审批流程Controller
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowController.QueryWfWorkflow(La.Model.Dto.WfWorkflowQueryDto)">
-            <summary>
-            查询审批流程列表
-            </summary>
-            <param name="parm"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowController.GetWfWorkflow(System.String)">
-            <summary>
-            查询审批流程详情
-            </summary>
-            <param name="WorkflowId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowController.AddWfWorkflow(La.Model.Dto.WfWorkflowDto)">
-            <summary>
-            添加审批流程
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowController.UpdateWfWorkflow(La.Model.Dto.WfWorkflowDto)">
-            <summary>
-            更新审批流程
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowController.DeleteWfWorkflow(System.String)">
-            <summary>
-            删除审批流程
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowController.Export(La.Model.Dto.WfWorkflowQueryDto)">
-            <summary>
-            导出审批流程
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.WfWorkflowstepController">
-            <summary>
-            审批节点配置Controller
-            
-            @tableName wf_workflowstep
-            @author Davis.Cheng
-            @date 2023-03-14
-            </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.WfWorkflowstepController._WfWorkflowstepService">
-            <summary>
-            审批节点配置接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowstepController.#ctor(La.Service.Workflow.IWorkflowService.IWfWorkflowstepService)">
-            <summary>
-            审批节点配置Controller
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowstepController.QueryWfWorkflowstep(La.Model.Dto.WfWorkflowstepQueryDto)">
-            <summary>
-            查询审批节点配置列表
-            </summary>
-            <param name="parm"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowstepController.GetWfWorkflowstep(System.String)">
-            <summary>
-            查询审批节点配置详情
-            </summary>
-            <param name="WorkstepflowId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowstepController.AddWfWorkflowstep(La.Model.Dto.WfWorkflowstepDto)">
-            <summary>
-            添加审批节点配置
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowstepController.UpdateWfWorkflowstep(La.Model.Dto.WfWorkflowstepDto)">
-            <summary>
-            更新审批节点配置
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowstepController.DeleteWfWorkflowstep(System.String)">
-            <summary>
-            删除审批节点配置
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowstepController.Export(La.Model.Dto.WfWorkflowstepQueryDto)">
-            <summary>
-            导出审批节点配置
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.WfWorkflowtableController">
-            <summary>
-            审批流程Controller
-            
-            @tableName wf_workflowtable
-            @author Davis.Cheng
-            @date 2023-03-14
-            </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.WfWorkflowtableController._WfWorkflowtableService">
-            <summary>
-            审批流程接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowtableController.#ctor(La.Service.Workflow.IWorkflowService.IWfWorkflowtableService)">
-            <summary>
-            审批流程Controller
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowtableController.QueryWfWorkflowtable(La.Model.Dto.WfWorkflowtableQueryDto)">
-            <summary>
-            查询审批流程列表
-            </summary>
-            <param name="parm"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowtableController.GetWfWorkflowtable(System.String)">
-            <summary>
-            查询审批流程详情
-            </summary>
-            <param name="WorkflowtableId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowtableController.AddWfWorkflowtable(La.Model.Dto.WfWorkflowtableDto)">
-            <summary>
-            添加审批流程
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowtableController.UpdateWfWorkflowtable(La.Model.Dto.WfWorkflowtableDto)">
-            <summary>
-            更新审批流程
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowtableController.DeleteWfWorkflowtable(System.String)">
-            <summary>
-            删除审批流程
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowtableController.Export(La.Model.Dto.WfWorkflowtableQueryDto)">
-            <summary>
-            导出审批流程
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.WfWorkflowtablestepController">
-            <summary>
-            审批节点Controller
-            
-            @tableName wf_workflowtablestep
-            @author Davis.Cheng
-            @date 2023-03-14
-            </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.WfWorkflowtablestepController._WfWorkflowtablestepService">
-            <summary>
-            审批节点接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowtablestepController.#ctor(La.Service.Workflow.IWorkflowService.IWfWorkflowtablestepService)">
-            <summary>
-            审批节点Controller
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowtablestepController.QueryWfWorkflowtablestep(La.Model.Dto.WfWorkflowtablestepQueryDto)">
-            <summary>
-            查询审批节点列表
-            </summary>
-            <param name="parm"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowtablestepController.GetWfWorkflowtablestep(System.String)">
-            <summary>
-            查询审批节点详情
-            </summary>
-            <param name="SysWorkflowtablestepId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowtablestepController.AddWfWorkflowtablestep(La.Model.Dto.WfWorkflowtablestepDto)">
-            <summary>
-            添加审批节点
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowtablestepController.UpdateWfWorkflowtablestep(La.Model.Dto.WfWorkflowtablestepDto)">
-            <summary>
-            更新审批节点
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowtablestepController.DeleteWfWorkflowtablestep(System.String)">
-            <summary>
-            删除审批节点
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.WfWorkflowtablestepController.Export(La.Model.Dto.WfWorkflowtablestepQueryDto)">
-            <summary>
-            导出审批节点
             </summary>
             <returns></returns>
         </member>

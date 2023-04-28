@@ -623,7 +623,7 @@
             <summary>
             利润中心查询对象
             @author Davis.Cheng
-            @date 2023-04-11
+            @date 2023-04-26
             </summary>
         </member>
         <member name="P:La.Model.Dto.FicoPrctrQueryDto.FpPlnt">
@@ -981,6 +981,218 @@
             </summary>
         </member>
         <member name="P:La.Model.Dto.FicoWageratesDto.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.PpEcDigestQueryDto">
+            <summary>
+            新旧物料查询对象
+            @author Davis.Cheng
+            @date 2023-04-26
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestQueryDto.BeginEdIssueDate">
+            <summary>
+            描述 :开始时间
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestQueryDto.EndEdIssueDate">
+            <summary>
+            描述 :结束时间
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestQueryDto.EdModel">
+            <summary>
+            描述 :机种 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestQueryDto.Editem">
+            <summary>
+            描述 :物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestQueryDto.EdEcNo">
+            <summary>
+            描述 :设变号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestQueryDto.EdOldItem">
+            <summary>
+            描述 :旧物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestQueryDto.EdNewItem">
+            <summary>
+            描述 :新物料 
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.PpEcDigestDto">
+            <summary>
+            新旧物料输入输出对象
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.EdId">
+            <summary>
+            描述 :ID 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.EdBalanceDate">
+            <summary>
+            描述 :输入日期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.EdIssueDate">
+            <summary>
+            描述 :设变发行日 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.EdModel">
+            <summary>
+            描述 :机种 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.Editem">
+            <summary>
+            描述 :物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.EdEcNo">
+            <summary>
+            描述 :设变号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.EdOldItem">
+            <summary>
+            描述 :旧物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.EdOldQty">
+            <summary>
+            描述 :旧库存 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.EdPoQty">
+            <summary>
+            描述 :PO数量 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.EdBalanceQty">
+            <summary>
+            描述 :结算数量 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.EdNewItem">
+            <summary>
+            描述 :新物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.EdNewQty">
+            <summary>
+            描述 :新库存 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.EdDisposal">
+            <summary>
+            描述 :处理方法 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.EdNote">
+            <summary>
+            描述 :说明 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.EdStatus">
+            <summary>
+            描述 :设变状态 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.UDF01">
+            <summary>
+            描述 :UDF01 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.UDF02">
+            <summary>
+            描述 :UDF02 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.UDF03">
+            <summary>
+            描述 :UDF03 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.UDF04">
+            <summary>
+            描述 :UDF04 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.UDF05">
+            <summary>
+            描述 :UDF05 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.UDF06">
+            <summary>
+            描述 :UDF06 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.UDF51">
+            <summary>
+            描述 :UDF51 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.UDF52">
+            <summary>
+            描述 :UDF52 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.UDF53">
+            <summary>
+            描述 :UDF53 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.UDF54">
+            <summary>
+            描述 :UDF54 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.UDF55">
+            <summary>
+            描述 :UDF55 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.UDF56">
+            <summary>
+            描述 :UDF56 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.IsDeleted">
+            <summary>
+            描述 :软删除 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.ReMark">
+            <summary>
+            描述 :备注 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcDigestDto.UpdateTime">
             <summary>
             描述 :UpdateTime 
             </summary>
@@ -1435,6 +1647,393 @@
             </summary>
         </member>
         <member name="P:La.Model.Dto.PpEcMasterDto.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.PpEcSlaveQueryDto">
+            <summary>
+            从设变查询对象
+            @author Davis.Cheng
+            @date 2023-04-26
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveQueryDto.BeginEsEntryDate">
+            <summary>
+            描述 :开始时间
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveQueryDto.EndEsEntryDate">
+            <summary>
+            描述 :结束时间
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveQueryDto.EsEcNo">
+            <summary>
+            描述 :设变No. 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveQueryDto.EsModel">
+            <summary>
+            描述 :机种 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveQueryDto.EsItem">
+            <summary>
+            描述 :物料 
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.PpEcSlaveDto">
+            <summary>
+            从设变输入输出对象
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsId">
+            <summary>
+            描述 :ID 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsEntryDate">
+            <summary>
+            描述 :输入日 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsEcNo">
+            <summary>
+            描述 :设变No. 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsModel">
+            <summary>
+            描述 :机种 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsItem">
+            <summary>
+            描述 :物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsSubItem">
+            <summary>
+            描述 :子物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsOldItem">
+            <summary>
+            描述 :旧物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsOldItemText">
+            <summary>
+            描述 :旧文本 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsOldUsageQty">
+            <summary>
+            描述 :用量 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsOldSetLoc">
+            <summary>
+            描述 :位置 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsNewItem">
+            <summary>
+            描述 :新物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsNewItemText">
+            <summary>
+            描述 :新文本 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsNewUsageQty">
+            <summary>
+            描述 :用量 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsNewSetLoc">
+            <summary>
+            描述 :位置 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsBomNo">
+            <summary>
+            描述 :bom番号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsChange">
+            <summary>
+            描述 :互换 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.Eslocal">
+            <summary>
+            描述 :区分 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.Esnote">
+            <summary>
+            描述 :指示 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsOldProcess">
+            <summary>
+            描述 :旧品处理 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsBomDate">
+            <summary>
+            描述 :bom日期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPurType">
+            <summary>
+            描述 :采购类型 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EmEcImpDept">
+            <summary>
+            描述 :实施部门 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsSloc">
+            <summary>
+            描述 :仓库 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsOldCurrStock">
+            <summary>
+            描述 :旧品库存 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsNewCurrStock">
+            <summary>
+            描述 :新品库存 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsInsmk">
+            <summary>
+            描述 :检验否 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsMstae">
+            <summary>
+            描述 :工厂状态 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsDeptEntryDate">
+            <summary>
+            描述 :部门录入日 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsDeptName">
+            <summary>
+            描述 :部门名称 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsSupplier">
+            <summary>
+            描述 :供应商 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPurOrder">
+            <summary>
+            描述 :采购PO 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPurNote">
+            <summary>
+            描述 :说明 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPmcLot">
+            <summary>
+            描述 :预投入批次 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPmcMemo">
+            <summary>
+            描述 :说明 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPmcNote">
+            <summary>
+            描述 :备注 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsIqcOrder">
+            <summary>
+            描述 :检验订单 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsIqcNote">
+            <summary>
+            描述 :说明 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsMmLot">
+            <summary>
+            描述 :领用批次 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsMmMocNo">
+            <summary>
+            描述 :工单 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsMmNote">
+            <summary>
+            描述 :说明 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPpLine">
+            <summary>
+            描述 :班组 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPpLot">
+            <summary>
+            描述 :生产批次 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPpNote">
+            <summary>
+            描述 :说明 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPcbaLine">
+            <summary>
+            描述 :Pcba班组 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPcbaLot">
+            <summary>
+            描述 :Pcba批次 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPcbaNote">
+            <summary>
+            描述 :说明 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsQaLot">
+            <summary>
+            描述 :检验批次 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsQaNote">
+            <summary>
+            描述 :说明 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsDeptCreator">
+            <summary>
+            描述 :EsDeptCreator 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsDeptCreateTime">
+            <summary>
+            描述 :EsDeptCreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsDeptModifier">
+            <summary>
+            描述 :EsDeptModifier 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsDeptModifyTime">
+            <summary>
+            描述 :EsDeptModifyTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.UDF01">
+            <summary>
+            描述 :UDF01 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.UDF02">
+            <summary>
+            描述 :UDF02 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.UDF03">
+            <summary>
+            描述 :UDF03 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.UDF04">
+            <summary>
+            描述 :UDF04 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.UDF05">
+            <summary>
+            描述 :UDF05 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.UDF06">
+            <summary>
+            描述 :UDF06 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.UDF51">
+            <summary>
+            描述 :UDF51 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.UDF52">
+            <summary>
+            描述 :UDF52 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.UDF53">
+            <summary>
+            描述 :UDF53 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.UDF54">
+            <summary>
+            描述 :UDF54 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.UDF55">
+            <summary>
+            描述 :UDF55 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.UDF56">
+            <summary>
+            描述 :UDF56 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.IsDeleted">
+            <summary>
+            描述 :软删除 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.ReMark">
+            <summary>
+            描述 :备注 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.UpdateTime">
             <summary>
             描述 :UpdateTime 
             </summary>
@@ -2178,1247 +2777,221 @@
             描述 : 
             </summary>
         </member>
-        <member name="T:La.Model.Dto.WfCustomformQueryDto">
+        <member name="T:La.Model.Dto.EtDictQueryDto">
             <summary>
-            自定义表单查询对象
+            电子辞典查询对象
+            @author Davis.Cheng
+            @date 2023-04-26
             </summary>
         </member>
-        <member name="T:La.Model.Dto.WfCustomformDto">
+        <member name="P:La.Model.Dto.EtDictQueryDto.EtType">
             <summary>
-            自定义表单输入输出对象
+            描述 :类别 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.WfCustomformDto.Id">
+        <member name="P:La.Model.Dto.EtDictQueryDto.EtLetter">
+            <summary>
+            描述 :字母 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EtDictQueryDto.EtArea">
+            <summary>
+            描述 :隶属范围 
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.EtDictDto">
+            <summary>
+            电子辞典输入输出对象
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EtDictDto.EtGuid">
+            <summary>
+            描述 :Guid 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EtDictDto.EtType">
+            <summary>
+            描述 :类别 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EtDictDto.EtLetter">
+            <summary>
+            描述 :字母 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EtDictDto.EtLangKey">
+            <summary>
+            描述 :语言 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EtDictDto.EtPhrase">
+            <summary>
+            描述 :短语 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EtDictDto.EtExplain">
+            <summary>
+            描述 :解释 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EtDictDto.EtArea">
+            <summary>
+            描述 :隶属范围 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EtDictDto.Remark">
+            <summary>
+            描述 :备注 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EtDictDto.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EtDictDto.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EtDictDto.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EtDictDto.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.RefStrategyQueryDto">
+            <summary>
+            单据编码查询对象
+            @author Davis.Cheng
+            @date 2023-04-26
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.RefStrategyQueryDto.RefModule">
+            <summary>
+            描述 :模块 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.RefStrategyQueryDto.RefCategory">
+            <summary>
+            描述 :类别 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.RefStrategyQueryDto.RefCode">
+            <summary>
+            描述 :编码代号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.RefStrategyQueryDto.RefPattern">
+            <summary>
+            描述 :编码模式 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.RefStrategyQueryDto.RefLenth">
+            <summary>
+            描述 :长度 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.RefStrategyQueryDto.Status">
+            <summary>
+            描述 :状态 
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.RefStrategyDto">
+            <summary>
+            单据编码输入输出对象
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.RefStrategyDto.RefId">
             <summary>
             描述 :ID 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.WfCustomformDto.Name">
+        <member name="P:La.Model.Dto.RefStrategyDto.RefModule">
             <summary>
-            描述 :名称 
+            描述 :模块 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.WfCustomformDto.Sort">
+        <member name="P:La.Model.Dto.RefStrategyDto.RefCategory">
+            <summary>
+            描述 :类别 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.RefStrategyDto.RefCode">
+            <summary>
+            描述 :编码代号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.RefStrategyDto.RefName">
+            <summary>
+            描述 :编码名称 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.RefStrategyDto.RefPattern">
+            <summary>
+            描述 :编码模式 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.RefStrategyDto.RefPrefix">
+            <summary>
+            描述 :前缀 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.RefStrategyDto.RefLenth">
+            <summary>
+            描述 :长度 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.RefStrategyDto.InitNumber">
+            <summary>
+            描述 :初始编码 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.RefStrategyDto.IsoNumber">
+            <summary>
+            描述 :ISO编号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.RefStrategyDto.Status">
+            <summary>
+            描述 :状态 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.RefStrategyDto.Sort">
             <summary>
             描述 :排序 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.WfCustomformDto.FlowInstanceId">
-            <summary>
-            描述 :流程实例模板Id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfCustomformDto.ReMark">
-            <summary>
-            描述 :备注 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfCustomformDto.CreateBy">
-            <summary>
-            描述 :CreateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfCustomformDto.CreateTime">
-            <summary>
-            描述 :CreateTime 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfCustomformDto.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfCustomformDto.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfFlowCateQueryDto">
-            <summary>
-            OA流程分类表查询对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowCateQueryDto.Name">
-            <summary>
-            描述 :名称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowCateQueryDto.BeginCrtim">
-            <summary>
-            描述 :开始时间
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowCateQueryDto.EndCrtim">
-            <summary>
-            描述 :结束时间
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowCateQueryDto.Crmid">
-            <summary>
-            描述 :创建者Id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowCateQueryDto.Avtag">
-            <summary>
-            描述 :可用标记：1可用，0禁用 
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfFlowCateDto">
-            <summary>
-            OA流程分类表输入输出对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowCateDto.Id">
-            <summary>
-            描述 :Id主键 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowCateDto.Ornum">
-            <summary>
-            描述 :排序号 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowCateDto.Pid">
-            <summary>
-            描述 :父ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowCateDto.Name">
-            <summary>
-            描述 :名称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowCateDto.Crtim">
-            <summary>
-            描述 :创建时间 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowCateDto.Uptim">
-            <summary>
-            描述 :更新时间 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowCateDto.Crmid">
-            <summary>
-            描述 :创建者Id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowCateDto.Upmid">
-            <summary>
-            描述 :修改者Id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowCateDto.Avtag">
-            <summary>
-            描述 :可用标记：1可用，0禁用 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowCateDto.Notes">
-            <summary>
-            描述 :备注 
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfFlowinstanceQueryDto">
-            <summary>
-            流程实例模板查询对象
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfFlowinstanceDto">
-            <summary>
-            流程实例模板输入输出对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.Id">
-            <summary>
-            描述 :ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.InstanceSchemeId">
-            <summary>
-            描述 :流程实例模板Id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.Code">
-            <summary>
-            描述 :实例编号 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.CustomName">
-            <summary>
-            描述 :自定义名称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.ActivityId">
-            <summary>
-            描述 :当前节点ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.ActivityType">
-            <summary>
-            描述 :当前节点类型（0会签节点） 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.ActivityName">
-            <summary>
-            描述 :当前节点名称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.PreviousId">
-            <summary>
-            描述 :前一个ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.SchemeContent">
-            <summary>
-            描述 :流程模板内容 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.SchemeId">
-            <summary>
-            描述 :流程模板ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.DbName">
-            <summary>
-            描述 :数据库名称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.FrmData">
-            <summary>
-            描述 :表单数据 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.FrmType">
-            <summary>
-            描述 :表单类型 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.FrmContentData">
-            <summary>
-            描述 :表单中的字段 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.FrmContentParse">
-            <summary>
-            描述 :表单字段（冗余) 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.FrmId">
-            <summary>
-            描述 :表单ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.SchemeType">
-            <summary>
-            描述 :流程类型 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.FlowLevel">
-            <summary>
-            描述 :等级 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.IsFinish">
-            <summary>
-            描述 :是否完成 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.FrmContent">
-            <summary>
-            描述 :表单参数 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.MakerList">
-            <summary>
-            描述 :执行人 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.OrgId">
-            <summary>
-            描述 :所属部门 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.Active">
-            <summary>
-            描述 :Active 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.Status">
-            <summary>
-            描述 :状态标识 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.IsDeleted">
+        <member name="P:La.Model.Dto.RefStrategyDto.IsDeleted">
             <summary>
             描述 :IsDeleted 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.TenantId">
-            <summary>
-            描述 :TenantId 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.ReMark">
+        <member name="P:La.Model.Dto.RefStrategyDto.ReMark">
             <summary>
             描述 :ReMark 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.CreateBy">
+        <member name="P:La.Model.Dto.RefStrategyDto.CreateBy">
             <summary>
             描述 :CreateBy 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.CreateTime">
+        <member name="P:La.Model.Dto.RefStrategyDto.CreateTime">
             <summary>
             描述 :CreateTime 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.UpdateBy">
+        <member name="P:La.Model.Dto.RefStrategyDto.UpdateBy">
             <summary>
             描述 :UpdateBy 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceDto.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfFlowinstancehisQueryDto">
-            <summary>
-            工作流实例流转历史记录查询对象
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfFlowinstancehisDto">
-            <summary>
-            工作流实例流转历史记录输入输出对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstancehisDto.Id">
-            <summary>
-            描述 :ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstancehisDto.InstanceId">
-            <summary>
-            描述 :实例Id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstancehisDto.FromNodeId">
-            <summary>
-            描述 :开始节点Id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstancehisDto.FromNodeType">
-            <summary>
-            描述 :开始节点类型 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstancehisDto.FromNodeName">
-            <summary>
-            描述 :开始节点名称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstancehisDto.ToNodeId">
-            <summary>
-            描述 :结束节点Id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstancehisDto.ToNodeType">
-            <summary>
-            描述 :结束节点类型 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstancehisDto.ToNodeName">
-            <summary>
-            描述 :结束节点名称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstancehisDto.TransitionSate">
-            <summary>
-            描述 :转化状态 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstancehisDto.IsFinish">
-            <summary>
-            描述 :是否结束 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstancehisDto.ReMark">
-            <summary>
-            描述 :ReMark 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstancehisDto.CreateBy">
-            <summary>
-            描述 :创建用户 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstancehisDto.CreateTime">
-            <summary>
-            描述 :转化时间 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstancehisDto.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstancehisDto.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfFlowinstanceinfoQueryDto">
-            <summary>
-            工作流实例操作记录查询对象
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfFlowinstanceinfoDto">
-            <summary>
-            工作流实例操作记录输入输出对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceinfoDto.Id">
-            <summary>
-            描述 :ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceinfoDto.InstanceId">
-            <summary>
-            描述 :实例进程Id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceinfoDto.Content">
-            <summary>
-            描述 :操作内容 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceinfoDto.ReMark">
-            <summary>
-            描述 :ReMark 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceinfoDto.CreateBy">
-            <summary>
-            描述 :创建用户 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceinfoDto.CreateTime">
-            <summary>
-            描述 :创建时间 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceinfoDto.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowinstanceinfoDto.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfFlowMainQueryDto">
-            <summary>
-            OA流程实例表查询对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowMainQueryDto.Protd">
-            <summary>
-            描述 :全局流程模板ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowMainQueryDto.State">
-            <summary>
-            描述 :状态 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowMainQueryDto.Name">
-            <summary>
-            描述 :名称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowMainQueryDto.BeginCrtim">
-            <summary>
-            描述 :开始时间
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowMainQueryDto.EndCrtim">
-            <summary>
-            描述 :结束时间
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowMainQueryDto.Crmid">
-            <summary>
-            描述 :创建者Id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowMainQueryDto.Avtag">
-            <summary>
-            描述 :可用标记：1可用，0禁用 
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfFlowMainDto">
-            <summary>
-            OA流程实例表输入输出对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowMainDto.Id">
-            <summary>
-            描述 :Id主键 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowMainDto.Protd">
-            <summary>
-            描述 :全局流程模板ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowMainDto.Zform">
-            <summary>
-            描述 :表单数据 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowMainDto.Tmpid">
-            <summary>
-            描述 :全局流程模板ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowMainDto.State">
-            <summary>
-            描述 :状态 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowMainDto.Name">
-            <summary>
-            描述 :名称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowMainDto.Crtim">
-            <summary>
-            描述 :创建时间 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowMainDto.Uptim">
-            <summary>
-            描述 :更新时间 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowMainDto.Crmid">
-            <summary>
-            描述 :创建者Id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowMainDto.Upmid">
-            <summary>
-            描述 :修改者Id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowMainDto.Avtag">
-            <summary>
-            描述 :可用标记：1可用，0禁用 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowMainDto.Notes">
-            <summary>
-            描述 :备注 
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfFlowReceQueryDto">
-            <summary>
-            流程使用记录查询对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowReceQueryDto.Useid">
-            <summary>
-            描述 :用户ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowReceQueryDto.Floid">
-            <summary>
-            描述 :流程模板ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowReceQueryDto.BeginUptim">
-            <summary>
-            描述 :开始时间
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowReceQueryDto.EndUptim">
-            <summary>
-            描述 :结束时间
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfFlowReceDto">
-            <summary>
-            流程使用记录输入输出对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowReceDto.Id">
-            <summary>
-            描述 :Id主键 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowReceDto.Useid">
-            <summary>
-            描述 :用户ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowReceDto.Floid">
-            <summary>
-            描述 :流程模板ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowReceDto.Uptim">
-            <summary>
-            描述 :最近使用时间 
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfFlowschemeQueryDto">
-            <summary>
-            流程查询对象
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfFlowschemeDto">
-            <summary>
-            流程输入输出对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.Id">
-            <summary>
-            描述 :ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.SchemeCode">
-            <summary>
-            描述 :流程编号 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.SchemeName">
-            <summary>
-            描述 :流程名称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.SchemeType">
-            <summary>
-            描述 :流程类型 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.SchemeVersion">
-            <summary>
-            描述 :流程版本 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.SchemeCanUser">
-            <summary>
-            描述 :流程使用人 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.SchemeContent">
-            <summary>
-            描述 :流程内容 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.FrmId">
-            <summary>
-            描述 :表单Id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.FrmType">
-            <summary>
-            描述 :表单类型 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.AuthorizeType">
-            <summary>
-            描述 :权限类型 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.OrgId">
-            <summary>
-            描述 :组织Id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.Active">
-            <summary>
-            描述 :执行 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.Status">
-            <summary>
-            描述 :状态 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.Sort">
-            <summary>
-            描述 :排序 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.IsDeleted">
-            <summary>
-            描述 :IsDeleted 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.ReMark">
-            <summary>
-            描述 :ReMark 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.CreateBy">
-            <summary>
-            描述 :CreateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.CreateTime">
-            <summary>
-            描述 :CreateTime 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowschemeDto.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfFlowTmplQueryDto">
-            <summary>
-            OA流程模板表查询对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowTmplQueryDto.Catid">
-            <summary>
-            描述 :分类ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowTmplQueryDto.Protd">
-            <summary>
-            描述 :全局流程模板ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowTmplQueryDto.Name">
-            <summary>
-            描述 :名称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowTmplQueryDto.BeginCrtim">
-            <summary>
-            描述 :开始时间
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowTmplQueryDto.EndCrtim">
-            <summary>
-            描述 :结束时间
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowTmplQueryDto.Crmid">
-            <summary>
-            描述 :创建者Id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowTmplQueryDto.Avtag">
-            <summary>
-            描述 :可用标记：1可用，0禁用 
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfFlowTmplDto">
-            <summary>
-            OA流程模板表输入输出对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowTmplDto.Id">
-            <summary>
-            描述 :Id主键 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowTmplDto.Catid">
-            <summary>
-            描述 :分类ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowTmplDto.Ornum">
-            <summary>
-            描述 :排序号 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowTmplDto.Protd">
-            <summary>
-            描述 :全局流程模板ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowTmplDto.Vform">
-            <summary>
-            描述 :vform 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowTmplDto.Name">
-            <summary>
-            描述 :名称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowTmplDto.Crtim">
-            <summary>
-            描述 :创建时间 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowTmplDto.Uptim">
-            <summary>
-            描述 :更新时间 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowTmplDto.Crmid">
-            <summary>
-            描述 :创建者Id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowTmplDto.Upmid">
-            <summary>
-            描述 :修改者Id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowTmplDto.Avtag">
-            <summary>
-            描述 :可用标记：1可用，0禁用 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFlowTmplDto.Notes">
-            <summary>
-            描述 :备注 
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfFormQueryDto">
-            <summary>
-            表单查询对象
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfFormDto">
-            <summary>
-            表单输入输出对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFormDto.Id">
-            <summary>
-            描述 :ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFormDto.Name">
-            <summary>
-            描述 :表单名称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFormDto.FrmType">
-            <summary>
-            描述 :表单类型 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFormDto.WebId">
-            <summary>
-            描述 :自定义表单 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFormDto.Fields">
-            <summary>
-            描述 :字段数 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFormDto.ContentData">
-            <summary>
-            描述 :字段 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFormDto.ContentParse">
-            <summary>
-            描述 :字段格式化 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFormDto.Content">
-            <summary>
-            描述 :表单内容 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFormDto.DbName">
-            <summary>
-            描述 :数据库备用 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFormDto.OrgId">
-            <summary>
-            描述 :组织id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFormDto.Active">
-            <summary>
-            描述 :执行 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFormDto.Status">
-            <summary>
-            描述 :状态 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFormDto.Sort">
-            <summary>
-            描述 :排序 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFormDto.IsDeleted">
-            <summary>
-            描述 :IsDeleted 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFormDto.ReMark">
-            <summary>
-            描述 :ReMark 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFormDto.CreateBy">
-            <summary>
-            描述 :CreateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFormDto.CreateTime">
-            <summary>
-            描述 :CreateTime 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFormDto.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfFormDto.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfWorkflowQueryDto">
-            <summary>
-            审批流程查询对象
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfWorkflowDto">
-            <summary>
-            审批流程输入输出对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowDto.WorkflowId">
-            <summary>
-            描述 :ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowDto.WorkName">
-            <summary>
-            描述 :流程名称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowDto.WorkTable">
-            <summary>
-            描述 :表名 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowDto.WorkTableName">
-            <summary>
-            描述 :功能菜单 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowDto.NodeConfig">
-            <summary>
-            描述 :节点信息 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowDto.LineConfig">
-            <summary>
-            描述 :连接配置 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowDto.ReMark">
-            <summary>
-            描述 :备注 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowDto.Enable">
-            <summary>
-            描述 :是否启用 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowDto.CreateBy">
-            <summary>
-            描述 :CreateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowDto.CreateTime">
-            <summary>
-            描述 :CreateTime 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowDto.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowDto.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowDto.WfWorkflowstep">
-            <summary>
-            审批节点
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfWorkflowstepQueryDto">
-            <summary>
-            审批节点配置查询对象
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfWorkflowstepDto">
-            <summary>
-            审批节点配置输入输出对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowstepDto.WorkstepflowId">
-            <summary>
-            描述 :ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowstepDto.WorkflowId">
-            <summary>
-            描述 :流程主表id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowstepDto.StepId">
-            <summary>
-            描述 :流程节点Id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowstepDto.StepName">
-            <summary>
-            描述 :节点名称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowstepDto.StepType">
-            <summary>
-            描述 :节点类型 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowstepDto.StepValue">
-            <summary>
-            描述 :审批用户id或角色id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowstepDto.OrderId">
-            <summary>
-            描述 :审批顺序 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowstepDto.ReMark">
-            <summary>
-            描述 :备注 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowstepDto.Enable">
-            <summary>
-            描述 :Enable 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowstepDto.CreateBy">
-            <summary>
-            描述 :CreateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowstepDto.CreateTime">
-            <summary>
-            描述 :CreateTime 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowstepDto.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowstepDto.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfWorkflowtableQueryDto">
-            <summary>
-            审批流程查询对象
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfWorkflowtableDto">
-            <summary>
-            审批流程输入输出对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtableDto.WorkflowtableId">
-            <summary>
-            描述 :ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtableDto.WorkflowId">
-            <summary>
-            描述 :流程id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtableDto.WorkName">
-            <summary>
-            描述 :流程名称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtableDto.WorkTableKey">
-            <summary>
-            描述 :表主键id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtableDto.WorkTable">
-            <summary>
-            描述 :表名 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtableDto.WorkTableName">
-            <summary>
-            描述 :业务名称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtableDto.CurrentOrderId">
-            <summary>
-            描述 :当前审批节点 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtableDto.AuditStatus">
-            <summary>
-            描述 :审批状态 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtableDto.Enable">
-            <summary>
-            描述 :启用 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtableDto.CreateBy">
-            <summary>
-            描述 :CreateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtableDto.CreateTime">
-            <summary>
-            描述 :CreateTime 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtableDto.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtableDto.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtableDto.WfWorkflowtablestep">
-            <summary>
-            审批节点
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfWorkflowtablestepQueryDto">
-            <summary>
-            审批节点查询对象
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.WfWorkflowtablestepDto">
-            <summary>
-            审批节点输入输出对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.SysWorkflowtablestepId">
-            <summary>
-            描述 :ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.WorkflowtableId">
-            <summary>
-            描述 :主表id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.WorkflowId">
-            <summary>
-            描述 :流程id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.StepId">
-            <summary>
-            描述 :节点id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.StepName">
-            <summary>
-            描述 :节名称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.StepType">
-            <summary>
-            描述 :审批类型 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.StepValue">
-            <summary>
-            描述 :节点类型 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.OrderId">
-            <summary>
-            描述 :审批顺序 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.AuditId">
-            <summary>
-            描述 :审核人id 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.Auditor">
-            <summary>
-            描述 :审核人 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.AuditStatus">
-            <summary>
-            描述 :审核状态 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.AuditDate">
-            <summary>
-            描述 :审核时间 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.ReMark">
-            <summary>
-            描述 :备注 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.Enable">
-            <summary>
-            描述 :启用 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.CreateBy">
-            <summary>
-            描述 :CreateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.CreateTime">
-            <summary>
-            描述 :CreateTime 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.WfWorkflowtablestepDto.UpdateTime">
+        <member name="P:La.Model.Dto.RefStrategyDto.UpdateTime">
             <summary>
             描述 :UpdateTime 
             </summary>
@@ -4134,7 +3707,7 @@
              利润中心，数据实体对象
             
              @author Davis.Cheng
-             @date 2023-04-11
+             @date 2023-04-26
              </summary>
         </member>
         <member name="P:La.Model.Models.FicoPrctr.FpId">
@@ -4484,6 +4057,212 @@
             </summary>
         </member>
         <member name="P:La.Model.Models.FicoWagerates.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="T:La.Model.Models.PpEcDigest">
+             <summary>
+             新旧物料，数据实体对象
+            
+             @author Davis.Cheng
+             @date 2023-04-26
+             </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.EdId">
+            <summary>
+            描述 :ID 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.EdBalanceDate">
+            <summary>
+            描述 :输入日期 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.EdIssueDate">
+            <summary>
+            描述 :设变发行日 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.EdModel">
+            <summary>
+            描述 :机种 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.Editem">
+            <summary>
+            描述 :物料 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.EdEcNo">
+            <summary>
+            描述 :设变号 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.EdOldItem">
+            <summary>
+            描述 :旧物料 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.EdOldQty">
+            <summary>
+            描述 :旧库存 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.EdPoQty">
+            <summary>
+            描述 :PO数量 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.EdBalanceQty">
+            <summary>
+            描述 :结算数量 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.EdNewItem">
+            <summary>
+            描述 :新物料 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.EdNewQty">
+            <summary>
+            描述 :新库存 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.EdDisposal">
+            <summary>
+            描述 :处理方法 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.EdNote">
+            <summary>
+            描述 :说明 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.EdStatus">
+            <summary>
+            描述 :设变状态 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.UDF01">
+            <summary>
+            描述 :UDF01 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.UDF02">
+            <summary>
+            描述 :UDF02 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.UDF03">
+            <summary>
+            描述 :UDF03 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.UDF04">
+            <summary>
+            描述 :UDF04 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.UDF05">
+            <summary>
+            描述 :UDF05 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.UDF06">
+            <summary>
+            描述 :UDF06 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.UDF51">
+            <summary>
+            描述 :UDF51 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.UDF52">
+            <summary>
+            描述 :UDF52 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.UDF53">
+            <summary>
+            描述 :UDF53 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.UDF54">
+            <summary>
+            描述 :UDF54 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.UDF55">
+            <summary>
+            描述 :UDF55 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.UDF56">
+            <summary>
+            描述 :UDF56 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.IsDeleted">
+            <summary>
+            描述 :软删除 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.ReMark">
+            <summary>
+            描述 :备注 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcDigest.UpdateTime">
             <summary>
             描述 :UpdateTime 
             空值 :true 
@@ -4944,6 +4723,434 @@
             </summary>
         </member>
         <member name="P:La.Model.Models.PpEcMaster.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="T:La.Model.Models.PpEcSlave">
+             <summary>
+             从设变，数据实体对象
+            
+             @author Davis.Cheng
+             @date 2023-04-26
+             </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsId">
+            <summary>
+            描述 :ID 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsEntryDate">
+            <summary>
+            描述 :输入日 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsEcNo">
+            <summary>
+            描述 :设变No. 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsModel">
+            <summary>
+            描述 :机种 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsItem">
+            <summary>
+            描述 :物料 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsSubItem">
+            <summary>
+            描述 :子物料 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsOldItem">
+            <summary>
+            描述 :旧物料 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsOldItemText">
+            <summary>
+            描述 :旧文本 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsOldUsageQty">
+            <summary>
+            描述 :用量 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsOldSetLoc">
+            <summary>
+            描述 :位置 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsNewItem">
+            <summary>
+            描述 :新物料 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsNewItemText">
+            <summary>
+            描述 :新文本 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsNewUsageQty">
+            <summary>
+            描述 :用量 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsNewSetLoc">
+            <summary>
+            描述 :位置 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsBomNo">
+            <summary>
+            描述 :bom番号 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsChange">
+            <summary>
+            描述 :互换 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.Eslocal">
+            <summary>
+            描述 :区分 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.Esnote">
+            <summary>
+            描述 :指示 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsOldProcess">
+            <summary>
+            描述 :旧品处理 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsBomDate">
+            <summary>
+            描述 :bom日期 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPurType">
+            <summary>
+            描述 :采购类型 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EmEcImpDept">
+            <summary>
+            描述 :实施部门 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsSloc">
+            <summary>
+            描述 :仓库 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsOldCurrStock">
+            <summary>
+            描述 :旧品库存 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsNewCurrStock">
+            <summary>
+            描述 :新品库存 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsInsmk">
+            <summary>
+            描述 :检验否 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsMstae">
+            <summary>
+            描述 :工厂状态 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsDeptEntryDate">
+            <summary>
+            描述 :部门录入日 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsDeptName">
+            <summary>
+            描述 :部门名称 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsSupplier">
+            <summary>
+            描述 :供应商 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPurOrder">
+            <summary>
+            描述 :采购PO 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPurNote">
+            <summary>
+            描述 :说明 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPmcLot">
+            <summary>
+            描述 :预投入批次 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPmcMemo">
+            <summary>
+            描述 :说明 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPmcNote">
+            <summary>
+            描述 :备注 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsIqcOrder">
+            <summary>
+            描述 :检验订单 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsIqcNote">
+            <summary>
+            描述 :说明 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsMmLot">
+            <summary>
+            描述 :领用批次 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsMmMocNo">
+            <summary>
+            描述 :工单 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsMmNote">
+            <summary>
+            描述 :说明 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPpLine">
+            <summary>
+            描述 :班组 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPpLot">
+            <summary>
+            描述 :生产批次 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPpNote">
+            <summary>
+            描述 :说明 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPcbaLine">
+            <summary>
+            描述 :Pcba班组 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPcbaLot">
+            <summary>
+            描述 :Pcba批次 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPcbaNote">
+            <summary>
+            描述 :说明 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsQaLot">
+            <summary>
+            描述 :检验批次 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsQaNote">
+            <summary>
+            描述 :说明 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsDeptCreator">
+            <summary>
+            描述 :EsDeptCreator 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsDeptCreateTime">
+            <summary>
+            描述 :EsDeptCreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsDeptModifier">
+            <summary>
+            描述 :EsDeptModifier 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsDeptModifyTime">
+            <summary>
+            描述 :EsDeptModifyTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.UDF01">
+            <summary>
+            描述 :UDF01 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.UDF02">
+            <summary>
+            描述 :UDF02 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.UDF03">
+            <summary>
+            描述 :UDF03 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.UDF04">
+            <summary>
+            描述 :UDF04 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.UDF05">
+            <summary>
+            描述 :UDF05 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.UDF06">
+            <summary>
+            描述 :UDF06 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.UDF51">
+            <summary>
+            描述 :UDF51 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.UDF52">
+            <summary>
+            描述 :UDF52 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.UDF53">
+            <summary>
+            描述 :UDF53 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.UDF54">
+            <summary>
+            描述 :UDF54 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.UDF55">
+            <summary>
+            描述 :UDF55 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.UDF56">
+            <summary>
+            描述 :UDF56 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.IsDeleted">
+            <summary>
+            描述 :软删除 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.ReMark">
+            <summary>
+            描述 :备注 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.UpdateTime">
             <summary>
             描述 :UpdateTime 
             空值 :true 
@@ -5731,1289 +5938,197 @@
             空值 :true 
             </summary>
         </member>
-        <member name="T:La.Model.Models.Workflow.Flowinstance.WfCustomform">
+        <member name="T:La.Model.Models.EtDict">
              <summary>
-             自定义表单，数据实体对象
+             电子辞典，数据实体对象
             
              @author Davis.Cheng
-             @date 2023-03-14
+             @date 2023-04-26
              </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfCustomform.Id">
+        <member name="P:La.Model.Models.EtDict.EtGuid">
             <summary>
-            描述 :ID 
+            描述 :Guid 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfCustomform.Name">
+        <member name="P:La.Model.Models.EtDict.EtType">
             <summary>
-            描述 :名称 
+            描述 :类别 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EtDict.EtLetter">
+            <summary>
+            描述 :字母 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EtDict.EtLangKey">
+            <summary>
+            描述 :语言 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EtDict.EtPhrase">
+            <summary>
+            描述 :短语 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EtDict.EtExplain">
+            <summary>
+            描述 :解释 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EtDict.EtArea">
+            <summary>
+            描述 :隶属范围 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfCustomform.Sort">
-            <summary>
-            描述 :排序 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfCustomform.FlowInstanceId">
-            <summary>
-            描述 :流程实例模板Id 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfCustomform.ReMark">
+        <member name="P:La.Model.Models.EtDict.Remark">
             <summary>
             描述 :备注 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfCustomform.CreateBy">
+        <member name="P:La.Model.Models.EtDict.CreateBy">
             <summary>
             描述 :CreateBy 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfCustomform.CreateTime">
+        <member name="P:La.Model.Models.EtDict.CreateTime">
             <summary>
             描述 :CreateTime 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfCustomform.UpdateBy">
+        <member name="P:La.Model.Models.EtDict.UpdateBy">
             <summary>
             描述 :UpdateBy 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfCustomform.UpdateTime">
+        <member name="P:La.Model.Models.EtDict.UpdateTime">
             <summary>
             描述 :UpdateTime 
             空值 :true 
             </summary>
         </member>
-        <member name="T:La.Model.Models.Workflow.Flowinstance.WfFlowinstance">
+        <member name="T:La.Model.Models.RefStrategy">
              <summary>
-             流程实例模板，数据实体对象
+             单据编码，数据实体对象
             
              @author Davis.Cheng
-             @date 2023-03-14
+             @date 2023-04-26
              </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.Id">
+        <member name="P:La.Model.Models.RefStrategy.RefId">
             <summary>
             描述 :ID 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.InstanceSchemeId">
+        <member name="P:La.Model.Models.RefStrategy.RefModule">
             <summary>
-            描述 :流程实例模板Id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.Code">
-            <summary>
-            描述 :实例编号 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.CustomName">
-            <summary>
-            描述 :自定义名称 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.ActivityId">
-            <summary>
-            描述 :当前节点ID 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.ActivityType">
-            <summary>
-            描述 :当前节点类型（0会签节点） 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.ActivityName">
-            <summary>
-            描述 :当前节点名称 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.PreviousId">
-            <summary>
-            描述 :前一个ID 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.SchemeContent">
-            <summary>
-            描述 :流程模板内容 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.SchemeId">
-            <summary>
-            描述 :流程模板ID 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.DbName">
-            <summary>
-            描述 :数据库名称 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.FrmData">
-            <summary>
-            描述 :表单数据 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.FrmType">
-            <summary>
-            描述 :表单类型 
+            描述 :模块 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.FrmContentData">
+        <member name="P:La.Model.Models.RefStrategy.RefCategory">
             <summary>
-            描述 :表单中的字段 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.FrmContentParse">
-            <summary>
-            描述 :表单字段（冗余) 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.FrmId">
-            <summary>
-            描述 :表单ID 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.SchemeType">
-            <summary>
-            描述 :流程类型 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.FlowLevel">
-            <summary>
-            描述 :等级 
+            描述 :类别 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.IsFinish">
+        <member name="P:La.Model.Models.RefStrategy.RefCode">
             <summary>
-            描述 :是否完成 
+            描述 :编码代号 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.FrmContent">
+        <member name="P:La.Model.Models.RefStrategy.RefName">
             <summary>
-            描述 :表单参数 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.MakerList">
-            <summary>
-            描述 :执行人 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.OrgId">
-            <summary>
-            描述 :所属部门 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.Active">
-            <summary>
-            描述 :Active 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.Status">
-            <summary>
-            描述 :状态标识 
+            描述 :编码名称 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.IsDeleted">
+        <member name="P:La.Model.Models.RefStrategy.RefPattern">
             <summary>
-            描述 :IsDeleted 
+            描述 :编码模式 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.TenantId">
+        <member name="P:La.Model.Models.RefStrategy.RefPrefix">
             <summary>
-            描述 :TenantId 
+            描述 :前缀 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.ReMark">
+        <member name="P:La.Model.Models.RefStrategy.RefLenth">
             <summary>
-            描述 :ReMark 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.CreateBy">
-            <summary>
-            描述 :CreateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.CreateTime">
-            <summary>
-            描述 :CreateTime 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowinstance.WfFlowinstance.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="T:La.Model.Models.Workflow.Flowscheme.WfFlowscheme">
-             <summary>
-             流程，数据实体对象
-            
-             @author Davis.Cheng
-             @date 2023-03-14
-             </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.Id">
-            <summary>
-            描述 :ID 
+            描述 :长度 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.SchemeCode">
+        <member name="P:La.Model.Models.RefStrategy.InitNumber">
             <summary>
-            描述 :流程编号 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.SchemeName">
-            <summary>
-            描述 :流程名称 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.SchemeType">
-            <summary>
-            描述 :流程类型 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.SchemeVersion">
-            <summary>
-            描述 :流程版本 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.SchemeCanUser">
-            <summary>
-            描述 :流程使用人 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.SchemeContent">
-            <summary>
-            描述 :流程内容 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.FrmId">
-            <summary>
-            描述 :表单Id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.FrmType">
-            <summary>
-            描述 :表单类型 
+            描述 :初始编码 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.AuthorizeType">
+        <member name="P:La.Model.Models.RefStrategy.IsoNumber">
             <summary>
-            描述 :权限类型 
-            空值 :true 
+            描述 :ISO编号 
+            空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.OrgId">
-            <summary>
-            描述 :组织Id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.Active">
-            <summary>
-            描述 :执行 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.Status">
+        <member name="P:La.Model.Models.RefStrategy.Status">
             <summary>
             描述 :状态 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.Sort">
+        <member name="P:La.Model.Models.RefStrategy.Sort">
             <summary>
             描述 :排序 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.IsDeleted">
+        <member name="P:La.Model.Models.RefStrategy.IsDeleted">
             <summary>
             描述 :IsDeleted 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.ReMark">
+        <member name="P:La.Model.Models.RefStrategy.ReMark">
             <summary>
             描述 :ReMark 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.CreateBy">
+        <member name="P:La.Model.Models.RefStrategy.CreateBy">
             <summary>
             描述 :CreateBy 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.CreateTime">
+        <member name="P:La.Model.Models.RefStrategy.CreateTime">
             <summary>
             描述 :CreateTime 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.UpdateBy">
+        <member name="P:La.Model.Models.RefStrategy.UpdateBy">
             <summary>
             描述 :UpdateBy 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.Workflow.Flowscheme.WfFlowscheme.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="T:La.Model.Models.WfFlowCate">
-             <summary>
-             OA流程分类表，数据实体对象
-            
-             @author Davis.Cheng
-             @date 2023-03-17
-             </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowCate.Id">
-            <summary>
-            描述 :Id主键 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowCate.Ornum">
-            <summary>
-            描述 :排序号 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowCate.Pid">
-            <summary>
-            描述 :父ID 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowCate.Name">
-            <summary>
-            描述 :名称 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowCate.Crtim">
-            <summary>
-            描述 :创建时间 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowCate.Uptim">
-            <summary>
-            描述 :更新时间 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowCate.Crmid">
-            <summary>
-            描述 :创建者Id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowCate.Upmid">
-            <summary>
-            描述 :修改者Id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowCate.Avtag">
-            <summary>
-            描述 :可用标记：1可用，0禁用 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowCate.Notes">
-            <summary>
-            描述 :备注 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="T:La.Model.Models.WfFlowinstancehis">
-             <summary>
-             工作流实例流转历史记录，数据实体对象
-            
-             @author Davis.Cheng
-             @date 2023-03-14
-             </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstancehis.Id">
-            <summary>
-            描述 :ID 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstancehis.InstanceId">
-            <summary>
-            描述 :实例Id 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstancehis.FromNodeId">
-            <summary>
-            描述 :开始节点Id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstancehis.FromNodeType">
-            <summary>
-            描述 :开始节点类型 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstancehis.FromNodeName">
-            <summary>
-            描述 :开始节点名称 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstancehis.ToNodeId">
-            <summary>
-            描述 :结束节点Id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstancehis.ToNodeType">
-            <summary>
-            描述 :结束节点类型 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstancehis.ToNodeName">
-            <summary>
-            描述 :结束节点名称 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstancehis.TransitionSate">
-            <summary>
-            描述 :转化状态 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstancehis.IsFinish">
-            <summary>
-            描述 :是否结束 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstancehis.ReMark">
-            <summary>
-            描述 :ReMark 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstancehis.CreateBy">
-            <summary>
-            描述 :创建用户 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstancehis.CreateTime">
-            <summary>
-            描述 :转化时间 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstancehis.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstancehis.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="T:La.Model.Models.WfFlowinstanceinfo">
-             <summary>
-             工作流实例操作记录，数据实体对象
-            
-             @author Davis.Cheng
-             @date 2023-03-14
-             </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstanceinfo.Id">
-            <summary>
-            描述 :ID 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstanceinfo.InstanceId">
-            <summary>
-            描述 :实例进程Id 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstanceinfo.Content">
-            <summary>
-            描述 :操作内容 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstanceinfo.ReMark">
-            <summary>
-            描述 :ReMark 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstanceinfo.CreateBy">
-            <summary>
-            描述 :创建用户 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstanceinfo.CreateTime">
-            <summary>
-            描述 :创建时间 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstanceinfo.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowinstanceinfo.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="T:La.Model.Models.WfFlowMain">
-             <summary>
-             OA流程实例表，数据实体对象
-            
-             @author Davis.Cheng
-             @date 2023-03-17
-             </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowMain.Id">
-            <summary>
-            描述 :Id主键 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowMain.Protd">
-            <summary>
-            描述 :全局流程模板ID 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowMain.Zform">
-            <summary>
-            描述 :表单数据 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowMain.Tmpid">
-            <summary>
-            描述 :全局流程模板ID 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowMain.State">
-            <summary>
-            描述 :状态 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowMain.Name">
-            <summary>
-            描述 :名称 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowMain.Crtim">
-            <summary>
-            描述 :创建时间 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowMain.Uptim">
-            <summary>
-            描述 :更新时间 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowMain.Crmid">
-            <summary>
-            描述 :创建者Id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowMain.Upmid">
-            <summary>
-            描述 :修改者Id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowMain.Avtag">
-            <summary>
-            描述 :可用标记：1可用，0禁用 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowMain.Notes">
-            <summary>
-            描述 :备注 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="T:La.Model.Models.WfFlowRece">
-             <summary>
-             流程使用记录，数据实体对象
-            
-             @author Davis.Cheng
-             @date 2023-04-10
-             </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowRece.Id">
-            <summary>
-            描述 :Id主键 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowRece.Useid">
-            <summary>
-            描述 :用户ID 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowRece.Floid">
-            <summary>
-            描述 :流程模板ID 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowRece.Uptim">
-            <summary>
-            描述 :最近使用时间 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="T:La.Model.Models.WfFlowTmpl">
-             <summary>
-             OA流程模板表，数据实体对象
-            
-             @author Davis.Cheng
-             @date 2023-03-17
-             </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowTmpl.Id">
-            <summary>
-            描述 :Id主键 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowTmpl.Catid">
-            <summary>
-            描述 :分类ID 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowTmpl.Ornum">
-            <summary>
-            描述 :排序号 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowTmpl.Protd">
-            <summary>
-            描述 :全局流程模板ID 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowTmpl.Vform">
-            <summary>
-            描述 :vform 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowTmpl.Name">
-            <summary>
-            描述 :名称 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowTmpl.Crtim">
-            <summary>
-            描述 :创建时间 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowTmpl.Uptim">
-            <summary>
-            描述 :更新时间 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowTmpl.Crmid">
-            <summary>
-            描述 :创建者Id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowTmpl.Upmid">
-            <summary>
-            描述 :修改者Id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowTmpl.Avtag">
-            <summary>
-            描述 :可用标记：1可用，0禁用 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfFlowTmpl.Notes">
-            <summary>
-            描述 :备注 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="T:La.Model.Models.WfForm">
-             <summary>
-             表单，数据实体对象
-            
-             @author Davis.Cheng
-             @date 2023-03-14
-             </summary>
-        </member>
-        <member name="P:La.Model.Models.WfForm.Id">
-            <summary>
-            描述 :ID 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfForm.Name">
-            <summary>
-            描述 :表单名称 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfForm.FrmType">
-            <summary>
-            描述 :表单类型 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfForm.WebId">
-            <summary>
-            描述 :自定义表单 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfForm.Fields">
-            <summary>
-            描述 :字段数 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfForm.ContentData">
-            <summary>
-            描述 :字段 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfForm.ContentParse">
-            <summary>
-            描述 :字段格式化 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfForm.Content">
-            <summary>
-            描述 :表单内容 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfForm.DbName">
-            <summary>
-            描述 :数据库备用 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfForm.OrgId">
-            <summary>
-            描述 :组织id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfForm.Active">
-            <summary>
-            描述 :执行 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfForm.Status">
-            <summary>
-            描述 :状态 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfForm.Sort">
-            <summary>
-            描述 :排序 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfForm.IsDeleted">
-            <summary>
-            描述 :IsDeleted 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfForm.ReMark">
-            <summary>
-            描述 :ReMark 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfForm.CreateBy">
-            <summary>
-            描述 :CreateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfForm.CreateTime">
-            <summary>
-            描述 :CreateTime 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfForm.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfForm.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="T:La.Model.Models.WfWorkflow">
-             <summary>
-             审批流程，数据实体对象
-            
-             @author Davis.Cheng
-             @date 2023-03-14
-             </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflow.WorkflowId">
-            <summary>
-            描述 :ID 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflow.WorkName">
-            <summary>
-            描述 :流程名称 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflow.WorkTable">
-            <summary>
-            描述 :表名 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflow.WorkTableName">
-            <summary>
-            描述 :功能菜单 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflow.NodeConfig">
-            <summary>
-            描述 :节点信息 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflow.LineConfig">
-            <summary>
-            描述 :连接配置 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflow.ReMark">
-            <summary>
-            描述 :备注 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflow.Enable">
-            <summary>
-            描述 :是否启用 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflow.CreateBy">
-            <summary>
-            描述 :CreateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflow.CreateTime">
-            <summary>
-            描述 :CreateTime 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflow.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflow.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="T:La.Model.Models.WfWorkflowstep">
-             <summary>
-             审批节点配置，数据实体对象
-            
-             @author Davis.Cheng
-             @date 2023-03-14
-             </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowstep.WorkstepflowId">
-            <summary>
-            描述 :ID 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowstep.WorkflowId">
-            <summary>
-            描述 :流程主表id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowstep.StepId">
-            <summary>
-            描述 :流程节点Id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowstep.StepName">
-            <summary>
-            描述 :节点名称 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowstep.StepType">
-            <summary>
-            描述 :节点类型 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowstep.StepValue">
-            <summary>
-            描述 :审批用户id或角色id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowstep.OrderId">
-            <summary>
-            描述 :审批顺序 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowstep.ReMark">
-            <summary>
-            描述 :备注 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowstep.Enable">
-            <summary>
-            描述 :Enable 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowstep.CreateBy">
-            <summary>
-            描述 :CreateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowstep.CreateTime">
-            <summary>
-            描述 :CreateTime 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowstep.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowstep.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="T:La.Model.Models.WfWorkflowtable">
-             <summary>
-             审批流程，数据实体对象
-            
-             @author Davis.Cheng
-             @date 2023-03-14
-             </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtable.WorkflowtableId">
-            <summary>
-            描述 :ID 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtable.WorkflowId">
-            <summary>
-            描述 :流程id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtable.WorkName">
-            <summary>
-            描述 :流程名称 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtable.WorkTableKey">
-            <summary>
-            描述 :表主键id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtable.WorkTable">
-            <summary>
-            描述 :表名 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtable.WorkTableName">
-            <summary>
-            描述 :业务名称 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtable.CurrentOrderId">
-            <summary>
-            描述 :当前审批节点 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtable.AuditStatus">
-            <summary>
-            描述 :审批状态 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtable.Enable">
-            <summary>
-            描述 :启用 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtable.CreateBy">
-            <summary>
-            描述 :CreateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtable.CreateTime">
-            <summary>
-            描述 :CreateTime 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtable.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtable.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="T:La.Model.Models.WfWorkflowtablestep">
-             <summary>
-             审批节点，数据实体对象
-            
-             @author Davis.Cheng
-             @date 2023-03-14
-             </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtablestep.SysWorkflowtablestepId">
-            <summary>
-            描述 :ID 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtablestep.WorkflowtableId">
-            <summary>
-            描述 :主表id 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtablestep.WorkflowId">
-            <summary>
-            描述 :流程id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtablestep.StepId">
-            <summary>
-            描述 :节点id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtablestep.StepName">
-            <summary>
-            描述 :节名称 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtablestep.StepType">
-            <summary>
-            描述 :审批类型 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtablestep.StepValue">
-            <summary>
-            描述 :节点类型 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtablestep.OrderId">
-            <summary>
-            描述 :审批顺序 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtablestep.AuditId">
-            <summary>
-            描述 :审核人id 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtablestep.Auditor">
-            <summary>
-            描述 :审核人 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtablestep.AuditStatus">
-            <summary>
-            描述 :审核状态 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtablestep.AuditDate">
-            <summary>
-            描述 :审核时间 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtablestep.ReMark">
-            <summary>
-            描述 :备注 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtablestep.Enable">
-            <summary>
-            描述 :启用 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtablestep.CreateBy">
-            <summary>
-            描述 :CreateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtablestep.CreateTime">
-            <summary>
-            描述 :CreateTime 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtablestep.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.WfWorkflowtablestep.UpdateTime">
+        <member name="P:La.Model.Models.RefStrategy.UpdateTime">
             <summary>
             描述 :UpdateTime 
             空值 :true 

@@ -2,7 +2,7 @@ using La.Infra;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.DataProtection;
 using La.WebApi.Framework;
-using Hei.Captcha;
+using Lazy.Captcha.Core;
 using La.Infra.Extensions;
 using La.WebApi.Extensions;
 using La.WebApi.Filters;
@@ -42,7 +42,7 @@ builder.Services.AddSignalR();
 builder.Services.AddDataProtection()
     .PersistKeysToFileSystem(new DirectoryInfo(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "DataProtection"));
 //普通验证码
-builder.Services.AddHeiCaptcha();
+builder.Services.AddCaptcha(builder.Configuration);
 //builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
 //绑定整个对象到Model上

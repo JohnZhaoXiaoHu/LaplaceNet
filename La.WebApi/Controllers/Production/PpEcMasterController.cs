@@ -84,9 +84,9 @@ namespace La.WebApi.Controllers
 
            // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_PpEcMasterService.CheckEntryStringUnique(parm.EmId.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_PpEcMasterService.CheckEntryStringUnique(parm.EmEcNo.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增主设变 '{parm.EmId}'失败，输入的主设变已存在"));
+                return ToResponse(ApiResult.Error($"新增主设变 '{parm.EmEcNo}'失败，输入的主设变已存在"));
             }
             var modal = parm.Adapt<PpEcMaster>().ToCreate(HttpContext);
 

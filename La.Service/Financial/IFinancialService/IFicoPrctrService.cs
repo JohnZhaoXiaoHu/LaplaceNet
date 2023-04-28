@@ -10,7 +10,7 @@ namespace La.Service.Financial.IFinancialService
     /// 利润中心service接口
     ///
     /// @author Davis.Cheng
-    /// @date 2023-04-11
+    /// @date 2023-04-26
     /// </summary>
     public interface IFicoPrctrService : IBaseService<FicoPrctr>
     {

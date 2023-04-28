@@ -1,4 +1,6 @@
-﻿using SqlSugar;
+﻿using MiniExcelLibs.Attributes;
+using SqlSugar;
+using System.Xml.Linq;
 
 namespace La.Model.System
 {
@@ -46,5 +48,6 @@ namespace La.Model.System
         /// 状态
         /// </summary>
         public string Status { get; set; }
+
     }
 }

@@ -8,6 +8,7 @@ using La.Model.System;
 using La.Repository;
 using La.Service.Production.IProductionService;
 using System.Linq;
+using Aliyun.OSS;
 
 namespace La.Service.Production
 {
@@ -54,7 +55,7 @@ namespace La.Service.Production
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.Guid.ToString() == entryString);
+            int count = Count(it => it.DSapZpabdS001 + it.DSapZpabdS002 + it.DSapZpabdS003 + it.DSapZpabdS004 + it.DSapZpabdS008 == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

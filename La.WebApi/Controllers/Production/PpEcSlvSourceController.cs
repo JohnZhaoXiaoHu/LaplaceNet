@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
 
            // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_PpEcSlvSourceService.CheckEntryStringUnique(parm.Guid.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_PpEcSlvSourceService.CheckEntryStringUnique(parm.DSapZpabdS001 + parm.DSapZpabdS002 + parm.DSapZpabdS003 + parm.DSapZpabdS004 + parm.DSapZpabdS008)))
             {
-                return ToResponse(ApiResult.Error($"新增从源设变 '{parm.Guid}'失败，输入的从源设变已存在"));
+                return ToResponse(ApiResult.Error($"新增从源设变 '{parm.DSapZpabdS001 +","+ parm.DSapZpabdS002 + "," + parm.DSapZpabdS003 + "," + parm.DSapZpabdS004 + "," + parm.DSapZpabdS008}'失败，输入的从源设变已存在"));
             }
             var modal = parm.Adapt<PpEcSlvSource>().ToCreate(HttpContext);
 

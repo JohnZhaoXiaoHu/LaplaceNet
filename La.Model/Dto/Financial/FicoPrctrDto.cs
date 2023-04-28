@@ -10,7 +10,7 @@ namespace La.Model.Dto
     /// <summary>
     /// 利润中心查询对象
     /// @author Davis.Cheng
-    /// @date 2023-04-11
+    /// @date 2023-04-26
     /// </summary>
     public class FicoPrctrQueryDto : PagerInfo 
     {
@@ -105,7 +105,8 @@ namespace La.Model.Dto
         /// <summary>
         /// 描述 :ReMark 
         /// </summary>
-        [ExcelIgnore]
+
+        [ExcelColumn(Name = "ReMark")]
         public string ReMark { get; set; }
 
         /// <summary>
