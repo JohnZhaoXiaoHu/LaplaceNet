@@ -15,22 +15,22 @@ using La.Common;
 namespace La.WebApi.Controllers
 {
     /// <summary>
-    /// SOP确认Controller
+    /// SOPController
     /// 
     /// @tableName pp_ec_sop
     /// @author Davis.Cheng
-    /// @date 2023-04-12
+    /// @date 2023-05-03
     /// </summary>
     [Verify]
     [Route("Production/PpEcSop")]
     public class PpEcSopController : BaseController
     {
         /// <summary>
-        /// SOP确认接口
+        /// SOP接口
         /// </summary>
         private readonly IPpEcSopService _PpEcSopService;
         /// <summary>
-        /// SOP确认Controller
+        /// SOPController
         /// </summary>
         public PpEcSopController(IPpEcSopService PpEcSopService)
         {
@@ -38,12 +38,12 @@ namespace La.WebApi.Controllers
         }
 
         /// <summary>
-        /// 查询SOP确认列表
+        /// 查询SOP列表
         /// </summary>
         /// <param name="parm"></param>
         /// <returns></returns>
         [HttpGet("list")]
-        [ActionPermissionFilter(Permission = "la:ppecsop:list")]
+        [ActionPermissionFilter(Permission = "pp:ecsop:list")]
         public IActionResult QueryPpEcSop([FromQuery] PpEcSopQueryDto parm)
         {
             var response = _PpEcSopService.GetList(parm);
@@ -52,12 +52,12 @@ namespace La.WebApi.Controllers
 
 
         /// <summary>
-        /// 查询SOP确认详情
+        /// 查询SOP详情
         /// </summary>
         /// <param name="EsId"></param>
         /// <returns></returns>
         [HttpGet("{EsId}")]
-        [ActionPermissionFilter(Permission = "la:ppecsop:query")]
+        [ActionPermissionFilter(Permission = "pp:ecsop:query")]
         public IActionResult GetPpEcSop(int EsId)
         {
             var response = _PpEcSopService.GetFirst(x => x.EsId == EsId);
@@ -66,12 +66,12 @@ namespace La.WebApi.Controllers
         }
 
         /// <summary>
-        /// 添加SOP确认
+        /// 添加SOP
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [ActionPermissionFilter(Permission = "la:ppecsop:add")]
-        [Log(Title = "SOP确认", BusinessType = BusinessType.INSERT)]
+        [ActionPermissionFilter(Permission = "pp:ecsop:add")]
+        [Log(Title = "SOP", BusinessType = BusinessType.INSERT)]
         public IActionResult AddPpEcSop([FromBody] PpEcSopDto parm)
         {
             if (parm == null)
@@ -83,7 +83,7 @@ namespace La.WebApi.Controllers
 
             if (UserConstants.NOT_UNIQUE.Equals(_PpEcSopService.CheckEntryStringUnique(parm.EsId.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增SOP确认 '{parm.EsId}'失败，输入的SOP确认已存在"));
+                return ToResponse(ApiResult.Error($"新增SOP '{parm.EsId}'失败，输入的SOP已存在"));
             }
             var modal = parm.Adapt<PpEcSop>().ToCreate(HttpContext);
 
@@ -93,12 +93,12 @@ namespace La.WebApi.Controllers
         }
 
         /// <summary>
-        /// 更新SOP确认
+        /// 更新SOP
         /// </summary>
         /// <returns></returns>
         [HttpPut]
-        [ActionPermissionFilter(Permission = "la:ppecsop:edit")]
-        [Log(Title = "SOP确认", BusinessType = BusinessType.UPDATE)]
+        [ActionPermissionFilter(Permission = "pp:ecsop:edit")]
+        [Log(Title = "SOP", BusinessType = BusinessType.UPDATE)]
         public IActionResult UpdatePpEcSop([FromBody] PpEcSopDto parm)
         {
             if (parm == null)
@@ -113,12 +113,12 @@ namespace La.WebApi.Controllers
         }
 
         /// <summary>
-        /// 删除SOP确认
+        /// 删除SOP
         /// </summary>
         /// <returns></returns>
         [HttpDelete("{ids}")]
-        [ActionPermissionFilter(Permission = "la:ppecsop:delete")]
-        [Log(Title = "SOP确认", BusinessType = BusinessType.DELETE)]
+        [ActionPermissionFilter(Permission = "pp:ecsop:delete")]
+        [Log(Title = "SOP", BusinessType = BusinessType.DELETE)]
         public IActionResult DeletePpEcSop(string ids)
         {
             int[] idsArr = Tools.SpitIntArrary(ids);
@@ -130,12 +130,12 @@ namespace La.WebApi.Controllers
         }
 
         /// <summary>
-        /// 导出SOP确认
+        /// 导出SOP
         /// </summary>
         /// <returns></returns>
-        [Log(Title = "SOP确认", BusinessType = BusinessType.EXPORT, IsSaveResponseData = false)]
+        [Log(Title = "SOP", BusinessType = BusinessType.EXPORT, IsSaveResponseData = false)]
         [HttpGet("export")]
-        [ActionPermissionFilter(Permission = "la:ppecsop:export")]
+        [ActionPermissionFilter(Permission = "pp:ecsop:export")]
         public IActionResult Export([FromQuery] PpEcSopQueryDto parm)
         {
             parm.PageSize = 100000;
@@ -144,16 +144,16 @@ namespace La.WebApi.Controllers
             {
                 return ToResponse(ResultCode.FAIL, "没有要导出的数据");
             }
-            var result = ExportExcelMini(list, "SOP确认", "SOP确认");
+            var result = ExportExcelMini(list, "SOP", "SOP");
             return ExportExcel(result.Item2, result.Item1);
         }
 
         /// <summary>
-        /// 清空SOP确认
+        /// 清空SOP
         /// </summary>
         /// <returns></returns>
-        [Log(Title = "SOP确认", BusinessType = BusinessType.CLEAN)]
-        [ActionPermissionFilter(Permission = "la:ppecsop:delete")]
+        [Log(Title = "SOP", BusinessType = BusinessType.CLEAN)]
+        [ActionPermissionFilter(Permission = "pp:ecsop:delete")]
         [HttpDelete("clean")]
         public ApiResult Clear()
         {

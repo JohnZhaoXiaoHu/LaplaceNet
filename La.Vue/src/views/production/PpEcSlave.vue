@@ -2,26 +2,13 @@
  * @Descripttion: (从设变/pp_ec_slave)
  * @version: (1.0)
  * @Author: (Davis.Cheng)
- * @Date: (2023-04-26)
+ * @Date: (2023-05-02)
  * @LastEditors: (Davis.Cheng)
- * @LastEditTime: (2023-04-26)
+ * @LastEditTime: (2023-05-02)
 -->
 <template>
   <div>
     <el-form :model="queryParams" label-position="right" inline ref="queryRef" v-show="showSearch" @submit.prevent>
-      <el-form-item label="输入日">
-        <el-date-picker 
-          v-model="dateRangeEsEntryDate" 
-          type="datetimerange" 
-          range-separator="-"
-          :start-placeholder="$t('btn.dateStart')" 
-          :end-placeholder="$t('btn.dateEnd')" 
-          :placeholder="$t('btn.select')+'输入日'"
-          value-format="YYYY-MM-DD HH:mm:ss"
-          :default-time="defaultTime"
-          :shortcuts="dateOptions">
-        </el-date-picker>
-      </el-form-item>
       <el-form-item label="设变No." prop="esEcNo">
         <el-input clearable v-model="queryParams.esEcNo" :placeholder="$t('btn.enter')+'设变No.'" />
       </el-form-item>
@@ -35,6 +22,25 @@
       </el-form-item>
       <el-form-item label="物料" prop="esItem">
         <el-select filterable clearable  v-model="queryParams.esItem" :placeholder="$t('btn.select')+'物料'">
+          <el-option v-for="item in  options.sql_moc_model " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
+            <span class="fl">{{ item.dictLabel }}</span>
+            <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
+          </el-option>
+        </el-select>
+      </el-form-item>
+      <el-form-item label="子物料" prop="esSubItem">
+        <el-select filterable clearable  v-model="queryParams.esSubItem" :placeholder="$t('btn.select')+'子物料'">
+          <el-option v-for="item in  options.sql_moc_item " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
+            <span class="fl">{{ item.dictLabel }}</span>
+            <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
+          </el-option>
+        </el-select>
+      </el-form-item>
+      <el-form-item label="旧物料" prop="esOldItem">
+        <el-input clearable v-model="queryParams.esOldItem" :placeholder="$t('btn.enter')+'旧物料'" />
+      </el-form-item>
+      <el-form-item label="新物料" prop="esNewItem">
+        <el-select filterable clearable  v-model="queryParams.esNewItem" :placeholder="$t('btn.select')+'新物料'">
           <el-option v-for="item in  options.sql_moc_item " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
             <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>          
@@ -95,7 +101,7 @@
       </el-table-column>
       <el-table-column prop="esItem" label="物料" align="center" v-if="columns.showColumn('esItem')">
         <template #default="scope">
-          <dict-tag :options=" options.sql_moc_item " :value="scope.row.esItem" />
+          <dict-tag :options=" options.sql_moc_model " :value="scope.row.esItem" />
         </template>
       </el-table-column>
       <el-table-column prop="esSubItem" label="子物料" align="center" v-if="columns.showColumn('esSubItem')">
@@ -121,14 +127,10 @@
       <el-table-column prop="esnote" label="指示" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esnote')"/>
       <el-table-column prop="esOldProcess" label="旧品处理" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esOldProcess')"/>
       <el-table-column prop="esBomDate" label="bom日期" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esBomDate')"/>
+      <el-table-column prop="emEcImpDept" label="实施部门" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('emEcImpDept')"/>
       <el-table-column prop="esPurType" label="采购类型" align="center" v-if="columns.showColumn('esPurType')">
         <template #default="scope">
           <dict-tag :options=" options.sys_pur_type " :value="scope.row.esPurType" />
-        </template>
-      </el-table-column>
-      <el-table-column prop="emEcImpDept" label="实施部门" align="center" v-if="columns.showColumn('emEcImpDept')">
-        <template #default="scope">
-          <dict-tag :options=" options.sql_dept_list " :value="scope.row.emEcImpDept" />
         </template>
       </el-table-column>
       <el-table-column prop="esSloc" label="仓库" align="center" v-if="columns.showColumn('esSloc')">
@@ -136,43 +138,81 @@
           <dict-tag :options=" options.sys_sloc_list " :value="scope.row.esSloc" />
         </template>
       </el-table-column>
-      <el-table-column prop="esOldCurrStock" label="旧品库存" align="center" v-if="columns.showColumn('esOldCurrStock')"/>
-      <el-table-column prop="esNewCurrStock" label="新品库存" align="center" v-if="columns.showColumn('esNewCurrStock')"/>
-      <el-table-column prop="esInsmk" label="检验否" align="center" v-if="columns.showColumn('esInsmk')">
-        <template #default="scope">
-          <dict-tag :options=" options.sys_sop_yn " :value="scope.row.esInsmk" />
-        </template>
-      </el-table-column>
+      <el-table-column prop="esInsmk" label="检验否" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esInsmk')"/>
       <el-table-column prop="esMstae" label="工厂状态" align="center" v-if="columns.showColumn('esMstae')">
         <template #default="scope">
           <dict-tag :options=" options.sys_eol_type " :value="scope.row.esMstae" />
         </template>
       </el-table-column>
-      <el-table-column prop="esDeptEntryDate" label="部门录入日" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esDeptEntryDate')"/>
-      <el-table-column prop="esDeptName" label="部门名称" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esDeptName')"/>
+      <el-table-column prop="esSopStae" label="SOP" align="center" v-if="columns.showColumn('esSopStae')">
+        <template #default="scope">
+          <dict-tag :options=" options.sys_sop_yn " :value="scope.row.esSopStae" />
+        </template>
+      </el-table-column>
+      <el-table-column prop="esOldCurrStock" label="旧品库存" align="center" v-if="columns.showColumn('esOldCurrStock')"/>
+      <el-table-column prop="esNewCurrStock" label="新品库存" align="center" v-if="columns.showColumn('esNewCurrStock')"/>
+      <el-table-column prop="esPurEntryDate" label="采购登入日期" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPurEntryDate')"/>
       <el-table-column prop="esSupplier" label="供应商" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esSupplier')"/>
       <el-table-column prop="esPurOrder" label="采购PO" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPurOrder')"/>
       <el-table-column prop="esPurNote" label="说明" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPurNote')"/>
+      <el-table-column prop="esPurCreator" label="EsPurCreator" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPurCreator')"/>
+      <el-table-column prop="esPurCreateTime" label="EsPurCreateTime" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPurCreateTime')"/>
+      <el-table-column prop="esPurModifier" label="EsPurModifier" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPurModifier')"/>
+      <el-table-column prop="esPurModifyTime" label="EsPurModifyTime" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPurModifyTime')"/>
+      <el-table-column prop="esPmcEntryDate" label="生管登入日期" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPmcEntryDate')"/>
       <el-table-column prop="esPmcLot" label="预投入批次" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPmcLot')"/>
       <el-table-column prop="esPmcMemo" label="说明" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPmcMemo')"/>
       <el-table-column prop="esPmcNote" label="备注" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPmcNote')"/>
+      <el-table-column prop="esPmcCreator" label="EsPmcCreator" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPmcCreator')"/>
+      <el-table-column prop="esPmcCreateTime" label="EsPmcCreateTime" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPmcCreateTime')"/>
+      <el-table-column prop="esPmcModifier" label="EsPmcModifier" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPmcModifier')"/>
+      <el-table-column prop="esPmcModifyTime" label="EsPmcModifyTime" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPmcModifyTime')"/>
+      <el-table-column prop="esIqcEntryDate" label="IQC登入日期" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esIqcEntryDate')"/>
       <el-table-column prop="esIqcOrder" label="检验订单" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esIqcOrder')"/>
       <el-table-column prop="esIqcNote" label="说明" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esIqcNote')"/>
+      <el-table-column prop="esIqcCreator" label="EsIqcCreator" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esIqcCreator')"/>
+      <el-table-column prop="esIqcCreateTime" label="EsIqcCreateTime" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esIqcCreateTime')"/>
+      <el-table-column prop="esIqcModifier" label="EsIqcModifier" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esIqcModifier')"/>
+      <el-table-column prop="esIqcModifyTime" label="EsIqcModifyTime" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esIqcModifyTime')"/>
+      <el-table-column prop="esMmEntryDate" label="部管登入日期" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esMmEntryDate')"/>
       <el-table-column prop="esMmLot" label="领用批次" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esMmLot')"/>
       <el-table-column prop="esMmMocNo" label="工单" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esMmMocNo')"/>
       <el-table-column prop="esMmNote" label="说明" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esMmNote')"/>
-      <el-table-column prop="esPpLine" label="班组" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPpLine')"/>
+      <el-table-column prop="esMmCreator" label="EsMmCreator" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esMmCreator')"/>
+      <el-table-column prop="esMmCreateTime" label="EsMmCreateTime" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esMmCreateTime')"/>
+      <el-table-column prop="esMmModifier" label="EsMmModifier" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esMmModifier')"/>
+      <el-table-column prop="esMmModifyTime" label="EsMmModifyTime" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esMmModifyTime')"/>
+      <el-table-column prop="esPpEntryDate" label="制一登入日期" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPpEntryDate')"/>
+      <el-table-column prop="esPpLine" label="班组" align="center" v-if="columns.showColumn('esPpLine')">
+        <template #default="scope">
+          <dict-tag :options=" options.sql_line_list " :value="scope.row.esPpLine" />
+        </template>
+      </el-table-column>
       <el-table-column prop="esPpLot" label="生产批次" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPpLot')"/>
       <el-table-column prop="esPpNote" label="说明" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPpNote')"/>
-      <el-table-column prop="esPcbaLine" label="Pcba班组" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPcbaLine')"/>
+      <el-table-column prop="esPpCreator" label="EsPpCreator" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPpCreator')"/>
+      <el-table-column prop="esPpCreateTime" label="EsPpCreateTime" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPpCreateTime')"/>
+      <el-table-column prop="esPpModifier" label="EsPpModifier" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPpModifier')"/>
+      <el-table-column prop="esPpModifyTime" label="EsPpModifyTime" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPpModifyTime')"/>
+      <el-table-column prop="esPcbaEntryDate" label="制二登入日期" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPcbaEntryDate')"/>
+      <el-table-column prop="esPcbaLine" label="Pcba班组" align="center" v-if="columns.showColumn('esPcbaLine')">
+        <template #default="scope">
+          <dict-tag :options=" options.sql_line_list " :value="scope.row.esPcbaLine" />
+        </template>
+      </el-table-column>
       <el-table-column prop="esPcbaLot" label="Pcba批次" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPcbaLot')"/>
       <el-table-column prop="esPcbaNote" label="说明" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPcbaNote')"/>
+      <el-table-column prop="esPcbaCreator" label="EsPcbaCreator" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPcbaCreator')"/>
+      <el-table-column prop="esPcbaCreateTime" label="EsPcbaCreateTime" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPcbaCreateTime')"/>
+      <el-table-column prop="esPcbaModifier" label="EsPcbaModifier" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPcbaModifier')"/>
+      <el-table-column prop="esPcbaModifyTime" label="EsPcbaModifyTime" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esPcbaModifyTime')"/>
+      <el-table-column prop="esQaEntryDate" label="QA确认日期" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esQaEntryDate')"/>
       <el-table-column prop="esQaLot" label="检验批次" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esQaLot')"/>
       <el-table-column prop="esQaNote" label="说明" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esQaNote')"/>
-      <el-table-column prop="esDeptCreator" label="EsDeptCreator" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esDeptCreator')"/>
-      <el-table-column prop="esDeptCreateTime" label="EsDeptCreateTime" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esDeptCreateTime')"/>
-      <el-table-column prop="esDeptModifier" label="EsDeptModifier" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esDeptModifier')"/>
-      <el-table-column prop="esDeptModifyTime" label="EsDeptModifyTime" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esDeptModifyTime')"/>
+      <el-table-column prop="esQaCreator" label="EsQaCreator" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esQaCreator')"/>
+      <el-table-column prop="esQaCreateTime" label="EsQaCreateTime" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esQaCreateTime')"/>
+      <el-table-column prop="esQaModifier" label="EsQaModifier" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esQaModifier')"/>
+      <el-table-column prop="esQaModifyTime" label="EsQaModifyTime" align="center" :show-overflow-tooltip="true" v-if="columns.showColumn('esQaModifyTime')"/>
       <el-table-column :label="$t('btn.operate')" align="center" width="160">
         <template #default="scope">
           <el-button type="primary" icon="view" @click="handlePreview(scope.row)"></el-button>
@@ -201,9 +241,9 @@
             </el-form-item>
           </el-col>
 
-          <el-col :lg="24">
+          <el-col :lg="12">
             <el-form-item label="设变No." prop="esEcNo">
-              <el-input clearable type="textarea" v-model="form.esEcNo" :placeholder="$t('btn.enter')+'设变No.'"/>
+              <el-input clearable v-model="form.esEcNo" :placeholder="$t('btn.enter')+'设变No.'" />
             </el-form-item>
           </el-col>
 
@@ -218,7 +258,7 @@
           <el-col :lg="12">
             <el-form-item label="物料" prop="esItem">
               <el-select v-model="form.esItem" filterable clearable  :placeholder="$t('btn.select')+'物料'">
-                <el-option v-for="item in  options.sql_moc_item " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
+                <el-option v-for="item in  options.sql_moc_model " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
@@ -318,17 +358,15 @@
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="采购类型" prop="esPurType">
-              <el-select v-model="form.esPurType" filterable clearable  :placeholder="$t('btn.select')+'采购类型'">
-                <el-option v-for="item in  options.sys_pur_type " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
-              </el-select>
+            <el-form-item label="实施部门" prop="emEcImpDept">
+              <el-input clearable v-model="form.emEcImpDept" :placeholder="$t('btn.enter')+'实施部门'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="实施部门" prop="emEcImpDept">
-              <el-select v-model="form.emEcImpDept" filterable clearable  :placeholder="$t('btn.select')+'实施部门'">
-                <el-option v-for="item in  options.sql_dept_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
+            <el-form-item label="采购类型" prop="esPurType">
+              <el-select v-model="form.esPurType" filterable clearable  :placeholder="$t('btn.select')+'采购类型'">
+                <el-option v-for="item in  options.sys_pur_type " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
@@ -338,6 +376,28 @@
               <el-select v-model="form.esSloc" filterable clearable  :placeholder="$t('btn.select')+'仓库'">
                 <el-option v-for="item in  options.sys_sloc_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
               </el-select>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="检验否" prop="esInsmk">
+              <el-input clearable v-model="form.esInsmk" :placeholder="$t('btn.enter')+'检验否'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="工厂状态" prop="esMstae">
+              <el-select v-model="form.esMstae" filterable clearable  :placeholder="$t('btn.select')+'工厂状态'">
+                <el-option v-for="item in  options.sys_eol_type " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="SOP" prop="esSopStae">
+              <el-radio-group v-model="form.esSopStae">
+                <el-radio v-for="item in  options.sys_sop_yn " :key="item.dictValue" :label="item.dictValue">{{item.dictLabel}}</el-radio>
+              </el-radio-group>
             </el-form-item>
           </el-col>
 
@@ -354,30 +414,8 @@
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="检验否" prop="esInsmk">
-              <el-radio-group v-model="form.esInsmk">
-                <el-radio v-for="item in  options.sys_sop_yn " :key="item.dictValue" :label="item.dictValue">{{item.dictLabel}}</el-radio>
-              </el-radio-group>
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="工厂状态" prop="esMstae">
-              <el-select v-model="form.esMstae" filterable clearable  :placeholder="$t('btn.select')+'工厂状态'">
-                <el-option v-for="item in  options.sys_eol_type " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
-              </el-select>
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="部门录入日" prop="esDeptEntryDate">
-              <el-date-picker clearable v-model="form.esDeptEntryDate" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
-            </el-form-item>
-          </el-col>
-
-          <el-col :lg="12">
-            <el-form-item label="部门名称" prop="esDeptName">
-              <el-input clearable v-model="form.esDeptName" :placeholder="$t('btn.enter')+'部门名称'" />
+            <el-form-item label="采购登入日期" prop="esPurEntryDate">
+              <el-date-picker clearable v-model="form.esPurEntryDate" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
 
@@ -400,6 +438,36 @@
           </el-col>
 
           <el-col :lg="12">
+            <el-form-item label="EsPurCreator" prop="esPurCreator">
+              <el-input clearable v-model="form.esPurCreator" :placeholder="$t('btn.enter')+'EsPurCreator'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="EsPurCreateTime" prop="esPurCreateTime">
+              <el-date-picker clearable v-model="form.esPurCreateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="EsPurModifier" prop="esPurModifier">
+              <el-input clearable v-model="form.esPurModifier" :placeholder="$t('btn.enter')+'EsPurModifier'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="EsPurModifyTime" prop="esPurModifyTime">
+              <el-date-picker clearable v-model="form.esPurModifyTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="生管登入日期" prop="esPmcEntryDate">
+              <el-date-picker clearable v-model="form.esPmcEntryDate" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
             <el-form-item label="预投入批次" prop="esPmcLot">
               <el-input clearable v-model="form.esPmcLot" :placeholder="$t('btn.enter')+'预投入批次'" />
             </el-form-item>
@@ -418,6 +486,36 @@
           </el-col>
 
           <el-col :lg="12">
+            <el-form-item label="EsPmcCreator" prop="esPmcCreator">
+              <el-input clearable v-model="form.esPmcCreator" :placeholder="$t('btn.enter')+'EsPmcCreator'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="EsPmcCreateTime" prop="esPmcCreateTime">
+              <el-date-picker clearable v-model="form.esPmcCreateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="EsPmcModifier" prop="esPmcModifier">
+              <el-input clearable v-model="form.esPmcModifier" :placeholder="$t('btn.enter')+'EsPmcModifier'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="EsPmcModifyTime" prop="esPmcModifyTime">
+              <el-date-picker clearable v-model="form.esPmcModifyTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="IQC登入日期" prop="esIqcEntryDate">
+              <el-date-picker clearable v-model="form.esIqcEntryDate" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
             <el-form-item label="检验订单" prop="esIqcOrder">
               <el-input clearable v-model="form.esIqcOrder" :placeholder="$t('btn.enter')+'检验订单'" />
             </el-form-item>
@@ -426,6 +524,36 @@
           <el-col :lg="12">
             <el-form-item label="说明" prop="esIqcNote">
               <el-input clearable v-model="form.esIqcNote" :placeholder="$t('btn.enter')+'说明'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="EsIqcCreator" prop="esIqcCreator">
+              <el-input clearable v-model="form.esIqcCreator" :placeholder="$t('btn.enter')+'EsIqcCreator'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="EsIqcCreateTime" prop="esIqcCreateTime">
+              <el-date-picker clearable v-model="form.esIqcCreateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="EsIqcModifier" prop="esIqcModifier">
+              <el-input clearable v-model="form.esIqcModifier" :placeholder="$t('btn.enter')+'EsIqcModifier'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="EsIqcModifyTime" prop="esIqcModifyTime">
+              <el-date-picker clearable v-model="form.esIqcModifyTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="部管登入日期" prop="esMmEntryDate">
+              <el-date-picker clearable v-model="form.esMmEntryDate" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
 
@@ -448,8 +576,40 @@
           </el-col>
 
           <el-col :lg="12">
+            <el-form-item label="EsMmCreator" prop="esMmCreator">
+              <el-input clearable v-model="form.esMmCreator" :placeholder="$t('btn.enter')+'EsMmCreator'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="EsMmCreateTime" prop="esMmCreateTime">
+              <el-date-picker clearable v-model="form.esMmCreateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="EsMmModifier" prop="esMmModifier">
+              <el-input clearable v-model="form.esMmModifier" :placeholder="$t('btn.enter')+'EsMmModifier'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="EsMmModifyTime" prop="esMmModifyTime">
+              <el-date-picker clearable v-model="form.esMmModifyTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="制一登入日期" prop="esPpEntryDate">
+              <el-date-picker clearable v-model="form.esPpEntryDate" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
             <el-form-item label="班组" prop="esPpLine">
-              <el-input clearable v-model="form.esPpLine" :placeholder="$t('btn.enter')+'班组'" />
+              <el-select v-model="form.esPpLine" filterable clearable  :placeholder="$t('btn.select')+'班组'">
+                <el-option v-for="item in  options.sql_line_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
+              </el-select>
             </el-form-item>
           </el-col>
 
@@ -466,8 +626,40 @@
           </el-col>
 
           <el-col :lg="12">
+            <el-form-item label="EsPpCreator" prop="esPpCreator">
+              <el-input clearable v-model="form.esPpCreator" :placeholder="$t('btn.enter')+'EsPpCreator'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="EsPpCreateTime" prop="esPpCreateTime">
+              <el-date-picker clearable v-model="form.esPpCreateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="EsPpModifier" prop="esPpModifier">
+              <el-input clearable v-model="form.esPpModifier" :placeholder="$t('btn.enter')+'EsPpModifier'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="EsPpModifyTime" prop="esPpModifyTime">
+              <el-date-picker clearable v-model="form.esPpModifyTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="制二登入日期" prop="esPcbaEntryDate">
+              <el-date-picker clearable v-model="form.esPcbaEntryDate" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
             <el-form-item label="Pcba班组" prop="esPcbaLine">
-              <el-input clearable v-model="form.esPcbaLine" :placeholder="$t('btn.enter')+'Pcba班组'" />
+              <el-select v-model="form.esPcbaLine" filterable clearable  :placeholder="$t('btn.select')+'Pcba班组'">
+                <el-option v-for="item in  options.sql_line_list " :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue"></el-option>
+              </el-select>
             </el-form-item>
           </el-col>
 
@@ -484,6 +676,36 @@
           </el-col>
 
           <el-col :lg="12">
+            <el-form-item label="EsPcbaCreator" prop="esPcbaCreator">
+              <el-input clearable v-model="form.esPcbaCreator" :placeholder="$t('btn.enter')+'EsPcbaCreator'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="EsPcbaCreateTime" prop="esPcbaCreateTime">
+              <el-date-picker clearable v-model="form.esPcbaCreateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="EsPcbaModifier" prop="esPcbaModifier">
+              <el-input clearable v-model="form.esPcbaModifier" :placeholder="$t('btn.enter')+'EsPcbaModifier'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="EsPcbaModifyTime" prop="esPcbaModifyTime">
+              <el-date-picker clearable v-model="form.esPcbaModifyTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="QA确认日期" prop="esQaEntryDate">
+              <el-date-picker clearable v-model="form.esQaEntryDate" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
             <el-form-item label="检验批次" prop="esQaLot">
               <el-input clearable v-model="form.esQaLot" :placeholder="$t('btn.enter')+'检验批次'" />
             </el-form-item>
@@ -496,26 +718,26 @@
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="EsDeptCreator" prop="esDeptCreator">
-              <el-input clearable v-model="form.esDeptCreator" :placeholder="$t('btn.enter')+'EsDeptCreator'" />
+            <el-form-item label="EsQaCreator" prop="esQaCreator">
+              <el-input clearable v-model="form.esQaCreator" :placeholder="$t('btn.enter')+'EsQaCreator'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="EsDeptCreateTime" prop="esDeptCreateTime">
-              <el-date-picker clearable v-model="form.esDeptCreateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            <el-form-item label="EsQaCreateTime" prop="esQaCreateTime">
+              <el-date-picker clearable v-model="form.esQaCreateTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="EsDeptModifier" prop="esDeptModifier">
-              <el-input clearable v-model="form.esDeptModifier" :placeholder="$t('btn.enter')+'EsDeptModifier'" />
+            <el-form-item label="EsQaModifier" prop="esQaModifier">
+              <el-input clearable v-model="form.esQaModifier" :placeholder="$t('btn.enter')+'EsQaModifier'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="EsDeptModifyTime" prop="esDeptModifyTime">
-              <el-date-picker clearable v-model="form.esDeptModifyTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
+            <el-form-item label="EsQaModifyTime" prop="esQaModifyTime">
+              <el-date-picker clearable v-model="form.esQaModifyTime" type="datetime" :teleported="false" :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
           </el-col>
 
@@ -662,10 +884,12 @@ const queryParams = reactive({
   pageSize: 17,
   sort: '',
   sortType: 'asc',
-  esEntryDate: undefined,
   esEcNo: undefined,
   esModel: undefined,
   esItem: undefined,
+  esSubItem: undefined,
+  esOldItem: undefined,
+  esNewItem: undefined,
 })
 //字段显示控制
 const columns = ref([
@@ -689,38 +913,68 @@ const columns = ref([
   { visible: false, prop: 'esnote', label: '指示' },
   { visible: false, prop: 'esOldProcess', label: '旧品处理' },
   { visible: false, prop: 'esBomDate', label: 'bom日期' },
-  { visible: false, prop: 'esPurType', label: '采购类型' },
   { visible: false, prop: 'emEcImpDept', label: '实施部门' },
+  { visible: false, prop: 'esPurType', label: '采购类型' },
   { visible: false, prop: 'esSloc', label: '仓库' },
-  { visible: false, prop: 'esOldCurrStock', label: '旧品库存' },
-  { visible: false, prop: 'esNewCurrStock', label: '新品库存' },
   { visible: false, prop: 'esInsmk', label: '检验否' },
   { visible: false, prop: 'esMstae', label: '工厂状态' },
-  { visible: false, prop: 'esDeptEntryDate', label: '部门录入日' },
-  { visible: false, prop: 'esDeptName', label: '部门名称' },
+  { visible: false, prop: 'esSopStae', label: 'SOP' },
+  { visible: false, prop: 'esOldCurrStock', label: '旧品库存' },
+  { visible: false, prop: 'esNewCurrStock', label: '新品库存' },
+  { visible: false, prop: 'esPurEntryDate', label: '采购登入日期' },
   { visible: false, prop: 'esSupplier', label: '供应商' },
   { visible: false, prop: 'esPurOrder', label: '采购PO' },
   { visible: false, prop: 'esPurNote', label: '说明' },
+  { visible: false, prop: 'esPurCreator', label: 'EsPurCreator' },
+  { visible: false, prop: 'esPurCreateTime', label: 'EsPurCreateTime' },
+  { visible: false, prop: 'esPurModifier', label: 'EsPurModifier' },
+  { visible: false, prop: 'esPurModifyTime', label: 'EsPurModifyTime' },
+  { visible: false, prop: 'esPmcEntryDate', label: '生管登入日期' },
   { visible: false, prop: 'esPmcLot', label: '预投入批次' },
   { visible: false, prop: 'esPmcMemo', label: '说明' },
   { visible: false, prop: 'esPmcNote', label: '备注' },
+  { visible: false, prop: 'esPmcCreator', label: 'EsPmcCreator' },
+  { visible: false, prop: 'esPmcCreateTime', label: 'EsPmcCreateTime' },
+  { visible: false, prop: 'esPmcModifier', label: 'EsPmcModifier' },
+  { visible: false, prop: 'esPmcModifyTime', label: 'EsPmcModifyTime' },
+  { visible: false, prop: 'esIqcEntryDate', label: 'IQC登入日期' },
   { visible: false, prop: 'esIqcOrder', label: '检验订单' },
   { visible: false, prop: 'esIqcNote', label: '说明' },
+  { visible: false, prop: 'esIqcCreator', label: 'EsIqcCreator' },
+  { visible: false, prop: 'esIqcCreateTime', label: 'EsIqcCreateTime' },
+  { visible: false, prop: 'esIqcModifier', label: 'EsIqcModifier' },
+  { visible: false, prop: 'esIqcModifyTime', label: 'EsIqcModifyTime' },
+  { visible: false, prop: 'esMmEntryDate', label: '部管登入日期' },
   { visible: false, prop: 'esMmLot', label: '领用批次' },
   { visible: false, prop: 'esMmMocNo', label: '工单' },
   { visible: false, prop: 'esMmNote', label: '说明' },
+  { visible: false, prop: 'esMmCreator', label: 'EsMmCreator' },
+  { visible: false, prop: 'esMmCreateTime', label: 'EsMmCreateTime' },
+  { visible: false, prop: 'esMmModifier', label: 'EsMmModifier' },
+  { visible: false, prop: 'esMmModifyTime', label: 'EsMmModifyTime' },
+  { visible: false, prop: 'esPpEntryDate', label: '制一登入日期' },
   { visible: false, prop: 'esPpLine', label: '班组' },
   { visible: false, prop: 'esPpLot', label: '生产批次' },
   { visible: false, prop: 'esPpNote', label: '说明' },
+  { visible: false, prop: 'esPpCreator', label: 'EsPpCreator' },
+  { visible: false, prop: 'esPpCreateTime', label: 'EsPpCreateTime' },
+  { visible: false, prop: 'esPpModifier', label: 'EsPpModifier' },
+  { visible: false, prop: 'esPpModifyTime', label: 'EsPpModifyTime' },
+  { visible: false, prop: 'esPcbaEntryDate', label: '制二登入日期' },
   { visible: false, prop: 'esPcbaLine', label: 'Pcba班组' },
   { visible: false, prop: 'esPcbaLot', label: 'Pcba批次' },
   { visible: false, prop: 'esPcbaNote', label: '说明' },
+  { visible: false, prop: 'esPcbaCreator', label: 'EsPcbaCreator' },
+  { visible: false, prop: 'esPcbaCreateTime', label: 'EsPcbaCreateTime' },
+  { visible: false, prop: 'esPcbaModifier', label: 'EsPcbaModifier' },
+  { visible: false, prop: 'esPcbaModifyTime', label: 'EsPcbaModifyTime' },
+  { visible: false, prop: 'esQaEntryDate', label: 'QA确认日期' },
   { visible: false, prop: 'esQaLot', label: '检验批次' },
   { visible: false, prop: 'esQaNote', label: '说明' },
-  { visible: false, prop: 'esDeptCreator', label: 'EsDeptCreator' },
-  { visible: false, prop: 'esDeptCreateTime', label: 'EsDeptCreateTime' },
-  { visible: false, prop: 'esDeptModifier', label: 'EsDeptModifier' },
-  { visible: false, prop: 'esDeptModifyTime', label: 'EsDeptModifyTime' },
+  { visible: false, prop: 'esQaCreator', label: 'EsQaCreator' },
+  { visible: false, prop: 'esQaCreateTime', label: 'EsQaCreateTime' },
+  { visible: false, prop: 'esQaModifier', label: 'EsQaModifier' },
+  { visible: false, prop: 'esQaModifyTime', label: 'EsQaModifyTime' },
 ])
   // 总条数
 const total = ref(0)
@@ -731,20 +985,18 @@ const queryRef = ref()
 //定义起始时间
 const defaultTime = ref([new Date(2000, 1, 1, 0, 0, 0), new Date(2000, 2, 1, 23, 59, 59)])
 
-// 输入日时间范围
-const dateRangeEsEntryDate = ref([])
-
 
 var dictParams = [
   { dictType: "sql_moc_item" },
-  { dictType: "sql_moc_item" },
+  { dictType: "sql_moc_model" },
   { dictType: "sql_moc_item" },
   { dictType: "sql_moc_item" },
   { dictType: "sys_pur_type" },
-  { dictType: "sql_dept_list" },
   { dictType: "sys_sloc_list" },
-  { dictType: "sys_sop_yn" },
   { dictType: "sys_eol_type" },
+  { dictType: "sys_sop_yn" },
+  { dictType: "sql_line_list" },
+  { dictType: "sql_line_list" },
 ]
 //字典定义
 proxy.getDicts(dictParams).then((response) => {
@@ -754,7 +1006,6 @@ proxy.getDicts(dictParams).then((response) => {
 })
 //获取从设变表记录数据
 function getList(){
-  proxy.addDateRange(queryParams, dateRangeEsEntryDate.value, 'EsEntryDate');
   loading.value = true
   listPpEcSlave(queryParams).then(res => {
     const { code, data } = res
@@ -774,8 +1025,6 @@ function handleQuery() {
 
 // 重置查询操作
 function resetQuery(){
-  // 输入日时间范围
-  dateRangeEsEntryDate.value = []
   proxy.resetForm("queryRef")
   handleQuery()
 }
@@ -821,36 +1070,36 @@ const state = reactive({
     esModel: [{ required: true, message: "机种"+proxy.$t('btn.empty'), trigger: "change" }],
     esItem: [{ required: true, message: "物料"+proxy.$t('btn.empty'), trigger: "change" }],
     esOldUsageQty: [{ required: true, message: "用量"+proxy.$t('btn.empty'), trigger: "blur" }],
-    esNewItem: [{ required: true, message: "新物料"+proxy.$t('btn.empty'), trigger: "change" }],
     esNewUsageQty: [{ required: true, message: "用量"+proxy.$t('btn.empty'), trigger: "blur" }],
     esBomDate: [{ required: true, message: "bom日期"+proxy.$t('btn.empty'), trigger: "blur" }],
+    emEcImpDept: [{ required: true, message: "实施部门"+proxy.$t('btn.empty'), trigger: "blur" }],
     esPurType: [{ required: true, message: "采购类型"+proxy.$t('btn.empty'), trigger: "change" }],
-    emEcImpDept: [{ required: true, message: "实施部门"+proxy.$t('btn.empty'), trigger: "change" }],
     esSloc: [{ required: true, message: "仓库"+proxy.$t('btn.empty'), trigger: "change" }],
+    esSopStae: [{ required: true, message: "SOP"+proxy.$t('btn.empty'), trigger: "blur" }],
     esOldCurrStock: [{ required: true, message: "旧品库存"+proxy.$t('btn.empty'), trigger: "blur" }],
     esNewCurrStock: [{ required: true, message: "新品库存"+proxy.$t('btn.empty'), trigger: "blur" }],
-    esInsmk: [{ required: true, message: "检验否"+proxy.$t('btn.empty'), trigger: "blur" }],
-    esMstae: [{ required: true, message: "工厂状态"+proxy.$t('btn.empty'), trigger: "change" }],
   },
   options: {
     // 机种 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
     sql_moc_item: [],
     // 物料 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
-    sql_moc_item: [],
+    sql_moc_model: [],
     // 子物料 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
     sql_moc_item: [],
     // 新物料 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
     sql_moc_item: [],
     // 采购类型 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
     sys_pur_type: [],
-    // 实施部门 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
-    sql_dept_list: [],
     // 仓库 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
     sys_sloc_list: [],
-    // 检验否 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
-    sys_sop_yn: [],
     // 工厂状态 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
     sys_eol_type: [],
+    // SOP 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
+    sys_sop_yn: [],
+    // 班组 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
+    sql_line_list: [],
+    // Pcba班组 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
+    sql_line_list: [],
     // 软删除 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
     isDeletedOptions: [],
   }
@@ -886,38 +1135,68 @@ function reset() {
     esnote: undefined,
     esOldProcess: undefined,
     esBomDate: undefined,
-    esPurType: undefined,
     emEcImpDept: undefined,
+    esPurType: undefined,
     esSloc: undefined,
-    esOldCurrStock: undefined,
-    esNewCurrStock: undefined,
     esInsmk: undefined,
     esMstae: undefined,
-    esDeptEntryDate: undefined,
-    esDeptName: undefined,
+    esSopStae: undefined,
+    esOldCurrStock: undefined,
+    esNewCurrStock: undefined,
+    esPurEntryDate: undefined,
     esSupplier: undefined,
     esPurOrder: undefined,
     esPurNote: undefined,
+    esPurCreator: undefined,
+    esPurCreateTime: undefined,
+    esPurModifier: undefined,
+    esPurModifyTime: undefined,
+    esPmcEntryDate: undefined,
     esPmcLot: undefined,
     esPmcMemo: undefined,
     esPmcNote: undefined,
+    esPmcCreator: undefined,
+    esPmcCreateTime: undefined,
+    esPmcModifier: undefined,
+    esPmcModifyTime: undefined,
+    esIqcEntryDate: undefined,
     esIqcOrder: undefined,
     esIqcNote: undefined,
+    esIqcCreator: undefined,
+    esIqcCreateTime: undefined,
+    esIqcModifier: undefined,
+    esIqcModifyTime: undefined,
+    esMmEntryDate: undefined,
     esMmLot: undefined,
     esMmMocNo: undefined,
     esMmNote: undefined,
+    esMmCreator: undefined,
+    esMmCreateTime: undefined,
+    esMmModifier: undefined,
+    esMmModifyTime: undefined,
+    esPpEntryDate: undefined,
     esPpLine: undefined,
     esPpLot: undefined,
     esPpNote: undefined,
+    esPpCreator: undefined,
+    esPpCreateTime: undefined,
+    esPpModifier: undefined,
+    esPpModifyTime: undefined,
+    esPcbaEntryDate: undefined,
     esPcbaLine: undefined,
     esPcbaLot: undefined,
     esPcbaNote: undefined,
+    esPcbaCreator: undefined,
+    esPcbaCreateTime: undefined,
+    esPcbaModifier: undefined,
+    esPcbaModifyTime: undefined,
+    esQaEntryDate: undefined,
     esQaLot: undefined,
     esQaNote: undefined,
-    esDeptCreator: undefined,
-    esDeptCreateTime: undefined,
-    esDeptModifier: undefined,
-    esDeptModifyTime: undefined,
+    esQaCreator: undefined,
+    esQaCreateTime: undefined,
+    esQaModifier: undefined,
+    esQaModifyTime: undefined,
     createBy: undefined,
     createTime: undefined,
     updateBy: undefined,

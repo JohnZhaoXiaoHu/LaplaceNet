@@ -33,7 +33,7 @@ namespace La.Service.Production
             var predicate = Expressionable.Create<PpEcDigest>();
 
             //搜索条件查询语法参考Sqlsugar
-            predicate = predicate.AndIF(parm.BeginEdIssueDate != null, it => it.EdIssueDate >= DateTime.Now.AddDays(-1));
+            predicate = predicate.AndIF(parm.BeginEdIssueDate != null, it => it.EdIssueDate >= parm.BeginEdIssueDate);
             predicate = predicate.AndIF(parm.BeginEdIssueDate != null, it => it.EdIssueDate >= parm.BeginEdIssueDate && it.EdIssueDate <= parm.EndEdIssueDate);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EdModel), it => it.EdModel == parm.EdModel);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.Editem), it => it.Editem == parm.Editem);

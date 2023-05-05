@@ -15,7 +15,7 @@ namespace La.Service.Production
     /// 从设变Service业务层处理
     ///
     /// @author Davis.Cheng
-    /// @date 2023-04-26
+    /// @date 2023-05-02
     /// </summary>
     [AppService(ServiceType = typeof(IPpEcSlaveService), ServiceLifetime = LifeTime.Transient)]
     public class PpEcSlaveService : BaseService<PpEcSlave>, IPpEcSlaveService
@@ -33,11 +33,12 @@ namespace La.Service.Production
             var predicate = Expressionable.Create<PpEcSlave>();
 
             //搜索条件查询语法参考Sqlsugar
-            predicate = predicate.AndIF(parm.BeginEsEntryDate != null, it => it.EsEntryDate >= DateTime.Now.AddDays(-1));
-            predicate = predicate.AndIF(parm.BeginEsEntryDate != null, it => it.EsEntryDate >= parm.BeginEsEntryDate && it.EsEntryDate <= parm.EndEsEntryDate);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsEcNo), it => it.EsEcNo.Contains(parm.EsEcNo));
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsModel), it => it.EsModel == parm.EsModel);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsItem), it => it.EsItem == parm.EsItem);
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsSubItem), it => it.EsSubItem == parm.EsSubItem);
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsOldItem), it => it.EsOldItem == parm.EsOldItem);
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsNewItem), it => it.EsNewItem == parm.EsNewItem);
             var response = Queryable()
                 .Where(predicate.ToExpression())
                 .ToPage<PpEcSlave, PpEcSlaveDto>(parm);
@@ -53,7 +54,7 @@ namespace La.Service.Production
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.EsEcNo+ it.EsModel+it.EsItem+it.EsSubItem+it.EsOldItem+it.EsNewItem == entryString);
+            int count = Count(it => it.EsId.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;
@@ -89,38 +90,68 @@ namespace La.Service.Production
                 it.Esnote,
                 it.EsOldProcess,
                 it.EsBomDate,
-                it.EsPurType,
                 it.EmEcImpDept,
+                it.EsPurType,
                 it.EsSloc,
-                it.EsOldCurrStock,
-                it.EsNewCurrStock,
                 it.EsInsmk,
                 it.EsMstae,
-                it.EsDeptEntryDate,
-                it.EsDeptName,
+                it.EsSopStae,
+                it.EsOldCurrStock,
+                it.EsNewCurrStock,
+                it.EsPurEntryDate,
                 it.EsSupplier,
                 it.EsPurOrder,
                 it.EsPurNote,
+                it.EsPurCreator,
+                it.EsPurCreateTime,
+                it.EsPurModifier,
+                it.EsPurModifyTime,
+                it.EsPmcEntryDate,
                 it.EsPmcLot,
                 it.EsPmcMemo,
                 it.EsPmcNote,
+                it.EsPmcCreator,
+                it.EsPmcCreateTime,
+                it.EsPmcModifier,
+                it.EsPmcModifyTime,
+                it.EsIqcEntryDate,
                 it.EsIqcOrder,
                 it.EsIqcNote,
+                it.EsIqcCreator,
+                it.EsIqcCreateTime,
+                it.EsIqcModifier,
+                it.EsIqcModifyTime,
+                it.EsMmEntryDate,
                 it.EsMmLot,
                 it.EsMmMocNo,
                 it.EsMmNote,
+                it.EsMmCreator,
+                it.EsMmCreateTime,
+                it.EsMmModifier,
+                it.EsMmModifyTime,
+                it.EsPpEntryDate,
                 it.EsPpLine,
                 it.EsPpLot,
                 it.EsPpNote,
+                it.EsPpCreator,
+                it.EsPpCreateTime,
+                it.EsPpModifier,
+                it.EsPpModifyTime,
+                it.EsPcbaEntryDate,
                 it.EsPcbaLine,
                 it.EsPcbaLot,
                 it.EsPcbaNote,
+                it.EsPcbaCreator,
+                it.EsPcbaCreateTime,
+                it.EsPcbaModifier,
+                it.EsPcbaModifyTime,
+                it.EsQaEntryDate,
                 it.EsQaLot,
                 it.EsQaNote,
-                it.EsDeptCreator,
-                it.EsDeptCreateTime,
-                it.EsDeptModifier,
-                it.EsDeptModifyTime,
+                it.EsQaCreator,
+                it.EsQaCreateTime,
+                it.EsQaModifier,
+                it.EsQaModifyTime,
                 it.CreateBy,
                 it.CreateTime,
             });
@@ -155,38 +186,68 @@ namespace La.Service.Production
                 Esnote = parm.Esnote,
                 EsOldProcess = parm.EsOldProcess,
                 EsBomDate = parm.EsBomDate,
-                EsPurType = parm.EsPurType,
                 EmEcImpDept = parm.EmEcImpDept,
+                EsPurType = parm.EsPurType,
                 EsSloc = parm.EsSloc,
-                EsOldCurrStock = parm.EsOldCurrStock,
-                EsNewCurrStock = parm.EsNewCurrStock,
                 EsInsmk = parm.EsInsmk,
                 EsMstae = parm.EsMstae,
-                EsDeptEntryDate = parm.EsDeptEntryDate,
-                EsDeptName = parm.EsDeptName,
+                EsSopStae = parm.EsSopStae,
+                EsOldCurrStock = parm.EsOldCurrStock,
+                EsNewCurrStock = parm.EsNewCurrStock,
+                EsPurEntryDate = parm.EsPurEntryDate,
                 EsSupplier = parm.EsSupplier,
                 EsPurOrder = parm.EsPurOrder,
                 EsPurNote = parm.EsPurNote,
+                EsPurCreator = parm.EsPurCreator,
+                EsPurCreateTime = parm.EsPurCreateTime,
+                EsPurModifier = parm.EsPurModifier,
+                EsPurModifyTime = parm.EsPurModifyTime,
+                EsPmcEntryDate = parm.EsPmcEntryDate,
                 EsPmcLot = parm.EsPmcLot,
                 EsPmcMemo = parm.EsPmcMemo,
                 EsPmcNote = parm.EsPmcNote,
+                EsPmcCreator = parm.EsPmcCreator,
+                EsPmcCreateTime = parm.EsPmcCreateTime,
+                EsPmcModifier = parm.EsPmcModifier,
+                EsPmcModifyTime = parm.EsPmcModifyTime,
+                EsIqcEntryDate = parm.EsIqcEntryDate,
                 EsIqcOrder = parm.EsIqcOrder,
                 EsIqcNote = parm.EsIqcNote,
+                EsIqcCreator = parm.EsIqcCreator,
+                EsIqcCreateTime = parm.EsIqcCreateTime,
+                EsIqcModifier = parm.EsIqcModifier,
+                EsIqcModifyTime = parm.EsIqcModifyTime,
+                EsMmEntryDate = parm.EsMmEntryDate,
                 EsMmLot = parm.EsMmLot,
                 EsMmMocNo = parm.EsMmMocNo,
                 EsMmNote = parm.EsMmNote,
+                EsMmCreator = parm.EsMmCreator,
+                EsMmCreateTime = parm.EsMmCreateTime,
+                EsMmModifier = parm.EsMmModifier,
+                EsMmModifyTime = parm.EsMmModifyTime,
+                EsPpEntryDate = parm.EsPpEntryDate,
                 EsPpLine = parm.EsPpLine,
                 EsPpLot = parm.EsPpLot,
                 EsPpNote = parm.EsPpNote,
+                EsPpCreator = parm.EsPpCreator,
+                EsPpCreateTime = parm.EsPpCreateTime,
+                EsPpModifier = parm.EsPpModifier,
+                EsPpModifyTime = parm.EsPpModifyTime,
+                EsPcbaEntryDate = parm.EsPcbaEntryDate,
                 EsPcbaLine = parm.EsPcbaLine,
                 EsPcbaLot = parm.EsPcbaLot,
                 EsPcbaNote = parm.EsPcbaNote,
+                EsPcbaCreator = parm.EsPcbaCreator,
+                EsPcbaCreateTime = parm.EsPcbaCreateTime,
+                EsPcbaModifier = parm.EsPcbaModifier,
+                EsPcbaModifyTime = parm.EsPcbaModifyTime,
+                EsQaEntryDate = parm.EsQaEntryDate,
                 EsQaLot = parm.EsQaLot,
                 EsQaNote = parm.EsQaNote,
-                EsDeptCreator = parm.EsDeptCreator,
-                EsDeptCreateTime = parm.EsDeptCreateTime,
-                EsDeptModifier = parm.EsDeptModifier,
-                EsDeptModifyTime = parm.EsDeptModifyTime,
+                EsQaCreator = parm.EsQaCreator,
+                EsQaCreateTime = parm.EsQaCreateTime,
+                EsQaModifier = parm.EsQaModifier,
+                EsQaModifyTime = parm.EsQaModifyTime,
                 UpdateBy = parm.UpdateBy,
                 UpdateTime = parm.UpdateTime,
             });

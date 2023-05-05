@@ -985,6 +985,388 @@
             描述 :UpdateTime 
             </summary>
         </member>
+        <member name="T:La.Model.Dto.EhrEmployeeQueryDto">
+            <summary>
+            人事信息查询对象
+            @author Davis.Cheng
+            @date 2023-05-04
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeName">
+            <summary>
+            描述 :姓名 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.BeginEeBirthday">
+            <summary>
+            描述 :开始时间
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EndEeBirthday">
+            <summary>
+            描述 :结束时间
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeIdentityCard">
+            <summary>
+            描述 :身份证号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeProvince">
+            <summary>
+            描述 :省区 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeDepartmentId">
+            <summary>
+            描述 :部门 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeTiptopDegrEe">
+            <summary>
+            描述 :学历 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeWorkID">
+            <summary>
+            描述 :工号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.BeginEeBeginDate">
+            <summary>
+            描述 :开始时间
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EndEeBeginDate">
+            <summary>
+            描述 :结束时间
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeWorkState">
+            <summary>
+            描述 :在职状态 
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.EhrEmployeeDto">
+            <summary>
+            人事信息输入输出对象
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeId">
+            <summary>
+            描述 :ID 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeName">
+            <summary>
+            描述 :姓名 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeNameUsed">
+            <summary>
+            描述 :曾用名 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeNickName">
+            <summary>
+            描述 :昵称 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeEnglishName">
+            <summary>
+            描述 :英文名 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeGender">
+            <summary>
+            描述 :性别 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeBirthday">
+            <summary>
+            描述 :出生日期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeIdentityCard">
+            <summary>
+            描述 :身份证号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeWedlock">
+            <summary>
+            描述 :婚姻状态 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeNationId">
+            <summary>
+            描述 :民族 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeNativePlace">
+            <summary>
+            描述 :籍贯 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EePoliticId">
+            <summary>
+            描述 :政治面貌 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeEmail">
+            <summary>
+            描述 :邮件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EePhone">
+            <summary>
+            描述 :电话 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeCountry">
+            <summary>
+            描述 :国家/地区 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeProvince">
+            <summary>
+            描述 :省区 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeCity">
+            <summary>
+            描述 :市区 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeCounty">
+            <summary>
+            描述 :县区 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeHomeAddress">
+            <summary>
+            描述 :家庭住址 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EePostCode">
+            <summary>
+            描述 :邮编 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeHouseholdType">
+            <summary>
+            描述 :户口性质 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeStayAddress">
+            <summary>
+            描述 :暂住地址 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeDepartmentId">
+            <summary>
+            描述 :部门 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeTitlesId">
+            <summary>
+            描述 :职称 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EePostId">
+            <summary>
+            描述 :岗位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EePostLevel">
+            <summary>
+            描述 :等级 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeDutyName">
+            <summary>
+            描述 :职务 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeRecruited">
+            <summary>
+            描述 :招聘来源 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeEngageForm">
+            <summary>
+            描述 :聘用形式 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeTiptopDegrEe">
+            <summary>
+            描述 :学历 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeSpecialty">
+            <summary>
+            描述 :专业 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeSchool">
+            <summary>
+            描述 :院校 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeWorkID">
+            <summary>
+            描述 :工号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeBeginDate">
+            <summary>
+            描述 :入职日期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeWorkState">
+            <summary>
+            描述 :在职状态 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeProbation">
+            <summary>
+            描述 :试用期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeContractTerm">
+            <summary>
+            描述 :合同期限 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeConversionTime">
+            <summary>
+            描述 :转正日期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeLeaveDate">
+            <summary>
+            描述 :离职日期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeBeginContract">
+            <summary>
+            描述 :合同起始日 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeBndContract">
+            <summary>
+            描述 :合同终止晶 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeWorkAge">
+            <summary>
+            描述 :工龄 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeAvatar">
+            <summary>
+            描述 :头像 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeQualificationAffix">
+            <summary>
+            描述 :学历附件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.EeTitleAffix">
+            <summary>
+            描述 :职称附件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF01">
+            <summary>
+            描述 :UDF01 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF02">
+            <summary>
+            描述 :UDF02 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF03">
+            <summary>
+            描述 :UDF03 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF04">
+            <summary>
+            描述 :UDF04 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF05">
+            <summary>
+            描述 :UDF05 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF06">
+            <summary>
+            描述 :UDF06 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF51">
+            <summary>
+            描述 :UDF51 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF52">
+            <summary>
+            描述 :UDF52 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF53">
+            <summary>
+            描述 :UDF53 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF54">
+            <summary>
+            描述 :UDF54 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF55">
+            <summary>
+            描述 :UDF55 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF56">
+            <summary>
+            描述 :UDF56 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.IsDeleted">
+            <summary>
+            描述 :IsDeleted 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.ReMark">
+            <summary>
+            描述 :ReMark 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeDto.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            </summary>
+        </member>
         <member name="T:La.Model.Dto.PpEcDigestQueryDto">
             <summary>
             新旧物料查询对象
@@ -1418,7 +1800,7 @@
             <summary>
             主设变查询对象
             @author Davis.Cheng
-            @date 2023-04-12
+            @date 2023-04-28
             </summary>
         </member>
         <member name="P:La.Model.Dto.PpEcMasterQueryDto.BeginEmEcIssueDate">
@@ -1436,9 +1818,9 @@
             描述 :设变No. 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.PpEcMasterQueryDto.EmEcStatus">
+        <member name="P:La.Model.Dto.PpEcMasterQueryDto.EmEcTitle">
             <summary>
-            描述 :状态 
+            描述 :标题 
             </summary>
         </member>
         <member name="P:La.Model.Dto.PpEcMasterQueryDto.EmEcAssigned">
@@ -1449,6 +1831,16 @@
         <member name="P:La.Model.Dto.PpEcMasterQueryDto.EmEcManageCategory">
             <summary>
             描述 :管理区分 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMasterQueryDto.BeginEmEcEntryDate">
+            <summary>
+            描述 :开始时间
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcMasterQueryDto.EndEmEcEntryDate">
+            <summary>
+            描述 :结束时间
             </summary>
         </member>
         <member name="T:La.Model.Dto.PpEcMasterDto">
@@ -1548,7 +1940,7 @@
         </member>
         <member name="P:La.Model.Dto.PpEcMasterDto.EmEcImpDept">
             <summary>
-            描述 :实施部门 
+            描述 :输入部门 
             </summary>
         </member>
         <member name="P:La.Model.Dto.PpEcMasterDto.EmEcEntryDate">
@@ -1556,9 +1948,9 @@
             描述 :输入日 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.PpEcMasterDto.IsModifySop">
+        <member name="P:La.Model.Dto.PpEcMasterDto.EsSopStae">
             <summary>
-            描述 :SOP变更否 
+            描述 :SOP 
             </summary>
         </member>
         <member name="P:La.Model.Dto.PpEcMasterDto.UDF01">
@@ -1655,17 +2047,7 @@
             <summary>
             从设变查询对象
             @author Davis.Cheng
-            @date 2023-04-26
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.PpEcSlaveQueryDto.BeginEsEntryDate">
-            <summary>
-            描述 :开始时间
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.PpEcSlaveQueryDto.EndEsEntryDate">
-            <summary>
-            描述 :结束时间
+            @date 2023-05-02
             </summary>
         </member>
         <member name="P:La.Model.Dto.PpEcSlaveQueryDto.EsEcNo">
@@ -1681,6 +2063,21 @@
         <member name="P:La.Model.Dto.PpEcSlaveQueryDto.EsItem">
             <summary>
             描述 :物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveQueryDto.EsSubItem">
+            <summary>
+            描述 :子物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveQueryDto.EsOldItem">
+            <summary>
+            描述 :旧物料 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveQueryDto.EsNewItem">
+            <summary>
+            描述 :新物料 
             </summary>
         </member>
         <member name="T:La.Model.Dto.PpEcSlaveDto">
@@ -1788,29 +2185,19 @@
             描述 :bom日期 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPurType">
-            <summary>
-            描述 :采购类型 
-            </summary>
-        </member>
         <member name="P:La.Model.Dto.PpEcSlaveDto.EmEcImpDept">
             <summary>
             描述 :实施部门 
             </summary>
         </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPurType">
+            <summary>
+            描述 :采购类型 
+            </summary>
+        </member>
         <member name="P:La.Model.Dto.PpEcSlaveDto.EsSloc">
             <summary>
             描述 :仓库 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.PpEcSlaveDto.EsOldCurrStock">
-            <summary>
-            描述 :旧品库存 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.PpEcSlaveDto.EsNewCurrStock">
-            <summary>
-            描述 :新品库存 
             </summary>
         </member>
         <member name="P:La.Model.Dto.PpEcSlaveDto.EsInsmk">
@@ -1823,14 +2210,24 @@
             描述 :工厂状态 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.PpEcSlaveDto.EsDeptEntryDate">
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsSopStae">
             <summary>
-            描述 :部门录入日 
+            描述 :SOP 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.PpEcSlaveDto.EsDeptName">
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsOldCurrStock">
             <summary>
-            描述 :部门名称 
+            描述 :旧品库存 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsNewCurrStock">
+            <summary>
+            描述 :新品库存 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPurEntryDate">
+            <summary>
+            描述 :采购登入日期 
             </summary>
         </member>
         <member name="P:La.Model.Dto.PpEcSlaveDto.EsSupplier">
@@ -1848,6 +2245,31 @@
             描述 :说明 
             </summary>
         </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPurCreator">
+            <summary>
+            描述 :EsPurCreator 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPurCreateTime">
+            <summary>
+            描述 :EsPurCreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPurModifier">
+            <summary>
+            描述 :EsPurModifier 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPurModifyTime">
+            <summary>
+            描述 :EsPurModifyTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPmcEntryDate">
+            <summary>
+            描述 :生管登入日期 
+            </summary>
+        </member>
         <member name="P:La.Model.Dto.PpEcSlaveDto.EsPmcLot">
             <summary>
             描述 :预投入批次 
@@ -1863,6 +2285,31 @@
             描述 :备注 
             </summary>
         </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPmcCreator">
+            <summary>
+            描述 :EsPmcCreator 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPmcCreateTime">
+            <summary>
+            描述 :EsPmcCreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPmcModifier">
+            <summary>
+            描述 :EsPmcModifier 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPmcModifyTime">
+            <summary>
+            描述 :EsPmcModifyTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsIqcEntryDate">
+            <summary>
+            描述 :IQC登入日期 
+            </summary>
+        </member>
         <member name="P:La.Model.Dto.PpEcSlaveDto.EsIqcOrder">
             <summary>
             描述 :检验订单 
@@ -1871,6 +2318,31 @@
         <member name="P:La.Model.Dto.PpEcSlaveDto.EsIqcNote">
             <summary>
             描述 :说明 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsIqcCreator">
+            <summary>
+            描述 :EsIqcCreator 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsIqcCreateTime">
+            <summary>
+            描述 :EsIqcCreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsIqcModifier">
+            <summary>
+            描述 :EsIqcModifier 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsIqcModifyTime">
+            <summary>
+            描述 :EsIqcModifyTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsMmEntryDate">
+            <summary>
+            描述 :部管登入日期 
             </summary>
         </member>
         <member name="P:La.Model.Dto.PpEcSlaveDto.EsMmLot">
@@ -1888,6 +2360,31 @@
             描述 :说明 
             </summary>
         </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsMmCreator">
+            <summary>
+            描述 :EsMmCreator 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsMmCreateTime">
+            <summary>
+            描述 :EsMmCreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsMmModifier">
+            <summary>
+            描述 :EsMmModifier 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsMmModifyTime">
+            <summary>
+            描述 :EsMmModifyTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPpEntryDate">
+            <summary>
+            描述 :制一登入日期 
+            </summary>
+        </member>
         <member name="P:La.Model.Dto.PpEcSlaveDto.EsPpLine">
             <summary>
             描述 :班组 
@@ -1901,6 +2398,31 @@
         <member name="P:La.Model.Dto.PpEcSlaveDto.EsPpNote">
             <summary>
             描述 :说明 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPpCreator">
+            <summary>
+            描述 :EsPpCreator 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPpCreateTime">
+            <summary>
+            描述 :EsPpCreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPpModifier">
+            <summary>
+            描述 :EsPpModifier 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPpModifyTime">
+            <summary>
+            描述 :EsPpModifyTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPcbaEntryDate">
+            <summary>
+            描述 :制二登入日期 
             </summary>
         </member>
         <member name="P:La.Model.Dto.PpEcSlaveDto.EsPcbaLine">
@@ -1918,6 +2440,31 @@
             描述 :说明 
             </summary>
         </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPcbaCreator">
+            <summary>
+            描述 :EsPcbaCreator 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPcbaCreateTime">
+            <summary>
+            描述 :EsPcbaCreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPcbaModifier">
+            <summary>
+            描述 :EsPcbaModifier 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsPcbaModifyTime">
+            <summary>
+            描述 :EsPcbaModifyTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsQaEntryDate">
+            <summary>
+            描述 :QA确认日期 
+            </summary>
+        </member>
         <member name="P:La.Model.Dto.PpEcSlaveDto.EsQaLot">
             <summary>
             描述 :检验批次 
@@ -1928,24 +2475,24 @@
             描述 :说明 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.PpEcSlaveDto.EsDeptCreator">
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsQaCreator">
             <summary>
-            描述 :EsDeptCreator 
+            描述 :EsQaCreator 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.PpEcSlaveDto.EsDeptCreateTime">
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsQaCreateTime">
             <summary>
-            描述 :EsDeptCreateTime 
+            描述 :EsQaCreateTime 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.PpEcSlaveDto.EsDeptModifier">
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsQaModifier">
             <summary>
-            描述 :EsDeptModifier 
+            描述 :EsQaModifier 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.PpEcSlaveDto.EsDeptModifyTime">
+        <member name="P:La.Model.Dto.PpEcSlaveDto.EsQaModifyTime">
             <summary>
-            描述 :EsDeptModifyTime 
+            描述 :EsQaModifyTime 
             </summary>
         </member>
         <member name="P:La.Model.Dto.PpEcSlaveDto.UDF01">
@@ -2207,14 +2754,39 @@
         </member>
         <member name="T:La.Model.Dto.PpEcSopQueryDto">
             <summary>
-            SOP确认查询对象
+            SOP查询对象
             @author Davis.Cheng
-            @date 2023-04-12
+            @date 2023-05-03
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopQueryDto.BeginEsIssueDate">
+            <summary>
+            描述 :开始时间
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopQueryDto.EndEsIssueDate">
+            <summary>
+            描述 :结束时间
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopQueryDto.EsEcNo">
+            <summary>
+            描述 :设变No. 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopQueryDto.EsModel">
+            <summary>
+            描述 :机种 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopQueryDto.EsItem">
+            <summary>
+            描述 :物料 
             </summary>
         </member>
         <member name="T:La.Model.Dto.PpEcSopDto">
             <summary>
-            SOP确认输入输出对象
+            SOP输入输出对象
             </summary>
         </member>
         <member name="P:La.Model.Dto.PpEcSopDto.EsId">
@@ -2247,6 +2819,11 @@
             描述 :机种 
             </summary>
         </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EsItem">
+            <summary>
+            描述 :物料 
+            </summary>
+        </member>
         <member name="P:La.Model.Dto.PpEcSopDto.EsPeaAssigned">
             <summary>
             描述 :生技担当 
@@ -2267,14 +2844,24 @@
             描述 :说明 
             </summary>
         </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EmPeaDocNo">
+            <summary>
+            描述 :版本 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EmPeaDoc">
+            <summary>
+            描述 :组立文件 
+            </summary>
+        </member>
         <member name="P:La.Model.Dto.PpEcSopDto.EsPeaModifier">
             <summary>
-            描述 :EsPeaModifier 
+            描述 :组立确认 
             </summary>
         </member>
         <member name="P:La.Model.Dto.PpEcSopDto.EsPeaModifyTime">
             <summary>
-            描述 :EsPeaModifyTime 
+            描述 :组立确认日期 
             </summary>
         </member>
         <member name="P:La.Model.Dto.PpEcSopDto.EsPepAssigned">
@@ -2297,14 +2884,24 @@
             描述 :说明 
             </summary>
         </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EmPepDocNo">
+            <summary>
+            描述 :版本 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.PpEcSopDto.EmPepDoc">
+            <summary>
+            描述 :PCBA文件 
+            </summary>
+        </member>
         <member name="P:La.Model.Dto.PpEcSopDto.EsPepModifier">
             <summary>
-            描述 :EsPepModifier 
+            描述 :PCBA确认 
             </summary>
         </member>
         <member name="P:La.Model.Dto.PpEcSopDto.EsPepModifyTime">
             <summary>
-            描述 :EsPepModifyTime 
+            描述 :PCBA确认日期 
             </summary>
         </member>
         <member name="P:La.Model.Dto.PpEcSopDto.UDF01">
@@ -4062,6 +4659,392 @@
             空值 :true 
             </summary>
         </member>
+        <member name="T:La.Model.Models.EhrEmployee">
+             <summary>
+             人事信息，数据实体对象
+            
+             @author Davis.Cheng
+             @date 2023-05-04
+             </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeId">
+            <summary>
+            描述 :ID 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeName">
+            <summary>
+            描述 :姓名 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeNameUsed">
+            <summary>
+            描述 :曾用名 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeNickName">
+            <summary>
+            描述 :昵称 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeEnglishName">
+            <summary>
+            描述 :英文名 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeGender">
+            <summary>
+            描述 :性别 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeBirthday">
+            <summary>
+            描述 :出生日期 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeIdentityCard">
+            <summary>
+            描述 :身份证号 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeWedlock">
+            <summary>
+            描述 :婚姻状态 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeNationId">
+            <summary>
+            描述 :民族 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeNativePlace">
+            <summary>
+            描述 :籍贯 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EePoliticId">
+            <summary>
+            描述 :政治面貌 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeEmail">
+            <summary>
+            描述 :邮件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EePhone">
+            <summary>
+            描述 :电话 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeCountry">
+            <summary>
+            描述 :国家/地区 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeProvince">
+            <summary>
+            描述 :省区 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeCity">
+            <summary>
+            描述 :市区 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeCounty">
+            <summary>
+            描述 :县区 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeHomeAddress">
+            <summary>
+            描述 :家庭住址 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EePostCode">
+            <summary>
+            描述 :邮编 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeHouseholdType">
+            <summary>
+            描述 :户口性质 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeStayAddress">
+            <summary>
+            描述 :暂住地址 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeDepartmentId">
+            <summary>
+            描述 :部门 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeTitlesId">
+            <summary>
+            描述 :职称 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EePostId">
+            <summary>
+            描述 :岗位 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EePostLevel">
+            <summary>
+            描述 :等级 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeDutyName">
+            <summary>
+            描述 :职务 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeRecruited">
+            <summary>
+            描述 :招聘来源 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeEngageForm">
+            <summary>
+            描述 :聘用形式 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeTiptopDegrEe">
+            <summary>
+            描述 :学历 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeSpecialty">
+            <summary>
+            描述 :专业 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeSchool">
+            <summary>
+            描述 :院校 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeWorkID">
+            <summary>
+            描述 :工号 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeBeginDate">
+            <summary>
+            描述 :入职日期 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeWorkState">
+            <summary>
+            描述 :在职状态 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeProbation">
+            <summary>
+            描述 :试用期 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeContractTerm">
+            <summary>
+            描述 :合同期限 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeConversionTime">
+            <summary>
+            描述 :转正日期 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeLeaveDate">
+            <summary>
+            描述 :离职日期 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeBeginContract">
+            <summary>
+            描述 :合同起始日 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeBndContract">
+            <summary>
+            描述 :合同终止晶 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeWorkAge">
+            <summary>
+            描述 :工龄 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeAvatar">
+            <summary>
+            描述 :头像 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeQualificationAffix">
+            <summary>
+            描述 :学历附件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.EeTitleAffix">
+            <summary>
+            描述 :职称附件 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.UDF01">
+            <summary>
+            描述 :UDF01 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.UDF02">
+            <summary>
+            描述 :UDF02 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.UDF03">
+            <summary>
+            描述 :UDF03 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.UDF04">
+            <summary>
+            描述 :UDF04 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.UDF05">
+            <summary>
+            描述 :UDF05 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.UDF06">
+            <summary>
+            描述 :UDF06 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.UDF51">
+            <summary>
+            描述 :UDF51 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.UDF52">
+            <summary>
+            描述 :UDF52 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.UDF53">
+            <summary>
+            描述 :UDF53 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.UDF54">
+            <summary>
+            描述 :UDF54 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.UDF55">
+            <summary>
+            描述 :UDF55 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.UDF56">
+            <summary>
+            描述 :UDF56 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.IsDeleted">
+            <summary>
+            描述 :IsDeleted 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.ReMark">
+            <summary>
+            描述 :ReMark 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.EhrEmployee.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            空值 :true 
+            </summary>
+        </member>
         <member name="T:La.Model.Models.PpEcDigest">
              <summary>
              新旧物料，数据实体对象
@@ -4491,7 +5474,7 @@
              主设变，数据实体对象
             
              @author Davis.Cheng
-             @date 2023-04-12
+             @date 2023-04-28
              </summary>
         </member>
         <member name="P:La.Model.Models.PpEcMaster.EmId">
@@ -4604,7 +5587,7 @@
         </member>
         <member name="P:La.Model.Models.PpEcMaster.EmEcImpDept">
             <summary>
-            描述 :实施部门 
+            描述 :输入部门 
             空值 :false 
             </summary>
         </member>
@@ -4614,9 +5597,9 @@
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.PpEcMaster.IsModifySop">
+        <member name="P:La.Model.Models.PpEcMaster.EsSopStae">
             <summary>
-            描述 :SOP变更否 
+            描述 :SOP 
             空值 :false 
             </summary>
         </member>
@@ -4733,7 +5716,7 @@
              从设变，数据实体对象
             
              @author Davis.Cheng
-             @date 2023-04-26
+             @date 2023-05-02
              </summary>
         </member>
         <member name="P:La.Model.Models.PpEcSlave.EsId">
@@ -4799,7 +5782,7 @@
         <member name="P:La.Model.Models.PpEcSlave.EsNewItem">
             <summary>
             描述 :新物料 
-            空值 :false 
+            空值 :true 
             </summary>
         </member>
         <member name="P:La.Model.Models.PpEcSlave.EsNewItemText">
@@ -4856,21 +5839,39 @@
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.PpEcSlave.EsPurType">
-            <summary>
-            描述 :采购类型 
-            空值 :false 
-            </summary>
-        </member>
         <member name="P:La.Model.Models.PpEcSlave.EmEcImpDept">
             <summary>
             描述 :实施部门 
             空值 :false 
             </summary>
         </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPurType">
+            <summary>
+            描述 :采购类型 
+            空值 :false 
+            </summary>
+        </member>
         <member name="P:La.Model.Models.PpEcSlave.EsSloc">
             <summary>
             描述 :仓库 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsInsmk">
+            <summary>
+            描述 :检验否 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsMstae">
+            <summary>
+            描述 :工厂状态 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsSopStae">
+            <summary>
+            描述 :SOP 
             空值 :false 
             </summary>
         </member>
@@ -4886,27 +5887,9 @@
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.PpEcSlave.EsInsmk">
+        <member name="P:La.Model.Models.PpEcSlave.EsPurEntryDate">
             <summary>
-            描述 :检验否 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.PpEcSlave.EsMstae">
-            <summary>
-            描述 :工厂状态 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.PpEcSlave.EsDeptEntryDate">
-            <summary>
-            描述 :部门录入日 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.PpEcSlave.EsDeptName">
-            <summary>
-            描述 :部门名称 
+            描述 :采购登入日期 
             空值 :true 
             </summary>
         </member>
@@ -4928,6 +5911,36 @@
             空值 :true 
             </summary>
         </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPurCreator">
+            <summary>
+            描述 :EsPurCreator 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPurCreateTime">
+            <summary>
+            描述 :EsPurCreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPurModifier">
+            <summary>
+            描述 :EsPurModifier 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPurModifyTime">
+            <summary>
+            描述 :EsPurModifyTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPmcEntryDate">
+            <summary>
+            描述 :生管登入日期 
+            空值 :true 
+            </summary>
+        </member>
         <member name="P:La.Model.Models.PpEcSlave.EsPmcLot">
             <summary>
             描述 :预投入批次 
@@ -4946,6 +5959,36 @@
             空值 :true 
             </summary>
         </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPmcCreator">
+            <summary>
+            描述 :EsPmcCreator 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPmcCreateTime">
+            <summary>
+            描述 :EsPmcCreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPmcModifier">
+            <summary>
+            描述 :EsPmcModifier 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPmcModifyTime">
+            <summary>
+            描述 :EsPmcModifyTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsIqcEntryDate">
+            <summary>
+            描述 :IQC登入日期 
+            空值 :true 
+            </summary>
+        </member>
         <member name="P:La.Model.Models.PpEcSlave.EsIqcOrder">
             <summary>
             描述 :检验订单 
@@ -4955,6 +5998,36 @@
         <member name="P:La.Model.Models.PpEcSlave.EsIqcNote">
             <summary>
             描述 :说明 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsIqcCreator">
+            <summary>
+            描述 :EsIqcCreator 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsIqcCreateTime">
+            <summary>
+            描述 :EsIqcCreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsIqcModifier">
+            <summary>
+            描述 :EsIqcModifier 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsIqcModifyTime">
+            <summary>
+            描述 :EsIqcModifyTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsMmEntryDate">
+            <summary>
+            描述 :部管登入日期 
             空值 :true 
             </summary>
         </member>
@@ -4976,6 +6049,36 @@
             空值 :true 
             </summary>
         </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsMmCreator">
+            <summary>
+            描述 :EsMmCreator 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsMmCreateTime">
+            <summary>
+            描述 :EsMmCreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsMmModifier">
+            <summary>
+            描述 :EsMmModifier 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsMmModifyTime">
+            <summary>
+            描述 :EsMmModifyTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPpEntryDate">
+            <summary>
+            描述 :制一登入日期 
+            空值 :true 
+            </summary>
+        </member>
         <member name="P:La.Model.Models.PpEcSlave.EsPpLine">
             <summary>
             描述 :班组 
@@ -4991,6 +6094,36 @@
         <member name="P:La.Model.Models.PpEcSlave.EsPpNote">
             <summary>
             描述 :说明 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPpCreator">
+            <summary>
+            描述 :EsPpCreator 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPpCreateTime">
+            <summary>
+            描述 :EsPpCreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPpModifier">
+            <summary>
+            描述 :EsPpModifier 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPpModifyTime">
+            <summary>
+            描述 :EsPpModifyTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPcbaEntryDate">
+            <summary>
+            描述 :制二登入日期 
             空值 :true 
             </summary>
         </member>
@@ -5012,6 +6145,36 @@
             空值 :true 
             </summary>
         </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPcbaCreator">
+            <summary>
+            描述 :EsPcbaCreator 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPcbaCreateTime">
+            <summary>
+            描述 :EsPcbaCreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPcbaModifier">
+            <summary>
+            描述 :EsPcbaModifier 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsPcbaModifyTime">
+            <summary>
+            描述 :EsPcbaModifyTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSlave.EsQaEntryDate">
+            <summary>
+            描述 :QA确认日期 
+            空值 :true 
+            </summary>
+        </member>
         <member name="P:La.Model.Models.PpEcSlave.EsQaLot">
             <summary>
             描述 :检验批次 
@@ -5024,27 +6187,27 @@
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.PpEcSlave.EsDeptCreator">
+        <member name="P:La.Model.Models.PpEcSlave.EsQaCreator">
             <summary>
-            描述 :EsDeptCreator 
+            描述 :EsQaCreator 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.PpEcSlave.EsDeptCreateTime">
+        <member name="P:La.Model.Models.PpEcSlave.EsQaCreateTime">
             <summary>
-            描述 :EsDeptCreateTime 
+            描述 :EsQaCreateTime 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.PpEcSlave.EsDeptModifier">
+        <member name="P:La.Model.Models.PpEcSlave.EsQaModifier">
             <summary>
-            描述 :EsDeptModifier 
+            描述 :EsQaModifier 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.PpEcSlave.EsDeptModifyTime">
+        <member name="P:La.Model.Models.PpEcSlave.EsQaModifyTime">
             <summary>
-            描述 :EsDeptModifyTime 
+            描述 :EsQaModifyTime 
             空值 :true 
             </summary>
         </member>
@@ -5316,10 +6479,10 @@
         </member>
         <member name="T:La.Model.Models.PpEcSop">
              <summary>
-             SOP确认，数据实体对象
+             SOP，数据实体对象
             
              @author Davis.Cheng
-             @date 2023-04-12
+             @date 2023-05-03
              </summary>
         </member>
         <member name="P:La.Model.Models.PpEcSop.EsId">
@@ -5358,6 +6521,12 @@
             空值 :true 
             </summary>
         </member>
+        <member name="P:La.Model.Models.PpEcSop.EsItem">
+            <summary>
+            描述 :物料 
+            空值 :true 
+            </summary>
+        </member>
         <member name="P:La.Model.Models.PpEcSop.EsPeaAssigned">
             <summary>
             描述 :生技担当 
@@ -5382,15 +6551,27 @@
             空值 :true 
             </summary>
         </member>
+        <member name="P:La.Model.Models.PpEcSop.EmPeaDocNo">
+            <summary>
+            描述 :版本 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.EmPeaDoc">
+            <summary>
+            描述 :组立文件 
+            空值 :true 
+            </summary>
+        </member>
         <member name="P:La.Model.Models.PpEcSop.EsPeaModifier">
             <summary>
-            描述 :EsPeaModifier 
+            描述 :组立确认 
             空值 :true 
             </summary>
         </member>
         <member name="P:La.Model.Models.PpEcSop.EsPeaModifyTime">
             <summary>
-            描述 :EsPeaModifyTime 
+            描述 :组立确认日期 
             空值 :true 
             </summary>
         </member>
@@ -5418,15 +6599,27 @@
             空值 :true 
             </summary>
         </member>
+        <member name="P:La.Model.Models.PpEcSop.EmPepDocNo">
+            <summary>
+            描述 :版本 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.PpEcSop.EmPepDoc">
+            <summary>
+            描述 :PCBA文件 
+            空值 :true 
+            </summary>
+        </member>
         <member name="P:La.Model.Models.PpEcSop.EsPepModifier">
             <summary>
-            描述 :EsPepModifier 
+            描述 :PCBA确认 
             空值 :true 
             </summary>
         </member>
         <member name="P:La.Model.Models.PpEcSop.EsPepModifyTime">
             <summary>
-            描述 :EsPepModifyTime 
+            描述 :PCBA确认日期 
             空值 :true 
             </summary>
         </member>

@@ -11,8 +11,6 @@ using La.Service.Production.IProductionService;
 using La.WebApi.Extensions;
 using La.WebApi.Filters;
 using La.Common;
-using La.Service.System.IService;
-using La.Tasks;
 
 namespace La.WebApi.Controllers
 {
@@ -21,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName pp_ec_master
     /// @author Davis.Cheng
-    /// @date 2023-04-12
+    /// @date 2023-04-28
     /// </summary>
     [Verify]
     [Route("Production/PpEcMaster")]
@@ -31,7 +29,6 @@ namespace La.WebApi.Controllers
         /// 主设变接口
         /// </summary>
         private readonly IPpEcMasterService _PpEcMasterService;
-
         /// <summary>
         /// 主设变Controller
         /// </summary>
@@ -46,7 +43,7 @@ namespace La.WebApi.Controllers
         /// <param name="parm"></param>
         /// <returns></returns>
         [HttpGet("list")]
-        [ActionPermissionFilter(Permission = "la:ppecmaster:list")]
+        [ActionPermissionFilter(Permission = "pp:ecmaster:list")]
         public IActionResult QueryPpEcMaster([FromQuery] PpEcMasterQueryDto parm)
         {
             var response = _PpEcMasterService.GetList(parm);
@@ -60,7 +57,7 @@ namespace La.WebApi.Controllers
         /// <param name="EmId"></param>
         /// <returns></returns>
         [HttpGet("{EmId}")]
-        [ActionPermissionFilter(Permission = "la:ppecmaster:query")]
+        [ActionPermissionFilter(Permission = "pp:ecmaster:query")]
         public IActionResult GetPpEcMaster(int EmId)
         {
             var response = _PpEcMasterService.GetFirst(x => x.EmId == EmId);
@@ -73,7 +70,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [ActionPermissionFilter(Permission = "la:ppecmaster:add")]
+        [ActionPermissionFilter(Permission = "pp:ecmaster:add")]
         [Log(Title = "主设变", BusinessType = BusinessType.INSERT)]
         public IActionResult AddPpEcMaster([FromBody] PpEcMasterDto parm)
         {
@@ -84,9 +81,9 @@ namespace La.WebApi.Controllers
 
            // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_PpEcMasterService.CheckEntryStringUnique(parm.EmEcNo.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_PpEcMasterService.CheckEntryStringUnique(parm.EmId.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增主设变 '{parm.EmEcNo}'失败，输入的主设变已存在"));
+                return ToResponse(ApiResult.Error($"新增主设变 '{parm.EmId}'失败，输入的主设变已存在"));
             }
             var modal = parm.Adapt<PpEcMaster>().ToCreate(HttpContext);
 
@@ -100,7 +97,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPut]
-        [ActionPermissionFilter(Permission = "la:ppecmaster:edit")]
+        [ActionPermissionFilter(Permission = "pp:ecmaster:edit")]
         [Log(Title = "主设变", BusinessType = BusinessType.UPDATE)]
         public IActionResult UpdatePpEcMaster([FromBody] PpEcMasterDto parm)
         {
@@ -120,7 +117,7 @@ namespace La.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpDelete("{ids}")]
-        [ActionPermissionFilter(Permission = "la:ppecmaster:delete")]
+        [ActionPermissionFilter(Permission = "pp:ecmaster:delete")]
         [Log(Title = "主设变", BusinessType = BusinessType.DELETE)]
         public IActionResult DeletePpEcMaster(string ids)
         {
@@ -138,7 +135,7 @@ namespace La.WebApi.Controllers
         /// <returns></returns>
         [Log(Title = "主设变", BusinessType = BusinessType.EXPORT, IsSaveResponseData = false)]
         [HttpGet("export")]
-        [ActionPermissionFilter(Permission = "la:ppecmaster:export")]
+        [ActionPermissionFilter(Permission = "pp:ecmaster:export")]
         public IActionResult Export([FromQuery] PpEcMasterQueryDto parm)
         {
             parm.PageSize = 100000;
@@ -151,6 +148,23 @@ namespace La.WebApi.Controllers
             return ExportExcel(result.Item2, result.Item1);
         }
 
+        /// <summary>
+        /// 清空主设变
+        /// </summary>
+        /// <returns></returns>
+        [Log(Title = "主设变", BusinessType = BusinessType.CLEAN)]
+        [ActionPermissionFilter(Permission = "pp:ecmaster:delete")]
+        [HttpDelete("clean")]
+        public ApiResult Clear()
+        {
+            if (!HttpContextExtension.IsAdmin(HttpContext))
+            {
+                return ApiResult.Error("操作失败");
+            }
+            _PpEcMasterService.TruncatePpEcMaster();
+
+            return ToJson(1);
+        }
 
     }
 }

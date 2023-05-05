@@ -37,9 +37,12 @@ namespace La.Service.Production
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.PomMflot), it => it.PomMflot == parm.PomMflot);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.PomModelName), it => it.PomModelName == parm.PomModelName);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.PomMfItem), it => it.PomMfItem == parm.PomMfItem);
-            predicate = predicate.AndIF(parm.BeginPomMfDate != null, it => it.PomMfDate >= DateTime.Now.AddDays(-1));
+            predicate = predicate.AndIF(parm.BeginPomMfDate != null, it => it.PomMfDate >= parm.BeginPomMfDate);
             predicate = predicate.AndIF(parm.BeginPomMfDate != null, it => it.PomMfDate >= parm.BeginPomMfDate && it.PomMfDate <= parm.EndPomMfDate);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.PomLineName), it => it.PomLineName == parm.PomLineName);
+
+            //predicate.AndIF(parm.BeginPomMfDate != DateTime.MinValue && parm.BeginPomMfDate != null, u => u.PomMfDate >= parm.BeginPomMfDate);
+            //predicate.AndIF(parm.EndPomMfDate != DateTime.MinValue && parm.EndPomMfDate != null, u => u.PomMfDate <= parm.EndPomMfDate);
             var response = Queryable()
                 .Where(predicate.ToExpression())
                 .ToPage<PpOutputMaster, PpOutputMasterDto>(parm);

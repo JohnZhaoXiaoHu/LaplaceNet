@@ -567,6 +567,69 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:La.WebApi.Controllers.EhrEmployeeController">
+            <summary>
+            人事信息Controller
+            
+            @tableName ehr_employee
+            @author Davis.Cheng
+            @date 2023-05-04
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.EhrEmployeeController._EhrEmployeeService">
+            <summary>
+            人事信息接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.EhrEmployeeController.#ctor(La.Service.Office.IOfficeService.IEhrEmployeeService)">
+            <summary>
+            人事信息Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.EhrEmployeeController.QueryEhrEmployee(La.Model.Dto.EhrEmployeeQueryDto)">
+            <summary>
+            查询人事信息列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.EhrEmployeeController.GetEhrEmployee(System.String)">
+            <summary>
+            查询人事信息详情
+            </summary>
+            <param name="EeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.EhrEmployeeController.AddEhrEmployee(La.Model.Dto.EhrEmployeeDto)">
+            <summary>
+            添加人事信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.EhrEmployeeController.UpdateEhrEmployee(La.Model.Dto.EhrEmployeeDto)">
+            <summary>
+            更新人事信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.EhrEmployeeController.DeleteEhrEmployee(System.String)">
+            <summary>
+            删除人事信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.EhrEmployeeController.Export(La.Model.Dto.EhrEmployeeQueryDto)">
+            <summary>
+            导出人事信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.EhrEmployeeController.Clear">
+            <summary>
+            清空人事信息
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:La.WebApi.Controllers.PpEcDigestController">
             <summary>
             新旧物料Controller
@@ -699,7 +762,7 @@
             
             @tableName pp_ec_master
             @author Davis.Cheng
-            @date 2023-04-12
+            @date 2023-04-28
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.PpEcMasterController._PpEcMasterService">
@@ -750,13 +813,19 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:La.WebApi.Controllers.PpEcMasterController.Clear">
+            <summary>
+            清空主设变
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:La.WebApi.Controllers.PpEcSlaveController">
             <summary>
             从设变Controller
             
             @tableName pp_ec_slave
             @author Davis.Cheng
-            @date 2023-04-26
+            @date 2023-05-02
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.PpEcSlaveController._PpEcSlaveService">
@@ -878,64 +947,64 @@
         </member>
         <member name="T:La.WebApi.Controllers.PpEcSopController">
             <summary>
-            SOP确认Controller
+            SOPController
             
             @tableName pp_ec_sop
             @author Davis.Cheng
-            @date 2023-04-12
+            @date 2023-05-03
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.PpEcSopController._PpEcSopService">
             <summary>
-            SOP确认接口
+            SOP接口
             </summary>
         </member>
         <member name="M:La.WebApi.Controllers.PpEcSopController.#ctor(La.Service.Production.IProductionService.IPpEcSopService)">
             <summary>
-            SOP确认Controller
+            SOPController
             </summary>
         </member>
         <member name="M:La.WebApi.Controllers.PpEcSopController.QueryPpEcSop(La.Model.Dto.PpEcSopQueryDto)">
             <summary>
-            查询SOP确认列表
+            查询SOP列表
             </summary>
             <param name="parm"></param>
             <returns></returns>
         </member>
         <member name="M:La.WebApi.Controllers.PpEcSopController.GetPpEcSop(System.Int32)">
             <summary>
-            查询SOP确认详情
+            查询SOP详情
             </summary>
             <param name="EsId"></param>
             <returns></returns>
         </member>
         <member name="M:La.WebApi.Controllers.PpEcSopController.AddPpEcSop(La.Model.Dto.PpEcSopDto)">
             <summary>
-            添加SOP确认
+            添加SOP
             </summary>
             <returns></returns>
         </member>
         <member name="M:La.WebApi.Controllers.PpEcSopController.UpdatePpEcSop(La.Model.Dto.PpEcSopDto)">
             <summary>
-            更新SOP确认
+            更新SOP
             </summary>
             <returns></returns>
         </member>
         <member name="M:La.WebApi.Controllers.PpEcSopController.DeletePpEcSop(System.String)">
             <summary>
-            删除SOP确认
+            删除SOP
             </summary>
             <returns></returns>
         </member>
         <member name="M:La.WebApi.Controllers.PpEcSopController.Export(La.Model.Dto.PpEcSopQueryDto)">
             <summary>
-            导出SOP确认
+            导出SOP
             </summary>
             <returns></returns>
         </member>
         <member name="M:La.WebApi.Controllers.PpEcSopController.Clear">
             <summary>
-            清空SOP确认
+            清空SOP
             </summary>
             <returns></returns>
         </member>

@@ -1,14 +1,48 @@
 <!--
- * @Descripttion: (SOP确认/pp_ec_sop)
+ * @Descripttion: (SOP/pp_ec_sop)
  * @version: (1.0)
  * @Author: (Davis.Cheng)
- * @Date: (2023-04-12)
+ * @Date: (2023-05-03)
  * @LastEditors: (Davis.Cheng)
- * @LastEditTime: (2023-04-12)
+ * @LastEditTime: (2023-05-03)
 -->
 <template>
   <div>
     <el-form :model="queryParams" label-position="right" inline ref="queryRef" v-show="showSearch" @submit.prevent>
+      <el-form-item label="发行日期">
+        <el-date-picker v-model="dateRangeEsIssueDate" type="datetimerange" range-separator="-"
+          :start-placeholder="$t('btn.dateStart')" :end-placeholder="$t('btn.dateEnd')"
+          :placeholder="$t('btn.select')+'发行日期'" value-format="YYYY-MM-DD HH:mm:ss" :default-time="defaultTime"
+          :shortcuts="dateOptions">
+        </el-date-picker>
+      </el-form-item>
+      <el-form-item label="设变No." prop="esEcNo">
+        <el-select filterable clearable v-model="queryParams.esEcNo" :placeholder="$t('btn.select')+'设变No.'">
+          <el-option v-for="item in  options.sql_ec_no " :key="item.dictValue" :label="item.dictLabel"
+            :value="item.dictValue">
+            <span class="fl">{{ item.dictLabel }}</span>
+            <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>
+          </el-option>
+        </el-select>
+      </el-form-item>
+      <el-form-item label="机种" prop="esModel">
+        <el-select filterable clearable v-model="queryParams.esModel" :placeholder="$t('btn.select')+'机种'">
+          <el-option v-for="item in  options.sql_ec_model " :key="item.dictValue" :label="item.dictLabel"
+            :value="item.dictValue">
+            <span class="fl">{{ item.dictLabel }}</span>
+            <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>
+          </el-option>
+        </el-select>
+      </el-form-item>
+      <el-form-item label="物料" prop="esItem">
+        <el-select filterable clearable v-model="queryParams.esItem" :placeholder="$t('btn.select')+'物料'">
+          <el-option v-for="item in  options.sql_ec_item " :key="item.dictValue" :label="item.dictLabel"
+            :value="item.dictValue">
+            <span class="fl">{{ item.dictLabel }}</span>
+            <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>
+          </el-option>
+        </el-select>
+      </el-form-item>
       <el-form-item>
         <el-button icon="search" type="primary" @click="handleQuery">{{ $t('btn.search') }}</el-button>
         <el-button icon="refresh" @click="resetQuery">{{ $t('btn.reset') }}</el-button>
@@ -17,34 +51,34 @@
     <!-- 工具区域 -->
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
-        <el-button type="primary" v-hasPermi="['la:ppecsop:add']" plain icon="plus" @click="handleAdd">
+        <el-button type="primary" v-hasPermi="['pp:ecsop:add']" plain icon="plus" @click="handleAdd">
           {{ $t('btn.add') }}
         </el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button type="success" :disabled="single" v-hasPermi="['la:ppecsop:edit']" plain icon="edit"
+        <el-button type="success" :disabled="single" v-hasPermi="['pp:ecsop:edit']" plain icon="edit"
           @click="handleUpdate">
           {{ $t('btn.edit') }}
         </el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button type="danger" :disabled="multiple" v-hasPermi="['la:ppecsop:delete']" plain icon="delete"
+        <el-button type="danger" :disabled="multiple" v-hasPermi="['pp:ecsop:delete']" plain icon="delete"
           @click="handleDelete">
           {{ $t('btn.delete') }}
         </el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button color="#DC143C" v-hasPermi="['la:ppecsop:delete']" plain icon="delete" @click="handleClear">
+        <el-button color="#DC143C" v-hasPermi="['pp:ecsop:delete']" plain icon="delete" @click="handleClear">
           {{ $t('btn.clean') }}
         </el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button color="#00CED1" plain icon="Upload" @click="handleImport" v-hasPermi="['la:ppecsop:import']">
+        <el-button color="#00CED1" plain icon="Upload" @click="handleImport" v-hasPermi="['pp:ecsop:import']">
           {{ $t('btn.import') }}
         </el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button color="#FF69B4" plain icon="download" @click="handleExport" v-hasPermi="['la:ppecsop:export']">
+        <el-button color="#FF69B4" plain icon="download" @click="handleExport" v-hasPermi="['pp:ecsop:export']">
           {{ $t('btn.export') }}
         </el-button>
       </el-col>
@@ -58,50 +92,69 @@
       <el-table-column prop="esId" label="ID" align="center" v-if="columns.showColumn('esId')" />
       <el-table-column prop="esIssueDate" label="发行日期" align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('esIssueDate')" />
-      <el-table-column prop="esEcNo" label="设变No." align="center" :show-overflow-tooltip="true"
-        v-if="columns.showColumn('esEcNo')" />
+      <el-table-column prop="esEcNo" label="设变No." align="center" v-if="columns.showColumn('esEcNo')">
+        <template #default="scope">
+          <dict-tag :options=" options.sql_ec_no " :value="scope.row.esEcNo" />
+        </template>
+      </el-table-column>
       <el-table-column prop="esEntryDate" label="输入日期" align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('esEntryDate')" />
       <el-table-column prop="esAssigned" label="担当者" align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('esAssigned')" />
-      <el-table-column prop="esModel" label="机种" align="center" :show-overflow-tooltip="true"
-        v-if="columns.showColumn('esModel')" />
+      <el-table-column prop="esModel" label="机种" align="center" v-if="columns.showColumn('esModel')">
+        <template #default="scope">
+          <dict-tag :options=" options.sql_ec_model " :value="scope.row.esModel" />
+        </template>
+      </el-table-column>
+      <el-table-column prop="esItem" label="物料" align="center" v-if="columns.showColumn('esItem')">
+        <template #default="scope">
+          <dict-tag :options=" options.sql_ec_item " :value="scope.row.esItem" />
+        </template>
+      </el-table-column>
       <el-table-column prop="esPeaAssigned" label="生技担当" align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('esPeaAssigned')" />
       <el-table-column prop="isPeaModifysop" label="组立变更否" align="center" v-if="columns.showColumn('isPeaModifysop')">
         <template #default="scope">
-          <dict-tag :options=" options.isPeaModifysopOptions" :value="scope.row.isPeaModifysop" />
+          <dict-tag :options=" options.sys_sop_yn " :value="scope.row.isPeaModifysop" />
         </template>
       </el-table-column>
       <el-table-column prop="esPeaDate" label="日期" align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('esPeaDate')" />
       <el-table-column prop="esPeaNote" label="说明" align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('esPeaNote')" />
-      <el-table-column prop="esPeaModifier" label="EsPeaModifier" align="center" :show-overflow-tooltip="true"
+      <el-table-column prop="emPeaDocNo" label="版本" align="center" :show-overflow-tooltip="true"
+        v-if="columns.showColumn('emPeaDocNo')" />
+      <el-table-column prop="emPeaDoc" label="组立文件" align="center" :show-overflow-tooltip="true"
+        v-if="columns.showColumn('emPeaDoc')" />
+      <el-table-column prop="esPeaModifier" label="组立确认" align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('esPeaModifier')" />
-      <el-table-column prop="esPeaModifyTime" label="EsPeaModifyTime" align="center" :show-overflow-tooltip="true"
+      <el-table-column prop="esPeaModifyTime" label="组立确认日期" align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('esPeaModifyTime')" />
       <el-table-column prop="esPepAssigned" label="生技担当" align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('esPepAssigned')" />
       <el-table-column prop="isPepModifysop" label="PCBA变更否" align="center" v-if="columns.showColumn('isPepModifysop')">
         <template #default="scope">
-          <dict-tag :options=" options.isPepModifysopOptions" :value="scope.row.isPepModifysop" />
+          <dict-tag :options=" options.sys_sop_yn " :value="scope.row.isPepModifysop" />
         </template>
       </el-table-column>
       <el-table-column prop="esPepDate" label="日期" align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('esPepDate')" />
       <el-table-column prop="esPepNote" label="说明" align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('esPepNote')" />
-      <el-table-column prop="esPepModifier" label="EsPepModifier" align="center" :show-overflow-tooltip="true"
+      <el-table-column prop="emPepDocNo" label="版本" align="center" :show-overflow-tooltip="true"
+        v-if="columns.showColumn('emPepDocNo')" />
+      <el-table-column prop="emPepDoc" label="PCBA文件" align="center" :show-overflow-tooltip="true"
+        v-if="columns.showColumn('emPepDoc')" />
+      <el-table-column prop="esPepModifier" label="PCBA确认" align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('esPepModifier')" />
-      <el-table-column prop="esPepModifyTime" label="EsPepModifyTime" align="center" :show-overflow-tooltip="true"
+      <el-table-column prop="esPepModifyTime" label="PCBA确认日期" align="center" :show-overflow-tooltip="true"
         v-if="columns.showColumn('esPepModifyTime')" />
       <el-table-column :label="$t('btn.operate')" align="center" width="160">
         <template #default="scope">
           <el-button type="primary" icon="view" @click="handlePreview(scope.row)"></el-button>
-          <el-button v-hasPermi="['la:ppecsop:edit']" type="success" icon="edit" :title="$t('btn.edit')"
+          <el-button v-hasPermi="['pp:ecsop:edit']" type="success" icon="edit" :title="$t('btn.edit')"
             @click="handleUpdate(scope.row)"></el-button>
-          <el-button v-hasPermi="['la:ppecsop:delete']" type="danger" icon="delete" :title="$t('btn.delete')"
+          <el-button v-hasPermi="['pp:ecsop:delete']" type="danger" icon="delete" :title="$t('btn.delete')"
             @click="handleDelete(scope.row)"></el-button>
         </template>
       </el-table-column>
@@ -109,29 +162,33 @@
     <pagination class="mt10" background :total="total" v-model:page="queryParams.pageNum"
       v-model:limit="queryParams.pageSize" @pagination="getList" />
 
-    <!-- 添加或修改SOP确认对话框 -->
+    <!-- 添加或修改SOP对话框 -->
     <el-dialog :title="title" :lock-scroll="false" v-model="open">
       <el-form ref="formRef" :model="form" :rules="rules" label-width="100px">
         <el-row :gutter="20">
 
-          <el-col :lg="12">
+          <!-- <el-col :lg="12">
             <el-form-item label="ID" prop="esId">
               <el-input-number clearable v-model.number="form.esId" controls-position="right"
                 :placeholder="$t('btn.enter')+'ID'" :disabled="title==$t('btn.edit')" />
             </el-form-item>
-          </el-col>
+          </el-col> -->
 
 
           <el-col :lg="12">
             <el-form-item label="发行日期" prop="esIssueDate">
               <el-date-picker clearable v-model="form.esIssueDate" type="datetime" :teleported="false"
-                :placeholder="$t('btn.dateselect')"></el-date-picker>
+                :placeholder="$t('btn.dateselect')" :disabled="title==$t('btn.edit')"></el-date-picker>
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="设变No." prop="esEcNo">
-              <el-input clearable v-model="form.esEcNo" :placeholder="$t('btn.enter')+'设变No.'" />
+              <el-select v-model="form.esEcNo" filterable clearable :placeholder="$t('btn.select')+'设变No.'"
+                :disabled="title==$t('btn.edit')">
+                <el-option v-for="item in  options.sql_ec_no " :key="item.dictValue" :label="item.dictLabel"
+                  :value="item.dictValue"></el-option>
+              </el-select>
             </el-form-item>
           </el-col>
 
@@ -144,13 +201,28 @@
 
           <el-col :lg="12">
             <el-form-item label="担当者" prop="esAssigned">
-              <el-input clearable v-model="form.esAssigned" :placeholder="$t('btn.enter')+'担当者'" />
+              <el-input clearable v-model="form.esAssigned" :placeholder="$t('btn.enter')+'担当者'"
+                :disabled="title==$t('btn.edit')" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
             <el-form-item label="机种" prop="esModel">
-              <el-input clearable v-model="form.esModel" :placeholder="$t('btn.enter')+'机种'" />
+              <el-select v-model="form.esModel" filterable clearable :placeholder="$t('btn.select')+'机种'"
+                :disabled="title==$t('btn.edit')">
+                <el-option v-for="item in  options.sql_ec_model " :key="item.dictValue" :label="item.dictLabel"
+                  :value="item.dictValue"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="物料" prop="esItem">
+              <el-select v-model="form.esItem" filterable clearable :placeholder="$t('btn.select')+'物料'"
+                :disabled="title==$t('btn.edit')">
+                <el-option v-for="item in  options.sql_ec_item " :key="item.dictValue" :label="item.dictLabel"
+                  :value="item.dictValue"></el-option>
+              </el-select>
             </el-form-item>
           </el-col>
 
@@ -163,7 +235,7 @@
           <el-col :lg="12">
             <el-form-item label="组立变更否" prop="isPeaModifysop">
               <el-radio-group v-model="form.isPeaModifysop">
-                <el-radio v-for="item in  options.isPeaModifysopOptions" :key="item.dictValue"
+                <el-radio v-for="item in  options.sys_sop_yn " :key="item.dictValue"
                   :label="item.dictValue">{{item.dictLabel}}</el-radio>
               </el-radio-group>
             </el-form-item>
@@ -182,17 +254,29 @@
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="EsPeaModifier" prop="esPeaModifier">
-              <el-input clearable v-model="form.esPeaModifier" :placeholder="$t('btn.enter')+'EsPeaModifier'" />
+            <el-form-item label="版本" prop="emPeaDocNo">
+              <el-input clearable v-model="form.emPeaDocNo" :placeholder="$t('btn.enter')+'版本'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="EsPeaModifyTime" prop="esPeaModifyTime">
+            <el-form-item label="组立文件" prop="emPeaDoc">
+              <el-input clearable v-model="form.emPeaDoc" :placeholder="$t('btn.enter')+'组立文件'" />
+            </el-form-item>
+          </el-col>
+
+          <!-- <el-col :lg="12">
+            <el-form-item label="组立确认" prop="esPeaModifier">
+              <el-input clearable v-model="form.esPeaModifier" :placeholder="$t('btn.enter')+'组立确认'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="组立确认日期" prop="esPeaModifyTime">
               <el-date-picker clearable v-model="form.esPeaModifyTime" type="datetime" :teleported="false"
                 :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
-          </el-col>
+          </el-col> -->
 
           <el-col :lg="12">
             <el-form-item label="生技担当" prop="esPepAssigned">
@@ -203,7 +287,7 @@
           <el-col :lg="12">
             <el-form-item label="PCBA变更否" prop="isPepModifysop">
               <el-radio-group v-model="form.isPepModifysop">
-                <el-radio v-for="item in  options.isPepModifysopOptions" :key="item.dictValue"
+                <el-radio v-for="item in  options.sys_sop_yn " :key="item.dictValue"
                   :label="item.dictValue">{{item.dictLabel}}</el-radio>
               </el-radio-group>
             </el-form-item>
@@ -222,13 +306,25 @@
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="EsPepModifier" prop="esPepModifier">
-              <el-input clearable v-model="form.esPepModifier" :placeholder="$t('btn.enter')+'EsPepModifier'" />
+            <el-form-item label="版本" prop="emPepDocNo">
+              <el-input clearable v-model="form.emPepDocNo" :placeholder="$t('btn.enter')+'版本'" />
             </el-form-item>
           </el-col>
 
           <el-col :lg="12">
-            <el-form-item label="EsPepModifyTime" prop="esPepModifyTime">
+            <el-form-item label="PCBA文件" prop="emPepDoc">
+              <el-input clearable v-model="form.emPepDoc" :placeholder="$t('btn.enter')+'PCBA文件'" />
+            </el-form-item>
+          </el-col>
+
+          <!-- <el-col :lg="12">
+            <el-form-item label="PCBA确认" prop="esPepModifier">
+              <el-input clearable v-model="form.esPepModifier" :placeholder="$t('btn.enter')+'PCBA确认'" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :lg="12">
+            <el-form-item label="PCBA确认日期" prop="esPepModifyTime">
               <el-date-picker clearable v-model="form.esPepModifyTime" type="datetime" :teleported="false"
                 :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
@@ -346,7 +442,7 @@
               <el-date-picker clearable v-model="form.updateTime" type="datetime" :teleported="false"
                 :placeholder="$t('btn.dateselect')"></el-date-picker>
             </el-form-item>
-          </el-col>
+          </el-col> -->
         </el-row>
       </el-form>
       <template #footer v-if="opertype != 3">
@@ -380,8 +476,12 @@
   const queryParams = reactive({
     pageNum: 1,
     pageSize: 17,
-    sort: 'EsEcNo',
-    sortType: 'asc',//desc
+    sort: '',
+    sortType: 'asc',
+    esIssueDate: undefined,
+    esEcNo: undefined,
+    esModel: undefined,
+    esItem: undefined,
   })
   //字段显示控制
   const columns = ref([
@@ -391,34 +491,53 @@
     { visible: true, prop: 'esEntryDate', label: '输入日期' },
     { visible: true, prop: 'esAssigned', label: '担当者' },
     { visible: true, prop: 'esModel', label: '机种' },
+    { visible: true, prop: 'esItem', label: '物料' },
     { visible: true, prop: 'esPeaAssigned', label: '生技担当' },
-    { visible: true, prop: 'isPeaModifysop', label: '组立变更否' },
+    { visible: false, prop: 'isPeaModifysop', label: '组立变更否' },
     { visible: false, prop: 'esPeaDate', label: '日期' },
     { visible: false, prop: 'esPeaNote', label: '说明' },
-    { visible: false, prop: 'esPeaModifier', label: 'EsPeaModifier' },
-    { visible: false, prop: 'esPeaModifyTime', label: 'EsPeaModifyTime' },
+    { visible: false, prop: 'emPeaDocNo', label: '版本' },
+    { visible: false, prop: 'emPeaDoc', label: '组立文件' },
+    { visible: false, prop: 'esPeaModifier', label: '组立确认' },
+    { visible: false, prop: 'esPeaModifyTime', label: '组立确认日期' },
     { visible: false, prop: 'esPepAssigned', label: '生技担当' },
     { visible: false, prop: 'isPepModifysop', label: 'PCBA变更否' },
     { visible: false, prop: 'esPepDate', label: '日期' },
     { visible: false, prop: 'esPepNote', label: '说明' },
-    { visible: false, prop: 'esPepModifier', label: 'EsPepModifier' },
-    { visible: false, prop: 'esPepModifyTime', label: 'EsPepModifyTime' },
+    { visible: false, prop: 'emPepDocNo', label: '版本' },
+    { visible: false, prop: 'emPepDoc', label: 'PCBA文件' },
+    { visible: false, prop: 'esPepModifier', label: 'PCBA确认' },
+    { visible: false, prop: 'esPepModifyTime', label: 'PCBA确认日期' },
   ])
   // 总条数
   const total = ref(0)
-  // SOP确认表格数据
+  // SOP表格数据
   const dataList = ref([])
   // 查询参数
   const queryRef = ref()
   //定义起始时间
   const defaultTime = ref([new Date(2000, 1, 1, 0, 0, 0), new Date(2000, 2, 1, 23, 59, 59)])
 
+  // 发行日期时间范围
+  const dateRangeEsIssueDate = ref([])
+
 
   var dictParams = [
+    { dictType: "sql_ec_no" },
+    { dictType: "sql_ec_model" },
+    { dictType: "sql_ec_item" },
+    { dictType: "sys_sop_yn" },
+    { dictType: "sys_sop_yn" },
   ]
   //字典定义
-  //获取SOP确认表记录数据
+  proxy.getDicts(dictParams).then((response) => {
+    response.data.forEach((element) => {
+      state.options[element.dictType] = element.list
+    })
+  })
+  //获取SOP表记录数据
   function getList() {
+    proxy.addDateRange(queryParams, dateRangeEsIssueDate.value, 'EsIssueDate');
     loading.value = true
     listPpEcSop(queryParams).then(res => {
       const { code, data } = res
@@ -438,6 +557,8 @@
 
   // 重置查询操作
   function resetQuery() {
+    // 发行日期时间范围
+    dateRangeEsIssueDate.value = []
     proxy.resetForm("queryRef")
     handleQuery()
   }
@@ -483,10 +604,16 @@
       isPepModifysop: [{ required: true, message: "PCBA变更否" + proxy.$t('btn.empty'), trigger: "blur" }],
     },
     options: {
+      // 设变No. 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
+      sql_ec_no: [],
+      // 机种 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
+      sql_ec_model: [],
+      // 物料 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
+      sql_ec_item: [],
       // 组立变更否 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
-      isPeaModifysopOptions: [],
+      sys_sop_yn: [],
       // PCBA变更否 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
-      isPepModifysopOptions: [],
+      sys_sop_yn: [],
       // IsDeleted 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
       isDeletedOptions: [],
     }
@@ -508,16 +635,21 @@
       esEntryDate: undefined,
       esAssigned: undefined,
       esModel: undefined,
+      esItem: undefined,
       esPeaAssigned: undefined,
       isPeaModifysop: undefined,
       esPeaDate: undefined,
       esPeaNote: undefined,
+      emPeaDocNo: undefined,
+      emPeaDoc: undefined,
       esPeaModifier: undefined,
       esPeaModifyTime: undefined,
       esPepAssigned: undefined,
       isPepModifysop: undefined,
       esPepDate: undefined,
       esPepNote: undefined,
+      emPepDocNo: undefined,
+      emPepDoc: undefined,
       esPepModifier: undefined,
       esPepModifyTime: undefined,
       createBy: undefined,
@@ -624,7 +756,7 @@
   // 导出按钮操作
   function handleExport() {
     proxy
-      .$confirm(proxy.$t('common.confirmExport') + "SOP确认", proxy.$t('common.warningTips'), {
+      .$confirm(proxy.$t('common.confirmExport') + "SOP", proxy.$t('common.warningTips'), {
         confirmButtonText: proxy.$t('btn.submit'),
         cancelButtonText: proxy.$t('btn.cancel'),
         type: "warning",

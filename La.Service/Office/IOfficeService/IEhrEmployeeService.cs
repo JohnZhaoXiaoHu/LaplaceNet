@@ -4,17 +4,17 @@ using La.Model.Dto;
 using La.Model.Models;
 using System.Collections.Generic;
 
-namespace La.Service.Production.IProductionService
+namespace La.Service.Office.IOfficeService
 {
     /// <summary>
-    /// SOPservice接口
+    /// 人事信息service接口
     ///
     /// @author Davis.Cheng
-    /// @date 2023-05-03
+    /// @date 2023-05-04
     /// </summary>
-    public interface IPpEcSopService : IBaseService<PpEcSop>
+    public interface IEhrEmployeeService : IBaseService<EhrEmployee>
     {
-        PagedInfo<PpEcSopDto> GetList(PpEcSopQueryDto parm);
+        PagedInfo<EhrEmployeeDto> GetList(EhrEmployeeQueryDto parm);
 
         /// <summary>
         /// 校验输入项目是否唯一
@@ -23,10 +23,10 @@ namespace La.Service.Production.IProductionService
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString);
 
-        int AddPpEcSop(PpEcSop parm);
+        int AddEhrEmployee(EhrEmployee parm);
 
-        int UpdatePpEcSop(PpEcSop parm);
+        int UpdateEhrEmployee(EhrEmployee parm);
         
-        void TruncatePpEcSop();
+        void TruncateEhrEmployee();
     }
 }

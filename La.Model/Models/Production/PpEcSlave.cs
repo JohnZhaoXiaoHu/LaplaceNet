@@ -8,7 +8,7 @@ namespace La.Model.Models
     /// 从设变，数据实体对象
     ///
     /// @author Davis.Cheng
-    /// @date 2023-04-26
+    /// @date 2023-05-02
     /// </summary>
     [SugarTable("pp_ec_slave")]
     public class PpEcSlave
@@ -76,7 +76,7 @@ namespace La.Model.Models
 
         /// <summary>
         /// 描述 :新物料 
-        /// 空值 :false 
+        /// 空值 :true 
         /// </summary>
         public string EsNewItem { get; set; }
 
@@ -135,22 +135,40 @@ namespace La.Model.Models
         public DateTime? EsBomDate { get; set; }
 
         /// <summary>
-        /// 描述 :采购类型 
-        /// 空值 :false 
-        /// </summary>
-        public string EsPurType { get; set; }
-
-        /// <summary>
         /// 描述 :实施部门 
         /// 空值 :false 
         /// </summary>
         public string EmEcImpDept { get; set; }
 
         /// <summary>
+        /// 描述 :采购类型 
+        /// 空值 :false 
+        /// </summary>
+        public string EsPurType { get; set; }
+
+        /// <summary>
         /// 描述 :仓库 
         /// 空值 :false 
         /// </summary>
         public string EsSloc { get; set; }
+
+        /// <summary>
+        /// 描述 :检验否 
+        /// 空值 :true 
+        /// </summary>
+        public string EsInsmk { get; set; }
+
+        /// <summary>
+        /// 描述 :工厂状态 
+        /// 空值 :true 
+        /// </summary>
+        public string EsMstae { get; set; }
+
+        /// <summary>
+        /// 描述 :SOP 
+        /// 空值 :false 
+        /// </summary>
+        public byte EsSopStae { get; set; }
 
         /// <summary>
         /// 描述 :旧品库存 
@@ -165,28 +183,10 @@ namespace La.Model.Models
         public decimal EsNewCurrStock { get; set; }
 
         /// <summary>
-        /// 描述 :检验否 
-        /// 空值 :false 
-        /// </summary>
-        public byte EsInsmk { get; set; }
-
-        /// <summary>
-        /// 描述 :工厂状态 
-        /// 空值 :false 
-        /// </summary>
-        public string EsMstae { get; set; }
-
-        /// <summary>
-        /// 描述 :部门录入日 
+        /// 描述 :采购登入日期 
         /// 空值 :true 
         /// </summary>
-        public DateTime? EsDeptEntryDate { get; set; }
-
-        /// <summary>
-        /// 描述 :部门名称 
-        /// 空值 :true 
-        /// </summary>
-        public string EsDeptName { get; set; }
+        public DateTime? EsPurEntryDate { get; set; }
 
         /// <summary>
         /// 描述 :供应商 
@@ -207,6 +207,36 @@ namespace La.Model.Models
         public string EsPurNote { get; set; }
 
         /// <summary>
+        /// 描述 :EsPurCreator 
+        /// 空值 :true 
+        /// </summary>
+        public string EsPurCreator { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPurCreateTime 
+        /// 空值 :true 
+        /// </summary>
+        public DateTime? EsPurCreateTime { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPurModifier 
+        /// 空值 :true 
+        /// </summary>
+        public string EsPurModifier { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPurModifyTime 
+        /// 空值 :true 
+        /// </summary>
+        public DateTime? EsPurModifyTime { get; set; }
+
+        /// <summary>
+        /// 描述 :生管登入日期 
+        /// 空值 :true 
+        /// </summary>
+        public DateTime? EsPmcEntryDate { get; set; }
+
+        /// <summary>
         /// 描述 :预投入批次 
         /// 空值 :true 
         /// </summary>
@@ -225,6 +255,36 @@ namespace La.Model.Models
         public string EsPmcNote { get; set; }
 
         /// <summary>
+        /// 描述 :EsPmcCreator 
+        /// 空值 :true 
+        /// </summary>
+        public string EsPmcCreator { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPmcCreateTime 
+        /// 空值 :true 
+        /// </summary>
+        public DateTime? EsPmcCreateTime { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPmcModifier 
+        /// 空值 :true 
+        /// </summary>
+        public string EsPmcModifier { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPmcModifyTime 
+        /// 空值 :true 
+        /// </summary>
+        public DateTime? EsPmcModifyTime { get; set; }
+
+        /// <summary>
+        /// 描述 :IQC登入日期 
+        /// 空值 :true 
+        /// </summary>
+        public DateTime? EsIqcEntryDate { get; set; }
+
+        /// <summary>
         /// 描述 :检验订单 
         /// 空值 :true 
         /// </summary>
@@ -235,6 +295,36 @@ namespace La.Model.Models
         /// 空值 :true 
         /// </summary>
         public string EsIqcNote { get; set; }
+
+        /// <summary>
+        /// 描述 :EsIqcCreator 
+        /// 空值 :true 
+        /// </summary>
+        public string EsIqcCreator { get; set; }
+
+        /// <summary>
+        /// 描述 :EsIqcCreateTime 
+        /// 空值 :true 
+        /// </summary>
+        public DateTime? EsIqcCreateTime { get; set; }
+
+        /// <summary>
+        /// 描述 :EsIqcModifier 
+        /// 空值 :true 
+        /// </summary>
+        public string EsIqcModifier { get; set; }
+
+        /// <summary>
+        /// 描述 :EsIqcModifyTime 
+        /// 空值 :true 
+        /// </summary>
+        public DateTime? EsIqcModifyTime { get; set; }
+
+        /// <summary>
+        /// 描述 :部管登入日期 
+        /// 空值 :true 
+        /// </summary>
+        public DateTime? EsMmEntryDate { get; set; }
 
         /// <summary>
         /// 描述 :领用批次 
@@ -255,6 +345,36 @@ namespace La.Model.Models
         public string EsMmNote { get; set; }
 
         /// <summary>
+        /// 描述 :EsMmCreator 
+        /// 空值 :true 
+        /// </summary>
+        public string EsMmCreator { get; set; }
+
+        /// <summary>
+        /// 描述 :EsMmCreateTime 
+        /// 空值 :true 
+        /// </summary>
+        public DateTime? EsMmCreateTime { get; set; }
+
+        /// <summary>
+        /// 描述 :EsMmModifier 
+        /// 空值 :true 
+        /// </summary>
+        public string EsMmModifier { get; set; }
+
+        /// <summary>
+        /// 描述 :EsMmModifyTime 
+        /// 空值 :true 
+        /// </summary>
+        public DateTime? EsMmModifyTime { get; set; }
+
+        /// <summary>
+        /// 描述 :制一登入日期 
+        /// 空值 :true 
+        /// </summary>
+        public DateTime? EsPpEntryDate { get; set; }
+
+        /// <summary>
         /// 描述 :班组 
         /// 空值 :true 
         /// </summary>
@@ -271,6 +391,36 @@ namespace La.Model.Models
         /// 空值 :true 
         /// </summary>
         public string EsPpNote { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPpCreator 
+        /// 空值 :true 
+        /// </summary>
+        public string EsPpCreator { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPpCreateTime 
+        /// 空值 :true 
+        /// </summary>
+        public DateTime? EsPpCreateTime { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPpModifier 
+        /// 空值 :true 
+        /// </summary>
+        public string EsPpModifier { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPpModifyTime 
+        /// 空值 :true 
+        /// </summary>
+        public DateTime? EsPpModifyTime { get; set; }
+
+        /// <summary>
+        /// 描述 :制二登入日期 
+        /// 空值 :true 
+        /// </summary>
+        public DateTime? EsPcbaEntryDate { get; set; }
 
         /// <summary>
         /// 描述 :Pcba班组 
@@ -291,6 +441,36 @@ namespace La.Model.Models
         public string EsPcbaNote { get; set; }
 
         /// <summary>
+        /// 描述 :EsPcbaCreator 
+        /// 空值 :true 
+        /// </summary>
+        public string EsPcbaCreator { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPcbaCreateTime 
+        /// 空值 :true 
+        /// </summary>
+        public DateTime? EsPcbaCreateTime { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPcbaModifier 
+        /// 空值 :true 
+        /// </summary>
+        public string EsPcbaModifier { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPcbaModifyTime 
+        /// 空值 :true 
+        /// </summary>
+        public DateTime? EsPcbaModifyTime { get; set; }
+
+        /// <summary>
+        /// 描述 :QA确认日期 
+        /// 空值 :true 
+        /// </summary>
+        public DateTime? EsQaEntryDate { get; set; }
+
+        /// <summary>
         /// 描述 :检验批次 
         /// 空值 :true 
         /// </summary>
@@ -303,28 +483,28 @@ namespace La.Model.Models
         public string EsQaNote { get; set; }
 
         /// <summary>
-        /// 描述 :EsDeptCreator 
+        /// 描述 :EsQaCreator 
         /// 空值 :true 
         /// </summary>
-        public string EsDeptCreator { get; set; }
+        public string EsQaCreator { get; set; }
 
         /// <summary>
-        /// 描述 :EsDeptCreateTime 
+        /// 描述 :EsQaCreateTime 
         /// 空值 :true 
         /// </summary>
-        public DateTime? EsDeptCreateTime { get; set; }
+        public DateTime? EsQaCreateTime { get; set; }
 
         /// <summary>
-        /// 描述 :EsDeptModifier 
+        /// 描述 :EsQaModifier 
         /// 空值 :true 
         /// </summary>
-        public string EsDeptModifier { get; set; }
+        public string EsQaModifier { get; set; }
 
         /// <summary>
-        /// 描述 :EsDeptModifyTime 
+        /// 描述 :EsQaModifyTime 
         /// 空值 :true 
         /// </summary>
-        public DateTime? EsDeptModifyTime { get; set; }
+        public DateTime? EsQaModifyTime { get; set; }
 
         /// <summary>
         /// 描述 :UDF01 

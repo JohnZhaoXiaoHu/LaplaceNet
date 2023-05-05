@@ -11,37 +11,37 @@
     <el-form :model="queryParams" label-position="right" inline ref="queryRef" v-show="showSearch" @submit.prevent>
       <el-form-item label="生产工单" prop="pomOrder">
         <el-select filterable clearable v-model="queryParams.pomOrder" placeholder="请选择生产工单">
-          <el-option v-for="item in  options.sql_moc_list " :key="item.dictValue" :label="item.dictLabel"
+          <el-option v-for="item in  options.sql_ophmoc_list " :key="item.dictValue" :label="item.dictLabel"
             :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
-            <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>
+            <!-- <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span> -->
           </el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="生产批次" prop="pomMflot">
         <el-select filterable clearable v-model="queryParams.pomMflot" placeholder="请选择生产批次">
-          <el-option v-for="item in  options.sql_lot_list " :key="item.dictValue" :label="item.dictLabel"
+          <el-option v-for="item in  options.sql_ophlot_list " :key="item.dictValue" :label="item.dictLabel"
             :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
-            <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>
+            <!-- <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span> -->
           </el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="机种名" prop="pomModelName">
         <el-select filterable clearable v-model="queryParams.pomModelName" placeholder="请选择机种名">
-          <el-option v-for="item in  options.sql_moc_model " :key="item.dictValue" :label="item.dictLabel"
+          <el-option v-for="item in  options.sql_ophmodel_list " :key="item.dictValue" :label="item.dictLabel"
             :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
-            <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>
+            <!-- <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span> -->
           </el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="物料" prop="pomMfItem">
         <el-select filterable clearable v-model="queryParams.pomMfItem" placeholder="请选择物料">
-          <el-option v-for="item in  options.sql_moc_item " :key="item.dictValue" :label="item.dictLabel"
+          <el-option v-for="item in  options.sql_ophmats_list " :key="item.dictValue" :label="item.dictLabel"
             :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
-            <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>
+            <!-- <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span> -->
           </el-option>
         </el-select>
       </el-form-item>
@@ -55,7 +55,7 @@
           <el-option v-for="item in  options.sql_line_list " :key="item.dictValue" :label="item.dictLabel"
             :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
-            <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>
+            <!-- <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span> -->
           </el-option>
         </el-select>
       </el-form-item>
@@ -322,9 +322,14 @@
   //获取字典
   var dictParams = [
     { dictType: "sql_moc_list" },
+    { dictType: "sql_ophmoc_list" },
     { dictType: "sql_lot_list" },
+    { dictType: "sql_ophlot_list" },
     { dictType: "sql_moc_model" },
+    { dictType: "sql_ophmodel_list" },
+
     { dictType: "sql_moc_item" },
+    { dictType: "sql_ophmats_list" },
     { dictType: "sql_line_list" },
   ]
   //获取字典
@@ -445,7 +450,7 @@
     },
     options: {
       // 生产工单 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
-      sql_moc_list: [],
+      sql_ophmoc_list: [],
       // 生产批次 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
       sql_lot_list: [],
       // 机种名 选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}

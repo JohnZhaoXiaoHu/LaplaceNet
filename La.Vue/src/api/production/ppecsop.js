@@ -2,7 +2,7 @@ import request from '@/utils/request'
 import { downFile } from '@/utils/request'
 
 /**
-* SOP确认分页查询
+* SOP分页查询
 * @param {查询条件} data
 */
 export function listPpEcSop(query) {
@@ -15,7 +15,7 @@ export function listPpEcSop(query) {
 
 
 /**
-* 新增SOP确认
+* 新增SOP
 * @param data
 */
 export function addPpEcSop(data) {
@@ -27,7 +27,7 @@ export function addPpEcSop(data) {
 }
 
 /**
-* 修改SOP确认
+* 修改SOP
 * @param data
 */
 export function updatePpEcSop(data) {
@@ -39,7 +39,7 @@ export function updatePpEcSop(data) {
 }
 
 /**
-* 获取SOP确认详情
+* 获取SOP详情
 * @param {Id}
 */
 export function getPpEcSop(id) {
@@ -50,7 +50,7 @@ export function getPpEcSop(id) {
 }
 
 /**
-* 删除SOP确认
+* 删除SOP
 * @param {主键} pid
 */
 export function delPpEcSop(pid) {
@@ -60,7 +60,7 @@ export function delPpEcSop(pid) {
   })
 }
 
-// 清空SOP确认
+// 清空SOP
 export function clearPpEcSop() {
   return request({
     url: 'Production/PpEcSop/clean',
@@ -68,7 +68,7 @@ export function clearPpEcSop() {
   })
 }
 
-// 导出SOP确认
+// 导出SOP
 export async function exportPpEcSop(query) {
   await downFile('Production/PpEcSop/export', { ...query })
 }

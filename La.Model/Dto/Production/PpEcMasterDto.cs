@@ -10,7 +10,7 @@ namespace La.Model.Dto
     /// <summary>
     /// 主设变查询对象
     /// @author Davis.Cheng
-    /// @date 2023-04-12
+    /// @date 2023-04-28
     /// </summary>
     public class PpEcMasterQueryDto : PagerInfo 
     {
@@ -27,9 +27,9 @@ namespace La.Model.Dto
         /// </summary>
         public string EmEcNo { get; set; }
         /// <summary>
-        /// 描述 :状态 
+        /// 描述 :标题 
         /// </summary>
-        public string EmEcStatus { get; set; }
+        public string EmEcTitle { get; set; }
         /// <summary>
         /// 描述 :担当 
         /// </summary>
@@ -38,6 +38,14 @@ namespace La.Model.Dto
         /// 描述 :管理区分 
         /// </summary>
         public int? EmEcManageCategory { get; set; }
+        /// <summary>
+        /// 描述 :开始时间
+        /// </summary>
+        public DateTime? BeginEmEcEntryDate { get; set; }
+        /// <summary>
+        /// 描述 :结束时间
+        /// </summary>
+        public DateTime? EndEmEcEntryDate { get; set; }
     }
 
     /// <summary>
@@ -180,11 +188,11 @@ namespace La.Model.Dto
         public string EmEcExternalDoc { get; set; }
 
         /// <summary>
-        /// 描述 :实施部门 
+        /// 描述 :输入部门 
         /// </summary>
-        [Required(ErrorMessage = "实施部门不能为空")]
+        [Required(ErrorMessage = "输入部门不能为空")]
 
-        [ExcelColumn(Name = "实施部门")]
+        [ExcelColumn(Name = "输入部门")]
         public string EmEcImpDept { get; set; }
 
         /// <summary>
@@ -196,12 +204,12 @@ namespace La.Model.Dto
         public DateTime? EmEcEntryDate { get; set; }
 
         /// <summary>
-        /// 描述 :SOP变更否 
+        /// 描述 :SOP 
         /// </summary>
-        [Required(ErrorMessage = "SOP变更否不能为空")]
+        [Required(ErrorMessage = "SOP不能为空")]
 
-        [ExcelColumn(Name = "SOP变更否")]
-        public byte IsModifySop { get; set; }
+        [ExcelColumn(Name = "SOP")]
+        public byte EsSopStae { get; set; }
 
         /// <summary>
         /// 描述 :UDF01 

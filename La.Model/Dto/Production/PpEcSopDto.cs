@@ -8,16 +8,36 @@ using MiniExcelLibs.Attributes;
 namespace La.Model.Dto
 {
     /// <summary>
-    /// SOP确认查询对象
+    /// SOP查询对象
     /// @author Davis.Cheng
-    /// @date 2023-04-12
+    /// @date 2023-05-03
     /// </summary>
     public class PpEcSopQueryDto : PagerInfo 
     {
+        /// <summary>
+        /// 描述 :开始时间
+        /// </summary>
+        public DateTime? BeginEsIssueDate { get; set; }
+        /// <summary>
+        /// 描述 :结束时间
+        /// </summary>
+        public DateTime? EndEsIssueDate { get; set; }
+        /// <summary>
+        /// 描述 :设变No. 
+        /// </summary>
+        public string EsEcNo { get; set; }
+        /// <summary>
+        /// 描述 :机种 
+        /// </summary>
+        public string EsModel { get; set; }
+        /// <summary>
+        /// 描述 :物料 
+        /// </summary>
+        public string EsItem { get; set; }
     }
 
     /// <summary>
-    /// SOP确认输入输出对象
+    /// SOP输入输出对象
     /// </summary>
     public class PpEcSopDto
     {
@@ -65,6 +85,13 @@ namespace La.Model.Dto
         public string EsModel { get; set; }
 
         /// <summary>
+        /// 描述 :物料 
+        /// </summary>
+
+        [ExcelColumn(Name = "物料")]
+        public string EsItem { get; set; }
+
+        /// <summary>
         /// 描述 :生技担当 
         /// </summary>
 
@@ -94,17 +121,31 @@ namespace La.Model.Dto
         public string EsPeaNote { get; set; }
 
         /// <summary>
-        /// 描述 :EsPeaModifier 
+        /// 描述 :版本 
         /// </summary>
 
-        [ExcelColumn(Name = "EsPeaModifier")]
+        [ExcelColumn(Name = "版本")]
+        public string EmPeaDocNo { get; set; }
+
+        /// <summary>
+        /// 描述 :组立文件 
+        /// </summary>
+
+        [ExcelColumn(Name = "组立文件")]
+        public string EmPeaDoc { get; set; }
+
+        /// <summary>
+        /// 描述 :组立确认 
+        /// </summary>
+
+        [ExcelColumn(Name = "组立确认")]
         public string EsPeaModifier { get; set; }
 
         /// <summary>
-        /// 描述 :EsPeaModifyTime 
+        /// 描述 :组立确认日期 
         /// </summary>
 
-        [ExcelColumn(Name = "EsPeaModifyTime", Format = "yyyy-MM-dd HH:mm:ss")]
+        [ExcelColumn(Name = "组立确认日期", Format = "yyyy-MM-dd HH:mm:ss")]
         public DateTime? EsPeaModifyTime { get; set; }
 
         /// <summary>
@@ -137,17 +178,31 @@ namespace La.Model.Dto
         public string EsPepNote { get; set; }
 
         /// <summary>
-        /// 描述 :EsPepModifier 
+        /// 描述 :版本 
         /// </summary>
 
-        [ExcelColumn(Name = "EsPepModifier")]
+        [ExcelColumn(Name = "版本")]
+        public string EmPepDocNo { get; set; }
+
+        /// <summary>
+        /// 描述 :PCBA文件 
+        /// </summary>
+
+        [ExcelColumn(Name = "PCBA文件")]
+        public string EmPepDoc { get; set; }
+
+        /// <summary>
+        /// 描述 :PCBA确认 
+        /// </summary>
+
+        [ExcelColumn(Name = "PCBA确认")]
         public string EsPepModifier { get; set; }
 
         /// <summary>
-        /// 描述 :EsPepModifyTime 
+        /// 描述 :PCBA确认日期 
         /// </summary>
 
-        [ExcelColumn(Name = "EsPepModifyTime", Format = "yyyy-MM-dd HH:mm:ss")]
+        [ExcelColumn(Name = "PCBA确认日期", Format = "yyyy-MM-dd HH:mm:ss")]
         public DateTime? EsPepModifyTime { get; set; }
 
         /// <summary>

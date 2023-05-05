@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName pp_ec_slave
     /// @author Davis.Cheng
-    /// @date 2023-04-26
+    /// @date 2023-05-02
     /// </summary>
     [Verify]
     [Route("Production/PpEcSlave")]
@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
 
            // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_PpEcSlaveService.CheckEntryStringUnique(parm.EsEcNo + parm.EsModel + parm.EsItem + parm.EsSubItem + parm.EsOldItem + parm.EsNewItem)))
+            if (UserConstants.NOT_UNIQUE.Equals(_PpEcSlaveService.CheckEntryStringUnique(parm.EsId.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增从设变 '{parm.EsEcNo +","+ parm.EsModel + "," + parm.EsItem + "," + parm.EsSubItem + "," + parm.EsOldItem + "," + parm.EsNewItem}'失败，输入的从设变已存在"));
+                return ToResponse(ApiResult.Error($"新增从设变 '{parm.EsId}'失败，输入的从设变已存在"));
             }
             var modal = parm.Adapt<PpEcSlave>().ToCreate(HttpContext);
 

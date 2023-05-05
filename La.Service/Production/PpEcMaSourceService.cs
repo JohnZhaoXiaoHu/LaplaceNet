@@ -36,7 +36,7 @@ namespace La.Service.Production
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.DSapZpabdZ001), it => it.DSapZpabdZ001.Contains(parm.DSapZpabdZ001));
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.DSapZpabdZ003), it => it.DSapZpabdZ003.Contains(parm.DSapZpabdZ003));
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.DSapZpabdZ004), it => it.DSapZpabdZ004 == parm.DSapZpabdZ004);
-            predicate = predicate.AndIF(parm.BeginDSapZpabdZ005 == null, it => it.DSapZpabdZ005 >= DateTime.Now.AddDays(-1));
+            predicate = predicate.AndIF(parm.BeginDSapZpabdZ005 == null, it => it.DSapZpabdZ005 >= parm.BeginDSapZpabdZ005);
             predicate = predicate.AndIF(parm.BeginDSapZpabdZ005 != null, it => it.DSapZpabdZ005 >= parm.BeginDSapZpabdZ005 && it.DSapZpabdZ005 <= parm.EndDSapZpabdZ005);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.IsSolved.ToString()), it => it.IsSolved.ToString().Contains(parm.IsSolved.ToString()));
             var response = Queryable()

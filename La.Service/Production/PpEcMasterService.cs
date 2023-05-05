@@ -15,7 +15,7 @@ namespace La.Service.Production
     /// 主设变Service业务层处理
     ///
     /// @author Davis.Cheng
-    /// @date 2023-04-12
+    /// @date 2023-04-28
     /// </summary>
     [AppService(ServiceType = typeof(IPpEcMasterService), ServiceLifetime = LifeTime.Transient)]
     public class PpEcMasterService : BaseService<PpEcMaster>, IPpEcMasterService
@@ -33,16 +33,14 @@ namespace La.Service.Production
             var predicate = Expressionable.Create<PpEcMaster>();
 
             //搜索条件查询语法参考Sqlsugar
-            predicate = predicate.AndIF(parm.BeginEmEcIssueDate != null, it => it.EmEcIssueDate >= DateTime.Now.AddDays(-1));
+            predicate = predicate.AndIF(parm.BeginEmEcIssueDate != null, it => it.EmEcIssueDate >= parm.BeginEmEcIssueDate);
             predicate = predicate.AndIF(parm.BeginEmEcIssueDate != null, it => it.EmEcIssueDate >= parm.BeginEmEcIssueDate && it.EmEcIssueDate <= parm.EndEmEcIssueDate);
-
-
-
-
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EmEcNo), it => it.EmEcNo.Contains(parm.EmEcNo));
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EmEcStatus), it => it.EmEcStatus == parm.EmEcStatus);
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EmEcTitle), it => it.EmEcTitle.Contains(parm.EmEcTitle));
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EmEcAssigned), it => it.EmEcAssigned == parm.EmEcAssigned);
             predicate = predicate.AndIF(parm.EmEcManageCategory != null, it => it.EmEcManageCategory == parm.EmEcManageCategory);
+            predicate = predicate.AndIF(parm.BeginEmEcEntryDate != null, it => it.EmEcEntryDate >= parm.BeginEmEcEntryDate);
+            predicate = predicate.AndIF(parm.BeginEmEcEntryDate != null, it => it.EmEcEntryDate >= parm.BeginEmEcEntryDate && it.EmEcEntryDate <= parm.EndEmEcEntryDate);
             var response = Queryable()
                 .Where(predicate.ToExpression())
                 .ToPage<PpEcMaster, PpEcMasterDto>(parm);
@@ -58,7 +56,7 @@ namespace La.Service.Production
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.EmEcNo.ToString() == entryString);
+            int count = Count(it => it.EmId.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;
@@ -94,7 +92,7 @@ namespace La.Service.Production
                 it.EmEcExternalDoc,
                 it.EmEcImpDept,
                 it.EmEcEntryDate,
-                it.IsModifySop,
+                it.EsSopStae,
                 it.CreateBy,
                 it.CreateTime,
             });
@@ -129,7 +127,7 @@ namespace La.Service.Production
                 EmEcExternalDoc = parm.EmEcExternalDoc,
                 EmEcImpDept = parm.EmEcImpDept,
                 EmEcEntryDate = parm.EmEcEntryDate,
-                IsModifySop = parm.IsModifySop,
+                EsSopStae = parm.EsSopStae,
                 UpdateBy = parm.UpdateBy,
                 UpdateTime = parm.UpdateTime,
             });

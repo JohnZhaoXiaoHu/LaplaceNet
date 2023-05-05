@@ -10,53 +10,52 @@
   <div>
     <el-form :model="queryParams" label-position="right" inline ref="queryRef" v-show="showSearch" @submit.prevent>
       <el-form-item label="生产工单" prop="pomOrder">
-        <el-select clearable v-model="queryParams.pomOrder" placeholder="请选择生产工单">
-          <el-option v-for="item in  options.sql_moc_list " :key="item.dictValue" :label="item.dictLabel"
+        <el-select filterable clearable v-model="queryParams.pomOrder" placeholder="请选择生产工单">
+          <el-option v-for="item in  options.sql_ophmoc_list " :key="item.dictValue" :label="item.dictLabel"
             :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
-            <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>
+            <!-- <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span> -->
           </el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="生产批次" prop="pomMflot">
-        <el-select clearable v-model="queryParams.pomMflot" placeholder="请选择生产批次">
-          <el-option v-for="item in  options.sql_lot_list " :key="item.dictValue" :label="item.dictLabel"
+        <el-select filterable clearable v-model="queryParams.pomMflot" placeholder="请选择生产批次">
+          <el-option v-for="item in  options.sql_ophlot_list " :key="item.dictValue" :label="item.dictLabel"
             :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
-            <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>
+            <!-- <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span> -->
           </el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="机种名" prop="pomModelName">
-        <el-select clearable v-model="queryParams.pomModelName" placeholder="请选择机种名">
-          <el-option v-for="item in  options.sql_moc_model " :key="item.dictValue" :label="item.dictLabel"
+        <el-select filterable clearable v-model="queryParams.pomModelName" placeholder="请选择机种名">
+          <el-option v-for="item in  options.sql_ophmodel_list " :key="item.dictValue" :label="item.dictLabel"
             :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
-            <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>
+            <!-- <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span> -->
           </el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="物料" prop="pomMfItem">
-        <el-select clearable v-model="queryParams.pomMfItem" placeholder="请选择物料">
-          <el-option v-for="item in  options.sql_moc_item " :key="item.dictValue" :label="item.dictLabel"
+        <el-select filterable clearable v-model="queryParams.pomMfItem" placeholder="请选择物料">
+          <el-option v-for="item in  options.sql_ophmats_list " :key="item.dictValue" :label="item.dictLabel"
             :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
-            <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>
+            <!-- <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span> -->
           </el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="生产日期">
-        <el-date-picker v-model="dateRangePomMfDate" type="datetimerange" range-separator="-" start-placeholder="开始日期"
-          end-placeholder="结束日期" placeholder="请选择生产日期" value-format="YYYY-MM-DD HH:mm:ss" :default-time="defaultTime"
-          :shortcuts="dateOptions">
+        <el-date-picker v-model="dateRangePomMfDate" type="daterange" range-separator="-" start-placeholder="开始日期"
+          end-placeholder="结束日期" placeholder="请选择生产日期" :shortcuts="dateOptions">
         </el-date-picker>
       </el-form-item>
       <el-form-item label="生产班组" prop="pomLineName">
-        <el-select clearable v-model="queryParams.pomLineName" placeholder="请选择生产班组">
+        <el-select filterable clearable v-model="queryParams.pomLineName" placeholder="请选择生产班组">
           <el-option v-for="item in  options.sql_line_list " :key="item.dictValue" :label="item.dictLabel"
             :value="item.dictValue">
             <span class="fl">{{ item.dictLabel }}</span>
-            <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span>
+            <!-- <span class="fr" style="color: var(--el-text-color-secondary);">{{ item.dictValue }}</span> -->
           </el-option>
         </el-select>
       </el-form-item>
@@ -323,9 +322,14 @@
   //获取字典
   var dictParams = [
     { dictType: "sql_moc_list" },
+    { dictType: "sql_ophmoc_list" },
     { dictType: "sql_lot_list" },
+    { dictType: "sql_ophlot_list" },
     { dictType: "sql_moc_model" },
+    { dictType: "sql_ophmodel_list" },
+
     { dictType: "sql_moc_item" },
+    { dictType: "sql_ophmats_list" },
     { dictType: "sql_line_list" },
   ]
   //获取字典

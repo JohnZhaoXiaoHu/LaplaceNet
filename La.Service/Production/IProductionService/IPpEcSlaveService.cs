@@ -10,7 +10,7 @@ namespace La.Service.Production.IProductionService
     /// 从设变service接口
     ///
     /// @author Davis.Cheng
-    /// @date 2023-04-26
+    /// @date 2023-05-02
     /// </summary>
     public interface IPpEcSlaveService : IBaseService<PpEcSlave>
     {

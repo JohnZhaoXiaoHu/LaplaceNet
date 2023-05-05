@@ -10,18 +10,10 @@ namespace La.Model.Dto
     /// <summary>
     /// 从设变查询对象
     /// @author Davis.Cheng
-    /// @date 2023-04-26
+    /// @date 2023-05-02
     /// </summary>
     public class PpEcSlaveQueryDto : PagerInfo 
     {
-        /// <summary>
-        /// 描述 :开始时间
-        /// </summary>
-        public DateTime? BeginEsEntryDate { get; set; }
-        /// <summary>
-        /// 描述 :结束时间
-        /// </summary>
-        public DateTime? EndEsEntryDate { get; set; }
         /// <summary>
         /// 描述 :设变No. 
         /// </summary>
@@ -34,6 +26,18 @@ namespace La.Model.Dto
         /// 描述 :物料 
         /// </summary>
         public string EsItem { get; set; }
+        /// <summary>
+        /// 描述 :子物料 
+        /// </summary>
+        public string EsSubItem { get; set; }
+        /// <summary>
+        /// 描述 :旧物料 
+        /// </summary>
+        public string EsOldItem { get; set; }
+        /// <summary>
+        /// 描述 :新物料 
+        /// </summary>
+        public string EsNewItem { get; set; }
     }
 
     /// <summary>
@@ -119,7 +123,6 @@ namespace La.Model.Dto
         /// <summary>
         /// 描述 :新物料 
         /// </summary>
-        [Required(ErrorMessage = "新物料不能为空")]
 
         [ExcelColumn(Name = "新物料")]
         public string EsNewItem { get; set; }
@@ -190,14 +193,6 @@ namespace La.Model.Dto
         public DateTime? EsBomDate { get; set; }
 
         /// <summary>
-        /// 描述 :采购类型 
-        /// </summary>
-        [Required(ErrorMessage = "采购类型不能为空")]
-
-        [ExcelColumn(Name = "采购类型")]
-        public string EsPurType { get; set; }
-
-        /// <summary>
         /// 描述 :实施部门 
         /// </summary>
         [Required(ErrorMessage = "实施部门不能为空")]
@@ -206,12 +201,42 @@ namespace La.Model.Dto
         public string EmEcImpDept { get; set; }
 
         /// <summary>
+        /// 描述 :采购类型 
+        /// </summary>
+        [Required(ErrorMessage = "采购类型不能为空")]
+
+        [ExcelColumn(Name = "采购类型")]
+        public string EsPurType { get; set; }
+
+        /// <summary>
         /// 描述 :仓库 
         /// </summary>
         [Required(ErrorMessage = "仓库不能为空")]
 
         [ExcelColumn(Name = "仓库")]
         public string EsSloc { get; set; }
+
+        /// <summary>
+        /// 描述 :检验否 
+        /// </summary>
+
+        [ExcelColumn(Name = "检验否")]
+        public string EsInsmk { get; set; }
+
+        /// <summary>
+        /// 描述 :工厂状态 
+        /// </summary>
+
+        [ExcelColumn(Name = "工厂状态")]
+        public string EsMstae { get; set; }
+
+        /// <summary>
+        /// 描述 :SOP 
+        /// </summary>
+        [Required(ErrorMessage = "SOP不能为空")]
+
+        [ExcelColumn(Name = "SOP")]
+        public byte EsSopStae { get; set; }
 
         /// <summary>
         /// 描述 :旧品库存 
@@ -230,34 +255,11 @@ namespace La.Model.Dto
         public decimal EsNewCurrStock { get; set; }
 
         /// <summary>
-        /// 描述 :检验否 
-        /// </summary>
-        [Required(ErrorMessage = "检验否不能为空")]
-
-        [ExcelColumn(Name = "检验否")]
-        public byte EsInsmk { get; set; }
-
-        /// <summary>
-        /// 描述 :工厂状态 
-        /// </summary>
-        [Required(ErrorMessage = "工厂状态不能为空")]
-
-        [ExcelColumn(Name = "工厂状态")]
-        public string EsMstae { get; set; }
-
-        /// <summary>
-        /// 描述 :部门录入日 
+        /// 描述 :采购登入日期 
         /// </summary>
 
-        [ExcelColumn(Name = "部门录入日", Format = "yyyy-MM-dd HH:mm:ss")]
-        public DateTime? EsDeptEntryDate { get; set; }
-
-        /// <summary>
-        /// 描述 :部门名称 
-        /// </summary>
-
-        [ExcelColumn(Name = "部门名称")]
-        public string EsDeptName { get; set; }
+        [ExcelColumn(Name = "采购登入日期", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsPurEntryDate { get; set; }
 
         /// <summary>
         /// 描述 :供应商 
@@ -281,6 +283,41 @@ namespace La.Model.Dto
         public string EsPurNote { get; set; }
 
         /// <summary>
+        /// 描述 :EsPurCreator 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsPurCreator")]
+        public string EsPurCreator { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPurCreateTime 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsPurCreateTime", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsPurCreateTime { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPurModifier 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsPurModifier")]
+        public string EsPurModifier { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPurModifyTime 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsPurModifyTime", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsPurModifyTime { get; set; }
+
+        /// <summary>
+        /// 描述 :生管登入日期 
+        /// </summary>
+
+        [ExcelColumn(Name = "生管登入日期", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsPmcEntryDate { get; set; }
+
+        /// <summary>
         /// 描述 :预投入批次 
         /// </summary>
 
@@ -302,6 +339,41 @@ namespace La.Model.Dto
         public string EsPmcNote { get; set; }
 
         /// <summary>
+        /// 描述 :EsPmcCreator 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsPmcCreator")]
+        public string EsPmcCreator { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPmcCreateTime 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsPmcCreateTime", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsPmcCreateTime { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPmcModifier 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsPmcModifier")]
+        public string EsPmcModifier { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPmcModifyTime 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsPmcModifyTime", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsPmcModifyTime { get; set; }
+
+        /// <summary>
+        /// 描述 :IQC登入日期 
+        /// </summary>
+
+        [ExcelColumn(Name = "IQC登入日期", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsIqcEntryDate { get; set; }
+
+        /// <summary>
         /// 描述 :检验订单 
         /// </summary>
 
@@ -314,6 +386,41 @@ namespace La.Model.Dto
 
         [ExcelColumn(Name = "说明")]
         public string EsIqcNote { get; set; }
+
+        /// <summary>
+        /// 描述 :EsIqcCreator 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsIqcCreator")]
+        public string EsIqcCreator { get; set; }
+
+        /// <summary>
+        /// 描述 :EsIqcCreateTime 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsIqcCreateTime", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsIqcCreateTime { get; set; }
+
+        /// <summary>
+        /// 描述 :EsIqcModifier 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsIqcModifier")]
+        public string EsIqcModifier { get; set; }
+
+        /// <summary>
+        /// 描述 :EsIqcModifyTime 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsIqcModifyTime", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsIqcModifyTime { get; set; }
+
+        /// <summary>
+        /// 描述 :部管登入日期 
+        /// </summary>
+
+        [ExcelColumn(Name = "部管登入日期", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsMmEntryDate { get; set; }
 
         /// <summary>
         /// 描述 :领用批次 
@@ -337,6 +444,41 @@ namespace La.Model.Dto
         public string EsMmNote { get; set; }
 
         /// <summary>
+        /// 描述 :EsMmCreator 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsMmCreator")]
+        public string EsMmCreator { get; set; }
+
+        /// <summary>
+        /// 描述 :EsMmCreateTime 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsMmCreateTime", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsMmCreateTime { get; set; }
+
+        /// <summary>
+        /// 描述 :EsMmModifier 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsMmModifier")]
+        public string EsMmModifier { get; set; }
+
+        /// <summary>
+        /// 描述 :EsMmModifyTime 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsMmModifyTime", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsMmModifyTime { get; set; }
+
+        /// <summary>
+        /// 描述 :制一登入日期 
+        /// </summary>
+
+        [ExcelColumn(Name = "制一登入日期", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsPpEntryDate { get; set; }
+
+        /// <summary>
         /// 描述 :班组 
         /// </summary>
 
@@ -356,6 +498,41 @@ namespace La.Model.Dto
 
         [ExcelColumn(Name = "说明")]
         public string EsPpNote { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPpCreator 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsPpCreator")]
+        public string EsPpCreator { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPpCreateTime 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsPpCreateTime", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsPpCreateTime { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPpModifier 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsPpModifier")]
+        public string EsPpModifier { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPpModifyTime 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsPpModifyTime", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsPpModifyTime { get; set; }
+
+        /// <summary>
+        /// 描述 :制二登入日期 
+        /// </summary>
+
+        [ExcelColumn(Name = "制二登入日期", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsPcbaEntryDate { get; set; }
 
         /// <summary>
         /// 描述 :Pcba班组 
@@ -379,6 +556,41 @@ namespace La.Model.Dto
         public string EsPcbaNote { get; set; }
 
         /// <summary>
+        /// 描述 :EsPcbaCreator 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsPcbaCreator")]
+        public string EsPcbaCreator { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPcbaCreateTime 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsPcbaCreateTime", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsPcbaCreateTime { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPcbaModifier 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsPcbaModifier")]
+        public string EsPcbaModifier { get; set; }
+
+        /// <summary>
+        /// 描述 :EsPcbaModifyTime 
+        /// </summary>
+
+        [ExcelColumn(Name = "EsPcbaModifyTime", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsPcbaModifyTime { get; set; }
+
+        /// <summary>
+        /// 描述 :QA确认日期 
+        /// </summary>
+
+        [ExcelColumn(Name = "QA确认日期", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsQaEntryDate { get; set; }
+
+        /// <summary>
         /// 描述 :检验批次 
         /// </summary>
 
@@ -393,32 +605,32 @@ namespace La.Model.Dto
         public string EsQaNote { get; set; }
 
         /// <summary>
-        /// 描述 :EsDeptCreator 
+        /// 描述 :EsQaCreator 
         /// </summary>
 
-        [ExcelColumn(Name = "EsDeptCreator")]
-        public string EsDeptCreator { get; set; }
+        [ExcelColumn(Name = "EsQaCreator")]
+        public string EsQaCreator { get; set; }
 
         /// <summary>
-        /// 描述 :EsDeptCreateTime 
+        /// 描述 :EsQaCreateTime 
         /// </summary>
 
-        [ExcelColumn(Name = "EsDeptCreateTime", Format = "yyyy-MM-dd HH:mm:ss")]
-        public DateTime? EsDeptCreateTime { get; set; }
+        [ExcelColumn(Name = "EsQaCreateTime", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsQaCreateTime { get; set; }
 
         /// <summary>
-        /// 描述 :EsDeptModifier 
+        /// 描述 :EsQaModifier 
         /// </summary>
 
-        [ExcelColumn(Name = "EsDeptModifier")]
-        public string EsDeptModifier { get; set; }
+        [ExcelColumn(Name = "EsQaModifier")]
+        public string EsQaModifier { get; set; }
 
         /// <summary>
-        /// 描述 :EsDeptModifyTime 
+        /// 描述 :EsQaModifyTime 
         /// </summary>
 
-        [ExcelColumn(Name = "EsDeptModifyTime", Format = "yyyy-MM-dd HH:mm:ss")]
-        public DateTime? EsDeptModifyTime { get; set; }
+        [ExcelColumn(Name = "EsQaModifyTime", Format = "yyyy-MM-dd HH:mm:ss")]
+        public DateTime? EsQaModifyTime { get; set; }
 
         /// <summary>
         /// 描述 :UDF01 

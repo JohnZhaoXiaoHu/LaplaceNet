@@ -8,7 +8,7 @@ namespace La.Model.Models
     /// 主设变，数据实体对象
     ///
     /// @author Davis.Cheng
-    /// @date 2023-04-12
+    /// @date 2023-04-28
     /// </summary>
     [SugarTable("pp_ec_master")]
     public class PpEcMaster
@@ -123,7 +123,7 @@ namespace La.Model.Models
         public string EmEcExternalDoc { get; set; }
 
         /// <summary>
-        /// 描述 :实施部门 
+        /// 描述 :输入部门 
         /// 空值 :false 
         /// </summary>
         public string EmEcImpDept { get; set; }
@@ -135,10 +135,10 @@ namespace La.Model.Models
         public DateTime? EmEcEntryDate { get; set; }
 
         /// <summary>
-        /// 描述 :SOP变更否 
+        /// 描述 :SOP 
         /// 空值 :false 
         /// </summary>
-        public byte IsModifySop { get; set; }
+        public byte EsSopStae { get; set; }
 
         /// <summary>
         /// 描述 :UDF01 

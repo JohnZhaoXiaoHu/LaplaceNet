@@ -12,10 +12,10 @@ using System.Linq;
 namespace La.Service.Production
 {
     /// <summary>
-    /// SOP确认Service业务层处理
+    /// SOPService业务层处理
     ///
     /// @author Davis.Cheng
-    /// @date 2023-04-12
+    /// @date 2023-05-03
     /// </summary>
     [AppService(ServiceType = typeof(IPpEcSopService), ServiceLifetime = LifeTime.Transient)]
     public class PpEcSopService : BaseService<PpEcSop>, IPpEcSopService
@@ -23,7 +23,7 @@ namespace La.Service.Production
         #region 业务逻辑代码
 
         /// <summary>
-        /// 查询SOP确认列表
+        /// 查询SOP列表
         /// </summary>
         /// <param name="parm"></param>
         /// <returns></returns>
@@ -33,8 +33,12 @@ namespace La.Service.Production
             var predicate = Expressionable.Create<PpEcSop>();
 
             //搜索条件查询语法参考Sqlsugar
+            predicate = predicate.AndIF(parm.BeginEsIssueDate != null, it => it.EsIssueDate >=parm.BeginEsIssueDate);
+            predicate = predicate.AndIF(parm.BeginEsIssueDate != null, it => it.EsIssueDate >= parm.BeginEsIssueDate && it.EsIssueDate <= parm.EndEsIssueDate);
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsEcNo), it => it.EsEcNo == parm.EsEcNo);
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsModel), it => it.EsModel == parm.EsModel);
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsItem), it => it.EsItem == parm.EsItem);
             var response = Queryable()
-                //.OrderBy("EsEcNo asc")
                 .Where(predicate.ToExpression())
                 .ToPage<PpEcSop, PpEcSopDto>(parm);
 
@@ -58,7 +62,7 @@ namespace La.Service.Production
         }
 
         /// <summary>
-        /// 添加SOP确认
+        /// 添加SOP
         /// </summary>
         /// <param name="parm"></param>
         /// <returns></returns>
@@ -71,16 +75,21 @@ namespace La.Service.Production
                 it.EsEntryDate,
                 it.EsAssigned,
                 it.EsModel,
+                it.EsItem,
                 it.EsPeaAssigned,
                 it.IsPeaModifysop,
                 it.EsPeaDate,
                 it.EsPeaNote,
+                it.EmPeaDocNo,
+                it.EmPeaDoc,
                 it.EsPeaModifier,
                 it.EsPeaModifyTime,
                 it.EsPepAssigned,
                 it.IsPepModifysop,
                 it.EsPepDate,
                 it.EsPepNote,
+                it.EmPepDocNo,
+                it.EmPepDoc,
                 it.EsPepModifier,
                 it.EsPepModifyTime,
                 it.CreateBy,
@@ -90,7 +99,7 @@ namespace La.Service.Production
         }
 
         /// <summary>
-        /// 修改SOP确认
+        /// 修改SOP
         /// </summary>
         /// <param name="parm"></param>
         /// <returns></returns>
@@ -103,16 +112,21 @@ namespace La.Service.Production
                 EsEntryDate = parm.EsEntryDate,
                 EsAssigned = parm.EsAssigned,
                 EsModel = parm.EsModel,
+                EsItem = parm.EsItem,
                 EsPeaAssigned = parm.EsPeaAssigned,
                 IsPeaModifysop = parm.IsPeaModifysop,
                 EsPeaDate = parm.EsPeaDate,
                 EsPeaNote = parm.EsPeaNote,
+                EmPeaDocNo = parm.EmPeaDocNo,
+                EmPeaDoc = parm.EmPeaDoc,
                 EsPeaModifier = parm.EsPeaModifier,
                 EsPeaModifyTime = parm.EsPeaModifyTime,
                 EsPepAssigned = parm.EsPepAssigned,
                 IsPepModifysop = parm.IsPepModifysop,
                 EsPepDate = parm.EsPepDate,
                 EsPepNote = parm.EsPepNote,
+                EmPepDocNo = parm.EmPepDocNo,
+                EmPepDoc = parm.EmPepDoc,
                 EsPepModifier = parm.EsPepModifier,
                 EsPepModifyTime = parm.EsPepModifyTime,
                 UpdateBy = parm.UpdateBy,
@@ -122,7 +136,7 @@ namespace La.Service.Production
         }
 
         /// <summary>
-        /// 清空SOP确认
+        /// 清空SOP
         /// </summary>
         /// <returns></returns>
         public void TruncatePpEcSop()

@@ -5,10 +5,10 @@ using System.Collections.Generic;
 namespace La.Model.Models
 {
     /// <summary>
-    /// SOP确认，数据实体对象
+    /// SOP，数据实体对象
     ///
     /// @author Davis.Cheng
-    /// @date 2023-04-12
+    /// @date 2023-05-03
     /// </summary>
     [SugarTable("pp_ec_sop")]
     public class PpEcSop
@@ -51,6 +51,12 @@ namespace La.Model.Models
         public string EsModel { get; set; }
 
         /// <summary>
+        /// 描述 :物料 
+        /// 空值 :true 
+        /// </summary>
+        public string EsItem { get; set; }
+
+        /// <summary>
         /// 描述 :生技担当 
         /// 空值 :true 
         /// </summary>
@@ -75,13 +81,25 @@ namespace La.Model.Models
         public string EsPeaNote { get; set; }
 
         /// <summary>
-        /// 描述 :EsPeaModifier 
+        /// 描述 :版本 
+        /// 空值 :true 
+        /// </summary>
+        public string EmPeaDocNo { get; set; }
+
+        /// <summary>
+        /// 描述 :组立文件 
+        /// 空值 :true 
+        /// </summary>
+        public string EmPeaDoc { get; set; }
+
+        /// <summary>
+        /// 描述 :组立确认 
         /// 空值 :true 
         /// </summary>
         public string EsPeaModifier { get; set; }
 
         /// <summary>
-        /// 描述 :EsPeaModifyTime 
+        /// 描述 :组立确认日期 
         /// 空值 :true 
         /// </summary>
         public DateTime? EsPeaModifyTime { get; set; }
@@ -111,13 +129,25 @@ namespace La.Model.Models
         public string EsPepNote { get; set; }
 
         /// <summary>
-        /// 描述 :EsPepModifier 
+        /// 描述 :版本 
+        /// 空值 :true 
+        /// </summary>
+        public string EmPepDocNo { get; set; }
+
+        /// <summary>
+        /// 描述 :PCBA文件 
+        /// 空值 :true 
+        /// </summary>
+        public string EmPepDoc { get; set; }
+
+        /// <summary>
+        /// 描述 :PCBA确认 
         /// 空值 :true 
         /// </summary>
         public string EsPepModifier { get; set; }
 
         /// <summary>
-        /// 描述 :EsPepModifyTime 
+        /// 描述 :PCBA确认日期 
         /// 空值 :true 
         /// </summary>
         public DateTime? EsPepModifyTime { get; set; }
