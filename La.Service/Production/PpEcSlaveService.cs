@@ -8,6 +8,7 @@ using La.Model.System;
 using La.Repository;
 using La.Service.Production.IProductionService;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace La.Service.Production
 {
@@ -36,9 +37,9 @@ namespace La.Service.Production
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsEcNo), it => it.EsEcNo.Contains(parm.EsEcNo));
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsModel), it => it.EsModel == parm.EsModel);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsItem), it => it.EsItem == parm.EsItem);
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsSubItem), it => it.EsSubItem == parm.EsSubItem);
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsOldItem), it => it.EsOldItem == parm.EsOldItem);
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsNewItem), it => it.EsNewItem == parm.EsNewItem);
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsSubItem), it => it.EsSubItem.Contains(parm.EsSubItem));
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsOldItem), it => it.EsOldItem.Contains( parm.EsOldItem));
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsNewItem), it => it.EsNewItem.Contains( parm.EsNewItem));
             var response = Queryable()
                 .Where(predicate.ToExpression())
                 .ToPage<PpEcSlave, PpEcSlaveDto>(parm);

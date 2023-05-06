@@ -44,6 +44,7 @@ import SvgIcon from '@/components/SvgIcon/index.vue'
 import elementIcons from '@/components/SvgIcon/svgicon'
 
 import './permission' // permission control
+import { checkPermi, checkRole } from '@/utils/permission' // 权限判断函数
 
 import { getConfigKey } from '@/api/system/config'
 import { getDicts } from '@/api/system/dict/data'
@@ -86,6 +87,8 @@ signalR.init(import.meta.env.VITE_APP_SOCKET_API)
 app.config.globalProperties.signalr = signalR
 // 全局方法挂载
 //app.config.globalProperties.$axios = axios
+app.config.globalProperties.checkPermi = checkPermi
+app.config.globalProperties.checkRole = checkRole
 app.config.globalProperties.getConfigKey = getConfigKey
 app.config.globalProperties.getDicts = getDicts
 app.config.globalProperties.download = download
@@ -113,10 +116,12 @@ app.use(pinia)
   .use(router)
   .use(VForm3)
   .use(VFormRender)
+
   .use(plugins)
   .use(ElementUI)
   .use(ElementPlus, {})
   .use(elementIcons)
   .use(vueI18n)
   .use(isTimeOut)
+
   .mount('#app')
