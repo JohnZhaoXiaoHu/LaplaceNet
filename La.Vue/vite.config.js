@@ -1,6 +1,6 @@
 import { defineConfig, loadEnv } from 'vite'
 import path from 'path'
-import createVitePlugins from './vite/plugins'
+import viteSvgIcons from './vite/plugins'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, command }) => {
@@ -17,7 +17,7 @@ export default defineConfig(({ mode, command }) => {
     alias['vue-i18n'] = 'vue-i18n/dist/vue-i18n.cjs.js'
   }
   return {
-    plugins: createVitePlugins(env, command === 'build'),
+    plugins: viteSvgIcons(env, command === 'build'),
     resolve: {
       // https://cn.vitejs.dev/config/#resolve-alias
       alias: alias,

@@ -40,7 +40,6 @@ import "bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css"
 import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css"
 // svg图标
 import 'virtual:svg-icons-register'
-
 import SvgIcon from '@/components/SvgIcon/index.vue'
 import elementIcons from '@/components/SvgIcon/svgicon'
 
