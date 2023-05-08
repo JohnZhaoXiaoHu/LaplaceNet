@@ -89,7 +89,7 @@ $if(replaceDto.ShowBtnDelete)
 $end
 $if(replaceDto.ShowBtnTruncate)
       <el-col :span="1.5">
-        <el-button color="#DC143C" v-hasPermi="['${replaceDto.PermissionPrefix}:delete']" plain icon="delete" @click="handleClear">
+        <el-button color="#666699" v-hasPermi="['${replaceDto.PermissionPrefix}:delete']" plain icon="BrushFilled" @click="handleClear">
          {{ ${t}t('btn.clean') }}
         </el-button>
       </el-col>

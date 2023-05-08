@@ -9,6 +9,8 @@ using La.Repository;
 using La.Service.Production.IProductionService;
 using System.Linq;
 using System.Collections.Generic;
+using La.Infra.Model;
+using La.Infra.Extensions;
 
 namespace La.Service.Production
 {
@@ -38,13 +40,27 @@ namespace La.Service.Production
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsModel), it => it.EsModel == parm.EsModel);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsItem), it => it.EsItem == parm.EsItem);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsSubItem), it => it.EsSubItem.Contains(parm.EsSubItem));
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsOldItem), it => it.EsOldItem.Contains( parm.EsOldItem));
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsNewItem), it => it.EsNewItem.Contains( parm.EsNewItem));
-            var response = Queryable()
-                .Where(predicate.ToExpression())
-                .ToPage<PpEcSlave, PpEcSlaveDto>(parm);
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsOldItem), it => it.EsOldItem.Contains(parm.EsOldItem));
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EsNewItem), it => it.EsNewItem.Contains(parm.EsNewItem));
 
-            return response;
+            //数据量超大时无条件下只显示1000条记录
+            if (parm.EsEcNo == null && parm.EsModel == null && parm.EsItem == null && parm.EsSubItem == null && parm.EsOldItem == null && parm.EsNewItem == null)
+            {
+                var response = Queryable().Take(1000)
+                            .Where(predicate.ToExpression())
+                            .ToPage<PpEcSlave, PpEcSlaveDto>(parm);
+
+                return response;
+            }
+            else
+            {
+                var response = Queryable()
+                    .Where(predicate.ToExpression())
+                    .ToPage<PpEcSlave, PpEcSlaveDto>(parm);
+
+                return response;
+
+            }
         }
 
 

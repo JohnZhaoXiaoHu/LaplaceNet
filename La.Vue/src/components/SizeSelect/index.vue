@@ -1,10 +1,11 @@
 <template>
   <div>
     <el-dropdown trigger="hover" @command="handleSetSize" style="vertical-align: middle">
-      <svg-icon class-name="size-icon" name="size" />
+      <svg-icon class-name="size-icon" name="text-size" />
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item v-for="item of sizeOptions" :key="item.value" :disabled="size === item.value" :command="item.value">
+          <el-dropdown-item v-for="item of sizeOptions" :key="item.value" :disabled="size === item.value"
+            :command="item.value">
             {{ item.label }}
           </el-dropdown-item>
         </el-dropdown-menu>
@@ -14,41 +15,52 @@
 </template>
 
 <script setup>
-import useAppStore from '@/store/modules/app'
-const appStore = useAppStore()
-const size = computed(() => appStore.size)
-const route = useRoute()
-const router = useRouter()
-const { proxy } = getCurrentInstance()
-const sizeOptions = ref([
-  { label: proxy.$t('layout.large'), value: 'large' },
-  { label: proxy.$t('layout.default'), value: 'default' },
-  { label: proxy.$t('layout.small'), value: 'small' },
-])
+  import useAppStore from '@/store/modules/app'
+  const appStore = useAppStore()
+  const size = computed(() => appStore.size)
+  const route = useRoute()
+  const router = useRouter()
+  const { proxy } = getCurrentInstance()
+  const sizeOptions = ref([
+    { label: proxy.$t('layout.large'), value: 'large' },
+    { label: proxy.$t('layout.default'), value: 'default' },
+    { label: proxy.$t('layout.small'), value: 'small' },
+  ])
 
-// function refreshView() {
-//   // In order to make the cached page re-rendered
-//   store.dispatch('tagsView/delAllCachedViews', route)
+  // function refreshView() {
+  //   // In order to make the cached page re-rendered
+  //   store.dispatch('tagsView/delAllCachedViews', route)
 
-//   const { fullPath } = route
+  //   const { fullPath } = route
 
-//   nextTick(() => {
-//     router.replace({
-//       path: '/redirect' + fullPath,
-//     })
-//   })
-// }
-function handleSetSize(size) {
-  proxy.$modal.loading('正在设置布局大小，请稍候...')
-  appStore.setSize(size)
-  setTimeout('window.location.reload()', 1000)
-}
+  //   nextTick(() => {
+  //     router.replace({
+  //       path: '/redirect' + fullPath,
+  //     })
+  //   })
+  // }
+  function handleSetSize(size) {
+    proxy.$modal.loading('正在设置布局大小，请稍候...')
+    appStore.setSize(size)
+    setTimeout('window.location.reload()', 1000)
+  }
 </script>
 
 <style lang="scss" scoped>
-.size-icon--style {
-  font-size: 18px;
-  line-height: 50px;
-  padding-right: 7px;
-}
+  .size-icon--style {
+    font-size: 18px;
+    line-height: 50px;
+    padding-right: 7px;
+    width: 48px;
+    height: 48px;
+    vertical-align: 10px;
+  }
+
+  /* //svg-icon修改颜色 */
+  .svg-icon {
+    height: 20px;
+    width: 20px;
+    fill: #6495ED;
+    /* 宝蓝(#4b5cc4)：鲜艳明亮的蓝色 （注：英文中为 RoyalBlue 即皇家蓝色，是皇室选用的色彩，多和小面积纯黄色（金色）配合使用。） rgba(74, 74, 77, 0.65); */
+  }
 </style>

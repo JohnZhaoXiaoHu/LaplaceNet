@@ -11,7 +11,7 @@
       <div class="margin_t-10">
         <el-button size="small" type="warning" @click="releaseHandle()" round><svg-icon name="log" />{{
           $t('layout.changeLog') }}</el-button>
-        <el-button size="small" type="success" @click="releaseHandle()" round><svg-icon name="file-code" />{{
+        <el-button size="small" type="success" @click="releaseHandle()" round><svg-icon name="life-ring-regular" />{{
           $t('layout.helpguide') }}</el-button>
         <el-button size="small" type="info" @click="releaseHandle()" round><svg-icon name="github"
             color="BlueViolet" />GitHub</el-button>

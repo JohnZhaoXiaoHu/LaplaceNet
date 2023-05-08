@@ -5,18 +5,25 @@
 </template>
 
 <script setup>
-import { useFullscreen } from '@vueuse/core'
+  import { useFullscreen } from '@vueuse/core'
 
-const { isFullscreen, enter, exit, toggle } = useFullscreen()
+  const { isFullscreen, enter, exit, toggle } = useFullscreen()
 </script>
 
 <style lang="scss" scoped>
-.screenfull-svg {
-  display: inline-block;
-  cursor: pointer;
-  fill: #5a5e66;
-  width: 20px;
-  height: 20px;
-  vertical-align: 10px;
-}
+  .screenfull-svg {
+    display: inline-block;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    vertical-align: 10px;
+  }
+
+  .svg-icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: #6495ED;
+    overflow: hidden;
+  }
 </style>

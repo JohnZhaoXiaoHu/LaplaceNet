@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-dropdown trigger="hover" @command="handleLanguageChange" style="vertical-align: middle">
-      <svg-icon class-name="size-icon" name="language" />
+      <svg-icon class-name="size-icon" name="language-outline" />
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item v-for="item of langOptions" :key="item.value" :disabled="lang === item.value"
@@ -35,7 +35,7 @@
 
 <style lang="scss" scoped>
   .size-icon--style {
-    font-size: 180px;
+    font-size: 18px;
     line-height: 50px;
     padding-right: 7px;
   }
@@ -44,7 +44,7 @@
   .svg-icon {
     height: 20px;
     width: 20px;
-    fill: #4b5cc4;
+    fill: #484891;
     /* 宝蓝(#4b5cc4)：鲜艳明亮的蓝色 （注：英文中为 RoyalBlue 即皇家蓝色，是皇室选用的色彩，多和小面积纯黄色（金色）配合使用。） rgba(74, 74, 77, 0.65); */
   }
 </style>

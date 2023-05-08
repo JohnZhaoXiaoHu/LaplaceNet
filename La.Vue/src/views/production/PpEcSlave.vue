@@ -64,7 +64,7 @@
         </el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button color="#DC143C" v-hasPermi="['pp:ecslave:delete']" plain icon="delete" @click="handleClear">
+        <el-button color="#666699" v-hasPermi="['pp:ecslave:delete']" plain icon="Brush" @click="handleClear">
           {{ $t('btn.clean') }}
         </el-button>
       </el-col>
@@ -423,7 +423,7 @@
               </el-col>
             </el-row>
           </el-tab-pane>
-          <el-tab-pane v-if="checkPermi(['pp:ecslave:edit'])" label="采购" name="second">
+          <el-tab-pane v-if="checkPermi(['pp:ecslave:pd'])" label="采购" name="second">
             <el-row :gutter="20">
               <el-col :lg="12">
                 <el-form-item label="采购类型" prop="esPurType">
@@ -526,7 +526,7 @@
               </el-col>
             </el-row>
           </el-tab-pane>
-          <el-tab-pane v-if="checkPermi(['pp:ecslave:edit'])" label="生管" name="third">
+          <el-tab-pane v-if="checkPermi(['pp:ecslave:pm'])" label="生管" name="third">
             <el-row :gutter="20">
               <el-col :lg="12">
                 <el-form-item label="生管登入日期" prop="esPmcEntryDate">
@@ -580,7 +580,7 @@
               </el-col>
             </el-row>
           </el-tab-pane>
-          <el-tab-pane v-if="checkPermi(['pp:ecslave:edit'])" label="受检" name="fourth">
+          <el-tab-pane v-if="checkPermi(['pp:ecslave:iqc'])" label="受检" name="fourth">
             <el-row :gutter="20">
               <el-col :lg="12">
                 <el-form-item label="IQC登入日期" prop="esIqcEntryDate">
@@ -628,7 +628,7 @@
               </el-col>
             </el-row>
           </el-tab-pane>
-          <el-tab-pane v-if="checkPermi(['pp:ecslave:edit'])" label="部管" name="fifth">
+          <el-tab-pane v-if="checkPermi(['pp:ecslave:mm'])" label="部管" name="fifth">
             <el-row :gutter="20">
               <el-col :lg="12">
                 <el-form-item label="部管登入日期" prop="esMmEntryDate">
@@ -682,7 +682,7 @@
               </el-col>
             </el-row>
           </el-tab-pane>
-          <el-tab-pane v-if="checkPermi(['pp:ecslave:edit'])" label="制一" name="sixth">
+          <el-tab-pane v-if="checkPermi(['pp:ecslave:p1d'])" label="制一" name="sixth">
             <el-row :gutter="20">
               <el-col :lg="12">
                 <el-form-item label="制一登入日期" prop="esPpEntryDate">
@@ -739,7 +739,7 @@
               </el-col>
             </el-row>
           </el-tab-pane>
-          <el-tab-pane v-if="checkPermi(['pp:ecslave:edit'])" label="制二" name="seventh">
+          <el-tab-pane v-if="checkPermi(['pp:ecslave:p2d'])" label="制二" name="seventh">
             <el-row :gutter="20">
               <el-col :lg="12">
                 <el-form-item label="制二登入日期" prop="esPcbaEntryDate">
@@ -797,7 +797,7 @@
             </el-row>
 
           </el-tab-pane>
-          <el-tab-pane v-if="checkPermi(['pp:ecslave:edit'])" label="品管" name="eighth">
+          <el-tab-pane v-if="checkPermi(['pp:ecslave:qa'])" label="品管" name="eighth">
             <el-row :gutter="20">
               <el-col :lg="12">
                 <el-form-item label="QA确认日期" prop="esQaEntryDate">
@@ -845,7 +845,7 @@
               </el-col>
             </el-row>
           </el-tab-pane>
-          <el-tab-pane v-if="checkPermi(['pp:ecslave:edit'])" label="制技" name="ninth">
+          <el-tab-pane v-if="checkPermi(['pp:ecslave:pe'])" label="制技" name="ninth">
             <el-row :gutter="20">
               <el-col :lg="12">
                 <el-form-item label="SOP" prop="esSopStae">
@@ -859,12 +859,6 @@
           </el-tab-pane>
 
         </el-tabs>
-
-
-
-
-
-
 
         <!-- <el-row :gutter="20">
           <el-col :lg="12">
