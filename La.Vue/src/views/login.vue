@@ -1,5 +1,6 @@
 <template>
-  <starBackground></starBackground>
+  <animationBackground></animationBackground>
+  <!-- <starBackground></starBackground> -->
   <div class="login">
     <div class="drawer-item" style="display: flex; justify-content: flex-start">
       <img src="../assets/logo/logo.png" class="image" />
@@ -71,9 +72,11 @@
   import Cookies from 'js-cookie'
   import { encrypt, decrypt } from '@/utils/jsencrypt'
   import defaultSettings from '@/settings'
+  import animationBackground from '@/views/components/animationBackground.vue'
   import starBackground from '@/views/components/starBackground.vue'
   import LangSelect from '@/components/LangSelect/index.vue'
   import useUserStore from '@/store/modules/user'
+
 
   const userStore = useUserStore()
   const router = useRouter()

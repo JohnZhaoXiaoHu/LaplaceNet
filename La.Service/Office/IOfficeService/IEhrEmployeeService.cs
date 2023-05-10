@@ -10,7 +10,7 @@ namespace La.Service.Office.IOfficeService
     /// 人事信息service接口
     ///
     /// @author Davis.Cheng
-    /// @date 2023-05-04
+    /// @date 2023-05-09
     /// </summary>
     public interface IEhrEmployeeService : IBaseService<EhrEmployee>
     {

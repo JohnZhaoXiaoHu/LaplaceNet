@@ -97,7 +97,7 @@
   // import { listRole } from "@/api/system/role";
   import { getRole } from '@/api/system/role'
   import { getRoleUsers, createRoleUsers, deleteRoleUsers, getExcludeUsers } from '@/api/system/userRoles'
-
+  const { proxy } = getCurrentInstance()
   const loadingUser = ref(false)
   const loading = ref(false)
   // 表格高度
@@ -118,7 +118,7 @@
   // 角色用户查询参数
   const roleUserQueryParams = reactive({
     pageNum: 1,
-    pageSize: 17,
+    pageSize: 10,
     roleId: undefined,
     userName: undefined,
     roleName: undefined,
@@ -126,14 +126,14 @@
   })
   const userQueryParams = reactive({
     pageNum: 1,
-    pageSize: 17,
+    pageSize: 10,
     roleId: undefined,
     userName: undefined
   })
   // 状态字典
   const statusOptions = ref([])
 
-  const { proxy } = getCurrentInstance()
+
   const route = useRoute()
   proxy.getDicts('sys_normal_disable').then((response) => {
     statusOptions.value = response.data

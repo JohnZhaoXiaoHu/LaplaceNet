@@ -140,7 +140,7 @@
     width: 1.2em;
     height: 1.2em;
     vertical-align: -0.15em;
-    fill: #6495ED;
+    fill: #003459;
     overflow: hidden;
   }
 

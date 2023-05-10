@@ -1,7 +1,8 @@
 <template>
-  <div class="stars">
-    <div class="star" v-for="(item, index) in starsCount" :key="index" ref="star"></div>
-  </div>
+
+  <!--<div class="stars">
+     <div class="star" v-for="(item, index) in starsCount" :key="index" ref="star"></div> 
+  </div>-->
 </template>
 
 <script setup name="starBackground">
@@ -35,15 +36,17 @@
     }
   }
 
+
+
   .stars {
     transform: perspective(500px);
     transform-style: preserve-3d;
-    // position: absolute;
+    /* // position: absolute; */
     perspective-origin: 50% 100%;
     left: 50%;
     animation: rotate 90s infinite linear;
     bottom: -200px;
-    // 注意要用fixed，不然会超出屏幕
+    /* // 注意要用fixed，不然会超出屏幕 */
     position: fixed;
   }
 

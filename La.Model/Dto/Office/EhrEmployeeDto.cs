@@ -10,7 +10,7 @@ namespace La.Model.Dto
     /// <summary>
     /// 人事信息查询对象
     /// @author Davis.Cheng
-    /// @date 2023-05-04
+    /// @date 2023-05-09
     /// </summary>
     public class EhrEmployeeQueryDto : PagerInfo 
     {

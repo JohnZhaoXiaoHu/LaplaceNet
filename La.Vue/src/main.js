@@ -42,6 +42,8 @@ import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css"
 import 'virtual:svg-icons-register'
 import SvgIcon from '@/components/SvgIcon/index.vue'
 import elementIcons from '@/components/SvgIcon/svgicon'
+//粒子动画
+import Particles from 'vue3-particles'
 
 import './permission' // permission control
 import { checkPermi, checkRole } from '@/utils/permission' // 权限判断函数
@@ -116,12 +118,11 @@ app.use(pinia)
   .use(router)
   .use(VForm3)
   .use(VFormRender)
-
   .use(plugins)
   .use(ElementUI)
   .use(ElementPlus, {})
   .use(elementIcons)
   .use(vueI18n)
   .use(isTimeOut)
-
+  .use(Particles)
   .mount('#app')

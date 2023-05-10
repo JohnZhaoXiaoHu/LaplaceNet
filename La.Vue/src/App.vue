@@ -6,6 +6,7 @@
       <!-- <transition name="fade"> -->
       <component :is="Component" :key="route.path" />
       <!-- </transition> -->
+
     </router-view>
   </el-config-provider>
 </template>
@@ -30,7 +31,7 @@
 
 
   const token = computed(() => {
-    return useUserStore().token
+    return useUserStore().userId
   })
 
   const lang = computed(() => {

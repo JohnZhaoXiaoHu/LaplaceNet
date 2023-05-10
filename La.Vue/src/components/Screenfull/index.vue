@@ -23,7 +23,7 @@
     width: 1em;
     height: 1em;
     vertical-align: -0.15em;
-    fill: #6495ED;
+    fill: #23A393;
     overflow: hidden;
   }
 </style>

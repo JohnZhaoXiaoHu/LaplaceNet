@@ -3,9 +3,7 @@
     <el-popover placement="bottom" trigger="hover" width="300px" popper-class="el-popover-pupop-user-news">
       <template #reference>
         <el-badge :is-dot="noticeDot" style="line-height: 18px">
-          <el-icon>
-            <bell />
-          </el-icon>
+          <svg-icon class-name="size-icon" name="bell" />
         </el-badge>
       </template>
       <div class="layout-navbars-breadcrumb-user-news">
@@ -70,6 +68,14 @@
 </script>
 
 <style lang="scss">
+  /* //svg-icon修改颜色 */
+  .svg-icon {
+    height: 20px;
+    width: 20px;
+    fill: #484891;
+    /* 宝蓝(#4b5cc4)：鲜艳明亮的蓝色 （注：英文中为 RoyalBlue 即皇家蓝色，是皇室选用的色彩，多和小面积纯黄色（金色）配合使用。） rgba(74, 74, 77, 0.65); */
+  }
+
   .head-box {
     display: flex;
     border-bottom: 1px solid #ebeef5;

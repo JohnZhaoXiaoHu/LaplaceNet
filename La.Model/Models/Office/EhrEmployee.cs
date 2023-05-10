@@ -8,7 +8,7 @@ namespace La.Model.Models
     /// 人事信息，数据实体对象
     ///
     /// @author Davis.Cheng
-    /// @date 2023-05-04
+    /// @date 2023-05-09
     /// </summary>
     [SugarTable("ehr_employee")]
     public class EhrEmployee

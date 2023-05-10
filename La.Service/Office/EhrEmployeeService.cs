@@ -15,7 +15,7 @@ namespace La.Service.Office
     /// 人事信息Service业务层处理
     ///
     /// @author Davis.Cheng
-    /// @date 2023-05-04
+    /// @date 2023-05-09
     /// </summary>
     [AppService(ServiceType = typeof(IEhrEmployeeService), ServiceLifetime = LifeTime.Transient)]
     public class EhrEmployeeService : BaseService<EhrEmployee>, IEhrEmployeeService
@@ -36,7 +36,7 @@ namespace La.Service.Office
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EeName), it => it.EeName.Contains(parm.EeName));
             predicate = predicate.AndIF(parm.BeginEeBirthday != null, it => it.EeBirthday >=parm.BeginEeBirthday);
             predicate = predicate.AndIF(parm.BeginEeBirthday != null, it => it.EeBirthday >= parm.BeginEeBirthday && it.EeBirthday <= parm.EndEeBirthday);
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EeIdentityCard), it => it.EeIdentityCard == parm.EeIdentityCard);
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EeIdentityCard), it => it.EeIdentityCard.Contains(parm.EeIdentityCard));
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EeProvince), it => it.EeProvince == parm.EeProvince);
             predicate = predicate.AndIF(parm.EeDepartmentId != null, it => it.EeDepartmentId == parm.EeDepartmentId);
             predicate = predicate.AndIF(parm.EeTiptopDegrEe != null, it => it.EeTiptopDegrEe == parm.EeTiptopDegrEe);

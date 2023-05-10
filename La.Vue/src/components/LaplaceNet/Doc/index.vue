@@ -15,7 +15,25 @@
     width: 1.2em;
     height: 1.2em;
     vertical-align: -0.15em;
-    fill: #6495ED;
+    fill: #673AB7;
     overflow: hidden;
   }
+
+
+  /* 
+#F44336
+#e91e63
+#3f51b5
+#009688
+#5AB963
+#92C27B0
+#673AB7
+#03A9F4
+#00BCD4
+#8bc34a
+#CDDC39
+#FFC107
+#FF9800
+#FF5722
+*/
 </style>

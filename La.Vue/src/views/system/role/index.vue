@@ -40,7 +40,11 @@
             inactive-value="1" @change="handleStatusChange(scope.row)"></el-switch>
         </template>
       </el-table-column>
-      <el-table-column label="用户个数" align="center" prop="userNum" width="90" />
+      <el-table-column label="用户个数" align="center" prop="userNum" width="90">
+        <template #default="scope">
+          <el-link type="primary" @click="handleAuthUser(scope.row)">{{ scope.row.userNum }}</el-link>
+        </template>
+      </el-table-column>
       <el-table-column label="创建时间" align="center" prop="createTime" width="150" />
       <el-table-column label="备注" align="center" prop="remark" width="150" :show-overflow-tooltip="true" />
       <el-table-column label="操作" align="center" width="200">
@@ -201,24 +205,24 @@
   const dataScopeOptions = ref([
     {
       dictValue: '1',
-      dictLabel: '全部',
+      dictLabel: '全部'
     },
     {
       dictValue: '2',
-      dictLabel: '自定义',
+      dictLabel: '自定义'
     },
     {
       dictValue: '3',
-      dictLabel: '本部门',
+      dictLabel: '本部门'
     },
     {
       dictValue: '4',
-      dictLabel: '本部门及以下',
+      dictLabel: '本部门及以下'
     },
     {
       dictValue: '5',
-      dictLabel: '仅本人',
-    },
+      dictLabel: '仅本人'
+    }
   ])
   // 菜单列表
   const menuOptions = ref([])
@@ -227,10 +231,10 @@
   // 查询参数
   const queryParams = reactive({
     pageNum: 1,
-    pageSize: 17,
+    pageSize: 10,
     roleName: undefined,
     roleKey: undefined,
-    status: undefined,
+    status: undefined
   })
   const searchText = ref('')
 
@@ -239,12 +243,12 @@
     rules: {
       roleName: [{ required: true, message: '角色名称不能为空', trigger: 'blur' }],
       roleKey: [{ required: true, message: '权限字符不能为空', trigger: 'blur' }],
-      roleSort: [{ required: true, message: '角色顺序不能为空', trigger: 'blur' }],
+      roleSort: [{ required: true, message: '角色顺序不能为空', trigger: 'blur' }]
     },
     defaultProps: {
       children: 'children',
-      label: 'label',
-    },
+      label: 'label'
+    }
   })
   const menuRef = ref()
   const deptRef = ref()
@@ -312,7 +316,7 @@
       .$confirm('确认要"' + text + '""' + row.roleName + '"角色吗?', '警告', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
-        type: 'warning',
+        type: 'warning'
       })
       .then(function () {
         return changeRoleStatus(row.roleId, row.status)
@@ -350,7 +354,7 @@
         dataScope: '1',
         menuCheckStrictly: true,
         deptCheckStrictly: true,
-        remark: undefined,
+        remark: undefined
       })
     proxy.resetForm('form')
   }
@@ -484,14 +488,19 @@
       roleId: row.roleId,
       roleName: row.roleName,
       roleKey: row.roleKey,
-      menuCheckStrictly: row.menuCheckStrictly,
+      menuCheckStrictly: row.menuCheckStrictly
     }
   }
   const router = useRouter()
   /** 分配用户操作 */
   function handleAuthUser(row) {
     const roleId = row.roleId
-    router.push({ path: '/system/roleusers', query: { roleId } })
+    var hasPermi = proxy.$auth.hasPermi(['system:role:authorize', 'system:roleusers:list'])
+    if (hasPermi) {
+      router.push({ path: '/system/roleusers', query: { roleId } })
+    } else {
+      proxy.$modal.msgError('你没有权限访问')
+    }
   }
   /** 提交按钮 */
   function submitForm() {
@@ -543,7 +552,7 @@
       .$confirm('是否确认删除角色编号为"' + roleIds + '"的数据项?', '警告', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
-        type: 'warning',
+        type: 'warning'
       })
       .then(function () {
         return delRole(roleIds)
@@ -560,7 +569,7 @@
       .$confirm('是否确认导出所有角色数据项?', '警告', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
-        type: 'warning',
+        type: 'warning'
       })
       .then(function () {
         return exportRole(queryParams)
