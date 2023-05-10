@@ -27,7 +27,7 @@
         "nb_sides": 5
       },
       "image": {
-        "src": "src/assets/logo/logo.png",
+        "src": "src/assets/icons/svg/laplace.svg",
         "width": 200,
         "height": 200
       }
@@ -43,7 +43,7 @@
       }
     },
     "size": {
-      "value": 5,
+      "value": 8,
       "random": true,
       "anim": {
         "enable": false,
@@ -61,7 +61,7 @@
     },
     "move": {
       "enable": true,
-      "speed": 3,
+      "speed": 1,
       "direction": "none",
       "random": false,
       "straight": false,

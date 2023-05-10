@@ -573,7 +573,7 @@
             
             @tableName ehr_employee
             @author Davis.Cheng
-            @date 2023-05-04
+            @date 2023-05-09
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.EhrEmployeeController._EhrEmployeeService">
