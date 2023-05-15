@@ -11,9 +11,11 @@
 </p>
 
 ## 🎉概述
-* 本项目适合有一定NetCore和 vue基础的开发人员
+* 本项目适合有一定NetCore和 vue基础的开发人员，Issues和Support只讨论完善的功能，框架本身问题请移步izory：[ZR.Admin](https://gitee.com/izory)。敬请谅解！！！！
 * 基于.NET7实现的通用权限管理平台（RBAC模式）。整合最新技术高效快速开发，前后端分离模式，开箱即用。
 * 代码量少、学习简单、通俗易懂、功能强大、易扩展、轻量级，让web开发更快速、简单高效（从此告别996），解决70%的重复工作，专注您的业务，轻松开发从现在开始！
+* 如果您中0基础，请移步到izory：[ZR.Admin](https://gitee.com/izory),Issues和Support都非常不错。
+
 
 
 
@@ -146,7 +148,7 @@ Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、
 - 👉kailong321200875:[vue-element-plus-admin](https://github.com/kailong321200875/vue-element-plus-admin)
 - 👉GMingChen:[vue-element-plus-admin](https://github.com/GMingChen/vue3-element-plus-admin)
 - 👉Meiam.System：[Meiam.System](https://github.com/91270/Meiam.System)
-- 👉izory：：[ZR.Admin](https://gitee.com/izory)
+- 👉izory：[ZR.Admin](https://gitee.com/izory)
 - 👉cq-panda：[Vue.NetCore](https://github.com/cq-panda/Vue.NetCore)
 - 👉zuohuaijun：[Admin.NET](https://toscode.gitee.com/zuohuaijun/Admin.NET)
 
