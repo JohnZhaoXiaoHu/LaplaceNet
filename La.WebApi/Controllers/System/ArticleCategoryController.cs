@@ -11,7 +11,7 @@ using La.Common;
 using La.Service.System.IService;
 using La.Model.System;
 
-namespace La.WebApi.Controllers.System
+namespace La.WebApi.Controllers
 {
     /// <summary>
     /// 文章目录Controller
@@ -24,9 +24,7 @@ namespace La.WebApi.Controllers.System
         /// 文章目录接口
         /// </summary>
         private readonly IArticleCategoryService _ArticleCategoryService;
-        /// <summary>
-        /// 文章目录接口
-        /// </summary>
+
         public ArticleCategoryController(IArticleCategoryService ArticleCategoryService)
         {
             _ArticleCategoryService = ArticleCategoryService;

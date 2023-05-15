@@ -9,8 +9,8 @@ namespace La.Service.Financial.IFinancialService
     /// <summary>
     /// 财务期间service接口
     ///
-    /// @author Davis.Cheng
-    /// @date 2023-04-11
+    /// @author Davis.Ching
+    /// @date 2023-05-15
     /// </summary>
     public interface IFicoPeriodService : IBaseService<FicoPeriod>
     {

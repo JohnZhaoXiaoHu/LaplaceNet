@@ -7,8 +7,8 @@ namespace La.Model.Models
     /// <summary>
     /// 财务期间，数据实体对象
     ///
-    /// @author Davis.Cheng
-    /// @date 2023-04-11
+    /// @author Davis.Ching
+    /// @date 2023-05-15
     /// </summary>
     [SugarTable("fico_period")]
     public class FicoPeriod

@@ -2,7 +2,6 @@ using La.Infra;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.DataProtection;
 using La.WebApi.Framework;
-using Lazy.Captcha.Core;
 using La.Infra.Extensions;
 using La.WebApi.Extensions;
 using La.WebApi.Filters;
@@ -33,7 +32,6 @@ builder.Services.AddCors(c =>
         .AllowAnyMethod();//允许任意方法
     });
 });
-
 // 显示logo
 builder.Services.AddLogo();
 //注入SignalR实时通讯，默认用json传输
@@ -121,7 +119,6 @@ app.UseResponseCaching();
 app.UseAddTaskSchedulers();
 //使用全局异常中间件
 app.UseMiddleware<GlobalExceptionMiddleware>();
-
 
 //设置socket连接
 app.MapHub<MessageHub>("/msgHub");

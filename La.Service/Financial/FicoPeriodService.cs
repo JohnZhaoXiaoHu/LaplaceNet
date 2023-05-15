@@ -14,8 +14,8 @@ namespace La.Service.Financial
     /// <summary>
     /// 财务期间Service业务层处理
     ///
-    /// @author Davis.Cheng
-    /// @date 2023-04-11
+    /// @author Davis.Ching
+    /// @date 2023-05-15
     /// </summary>
     [AppService(ServiceType = typeof(IFicoPeriodService), ServiceLifetime = LifeTime.Transient)]
     public class FicoPeriodService : BaseService<FicoPeriod>, IFicoPeriodService
@@ -33,7 +33,6 @@ namespace La.Service.Financial
             var predicate = Expressionable.Create<FicoPeriod>();
 
             //搜索条件查询语法参考Sqlsugar
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FpFy), it => it.FpFy.Contains(parm.FpFy));
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FpYm), it => it.FpYm.Contains(parm.FpYm));
             var response = Queryable()
                 .Where(predicate.ToExpression())
@@ -50,7 +49,7 @@ namespace La.Service.Financial
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.FpFy+it.FpYm == entryString);
+            int count = Count(it => it.FpId.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

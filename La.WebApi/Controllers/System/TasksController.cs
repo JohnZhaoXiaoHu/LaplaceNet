@@ -1,22 +1,20 @@
 ﻿using La.Infra;
 using La.Infra.Attribute;
 using La.Infra.Enums;
+using La.Infra.Extensions;
 using Mapster;
 using Microsoft.AspNetCore.Mvc;
 using Quartz;
 using SqlSugar;
-using System;
-using System.Threading.Tasks;
 using La.WebApi.Extensions;
 using La.WebApi.Filters;
 using La.Model;
-using La.Model.System.Dto;
 using La.Model.System;
+using La.Model.System.Dto;
 using La.Service.System.IService;
 using La.Tasks;
-using La.Infra.Extensions;
 
-namespace La.WebApi.Controllers.System
+namespace La.WebApi.Controllers
 {
     /// <summary>
     /// 计划任务
@@ -27,11 +25,7 @@ namespace La.WebApi.Controllers.System
     {
         private ISysTasksQzService _tasksQzService;
         private ITaskSchedulerServer _schedulerServer;
-        /// <summary>
-        /// 计划任务TasksController
-        /// </summary>
-        /// <param name="sysTasksQzService"></param>
-        /// <param name="taskScheduler"></param>
+
         public TasksController(
             ISysTasksQzService sysTasksQzService,
             ITaskSchedulerServer taskScheduler)
@@ -109,7 +103,7 @@ namespace La.WebApi.Controllers.System
             }
             //从 Dto 映射到 实体
             var tasksQz = parm.Adapt<SysTasks>().ToCreate();
-            tasksQz.create_by = HttpContext.GetName();
+            tasksQz.Create_by = HttpContext.GetName();
             tasksQz.ID = SnowFlakeSingle.Instance.NextId().ToString();
 
             return SUCCESS(_tasksQzService.AddTasks(tasksQz));

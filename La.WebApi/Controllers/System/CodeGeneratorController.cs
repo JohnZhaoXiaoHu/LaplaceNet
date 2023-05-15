@@ -3,13 +3,8 @@ using La.Infra.Attribute;
 using La.Infra.Enums;
 using La.Infra.Extensions;
 using Mapster;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using SqlSugar;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using La.WebApi.Extensions;
 using La.WebApi.Filters;
 using La.CodeGenerator;
@@ -20,8 +15,9 @@ using La.Model;
 using La.Model.System.Dto;
 using La.Model.System.Generate;
 using La.Service.System.IService;
-
-namespace La.WebApi.Controllers.System
+using static System.Net.Mime.MediaTypeNames;
+using La.Repository;
+namespace La.WebApi.Controllers
 {
     /// <summary>
     /// 代码生成
@@ -35,12 +31,6 @@ namespace La.WebApi.Controllers.System
         private readonly IGenTableColumnService GenTableColumnService;
 
         private readonly IWebHostEnvironment WebHostEnvironment;
-        /// <summary>
-        /// 代码生成接口
-        /// </summary>
-        /// <param name="genTableService"></param>
-        /// <param name="genTableColumnService"></param>
-        /// <param name="webHostEnvironment"></param>
         public CodeGeneratorController(
             IGenTableService genTableService,
             IGenTableColumnService genTableColumnService,
@@ -60,7 +50,7 @@ namespace La.WebApi.Controllers.System
         public IActionResult GetListDataBase()
         {
             var dbList = _CodeGeneraterService.GetAllDataBases();
-            var defaultDb = dbList.Count > 0 ? dbList[0] : null;
+            var defaultDb = dbList?[0];
             return SUCCESS(new { dbList, defaultDb });
         }
 
@@ -114,10 +104,6 @@ namespace La.WebApi.Controllers.System
         {
             var tableInfo = GenTableService.GetGenTableInfo(tableId);
             var tables = GenTableService.GetGenTableAll();
-            if (tableInfo != null)
-            {
-                tableInfo.Columns = GenTableColumnService.GenTableColumns(tableId);
-            }
             return SUCCESS(new { info = tableInfo, tables });
         }
 
@@ -144,11 +130,12 @@ namespace La.WebApi.Controllers.System
         [ActionPermissionFilter(Permission = "tool:gen:remove")]
         public IActionResult Remove(string tableIds)
         {
+
+
+
             long[] tableId = Tools.SpitLongArrary(tableIds);
 
-
             int result = GenTableService.DeleteGenTableByIds(tableId);
-           
             return SUCCESS(result);
         }
 
@@ -245,7 +232,6 @@ namespace La.WebApi.Controllers.System
                 throw new CustomException(ResultCode.CUSTOM_ERROR, "请求参数为空");
             }
             var genTableInfo = GenTableService.GetGenTableInfo(dto.TableId);
-            genTableInfo.Columns = GenTableColumnService.GenTableColumns(dto.TableId);
 
             dto.DbType = AppSettings.GetAppConfig("gen:dbType", 0);
             dto.GenTable = genTableInfo;
@@ -271,7 +257,6 @@ namespace La.WebApi.Controllers.System
                 throw new CustomException(ResultCode.CUSTOM_ERROR, "请求参数为空");
             }
             var genTableInfo = GenTableService.GetGenTableInfo(dto.TableId);
-            genTableInfo.Columns = GenTableColumnService.GenTableColumns(dto.TableId);
 
             dto.DbType = AppSettings.GetAppConfig("gen:dbType", 0);
             dto.GenTable = genTableInfo;
@@ -289,7 +274,7 @@ namespace La.WebApi.Controllers.System
                 dto.GenCodePath = Path.Combine(dto.ZipPath, DateTime.Now.ToString("yyyyMMdd"));
             }
             //生成压缩包
-            string zipReturnFileName = $"Laplace.Net-{genTableInfo.TableComment}-{DateTime.Now:MMddHHmmss}.zip";
+            string zipReturnFileName = $"Laplace.NET-{genTableInfo.TableComment}-{DateTime.Now:MMddHHmmss}.zip";
 
             //生成代码到指定文件夹
             CodeGeneratorTool.Generate(dto);
@@ -312,13 +297,14 @@ namespace La.WebApi.Controllers.System
         {
             if (string.IsNullOrEmpty(tableName) || tableId <= 0) throw new CustomException("参数错误");
             GenTable table = GenTableService.GetGenTableInfo(tableId);
-            if (table == null) { throw new CustomException("原表不存在"); }
+            if (table == null) { throw new CustomException("同步数据失败，原表结构不存在"); }
+            table.Update_by = HttpContext.GetName();
 
             List<DbColumnInfo> dbColumnInfos = _CodeGeneraterService.GetColumnInfo(table.DbName, tableName);
             List<GenTableColumn> dbTableColumns = CodeGeneratorTool.InitGenTableColumn(table, dbColumnInfos);
 
-            GenTableService.SynchDb(tableId, table, dbTableColumns);
-            return SUCCESS(true);
+            bool result = GenTableService.SynchDb(tableId, table, dbTableColumns);
+            return SUCCESS(result);
         }
     }
 }

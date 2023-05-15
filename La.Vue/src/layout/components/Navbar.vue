@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar" :data-theme="sideTheme" :class="appStore.device">
+  <div class="navbar" :class="appStore.device">
     <hamburger id="hamburger-container" :is-active="appStore.sidebar.opened" class="hamburger-container"
       @toggleClick="toggleSideBar" />
     <template v-if="appStore.device == 'desktop'">
@@ -10,8 +10,8 @@
     <div class="right-menu">
       <header-search id="header-search" class="right-menu-item" />
       <template v-if="appStore.device == 'desktop'">
-        <La-git title="源码地址" class="right-menu-item" />
-        <La-doc title="文档地址" class="right-menu-item" />
+        <la-git title="源码地址" class="right-menu-item" />
+        <la-doc title="文档地址" class="right-menu-item" />
         <screenfull title="全屏" class="right-menu-item" />
       </template>
       <size-select title="布局大小" class="right-menu-item" />
@@ -34,7 +34,7 @@
             <el-dropdown-item command="setLayout">
               <span>{{ $t('layout.layoutSetting') }}</span>
             </el-dropdown-item>
-            <el-dropdown-item command="copyToken">
+            <el-dropdown-item command="copyToken" v-if="dev">
               <span>复制token</span>
             </el-dropdown-item>
             <el-dropdown-item divided command="logout">
@@ -73,7 +73,7 @@
   function toggleSideBar() {
     appStore.toggleSideBar()
   }
-
+  const dev = ref(import.meta.env.DEV)
   function handleCommand(command) {
     switch (command) {
       case 'setLayout':

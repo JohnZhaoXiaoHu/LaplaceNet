@@ -19,13 +19,7 @@ namespace La.Model.System
         /// 任务Id
         /// </summary>
         public string JobId { get; set; }
-        /// <summary>
-        /// 任务名称
-        /// </summary>
         public string JobName { get; set; }
-        /// <summary>
-        /// 任务组
-        /// </summary>
         public string JobGroup { get; set; }
         /// <summary>
         /// 执行状态（0正常 1失败）

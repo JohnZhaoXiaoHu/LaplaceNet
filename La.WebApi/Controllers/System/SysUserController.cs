@@ -10,8 +10,6 @@ using La.WebApi.Filters;
 using La.Model;
 using La.Model.System;
 using La.Service.System.IService;
-using System.Web;
-using System.IO;
 
 namespace La.WebApi.Controllers.System
 {
@@ -26,13 +24,7 @@ namespace La.WebApi.Controllers.System
         private readonly ISysRoleService RoleService;
         private readonly ISysPostService PostService;
         private readonly ISysUserPostService UserPostService;
-        /// <summary>
-        /// SysUserController
-        /// </summary>
-        /// <param name="userService"></param>
-        /// <param name="roleService"></param>
-        /// <param name="postService"></param>
-        /// <param name="userPostService"></param>
+
         public SysUserController(
             ISysUserService userService,
             ISysRoleService roleService,
@@ -66,6 +58,7 @@ namespace La.WebApi.Controllers.System
         /// <returns></returns>
         [HttpGet("")]
         [HttpGet("{userId:int=0}")]
+        [ActionPermissionFilter(Permission = "system:user:query")]
         public IActionResult GetInfo(int userId)
         {
             Dictionary<string, object> dic = new();
@@ -102,7 +95,7 @@ namespace La.WebApi.Controllers.System
                 return ToResponse(ApiResult.Error($"新增用户 '{user.UserName}'失败，登录账号已存在"));
             }
 
-            user.create_by = HttpContext.GetName();
+            user.Create_by = HttpContext.GetName();
             user.Password = NETCore.Encrypt.EncryptProvider.Md5(user.Password);
 
             return ToResponse(UserService.InsertUser(user));
@@ -165,7 +158,7 @@ namespace La.WebApi.Controllers.System
         /// <returns></returns>
         [HttpPut("resetPwd")]
         [Log(Title = "重置密码", BusinessType = BusinessType.UPDATE)]
-        [ActionPermissionFilter(Permission = "system:user:update")]
+        [ActionPermissionFilter(Permission = "system:user:resetPwd")]
         public IActionResult ResetPwd([FromBody] SysUser sysUser)
         {
             //密码md5
@@ -181,21 +174,17 @@ namespace La.WebApi.Controllers.System
         /// <param name="formFile">使用IFromFile必须使用name属性否则获取不到文件</param>
         /// <returns></returns>
         [HttpPost("importData")]
-        [Log(Title = "用户导入", BusinessType = BusinessType.IMPORT, IsSaveRequestData = false, IsSaveResponseData = false)]
+        [Log(Title = "用户导入", BusinessType = BusinessType.IMPORT, IsSaveRequestData = false, IsSaveResponseData = true)]
         [ActionPermissionFilter(Permission = "system:user:import")]
         public IActionResult ImportData([FromForm(Name = "file")] IFormFile formFile)
         {
-            //List<SysUser> users = (List<SysUser>)ExcelHelper<SysUser>.ImportData(formFile.OpenReadStream());
             List<SysUser> users = new();
             using (var stream = formFile.OpenReadStream())
             {
                 users = stream.Query<SysUser>().ToList();
             }
 
-            string msg = UserService.ImportUsers(users);
-
-            //TODO 业务逻辑,自行插入数据到db
-            return SUCCESS(users);
+            return SUCCESS(UserService.ImportUsers(users));
         }
 
         /// <summary>
@@ -203,18 +192,13 @@ namespace La.WebApi.Controllers.System
         /// </summary>
         /// <returns></returns>
         [HttpGet("importTemplate")]
-        [Log(Title = "用户模板", BusinessType = BusinessType.EXPORT, IsSaveRequestData = false, IsSaveResponseData = false)]
+        [Log(Title = "用户模板", BusinessType = BusinessType.EXPORT, IsSaveRequestData = true, IsSaveResponseData = false)]
         [AllowAnonymous]
         public IActionResult ImportTemplateExcel()
         {
-            List<SysUser> user = new List<SysUser>();
-            MemoryStream stream = new MemoryStream();
-
-            string sFileName = DownloadImportTemplate(user, stream, "用户列表");
-            return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", $"{sFileName}");
+            (string, string) result = DownloadImportTemplate("user");
+            return ExportExcel(result.Item2, result.Item1);
         }
-
-
 
         /// <summary>
         /// 用户导出

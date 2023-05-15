@@ -16,7 +16,7 @@ namespace La.WebApi.Filters
         /// <summary>
         /// 权限字符串，例如 system:user:view
         /// </summary>
-        public string Permission { get; set; }
+        public string Permission { get; set; } = string.Empty;
         private bool HasPermi { get; set; }
         private bool HasRole { get; set; }
         public ActionPermissionFilter() { }
@@ -56,7 +56,7 @@ namespace La.WebApi.Filters
                 bool isDemoMode = AppSettings.GetAppConfig("DemoMode", false);
                 var url = context.HttpContext.Request.Path;
                 //演示公开环境屏蔽权限
-                string[] denyPerms = new string[] { "update", "add", "remove", "add", "edit", "delete", "import", "run", "start", "stop", "clear", "send", "export", "upload", "common", "gencode" };
+                string[] denyPerms = new string[] { "update", "add", "remove", "add", "edit", "delete", "import", "run", "start", "stop", "clear", "send", "export", "upload", "common", "gencode", "reset" };
                 if (isDemoMode && denyPerms.Any(f => Permission.ToLower().Contains(f)))
                 {
                     context.Result = new JsonResult(new { code = ResultCode.FORBIDDEN, msg = "演示模式 , 不允许操作" });

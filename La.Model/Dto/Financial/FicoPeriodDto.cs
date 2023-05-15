@@ -9,15 +9,11 @@ namespace La.Model.Dto
 {
     /// <summary>
     /// 财务期间查询对象
-    /// @author Davis.Cheng
-    /// @date 2023-04-11
+    /// @author Davis.Ching
+    /// @date 2023-05-15
     /// </summary>
     public class FicoPeriodQueryDto : PagerInfo 
     {
-        /// <summary>
-        /// 描述 :财年 
-        /// </summary>
-        public string FpFy { get; set; }
         /// <summary>
         /// 描述 :年月 
         /// </summary>

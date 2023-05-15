@@ -21,11 +21,7 @@ namespace La.WebApi.Controllers.monitor
     {
         private ISysOperLogService sysOperLogService;
         private IWebHostEnvironment WebHostEnvironment;
-        /// <summary>
-        /// 操作接口
-        /// </summary>
-        /// <param name="sysOperLogService"></param>
-        /// <param name="hostEnvironment"></param>
+
         public SysOperlogController(ISysOperLogService sysOperLogService, IWebHostEnvironment hostEnvironment)
         {
             this.sysOperLogService = sysOperLogService;
@@ -45,7 +41,7 @@ namespace La.WebApi.Controllers.monitor
             sysOperLog.OperName = !HttpContextExtension.IsAdmin(HttpContext) ? HttpContextExtension.GetName(HttpContext) : sysOperLog.OperName;
             var list = sysOperLogService.SelectOperLogList(sysOperLog, pagerInfo);
 
-            return SUCCESS(list, TIME_FORMAT_FULL);
+            return SUCCESS(list);
         }
 
         /// <summary>

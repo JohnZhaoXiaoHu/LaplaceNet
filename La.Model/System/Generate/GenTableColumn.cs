@@ -11,34 +11,21 @@ namespace La.Model.System.Generate
     [Tenant("0")]
     public class GenTableColumn : SysBase
     {
-        /// <summary>
-        /// 代码生成表列ID
-        /// </summary>
         [SugarColumn(IsIdentity = true, IsPrimaryKey = true)]
         public int ColumnId { get; set; }
         /// <summary>
         /// 导入代码生成表列名 首字母转了小写
         /// </summary>
         public string ColumnName { get; set; }
-        /// <summary>
-        /// 代码生成表ID
-        /// </summary>
         [SugarColumn(IsOnlyIgnoreUpdate = true)]
         public int TableId { get; set; }
-        /// <summary>
-        /// 代码生成表名称
-        /// </summary>
 
         [SugarColumn(IsOnlyIgnoreUpdate = true)]
         public string TableName { get; set; }
         /// <summary>
         /// 列说明
         /// </summary>
-        //public string ColumnComment { get; set; } = string.Empty;
         private string columnComment;
-        /// <summary>
-        /// 列说明
-        /// </summary>
         public string ColumnComment
         {
             get
@@ -110,19 +97,17 @@ namespace La.Model.System.Generate
         /// 查询类型（等于、不等于、大于、小于、范围）
         /// </summary>
         public string QueryType { get; set; } = "EQ";
-        /// <summary>
-        /// 排序
-        /// </summary>
         public int Sort { get; set; }
         /// <summary>
         /// 字典类型
         /// </summary>
         public string DictType { get; set; } = "";
+        /// <summary>
+        /// 自动填充类型 1、添加 2、编辑 3、添加编辑
+        /// </summary>
+        public int AutoFillType { get; set; }
 
         #region 额外字段
-        /// <summary>
-        /// 必填字串
-        /// </summary>
         [SugarColumn(IsIgnore = true)]
         public string RequiredStr
         {
@@ -147,7 +132,6 @@ namespace La.Model.System.Generate
         /// C# 字段名 首字母小写，用于前端
         /// </summary>
         [SugarColumn(IsIgnore = true)]
-        //public string CsharpFieldFl { get; set; }
         public string CsharpFieldFl
         {
             get
@@ -163,7 +147,7 @@ namespace La.Model.System.Generate
         {
             get
             {
-                return (((!IsInsert && !IsEdit) || IsPk) && !IsRequired) ? " :disabled=\"true\"" : "";
+                return ((IsPk) && !IsRequired) ? " :disabled=\"true\"" : "";
             }
         }
 

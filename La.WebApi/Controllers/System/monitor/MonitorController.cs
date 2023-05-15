@@ -19,11 +19,6 @@ namespace La.WebApi.Controllers.monitor
         private OptionsSetting Options;
         private IWebHostEnvironment HostEnvironment;
         private NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
-        /// <summary>
-        /// 监控接口
-        /// </summary>
-        /// <param name="options"></param>
-        /// <param name="hostEnvironment"></param>
         public MonitorController(IOptions<OptionsSetting> options, IWebHostEnvironment hostEnvironment)
         {
             this.HostEnvironment = hostEnvironment;
@@ -57,7 +52,7 @@ namespace La.WebApi.Controllers.monitor
             string appRAM = ((double)Process.GetCurrentProcess().WorkingSet64 / 1048576).ToString("N2") + " MB";
             string startTime = Process.GetCurrentProcess().StartTime.ToString("yyyy-MM-dd HH:mm:ss");
             string sysRunTime = ComputerHelper.GetRunTime();
-            string serverIP = Request.HttpContext.Connection.LocalIpAddress!.MapToIPv4().ToString() + ":" + Request.HttpContext.Connection.LocalPort;//获取服务器IP
+            string serverIP = Request.HttpContext.Connection.LocalIpAddress.MapToIPv4().ToString() + ":" + Request.HttpContext.Connection.LocalPort;//获取服务器IP
 
             var programStartTime = Process.GetCurrentProcess().StartTime;
             string programRunTime = DateTimeHelper.FormatTime((DateTime.Now - programStartTime).TotalMilliseconds.ToString().Split('.')[0].ParseToLong());

@@ -30,15 +30,7 @@ namespace La.WebApi.Controllers.System
         private readonly ISysDeptService DeptService;
         private readonly ISysFileService FileService;
         private IWebHostEnvironment hostEnvironment;
-        /// <summary>
-        /// 个人中心
-        /// </summary>
-        /// <param name="userService"></param>
-        /// <param name="roleService"></param>
-        /// <param name="postService"></param>
-        /// <param name="deptService"></param>
-        /// <param name="sysFileService"></param>
-        /// <param name="hostEnvironment"></param>
+
         public SysProfileController(
             ISysUserService userService,
             ISysRoleService roleService,
@@ -101,9 +93,8 @@ namespace La.WebApi.Controllers.System
         [Log(Title = "修改密码", BusinessType = BusinessType.UPDATE)]
         public IActionResult UpdatePwd(string oldPassword, string newPassword)
         {
-            LoginUser loginUser = Framework.JwtUtil.GetLoginUser(HttpContext);
-
-            SysUser user = UserService.SelectUserById(loginUser.UserId);
+            long userId = HttpContext.GetUId();
+            SysUser user = UserService.SelectUserById(userId);
             string oldMd5 = NETCore.Encrypt.EncryptProvider.Md5(oldPassword);
             string newMd5 = NETCore.Encrypt.EncryptProvider.Md5(newPassword);
 
@@ -115,7 +106,7 @@ namespace La.WebApi.Controllers.System
             {
                 return ToResponse(ApiResult.Error("新密码不能和旧密码相同"));
             }
-            if (UserService.ResetPwd(loginUser.UserId, newMd5.ToLower()) > 0)
+            if (UserService.ResetPwd(userId, newMd5) > 0)
             {
                 //TODO 更新缓存
 
@@ -135,12 +126,12 @@ namespace La.WebApi.Controllers.System
         [Log(Title = "修改头像", BusinessType = BusinessType.UPDATE, IsSaveRequestData = false)]
         public async Task<IActionResult> Avatar([FromForm(Name = "picture")] IFormFile formFile)
         {
-            LoginUser loginUser = Framework.JwtUtil.GetLoginUser(HttpContext);
+            long userId = HttpContext.GetUId();
             if (formFile == null) throw new CustomException("请选择文件");
 
             SysFile file = await FileService.SaveFileToLocal(hostEnvironment.WebRootPath, "", "avatar", HttpContext.GetName(), formFile);
 
-            UserService.UpdatePhoto(new SysUser() { Avatar = file.AccessUrl, UserId = loginUser.UserId });
+            UserService.UpdatePhoto(new SysUser() { Avatar = file.AccessUrl, UserId = userId });
             return SUCCESS(new { imgUrl = file.AccessUrl });
         }
     }

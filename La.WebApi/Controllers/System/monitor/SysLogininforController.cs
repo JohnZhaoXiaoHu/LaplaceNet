@@ -21,10 +21,7 @@ namespace La.WebApi.Controllers.monitor
     public class SysLogininforController : BaseController
     {
         private ISysLoginService sysLoginService;
-        /// <summary>
-        /// 日志接口
-        /// </summary>
-        /// <param name="sysLoginService"></param>
+
         public SysLogininforController(ISysLoginService sysLoginService)
         {
             this.sysLoginService = sysLoginService;
@@ -41,7 +38,7 @@ namespace La.WebApi.Controllers.monitor
         {
             var list = sysLoginService.GetLoginLog(sysLogininfoDto, pagerInfo);
 
-            return SUCCESS(list, TIME_FORMAT_FULL);
+            return SUCCESS(list);
         }
 
         /// <summary>

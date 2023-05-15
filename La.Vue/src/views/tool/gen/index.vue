@@ -20,21 +20,22 @@
       </el-col>
     </el-row>
     <el-table ref="gridtable" v-loading="tableloading" :data="tableList" border
-      @selection-change="handleSelectionChange" highlight-current-row height="480px">
-      <el-table-column type="selection" align="center" width="55"></el-table-column>
-      <el-table-column label="#" type="index" width="50" align="center">
+      @selection-change="handleSelectionChange" highlight-current-row height="602"
+      style="width: 100%; overflow-x: auto">
+      <el-table-column type="selection" align="center"></el-table-column>
+      <el-table-column label="#" type="index" align="center">
         <template #default="scope">
           <span>{{ (queryParams.pageNum - 1) * queryParams.pageSize + scope.$index + 1 }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="dbName" label="数据库名" width="90" :show-overflow-tooltip="true" />
-      <el-table-column prop="tableId" label="id" width="70" sortable="" />
-      <el-table-column prop="tableName" label="表名" width="110" :show-overflow-tooltip="true" />
-      <el-table-column prop="tableComment" label="表描述" :show-overflow-tooltip="true" width="120" />
-      <el-table-column prop="className" label="实体" :show-overflow-tooltip="true" />
-      <el-table-column prop="createTime" label="创建时间" sortable />
-      <el-table-column prop="updateTime" label="更新时间" sortable />
-      <el-table-column :label="$t('btn.operate')" align="center" width="220">
+      <el-table-column prop="tableId" label="id" sortable="" width="80" />
+      <el-table-column prop="dbName" label="数据库名" :show-overflow-tooltip="true" width="180" />
+      <el-table-column prop="tableName" label="表名" :show-overflow-tooltip="true" width="180" />
+      <el-table-column prop="tableComment" label="表描述" :show-overflow-tooltip="true" width="180" />
+      <el-table-column prop="className" label="实体" :show-overflow-tooltip="true" width="180" />
+      <el-table-column prop="createTime" label="创建时间" sortable width="180" />
+      <el-table-column prop="updateTime" label="更新时间" sortable width="180" />
+      <el-table-column :label="$t('btn.operate')" align="center">
         <template #default="scope">
           <el-button text icon="view" @click="handlePreview(scope.row)" v-hasPermi="['tool:gen:preview']"> {{
             $t('btn.preview') }}

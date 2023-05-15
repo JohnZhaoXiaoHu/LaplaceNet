@@ -7,7 +7,7 @@ namespace La.Service.System.IService
     /// <summary>
     /// 通知公告表service接口
     ///
-    /// @author Davis.Cheng
+    /// @author (Davis.Cheng)
     /// @date 2021-12-15
     /// </summary>
     public interface ISysNoticeService: IBaseService<SysNotice>

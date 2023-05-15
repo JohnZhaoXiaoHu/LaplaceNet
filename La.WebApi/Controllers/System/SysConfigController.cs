@@ -10,12 +10,11 @@ using SqlSugar;
 using La.WebApi.Extensions;
 using La.WebApi.Filters;
 using La.Common;
-using La.Model.Dto;
 using La.Model.System;
 using La.Model.System.Dto;
-using La.Service.System;
+using La.Service.System.IService;
 
-namespace La.WebApi.Controllers.System
+namespace La.WebApi.Controllers
 {
     /// <summary>
     /// 参数配置Controller
@@ -28,9 +27,7 @@ namespace La.WebApi.Controllers.System
         /// 参数配置接口
         /// </summary>
         private readonly ISysConfigService _SysConfigService;
-        /// <summary>
-        /// 参数配置接口
-        /// </summary>
+
         public SysConfigController(ISysConfigService SysConfigService)
         {
             _SysConfigService = SysConfigService;
@@ -49,8 +46,8 @@ namespace La.WebApi.Controllers.System
             predicate = predicate.AndIF(!parm.ConfigType.IsEmpty(), m => m.ConfigType == parm.ConfigType);
             predicate = predicate.AndIF(!parm.ConfigName.IsEmpty(), m => m.ConfigName.Contains(parm.ConfigType));
             predicate = predicate.AndIF(!parm.ConfigKey.IsEmpty(), m => m.ConfigKey.Contains(parm.ConfigKey));
-            predicate = predicate.AndIF(!parm.BeginTime.IsEmpty(), m => m.create_time >= parm.BeginTime);
-            predicate = predicate.AndIF(!parm.BeginTime.IsEmpty(), m => m.create_time <= parm.EndTime);
+            predicate = predicate.AndIF(!parm.BeginTime.IsEmpty(), m => m.Create_time >= parm.BeginTime);
+            predicate = predicate.AndIF(!parm.BeginTime.IsEmpty(), m => m.Create_time <= parm.EndTime);
 
             var response = _SysConfigService.GetPages(predicate.ToExpression(), parm);
 
@@ -82,7 +79,7 @@ namespace La.WebApi.Controllers.System
         {
             var response = _SysConfigService.Queryable().First(f => f.ConfigKey == configKey);
 
-            return SUCCESS(response?.ConfigValue!);
+            return SUCCESS(response?.ConfigValue);
         }
 
         /// <summary>
@@ -106,8 +103,8 @@ namespace La.WebApi.Controllers.System
                 it.ConfigKey,
                 it.ConfigValue,
                 it.ConfigType,
-                it.create_by,
-                it.create_time,
+                it.Create_by,
+                it.Create_time,
                 it.ReMark,
             }));
         }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <svg-icon :name="isFullscreen ? 'exit-fullscreen' : 'fullscreen'" @click="toggle" />
+    <svg-icon :name="isFullscreen ? 'minimize' : 'maximize'" @click="toggle" />
   </div>
 </template>
 
@@ -20,8 +20,8 @@
   }
 
   .svg-icon {
-    width: 1em;
-    height: 1em;
+    width: 1.2em;
+    height: 1.2em;
     vertical-align: -0.15em;
     fill: #23A393;
     overflow: hidden;

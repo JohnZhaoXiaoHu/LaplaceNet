@@ -43,13 +43,16 @@ namespace La.CodeGenerator.Model
         /// 查询条件
         /// </summary>
         public string QueryCondition { get; set; } = "";
-        public bool ShowBtnImport { get; set; }
         public bool ShowBtnExport { get; set; }
         public bool ShowBtnAdd { get; set; }
         public bool ShowBtnEdit { get; set; }
         public bool ShowBtnDelete { get; set; }
         public bool ShowBtnView { get; set; }
         public bool ShowBtnTruncate { get; set; }
+        public bool ShowBtnMultiDel { get; set; }
+
+        public bool ShowBtnImport { get; set; }
+        
         /// <summary>
         /// 上传URL data
         /// </summary>

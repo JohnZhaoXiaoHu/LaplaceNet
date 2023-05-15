@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SqlSugar;
+﻿using SqlSugar;
 
 namespace La.Model.System
 {
@@ -12,13 +9,7 @@ namespace La.Model.System
     [Tenant("0")]
     public class SysRolePost
     {
-        /// <summary>
-        /// 角色ID
-        /// </summary>
         public long RoleId { get; set; }
-        /// <summary>
-        /// 部门ID
-        /// </summary>
         public long DeptId { get; set; }
     }
 }

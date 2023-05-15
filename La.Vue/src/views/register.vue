@@ -1,7 +1,11 @@
 <template>
-  <starBackground></starBackground>
+  <animationBackground></animationBackground>
+  <!-- <starBackground></starBackground> -->
   <div class="register">
-
+    <div class="drawer-item" style="display: flex; justify-content: flex-start">
+      <img src="../assets/logo/logo.png" class="image" />
+      <h6 class="slogan">{{ $t('layout.slogan') }}</h6>
+    </div>
     <el-form ref="registerFormRef" :model="registerForm" :rules="registerRules" class="register-form">
       <h3 class="title">{{ title }}</h3>
       <LangSelect :title="$t('layout.multiLanguage')" class="v-tag" />
@@ -58,6 +62,7 @@
 </template>
 
 <script setup name="register">
+  import animationBackground from '@/views/components/animationBackground-nasa.vue'
   import starBackground from '@/views/components/starBackground.vue'
   import { getCodeImg, register } from '@/api/system/login'
   import LangSelect from '@/components/LangSelect/index.vue'
@@ -247,6 +252,32 @@
     font-family: Arial;
     font-size: 12px;
     letter-spacing: 1px;
+  }
+
+  .drawer-item {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    padding: 0px 10px 5px;
+
+    .image {
+      width: 5%;
+      height: 5%;
+      padding: 0px 10px 5px;
+
+    }
+
+    .slogan {
+      position: absolute;
+      left: 50px;
+      top: -20px;
+      width: 105%;
+      height: 105%;
+      padding: 0px 10px 5px;
+      color: #304156;
+
+    }
+
   }
 
   .register-code-img {

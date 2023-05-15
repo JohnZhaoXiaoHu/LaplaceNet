@@ -50,9 +50,8 @@ namespace La.Service
                 .OrderBy(x => x.RoleSort)
                 .Select((role) => new SysRole
                 {
-                    //RoleId = role.RoleId.SelectAll(),
                     UserNum = SqlFunc.Subqueryable<SysUserRole>().Where(f => f.RoleId == role.RoleId).Count()
-                },true);
+                }, true);
 
             return query.ToPage(pager);
         }
@@ -157,7 +156,7 @@ namespace La.Service
         /// <returns></returns>
         public long InsertRole(SysRole sysRole)
         {
-            sysRole.create_time = DateTime.Now;
+            sysRole.Create_time = DateTime.Now;
             sysRole.RoleId = InsertReturnBigIdentity(sysRole);
             //插入角色部门数据
             DeptService.InsertRoleDepts(sysRole);
@@ -208,8 +207,8 @@ namespace La.Service
                 {
                     Menu_id = item,
                     Role_id = sysRoleDto.RoleId,
-                    create_by = sysRoleDto.create_by,
-                    create_time = DateTime.Now
+                    Create_by = sysRoleDto.Create_by,
+                    Create_time = DateTime.Now
                 };
                 sysRoleMenus.Add(rm);
             }
@@ -277,10 +276,11 @@ namespace La.Service
         /// <returns></returns>
         public List<SysRole> SelectUserRoleListByUserId(long userId)
         {
-            return Context.Queryable<SysUserRole, SysRole>((ur, r) => new JoinQueryInfos(
-                    JoinType.Left, ur.RoleId == r.RoleId
-                )).Where((ur, r) => ur.UserId == userId)
-                .Select((ur, r) => r).ToList();
+            return Context.Queryable<SysUserRole>()
+                .LeftJoin<SysRole>((ur, r) => ur.RoleId == r.RoleId)
+                .Where((ur, r) => ur.UserId == userId && r.RoleId > 0)
+                .Select((ur, r) => r)
+                .ToList();
         }
 
         /// <summary>

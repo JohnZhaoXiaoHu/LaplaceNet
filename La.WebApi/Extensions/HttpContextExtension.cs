@@ -1,7 +1,5 @@
 ﻿using La.Infra;
 using La.Infra.Extensions;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -10,7 +8,6 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using UAParser;
 using La.Model.System;
 
@@ -73,7 +70,6 @@ namespace La.WebApi.Extensions
         public static long GetUId(this HttpContext context)
         {
             var uid = context.User.FindFirstValue(ClaimTypes.PrimarySid);
-
             return !string.IsNullOrEmpty(uid) ? long.Parse(uid) : 0;
         }
 

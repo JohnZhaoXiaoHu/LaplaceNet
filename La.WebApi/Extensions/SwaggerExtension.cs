@@ -32,15 +32,7 @@ namespace La.WebApi.Extensions
                         };
                 });
             });
-            //app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "Laplace v1"));
-            //app.UseSwaggerUI(c => c.SwaggerEndpoint("Model/swagger.json", "实体层类库"));
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("v1/swagger.json", "Laplace v1");
-                c.SwaggerEndpoint("v1/swagger.json", "Laplace v2");
-
-            });
-
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "La v1"));
         }
 
         public static void AddSwaggerConfig(this IServiceCollection services)
@@ -54,14 +46,7 @@ namespace La.WebApi.Extensions
                 {
                     Title = "Laplace.Net7 - API Interface",
                     Version = "v1",
-                    Description = "参考文章：https://www.cnblogs.com/nullcodeworld/p/16734334.html",
-                    Contact = new OpenApiContact { Name = "Davis.Cheng", Email = "32322788@qq.com", Url = new System.Uri("https://laplacenet.github.io/") }
-                });
-                c.SwaggerDoc("v2", new OpenApiInfo
-                {
-                    Title = "Laplace.Net7 - Model",
-                    Version = "v2",
-                    Description = "参考文章：https://www.cnblogs.com/nullcodeworld/p/16734334.html",
+                    Description = "",
                     Contact = new OpenApiContact { Name = "Davis.Cheng", Email = "32322788@qq.com", Url = new System.Uri("https://laplacenet.github.io/") }
                 });
                 try
@@ -70,16 +55,12 @@ namespace La.WebApi.Extensions
                     //添加文档注释
                     c.IncludeXmlComments(Path.Combine(tempPath, "La.WebApi.xml"), true);
                     c.IncludeXmlComments(Path.Combine(tempPath, "La.Model.xml"), true);
-                    //c.IncludeXmlComments(Path.Combine(Directory.GetParent(tempPath).FullName, "La.Model", "La.Model.xml"), true);
+                    //c.IncludeXmlComments(Path.Combine(Directory.GetParent(tempPath).FullName, "La.Model", "ZRModel.xml"), true);
                 }
-
                 catch (Exception ex)
                 {
                     Console.WriteLine("swagger 文档加载失败" + ex.Message);
                 }
-
-
-
 
                 //参考文章：http://www.zyiz.net/tech/detail-134965.html
                 //需要安装包Swashbuckle.AspNetCore.Filters

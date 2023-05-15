@@ -540,13 +540,8 @@
         <member name="T:La.Model.Dto.FicoPeriodQueryDto">
             <summary>
             财务期间查询对象
-            @author Davis.Cheng
-            @date 2023-04-11
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.FicoPeriodQueryDto.FpFy">
-            <summary>
-            描述 :财年 
+            @author Davis.Ching
+            @date 2023-05-15
             </summary>
         </member>
         <member name="P:La.Model.Dto.FicoPeriodQueryDto.FpYm">
@@ -988,13 +983,18 @@
         <member name="T:La.Model.Dto.EhrEmployeeQueryDto">
             <summary>
             人事信息查询对象
-            @author Davis.Cheng
-            @date 2023-05-09
+            @author Davis.Ching
+            @date 2023-05-15
             </summary>
         </member>
         <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeName">
             <summary>
             描述 :姓名 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeGender">
+            <summary>
+            描述 :性别 
             </summary>
         </member>
         <member name="P:La.Model.Dto.EhrEmployeeQueryDto.BeginEeBirthday">
@@ -1007,9 +1007,29 @@
             描述 :结束时间
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeIdentityCard">
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeWedlock">
             <summary>
-            描述 :身份证号 
+            描述 :婚姻状态 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeNationId">
+            <summary>
+            描述 :民族 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeNativePlace">
+            <summary>
+            描述 :籍贯 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EePoliticId">
+            <summary>
+            描述 :政治面貌 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeCountry">
+            <summary>
+            描述 :国家/地区 
             </summary>
         </member>
         <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeProvince">
@@ -1017,14 +1037,54 @@
             描述 :省区 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeDepartmentId">
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeHomeAddress">
             <summary>
-            描述 :部门 
+            描述 :家庭住址 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeHouseholdType">
+            <summary>
+            描述 :户口性质 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeTitlesId">
+            <summary>
+            描述 :职称 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EePostId">
+            <summary>
+            描述 :岗位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EePostLevel">
+            <summary>
+            描述 :等级 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeDutyName">
+            <summary>
+            描述 :职务 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeRecruited">
+            <summary>
+            描述 :招聘来源 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeEngageForm">
+            <summary>
+            描述 :聘用形式 
             </summary>
         </member>
         <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeTiptopDegrEe">
             <summary>
             描述 :学历 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeSpecialty">
+            <summary>
+            描述 :专业 
             </summary>
         </member>
         <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeWorkID">
@@ -1045,6 +1105,16 @@
         <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeWorkState">
             <summary>
             描述 :在职状态 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeProbation">
+            <summary>
+            描述 :试用期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeContractTerm">
+            <summary>
+            描述 :合同期限 
             </summary>
         </member>
         <member name="T:La.Model.Dto.EhrEmployeeDto">
@@ -3374,248 +3444,9 @@
             描述 : 
             </summary>
         </member>
-        <member name="T:La.Model.Dto.EtDictQueryDto">
-            <summary>
-            电子辞典查询对象
-            @author Davis.Cheng
-            @date 2023-04-26
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EtDictQueryDto.EtType">
-            <summary>
-            描述 :类别 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EtDictQueryDto.EtLetter">
-            <summary>
-            描述 :字母 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EtDictQueryDto.EtArea">
-            <summary>
-            描述 :隶属范围 
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.EtDictDto">
-            <summary>
-            电子辞典输入输出对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EtDictDto.EtGuid">
-            <summary>
-            描述 :Guid 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EtDictDto.EtType">
-            <summary>
-            描述 :类别 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EtDictDto.EtLetter">
-            <summary>
-            描述 :字母 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EtDictDto.EtLangKey">
-            <summary>
-            描述 :语言 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EtDictDto.EtPhrase">
-            <summary>
-            描述 :短语 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EtDictDto.EtExplain">
-            <summary>
-            描述 :解释 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EtDictDto.EtArea">
-            <summary>
-            描述 :隶属范围 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EtDictDto.Remark">
-            <summary>
-            描述 :备注 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EtDictDto.CreateBy">
-            <summary>
-            描述 :CreateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EtDictDto.CreateTime">
-            <summary>
-            描述 :CreateTime 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EtDictDto.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EtDictDto.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.RefStrategyQueryDto">
-            <summary>
-            单据编码查询对象
-            @author Davis.Cheng
-            @date 2023-04-26
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyQueryDto.RefModule">
-            <summary>
-            描述 :模块 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyQueryDto.RefCategory">
-            <summary>
-            描述 :类别 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyQueryDto.RefCode">
-            <summary>
-            描述 :编码代号 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyQueryDto.RefPattern">
-            <summary>
-            描述 :编码模式 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyQueryDto.RefLenth">
-            <summary>
-            描述 :长度 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyQueryDto.Status">
-            <summary>
-            描述 :状态 
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.RefStrategyDto">
-            <summary>
-            单据编码输入输出对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyDto.RefId">
-            <summary>
-            描述 :ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyDto.RefModule">
-            <summary>
-            描述 :模块 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyDto.RefCategory">
-            <summary>
-            描述 :类别 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyDto.RefCode">
-            <summary>
-            描述 :编码代号 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyDto.RefName">
-            <summary>
-            描述 :编码名称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyDto.RefPattern">
-            <summary>
-            描述 :编码模式 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyDto.RefPrefix">
-            <summary>
-            描述 :前缀 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyDto.RefLenth">
-            <summary>
-            描述 :长度 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyDto.InitNumber">
-            <summary>
-            描述 :初始编码 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyDto.IsoNumber">
-            <summary>
-            描述 :ISO编号 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyDto.Status">
-            <summary>
-            描述 :状态 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyDto.Sort">
-            <summary>
-            描述 :排序 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyDto.IsDeleted">
-            <summary>
-            描述 :IsDeleted 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyDto.ReMark">
-            <summary>
-            描述 :ReMark 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyDto.CreateBy">
-            <summary>
-            描述 :CreateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyDto.CreateTime">
-            <summary>
-            描述 :CreateTime 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyDto.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.RefStrategyDto.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            </summary>
-        </member>
         <member name="T:La.Model.Dto.ArticleCategoryDto">
             <summary>
             文章目录输入对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.ArticleCategoryDto.CategoryId">
-            <summary>
-            目录id
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.ArticleCategoryDto.Name">
-            <summary>
-            目录名
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.ArticleCategoryDto.CreateTime">
-            <summary>
-            创建时间
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.ArticleCategoryDto.ParentId">
-            <summary>
-            父ID
             </summary>
         </member>
         <member name="T:La.Model.Dto.ArticleCategoryQueryDto">
@@ -3628,59 +3459,9 @@
             多语言配置输入对象
             </summary>
         </member>
-        <member name="P:La.Model.Dto.CommonLangDto.Id">
-            <summary>
-            ID
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.CommonLangDto.LangCode">
-            <summary>
-            语言code
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.CommonLangDto.LangKey">
-            <summary>
-            语言Key
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.CommonLangDto.LangName">
-            <summary>
-            名称
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.CommonLangDto.LangList">
-            <summary>
-            列表
-            </summary>
-        </member>
         <member name="T:La.Model.Dto.CommonLangQueryDto">
             <summary>
             多语言配置查询对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.CommonLangQueryDto.LangCode">
-            <summary>
-            语言代码
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.CommonLangQueryDto.LangKey">
-            <summary>
-            语言Key
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.CommonLangQueryDto.BeginAddtime">
-            <summary>
-            开始时间
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.CommonLangQueryDto.EndAddtime">
-            <summary>
-            结束时间
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.CommonLangQueryDto.ShowMode">
-            <summary>
-            显示
             </summary>
         </member>
         <member name="T:La.Model.Models.FicoBudgetactualCost">
@@ -4223,8 +4004,8 @@
              <summary>
              财务期间，数据实体对象
             
-             @author Davis.Cheng
-             @date 2023-04-11
+             @author Davis.Ching
+             @date 2023-05-15
              </summary>
         </member>
         <member name="P:La.Model.Models.FicoPeriod.FpId">
@@ -4663,8 +4444,8 @@
              <summary>
              人事信息，数据实体对象
             
-             @author Davis.Cheng
-             @date 2023-05-09
+             @author Davis.Ching
+             @date 2023-05-15
              </summary>
         </member>
         <member name="P:La.Model.Models.EhrEmployee.EeId">
@@ -7131,238 +6912,37 @@
             空值 :true 
             </summary>
         </member>
-        <member name="T:La.Model.Models.EtDict">
-             <summary>
-             电子辞典，数据实体对象
-            
-             @author Davis.Cheng
-             @date 2023-04-26
-             </summary>
-        </member>
-        <member name="P:La.Model.Models.EtDict.EtGuid">
-            <summary>
-            描述 :Guid 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.EtDict.EtType">
-            <summary>
-            描述 :类别 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.EtDict.EtLetter">
-            <summary>
-            描述 :字母 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.EtDict.EtLangKey">
-            <summary>
-            描述 :语言 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.EtDict.EtPhrase">
-            <summary>
-            描述 :短语 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.EtDict.EtExplain">
-            <summary>
-            描述 :解释 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.EtDict.EtArea">
-            <summary>
-            描述 :隶属范围 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.EtDict.Remark">
-            <summary>
-            描述 :备注 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.EtDict.CreateBy">
-            <summary>
-            描述 :CreateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.EtDict.CreateTime">
-            <summary>
-            描述 :CreateTime 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.EtDict.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.EtDict.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="T:La.Model.Models.RefStrategy">
-             <summary>
-             单据编码，数据实体对象
-            
-             @author Davis.Cheng
-             @date 2023-04-26
-             </summary>
-        </member>
-        <member name="P:La.Model.Models.RefStrategy.RefId">
-            <summary>
-            描述 :ID 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.RefStrategy.RefModule">
-            <summary>
-            描述 :模块 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.RefStrategy.RefCategory">
-            <summary>
-            描述 :类别 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.RefStrategy.RefCode">
-            <summary>
-            描述 :编码代号 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.RefStrategy.RefName">
-            <summary>
-            描述 :编码名称 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.RefStrategy.RefPattern">
-            <summary>
-            描述 :编码模式 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.RefStrategy.RefPrefix">
-            <summary>
-            描述 :前缀 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.RefStrategy.RefLenth">
-            <summary>
-            描述 :长度 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.RefStrategy.InitNumber">
-            <summary>
-            描述 :初始编码 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.RefStrategy.IsoNumber">
-            <summary>
-            描述 :ISO编号 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.RefStrategy.Status">
-            <summary>
-            描述 :状态 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.RefStrategy.Sort">
-            <summary>
-            描述 :排序 
-            空值 :false 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.RefStrategy.IsDeleted">
-            <summary>
-            描述 :IsDeleted 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.RefStrategy.ReMark">
-            <summary>
-            描述 :ReMark 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.RefStrategy.CreateBy">
-            <summary>
-            描述 :CreateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.RefStrategy.CreateTime">
-            <summary>
-            描述 :CreateTime 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.RefStrategy.UpdateBy">
-            <summary>
-            描述 :UpdateBy 
-            空值 :true 
-            </summary>
-        </member>
-        <member name="P:La.Model.Models.RefStrategy.UpdateTime">
-            <summary>
-            描述 :UpdateTime 
-            空值 :true 
-            </summary>
-        </member>
         <member name="T:La.Model.Models.CommonLang">
              <summary>
              多语言配置，数据实体对象
             
-             @author Davis.Cheng
+             @author mr.zhao
              @date 2022-05-06
              </summary>
         </member>
         <member name="P:La.Model.Models.CommonLang.Id">
             <summary>
-            描述 : id
-            空值 : false  
+            id
             </summary>
         </member>
         <member name="P:La.Model.Models.CommonLang.LangCode">
             <summary>
-            描述 : 语言code
-            空值 : false  
+            语言code
             </summary>
         </member>
         <member name="P:La.Model.Models.CommonLang.LangKey">
             <summary>
-            描述 : 语言key
-            空值 : true  
+            语言key
             </summary>
         </member>
         <member name="P:La.Model.Models.CommonLang.LangName">
             <summary>
-            描述 : 名称
-            空值 : false  
+            名称
             </summary>
         </member>
         <member name="P:La.Model.Models.CommonLang.Addtime">
             <summary>
-            描述 : 添加时间
-            空值 : true  
+            添加时间
             </summary>
         </member>
         <member name="T:La.Model.PagedInfo`1">
@@ -7388,21 +6968,6 @@
         <member name="P:La.Model.PagedInfo`1.TotalPage">
             <summary>
             总页数
-            </summary>
-        </member>
-        <member name="P:La.Model.PagedInfo`1.Result">
-            <summary>
-            Result
-            </summary>
-        </member>
-        <member name="P:La.Model.PagedInfo`1.Extra">
-            <summary>
-            Extra
-            </summary>
-        </member>
-        <member name="M:La.Model.PagedInfo`1.#ctor">
-            <summary>
-            PagedInfo
             </summary>
         </member>
         <member name="T:La.Model.PageModel`1">
@@ -7475,11 +7040,6 @@
             结束时间
             </summary>
         </member>
-        <member name="T:La.Model.PagerInfo">
-            <summary>
-            页面信息
-            </summary>
-        </member>
         <member name="P:La.Model.PagerInfo.PageNum">
             <summary>
             当前页码
@@ -7513,93 +7073,6 @@
             排序类型,前端传入的是"ascending"，"descending"
             </summary>
         </member>
-        <member name="M:La.Model.PagerInfo.#ctor">
-            <summary>
-            页面信息
-            </summary>
-        </member>
-        <member name="M:La.Model.PagerInfo.#ctor(System.Int32,System.Int32)">
-            <summary>
-            页面信息
-            </summary>
-            <param name="page"></param>
-            <param name="pageSize"></param>
-        </member>
-        <member name="T:La.Model.Query.QueryPageCondition">
-            <summary>
-            查询页面条件
-            </summary>
-        </member>
-        <member name="P:La.Model.Query.QueryPageCondition.Index">
-            <summary>
-            索引
-            </summary>
-        </member>
-        <member name="P:La.Model.Query.QueryPageCondition.Size">
-            <summary>
-            大小
-            </summary>
-        </member>
-        <member name="P:La.Model.Query.QueryPageCondition.Parameters">
-            <summary>
-            列表
-            </summary>
-        </member>
-        <member name="P:La.Model.Query.QueryPageCondition.OrderBys">
-            <summary>
-            排序
-            </summary>
-        </member>
-        <member name="P:La.Model.Query.QueryPageCondition.IsAsc">
-            <summary>
-            升序
-            </summary>
-        </member>
-        <member name="T:La.Model.Query.QueryCondition">
-            <summary>
-            查询条件
-            </summary>
-        </member>
-        <member name="P:La.Model.Query.QueryCondition.Parameters">
-            <summary>
-            参数
-            </summary>
-        </member>
-        <member name="P:La.Model.Query.QueryCondition.OrderBys">
-            <summary>
-            排序
-            </summary>
-        </member>
-        <member name="P:La.Model.Query.QueryCondition.IsAsc">
-            <summary>
-            升序
-            </summary>
-        </member>
-        <member name="T:La.Model.Query.QueryParameter">
-            <summary>
-            查询参数
-            </summary>
-        </member>
-        <member name="P:La.Model.Query.QueryParameter.Key">
-            <summary>
-            关键字
-            </summary>
-        </member>
-        <member name="P:La.Model.Query.QueryParameter.Value">
-            <summary>
-            值
-            </summary>
-        </member>
-        <member name="P:La.Model.Query.QueryParameter.Type">
-            <summary>
-            类型
-            </summary>
-        </member>
-        <member name="T:La.Model.Query.QueryParametersExtensions">
-            <summary>
-            扩展查询参数
-            </summary>
-        </member>
         <member name="T:La.Model.System.Article">
             <summary>
             文章表
@@ -7607,17 +7080,17 @@
         </member>
         <member name="P:La.Model.System.Article.Cid">
             <summary>
-            ID
+            文章id
             </summary>
         </member>
         <member name="P:La.Model.System.Article.Title">
             <summary>
-            标题
+            文章标题
             </summary>
         </member>
         <member name="P:La.Model.System.Article.CreateTime">
             <summary>
-            新建时间
+            发布时间
             </summary>
         </member>
         <member name="P:La.Model.System.Article.UpdateTime">
@@ -7637,7 +7110,7 @@
         </member>
         <member name="P:La.Model.System.Article.UserId">
             <summary>
-            用户
+            发布者用户id
             </summary>
         </member>
         <member name="P:La.Model.System.Article.Status">
@@ -7645,7 +7118,7 @@
             文章状态 1、发布 2、草稿
             </summary>
         </member>
-        <member name="P:La.Model.System.Article.Fmt_type">
+        <member name="P:La.Model.System.Article.FmtType">
             <summary>
             编辑器类型 markdown,html
             </summary>
@@ -7653,16 +7126,6 @@
         <member name="P:La.Model.System.Article.Tags">
             <summary>
             文章标签eg：Net5,java
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Article.Hits">
-            <summary>
-            描述：
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Article.Category_Id">
-            <summary>
-            类型ID
             </summary>
         </member>
         <member name="P:La.Model.System.Article.CoverUrl">
@@ -7680,139 +7143,14 @@
             目录id
             </summary>
         </member>
-        <member name="P:La.Model.System.ArticleCategory.Name">
+        <member name="T:La.Model.System.Dto.ArticleDto">
             <summary>
-            名称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.ArticleCategory.ParentId">
-            <summary>
-            主ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.ArticleCategory.CreateTime">
-            <summary>
-            新建时间
-            </summary>
-        </member>
-        <member name="P:La.Model.System.ArticleCategory.Children">
-            <summary>
-            子类
-            </summary>
-        </member>
-        <member name="T:La.Model.System.Dto.ArticleQueryDto">
-            <summary>
-            文章输入对象
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.ArticleQueryDto.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.ArticleQueryDto.Title">
-            <summary>
-            标题
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.ArticleQueryDto.BeginTime">
-            <summary>
-            开始时间
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.ArticleQueryDto.EndTime">
-            <summary>
-            结束时间
-            </summary>
-        </member>
-        <member name="T:La.Model.System.Dto.GenTableDto">
-            <summary>
-            代码生成输入对象
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableDto.TableId">
-            <summary>
-            表ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableDto.TableName">
-            <summary>
-            表名称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableDto.TableComment">
-            <summary>
-            表注释
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableDto.SubTableName">
-            <summary>
-            子表名称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableDto.SubTableFkName">
-            <summary>
-            子表主键名称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableDto.ClassName">
-            <summary>
-            类名称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableDto.TplCategory">
-            <summary>
-            类别
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableDto.BaseNameSpace">
-            <summary>
-            命名空间
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableDto.ModuleName">
-            <summary>
-            模组名称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableDto.BusinessName">
-            <summary>
-            业务名称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableDto.FunctionName">
-            <summary>
-            功能名称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableDto.FunctionAuthor">
-            <summary>
-            人员
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableDto.GenType">
-            <summary>
-            生成方式
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableDto.GenPath">
-            <summary>
-            生成路径
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableDto.ReMark">
-            <summary>
-            备注
+            输入输出对象
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.GenTableDto.Params">
             <summary>
             额外参数
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableDto.Columns">
-            <summary>
-            列显示
             </summary>
         </member>
         <member name="T:La.Model.System.Dto.Params">
@@ -7821,109 +7159,9 @@
             ****注意里面参数统一首字母小写*****
             </summary>
         </member>
-        <member name="P:La.Model.System.Dto.Params.TreeCode">
-            <summary>
-            树形代码
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.Params.TreeName">
-            <summary>
-            树形名称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.Params.TreeParentCode">
-            <summary>
-            树父代码
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.Params.ParentMenuId">
-            <summary>
-            父菜单ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.Params.SortField">
-            <summary>
-            排序码
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.Params.SortType">
-            <summary>
-            排序类别
-            </summary>
-        </member>
         <member name="P:La.Model.System.Dto.Params.CheckedBtn">
             <summary>
             额外参数字符串
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.Params.PermissionPrefix">
-            <summary>
-            权限前缀
-            </summary>
-        </member>
-        <member name="T:La.Model.System.Dto.GenTableColumnDto">
-            <summary>
-            生成查询对象
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableColumnDto.ColumnId">
-            <summary>
-            列ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableColumnDto.TableId">
-            <summary>
-            表ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableColumnDto.ColumnComment">
-            <summary>
-            字段描述
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableColumnDto.CsharpType">
-            <summary>
-            C#类型
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableColumnDto.CsharpField">
-            <summary>
-            C#字段
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableColumnDto.IsInsert">
-            <summary>
-            插入
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableColumnDto.IsEdit">
-            <summary>
-            编辑
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableColumnDto.IsList">
-            <summary>
-            列表
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableColumnDto.IsQuery">
-            <summary>
-            查询
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableColumnDto.IsSort">
-            <summary>
-            排序
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableColumnDto.IsRequired">
-            <summary>
-            必填
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableColumnDto.IsExport">
-            <summary>
-            导出
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.GenTableColumnDto.HtmlType">
@@ -7934,11 +7172,6 @@
         <member name="P:La.Model.System.Dto.GenTableColumnDto.QueryType">
             <summary>
             查询类型（等于、不等于、大于、小于、范围）
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.GenTableColumnDto.Sort">
-            <summary>
-            排序
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.GenTableColumnDto.DictType">
@@ -7956,11 +7189,6 @@
             自动填充类型
             </summary>
         </member>
-        <member name="T:La.Model.System.Dto.LoginBodyDto">
-            <summary>
-            登入输入
-            </summary>
-        </member>
         <member name="P:La.Model.System.Dto.LoginBodyDto.Username">
             <summary>
             用户名
@@ -7972,29 +7200,13 @@
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.LoginBodyDto.Code">
+            <summary>
             验证码
+            </summary>
         </member>
         <member name="P:La.Model.System.Dto.LoginBodyDto.Uuid">
+            <summary>
             唯一标识
-        </member>
-        <member name="P:La.Model.System.Dto.LoginBodyDto.LoginIP">
-            <summary>
-            登入IP
-            </summary>
-        </member>
-        <member name="T:La.Model.System.Dto.MenuDto">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.MenuDto.MenuId">
-            <summary>
-            菜单id
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.MenuDto.MenuName">
-            <summary>
-            菜单名称
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.MenuDto.ParentId">
@@ -8057,46 +7269,6 @@
             翻译key
             </summary>
         </member>
-        <member name="T:La.Model.System.Dto.MenuQueryDto">
-            <summary>
-            查询
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.MenuQueryDto.MenuName">
-            <summary>
-            菜单名称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.MenuQueryDto.Visible">
-            <summary>
-            显示
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.MenuQueryDto.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.MenuQueryDto.MenuTypeIds">
-            <summary>
-            类型
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.MenuQueryDto.ParentId">
-            <summary>
-            父ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.MenuQueryDto.MenuTypeIdArr">
-            <summary>
-            类型组
-            </summary>
-        </member>
-        <member name="T:La.Model.System.Dto.RegisterDto">
-            <summary>
-            用户注册输入
-            </summary>
-        </member>
         <member name="P:La.Model.System.Dto.RegisterDto.Username">
             <summary>
             用户名
@@ -8107,49 +7279,29 @@
             用户密码
             </summary>
         </member>
-        <member name="P:La.Model.System.Dto.RegisterDto.ConfirmPassword">
-            <summary>
-            密码确认
-            </summary>
-        </member>
         <member name="P:La.Model.System.Dto.RegisterDto.Code">
+            <summary>
             验证码
+            </summary>
         </member>
         <member name="P:La.Model.System.Dto.RegisterDto.Uuid">
+            <summary>
             唯一标识
-        </member>
-        <member name="T:La.Model.System.Dto.RoleUserQueryDto">
-            <summary>
-            用户角色查询
             </summary>
         </member>
-        <member name="P:La.Model.System.Dto.RoleUserQueryDto.RoleId">
+        <member name="P:La.Model.System.Dto.RegisterDto.Photo">
             <summary>
-            ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.RoleUserQueryDto.UserName">
-            <summary>
-            用户
-            </summary>
-        </member>
-        <member name="T:La.Model.System.Dto.RoleUsersCreateDto">
-            <summary>
-            用户角色新建
+            头像
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.RoleUsersCreateDto.RoleId">
             <summary>
-            描述 : 角色id 
-            空值 : False
-            默认 : 
+            角色id
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.RoleUsersCreateDto.UserIds">
             <summary>
-            描述 : 用户编码 [1,2,3,4] 
-            空值 : False
-            默认 : 
+            用户编码 [1,2,3,4] 
             </summary>
         </member>
         <member name="T:La.Model.System.Dto.SysConfigDto">
@@ -8157,99 +7309,9 @@
             参数配置输入对象模型
             </summary>
         </member>
-        <member name="P:La.Model.System.Dto.SysConfigDto.ConfigId">
-            <summary>
-            配置ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysConfigDto.ConfigName">
-            <summary>
-            配置名称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysConfigDto.ConfigKey">
-            <summary>
-            Key
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysConfigDto.ConfigValue">
-            <summary>
-            值
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysConfigDto.ConfigType">
-            <summary>
-            类型
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysConfigDto.ReMark">
-            <summary>
-            备注
-            </summary>
-        </member>
         <member name="T:La.Model.System.Dto.SysConfigQueryDto">
             <summary>
             参数配置查询对象模型
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysConfigQueryDto.ConfigName">
-            <summary>
-            名称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysConfigQueryDto.ConfigKey">
-            <summary>
-            Key
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysConfigQueryDto.ConfigValue">
-            <summary>
-            值
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysConfigQueryDto.ConfigType">
-            <summary>
-            类型
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysConfigQueryDto.BeginTime">
-            <summary>
-            开始时间
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysConfigQueryDto.EndTime">
-            <summary>
-            结束时间
-            </summary>
-        </member>
-        <member name="T:La.Model.System.Dto.SysdictDataDto">
-            <summary>
-            字典输入对象
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysdictDataDto.DictType">
-            <summary>
-            类型
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysdictDataDto.ColumnName">
-            <summary>
-            名称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysdictDataDto.List">
-            <summary>
-            列表
-            </summary>
-        </member>
-        <member name="T:La.Model.System.Dto.SysDictTypeDto">
-            <summary>
-            字典类型输入
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysDictTypeDto.DictId">
-            <summary>
-            ID
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.SysDictTypeDto.DictName">
@@ -8260,11 +7322,6 @@
         <member name="P:La.Model.System.Dto.SysDictTypeDto.DictType">
             <summary>
             字典类型
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysDictTypeDto.Status">
-            <summary>
-            状态
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.SysDictTypeDto.Type">
@@ -8282,11 +7339,6 @@
             文件存储输入对象
             </summary>
         </member>
-        <member name="P:La.Model.System.Dto.SysFileDto.Id">
-            <summary>
-            ID
-            </summary>
-        </member>
         <member name="P:La.Model.System.Dto.SysFileDto.RealName">
             <summary>
             文件原名
@@ -8299,108 +7351,47 @@
         </member>
         <member name="P:La.Model.System.Dto.SysFileDto.FileName">
             <summary>
-            描述 : 存储文件名
-            空值 : true  
+            存储文件名
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.SysFileDto.FileUrl">
             <summary>
-            描述 : 文件存储地址 eg：/uploads/20220202
-            空值 : true  
+            文件存储地址 eg：/uploads/20220202
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.SysFileDto.StorePath">
             <summary>
-            描述 : 仓库位置 eg：/uploads
-            空值 : true  
+            仓库位置 eg：/uploads
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.SysFileDto.FileSize">
             <summary>
-            描述 : 文件大小
-            空值 : true  
+            文件大小
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.SysFileDto.FileExt">
             <summary>
-            描述 : 文件扩展名
-            空值 : true  
+            文件扩展名
             </summary>
         </member>
-        <member name="P:La.Model.System.Dto.SysFileDto.create_by">
+        <member name="P:La.Model.System.Dto.SysFileDto.Create_by">
             <summary>
-            描述 : 创建人
-            空值 : true  
+            创建人
             </summary>
         </member>
-        <member name="P:La.Model.System.Dto.SysFileDto.create_time">
+        <member name="P:La.Model.System.Dto.SysFileDto.Create_time">
             <summary>
-            描述 : 上传时间
-            空值 : true  
+            上传时间
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.SysFileDto.StoreType">
             <summary>
-            描述 : 存储类型
-            空值 : true  
+            存储类型
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.SysFileDto.AccessUrl">
             <summary>
-            描述 : 访问路径
-            空值 : true  
-            </summary>
-        </member>
-        <member name="M:La.Model.System.Dto.SysFileDto.#ctor">
-            <summary>
-            文件输入
-            </summary>
-        </member>
-        <member name="M:La.Model.System.Dto.SysFileDto.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            文件输入
-            </summary>
-            <param name="originFileName"></param>
-            <param name="fileName"></param>
-            <param name="ext"></param>
-            <param name="fileSize"></param>
-            <param name="storePath"></param>
-            <param name="accessUrl"></param>
-            <param name="create_by"></param>
-        </member>
-        <member name="T:La.Model.System.Dto.SysFileQueryDto">
-            <summary>
-            文件查询输入
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysFileQueryDto.BeginCreate_time">
-            <summary>
-            创建时间
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysFileQueryDto.EndCreate_time">
-            <summary>
-            结束时间
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysFileQueryDto.StoreType">
-            <summary>
-            类型
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysFileQueryDto.FileId">
-            <summary>
-            ID
-            </summary>
-        </member>
-        <member name="T:La.Model.System.Dto.SysLogininfoDto">
-            <summary>
-            登入日志输入
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysLogininfoDto.pageNum">
-            <summary>
-            页码
+            访问路径
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.SysLogininfoDto.Ipaddr">
@@ -8423,74 +7414,14 @@
             通知公告表输入对象
             </summary>
         </member>
-        <member name="P:La.Model.System.Dto.SysNoticeDto.NoticeId">
-            <summary>
-            ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysNoticeDto.NoticeTitle">
-            <summary>
-            标题
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysNoticeDto.NoticeType">
-            <summary>
-            类型
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysNoticeDto.NoticeContent">
-            <summary>
-            内容
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysNoticeDto.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysNoticeDto.ReMark">
-            <summary>
-            备注
-            </summary>
-        </member>
         <member name="T:La.Model.System.Dto.SysNoticeQueryDto">
             <summary>
             通知公告表查询对象
             </summary>
         </member>
-        <member name="P:La.Model.System.Dto.SysNoticeQueryDto.NoticeTitle">
-            <summary>
-            标题
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysNoticeQueryDto.NoticeType">
-            <summary>
-            类型
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysNoticeQueryDto.CreateBy">
-            <summary>
-            创建人
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysNoticeQueryDto.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="T:La.Model.System.Dto.SysOperLogDto">
-            <summary>
-            操作日志输入
-            </summary>
-        </member>
         <member name="P:La.Model.System.Dto.SysOperLogDto.PageNum">
             <summary>
             页码
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysOperLogDto.PageSize">
-            <summary>
-            每页记录数
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.SysOperLogDto.OperName">
@@ -8518,126 +7449,19 @@
             请求参数
             </summary>
         </member>
-        <member name="T:La.Model.System.Dto.SysRoleDto">
-            <summary>
-            角色输入对象
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysRoleDto.RoleId">
-            <summary>
-            ID
-            </summary>
-        </member>
         <member name="P:La.Model.System.Dto.SysRoleDto.MenuIds">
             <summary>
             角色分配菜单
             </summary>
         </member>
-        <member name="P:La.Model.System.Dto.SysRoleDto.RoleName">
-            <summary>
-            名称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysRoleDto.RoleKey">
-            <summary>
-            Key
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysRoleDto.RoleSort">
-            <summary>
-            排序 
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysRoleDto.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="T:La.Model.System.Dto.SysUserDto">
-            <summary>
-            用户输入输出
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysUserDto.UserId">
-            <summary>
-            ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysUserDto.UserName">
-            <summary>
-            名称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysUserDto.NickName">
-            <summary>
-            昵称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysUserDto.Email">
-            <summary>
-            邮件
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysUserDto.ReMark">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysUserDto.Phonenumber">
-            <summary>
-            手机
-            </summary>
-        </member>
         <member name="P:La.Model.System.Dto.SysUserDto.Sex">
             <summary>
-            '用户性别（0男 1女 2未知）',
-            </summary>
-        </member>
-        <member name="T:La.Model.System.Dto.SysUserOnlineDto">
-            <summary>
-            在线用户输入输出
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysUserOnlineDto.pageNum">
-            <summary>
-            页码
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysUserOnlineDto.Ipaddr">
-            <summary>
-            IP 地址
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysUserOnlineDto.Status">
-            <summary>
-            登录状态 0成功 1失败
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.SysUserOnlineDto.UserName">
-            <summary>
-            用户名
-            </summary>
-        </member>
-        <member name="T:La.Model.System.Dto.TasksQueryDto">
-            <summary>
-            任务管理输入输出
+            用户性别（0男 1女 2未知）
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.TasksQueryDto.QueryText">
             <summary>
-            描述 : 查询字符串 
-            空值 : False
-            默认 : 
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.TasksQueryDto.TaskType">
-            <summary>
-            任务类型
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.TasksQueryDto.TriggerType">
-            <summary>
-            触发器类型
+            查询字符串
             </summary>
         </member>
         <member name="T:La.Model.System.Dto.TasksCreateDto">
@@ -8647,91 +7471,62 @@
         </member>
         <member name="P:La.Model.System.Dto.TasksCreateDto.ID">
             <summary>
-            描述 : 任务id 
-            空值 : False
-            默认 : 
+            任务id
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.TasksCreateDto.Name">
             <summary>
-            描述 : 任务名称 
-            空值 : False
-            默认 : 
+            任务名称
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.TasksCreateDto.JobGroup">
             <summary>
-            描述 : 任务分组 
-            空值 : False
-            默认 : 
+            任务分组
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.TasksCreateDto.Cron">
             <summary>
-            描述 : 运行时间表达式 
-            空值 : False
-            默认 : 
+            运行时间表达式
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.TasksCreateDto.AssemblyName">
             <summary>
-            描述 : 程序集名称 
-            空值 : False
-            默认 : 
+            程序集名称
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.TasksCreateDto.ClassName">
             <summary>
-            描述 : 任务所在类 
-            空值 : False
-            默认 : 
+            任务所在类
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.TasksCreateDto.ReMark">
             <summary>
-            描述 : 任务描述 
-            空值 : True
-            默认 : 
+            任务描述
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.TasksCreateDto.BeginTime">
             <summary>
-            描述 : 开始时间 
-            空值 : True
-            默认 : 
+            开始时间
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.TasksCreateDto.EndTime">
             <summary>
-            描述 : 结束时间 
-            空值 : True
-            默认 : 
+            结束时间
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.TasksCreateDto.TriggerType">
             <summary>
-            描述 : 触发器类型（0、simple 1、cron） 
-            空值 : False
-            默认 : 
+            触发器类型（0、simple 1、cron）
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.TasksCreateDto.IntervalSecond">
             <summary>
-            描述 : 执行间隔时间(单位:秒) 
-            空值 : False
-            默认 : 0
+            执行间隔时间(单位:秒)
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.TasksCreateDto.JobParams">
             <summary>
-            描述 : 传入参数 
-            空值 : True
-            默认 : 
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.TasksCreateDto.ApiUrl">
-            <summary>
-            API地址
+            传入参数
             </summary>
         </member>
         <member name="P:La.Model.System.Dto.TasksCreateDto.TaskType">
@@ -8749,51 +7544,9 @@
             网络请求方式
             </summary>
         </member>
-        <member name="T:La.Model.System.Dto.TasksLogQueryDto">
-            <summary>
-            任务日志查询
-            </summary>
-        </member>
         <member name="P:La.Model.System.Dto.TasksLogQueryDto.Name">
             <summary>
-            描述 : 查询字符串 
-            空值 : False
-            默认 : 
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.TasksLogQueryDto.JobName">
-            <summary>
-            名称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.TasksLogQueryDto.JobId">
-            <summary>
-            ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.TasksLogQueryDto.JobGroup">
-            <summary>
-            组
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.TasksLogQueryDto.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.TasksLogQueryDto.BeginTime">
-            <summary>
-            开始时间
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Dto.TasksLogQueryDto.EndTime">
-            <summary>
-            结束时间
-            </summary>
-        </member>
-        <member name="T:La.Model.System.Dto.TasksLogDto">
-            <summary>
-            任务日志输入输出
+            查询字符串
             </summary>
         </member>
         <member name="T:La.Model.System.Generate.GenTable">
@@ -8871,11 +7624,6 @@
             生成代码方式（0zip压缩包 1自定义路径）
             </summary>
         </member>
-        <member name="P:La.Model.System.Generate.GenTable.GenPath">
-            <summary>
-            代码生成路径
-            </summary>
-        </member>
         <member name="P:La.Model.System.Generate.GenTable.Options">
             <summary>
             其他生成选项
@@ -8887,46 +7635,6 @@
         <member name="P:La.Model.System.Generate.GenTable.SubTable">
             <summary>
             字表信息
-            </summary>
-        </member>
-        <member name="T:La.Model.System.Generate.Options">
-            <summary>
-            选项
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Generate.Options.ParentMenuId">
-            <summary>
-            主菜单ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Generate.Options.SortType">
-            <summary>
-            排序类别：升序默认
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Generate.Options.SortField">
-            <summary>
-            排序ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Generate.Options.TreeCode">
-            <summary>
-            树代码
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Generate.Options.TreeName">
-            <summary>
-            树名称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Generate.Options.TreeParentCode">
-            <summary>
-            主树代码
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Generate.Options.PermissionPrefix">
-            <summary>
-            权限前缀
             </summary>
         </member>
         <member name="P:La.Model.System.Generate.Options.CheckedBtn">
@@ -8949,32 +7657,12 @@
             代码生成表字段
             </summary>
         </member>
-        <member name="P:La.Model.System.Generate.GenTableColumn.ColumnId">
-            <summary>
-            代码生成表列ID
-            </summary>
-        </member>
         <member name="P:La.Model.System.Generate.GenTableColumn.ColumnName">
             <summary>
             导入代码生成表列名 首字母转了小写
             </summary>
         </member>
-        <member name="P:La.Model.System.Generate.GenTableColumn.TableId">
-            <summary>
-            代码生成表ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Generate.GenTableColumn.TableName">
-            <summary>
-            代码生成表名称
-            </summary>
-        </member>
         <member name="F:La.Model.System.Generate.GenTableColumn.columnComment">
-            <summary>
-            列说明
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Generate.GenTableColumn.ColumnComment">
             <summary>
             列说明
             </summary>
@@ -9049,19 +7737,14 @@
             查询类型（等于、不等于、大于、小于、范围）
             </summary>
         </member>
-        <member name="P:La.Model.System.Generate.GenTableColumn.Sort">
-            <summary>
-            排序
-            </summary>
-        </member>
         <member name="P:La.Model.System.Generate.GenTableColumn.DictType">
             <summary>
             字典类型
             </summary>
         </member>
-        <member name="P:La.Model.System.Generate.GenTableColumn.RequiredStr">
+        <member name="P:La.Model.System.Generate.GenTableColumn.AutoFillType">
             <summary>
-            必填字串
+            自动填充类型 1、添加 2、编辑 3、添加编辑
             </summary>
         </member>
         <member name="P:La.Model.System.Generate.GenTableColumn.SortStr">
@@ -9084,21 +7767,6 @@
             登录用户信息存储
             </summary>
         </member>
-        <member name="P:La.Model.System.LoginUser.UserId">
-            <summary>
-            用户iD
-            </summary>
-        </member>
-        <member name="P:La.Model.System.LoginUser.DeptId">
-            <summary>
-            部门ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.LoginUser.UserName">
-            <summary>
-            用户史
-            </summary>
-        </member>
         <member name="P:La.Model.System.LoginUser.RoleIds">
             <summary>
             角色集合
@@ -9114,95 +7782,37 @@
             权限集合
             </summary>
         </member>
-        <member name="M:La.Model.System.LoginUser.#ctor">
-            <summary>
-            登录用户信息存储
-            </summary>
-        </member>
-        <member name="M:La.Model.System.LoginUser.#ctor(La.Model.System.SysUser,System.Collections.Generic.List{La.Model.System.SysRole},System.Collections.Generic.List{System.String})">
-            <summary>
-            登录用户信息存储
-            </summary>
-            <param name="user"></param>
-            <param name="roles"></param>
-            <param name="permissions"></param>
-        </member>
-        <member name="T:La.Model.System.SysBase">
-            <summary>
-            标准字段
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysBase.create_by">
-            <summary>
-            新建
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysBase.create_time">
-            <summary>
-            新建时间
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysBase.Update_by">
-            <summary>
-            更新
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysBase.Update_time">
-            <summary>
-            更新时间
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysBase.ReMark">
-            <summary>
-            备注
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysBase.BeginTime">
-            <summary>
-            起始时间
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysBase.EndTime">
-            <summary>
-            结束时间
-            </summary>
-        </member>
         <member name="T:La.Model.System.SysConfig">
              <summary>
              参数配置，数据实体对象
             
-             @author Davis.Cheng
+             @author mr.zhao
              @date 2021-09-29
              </summary>
         </member>
         <member name="P:La.Model.System.SysConfig.ConfigId">
             <summary>
-            描述 :
-            空值 :False
+            配置id
             </summary>
         </member>
         <member name="P:La.Model.System.SysConfig.ConfigName">
             <summary>
-            描述 :
-            空值 :True
+            参数名称
             </summary>
         </member>
         <member name="P:La.Model.System.SysConfig.ConfigKey">
             <summary>
-            描述 :
-            空值 :True
+            参数键名
             </summary>
         </member>
         <member name="P:La.Model.System.SysConfig.ConfigValue">
             <summary>
-            描述 :
-            空值 :True
+            参数键值
             </summary>
         </member>
         <member name="P:La.Model.System.SysConfig.ConfigType">
             <summary>
-            描述 :
-            空值 :True
+            系统内置（Y是 N否）
             </summary>
         </member>
         <member name="T:La.Model.System.SysDept">
@@ -9211,31 +7821,49 @@
             </summary>
         </member>
         <member name="P:La.Model.System.SysDept.DeptId">
-            部门ID 
+            <summary>
+            部门ID
+            </summary>
         </member>
         <member name="P:La.Model.System.SysDept.ParentId">
-            父部门ID 
+            <summary>
+            父部门ID
+            </summary>
         </member>
         <member name="P:La.Model.System.SysDept.Ancestors">
-            祖级列表 
+            <summary>
+            祖级列表
+            </summary>
         </member>
         <member name="P:La.Model.System.SysDept.DeptName">
-            部门名称 
+            <summary>
+            部门名称
+            </summary>
         </member>
         <member name="P:La.Model.System.SysDept.OrderNum">
-            显示顺序 
+            <summary>
+            显示顺序
+            </summary>
         </member>
         <member name="P:La.Model.System.SysDept.Leader">
-            负责人 
+            <summary>
+            负责人
+            </summary>
         </member>
         <member name="P:La.Model.System.SysDept.Phone">
-            联系电话 
+            <summary>
+            联系电话
+            </summary>
         </member>
         <member name="P:La.Model.System.SysDept.Email">
-            邮箱 
+            <summary>
+            邮箱
+            </summary>
         </member>
         <member name="P:La.Model.System.SysDept.Status">
-            部门状态:0正常,1停用 
+            <summary>
+            部门状态:0正常,1停用
+            </summary>
         </member>
         <member name="P:La.Model.System.SysDept.IsDeleted">
             <summary>
@@ -9254,7 +7882,7 @@
         </member>
         <member name="P:La.Model.System.SysDictData.DictCode">
             <summary>
-            字典主键
+            字典编码
             </summary>
         </member>
         <member name="P:La.Model.System.SysDictData.DictSort">
@@ -9264,12 +7892,12 @@
         </member>
         <member name="P:La.Model.System.SysDictData.DictLabel">
             <summary>
-            字典名称
+            字典标签
             </summary>
         </member>
         <member name="P:La.Model.System.SysDictData.DictValue">
             <summary>
-            字典数值
+            字典键值
             </summary>
         </member>
         <member name="P:La.Model.System.SysDictData.DictType">
@@ -9279,22 +7907,22 @@
         </member>
         <member name="P:La.Model.System.SysDictData.CssClass">
             <summary>
-            CssClass
+            样式属性（其他样式扩展）
             </summary>
         </member>
         <member name="P:La.Model.System.SysDictData.ListClass">
             <summary>
-            ListClass
+            表格回显样式
             </summary>
         </member>
         <member name="P:La.Model.System.SysDictData.IsDefault">
             <summary>
-            默认
+            是否默认（Y是 N否）
             </summary>
         </member>
         <member name="P:La.Model.System.SysDictData.Status">
             <summary>
-            状态
+            状态（0正常 1停用）
             </summary>
         </member>
         <member name="T:La.Model.System.SysDictType">
@@ -9332,15 +7960,9 @@
             自定义sql
             </summary>
         </member>
-        <member name="T:La.Model.System.SysFile">
-            <summary>
-            文件
-            </summary>
-        </member>
         <member name="P:La.Model.System.SysFile.Id">
             <summary>
-            描述 : 自增id
-            空值 : false  
+            自增id
             </summary>
         </member>
         <member name="P:La.Model.System.SysFile.RealName">
@@ -9355,82 +7977,52 @@
         </member>
         <member name="P:La.Model.System.SysFile.FileName">
             <summary>
-            描述 : 存储文件名
-            空值 : true  
+            存储文件名
             </summary>
         </member>
         <member name="P:La.Model.System.SysFile.FileUrl">
             <summary>
-            描述 : 文件存储地址 eg：/uploads/20220202
-            空值 : true  
+            文件存储地址 eg：/uploads/20220202
             </summary>
         </member>
         <member name="P:La.Model.System.SysFile.StorePath">
             <summary>
-            描述 : 仓库位置 eg：/uploads
-            空值 : true  
+            仓库位置 eg：/uploads
             </summary>
         </member>
         <member name="P:La.Model.System.SysFile.FileSize">
             <summary>
-            描述 : 文件大小
-            空值 : true  
+            文件大小
             </summary>
         </member>
         <member name="P:La.Model.System.SysFile.FileExt">
             <summary>
-            描述 : 文件扩展名
-            空值 : true  
+            文件扩展名
             </summary>
         </member>
-        <member name="P:La.Model.System.SysFile.create_by">
+        <member name="P:La.Model.System.SysFile.Create_by">
             <summary>
-            描述 : 创建人
-            空值 : true  
+            创建人
             </summary>
         </member>
-        <member name="P:La.Model.System.SysFile.create_time">
+        <member name="P:La.Model.System.SysFile.Create_time">
             <summary>
-            描述 : 上传时间
-            空值 : true  
+            上传时间
             </summary>
         </member>
         <member name="P:La.Model.System.SysFile.StoreType">
             <summary>
-            描述 : 存储类型
-            空值 : true  
+            存储类型
             </summary>
         </member>
         <member name="P:La.Model.System.SysFile.AccessUrl">
             <summary>
-            描述 : 访问路径
-            空值 : true  
+            访问路径
             </summary>
-        </member>
-        <member name="M:La.Model.System.SysFile.#ctor">
-            <summary>
-            文件
-            </summary>
-        </member>
-        <member name="M:La.Model.System.SysFile.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            文件
-            </summary>
-            <param name="originFileName"></param>
-            <param name="fileName"></param>
-            <param name="ext"></param>
-            <param name="fileSize"></param>
-            <param name="storePath"></param>
-            <param name="create_by"></param>
         </member>
         <member name="T:La.Model.System.SysLogininfor">
             <summary>
             sys_logininfor 表
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysLogininfor.InfoId">
-            <summary>
-            ID
             </summary>
         </member>
         <member name="P:La.Model.System.SysLogininfor.UserName">
@@ -9459,7 +8051,9 @@
             </summary>
         </member>
         <member name="P:La.Model.System.SysLogininfor.Os">
-            操作系统 
+            <summary>
+            操作系统
+            </summary>
         </member>
         <member name="P:La.Model.System.SysLogininfor.Msg">
             <summary>
@@ -9469,16 +8063,6 @@
         <member name="P:La.Model.System.SysLogininfor.LoginTime">
             <summary>
             访问时间
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysLogininfor.BeginTime">
-            <summary>
-            起始时间
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysLogininfor.EndTime">
-            <summary>
-            结束时间
             </summary>
         </member>
         <member name="T:La.Model.System.SysMenu">
@@ -9575,88 +8159,99 @@
              <summary>
              通知公告表，数据实体对象
             
-             @author Davis.Cheng
+             @author (Davis.Cheng)
              @date 2021-12-15
              </summary>
         </member>
         <member name="P:La.Model.System.SysNotice.NoticeId">
             <summary>
-            描述 : 公告ID
-            空值 : true  
+            公告ID
             </summary>
         </member>
         <member name="P:La.Model.System.SysNotice.NoticeTitle">
             <summary>
-            描述 : 公告标题
-            空值 : true  
+            公告标题
             </summary>
         </member>
         <member name="P:La.Model.System.SysNotice.NoticeType">
             <summary>
-            描述 : 公告类型 (1通知 2公告)
-            空值 : true  
+            公告类型 (1通知 2公告)
             </summary>
         </member>
         <member name="P:La.Model.System.SysNotice.NoticeContent">
             <summary>
-            描述 : 公告内容
-            空值 : true  
+            公告内容
             </summary>
         </member>
         <member name="P:La.Model.System.SysNotice.Status">
             <summary>
-            描述 : 公告状态 (0正常 1关闭)
-            空值 : true  
-            </summary>
-        </member>
-        <member name="T:La.Model.System.SysOperLog">
-            <summary>
-            操作日志
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysOperLog.OperId">
-            <summary>
-            ID
+            公告状态 (0正常 1关闭)
             </summary>
         </member>
         <member name="P:La.Model.System.SysOperLog.Title">
-            操作模块 
+            <summary>
+            操作模块
+            </summary>
         </member>
         <member name="P:La.Model.System.SysOperLog.BusinessType">
-            业务类型（0其它 1新增 2修改 3删除） 
+            <summary>
+            业务类型（0其它 1新增 2修改 3删除 4=授权,5=导出,6=导入,7=强退,8=生成代码,9=清空数据）
+            </summary>
         </member>
         <member name="P:La.Model.System.SysOperLog.BusinessTypes">
-            业务类型数组 
+            <summary>
+            业务类型数组
+            </summary>
         </member>
         <member name="P:La.Model.System.SysOperLog.Method">
-            请求方法 
+            <summary>
+            请求方法
+            </summary>
         </member>
         <member name="P:La.Model.System.SysOperLog.RequestMethod">
-            请求方式 
+            <summary>
+            请求方式
+            </summary>
         </member>
         <member name="P:La.Model.System.SysOperLog.OperatorType">
-            操作类别（0其它 1后台用户 2手机端用户） 
+            <summary>
+            操作类别（0其它 1后台用户 2手机端用户）
+            </summary>
         </member>
         <member name="P:La.Model.System.SysOperLog.OperName">
-            操作人员 
+            <summary>
+            操作人员
+            </summary>
         </member>
         <member name="P:La.Model.System.SysOperLog.OperUrl">
-            请求url 
+            <summary>
+            请求url
+            </summary>
         </member>
         <member name="P:La.Model.System.SysOperLog.OperIp">
-            操作地址 
+            <summary>
+            操作地址
+            </summary>
         </member>
         <member name="P:La.Model.System.SysOperLog.OperLocation">
-            操作地点 
+            <summary>
+            操作地点
+            </summary>
         </member>
         <member name="P:La.Model.System.SysOperLog.OperParam">
-            请求参数 
+            <summary>
+            请求参数
+            </summary>
         </member>
         <member name="P:La.Model.System.SysOperLog.JsonResult">
-            返回参数 
+            <summary>
+            返回参数
+            </summary>
         </member>
         <member name="P:La.Model.System.SysOperLog.Status">
-            操作状态（0正常 1异常） 
+            <summary>
+            操作状态（0正常 1异常）
+            </summary>
         </member>
         <member name="P:La.Model.System.SysOperLog.ErrorMsg">
             <summary>
@@ -9673,34 +8268,9 @@
             操作用时
             </summary>
         </member>
-        <member name="T:La.Model.System.SysPost">
-            <summary>
-            岗位
-            </summary>
-        </member>
         <member name="P:La.Model.System.SysPost.PostId">
             <summary>
             岗位Id
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysPost.PostCode">
-            <summary>
-            岗位代码
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysPost.PostName">
-            <summary>
-            岗位名称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysPost.PostSort">
-            <summary>
-            排序
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysPost.Status">
-            <summary>
-            状态
             </summary>
         </member>
         <member name="T:La.Model.System.SysRole">
@@ -9768,68 +8338,9 @@
             用户个数
             </summary>
         </member>
-        <member name="M:La.Model.System.SysRole.#ctor">
-            <summary>
-            角色
-            </summary>
-        </member>
-        <member name="M:La.Model.System.SysRole.#ctor(System.Int64)">
-            <summary>
-            角色
-            </summary>
-            <param name="roleId"></param>
-        </member>
-        <member name="M:La.Model.System.SysRole.IsAdmin">
-            <summary>
-            超级用户判断
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.Model.System.SysRole.IsAdmin(System.Int64)">
-            <summary>
-            超级用户判断
-            </summary>
-            <param name="roleId"></param>
-            <returns></returns>
-        </member>
-        <member name="T:La.Model.System.SysRoleDept">
-            <summary>
-            角色部门
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysRoleDept.RoleId">
-            <summary>
-            角色ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysRoleDept.DeptId">
-            <summary>
-            部门ID
-            </summary>
-        </member>
         <member name="T:La.Model.System.SysRoleMenu">
             <summary>
             角色菜单
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysRoleMenu.Role_id">
-            <summary>
-            角色ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysRoleMenu.Menu_id">
-            <summary>
-            菜单ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysRoleMenu.create_time">
-            <summary>
-            新建时间
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysRoleMenu.create_by">
-            <summary>
-            创建人
             </summary>
         </member>
         <member name="T:La.Model.System.SysRolePost">
@@ -9837,144 +8348,88 @@
             角色部门
             </summary>
         </member>
-        <member name="P:La.Model.System.SysRolePost.RoleId">
-            <summary>
-            角色ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysRolePost.DeptId">
-            <summary>
-            部门ID
-            </summary>
-        </member>
         <member name="T:La.Model.System.SysTasks">
-            <summary>
-            计划任务
-            </summary>
-        </member>
-        <member name="M:La.Model.System.SysTasks.#ctor">
             <summary>
             计划任务
             </summary>
         </member>
         <member name="P:La.Model.System.SysTasks.ID">
             <summary>
-            描述 : 任务id 
-            空值 : False
-            默认 : 
+            任务id
             </summary>
         </member>
         <member name="P:La.Model.System.SysTasks.Name">
             <summary>
-            描述 : 任务名称 
-            空值 : False
-            默认 : 
+            任务名称 
             </summary>
         </member>
         <member name="P:La.Model.System.SysTasks.JobGroup">
             <summary>
-            描述 : 任务分组 
-            空值 : False
-            默认 : 
+            任务分组 
             </summary>
         </member>
         <member name="P:La.Model.System.SysTasks.Cron">
             <summary>
-            描述 : 运行时间表达式 
-            空值 : False
-            默认 : 
+            运行时间表达式 
             </summary>
         </member>
         <member name="P:La.Model.System.SysTasks.AssemblyName">
             <summary>
-            描述 : 程序集名称 
-            空值 : False
-            默认 : 
+            程序集名称 
             </summary>
         </member>
         <member name="P:La.Model.System.SysTasks.ClassName">
             <summary>
-            描述 : 任务所在类 
-            空值 : False
-            默认 : 
+            任务所在类 
             </summary>
         </member>
         <member name="P:La.Model.System.SysTasks.ReMark">
             <summary>
-            描述 : 任务描述 
-            空值 : True
-            默认 : 
+            任务描述 
             </summary>
         </member>
         <member name="P:La.Model.System.SysTasks.RunTimes">
             <summary>
-            描述 : 执行次数 
-            空值 : False
-            默认 : 0
+            执行次数 
             </summary>
         </member>
         <member name="P:La.Model.System.SysTasks.BeginTime">
             <summary>
-            描述 : 开始时间 
-            空值 : True
-            默认 : 
+            开始时间 
             </summary>
         </member>
         <member name="P:La.Model.System.SysTasks.EndTime">
             <summary>
-            描述 : 结束时间 
-            空值 : True
-            默认 : 
+            结束时间 
             </summary>
         </member>
         <member name="P:La.Model.System.SysTasks.TriggerType">
             <summary>
-            描述 : 触发器类型（0、simple 1、cron） 
-            空值 : False
+            触发器类型（0、simple 1、cron） 
             默认 : 1
             </summary>
         </member>
         <member name="P:La.Model.System.SysTasks.IntervalSecond">
             <summary>
-            描述 : 执行间隔时间(单位:秒) 
-            空值 : False
+            执行间隔时间(单位:秒) 
             默认 : 0
             </summary>
         </member>
         <member name="P:La.Model.System.SysTasks.IsStart">
             <summary>
-            描述 : 是否启动 
-            空值 : False
+            是否启动
             默认 : 0
             </summary>
         </member>
         <member name="P:La.Model.System.SysTasks.JobParams">
             <summary>
-            描述 : 传入参数 
-            空值 : True
+            传入参数
             默认 : 
             </summary>
         </member>
-        <member name="P:La.Model.System.SysTasks.create_by">
+        <member name="P:La.Model.System.SysTasks.Create_time">
             <summary>
-            新建
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysTasks.create_time">
-            <summary>
-            描述 : 创建时间 
-            空值 : False
-            默认 : 
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysTasks.Update_by">
-            <summary>
-            更新
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysTasks.Update_time">
-            <summary>
-            更新时间
+            创建时间
             </summary>
         </member>
         <member name="P:La.Model.System.SysTasks.LastRunTime">
@@ -10015,16 +8470,6 @@
         <member name="P:La.Model.System.SysTasksLog.JobId">
             <summary>
             任务Id
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysTasksLog.JobName">
-            <summary>
-            任务名称
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysTasksLog.JobGroup">
-            <summary>
-            任务组
             </summary>
         </member>
         <member name="P:La.Model.System.SysTasksLog.Status">
@@ -10069,27 +8514,17 @@
         </member>
         <member name="P:La.Model.System.SysUser.UserName">
             <summary>
-            用户名称
+            登录用户名
             </summary>
         </member>
         <member name="P:La.Model.System.SysUser.NickName">
             <summary>
-            昵称
+            用户昵称
             </summary>
         </member>
-        <member name="P:La.Model.System.SysUser.Avatar">
+        <member name="P:La.Model.System.SysUser.UserType">
             <summary>
-            '用户类型（00系统用户）',
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysUser.Email">
-            <summary>
-            邮件
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysUser.Password">
-            <summary>
-            密码
+            用户类型（00系统用户）
             </summary>
         </member>
         <member name="P:La.Model.System.SysUser.Phonenumber">
@@ -10127,19 +8562,6 @@
             部门Id
             </summary>
         </member>
-        <member name="M:La.Model.System.SysUser.IsAdmin">
-            <summary>
-            超级用户判断
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.Model.System.SysUser.IsAdmin(System.Int64)">
-            <summary>
-            超级用户判断
-            </summary>
-            <param name="userId"></param>
-            <returns></returns>
-        </member>
         <member name="P:La.Model.System.SysUser.DeptName">
             <summary>
             拥有角色个数
@@ -10155,34 +8577,9 @@
             岗位集合
             </summary>
         </member>
-        <member name="P:La.Model.System.SysUser.Roles">
-            <summary>
-            角色表
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysUser.WelcomeMessage">
-            <summary>
-            欢迎消息
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysUser.WelcomeContent">
-            <summary>
-            欢迎内容
-            </summary>
-        </member>
         <member name="T:La.Model.System.SysUserPost">
             <summary>
             用户岗位
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysUserPost.UserId">
-            <summary>
-            用户ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysUserPost.PostId">
-            <summary>
-            岗位ID
             </summary>
         </member>
         <member name="T:La.Model.System.SysUserRole">
@@ -10190,78 +8587,94 @@
             用户角色关联表 用户N-1 角色
             </summary>
         </member>
-        <member name="P:La.Model.System.SysUserRole.UserId">
-            <summary>
-            用户ID
-            </summary>
-        </member>
-        <member name="P:La.Model.System.SysUserRole.RoleId">
-            <summary>
-            角色ID
-            </summary>
-        </member>
-        <member name="T:La.Model.System.UserConstants">
-            <summary>
-            用户常量
-            </summary>
-        </member>
         <member name="F:La.Model.System.UserConstants.SYS_USER">
+            <summary>
             平台内系统用户的唯一标志
+            </summary>
         </member>
         <member name="F:La.Model.System.UserConstants.NORMAL">
-            正常状态 
+            <summary>
+            正常状态
+            </summary>
         </member>
         <member name="F:La.Model.System.UserConstants.EXCEPTION">
-            异常状态 
+            <summary>
+            异常状态
+            </summary>
         </member>
         <member name="F:La.Model.System.UserConstants.USER_DISABLE">
-            用户封禁状态 
+            <summary>
+            用户封禁状态
+            </summary>
         </member>
         <member name="F:La.Model.System.UserConstants.ROLE_DISABLE">
-            角色封禁状态 
+            <summary>
+            角色封禁状态
+            </summary>
         </member>
         <member name="F:La.Model.System.UserConstants.DEPT_NORMAL">
-            部门正常状态 
+            <summary>
+            部门正常状态
+            </summary>
         </member>
         <member name="F:La.Model.System.UserConstants.DEPT_DISABLE">
-            部门停用状态 
+            <summary>
+            部门停用状态
+            </summary>
         </member>
         <member name="F:La.Model.System.UserConstants.DICT_NORMAL">
-            字典正常状态 
+            <summary>
+            字典正常状态
+            </summary>
         </member>
         <member name="F:La.Model.System.UserConstants.YES">
-            是否为系统默认（是） 
+            <summary>
+            是否为系统默认（是）
+            </summary>
         </member>
         <member name="F:La.Model.System.UserConstants.YES_FRAME">
-            是否菜单外链（是） 
+            <summary>
+            是否菜单外链（是）
+            </summary>
         </member>
         <member name="F:La.Model.System.UserConstants.NO_FRAME">
-            是否菜单外链（否） 
+            <summary>
+            是否菜单外链（否）
+            </summary>
         </member>
         <member name="F:La.Model.System.UserConstants.TYPE_DIR">
-            菜单类型（目录） 
+            <summary>
+            菜单类型（目录）
+            </summary>
         </member>
         <member name="F:La.Model.System.UserConstants.TYPE_MENU">
-            菜单类型（菜单） 
+            <summary>
+            菜单类型（菜单）
+            </summary>
         </member>
         <member name="F:La.Model.System.UserConstants.TYPE_BUTTON">
-            菜单类型（按钮） 
+            <summary>
+            菜单类型（按钮）
+            </summary>
         </member>
         <member name="F:La.Model.System.UserConstants.LAYOUT">
-            Layout组件标识 
+            <summary>
+            Layout组件标识
+            </summary>
         </member>
         <member name="F:La.Model.System.UserConstants.PARENT_VIEW">
-            ParentView组件标识 
+            <summary>
+            ParentView组件标识
+            </summary>
         </member>
         <member name="F:La.Model.System.UserConstants.INNER_LINK">
-            InnerLink组件标识 
+            <summary>
+            InnerLink组件标识
+            </summary>
         </member>
         <member name="F:La.Model.System.UserConstants.UNIQUE">
-            校验返回结果码 
-        </member>
-        <member name="F:La.Model.System.UserConstants.NOT_UNIQUE">
             <summary>
-            不唯一
+            校验返回结果码
             </summary>
         </member>
         <member name="F:La.Model.System.UserConstants.HTTP">
@@ -10279,64 +8692,9 @@
             www主域
             </summary>
         </member>
-        <member name="T:La.Model.System.Vo.LangVo">
-            <summary>
-            描述：语言展示
-            </summary>
-        </member>
         <member name="T:La.Model.System.Vo.RouterVo">
             <summary>
             路由展示
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Vo.RouterVo.AlwaysShow">
-            <summary>
-            当你一个路由下面的 children 声明的路由大于1个时，自动会变成嵌套的模式--如组件页面
-            </summary>
-        </member>
-        <member name="F:La.Model.System.Vo.RouterVo.component">
-            <summary>
-            内容
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Vo.RouterVo.Hidden">
-            <summary>
-            隐藏
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Vo.RouterVo.Name">
-            <summary>
-            // 设定路由的名字，一定要填写不然使用keep-alive时会出现各种问题
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Vo.RouterVo.Path">
-            <summary>
-            路径
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Vo.RouterVo.Redirect">
-            <summary>
-            重定向 // 当设置 noRedirect 的时候该路由在面包屑导航中不可被点击
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Vo.RouterVo.Meta">
-            <summary>
-            Meta标签
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Vo.RouterVo.Children">
-            <summary>
-            Children子项
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Vo.RouterVo.Component">
-            <summary>
-            Component组件
-            </summary>
-        </member>
-        <member name="T:La.Model.System.Vo.Meta">
-            <summary>
-            
             </summary>
         </member>
         <member name="P:La.Model.System.Vo.Meta.Title">
@@ -10349,46 +8707,7 @@
             设置该路由的图标，对应路径src/assets/icons/svg
             </summary>
         </member>
-        <member name="P:La.Model.System.Vo.Meta.NoCache">
-            <summary>
-            设置为true，则不会被 keep-alive缓存
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Vo.Meta.TitleKey">
-            <summary>
-            国际和翻译key值，如果不为空将使用i18n
-            </summary>
-        </member>
-        <member name="P:La.Model.System.Vo.Meta.Link">
-            <summary>
-            连接
-            </summary>
-        </member>
-        <member name="M:La.Model.System.Vo.Meta.#ctor(System.String,System.String)">
-            <summary>
-            Meta
-            </summary>
-            <param name="title"></param>
-            <param name="icon"></param>
-        </member>
-        <member name="M:La.Model.System.Vo.Meta.#ctor(System.String,System.String,System.String)">
-            <summary>
-            Meta
-            </summary>
-            <param name="title"></param>
-            <param name="icon"></param>
-            <param name="path"></param>
-        </member>
-        <member name="M:La.Model.System.Vo.Meta.#ctor(System.String,System.String,System.Boolean,System.String,System.String)">
-            <summary>
-            Meta
-            </summary>
-            <param name="title"></param>
-            <param name="icon"></param>
-            <param name="noCache"></param>
-            <param name="titleKey"></param>
-            <param name="path"></param>
-        </member>
+        <!-- Badly formed XML comment ignored for member "P:La.Model.System.Vo.Meta.NoCache" -->
         <member name="T:La.Model.System.Vo.TreeSelectVo">
             <summary>
             Treeselect树结构实体类
@@ -10402,28 +8721,6 @@
         <member name="P:La.Model.System.Vo.TreeSelectVo.Label">
             <summary>
             节点名称
-            </summary>
-        </member>
-        <member name="M:La.Model.System.Vo.TreeSelectVo.#ctor">
-            <summary>
-            Treeselect树结构
-            </summary>
-        </member>
-        <member name="M:La.Model.System.Vo.TreeSelectVo.#ctor(La.Model.System.SysMenu)">
-            <summary>
-            Treeselect树结构
-            </summary>
-            <param name="menu"></param>
-        </member>
-        <member name="M:La.Model.System.Vo.TreeSelectVo.#ctor(La.Model.System.SysDept)">
-            <summary>
-            Treeselect树结构
-            </summary>
-            <param name="dept"></param>
-        </member>
-        <member name="P:La.Model.System.Vo.TreeSelectVo.Children">
-            <summary>
-            子项
             </summary>
         </member>
     </members>

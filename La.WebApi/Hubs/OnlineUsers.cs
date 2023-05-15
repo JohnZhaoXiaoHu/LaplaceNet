@@ -1,4 +1,5 @@
-﻿using System;
+﻿using La.Model.System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,7 +8,7 @@ namespace La.WebApi.Hubs
     /// <summary>
     /// 在线用户
     /// </summary>
-    public class OnlineUsers
+    public class OnlineUsers : SysBase
     {
         /// <summary>
         /// 在线用户
@@ -24,7 +25,11 @@ namespace La.WebApi.Hubs
         {
             this.ConnnectionId = connnectionId;
         }
-
+        /// <summary>
+        /// 页码
+        /// </summary>
+        public int PageNum { get; set; }
+        public int PageSize { get; set; }
         /// <summary>
         /// 客户端连接Id
         /// </summary>

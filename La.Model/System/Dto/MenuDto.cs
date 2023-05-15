@@ -3,20 +3,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace La.Model.System.Dto
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class MenuDto
     {
-        /// <summary>
-        /// 菜单id
-        /// </summary>
         //{"parentId":0,"menuName":"aaa","icon":"documentation","menuType":"M","orderNum":999,"visible":0,"status":0,"path":"aaa"}
         [Required(ErrorMessage = "菜单id不能为空")]
         public int MenuId { get; set; }
-        /// <summary>
-        /// 菜单名称
-        /// </summary>
         public string MenuName { get; set; }
         /// <summary>
         /// 父菜单ID
@@ -80,39 +71,19 @@ namespace La.Model.System.Dto
         /// </summary>
         public string MenuNameKey { get; set; }
     }
-    /// <summary>
-    /// 查询
-    /// </summary>
+
     public class MenuQueryDto
     {
-        /// <summary>
-        /// 菜单名称
-        /// </summary>
         public string MenuName { get; set; }
-        /// <summary>
-        /// 显示
-        /// </summary>
         public string Visible { get; set; }
-        /// <summary>
-        /// 状态
-        /// </summary>
         public string Status { get; set; }
-        /// <summary>
-        /// 类型
-        /// </summary>
         public string MenuTypeIds { get; set; } = string.Empty;
-        /// <summary>
-        /// 父ID
-        /// </summary>
         public int? ParentId { get; set; }
-        /// <summary>
-        /// 类型组
-        /// </summary>
         public string[] MenuTypeIdArr
         {
             get
             {
-                return MenuTypeIds.Split(',', StringSplitOptions.RemoveEmptyEntries);
+                return MenuTypeIds?.Split(',', StringSplitOptions.RemoveEmptyEntries);
             }
         }
     }

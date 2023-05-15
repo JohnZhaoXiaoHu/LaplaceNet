@@ -3,22 +3,14 @@ using La.Infra.Attribute;
 using La.Infra.Enums;
 using La.Infra.Extensions;
 using La.Infra.Model;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using System;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using La.WebApi.Extensions;
 using La.WebApi.Filters;
 using La.Common;
 using La.Model.System;
-using La.Model.System.Dto;
 using La.Service.System.IService;
-using Aliyun.OSS;
 
 namespace La.WebApi.Controllers
 {
@@ -99,20 +91,12 @@ namespace La.WebApi.Controllers
         [ActionPermissionFilter(Permission = "common")]
         public async Task<IActionResult> UploadFile([FromForm] UploadDto uploadDto, StoreType storeType = StoreType.LOCAL)
         {
-
-
             IFormFile formFile = uploadDto.File;
             if (formFile == null) throw new CustomException(ResultCode.PARAM_ERROR, "上传文件不能为空");
             SysFile file = new();
             string fileExt = Path.GetExtension(formFile.FileName);//文件后缀
             double fileSize = Math.Round(formFile.Length / 1024.0, 2);//文件大小KB
 
-            // 校验输入项目是否唯一
-
-            if (UserConstants.NOT_UNIQUE.Equals(SysFileService.CheckEntryStringUnique(formFile.FileName.ToString())))
-            {
-                return ToResponse(ApiResult.Error($"新增文件 '{formFile.FileName}'失败，输入的文件已存在"));
-            }
             if (OptionsSetting.Upload.NotAllowedExt.Contains(fileExt))
             {
                 return ToResponse(ResultCode.CUSTOM_ERROR, "上传失败，未经允许上传类型");

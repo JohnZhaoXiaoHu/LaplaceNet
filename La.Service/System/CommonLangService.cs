@@ -14,7 +14,7 @@ namespace La.Service.System
     /// <summary>
     /// 多语言配置Service业务层处理
     ///
-    /// @author Davis.Cheng
+    /// @author (Davis.Cheng)
     /// @date 2022-05-06
     /// </summary>
     [AppService(ServiceType = typeof(ICommonLangService), ServiceLifetime = LifeTime.Transient)]

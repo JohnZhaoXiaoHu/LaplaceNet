@@ -47,7 +47,7 @@ export default defineConfig(({ mode, command }) => {
     server: {
       port: 8887,
       host: true,
-      open: false,//自动打开浏览器
+      open: false,
       proxy: {
         // https://cn.vitejs.dev/config/#server-proxy
         '/dev-api': {

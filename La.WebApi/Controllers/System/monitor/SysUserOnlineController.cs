@@ -58,7 +58,7 @@ namespace La.WebApi.Controllers.monitor
                 dataWhere = dataWhere.Where((u) => u.UserName!.Contains(online.UserName!));
             }
 
-            return Result.Success().SetData(new PageModel<List<OnlineUsers>>() { Total = data.Count, Data =dataWhere.ToList() });
+            return Result.Success().SetData(new PageModel<List<OnlineUsers>>() { Total = data.Count, Data = dataWhere.ToList() });
         }
 
 

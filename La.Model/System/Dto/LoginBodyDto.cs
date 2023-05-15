@@ -2,9 +2,6 @@
 
 namespace La.Model.System.Dto
 {
-    /// <summary>
-    /// 登入输入
-    /// </summary>
     public class LoginBodyDto
     {
         /// <summary>
@@ -19,18 +16,15 @@ namespace La.Model.System.Dto
         [Required(ErrorMessage = "密码不能为空")]
         public string Password { get; set; }
 
-        /**
-         * 验证码
-         */
+        /// <summary>
+        /// 验证码
+        /// </summary>
         public string Code { get; set; }
 
-        /**
-         * 唯一标识
-         */
-        public string Uuid { get; set; } = "";
         /// <summary>
-        /// 登入IP
+        /// 唯一标识
         /// </summary>
+        public string Uuid { get; set; } = "";
         public string LoginIP { get; set; }
     }
 }

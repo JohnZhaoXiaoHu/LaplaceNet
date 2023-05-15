@@ -1,8 +1,8 @@
-﻿using Lazy.Captcha.Core;
-using La.Infra;
+﻿using La.Infra;
 using La.Infra.Attribute;
 using La.Infra.Model;
 using IPTools.Core;
+using Lazy.Captcha.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -36,18 +36,7 @@ namespace La.WebApi.Controllers.System
         private readonly ISysConfigService sysConfigService;
         private readonly ISysRoleService roleService;
         private readonly OptionsSetting jwtSettings;
-        /// <summary>
-        /// 日志接口
-        /// </summary>
-        /// <param name="contextAccessor"></param>
-        /// <param name="sysMenuService"></param>
-        /// <param name="sysUserService"></param>
-        /// <param name="sysLoginService"></param>
-        /// <param name="permissionService"></param>
-        /// <param name="configService"></param>
-        /// <param name="sysRoleService"></param>
-        /// <param name="captcha"></param>
-        /// <param name="jwtSettings"></param>
+
         public SysLoginController(
             IHttpContextAccessor contextAccessor,
             ISysMenuService sysMenuService,
@@ -78,18 +67,18 @@ namespace La.WebApi.Controllers.System
         /// <returns></returns>
         [Route("login")]
         [HttpPost]
-        //[Log(Title = "登录")]
+        [Log(Title = "登录")]
         public IActionResult Login([FromBody] LoginBodyDto loginBody)
         {
             if (loginBody == null) { throw new CustomException("请求参数错误"); }
             loginBody.LoginIP = HttpContextExtension.GetClientUserIp(HttpContext);
             SysConfig sysConfig = sysConfigService.GetSysConfigByKey("sys.account.captchaOnOff");
-            if (sysConfig?.ConfigValue != "off" && CacheHelper.Get(loginBody.Uuid) is string str && !str.ToLower().Equals(loginBody.Code.ToLower()))
+            if (sysConfig?.ConfigValue != "off" && !SecurityCodeHelper.Validate(loginBody.Uuid, loginBody.Code))
             {
                 return ToResponse(ResultCode.CAPTCHA_ERROR, "验证码错误");
             }
 
-            var user = sysLoginService.Login(loginBody, RecordLogInfo(httpContextAccessor.HttpContext!));
+            var user = sysLoginService.Login(loginBody, RecordLogInfo(httpContextAccessor.HttpContext));
 
             List<SysRole> roles = roleService.SelectUserRoleListByUserId(user.UserId);
             //权限集合 eg *:*:*,system:user:list
@@ -172,14 +161,6 @@ namespace La.WebApi.Controllers.System
         }
 
         /// <summary>
-        /// 生成图片验证码
-        /// </summary>
-        /// <param name="captchaOff"></param>
-        /// <param name="code"></param>
-        /// <returns></returns>
-
-
-        /// <summary>
         /// 记录用户登陆信息
         /// </summary>
         /// <param name="context"></param>
@@ -197,7 +178,7 @@ namespace La.WebApi.Controllers.System
                 UserName = context.GetName(),
                 LoginLocation = ip_info?.Province + "-" + ip_info?.City
             };
-            
+
             return sysLogininfor;
         }
 
@@ -217,7 +198,7 @@ namespace La.WebApi.Controllers.System
                 return ToResponse(ResultCode.CUSTOM_ERROR, "当前系统没有开启注册功能！");
             }
             SysConfig sysConfig = sysConfigService.GetSysConfigByKey("sys.account.captchaOnOff");
-            if (sysConfig?.ConfigValue != "off" && CacheHelper.Get(dto.Uuid) is string str && !str.ToLower().Equals(dto.Code.ToLower()))
+            if (sysConfig?.ConfigValue != "off" && !SecurityCodeHelper.Validate(dto.Uuid, dto.Code))
             {
                 return ToResponse(ResultCode.CAPTCHA_ERROR, "验证码错误");
             }

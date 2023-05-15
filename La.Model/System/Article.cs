@@ -1,7 +1,5 @@
 ﻿using SqlSugar;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace La.Model.System
 {
@@ -13,23 +11,23 @@ namespace La.Model.System
     public class Article
     {
         /// <summary>
-        /// ID
+        /// 文章id
         /// </summary>
         [SugarColumn(IsIdentity = true, IsPrimaryKey = true)]
         public int Cid { get; set; }
         /// <summary>
-        /// 标题
+        /// 文章标题
         /// </summary>
         public string Title { get; set; }
         /// <summary>
-        /// 新建时间
+        /// 发布时间
         /// </summary>
         public DateTime? CreateTime { get; set; }
         /// <summary>
         /// 更新时间
         /// </summary>
         [SugarColumn(IsOnlyIgnoreInsert = true)]
-        public DateTime UpdateTime { get; set; }
+        public DateTime? UpdateTime { get; set; }
         /// <summary>
         /// 文章内容
         /// </summary>
@@ -39,11 +37,9 @@ namespace La.Model.System
         /// </summary>
         public string AuthorName { get; set; }
         /// <summary>
-        /// 用户
+        /// 发布者用户id
         /// </summary>
         public long UserId { get; set; }
-
-        //public string Type { get; set; }
         /// <summary>
         /// 文章状态 1、发布 2、草稿
         /// </summary>
@@ -51,22 +47,21 @@ namespace La.Model.System
         /// <summary>
         /// 编辑器类型 markdown,html
         /// </summary>
-        public string Fmt_type { get; set; }
+        [SugarColumn(ColumnName = "fmt_type")]
+        public string FmtType { get; set; }
         /// <summary>
         /// 文章标签eg：Net5,java
         /// </summary>
         public string Tags { get; set; }
-        /// <summary>
-        /// 描述：
-        /// </summary>
         public int Hits { get; set; }
-        /// <summary>
-        /// 类型ID
-        /// </summary>
-        public int Category_Id { get; set; }
+        [SugarColumn(ColumnName = "category_Id")]
+        public int CategoryId { get; set; }
         /// <summary>
         /// 封面地址
         /// </summary>
         public string CoverUrl { get; set; }
+
+        [Navigate(NavigateType.OneToOne, nameof(CategoryId), nameof(ArticleCategory.CategoryId))] //自定义关系映射
+        public ArticleCategory ArticleCategoryNav { get; set; }
     }
 }

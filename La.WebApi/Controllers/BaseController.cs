@@ -1,23 +1,18 @@
 ﻿using La.Infra;
 using La.Infra.Model;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using MiniExcelLibs;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Web;
-using ff = System.IO;
+using Io = System.IO;
 
 namespace La.WebApi.Controllers
 {
     public class BaseController : ControllerBase
     {
         public static string TIME_FORMAT_FULL = "yyyy-MM-dd HH:mm:ss";
-        public static string TIME_FORMAT_FULL_2 = "MM-dd HH:mm:ss";
-
+        
         /// <summary>
         /// 返回成功封装
         /// </summary>
@@ -26,7 +21,7 @@ namespace La.WebApi.Controllers
         /// <returns></returns>
         protected IActionResult SUCCESS(object data, string timeFormatStr = "yyyy-MM-dd HH:mm:ss")
         {
-            string jsonStr = GetJsonStr(GetApiResult(data != null ? ResultCode.SUCCESS : ResultCode.FAIL, data), timeFormatStr);
+            string jsonStr = GetJsonStr(GetApiResult(data != null ? ResultCode.SUCCESS : ResultCode.NO_DATA, data), timeFormatStr);
             return Content(jsonStr, "application/json");
         }
 
@@ -66,7 +61,7 @@ namespace La.WebApi.Controllers
             //IWebHostEnvironment webHostEnvironment = (IWebHostEnvironment)App.ServiceProvider.GetService(typeof(IWebHostEnvironment));
             //string fileDir = Path.Combine(webHostEnvironment.WebRootPath, path, fileName);
 
-            var stream = ff.File.OpenRead(path);  //创建文件流
+            var stream = Io.File.OpenRead(path);  //创建文件流
             return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", HttpUtility.UrlEncode(fileName));
         }
         
@@ -175,7 +170,7 @@ namespace La.WebApi.Controllers
         {
             IWebHostEnvironment webHostEnvironment = (IWebHostEnvironment)App.ServiceProvider.GetService(typeof(IWebHostEnvironment));
             string sFileName = $"{fileName}模板.xlsx";
-            string newFileName = Path.Combine(webHostEnvironment.WebRootPath, "importTemplate", sFileName);
+            string newFileName = Path.Combine(webHostEnvironment.WebRootPath, "ImportTemplate", sFileName);
             
             if (!Directory.Exists(newFileName))
             {
@@ -183,6 +178,20 @@ namespace La.WebApi.Controllers
             }
             MiniExcel.SaveAs(newFileName, list);
             return sFileName;
+        }
+
+        /// <summary>
+        /// 下载指定文件模板
+        /// </summary>
+        /// <param name="fileName">下载文件名</param>
+        /// <returns></returns>
+        protected (string, string) DownloadImportTemplate(string fileName)
+        {
+            IWebHostEnvironment webHostEnvironment = (IWebHostEnvironment)App.ServiceProvider.GetService(typeof(IWebHostEnvironment));
+            string sFileName = $"{fileName}.xlsx";
+            string fullPath = Path.Combine(webHostEnvironment.WebRootPath, "ImportTemplate", sFileName);
+
+            return (sFileName, fullPath);
         }
     }
 }

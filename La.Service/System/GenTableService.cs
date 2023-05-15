@@ -8,7 +8,6 @@ using La.Model;
 using La.Model.System.Generate;
 using La.Service.System.IService;
 using System.IO;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace La.Service.System
 {
@@ -31,13 +30,21 @@ namespace La.Service.System
         /// <returns></returns>
         public int DeleteGenTableByIds(long[] tableIds)
         {
+            //Delete(f => tableIds.Contains(f.TableId));
+            //return GenTableColumnService.DeleteGenTableColumn(tableIds);
+            //应用程序启动目录
+            string StartupPathStr = Directory.GetCurrentDirectory();
+            //返回上一层目录
+            string CDUPStr = StartupPathStr.Substring(0, StartupPathStr.LastIndexOf("\\")); // 第一个\是转义符，所以要写两个
+
+
             //读取类名
             string DelClassname;
             foreach (var item in tableIds)
             {
                 var info = GetId(item);
                 DelClassname = info.ClassName;
-                DelectDir("G:\\App Develop\\VS2023\\LaplaceNet", DelClassname);
+                DelectDir(CDUPStr, DelClassname);
                 //路径将随着系统位置而变化，注意修改。
             }
             Delete(f => tableIds.Contains(f.TableId));
@@ -55,7 +62,7 @@ namespace La.Service.System
             //string[] files = Directory.GetFiles(filepath + @"\", filename);  //查找时不包括子目录
             try
             {
-                string[] files = Directory.GetFiles(srcPath + @"\", "*"+fileName+"*.*", SearchOption.AllDirectories);   //查找时包括子目录
+                string[] files = Directory.GetFiles(srcPath + @"\\", "*" + fileName + "*.*", SearchOption.AllDirectories);   //查找时包括子目录
                 foreach (string file in files)
                 {
                     File.Delete(file); //删除指定文件
@@ -70,7 +77,6 @@ namespace La.Service.System
             }
 
         }
-
         /// <summary>
         /// 删除表根据表名
         /// </summary>
@@ -88,10 +94,15 @@ namespace La.Service.System
         /// <returns></returns>
         public GenTable GetGenTableInfo(long tableId)
         {
-            var info = GetId(tableId);
-            if (info != null && !info.SubTableName.IsEmpty())
+            GenTable info = GetId(tableId);
+            if (info != null)
             {
-                info.SubTable = Queryable().Where(f => f.TableName == info.SubTableName).First();
+                info.Columns = GenTableColumnService.GenTableColumns(tableId);
+                if (!info.SubTableName.IsEmpty())
+                {
+                    info.SubTable = Queryable().Where(f => f.TableName == info.SubTableName).First();
+                    info.SubTable.Columns = GenTableColumnService.GenTableColumns(info.SubTable.TableId);
+                }
             }
             return info;
         }
@@ -126,7 +137,7 @@ namespace La.Service.System
         /// <returns></returns>
         public int ImportGenTable(GenTable table)
         {
-            table.create_time = DateTime.Now;
+            table.Create_time = DateTime.Now;
             //导入前删除现有表
             //DeleteGenTableByIds(new long[] { table.TableId });
             DeleteGenTableByTbName(table.TableName);
@@ -155,29 +166,62 @@ namespace La.Service.System
         /// 同步数据库
         /// </summary>
         /// <param name="tableId">表id</param>
-        /// <param name="dbTableColumns"></param>
         /// <param name="genTable"></param>
-        public void SynchDb(long tableId, GenTable genTable, List<GenTableColumn> dbTableColumns)
+        /// <param name="dbTableColumns">数据库表最新列初始化信息集合</param>
+        public bool SynchDb(long tableId, GenTable genTable, List<GenTableColumn> dbTableColumns)
         {
-            List<GenTableColumn> tableColumns = GenTableColumnService.GenTableColumns(tableId);
-            List<string> tableColumnNames = tableColumns.Select(f => f.ColumnName).ToList();
-            List<string> dbTableColumneNames = dbTableColumns.Select(f => f.ColumnName).ToList();
+            List<string> tableColumnNames = genTable.Columns.Select(f => f.ColumnName).ToList();//老列明
+            List<string> dbTableColumneNames = dbTableColumns.Select(f => f.ColumnName).ToList();//新列明
 
             List<GenTableColumn> insertColumns = new();
+            List<GenTableColumn> updateColumns = new();
             foreach (var column in dbTableColumns)
             {
                 if (!tableColumnNames.Contains(column.ColumnName))
                 {
                     insertColumns.Add(column);
                 }
+                else
+                {
+                    GenTableColumn prevColumn = genTable.Columns.Find(f => f.ColumnName == column.ColumnName);
+                    column.ColumnId = prevColumn.ColumnId;
+                    column.IsEdit = prevColumn.IsEdit;
+                    column.AutoFillType = prevColumn.AutoFillType;
+                    column.Sort = prevColumn.Sort;
+                    column.IsExport = prevColumn.IsExport;
+                    column.IsSort = prevColumn.IsSort;
+                    column.Update_time = DateTime.Now;
+                    column.Update_by = genTable.Update_by;
+                    if (column.IsList)
+                    {
+                        column.DictType = prevColumn.DictType;
+                        column.QueryType = prevColumn.QueryType;
+                    }
+                    if (column.ColumnComment.IsEmpty())
+                    {
+                        column.ColumnComment = prevColumn.ColumnComment;
+                    }
+                    updateColumns.Add(column);
+                }
             }
-            GenTableColumnService.Insert(insertColumns);
-
-            List<GenTableColumn> delColumns = tableColumns.FindAll(column => !dbTableColumneNames.Contains(column.ColumnName));
-            if (delColumns != null && delColumns.Count > 0)
+            bool result = UseTran2(() =>
             {
-                GenTableColumnService.Delete(delColumns.Select(f => f.ColumnId).ToList());
-            }
+                if (insertColumns.Count > 0)
+                {
+                    GenTableColumnService.Insert(insertColumns);
+                }
+                if (updateColumns.Count > 0)
+                {
+                    GenTableColumnService.UpdateGenTableColumn(updateColumns);
+                }
+
+                List<GenTableColumn> delColumns = genTable.Columns.FindAll(column => !dbTableColumneNames.Contains(column.ColumnName));
+                if (delColumns != null && delColumns.Count > 0)
+                {
+                    GenTableColumnService.Delete(delColumns.Select(f => f.ColumnId).ToList());
+                }
+            });
+            return result;
         }
     }
 
@@ -245,7 +289,7 @@ namespace La.Service.System
         public int UpdateGenTableColumn(List<GenTableColumn> tableColumn)
         {
             return Context.Updateable(tableColumn)
-                .WhereColumns(it => new { it.ColumnId, it.TableId })
+                .WhereColumns(it => new { it.ColumnId })
                 .UpdateColumns(it => new
                 {
                     it.ColumnComment,
@@ -263,8 +307,9 @@ namespace La.Service.System
                     it.DictType,
                     it.Update_by,
                     it.ReMark,
-                    it.IsSort,
-                    it.IsExport
+                    it.IsSort,//
+                    it.IsExport,
+                    it.AutoFillType,
                 })
                 .ExecuteCommand();
         }

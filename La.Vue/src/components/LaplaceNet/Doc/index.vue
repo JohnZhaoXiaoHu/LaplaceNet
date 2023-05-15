@@ -1,6 +1,6 @@
 <template>
   <div>
-    <svg-icon name="question-solid" @click="goto" />
+    <svg-icon name="circle-question" @click="goto" />
   </div>
 </template>
 <script setup>
@@ -15,7 +15,7 @@
     width: 1.2em;
     height: 1.2em;
     vertical-align: -0.15em;
-    fill: #673AB7;
+    fill: #19191a;
     overflow: hidden;
   }
 

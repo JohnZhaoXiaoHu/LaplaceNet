@@ -3,7 +3,6 @@ using Newtonsoft.Json;
 using SqlSugar;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace La.Model.System
 {
@@ -20,29 +19,20 @@ namespace La.Model.System
         [SugarColumn(IsIdentity = true, IsPrimaryKey = true)]
         public long UserId { get; set; }
         /// <summary>
-        /// 用户名称
+        /// 登录用户名
         /// </summary>
-        //[Duplication]//校验模板类该列数据是否重复
         public string UserName { get; set; }
         /// <summary>
-        /// 昵称
+        /// 用户昵称
         /// </summary>
         public string NickName { get; set; }
         /// <summary>
-        /// '用户类型（00系统用户）',
+        /// 用户类型（00系统用户）
         /// </summary>
-        //[JsonProperty(propertyName: "userType")]
-        //public string User_type { get; set; } = "";
-        [SugarColumn(IsOnlyIgnoreInsert = true)]
-        [ExcelIgnore]
+        public string UserType { get; set; } = "";
+        //[SugarColumn(IsOnlyIgnoreInsert = true)]
         public string Avatar { get; set; }
-        /// <summary>
-        /// 邮件
-        /// </summary>
         public string Email { get; set; }
-        /// <summary>
-        /// 密码
-        /// </summary>
 
         [JsonIgnore]
         [ExcelIgnore]
@@ -87,19 +77,10 @@ namespace La.Model.System
         public long DeptId { get; set; }
 
         #region 表额外字段
-        /// <summary>
-        /// 超级用户判断
-        /// </summary>
-        /// <returns></returns>
         public bool IsAdmin()
         {
             return IsAdmin(UserId);
         }
-        /// <summary>
-        /// 超级用户判断
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <returns></returns>
         public static bool IsAdmin(long userId)
         {
             return 1 == userId;
@@ -124,16 +105,10 @@ namespace La.Model.System
         [SugarColumn(IsIgnore = true)]
         [ExcelIgnore]
         public int[] PostIds { get; set; }
-        /// <summary>
-        /// 角色表
-        /// </summary>
 
         [SugarColumn(IsIgnore = true)]
         [ExcelIgnore]
         public List<SysRole> Roles { get; set; }
-        /// <summary>
-        /// 欢迎消息
-        /// </summary>
         [SugarColumn(IsIgnore = true)]
         public string WelcomeMessage
         {
@@ -163,9 +138,6 @@ namespace La.Model.System
                 }
             }
         }
-        /// <summary>
-        /// 欢迎内容
-        /// </summary>
         [SugarColumn(IsIgnore = true)]
         public string WelcomeContent { get; set; }
 

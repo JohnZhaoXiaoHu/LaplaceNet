@@ -2,7 +2,7 @@
   <el-aside :data-theme="sideTheme" class="sidebar" :class="{ 'has-logo': showLogo }">
     <logo v-if="showLogo" :collapse="isCollapse" />
 
-    <el-scrollbar :class="sideTheme" wrap-class="scrollbar-wrapper">
+    <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="activeMenu"
         :collapse="isCollapse"
@@ -34,7 +34,7 @@ const showLogo = computed(() => settingsStore.sidebarLogo)
 const sideTheme = computed(() => settingsStore.sideTheme)
 const theme = computed(() => settingsStore.theme)
 const isCollapse = computed(() => !appStore.sidebar.opened)
-
+const device = computed(() => appStore.device)
 const activeMenu = computed(() => {
   const { meta, path } = route
   // if set path, the sidebar will highlight the path you set
@@ -42,5 +42,10 @@ const activeMenu = computed(() => {
     return meta.activeMenu
   }
   return path
+})
+watch(route, (val) => {
+  if (device.value === 'mobile') {
+    appStore.closeSideBar()
+  }
 })
 </script>

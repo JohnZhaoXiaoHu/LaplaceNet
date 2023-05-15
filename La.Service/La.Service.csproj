@@ -9,8 +9,4 @@
 		<ProjectReference Include="..\La.Repository\La.Repository.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="System\ISystemService\" />
-	</ItemGroup>
-
 </Project>

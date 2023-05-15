@@ -11,25 +11,14 @@ using La.Service.System.IService;
 namespace La.WebApi.Controllers.System
 {
     /// <summary>
-    /// 部门Controller
+    /// 部门
     /// </summary>
     [Verify]
     [Route("system/dept")]
     public class SysDeptController : BaseController
     {
-        /// <summary>
-        /// 部门接口DeptService
-        /// </summary>
         public ISysDeptService DeptService;
-        /// <summary>
-        /// 用户接口UserService
-        /// </summary>
         public ISysUserService UserService;
-        /// <summary>
-        /// 部门Controller
-        /// </summary>
-        /// <param name="deptService"></param>
-        /// <param name="userService"></param>
         public SysDeptController(ISysDeptService deptService
             , ISysUserService userService)
         {
@@ -127,7 +116,7 @@ namespace La.WebApi.Controllers.System
             {
                 return ToResponse(GetApiResult(ResultCode.CUSTOM_ERROR, $"新增部门{dept.DeptName}失败，部门名称已存在"));
             }
-            dept.create_by = User.Identity.Name!;
+            dept.Create_by = User.Identity.Name;
             return ToResponse(ToJson(DeptService.InsertDept(dept)));
         }
 

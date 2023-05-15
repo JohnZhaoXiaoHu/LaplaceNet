@@ -7,11 +7,11 @@
 	<ItemGroup>
 		<ProjectReference Include="..\La.Infra\La.Infra.csproj" />
 		<ProjectReference Include="..\La.Common\La.Common.csproj" />
-		<ProjectReference Include="..\La.Model\La.Model.csproj" />
+		<ProjectReference Include="..\LA.Model\La.Model.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="JinianNet.JNTemplate" Version="2.3.3" />
-		<PackageReference Include="SqlSugarCoreNoDrive" Version="5.1.4.67" />
+		<PackageReference Include="SqlSugarCoreNoDrive" Version="5.1.4.66" />
 	</ItemGroup>
 </Project>

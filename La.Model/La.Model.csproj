@@ -3,23 +3,15 @@
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-		<DocumentationFile>..\La.WebApi\La.Model.xml</DocumentationFile>
+		<DocumentationFile>../La.WebApi/La.Model.xml</DocumentationFile>
+		<NoWarn>1701;1702;1591;1570</NoWarn>
 	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="MiniExcel" Version="1.30.2" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="SqlSugarCoreNoDrive" Version="5.1.4.67" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\La.Infra\La.Infra.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Dto\System\" />
-    <Folder Include="Models\System\" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="MiniExcel" Version="1.30.2" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+		<PackageReference Include="SqlSugarCoreNoDrive" Version="5.1.4.66" />
+		<PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+	</ItemGroup>
 
 </Project>

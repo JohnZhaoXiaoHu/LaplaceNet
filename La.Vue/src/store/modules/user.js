@@ -1,10 +1,7 @@
 import { login, logout, getInfo, oauthCallback } from '@/api/system/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import defAva from '@/assets/images/profile.jpg'
-import Cookies from 'js-cookie'
-import { encrypt } from '@/utils/jsencrypt'
-
-
+import md5 from 'js-md5'
 const useUserStore = defineStore('user', {
   state: () => ({
     userInfo: '',
@@ -14,7 +11,8 @@ const useUserStore = defineStore('user', {
     roles: [],
     permissions: [],
     userId: 0,
-    authSource: ''
+    authSource: '',
+    userName: ''
   }),
   actions: {
     setAuthSource(source) {
@@ -23,17 +21,15 @@ const useUserStore = defineStore('user', {
     // 登录
     login(userInfo) {
       const username = userInfo.username.trim()
-      const password = userInfo.password
+      const password = md5(userInfo.password)
       const code = userInfo.code
       const uuid = userInfo.uuid
       return new Promise((resolve, reject) => {
         login(username, password, code, uuid)
           .then((res) => {
             if (res.code == 200) {
-
               setToken(res.data)
               this.token = res.data
-
               resolve() //then处理
             } else {
               console.log('login error ', res)
@@ -53,20 +49,24 @@ const useUserStore = defineStore('user', {
      */
     oauthLogin(data, param) {
       return new Promise((resolve, reject) => {
-        oauthCallback(data, param).then((res) => {
-          const { code, data } = res
-          if (code == 200) {
-            setToken(data.token)
-            this.token = data.token
-            Cookies.set('username', data.userName, { expires: 30 })
-            Cookies.set('password', encrypt(data.password), { expires: 30 })
-            Cookies.set('rememberMe', true, { expires: 30 })
-            resolve(res) //then处理
-          } else {
-            console.log('login error ', res)
-            reject(res) //catch处理
-          }
-        })
+        oauthCallback(data, param)
+          .then((res) => {
+            const { code, data } = res
+            if (code == 200) {
+              setToken(data.token)
+              this.token = data.token
+              // Cookies.set('username', data.userName, { expires: 30 })
+              // Cookies.set('password', encrypt(data.password), { expires: 30 })
+              // Cookies.set('rememberMe', true, { expires: 30 })
+              resolve(res) //then处理
+            } else {
+              console.log('login error ', res)
+              reject(res) //catch处理
+            }
+          })
+          .catch((err) => {
+            reject(err)
+          })
       })
     },
     // 获取用户信息
@@ -89,6 +89,7 @@ const useUserStore = defineStore('user', {
             this.avatar = avatar
             this.userInfo = data.user //新加
             this.userId = data.user.userId //新加
+            this.userName = data.user.userName //新加
             resolve(res)
           })
           .catch((error) => {

@@ -29,25 +29,17 @@ namespace La.WebApi.Extensions
 
             var iocList = new List<IocConfig>() {
                    new IocConfig() {
-                    ConfigId = "0",//默认MySql
+                    ConfigId = "0",//默认db
                     ConnectionString = connStr,
                     DbType = (IocDbType)dbType,
                     IsAutoCloseConnection = true
                 },
                    new IocConfig() {
-                    ConfigId = "1",//SqlServer
-                    ConnectionString = connStr,
-                    DbType = (IocDbType)dbType,
-                    IsAutoCloseConnection = true
-                },
-                   new IocConfig() {
-                    ConfigId = "2",//Sqlite
+                    ConfigId = "1",
                     ConnectionString = connStr,
                     DbType = (IocDbType)dbType,
                     IsAutoCloseConnection = true
                 }
-
-                   //...增加其他数据库
                 };
             SugarIocServices.AddSqlSugar(iocList);
             ICacheService cache = new SqlSugarCache();
@@ -66,7 +58,7 @@ namespace La.WebApi.Extensions
         private static void SetSugarAop(SqlSugarClient db, IocConfig iocConfig, ICacheService cache)
         {
             var config = db.GetConnection(iocConfig.ConfigId).CurrentConnectionConfig;
-            
+
             string configId = config.ConfigId;
             db.GetConnectionScope(configId).Aop.OnLogExecuted = (sql, pars) =>
             {
@@ -119,6 +111,7 @@ namespace La.WebApi.Extensions
             var entityes = AssemblyUtils.GetAllTypes().Where(p => !p.IsAbstract && p != baseType && /*p.IsAssignableTo(baseType) && */p.GetCustomAttribute<SugarTable>() != null).ToArray();
             db.CodeFirst.SetStringDefaultLength(512).InitTables(entityes);
         }
+
         private static object GetParsValue(SugarParameter x)
         {
             if (x.DbType == System.Data.DbType.String || x.DbType == System.Data.DbType.DateTime || x.DbType == System.Data.DbType.String)
@@ -173,9 +166,9 @@ namespace La.WebApi.Extensions
                 }
                 else if (DATA_SCOPE_SELF.Equals(dataScope))//仅本人数据
                 {
-                    //var filter1 = new TableFilterItem<SysUser>(it => it.UserId == user.UserId, true);
-                    //db.QueryFilter.Add(filter1);
                     db.QueryFilter.AddTableFilter<SysUser>(it => it.UserId == user.UserId);
+                    db.QueryFilter.AddTableFilter<SysRole>(it => user.RoleIds.Contains(it.RoleKey));
+                    db.QueryFilter.AddTableFilter<SysLogininfor>(it => it.UserName == user.UserName);
                 }
             }
         }

@@ -70,6 +70,13 @@
             <param name="fileName">下载文件名</param>
             <returns></returns>
         </member>
+        <member name="M:La.WebApi.Controllers.BaseController.DownloadImportTemplate(System.String)">
+            <summary>
+            下载指定文件模板
+            </summary>
+            <param name="fileName">下载文件名</param>
+            <returns></returns>
+        </member>
         <member name="T:La.WebApi.Controllers.CommonController">
             <summary>
             公共模块
@@ -344,8 +351,8 @@
             财务期间Controller
             
             @tableName fico_period
-            @author Davis.Cheng
-            @date 2023-04-11
+            @author Davis.Ching
+            @date 2023-05-15
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.FicoPeriodController._FicoPeriodService">
@@ -572,8 +579,8 @@
             人事信息Controller
             
             @tableName ehr_employee
-            @author Davis.Cheng
-            @date 2023-05-09
+            @author Davis.Ching
+            @date 2023-05-15
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.EhrEmployeeController._EhrEmployeeService">
@@ -621,12 +628,6 @@
         <member name="M:La.WebApi.Controllers.EhrEmployeeController.Export(La.Model.Dto.EhrEmployeeQueryDto)">
             <summary>
             导出人事信息
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.EhrEmployeeController.Clear">
-            <summary>
-            清空人事信息
             </summary>
             <returns></returns>
         </member>
@@ -1122,144 +1123,126 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:La.WebApi.Controllers.System.ArticleCategoryController">
+        <member name="T:La.WebApi.Controllers.ArticleCategoryController">
             <summary>
             文章目录Controller
             </summary>
         </member>
-        <member name="F:La.WebApi.Controllers.System.ArticleCategoryController._ArticleCategoryService">
+        <member name="F:La.WebApi.Controllers.ArticleCategoryController._ArticleCategoryService">
             <summary>
             文章目录接口
             </summary>
         </member>
-        <member name="M:La.WebApi.Controllers.System.ArticleCategoryController.#ctor(La.Service.System.IService.IArticleCategoryService)">
-            <summary>
-            文章目录接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.ArticleCategoryController.QueryArticleCategory(La.Model.Dto.ArticleCategoryQueryDto)">
+        <member name="M:La.WebApi.Controllers.ArticleCategoryController.QueryArticleCategory(La.Model.Dto.ArticleCategoryQueryDto)">
             <summary>
             查询文章目录列表
             </summary>
             <param name="parm"></param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.ArticleCategoryController.QueryTreeArticleCategory(La.Model.Dto.ArticleCategoryQueryDto)">
+        <member name="M:La.WebApi.Controllers.ArticleCategoryController.QueryTreeArticleCategory(La.Model.Dto.ArticleCategoryQueryDto)">
             <summary>
             查询文章目录列表树
             </summary>
             <param name="parm"></param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.ArticleCategoryController.GetArticleCategory(System.Int32)">
+        <member name="M:La.WebApi.Controllers.ArticleCategoryController.GetArticleCategory(System.Int32)">
             <summary>
             查询文章目录详情
             </summary>
             <param name="CategoryId"></param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.ArticleCategoryController.AddArticleCategory(La.Model.Dto.ArticleCategoryDto)">
+        <member name="M:La.WebApi.Controllers.ArticleCategoryController.AddArticleCategory(La.Model.Dto.ArticleCategoryDto)">
             <summary>
             添加文章目录
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.ArticleCategoryController.UpdateArticleCategory(La.Model.Dto.ArticleCategoryDto)">
+        <member name="M:La.WebApi.Controllers.ArticleCategoryController.UpdateArticleCategory(La.Model.Dto.ArticleCategoryDto)">
             <summary>
             更新文章目录
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.ArticleCategoryController.DeleteArticleCategory(System.String)">
+        <member name="M:La.WebApi.Controllers.ArticleCategoryController.DeleteArticleCategory(System.String)">
             <summary>
             删除文章目录
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.ArticleCategoryController.Export(La.Model.Dto.ArticleCategoryQueryDto)">
+        <member name="M:La.WebApi.Controllers.ArticleCategoryController.Export(La.Model.Dto.ArticleCategoryQueryDto)">
             <summary>
             导出文章目录
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.ArticleCategoryController.CategoryList">
+        <member name="M:La.WebApi.Controllers.ArticleCategoryController.CategoryList">
             <summary>
             获取文章目录,前端没用到
             </summary>
             <returns></returns>
         </member>
-        <member name="T:La.WebApi.Controllers.System.ArticleController">
+        <member name="T:La.WebApi.Controllers.ArticleController">
             <summary>
             文章管理
             </summary>
         </member>
-        <member name="F:La.WebApi.Controllers.System.ArticleController._ArticleService">
+        <member name="F:La.WebApi.Controllers.ArticleController._ArticleService">
             <summary>
             文章接口
             </summary>
         </member>
-        <member name="M:La.WebApi.Controllers.System.ArticleController.#ctor(La.Service.System.IService.IArticleService,La.Service.System.IService.IArticleCategoryService)">
-            <summary>
-            文章接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.ArticleController.Query(La.Model.System.Dto.ArticleQueryDto)">
+        <member name="M:La.WebApi.Controllers.ArticleController.Query(La.Model.System.Dto.ArticleQueryDto)">
             <summary>
             查询文章列表
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.ArticleController.QueryNew">
+        <member name="M:La.WebApi.Controllers.ArticleController.QueryNew">
             <summary>
             查询最新文章列表
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.ArticleController.Get(System.Int32)">
+        <member name="M:La.WebApi.Controllers.ArticleController.Get(System.Int32)">
             <summary>
             查询文章详情
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.ArticleController.Create(La.Model.System.Article)">
+        <member name="M:La.WebApi.Controllers.ArticleController.Create(La.Model.System.Dto.ArticleDto)">
             <summary>
             添加文章
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.ArticleController.Update(La.Model.System.Article)">
+        <member name="M:La.WebApi.Controllers.ArticleController.Update(La.Model.System.Dto.ArticleDto)">
             <summary>
             更新文章
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.ArticleController.Delete(System.Int32)">
+        <member name="M:La.WebApi.Controllers.ArticleController.Delete(System.Int32)">
             <summary>
             删除文章
             </summary>
             <returns></returns>
         </member>
-        <member name="T:La.WebApi.Controllers.System.CodeGeneratorController">
+        <member name="T:La.WebApi.Controllers.CodeGeneratorController">
             <summary>
             代码生成
             </summary>
         </member>
-        <member name="M:La.WebApi.Controllers.System.CodeGeneratorController.#ctor(La.Service.System.IService.IGenTableService,La.Service.System.IService.IGenTableColumnService,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
-            <summary>
-            代码生成接口
-            </summary>
-            <param name="genTableService"></param>
-            <param name="genTableColumnService"></param>
-            <param name="webHostEnvironment"></param>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.CodeGeneratorController.GetListDataBase">
+        <member name="M:La.WebApi.Controllers.CodeGeneratorController.GetListDataBase">
             <summary>
             获取所有数据库的信息
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.CodeGeneratorController.FindListTable(System.String,System.String,La.Model.PagerInfo)">
+        <member name="M:La.WebApi.Controllers.CodeGeneratorController.FindListTable(System.String,System.String,La.Model.PagerInfo)">
              <summary>
             获取所有表根据数据库名
              </summary>
@@ -1268,7 +1251,7 @@
              <param name="pager">分页信息</param>
              <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.CodeGeneratorController.GetGenTable(System.String,La.Model.PagerInfo)">
+        <member name="M:La.WebApi.Controllers.CodeGeneratorController.GetGenTable(System.String,La.Model.PagerInfo)">
             <summary>
             查询生成表数据
             </summary>
@@ -1276,28 +1259,28 @@
             <param name="pagerInfo">分页信息</param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.CodeGeneratorController.GetColumnList(System.Int64)">
+        <member name="M:La.WebApi.Controllers.CodeGeneratorController.GetColumnList(System.Int64)">
             <summary>
             修改代码生成业务查询
             </summary>
             <param name="tableId">genTable表id</param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.CodeGeneratorController.GetTableColumnList(System.Int64)">
+        <member name="M:La.WebApi.Controllers.CodeGeneratorController.GetTableColumnList(System.Int64)">
             <summary>
             根据表id查询表列
             </summary>
             <param name="tableId">genTable表id</param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.CodeGeneratorController.Remove(System.String)">
+        <member name="M:La.WebApi.Controllers.CodeGeneratorController.Remove(System.String)">
             <summary>
             删除代码生成
             </summary>
             <param name="tableIds"></param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.CodeGeneratorController.ImportTableSave(System.String,System.String)">
+        <member name="M:La.WebApi.Controllers.CodeGeneratorController.ImportTableSave(System.String,System.String)">
             <summary>
             导入表结构（保存）
             </summary>
@@ -1305,14 +1288,14 @@
             <param name="dbName"></param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.CodeGeneratorController.EditSave(La.Model.System.Dto.GenTableDto)">
+        <member name="M:La.WebApi.Controllers.CodeGeneratorController.EditSave(La.Model.System.Dto.GenTableDto)">
             <summary>
             修改保存代码生成业务
             </summary>
             <param name="genTableDto">请求参数实体</param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.CodeGeneratorController.Preview(System.Int64,System.Int32)">
+        <member name="M:La.WebApi.Controllers.CodeGeneratorController.Preview(System.Int64,System.Int32)">
             <summary>
             预览代码
             </summary>
@@ -1320,14 +1303,14 @@
             <param name="VueVersion"></param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.CodeGeneratorController.CodeGenerate(La.CodeGenerator.Model.GenerateDto)">
+        <member name="M:La.WebApi.Controllers.CodeGeneratorController.CodeGenerate(La.CodeGenerator.Model.GenerateDto)">
             <summary>
             生成代码（下载方式）
             </summary>
             <param name="dto">数据传输对象</param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.CodeGeneratorController.SynchDb(System.String,System.Int64)">
+        <member name="M:La.WebApi.Controllers.CodeGeneratorController.SynchDb(System.String,System.Int64)">
             <summary>
             同步数据库
             </summary>
@@ -1335,114 +1318,209 @@
             <param name="tableName"></param>
             <returns></returns>
         </member>
-        <member name="T:La.WebApi.Controllers.System.CommonLangController">
+        <member name="T:La.WebApi.Controllers.CommonLangController">
             <summary>
             多语言配置Controller
             </summary>
         </member>
-        <member name="F:La.WebApi.Controllers.System.CommonLangController._CommonLangService">
+        <member name="F:La.WebApi.Controllers.CommonLangController._CommonLangService">
             <summary>
             多语言配置接口
             </summary>
         </member>
-        <member name="M:La.WebApi.Controllers.System.CommonLangController.#ctor(La.Service.System.IService.ICommonLangService)">
-            <summary>
-            多语言配置接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.CommonLangController.QueryCommonLang(La.Model.Dto.CommonLangQueryDto)">
+        <member name="M:La.WebApi.Controllers.CommonLangController.QueryCommonLang(La.Model.Dto.CommonLangQueryDto)">
             <summary>
             查询多语言配置列表
             </summary>
             <param name="parm"></param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.CommonLangController.QueryCommonLangs(System.String)">
+        <member name="M:La.WebApi.Controllers.CommonLangController.QueryCommonLangs(System.String)">
             <summary>
             查询多语言配置列表
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.CommonLangController.GetCommonLang(System.Int64)">
+        <member name="M:La.WebApi.Controllers.CommonLangController.GetCommonLang(System.Int64)">
             <summary>
             查询多语言配置详情
             </summary>
             <param name="Id"></param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.CommonLangController.GetCommonLangByKey(System.String)">
+        <member name="M:La.WebApi.Controllers.CommonLangController.GetCommonLangByKey(System.String)">
             <summary>
             查询多语言配置详情
             </summary>
             <param name="langKey"></param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.CommonLangController.UpdateCommonLang(La.Model.Dto.CommonLangDto)">
+        <member name="M:La.WebApi.Controllers.CommonLangController.UpdateCommonLang(La.Model.Dto.CommonLangDto)">
             <summary>
             更新多语言配置
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.CommonLangController.DeleteCommonLang(System.String)">
+        <member name="M:La.WebApi.Controllers.CommonLangController.DeleteCommonLang(System.String)">
             <summary>
             删除多语言配置
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.CommonLangController.Export(La.Model.Dto.CommonLangQueryDto)">
+        <member name="M:La.WebApi.Controllers.CommonLangController.Export(La.Model.Dto.CommonLangQueryDto)">
             <summary>
             导出多语言配置
             </summary>
             <returns></returns>
         </member>
-        <member name="T:La.WebApi.Controllers.System.SysConfigController">
+        <member name="T:La.WebApi.Controllers.monitor.MonitorController">
+            <summary>
+            系统监控
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.monitor.MonitorController.GetCache">
+            <summary>
+            获取缓存监控数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.monitor.MonitorController.Server">
+            <summary>
+            获取服务器信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:La.WebApi.Controllers.monitor.SysLogininforController">
+            <summary>
+            系统访问记录
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.monitor.SysLogininforController.LoignLogList(La.Model.System.SysLogininfor,La.Model.PagerInfo)">
+            <summary>
+            查询登录日志
+            </summary>
+            <param name="sysLogininfoDto"></param>
+            <param name="pagerInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.monitor.SysLogininforController.CleanLoginInfo">
+            <summary>
+            清空登录日志
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.monitor.SysLogininforController.Remove(System.String)">
+            <summary>
+            </summary>
+            <param name="infoIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.monitor.SysLogininforController.Export(La.Model.System.SysLogininfor)">
+            <summary>
+            登录日志导出
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:La.WebApi.Controllers.monitor.SysOperlogController">
+            <summary>
+            操作日志记录
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.monitor.SysOperlogController.OperList(La.Model.System.Dto.SysOperLogDto)">
+            <summary>
+            查询操作日志
+            </summary>
+            <param name="sysOperLog"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.monitor.SysOperlogController.Remove(System.String)">
+            <summary>
+            删除操作日志
+            </summary>
+            <param name="operIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.monitor.SysOperlogController.ClearOperLog">
+            <summary>
+            清空操作日志
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.monitor.SysOperlogController.Export(La.Model.System.Dto.SysOperLogDto)">
+            <summary>
+            导出操作日志
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:La.WebApi.Controllers.monitor.SysUserOnlineController">
+            <summary>
+            在线管理
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.monitor.SysUserOnlineController.#ctor(Microsoft.Extensions.Logging.ILogger{La.WebApi.Controllers.monitor.SysUserOnlineController},Microsoft.AspNetCore.SignalR.IHubContext{La.WebApi.Hubs.MessageHub})">
+            <summary>
+            在线日志
+            </summary>
+            <param name="logger"></param>
+            <param name="hub"></param>
+        </member>
+        <member name="M:La.WebApi.Controllers.monitor.SysUserOnlineController.PageList(La.WebApi.Hubs.OnlineUsers)">
+            <summary>
+            动态条件获取当前在线用户
+            </summary>
+            <param name="online"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.monitor.SysUserOnlineController.forceOut(System.String)">
+            <summary>
+            强制退出用户
+            </summary>
+            <param name="connnectionId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:La.WebApi.Controllers.SysConfigController">
             <summary>
             参数配置Controller
             </summary>
         </member>
-        <member name="F:La.WebApi.Controllers.System.SysConfigController._SysConfigService">
+        <member name="F:La.WebApi.Controllers.SysConfigController._SysConfigService">
             <summary>
             参数配置接口
             </summary>
         </member>
-        <member name="M:La.WebApi.Controllers.System.SysConfigController.#ctor(La.Service.System.ISysConfigService)">
-            <summary>
-            参数配置接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.SysConfigController.QuerySysConfig(La.Model.System.Dto.SysConfigQueryDto)">
+        <member name="M:La.WebApi.Controllers.SysConfigController.QuerySysConfig(La.Model.System.Dto.SysConfigQueryDto)">
             <summary>
             查询参数配置列表
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.SysConfigController.GetSysConfig(System.Int32)">
+        <member name="M:La.WebApi.Controllers.SysConfigController.GetSysConfig(System.Int32)">
             <summary>
             查询参数配置详情
             </summary>
             <param name="ConfigId"></param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.SysConfigController.GetConfigKey(System.String)">
+        <member name="M:La.WebApi.Controllers.SysConfigController.GetConfigKey(System.String)">
             <summary>
             根据参数键名查询参数值
             </summary>
             <param name="configKey"></param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.SysConfigController.AddSysConfig(La.Model.System.Dto.SysConfigDto)">
+        <member name="M:La.WebApi.Controllers.SysConfigController.AddSysConfig(La.Model.System.Dto.SysConfigDto)">
             <summary>
             添加参数配置
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.SysConfigController.UpdateSysConfig(La.Model.System.Dto.SysConfigDto)">
+        <member name="M:La.WebApi.Controllers.SysConfigController.UpdateSysConfig(La.Model.System.Dto.SysConfigDto)">
             <summary>
             更新参数配置
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.System.SysConfigController.DeleteSysConfig(System.String)">
+        <member name="M:La.WebApi.Controllers.SysConfigController.DeleteSysConfig(System.String)">
             <summary>
             删除参数配置
             </summary>
@@ -1450,25 +1528,8 @@
         </member>
         <member name="T:La.WebApi.Controllers.System.SysDeptController">
             <summary>
-            部门Controller
+            部门
             </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.System.SysDeptController.DeptService">
-            <summary>
-            部门接口DeptService
-            </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.System.SysDeptController.UserService">
-            <summary>
-            用户接口UserService
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.SysDeptController.#ctor(La.Service.System.IService.ISysDeptService,La.Service.System.IService.ISysUserService)">
-            <summary>
-            部门Controller
-            </summary>
-            <param name="deptService"></param>
-            <param name="userService"></param>
         </member>
         <member name="M:La.WebApi.Controllers.System.SysDeptController.List(La.Model.System.SysDept)">
             <summary>
@@ -1529,13 +1590,6 @@
             数据字典信息
             </summary>
         </member>
-        <member name="M:La.WebApi.Controllers.System.SysDictDataController.#ctor(La.Service.System.IService.ISysDictService,La.Service.System.IService.ISysDictDataService)">
-            <summary>
-            数据 字典接口
-            </summary>
-            <param name="sysDictService"></param>
-            <param name="sysDictDataService"></param>
-        </member>
         <member name="M:La.WebApi.Controllers.System.SysDictDataController.List(La.Model.System.SysDictData,La.Model.PagerInfo)">
             <summary>
             搜索
@@ -1591,12 +1645,6 @@
             数据字典信息
             </summary>
         </member>
-        <member name="M:La.WebApi.Controllers.System.SysDictTypeController.#ctor(La.Service.System.IService.ISysDictService)">
-            <summary>
-            数据字典
-            </summary>
-            <param name="sysDictService"></param>
-        </member>
         <member name="M:La.WebApi.Controllers.System.SysDictTypeController.List(La.Model.System.SysDictType,La.Model.PagerInfo)">
             <summary>
             查询
@@ -1643,20 +1691,6 @@
             登录
             </summary>
         </member>
-        <member name="M:La.WebApi.Controllers.System.SysLoginController.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,La.Service.System.IService.ISysMenuService,La.Service.System.IService.ISysUserService,La.Service.System.IService.ISysLoginService,La.Service.System.IService.ISysPermissionService,La.Service.System.ISysConfigService,La.Service.System.IService.ISysRoleService,Lazy.Captcha.Core.ICaptcha,Microsoft.Extensions.Options.IOptions{La.Infra.OptionsSetting})">
-            <summary>
-            日志接口
-            </summary>
-            <param name="contextAccessor"></param>
-            <param name="sysMenuService"></param>
-            <param name="sysUserService"></param>
-            <param name="sysLoginService"></param>
-            <param name="permissionService"></param>
-            <param name="configService"></param>
-            <param name="sysRoleService"></param>
-            <param name="captcha"></param>
-            <param name="jwtSettings"></param>
-        </member>
         <member name="M:La.WebApi.Controllers.System.SysLoginController.Login(La.Model.System.Dto.LoginBodyDto)">
             <summary>
             登录
@@ -1690,12 +1724,6 @@
         </member>
         <member name="M:La.WebApi.Controllers.System.SysLoginController.RecordLogInfo(Microsoft.AspNetCore.Http.HttpContext)">
             <summary>
-            生成图片验证码
-            </summary>
-            <param name="captchaOff"></param>
-            <param name="code"></param>
-            <returns></returns>
-            <summary>
             记录用户登陆信息
             </summary>
             <param name="context"></param>
@@ -1712,14 +1740,6 @@
             <summary>
             系统菜单
             </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.SysMenuController.#ctor(La.Service.System.IService.ISysRoleService,La.Service.System.IService.ISysMenuService,La.Service.System.IService.ISysRoleMenuService)">
-            <summary>
-            SysMenuController
-            </summary>
-            <param name="sysRoleService"></param>
-            <param name="sysMenuService"></param>
-            <param name="sysRoleMenuService"></param>
         </member>
         <member name="M:La.WebApi.Controllers.System.SysMenuController.TreeMenuList(La.Model.System.Dto.MenuQueryDto)">
             <summary>
@@ -1788,11 +1808,6 @@
             通知公告表接口
             </summary>
         </member>
-        <member name="M:La.WebApi.Controllers.System.SysNoticeController.#ctor(La.Service.System.IService.ISysNoticeService,Microsoft.AspNetCore.SignalR.IHubContext{La.WebApi.Hubs.MessageHub})">
-            <summary>
-            通知公告表接口
-            </summary>
-        </member>
         <member name="M:La.WebApi.Controllers.System.SysNoticeController.QueryNotice(La.Model.System.Dto.SysNoticeQueryDto)">
             <summary>
             查询通知公告表列表
@@ -1847,12 +1862,6 @@
             岗位管理
             </summary>
         </member>
-        <member name="M:La.WebApi.Controllers.System.SysPostController.#ctor(La.Service.System.IService.ISysPostService)">
-            <summary>
-            岗位管理
-            </summary>
-            <param name="postService"></param>
-        </member>
         <member name="M:La.WebApi.Controllers.System.SysPostController.List(La.Model.System.SysPost,La.Model.PagerInfo)">
             <summary>
             岗位列表查询
@@ -1903,17 +1912,6 @@
             个人中心
             </summary>
         </member>
-        <member name="M:La.WebApi.Controllers.System.SysProfileController.#ctor(La.Service.System.IService.ISysUserService,La.Service.System.IService.ISysRoleService,La.Service.System.IService.ISysUserPostService,La.Service.System.IService.ISysDeptService,La.Service.System.IService.ISysFileService,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
-            <summary>
-            个人中心
-            </summary>
-            <param name="userService"></param>
-            <param name="roleService"></param>
-            <param name="postService"></param>
-            <param name="deptService"></param>
-            <param name="sysFileService"></param>
-            <param name="hostEnvironment"></param>
-        </member>
         <member name="M:La.WebApi.Controllers.System.SysProfileController.Profile">
             <summary>
             个人中心用户信息获取
@@ -1943,12 +1941,6 @@
             <summary>
             角色信息
             </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.SysRoleController.#ctor(La.Service.System.IService.ISysRoleService)">
-            <summary>
-            角色信息
-            </summary>
-            <param name="sysRoleService"></param>
         </member>
         <member name="M:La.WebApi.Controllers.System.SysRoleController.List(La.Model.System.SysRole,La.Model.PagerInfo)">
             <summary>
@@ -2008,15 +2000,6 @@
             <summary>
             用户管理
             </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.SysUserController.#ctor(La.Service.System.IService.ISysUserService,La.Service.System.IService.ISysRoleService,La.Service.System.IService.ISysPostService,La.Service.System.IService.ISysUserPostService)">
-            <summary>
-            SysUserController
-            </summary>
-            <param name="userService"></param>
-            <param name="roleService"></param>
-            <param name="postService"></param>
-            <param name="userPostService"></param>
         </member>
         <member name="M:La.WebApi.Controllers.System.SysUserController.List(La.Model.System.SysUser,La.Model.PagerInfo)">
             <summary>
@@ -2091,13 +2074,6 @@
             用户角色管理
             </summary>
         </member>
-        <member name="M:La.WebApi.Controllers.System.SysUserRoleController.#ctor(La.Service.System.IService.ISysUserRoleService,La.Service.System.IService.ISysUserService)">
-            <summary>
-            
-            </summary>
-            <param name="sysUserRoleService"></param>
-            <param name="userService"></param>
-        </member>
         <member name="M:La.WebApi.Controllers.System.SysUserRoleController.GetList(La.Model.System.Dto.RoleUserQueryDto)">
             <summary>
             根据角色编号获取已分配的用户
@@ -2125,84 +2101,10 @@
             <param name="roleUserQueryDto"></param>
             <returns></returns>
         </member>
-        <member name="T:La.WebApi.Controllers.System.TasksController">
-            <summary>
-            计划任务
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.TasksController.#ctor(La.Service.System.IService.ISysTasksQzService,La.Tasks.ITaskSchedulerServer)">
-            <summary>
-            计划任务TasksController
-            </summary>
-            <param name="sysTasksQzService"></param>
-            <param name="taskScheduler"></param>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.TasksController.ListTask(La.Model.System.Dto.TasksQueryDto,La.Model.PagerInfo)">
-            <summary>
-            查询计划任务列表
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.TasksController.Get(System.String)">
-            <summary>
-            查询单个计划任务
-            </summary>
-            <param name="id">编码</param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.TasksController.Create(La.Model.System.Dto.TasksCreateDto)">
-            <summary>
-            添加任务
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.TasksController.Update(La.Model.System.Dto.TasksCreateDto)">
-            <summary>
-            更新任务
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.TasksController.Delete(System.String)">
-            <summary>
-            删除任务
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.TasksController.Start(System.String)">
-            <summary>
-            启动任务
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.TasksController.Stop(System.String)">
-            <summary>
-            停止任务
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.TasksController.Run(System.String)">
-            <summary>
-            定时任务立即执行一次
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.TasksController.Export">
-            <summary>
-            定时任务导出
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:La.WebApi.Controllers.System.TasksLogController">
             <summary>
             任务日志
             </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.System.TasksLogController.#ctor(La.Service.System.IService.ISysTasksLogService)">
-            <summary>
-            任务日志TasksLogController
-            </summary>
-            <param name="tasksLogService"></param>
         </member>
         <member name="M:La.WebApi.Controllers.System.TasksLogController.GetList(La.Model.PagerInfo,La.Model.System.Dto.TasksLogQueryDto)">
             <summary>
@@ -2231,268 +2133,12 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:La.WebApi.Controllers.EtDictController">
-            <summary>
-            电子辞典Controller
-            
-            @tableName sys_et_dict
-            @author Davis.Cheng
-            @date 2023-04-26
-            </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.EtDictController._EtDictService">
-            <summary>
-            电子辞典接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.EtDictController.#ctor(La.Service.System.ISystemService.IEtDictService)">
-            <summary>
-            电子辞典Controller
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.EtDictController.QueryEtDict(La.Model.Dto.EtDictQueryDto)">
-            <summary>
-            查询电子辞典列表
-            </summary>
-            <param name="parm"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.EtDictController.GetEtDict(System.Int64)">
-            <summary>
-            查询电子辞典详情
-            </summary>
-            <param name="EtGuid"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.EtDictController.AddEtDict(La.Model.Dto.EtDictDto)">
-            <summary>
-            添加电子辞典
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.EtDictController.UpdateEtDict(La.Model.Dto.EtDictDto)">
-            <summary>
-            更新电子辞典
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.EtDictController.DeleteEtDict(System.String)">
-            <summary>
-            删除电子辞典
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.EtDictController.Export(La.Model.Dto.EtDictQueryDto)">
-            <summary>
-            导出电子辞典
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.EtDictController.Clear">
-            <summary>
-            清空电子辞典
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.monitor.MonitorController">
-            <summary>
-            系统监控
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.monitor.MonitorController.#ctor(Microsoft.Extensions.Options.IOptions{La.Infra.OptionsSetting},Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
-            <summary>
-            监控接口
-            </summary>
-            <param name="options"></param>
-            <param name="hostEnvironment"></param>
-        </member>
-        <member name="M:La.WebApi.Controllers.monitor.MonitorController.GetCache">
-            <summary>
-            获取缓存监控数据
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.monitor.MonitorController.Server">
-            <summary>
-            获取服务器信息
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.monitor.SysLogininforController">
-            <summary>
-            系统访问记录
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.monitor.SysLogininforController.#ctor(La.Service.System.IService.ISysLoginService)">
-            <summary>
-            日志接口
-            </summary>
-            <param name="sysLoginService"></param>
-        </member>
-        <member name="M:La.WebApi.Controllers.monitor.SysLogininforController.LoignLogList(La.Model.System.SysLogininfor,La.Model.PagerInfo)">
-            <summary>
-            查询登录日志
-            </summary>
-            <param name="sysLogininfoDto"></param>
-            <param name="pagerInfo"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.monitor.SysLogininforController.CleanLoginInfo">
-            <summary>
-            清空登录日志
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.monitor.SysLogininforController.Remove(System.String)">
-            <summary>
-            </summary>
-            <param name="infoIds"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.monitor.SysLogininforController.Export(La.Model.System.SysLogininfor)">
-            <summary>
-            登录日志导出
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.monitor.SysOperlogController">
-            <summary>
-            操作日志记录
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.monitor.SysOperlogController.#ctor(La.Service.System.IService.ISysOperLogService,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
-            <summary>
-            操作接口
-            </summary>
-            <param name="sysOperLogService"></param>
-            <param name="hostEnvironment"></param>
-        </member>
-        <member name="M:La.WebApi.Controllers.monitor.SysOperlogController.OperList(La.Model.System.Dto.SysOperLogDto)">
-            <summary>
-            查询操作日志
-            </summary>
-            <param name="sysOperLog"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.monitor.SysOperlogController.Remove(System.String)">
-            <summary>
-            删除操作日志
-            </summary>
-            <param name="operIds"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.monitor.SysOperlogController.ClearOperLog">
-            <summary>
-            清空操作日志
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.monitor.SysOperlogController.Export(La.Model.System.Dto.SysOperLogDto)">
-            <summary>
-            导出操作日志
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.monitor.SysUserOnlineController">
-            <summary>
-            在线管理
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.monitor.SysUserOnlineController.#ctor(Microsoft.Extensions.Logging.ILogger{La.WebApi.Controllers.monitor.SysUserOnlineController},Microsoft.AspNetCore.SignalR.IHubContext{La.WebApi.Hubs.MessageHub})">
-            <summary>
-            在线日志
-            </summary>
-            <param name="logger"></param>
-            <param name="hub"></param>
-        </member>
-        <member name="M:La.WebApi.Controllers.monitor.SysUserOnlineController.PageList(La.WebApi.Hubs.OnlineUsers)">
-            <summary>
-            动态条件获取当前在线用户
-            </summary>
-            <param name="online"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.monitor.SysUserOnlineController.forceOut(System.String)">
-            <summary>
-            强制退出用户
-            </summary>
-            <param name="connnectionId"></param>
-            <returns></returns>
-        </member>
-        <member name="T:La.WebApi.Controllers.RefStrategyController">
-            <summary>
-            单据编码Controller
-            
-            @tableName sys_ref_strategy
-            @author Davis.Cheng
-            @date 2023-04-26
-            </summary>
-        </member>
-        <member name="F:La.WebApi.Controllers.RefStrategyController._RefStrategyService">
-            <summary>
-            单据编码接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.RefStrategyController.#ctor(La.Service.System.ISystemService.IRefStrategyService)">
-            <summary>
-            单据编码Controller
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.RefStrategyController.QueryRefStrategy(La.Model.Dto.RefStrategyQueryDto)">
-            <summary>
-            查询单据编码列表
-            </summary>
-            <param name="parm"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.RefStrategyController.GetRefStrategy(System.Int64)">
-            <summary>
-            查询单据编码详情
-            </summary>
-            <param name="RefId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.RefStrategyController.AddRefStrategy(La.Model.Dto.RefStrategyDto)">
-            <summary>
-            添加单据编码
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.RefStrategyController.UpdateRefStrategy(La.Model.Dto.RefStrategyDto)">
-            <summary>
-            更新单据编码
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.RefStrategyController.DeleteRefStrategy(System.String)">
-            <summary>
-            删除单据编码
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.RefStrategyController.Export(La.Model.Dto.RefStrategyQueryDto)">
-            <summary>
-            导出单据编码
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:La.WebApi.Controllers.RefStrategyController.Clear">
-            <summary>
-            清空单据编码
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:La.WebApi.Controllers.SysFileController">
             <summary>
             文件存储Controller
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.SysFileController._SysFileService">
-            <summary>
-            文件存储接口
-            </summary>
-        </member>
-        <member name="M:La.WebApi.Controllers.SysFileController.#ctor(La.Service.System.IService.ISysFileService)">
             <summary>
             文件存储接口
             </summary>
@@ -2522,6 +2168,78 @@
             文件存储导出
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:La.WebApi.Controllers.TasksController">
+            <summary>
+            计划任务
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.TasksController.ListTask(La.Model.System.Dto.TasksQueryDto,La.Model.PagerInfo)">
+            <summary>
+            查询计划任务列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.TasksController.Get(System.String)">
+            <summary>
+            查询单个计划任务
+            </summary>
+            <param name="id">编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.TasksController.Create(La.Model.System.Dto.TasksCreateDto)">
+            <summary>
+            添加任务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.TasksController.Update(La.Model.System.Dto.TasksCreateDto)">
+            <summary>
+            更新任务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.TasksController.Delete(System.String)">
+            <summary>
+            删除任务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.TasksController.Start(System.String)">
+            <summary>
+            启动任务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.TasksController.Stop(System.String)">
+            <summary>
+            停止任务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.TasksController.Run(System.String)">
+            <summary>
+            定时任务立即执行一次
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.TasksController.Export">
+            <summary>
+            定时任务导出
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:La.WebApi.Extensions.AppServiceExtensions">
+            <summary>
+            App服务注册
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Extensions.AppServiceExtensions.AddAppService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            注册引用程序域中所有有AppService标记的类的服务
+            </summary>
+            <param name="services"></param>
         </member>
         <member name="M:La.WebApi.Extensions.DbExtension.InitDb(System.IServiceProvider)">
             <summary>
@@ -2775,6 +2493,11 @@
             </summary>
             <param name="connnectionId"></param>
         </member>
+        <member name="P:La.WebApi.Hubs.OnlineUsers.PageNum">
+            <summary>
+            页码
+            </summary>
+        </member>
         <member name="P:La.WebApi.Hubs.OnlineUsers.ConnnectionId">
             <summary>
             客户端连接Id
@@ -2819,12 +2542,6 @@
             <summary>
             全局异常处理中间件
             调用 app.UseMiddlewareGlobalExceptionMiddleware>();
-            </summary>
-        </member>
-        <member name="T:Laplace.Filters.GlobalExceptionFilter">
-            <summary>
-            全局异常捕获
-            暂时没用了，改为中间件 2021-2-26
             </summary>
         </member>
     </members>

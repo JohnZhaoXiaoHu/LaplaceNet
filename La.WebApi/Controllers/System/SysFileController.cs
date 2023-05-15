@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using SqlSugar;
 using La.Infra.Attribute;
-using La.Infra;
 using La.Infra.Enums;
 using La.Infra.Model;
 using La.WebApi.Filters;
@@ -23,9 +22,7 @@ namespace La.WebApi.Controllers
         /// 文件存储接口
         /// </summary>
         private readonly ISysFileService _SysFileService;
-        /// <summary>
-        /// 文件存储接口
-        /// </summary>
+
         public SysFileController(ISysFileService SysFileService)
         {
             _SysFileService = SysFileService;
@@ -43,8 +40,8 @@ namespace La.WebApi.Controllers
             //开始拼装查询条件
             var predicate = Expressionable.Create<SysFile>();
             //搜索条件查询语法参考Sqlsugar
-            predicate = predicate.AndIF(parm.BeginCreate_time != null, it => it.create_time >= parm.BeginCreate_time);
-            predicate = predicate.AndIF(parm.EndCreate_time != null, it => it.create_time <= parm.EndCreate_time);
+            predicate = predicate.AndIF(parm.BeginCreate_time != null, it => it.Create_time >= parm.BeginCreate_time);
+            predicate = predicate.AndIF(parm.EndCreate_time != null, it => it.Create_time <= parm.EndCreate_time);
             predicate = predicate.AndIF(parm.StoreType != null, m => m.StoreType == parm.StoreType);
             predicate = predicate.AndIF(parm.FileId != null, m => m.Id == parm.FileId);
 
@@ -78,18 +75,9 @@ namespace La.WebApi.Controllers
         {
             long[] idsArr = Tools.SpitLongArrary(ids);
             if (idsArr.Length <= 0) { return ToResponse(ApiResult.Error($"删除失败Id 不能为空")); }
-            //TODO 删除本地资源
-
-            foreach (var id in idsArr)
-            {
-                
-
-
-                FileUtil.deleteFile(_SysFileService.GetById(id).FileUrl.Substring(0, _SysFileService.GetById(id).FileUrl.LastIndexOf("/") + 1), _SysFileService.GetById(id).FileName);
-            }
 
             var response = _SysFileService.Delete(idsArr);
-
+            //TODO 删除本地资源
 
             return ToResponse(response);
         }

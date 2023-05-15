@@ -20,11 +20,7 @@ namespace La.WebApi.Controllers.System
     {
         private readonly ISysDictDataService SysDictDataService;
         private readonly ISysDictService SysDictService;
-        /// <summary>
-        /// 数据 字典接口
-        /// </summary>
-        /// <param name="sysDictService"></param>
-        /// <param name="sysDictDataService"></param>
+
         public SysDictDataController(ISysDictService sysDictService, ISysDictDataService sysDictDataService)
         {
             SysDictService = sysDictService;
@@ -108,8 +104,8 @@ namespace La.WebApi.Controllers.System
         [HttpPost()]
         public IActionResult Add([FromBody] SysDictData dict)
         {
-            dict.create_by = HttpContext.GetName();
-            dict.create_time = DateTime.Now;
+            dict.Create_by = HttpContext.GetName();
+            dict.Create_time = DateTime.Now;
             return SUCCESS(SysDictDataService.InsertDictData(dict));
         }
 

@@ -1,4 +1,4 @@
-﻿using La.Infra.Attribute;
+using La.Infra.Attribute;
 using La.Infra.Extensions;
 using SqlSugar;
 using System;
@@ -32,15 +32,16 @@ namespace La.Service
         public List<SysMenu> SelectTreeMenuList(MenuQueryDto menu, long userId)
         {
             List<SysMenu> menuList;
-            if (SysRoleService.IsAdmin(userId))
-            {
-                menuList = SelectTreeMenuList(menu);
-            }
-            else
-            {
-                var userRoles = SysRoleService.SelectUserRoles(userId);
-                menuList = SelectTreeMenuListByRoles(menu, userRoles);
-            }
+            //if (SysRoleService.IsAdmin(userId))
+            //{
+            //    menuList = SelectTreeMenuList(menu);
+            //}
+            //else
+            //{
+            //    var userRoles = SysRoleService.SelectUserRoles(userId);
+            //    menuList = SelectTreeMenuListByRoles(menu, userRoles);
+            //}
+            menuList = BuildMenuTree(SelectMenuList(menu, userId));
             return menuList;
         }
 
@@ -53,7 +54,7 @@ namespace La.Service
             List<SysMenu> menuList;
             if (SysRoleService.IsAdmin(userId))
             {
-                menuList = SelectAllMenuList(menu);
+                menuList = SelectMenuList(menu);
             }
             else
             {
@@ -83,7 +84,7 @@ namespace La.Service
         {
             var menuExpression = Expressionable.Create<SysMenu>();
             menuExpression.And(c => c.ParentId == menuId);
-            
+
             if (!SysRoleService.IsAdmin(userId))
             {
                 var userRoles = SysRoleService.SelectUserRoles(userId);
@@ -107,7 +108,7 @@ namespace La.Service
         /// <returns></returns>
         public int AddMenu(SysMenu menu)
         {
-            menu.create_time = DateTime.Now;
+            menu.Create_time = DateTime.Now;
             return InsertReturnIdentity(menu);
         }
 
@@ -238,12 +239,13 @@ namespace La.Service
         /// 获取所有菜单
         /// </summary>
         /// <returns></returns>
-        private List<SysMenu> SelectAllMenuList(MenuQueryDto menu)
+        private List<SysMenu> SelectMenuList(MenuQueryDto menu)
         {
             return Queryable()
                 .WhereIF(!string.IsNullOrEmpty(menu.MenuName), it => it.MenuName.Contains(menu.MenuName))
                 .WhereIF(!string.IsNullOrEmpty(menu.Visible), it => it.Visible == menu.Visible)
                 .WhereIF(!string.IsNullOrEmpty(menu.Status), it => it.Status == menu.Status)
+                .WhereIF(!string.IsNullOrEmpty(menu.MenuTypeIds), it => menu.MenuTypeIdArr.Contains(it.MenuType))
                 .WhereIF(menu.ParentId != null, it => it.ParentId == menu.ParentId)
                 .OrderBy(it => new { it.ParentId, it.OrderNum })
                 .ToList();
@@ -348,7 +350,8 @@ namespace La.Service
         /// <returns></returns>
         public List<RouterVo> BuildMenus(List<SysMenu> menus)
         {
-            List<RouterVo> routers = new List<RouterVo>();
+            List<RouterVo> routers = new();
+            if (menus == null) return routers;
 
             foreach (var menu in menus)
             {
@@ -410,7 +413,7 @@ namespace La.Service
         /// <returns>下拉树结构列表</returns>
         public List<SysMenu> BuildMenuTree(List<SysMenu> menus)
         {
-            List<SysMenu> returnList = new List<SysMenu>();
+            List<SysMenu> returnList = new();
             List<long> tempList = menus.Select(f => f.MenuId).ToList();
 
             foreach (var menu in menus)
@@ -531,7 +534,6 @@ namespace La.Service
             return menu.IsFrame.Equals(UserConstants.NO_FRAME) && Tools.IsUrl(menu.Path);
         }
 
-        ///
         /// <summary>
         /// 是否为parent_view组件
         /// </summary>

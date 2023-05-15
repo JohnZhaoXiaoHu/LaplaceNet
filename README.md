@@ -148,6 +148,7 @@ Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、
 - 👉Meiam.System：[Meiam.System](https://github.com/91270/Meiam.System)
 - 👉izory：：[ZR.Admin](https://gitee.com/izory)
 - 👉cq-panda：[Vue.NetCore](https://github.com/cq-panda/Vue.NetCore)
+- 👉zuohuaijun：[Admin.NET](https://toscode.gitee.com/zuohuaijun/Admin.NET)
 
 ## 🎀捐赠
 如果你觉得这个项目帮助到了你，你可以帮作者买一杯果汁表示鼓励 🍹 

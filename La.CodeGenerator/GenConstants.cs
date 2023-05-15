@@ -1,7 +1,5 @@
 ﻿
 
-using System;
-
 namespace La.CodeGenerator
 {
     /// <summary>
@@ -14,11 +12,12 @@ namespace La.CodeGenerator
         public static string Gen_author = "gen:author";
         public static string Gen_autoPre = "gen:autoPre";
         public static string Gen_tablePrefix = "gen:tablePrefix";
+        public static string Gen_oracle_db = "gen:oracle_db";
 
         /// <summary>
         /// InputDto输入实体是不包含字段
         /// </summary>
-        public static readonly string[] inputDtoNoField = new string[] {  "update_by", "UpdateBy", "UpdateTime", "updateTime",  "update_time",  "ReMark", "IsDeleted", "ReMark", "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
+        public static readonly string[] inputDtoNoField = new string[] { "update_by", "UpdateBy", "UpdateTime", "updateTime", "update_time", "IsDeleted", "ReMark", "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
         /// <summary>
         /// 图片字段
         /// </summary>
@@ -33,28 +32,44 @@ namespace La.CodeGenerator
         public static readonly string[] radioFiled = new string[] { "status", "state", "is"};
 
 
-        /** 单表（增删改查） */
+        /// <summary>
+        /// 单表（增删改查）
+        /// </summary>
         public static string TPL_CRUD = "crud";
 
-        /** 树表（增删改查） */
+        /// <summary>
+        /// 树表（增删改查）
+        /// </summary>
         public static string TPL_TREE = "tree";
 
-        /** 主子表（增删改查） */
+        /// <summary>
+        /// 主子表（增删改查）
+        /// </summary>
         public static string TPL_SUB = "sub";
 
-        /** 树编码字段 */
+        /// <summary>
+        /// 树编码字段
+        /// </summary>
         public static string TREE_CODE = "treeCode";
 
-        /** 树父编码字段 */
+        /// <summary>
+        /// 树父编码字段
+        /// </summary>
         public static string TREE_PARENT_CODE = "treeParentCode";
 
-        /** 树名称字段 */
+        /// <summary>
+        /// 树名称字段
+        /// </summary>
         public static string TREE_NAME = "treeName";
 
-        /** 上级菜单ID字段 */
+        /// <summary>
+        /// 上级菜单ID字段
+        /// </summary>
         public static string PARENT_MENU_ID = "parentMenuId";
 
-        /** 上级菜单名称字段 */
+        /// <summary>
+        /// 上级菜单名称字段
+        /// </summary>
         public static string PARENT_MENU_NAME = "parentMenuName";
 
         /** 数据库字符串类型 */
@@ -67,23 +82,21 @@ namespace La.CodeGenerator
         public static string[] COLUMNTYPE_TIME = { "datetime", "time", "date", "timestamp" };
 
         /** 页面不需要编辑字段 */
-        public static string[] COLUMNNAME_NOT_EDIT = { "id", "create_by", "create_time", "IsDeleted",   "ReMark",  "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
+        public static string[] COLUMNNAME_NOT_EDIT = { "id", "create_by", "create_time", "IsDeleted", "ReMark", "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
 
         /** 页面不需要显示的列表字段 */
-        public static string[] COLUMNNAME_NOT_LIST = { "create_by", "create_time", "IsDeleted", "ReMark",  "update_by", 
+        public static string[] COLUMNNAME_NOT_LIST = { "create_by", "create_time", "IsDeleted", "ReMark",  "update_by",
             "update_time" , "password","UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56"};
 
         /** 页面不需要查询字段 */
-        public static string[] COLUMNNAME_NOT_QUERY = { "id", "create_by", "create_time", "update_by","update_time", "ReMark", "IsDeleted",  "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
-
+        public static string[] COLUMNNAME_NOT_QUERY = { "id", "create_by", "create_time", "update_by", "update_time", "ReMark", "IsDeleted", "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
         /** 页面不需要导出字段 */
-        public static string[] COLUMNNAME_NOT_EXPORT = { "id", "create_by", "create_time", "update_by", "update_time", "ReMark", "IsDeleted",  "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
+        public static string[] COLUMNNAME_NOT_EXPORT = { "id", "create_by", "create_time", "update_by", "update_time", "ReMark", "IsDeleted", "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
 
         /** 页面不需要填写字段 */
-        public static string[] COLUMNNAME_NOT_REQUIRED = {  "IsDeleted", "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
-
+        public static string[] COLUMNNAME_NOT_REQUIRED = { "IsDeleted", "UDF01", "UDF51", "UDF02", "UDF52", "UDF03", "UDF53", "UDF04", "UDF54", "UDF05", "UDF55", "UDF06", "UDF56" };
         /** Entity基类字段 */
-        public static string[] BASE_ENTITY = { "createBy", "createTime", "updateBy", "updateTime", "ReMark",  "IsDeleted" };
+        public static string[] BASE_ENTITY = { "createBy", "createTime", "updateBy", "updateTime", "ReMark", "IsDeleted" };
 
         /** Tree基类字段 */
         public static string[] TREE_ENTITY = { "parentName", "parentId", "orderNum", "ancestors", "children" };
@@ -130,8 +143,6 @@ namespace La.CodeGenerator
         public static string HTML_COLORPICKER = "colorPicker";
         //switch开关
         public static string HTML_SWITCH { get; set; }
-        /** UUID类型 */
-        public static string TYPE_GUID = "Guid";
 
         /** 字符串类型 */
         public static string TYPE_STRING = "string";

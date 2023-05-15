@@ -1,16 +1,14 @@
 ﻿using La.Infra;
 using La.Infra.Extensions;
 using JinianNet.JNTemplate;
-using La.CodeGenerator.Model;
-using La.CodeGenerator;
-using La.Common;
-using La.Model.System.Generate;
 using SqlSugar;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-
+using La.CodeGenerator.Model;
+using La.Common;
+using La.Model.System.Generate;
 
 namespace La.CodeGenerator
 {
@@ -29,7 +27,7 @@ namespace La.CodeGenerator
         public static void Generate(GenerateDto dto)
         {
             var vuePath = AppSettings.GetConfig("gen:vuePath");
-            dto.VueParentPath = dto.VueVersion == 3 ? "La.Vue" : "La.Vue";
+            dto.VueParentPath = dto.VueVersion == 3 ? "La.vue" : "La.Vue";
             if (!vuePath.IsEmpty())
             {
                 dto.VueParentPath = vuePath;
@@ -51,12 +49,13 @@ namespace La.CodeGenerator
                 ShowBtnExport = dto.GenTable.Options.CheckedBtn.Any(f => f == 4),
                 ShowBtnView = dto.GenTable.Options.CheckedBtn.Any(f => f == 5),
                 ShowBtnTruncate = dto.GenTable.Options.CheckedBtn.Any(f => f == 6),
-                ShowBtnImport = dto.GenTable.Options.CheckedBtn.Any(f => f == 7),
+                ShowBtnMultiDel = dto.GenTable.Options.CheckedBtn.Any(f => f == 7),
+                ShowBtnImport = dto.GenTable.Options.CheckedBtn.Any(f => f == 8),
             };
             var columns = dto.GenTable.Columns;
 
-            replaceDto.PKName = columns.Find(f => f.IsPk || f.IsIncrement).CsharpField ?? "Id";
-            replaceDto.PKType = columns.Find(f => f.IsPk || f.IsIncrement).CsharpType ?? "int";
+            replaceDto.PKName = columns.Find(f => f.IsPk || f.IsIncrement)?.CsharpField ?? "Id";
+            replaceDto.PKType = columns.Find(f => f.IsPk || f.IsIncrement)?.CsharpType ?? "int";
 
             replaceDto.UploadFile = columns.Any(f => f.HtmlType.Equals(GenConstants.HTML_IMAGE_UPLOAD) || f.HtmlType.Equals(GenConstants.HTML_FILE_UPLOAD)) ? 1 : 0;
             replaceDto.SelectMulti = columns.Any(f => f.HtmlType.Equals(GenConstants.HTML_SELECT_MULTI)) ? 1 : 0;
@@ -69,22 +68,18 @@ namespace La.CodeGenerator
             GenerateControllers(replaceDto, dto);
             if (dto.VueVersion == 3)
             {
-                GenerateVue3Views(replaceDto, dto);
+                GenerateVue3Views(dto);
             }
             else
             {
-                replaceDto.VueViewListHtml = GenerateVueTableList();
-                replaceDto.VueQueryFormHtml = GenerateVueQueryForm();
-                replaceDto.VueViewFormHtml = GenerateCurdForm();
-
                 GenerateVueViews(replaceDto, dto);
             }
             if (dto.GenTable.Options.GenerateRepo == 1)
             {
                 GenerateRepository(replaceDto, dto);
             }
-            GenerateVueJs(replaceDto, dto);
-            GenerateSql(replaceDto, dto);
+            GenerateVueJs(dto);
+            GenerateSql(dto);
 
             if (dto.IsPreview) return;
 
@@ -94,11 +89,7 @@ namespace La.CodeGenerator
                 FileUtil.WriteAndSave(item.Path, item.Content);
             }
         }
-        /// <summary>
-        /// 生成实体类名称
-        /// </summary>
-        /// <param name="genTable"></param>
-        /// <returns></returns>
+
         private static CodeGenerateOption GenerateOption(GenTable genTable)
         {
             CodeGenerateOption _option = new()
@@ -187,23 +178,21 @@ namespace La.CodeGenerator
                 "select" => "TplVueSelect.txt",
                 _ => "TplVue.txt",
             };
-            var tpl = JnHelper.ReadTemplate(CodeTemplateDir, fileName);
-            tpl.Set("vueQueryFormHtml", replaceDto.VueQueryFormHtml);
-            tpl.Set("VueViewFormContent", replaceDto.VueViewFormHtml);//添加、修改表单
-            tpl.Set("VueViewListContent", replaceDto.VueViewListHtml);//查询 table列
+            replaceDto.VueViewListHtml = GenerateVueTableList();
+            replaceDto.VueQueryFormHtml = GenerateVueQueryForm();
+            replaceDto.VueViewFormHtml = GenerateCurdForm();
 
-            var result = tpl.Render();
+            var tpl = JnHelper.ReadTemplate(CodeTemplateDir, fileName);
             var fullPath = Path.Combine(generateDto.VueParentPath, "src", "views", generateDto.GenTable.ModuleName.FirstLowerCase(), $"{generateDto.GenTable.BusinessName.FirstUpperCase()}.vue");
 
-            generateDto.GenCodes.Add(new GenCode(6, "index.vue", fullPath, result));
+            generateDto.GenCodes.Add(new GenCode(6, "index.vue", fullPath, tpl.Render()));
         }
 
         /// <summary>
         /// vue3
         /// </summary>
-        /// <param name="replaceDto"></param>
         /// <param name="generateDto"></param>
-        private static void GenerateVue3Views(ReplaceDto replaceDto, GenerateDto generateDto)
+        private static void GenerateVue3Views(GenerateDto generateDto)
         {
             string fileName = generateDto.GenTable.TplCategory switch
             {
@@ -225,10 +214,9 @@ namespace La.CodeGenerator
         /// <summary>
         /// 生成vue页面api
         /// </summary>
-        /// <param name="replaceDto"></param>
         /// <param name="generateDto"></param>
         /// <returns></returns>
-        public static void GenerateVueJs(ReplaceDto replaceDto, GenerateDto generateDto)
+        public static void GenerateVueJs(GenerateDto generateDto)
         {
             var tpl = JnHelper.ReadTemplate(CodeTemplateDir, "TplVueApi.txt");
             var result = tpl.Render();
@@ -250,9 +238,8 @@ namespace La.CodeGenerator
         /// <summary>
         /// 生成SQL
         /// </summary>
-        /// <param name="replaceDto"></param>
         /// <param name="generateDto"></param>
-        public static void GenerateSql(ReplaceDto replaceDto, GenerateDto generateDto)
+        public static void GenerateSql(GenerateDto generateDto)
         {
             var tempName = "";
             switch (generateDto.DbType)
@@ -263,10 +250,13 @@ namespace La.CodeGenerator
                 case 1:
                     tempName = "SqlTemplate";
                     break;
+                case 4:
+                    tempName = "PgSql";
+                    break;
                 default:
                     break;
             }
-            var tpl = JnHelper.ReadTemplate(CodeTemplateDir, $"{tempName}.txt");
+            var tpl = JnHelper.ReadTemplate(CodeTemplateDir, Path.Combine("sql", $"{tempName}.txt"));
             tpl.Set("parentId", generateDto.GenTable?.Options?.ParentMenuId ?? 0);
             var result = tpl.Render();
             string fullPath = Path.Combine(generateDto.GenCodePath, "sql", generateDto.GenTable.BusinessName + ".sql");
@@ -395,24 +385,43 @@ namespace La.CodeGenerator
         /// <returns></returns>
         public static GenTable InitTable(string dbName, string userName, string tableName, string desc)
         {
+            //应用程序启动目录
+            string StartupPathStr = Directory.GetCurrentDirectory();
+            //返回上一层目录
+            string CDUPStr = StartupPathStr.Substring(0, StartupPathStr.LastIndexOf("\\")); // 第一个\是转义符，所以要写两个
             GenTable genTable = new()
             {
+                //数据库名称
                 DbName = dbName,
-                BaseNameSpace = "La.",//导入默认命名空间前缀
-                ModuleName = "La",//导入默认模块名
+                //导入默认命名空间前缀
+                BaseNameSpace = "La.",
+                //导入默认模块名，按需更改
+                ModuleName = "La",
+                //生成实体类名，首字大写
                 ClassName = GetClassName(tableName).FirstUpperCase(),
+                ////生成业务名，首字大写
                 BusinessName = tableName.UnderScoreToCamelCase().FirstUpperCase(),
+                //程序员
                 FunctionAuthor = AppSettings.GetConfig(GenConstants.Gen_author),
+                //表名
                 TableName = tableName,
+                //表描述
                 TableComment = desc,
+                //生成功能名
                 FunctionName = desc,
-                ReMark = desc,
-                create_by = userName,
+                //创建者
+                Create_by = userName,
+                //基本信息备注
+                ReMark = desc + "(" + tableName + ")",
+                //自定义路径
+                GenPath = CDUPStr,
+                //生成代码方式：1为自定义路径，0为zip打包下载
+                GenType="1",
+                //显示按钮
                 Options = new Options()
                 {
                     SortType = "asc",
-                    //显示按钮
-                    CheckedBtn = new int[] { 1, 2, 3, 4, 5, 6, 7 }
+                    CheckedBtn = new int[] { 1, 2, 3, 4, 7, 8 }
                 }
             };
             bool isContain = tableName.Contains("_");
@@ -427,6 +436,8 @@ namespace La.CodeGenerator
                 genTable.Options.PermissionPrefix = $"{genTable.ModuleName.ToLower()}:{genTable.ClassName.ToLower()}";//权限
 
             }
+            //genTable.Options.PermissionPrefix = $"{genTable.ModuleName.ToLower()}:{genTable.ClassName.ToLower()}";//权限
+
             return genTable;
         }
 
@@ -465,42 +476,42 @@ namespace La.CodeGenerator
                 CsharpField = column.DbColumnName.ConvertToPascal("_"),
                 IsRequired = !column.IsNullable,
                 IsIncrement = column.IsIdentity,
-                create_by = genTable.create_by,
-                create_time = DateTime.Now,
+                Create_by = genTable.Create_by,
+                Create_time = DateTime.Now,
+                //IsInsert = !column.IsIdentity || GenConstants.inputDtoNoField.Any(f => f.Contains(column.DbColumnName, StringComparison.OrdinalIgnoreCase)),//非自增字段都需要插入
                 IsInsert = !column.IsIdentity || GenConstants.inputDtoNoField.Any(f => f.Contains(column.DbColumnName, StringComparison.OrdinalIgnoreCase)),//非自增字段都需要插入
                 IsEdit = true,
                 IsQuery = false,
                 IsExport = true,
                 HtmlType = GenConstants.HTML_INPUT,
             };
-
-
+            //不输入字段
             if (GenConstants.inputDtoNoField.Any(f => column.DbColumnName.ToLower().Contains(f.ToLower())))
             {
                 genTableColumn.IsInsert = false;
             }
+            //必填字段
             if (GenConstants.COLUMNNAME_NOT_REQUIRED.Any(f => column.DbColumnName.ToLower().Contains(f.ToLower())))
             {
                 genTableColumn.IsRequired = false;
             }
-            if (GenConstants.COLUMNNAME_NOT_EXPORT.Any(f => column.DbColumnName.ToLower().Contains(f.ToLower())))
-            {
-                genTableColumn.IsExport = false;
-            }
-
+            //图片上传字段
             if (GenConstants.imageFiled.Any(f => column.DbColumnName.ToLower().Contains(f.ToLower())))
             {
                 genTableColumn.HtmlType = GenConstants.HTML_IMAGE_UPLOAD;
             }
+            //时间字段
             else if (GenConstants.COLUMNTYPE_TIME.Any(f => genTableColumn.CsharpType.ToLower().Contains(f.ToLower())))
             {
                 genTableColumn.HtmlType = GenConstants.HTML_DATETIME;
             }
+            //单选字段
             else if (GenConstants.radioFiled.Any(f => column.DbColumnName.EndsWith(f, StringComparison.OrdinalIgnoreCase)) ||
                 GenConstants.radioFiled.Any(f => column.DbColumnName.StartsWith(f, StringComparison.OrdinalIgnoreCase)))
             {
                 genTableColumn.HtmlType = GenConstants.HTML_RADIO;
             }
+            //选择框字段
             else if (GenConstants.selectFiled.Any(f => column.DbColumnName == f) ||
                 GenConstants.selectFiled.Any(f => column.DbColumnName.EndsWith(f, StringComparison.OrdinalIgnoreCase)))
             {
@@ -519,6 +530,11 @@ namespace La.CodeGenerator
             if (!GenConstants.COLUMNNAME_NOT_LIST.Any(f => column.DbColumnName.Contains(f) && !column.IsPrimarykey))
             {
                 genTableColumn.IsList = true;
+            }
+            //导出字段
+            if (GenConstants.COLUMNNAME_NOT_EXPORT.Any(f => column.DbColumnName.ToLower().Contains(f.ToLower())))
+            {
+                genTableColumn.IsExport = false;
             }
             //时间类型初始化between范围查询
             if (genTableColumn.CsharpType == GenConstants.TYPE_DATE)

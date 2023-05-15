@@ -1,1 +1,1 @@
-dotnet watch --project La.WebApi run
+dotnet watch --project ZR.Admin.WebApi run

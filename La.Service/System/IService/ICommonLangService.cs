@@ -9,7 +9,7 @@ namespace La.Service.System.IService
     /// <summary>
     /// 多语言配置service接口
     ///
-    /// @author Davis.Cheng
+    /// @author (Davis.Cheng)
     /// @date 2022-05-06
     /// </summary>
     public interface ICommonLangService : IBaseService<CommonLang>

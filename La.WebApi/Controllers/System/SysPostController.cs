@@ -1,16 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SqlSugar;
-using System.Collections.Generic;
-using La.WebApi.Filters;
-using La.Model;
-using La.Model.System;
-using La.Infra.Extensions;
+﻿using La.Infra;
 using La.Infra.Attribute;
 using La.Infra.Enums;
-using La.Infra;
-using La.Service.System.IService;
-using La.Common;
+using La.Infra.Extensions;
+using Microsoft.AspNetCore.Mvc;
+using SqlSugar;
 using La.WebApi.Extensions;
+using La.WebApi.Filters;
+using La.Common;
+using La.Model;
+using La.Model.System;
+using La.Service.System.IService;
 
 namespace La.WebApi.Controllers.System
 {
@@ -22,10 +21,6 @@ namespace La.WebApi.Controllers.System
     public class SysPostController : BaseController
     {
         private readonly ISysPostService PostService;
-        /// <summary>
-        /// 岗位管理
-        /// </summary>
-        /// <param name="postService"></param>
         public SysPostController(ISysPostService postService)
         {
             PostService = postService;
@@ -77,7 +72,7 @@ namespace La.WebApi.Controllers.System
                 throw new CustomException($"修改岗位{post.PostName}失败，岗位编码已存在");
             }
 
-            post.create_by = HttpContext.GetName();
+            post.Create_by = HttpContext.GetName();
             return ToResponse(ToJson(PostService.Add(post)));
         }
 
@@ -138,8 +133,8 @@ namespace La.WebApi.Controllers.System
         {
             var list = PostService.GetAll();
 
-            string sFileName = ExportExcel(list, "syspost", "岗位");
-            return SUCCESS(new { path = "/export/" + sFileName, fileName = sFileName });
+            var result = ExportExcelMini(list, "post", "岗位列表");
+            return ExportExcel(result.Item2, result.Item1);
         }
     }
 }

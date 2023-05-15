@@ -3,6 +3,7 @@ using La.Infra.Attribute;
 using La.Infra.Enums;
 using La.Infra.Model;
 using Mapster;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SqlSugar;
 using La.WebApi.Extensions;
@@ -11,7 +12,7 @@ using La.Model.System;
 using La.Model.System.Dto;
 using La.Service.System.IService;
 
-namespace La.WebApi.Controllers.System
+namespace La.WebApi.Controllers
 {
     /// <summary>
     /// 文章管理
@@ -25,9 +26,7 @@ namespace La.WebApi.Controllers.System
         /// </summary>
         private readonly IArticleService _ArticleService;
         private readonly IArticleCategoryService _ArticleCategoryService;
-        /// <summary>
-        /// 文章接口
-        /// </summary>
+
         public ArticleController(IArticleService ArticleService, IArticleCategoryService articleCategoryService)
         {
             _ArticleService = ArticleService;
@@ -42,12 +41,7 @@ namespace La.WebApi.Controllers.System
         [ActionPermissionFilter(Permission = "system:article:list")]
         public IActionResult Query([FromQuery] ArticleQueryDto parm)
         {
-            var predicate = Expressionable.Create<Article>();
-
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.Title), m => m.Title.Contains(parm.Title));
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.Status), m => m.Status == parm.Status);
-
-            var response = _ArticleService.GetPages(predicate.ToExpression(), parm, f => f.Cid, OrderByType.Desc);
+            var response = _ArticleService.GetList(parm);
 
             return SUCCESS(response);
         }
@@ -64,6 +58,7 @@ namespace La.WebApi.Controllers.System
 
             var response = _ArticleService.Queryable()
                 .Where(predicate.ToExpression())
+                .Includes(x => x.ArticleCategoryNav) //填充子对象
                 .Take(10)
                 .OrderBy(f => f.UpdateTime, OrderByType.Desc).ToList();
 
@@ -76,11 +71,17 @@ namespace La.WebApi.Controllers.System
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public IActionResult Get(int id)
         {
             var response = _ArticleService.GetId(id);
-
-            return SUCCESS(response);
+            var model = response.Adapt<ArticleDto>();
+            if (model != null)
+            {
+                model.ArticleCategoryNav = _ArticleCategoryService.GetById(model.CategoryId);
+                model.TagList = model.Tags.Split(',', StringSplitOptions.RemoveEmptyEntries);
+            }
+            return SUCCESS(model);
         }
 
         /// <summary>
@@ -90,7 +91,7 @@ namespace La.WebApi.Controllers.System
         [HttpPost("add")]
         [ActionPermissionFilter(Permission = "system:article:add")]
         [Log(Title = "文章添加", BusinessType = BusinessType.INSERT)]
-        public IActionResult Create([FromBody] Article parm)
+        public IActionResult Create([FromBody] ArticleDto parm)
         {
             if (parm == null)
             {
@@ -109,25 +110,16 @@ namespace La.WebApi.Controllers.System
         [HttpPut("edit")]
         [ActionPermissionFilter(Permission = "system:article:update")]
         [Log(Title = "文章修改", BusinessType = BusinessType.UPDATE)]
-        public IActionResult Update([FromBody] Article parm)
+        public IActionResult Update([FromBody] ArticleDto parm)
         {
             if (parm == null)
             {
                 throw new CustomException("请求参数错误");
             }
             parm.AuthorName = HttpContext.GetName();
+            var modal = parm.Adapt<Article>().ToUpdate(HttpContext);
 
-            var response = _ArticleService.Update(it => it.Cid == parm.Cid,
-                f => new Article
-                {
-                    Title = parm.Title,
-                    Content = parm.Content,
-                    Tags = parm.Tags,
-                    Category_Id = parm.Category_Id,
-                    UpdateTime = parm.UpdateTime,
-                    Status = parm.Status,
-                    CoverUrl = parm.CoverUrl
-                });
+            var response = _ArticleService.UpdateArticle(modal);
 
             return SUCCESS(response);
         }

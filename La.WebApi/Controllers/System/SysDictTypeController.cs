@@ -3,8 +3,6 @@ using La.Infra.Enums;
 using La.Infra.Model;
 using Mapster;
 using Microsoft.AspNetCore.Mvc;
-using Org.BouncyCastle.Crypto;
-using System;
 using La.WebApi.Extensions;
 using La.WebApi.Filters;
 using La.Common;
@@ -23,10 +21,7 @@ namespace La.WebApi.Controllers.System
     public class SysDictTypeController : BaseController
     {
         private readonly ISysDictService SysDictService;
-        /// <summary>
-        /// 数据字典
-        /// </summary>
-        /// <param name="sysDictService"></param>
+
         public SysDictTypeController(ISysDictService sysDictService)
         {
             SysDictService = sysDictService;
@@ -74,8 +69,8 @@ namespace La.WebApi.Controllers.System
             {
                 return ToResponse(ApiResult.Error($"新增字典'{dict.DictName}'失败，字典类型已存在"));
             }
-            dict.create_by = HttpContext.GetName();
-            dict.create_time = DateTime.Now;
+            dict.Create_by = HttpContext.GetName();
+            dict.Create_time = DateTime.Now;
             return SUCCESS(SysDictService.InsertDictType(dict));
         }
 

@@ -10,10 +10,6 @@ namespace La.Model.System
     [Tenant("0")]
     public class SysLogininfor
     {
-        /// <summary>
-        /// ID
-        /// </summary>
-        //[Key]
         [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
         public long InfoId { get; set; }
 
@@ -42,8 +38,9 @@ namespace La.Model.System
         /// </summary>
         public string Browser { get; set; }
 
-        /** 操作系统 */
-        //@Excel(name = "操作系统")
+        /// <summary>
+        /// 操作系统
+        /// </summary>
         public string Os { get; set; }
 
         /// <summary>
@@ -55,14 +52,8 @@ namespace La.Model.System
         /// 访问时间
         /// </summary>
         public DateTime LoginTime { get; set; } = DateTime.Now;
-        /// <summary>
-        /// 起始时间
-        /// </summary>
         [SugarColumn(IsIgnore = true)]
         public DateTime? BeginTime { get; set; }
-        /// <summary>
-        /// 结束时间
-        /// </summary>
         [SugarColumn(IsIgnore = true)]
         public DateTime? EndTime { get; set; }
     }

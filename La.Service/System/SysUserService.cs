@@ -44,8 +44,8 @@ namespace La.Service
             var exp = Expressionable.Create<SysUser>();
             exp.AndIF(!string.IsNullOrEmpty(user.UserName), u => u.UserName.Contains(user.UserName));
             exp.AndIF(!string.IsNullOrEmpty(user.Status), u => u.Status == user.Status);
-            exp.AndIF(user.BeginTime != DateTime.MinValue && user.BeginTime != null, u => u.create_time >= user.BeginTime);
-            exp.AndIF(user.EndTime != DateTime.MinValue && user.EndTime != null, u => u.create_time <= user.EndTime);
+            exp.AndIF(user.BeginTime != DateTime.MinValue && user.BeginTime != null, u => u.Create_time >= user.BeginTime);
+            exp.AndIF(user.EndTime != DateTime.MinValue && user.EndTime != null, u => u.Create_time <= user.EndTime);
             exp.AndIF(!user.Phonenumber.IsEmpty(), u => u.Phonenumber == user.Phonenumber);
             exp.And(u => u.IsDeleted == "0");
 
@@ -111,7 +111,7 @@ namespace La.Service
         /// <returns></returns>
         public long InsertUser(SysUser sysUser)
         {
-            sysUser.create_time = DateTime.Now;
+            sysUser.Create_time = DateTime.Now;
             long userId = Insertable(sysUser).ExecuteReturnIdentity();
             sysUser.UserId = userId;
             //新增用户角色信息
@@ -192,7 +192,7 @@ namespace La.Service
         /// <returns></returns>
         public int DeleteUser(long userid)
         {
-            CheckUserAllowed(new SysUser() { UserId = userid});
+            CheckUserAllowed(new SysUser() { UserId = userid });
             //删除用户与角色关联
             UserRoleService.DeleteUserRoleByUserId((int)userid);
             // 删除用户与岗位关联
@@ -225,7 +225,7 @@ namespace La.Service
             }
             SysUser user = new()
             {
-                create_time = DateTime.Now,
+                Create_time = DateTime.Now,
                 UserName = dto.Username,
                 NickName = dto.Username,
                 Password = password,
@@ -259,8 +259,8 @@ namespace La.Service
         {
             if (!SysUser.IsAdmin(loginUserId))
             {
-                SysUser user = new SysUser() { UserId = userid};
-                
+                SysUser user = new SysUser() { UserId = userid };
+
                 //TODO 判断用户是否有数据权限
             }
         }
@@ -270,15 +270,15 @@ namespace La.Service
         /// </summary>
         /// <param name="users"></param>
         /// <returns></returns>
-        public string ImportUsers(List<SysUser> users)
+        public (string, object, object) ImportUsers(List<SysUser> users)
         {
             users.ForEach(x =>
             {
-                x.create_time = DateTime.Now;
+                x.Create_time = DateTime.Now;
                 x.Status = "0";
                 x.IsDeleted = "0";
                 x.Password = "E10ADC3949BA59ABBE56E057F20F883E";
-                x.ReMark = "数据导入";
+                x.ReMark = x.ReMark.IsEmpty() ? "数据导入" : x.ReMark;
             });
             var x = Context.Storageable(users)
                 .SplitInsert(it => !it.Any())
@@ -289,7 +289,7 @@ namespace La.Service
                 .ToStorage();
             var result = x.AsInsertable.ExecuteCommand();//插入可插入部分;
 
-            string msg = string.Format(" 插入{0} 更新{1} 错误数据{2} 不计算数据{3} 删除数据{4},总共{5}",
+            string msg = string.Format(" 插入{0} 更新{1} 错误数据{2} 不计算数据{3} 删除数据{4} 总共{5}",
                                x.InsertList.Count,
                                x.UpdateList.Count,
                                x.ErrorList.Count,
@@ -298,14 +298,18 @@ namespace La.Service
                                x.TotalList.Count);
             //输出统计                      
             Console.WriteLine(msg);
-
+            
             //输出错误信息               
             foreach (var item in x.ErrorList)
             {
                 Console.WriteLine("userName为" + item.Item.UserName + " : " + item.StorageMessage);
             }
-
-            return msg;
+            foreach (var item in x.IgnoreList)
+            {
+                Console.WriteLine("userName为" + item.Item.UserName + " : " + item.StorageMessage);
+            }
+            
+            return (msg, x.ErrorList, x.IgnoreList);
         }
 
         /// <summary>
@@ -326,7 +330,7 @@ namespace La.Service
         /// <returns></returns>
         public void UpdateLoginInfo(LoginBodyDto user, long userId)
         {
-            Update(new SysUser() { LoginIP = user.LoginIP, LoginDate = DateTime.Now, UserId = userId },it => new { it.LoginIP, it.LoginDate });
+            Update(new SysUser() { LoginIP = user.LoginIP, LoginDate = DateTime.Now, UserId = userId }, it => new { it.LoginIP, it.LoginDate });
         }
     }
 }

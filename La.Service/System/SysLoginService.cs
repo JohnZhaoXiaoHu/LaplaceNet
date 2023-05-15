@@ -31,8 +31,10 @@ namespace La.Service.System
         /// <returns></returns>
         public SysUser Login(LoginBodyDto loginBody, SysLogininfor logininfor)
         {
-            //密码md5
-            loginBody.Password = NETCore.Encrypt.EncryptProvider.Md5(loginBody.Password);
+            if (loginBody.Password.Length != 32)
+            {
+                loginBody.Password = NETCore.Encrypt.EncryptProvider.Md5(loginBody.Password);
+            }
 
             SysUser user = SysUserService.Login(loginBody);
             logininfor.UserName = loginBody.Username;
@@ -60,7 +62,7 @@ namespace La.Service.System
         }
 
         /// <summary>
-        /// 查询操作日志
+        /// 查询登录日志
         /// </summary>
         /// <param name="logininfoDto"></param>
         /// <param name="pager">分页</param>

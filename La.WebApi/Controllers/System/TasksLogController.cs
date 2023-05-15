@@ -1,15 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SqlSugar;
-using La.Model;
-using La.Model.System.Dto;
-using La.Model.System;
-using La.Infra.Extensions;
+﻿using La.Infra;
 using La.Infra.Attribute;
+using La.Infra.Enums;
+using La.Infra.Extensions;
+using Microsoft.AspNetCore.Mvc;
+using SqlSugar;
 using La.WebApi.Filters;
 using La.Common;
-using La.Infra.Enums;
+using La.Model;
+using La.Model.System;
+using La.Model.System.Dto;
 using La.Service.System.IService;
-using La.Infra;
 
 namespace La.WebApi.Controllers.System
 {
@@ -21,10 +21,7 @@ namespace La.WebApi.Controllers.System
     public class TasksLogController : BaseController
     {
         private readonly ISysTasksLogService tasksLogService;
-        /// <summary>
-        /// 任务日志TasksLogController
-        /// </summary>
-        /// <param name="tasksLogService"></param>
+
         public TasksLogController(ISysTasksLogService tasksLogService)
         {
             this.tasksLogService = tasksLogService;

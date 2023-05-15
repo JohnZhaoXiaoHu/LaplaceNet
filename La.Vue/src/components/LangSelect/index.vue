@@ -42,9 +42,11 @@
 
   /* //svg-icon修改颜色 */
   .svg-icon {
+    cursor: pointer;
     height: 20px;
     width: 20px;
     fill: #007cdc;
+    overflow: hidden;
     /* 宝蓝(#4b5cc4)：鲜艳明亮的蓝色 （注：英文中为 RoyalBlue 即皇家蓝色，是皇室选用的色彩，多和小面积纯黄色（金色）配合使用。） rgba(74, 74, 77, 0.65); */
   }
 </style>

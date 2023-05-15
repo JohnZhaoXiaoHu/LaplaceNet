@@ -1,17 +1,11 @@
 ﻿namespace La.Model.System.Dto
 {
-    /// <summary>
-    /// 操作日志输入
-    /// </summary>
     public class SysOperLogDto : SysBase
     {
         /// <summary>
         /// 页码
         /// </summary>
         public int PageNum { get; set; }
-        /// <summary>
-        /// 每页记录数
-        /// </summary>
         public int PageSize { get; set; }
         /// <summary>
         /// 操作人员

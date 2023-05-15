@@ -15,11 +15,9 @@ const useSocketStore = defineStore('socket', {
       this.noticeList = data
       this.noticeDot = data.length > 0
     },
-    //更新在线用户信息
     setOnlineUsers(data) {
       this.onlineUsers = data
     },
-    //发送消息
     sendChat(data) {
       const { proxy } = getCurrentInstance()
       console.log(data)

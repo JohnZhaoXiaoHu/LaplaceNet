@@ -1,18 +1,14 @@
 import axios from 'axios'
 import { ElMessageBox, ElMessage, ElLoading } from 'element-plus'
-import { getToken, getLoginTime, removeToken } from '@/utils/auth'
+import { getToken } from '@/utils/auth'
 import errorCode from '@/utils/errorCode'
 import useUserStore from '@/store/modules/user'
 import { blobValidate } from '@/utils/ruoyi'
 import { saveAs } from 'file-saver'
 
 let downloadLoadingInstance
-// 是否显示重新登录
-export let isRelogin = { show: false };
-
 // 解决后端跨域获取不到cookie问题
 // axios.defaults.withCredentials = true
-//axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
 axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
 // 创建axios实例
 const service = axios.create({
@@ -21,44 +17,17 @@ const service = axios.create({
   // 超时
   timeout: 30000
 })
-/**
- * 定义一个检查token 是否过期的方法
- */
-// 2 天  172800000 ms (1天86400000 ms)就是 时间戳 2 天 是 token 过期的时间期限
-const tokenLoginTime = 1000 * 60 * 60 * 24;
-function checkTimeOut() {
-  // 当前时间 发送请求的时间 在请求拦截器调用这个函数 就是发送请求的当前时间
-  const curTime = Date.now();
-  // 登录时候的时间
-  const loginTime = getLoginTime();
-  //   当前的时间 - 登录时候的时间 如果大于 2 小时 即 7200000 说明 token 过期了
-  if (curTime - loginTime > tokenLoginTime) {
-    // 过期了
-    return true;
-  } else {
-    return false; //没有过期
-  }
-}
+
 // request拦截器
 service.interceptors.request.use(
   (config) => {
     // 是否需要设置 token
     if (getToken()) {
-      // 每次请求接口的时候查看 token 是否过期了
-      if (checkTimeOut()) {
-        // 进来说明过期了
-        removeToken();
-        useUserStore()
-          .logOut()
-          .then(() => {
-            location.href = import.meta.env.VITE_APP_ROUTER_PREFIX + 'index'
-          })
-      }
       //将token放到请求头发送给服务器,将tokenkey放在请求头中
       config.headers['Authorization'] = 'Bearer ' + getToken()
       config.headers['userid'] = useUserStore().userId
+      config.headers['userName'] = useUserStore().userName
     }
-
     return config
   },
   (error) => {
@@ -70,7 +39,6 @@ service.interceptors.request.use(
 // 响应拦截器
 service.interceptors.response.use(
   (res) => {
-
     if (res.status !== 200) {
       Promise.reject('network error')
       return
@@ -81,7 +49,7 @@ service.interceptors.response.use(
     if (res.request.responseType === 'blob' || res.request.responseType === 'arraybuffer') {
       return res
     }
-    if (code == 401 && res && res.data && res.data.code == 10009) {
+    if (code == 401) {
       ElMessageBox.confirm('登录状态已过期，请重新登录', '系统提示', {
         confirmButtonText: '重新登陆',
         cancelButtonText: '取消',
@@ -116,7 +84,7 @@ service.interceptors.response.use(
     } else if (message.includes('Request failed with status code 429')) {
       message = '请求过于频繁，请稍后再试'
     } else if (message.includes('Request failed with status code')) {
-      message = '系统接口' + message.substr(message.length - 3) + '异常'
+      message = '系统接口' + message.substr(message.length - 3) + '异常，请联系管理员'
     }
     ElMessage({
       message: message,

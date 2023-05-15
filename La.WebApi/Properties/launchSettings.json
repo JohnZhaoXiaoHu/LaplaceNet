@@ -4,7 +4,7 @@
       "commandName": "WSL2",
       "launchUrl": "http://localhost:8888/",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "",
+        "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_URLS": "http://localhost:8888"
       },
       "distributionName": ""
@@ -12,7 +12,7 @@
     "La.WebApi": {
       "commandName": "Project",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": ""
+        "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
       "applicationUrl": "http://localhost:8888"

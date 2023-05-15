@@ -29,9 +29,7 @@ namespace La.WebApi.Controllers.System
         /// </summary>
         private readonly ISysNoticeService _SysNoticeService;
         private readonly IHubContext<MessageHub> _hubContext;
-        /// <summary>
-        /// 通知公告表接口
-        /// </summary>
+
         public SysNoticeController(ISysNoticeService SysNoticeService, IHubContext<MessageHub> hubContext)
         {
             _SysNoticeService = SysNoticeService;
@@ -64,7 +62,7 @@ namespace La.WebApi.Controllers.System
 
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.NoticeTitle), m => m.NoticeTitle.Contains(parm.NoticeTitle));
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.NoticeType), m => m.NoticeType == parm.NoticeType);
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.CreateBy), m => m.create_by.Contains(parm.CreateBy) || m.Update_by.Contains(parm.CreateBy));
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.CreateBy), m => m.Create_by.Contains(parm.CreateBy) || m.Update_by.Contains(parm.CreateBy));
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.Status), m => m.Status == parm.Status);
             var response = _SysNoticeService.GetPages(predicate.ToExpression(), parm);
             return SUCCESS(response);
@@ -99,8 +97,8 @@ namespace La.WebApi.Controllers.System
             }
             //从 Dto 映射到 实体
             var modal = parm.Adapt<SysNotice>().ToCreate(HttpContext);
-            modal.create_by = HttpContext.GetName();
-            modal.create_time = DateTime.Now;
+            modal.Create_by = HttpContext.GetName();
+            modal.Create_time = DateTime.Now;
 
             int result = _SysNoticeService.Insert(modal, it => new
             {
@@ -109,8 +107,8 @@ namespace La.WebApi.Controllers.System
                 it.NoticeContent,
                 it.Status,
                 it.ReMark,
-                it.create_by,
-                it.create_time
+                it.Create_by,
+                it.Create_time
             });
 
             return SUCCESS(result);
@@ -164,7 +162,7 @@ namespace La.WebApi.Controllers.System
             {
                 _hubContext.Clients.All.SendAsync(HubsConstant.ReceiveNotice, response.NoticeTitle, response.NoticeContent);
             }
-            return SUCCESS(response!);
+            return SUCCESS(response);
         }
 
         /// <summary>

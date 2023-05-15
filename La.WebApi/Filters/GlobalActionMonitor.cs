@@ -73,7 +73,7 @@ namespace La.WebApi.Filters
             {
                 string method = context.HttpContext.Request.Method.ToUpper();
                 // 获取当前的用户
-                string userName = context.HttpContext.GetName();
+                string userName = context.HttpContext.GetName() ?? context.HttpContext.Request.Headers["userName"];
                 string jsonResult = string.Empty;
                 if (context.Result is ContentResult result && result.ContentType == "application/json")
                 {
@@ -111,7 +111,7 @@ namespace La.WebApi.Filters
                 if (logAttribute != null)
                 {
                     sysOperLog.Title = logAttribute?.Title;
-                    sysOperLog.BusinessType = (int)logAttribute?.BusinessType;
+                    sysOperLog.BusinessType = (int)logAttribute.BusinessType;
                     sysOperLog.OperParam = logAttribute.IsSaveRequestData ? sysOperLog.OperParam : "";
                     sysOperLog.JsonResult = logAttribute.IsSaveResponseData ? sysOperLog.JsonResult : "";
                 }

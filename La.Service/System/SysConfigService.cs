@@ -1,5 +1,6 @@
 using La.Infra.Attribute;
 using La.Model.System;
+using La.Service.System.IService;
 
 namespace La.Service.System
 {

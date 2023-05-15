@@ -7,7 +7,7 @@ import { downFile } from '@/utils/request'
 */
 export function listFicoPeriod(query) {
   return request({
-    url: 'financial/FicoPeriod/list',
+    url: 'Financial/FicoPeriod/list',
     method: 'get',
     params: query,
   })
@@ -20,7 +20,7 @@ export function listFicoPeriod(query) {
 */
 export function addFicoPeriod(data) {
   return request({
-    url: 'financial/FicoPeriod',
+    url: 'Financial/FicoPeriod',
     method: 'post',
     data: data,
   })
@@ -32,7 +32,7 @@ export function addFicoPeriod(data) {
 */
 export function updateFicoPeriod(data) {
   return request({
-    url: 'financial/FicoPeriod',
+    url: 'Financial/FicoPeriod',
     method: 'PUT',
     data: data,
   })
@@ -44,7 +44,7 @@ export function updateFicoPeriod(data) {
 */
 export function getFicoPeriod(id) {
   return request({
-    url: 'financial/FicoPeriod/' + id,
+    url: 'Financial/FicoPeriod/' + id,
     method: 'get'
   })
 }
@@ -55,7 +55,7 @@ export function getFicoPeriod(id) {
 */
 export function delFicoPeriod(pid) {
   return request({
-    url: 'financial/FicoPeriod/' + pid,
+    url: 'Financial/FicoPeriod/' + pid,
     method: 'delete'
   })
 }
@@ -63,13 +63,13 @@ export function delFicoPeriod(pid) {
 // 清空财务期间
 export function clearFicoPeriod() {
   return request({
-    url: 'financial/FicoPeriod/clean',
+    url: 'Financial/FicoPeriod/clean',
     method: 'delete'
   })
 }
 
 // 导出财务期间
 export async function exportFicoPeriod(query) {
-  await downFile('financial/FicoPeriod/export', { ...query })
+  await downFile('Financial/FicoPeriod/export', { ...query })
 }
 

@@ -1,11 +1,3 @@
-/**
- * @Descripttion: (面包屑/页面路径)
- * @version: (1.0)
- * @Author: (Laplace.Net:Davis.Cheng)
- * @Date: (2023-01-15)
- * @LastEditors: (Laplace.Net:Davis.Cheng)
- * @LastEditTime: (2023-01-15)
-**/
 import { createWebHistory, createRouter } from 'vue-router'
 import Layout from '@/layout'
 
@@ -23,10 +15,8 @@ import Layout from '@/layout'
  * meta : {
     noCache: true                   // 如果设置为true，则不会被 <keep-alive> 缓存(默认 false)
     title: 'title'                  // 设置该路由在侧边栏和面包屑中展示的名字
-    titleKey: '',                   //国际和翻译key值，如果不为空将使用i18n
     icon: 'svg-name'                // 设置该路由的图标，对应路径src/assets/icons/svg
-    breadcrumb: false,              // 如果设置为false，则不会在breadcrumb面包屑中显示,
-    affix: true                     // 设置成true表示，tag-view不可删除
+    breadcrumb: false               // 如果设置为false，则不会在breadcrumb面包屑中显示
     activeMenu: '/system/user'      // 当路由设置了该属性，则会高亮相对应的侧边栏。
   }
  */
@@ -36,93 +26,78 @@ export const constantRoutes = [
   {
     path: '/redirect',
     component: Layout,
-    meta: { hidden: true },
     hidden: true,
     children: [
-      {
-        path: '/redirect/:path(.*)',
-        component: (resolve) => import('@/views/redirect/index.vue', resolve)
-      }]
+    {
+      path: '/redirect/:path(.*)',
+      component: () => import('@/views/redirect/index.vue')
+    }]
   },
   {
     path: '/login',
-    component: (resolve) => import(/* webpackChunkName: "login" */ '@/views/login', resolve),
-    hidden: true,
-    meta: { hidden: true }
+    component: () => import('@/views/login'),
+    hidden: true
   },
   {
     path: '/sociallogin',
-    component: (resolve) => import('@/views/socialLogin', resolve),
-    hidden: true,
-    meta: { hidden: true }
+    component: () => import('@/views/socialLogin'),
+    hidden: true
   },
   {
     path: '/register',
-    component: (resolve) => import('@/views/register', resolve),
-    hidden: true,
-    meta: { hidden: true }
+    component: () => import('@/views/register'),
+    hidden: true
   },
   {
     path: "/:pathMatch(.*)*",
-    component: (resolve) => import('@/views/error/404', resolve),
-    hidden: true,
-    meta: { hidden: true }
+    component: () => import('@/views/error/404'),
+    hidden: true
   },
   {
     path: '/401',
-    component: (resolve) => import('@/views/error/401', resolve),
-    hidden: true,
-    meta: { hidden: true }
+    component: () => import('@/views/error/401'),
+    hidden: true
   },
   {
     path: '',
     component: Layout,
     redirect: '/index',
-    meta: { hidden: true },
     children: [
-      {
-        path: '/index',
-        component: (resolve) => import('@/views/index', resolve),
-        name: 'Index',
-        meta: { title: '首页', icon: 'house-solid', affix: true, titleKey: 'menu.home' }
-      }]
+    {
+      path: '/index',
+      component: () => import('@/views/index'),
+      name: 'Index',
+      meta: { title: '首页', icon: 'dashboard', affix: true, titleKey: 'menu.home' }
+    }]
   },
   {
     path: '/user',
     component: Layout,
-    meta: { hidden: true },
     hidden: true,
     redirect: 'noredirect',
     children: [
-      {
-        path: 'profile',
-        component: (resolve) => import('@/views/system/user/profile/index', resolve),
-        name: 'Profile',
-        meta: { title: '个人中心', icon: 'user', titleKey: 'menu.personalCenter' }
-      }]
+    {
+      path: 'profile',
+      component: () => import('@/views/system/user/profile/index'),
+      name: 'Profile',
+      meta: { title: '个人中心', icon: 'user', titleKey: 'menu.personalCenter' }
+    }]
   },
   // 不用可删掉
   {
     path: '',
     component: Layout,
     hidden: false,
-    meta: { hidden: true },
-    meta: { title: '组件示例', icon: 'icon', noCache: 'fasle', titleKey: 'menu.component' },
+    meta: { title: '组件示例', icon: 'icon', noCache: 'fasle' },
     children: [
-      {
-        path: 'icon',
-        component: (resolve) => import('@/views/components/icons/index', resolve),
-        name: 'icon',
-        meta: { title: '图标icon', icon: 'font-awesome', noCache: 'fasle', titleKey: 'menu.icon' }
-      }]
+    {
+      path: 'icon',
+      component: () => import('@/views/components/icons/index'),
+      name: 'icon',
+      meta: { title: '图标icon', icon: 'icon1', noCache: 'fasle', titleKey: 'menu.icon' }
+    }]
   },
 ];
-
-// 防止连续点击多次路由报错
-// let routerPush = Router.prototype.push;
-// Router.prototype.push = function push(location) {
-//   return routerPush.call(this, location).catch(err => err)
-// }
 
 const router = createRouter({
   history: createWebHistory(
@@ -132,14 +107,9 @@ const router = createRouter({
     if (savedPosition) {
       return savedPosition
     } else {
-      return { left: 0, top: 0 }
+      return { top: 0 }
     }
-  }
-})
+  },
+});
 
-// Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
-export function resetRouter() {
-  const newRouter = createRouter()
-  router.matcher = newRouter.matcher // reset router
-}
 export default router;

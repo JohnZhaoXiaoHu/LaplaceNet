@@ -8,6 +8,5 @@ namespace La.Service
     /// <typeparam name="T"></typeparam>
     public interface IBaseService<T> : IBaseRepository<T> where T : class, new()
     {
-        
     }
 }

@@ -6,15 +6,13 @@ using La.Infra.Model;
 using Mapster;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using La.WebApi.Filters;
 using La.Common;
 using La.Model;
 using La.Model.Dto;
-using La.Model.Models;
 using La.Service.System.IService;
 
-namespace La.WebApi.Controllers.System
+namespace La.WebApi.Controllers
 {
     /// <summary>
     /// 多语言配置Controller
@@ -27,9 +25,7 @@ namespace La.WebApi.Controllers.System
         /// 多语言配置接口
         /// </summary>
         private readonly ICommonLangService _CommonLangService;
-        /// <summary>
-        /// 多语言配置接口
-        /// </summary>
+
         public CommonLangController(ICommonLangService CommonLangService)
         {
             _CommonLangService = CommonLangService;

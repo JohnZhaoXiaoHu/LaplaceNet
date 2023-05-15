@@ -2,13 +2,10 @@
 using La.Infra.Attribute;
 using La.Infra.Model;
 using IPTools.Core;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using NLog;
-using System;
 using System.Text.Encodings.Web;
 using System.Text.Json;
-using System.Threading.Tasks;
 using La.WebApi.Extensions;
 using La.Common;
 using La.Model.System;
@@ -65,7 +62,7 @@ namespace La.WebApi.Middleware
             }
             else
             {
-                msg = "服务器好像出了点问题......";
+                msg = "服务器好像出了点问题，请联系系统管理员...";
                 error = $"{ex.Message}";
                 logLevel = NLog.LogLevel.Error;
                 context.Response.StatusCode = 500;
@@ -101,7 +98,7 @@ namespace La.WebApi.Middleware
                 var logAttribute = endpoint.Metadata.GetMetadata<LogAttribute>();
                 if (logAttribute != null)
                 {
-                    sysOperLog.BusinessType = (int)logAttribute?.BusinessType;
+                    sysOperLog.BusinessType = (int)logAttribute.BusinessType;
                     sysOperLog.Title = logAttribute?.Title;
                     sysOperLog.OperParam = logAttribute.IsSaveRequestData ? sysOperLog.OperParam : "";
                     sysOperLog.JsonResult = logAttribute.IsSaveResponseData ? sysOperLog.JsonResult : "";

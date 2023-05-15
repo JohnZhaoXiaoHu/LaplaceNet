@@ -5,7 +5,6 @@ namespace La.Infra.Model
 {
     public class ApiResult
     {
-
         public int Code { get; set; }
         public string Msg { get; set; }
         /// <summary>
@@ -117,10 +116,17 @@ namespace La.Infra.Model
         {
             return $"msg={Msg},data={Data}";
         }
+        public ApiResult SetData(object obj)
+        {
+            this.Data = obj;
+            return this;
+        }
     }
 
     public class ApiResult<T> : ApiResult
     {
         public T Result { get; set; }
     }
+
+
 }

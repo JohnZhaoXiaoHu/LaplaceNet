@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace La.Model.System.Dto
 {
-    /// <summary>
-    /// 用户注册输入
-    /// </summary>
     public class RegisterDto
     {
         /// <summary>
@@ -21,19 +15,20 @@ namespace La.Model.System.Dto
         /// </summary>
         [Required(ErrorMessage = "密码不能为空")]
         public string Password { get; set; }
-        /// <summary>
-        /// 密码确认
-        /// </summary>
         [Required(ErrorMessage = "确认密码不能为空")]
         public string ConfirmPassword { get; set; }
-        /**
-         * 验证码
-         */
+        /// <summary>
+        /// 验证码
+        /// </summary>
         public string Code { get; set; }
 
-        /**
-         * 唯一标识
-         */
+        /// <summary>
+        /// 唯一标识
+        /// </summary>
         public string Uuid { get; set; } = "";
+        /// <summary>
+        /// 头像
+        /// </summary>
+        public string Photo { get; set; }
     }
 }
