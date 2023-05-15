@@ -221,6 +221,10 @@
     "popupOperation": "弹窗操作",
     "inlineEditing": "行内编辑"
   },
+  "language": "语言",
+  "languageKey": "语言key",
+  "showWay": "显示方式",
+  "table": "表格",
   "user": {
     "personalInfo": "个人信息",
     "userName": "用户名称",
@@ -236,8 +240,30 @@
     "confirmPwd": "确认密码",
     "nickName": "用户昵称"
   },
-  "language": "语言",
-  "languageKey": "语言key",
-  "showWay": "显示方式",
-  "table": "表格"
+  "gen": {
+    "selecttable": "请先选择要生成代码的数据表",
+    "Generatingcode": "正在生成代码...",
+    "Customizedpath": "成功生成到自定义路径",
+    "Codegenerationcompleted": "恭喜你，代码生成完成！",
+    "ForcedSync": "确认要强制同步",
+    "TableStructure": "的表结构吗？",
+    "Syncsuccess": "同步成功",
+    "completetable": "请先完成表格内容",
+    "Pleasewait": "请稍后...",
+    "Permanentlydeleted": "此操作将永久删除该文件, 是否继续?",
+    "Undeleted": "已取消删除",
+    "CodePreview": "代码预览",
+    "basicInfo": "基本信息",
+    "genInfo": "生成信息",
+    "cloumInfo": "字段信息",
+    "Submit": "提交",
+    "Refresh": "刷新",
+    "Return": "返回",
+    "Verificationfailed": "表单校验未通过，请重新检查提交内容",
+    "Lastline": "最后一行了。",
+    "ImportTable": "导入表",
+    "DataBase": "数据库",
+    "TableName": "表名",
+    "TableDescription": "表描述"
+  }
 }

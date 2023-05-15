@@ -2,10 +2,10 @@
   <div class="app-container">
     <el-form ref="codeform" :inline="true" :model="queryParams">
       <el-form-item label="表名" prop="tableName">
-        <el-input v-model="queryParams.tableName" clearable placeholder="输入要查询的表名" />
+        <el-input v-model="queryParams.tableName" clearable :placeholder="$t('btn.enter')+'表名'" />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" icon="search" @click="getList()">{{ $t('btn.search') }}</el-button>
+        <el-button type=" primary" icon="search" @click="getList()">{{ $t('btn.search') }}</el-button>
       </el-form-item>
     </el-form>
 
@@ -124,7 +124,7 @@
     },
     preview: {
       open: false,
-      title: '代码预览',
+      title: proxy.$t('gen.CodePreview'),
       data: {},
       activeName: '0'
     }
@@ -160,12 +160,12 @@
   function handleGenTable(row) {
     currentSelected.value = row
     if (!currentSelected.value) {
-      proxy.$modal.msgError('请先选择要生成代码的数据表')
+      proxy.$modal.msgError(proxy.$t('gen.selecttable'))
       return false
     }
     proxy.$refs['codeform'].validate((valid) => {
       if (valid) {
-        proxy.$modal.loading('正在生成代码...')
+        proxy.$modal.loading(proxy.$t('gen.Generatingcode'))
 
         codeGenerator({
           tableId: currentSelected.value.tableId,
@@ -176,9 +176,9 @@
             const { data } = res
             showGenerate.value = false
             if (row.genType === '1') {
-              proxy.$modal.msgSuccess('成功生成到自定义路径')
+              proxy.$modal.msgSuccess(proxy.$t('gen.Customizedpath'))
             } else {
-              proxy.$modal.msgSuccess('恭喜你，代码生成完成！')
+              proxy.$modal.msgSuccess(proxy.$t('gen.Codegenerationcompleted'))
               proxy.download(data.path)
             }
             proxy.$modal.closeLoading()
@@ -195,12 +195,12 @@
   function handleSynchDb(row) {
     const tableName = row.tableName
     proxy
-      .$confirm('确认要强制同步"' + tableName + '"表结构吗？')
+      .$confirm(proxy.$t('gen.ForcedSync') + tableName + proxy.$t('gen.TableStructure'))
       .then(function () {
         return synchDb(row.tableId, { tableName, dbName: row.dbName })
       })
       .then(() => {
-        proxy.$modal.msgSuccess('同步成功')
+        proxy.$modal.msgSuccess(proxy.$t('gen.Syncsuccess'))
       })
       .catch(() => { })
   }
@@ -212,10 +212,10 @@
   function handlePreview(row) {
     proxy.$refs['codeform'].validate((valid) => {
       if (!valid) {
-        proxy.$modal.msgError('请先完成表格内容')
+        proxy.$modal.msgError(proxy.$t('gen.completetable'))
         return
       }
-      proxy.$modal.loading('请稍后...')
+      proxy.$modal.loading(proxy.$t('gen.Pleasewait'))
       previewTable(row.tableId, { VueVersion: 3 }).then((res) => {
         if (res.code === 200) {
           showGenerate.value = false
@@ -245,15 +245,15 @@
   function handleDelete(row) {
     const Ids = row.tableId || tableIds.value
     proxy
-      .$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
+      .$confirm(proxy.$t('gen.Permanentlydeleted'), proxy.$t('common.warningTips'), {
+        confirmButtonText: proxy.$t('btn.submit'),
+        cancelButtonText: proxy.$t('btn.cancel'),
         type: 'warning'
       })
       .then(() => {
         delTable(Ids.toString()).then((res) => {
           if (res.code == 200) {
-            proxy.$modal.msgSuccess('删除成功')
+            proxy.$modal.msgSuccess(proxy.$t('common.Delcompleted'))
 
             handleQuery()
           }
@@ -262,7 +262,7 @@
       .catch(() => {
         proxy.$message({
           type: 'info',
-          message: '已取消删除'
+          message: proxy.$t('gen.Undeleted')
         })
       })
   }
@@ -277,9 +277,9 @@
   function onCopy(input) {
     if (isSupported) {
       copy(input)
-      proxy.$modal.msgSuccess('复制成功！')
+      proxy.$modal.msgSuccess(proxy.$t('layout.myTokenCopy'))
     } else {
-      proxy.$modal.msgError('当前浏览器不支持')
+      proxy.$modal.msgError(proxy.$t('layout.mybrowserNg'))
     }
   }
   function handleCommand(command, row) {

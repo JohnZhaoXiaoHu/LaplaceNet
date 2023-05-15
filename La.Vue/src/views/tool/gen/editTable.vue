@@ -1,13 +1,13 @@
 <template>
   <el-card>
     <el-tabs v-model="activeName" tab-position="top">
-      <el-tab-pane label="基本信息" name="basic">
+      <el-tab-pane :label="$t('gen.basicInfo')" name="basic">
         <basic-info-form ref="basicInfo" :info="info" />
       </el-tab-pane>
-      <el-tab-pane label="生成信息" name="genInfo">
+      <el-tab-pane :label="$t('gen.genInfo')" name="genInfo">
         <gen-info-form ref="genInfo" :info="info" :tables="tables" :columns="columns" />
       </el-tab-pane>
-      <el-tab-pane label="字段信息" name="cloum">
+      <el-tab-pane :label="$t('gen.cloumInfo')" name="cloum">
         <el-table ref="dragTableRef" v-loading="loading" :data="columns" row-key="columnId" min-height="80px"
           :max-height="tableHeight">
           <el-table-column label="#" type="index" class-name="allowDrag" width="60" fixed />
@@ -142,9 +142,10 @@
       </el-tab-pane>
     </el-tabs>
     <footer class="mt20" style="text-align: center">
-      <el-button type="primary" icon="check" :loading="submitLoading" @click="submitForm()">提交</el-button>
-      <el-button type="success" icon="refresh" @click="handleQuery()">刷新</el-button>
-      <el-button icon="back" @click="close()">返回</el-button>
+      <el-button type="primary" icon="check" :loading="submitLoading" @click="submitForm()"> {{ $t('gen.Submit')
+        }}</el-button>
+      <el-button type="success" icon="refresh" @click="handleQuery()"> {{ $t('gen.Refresh') }}</el-button>
+      <el-button icon="back" @click="close()"> {{ $t('gen.Return') }}</el-button>
     </footer>
   </el-card>
 </template>
@@ -223,7 +224,7 @@
           }
         })
       } else {
-        proxy.$modal.msgError('表单校验未通过，请重新检查提交内容')
+        proxy.$modal.msgError(proxy.$t('gen.Verificationfailed'))
       }
     })
   }
@@ -264,7 +265,7 @@
     var keyCode = e.keyCode || e.which || e.charCode
     if (keyCode === 13) {
       if (length - 1 == index) {
-        console.log('到最后一行了')
+        console.log(proxy.$t('gen.Lastline'))
       } else {
         columnRefs.value[index + 1].focus()
       }

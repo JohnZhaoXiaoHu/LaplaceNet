@@ -1,32 +1,33 @@
 <template>
   <!-- 导入表 -->
-  <el-dialog title="导入表" v-model="visible" width="900px" top="5vh" append-to-body>
+  <el-dialog :label="$t('gen.ImportTable')" v-model="visible" width="900px" top="5vh" append-to-body>
     <el-form ref="queryRef" :inline="true" :rules="rules" :model="queryParams">
-      <el-form-item label="数据库" prop="dbName">
-        <el-select v-model="queryParams.dbName" clearable placeholder="请选择" @change="handleQuery">
+      <el-form-item :label="$t('gen.DataBase')" prop="dbName">
+        <el-select v-model="queryParams.dbName" clearable :placeholder="$t('btn.select')+$t('gen.DataBase')"
+          @change="handleQuery">
           <el-option v-for="item in dbList" :key="item" :label="item" :value="item" />
         </el-select>
       </el-form-item>
-      <el-form-item label="表名">
-        <el-input v-model="queryParams.tableName" clearable placeholder="输入要查询的表名" />
+      <el-form-item :label="$t('gen.TableName')">
+        <el-input v-model="queryParams.tableName" clearable :placeholder="$t('btn.enter')+$t('gen.TableName')" />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" icon="search" @click="handleQuery()">查询</el-button>
+        <el-button type="primary" icon="search" @click="handleQuery()">{{ $t('btn.search') }}</el-button>
       </el-form-item>
     </el-form>
     <el-row>
       <el-table ref="table" @row-click="clickRow" :data="dbTableList" highlight-current-row height="300px"
         @selection-change="handleSelectionChange">
         <el-table-column type="selection" width="55"></el-table-column>
-        <el-table-column prop="name" label="表名" sortable="custom" width="380" />
-        <el-table-column prop="description" label="表描述" />
+        <el-table-column prop="name" :label="$t('gen.TableName')" sortable="custom" width="380" />
+        <el-table-column prop="description" :label="$t('gen.TableDescription')" />
       </el-table>
       <pagination v-model:page="queryParams.pageNum" v-model:limit="queryParams.pageSize" v-model:total="total"
         @pagination="getList" />
     </el-row>
     <template #footer>
-      <el-button text @click="visible = false">取 消</el-button>
-      <el-button type="primary" @click="handleImportTable">确 定</el-button>
+      <el-button text @click="visible = false">{{ $t('btn.cancel') }}</el-button>
+      <el-button type="primary" @click="handleImportTable">{{ $t('btn.submit') }}</el-button>
     </template>
   </el-dialog>
 </template>
