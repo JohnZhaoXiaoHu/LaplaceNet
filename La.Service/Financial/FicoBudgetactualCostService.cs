@@ -36,6 +36,7 @@ namespace La.Service.Financial
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FbYm), it => it.FbYm == parm.FbYm);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FbCostCode), it => it.FbCostCode == parm.FbCostCode);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FbTitleCode), it => it.FbTitleCode == parm.FbTitleCode);
+            predicate = predicate.And(it => it.IsDeleted ==false);
             var response = Queryable()
                 .Where(predicate.ToExpression())
                 .ToPage<FicoBudgetactualCost, FicoBudgetactualCostDto>(parm);

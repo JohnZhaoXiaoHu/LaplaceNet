@@ -51,7 +51,7 @@ namespace La.Service.Financial
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.MiId.ToString() == entryString);
+            int count = Count(it => it.MiYm.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

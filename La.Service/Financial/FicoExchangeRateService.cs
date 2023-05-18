@@ -8,7 +8,6 @@ using La.Model.System;
 using La.Repository;
 using La.Service.Financial.IFinancialService;
 using System.Linq;
-using Aliyun.OSS;
 
 namespace La.Service.Financial
 {
@@ -16,7 +15,7 @@ namespace La.Service.Financial
     /// 汇率表Service业务层处理
     ///
     /// @author Davis.Cheng
-    /// @date 2023-04-11
+    /// @date 2023-05-18
     /// </summary>
     [AppService(ServiceType = typeof(IFicoExchangeRateService), ServiceLifetime = LifeTime.Transient)]
     public class FicoExchangeRateService : BaseService<FicoExchangeRate>, IFicoExchangeRateService
@@ -34,10 +33,18 @@ namespace La.Service.Financial
             var predicate = Expressionable.Create<FicoExchangeRate>();
 
             //搜索条件查询语法参考Sqlsugar
-            predicate = predicate.AndIF(parm.BeginErEffDate == null, it => it.ErEffDate >= DateTime.Now.AddDays(-1));
+
+            //删除标记不显示
+            predicate = predicate.And(it => it.IsDeleted == false);
+            //选择日期查询
+            predicate = predicate.AndIF(parm.BeginErEffDate != null, it => it.ErEffDate >=parm.BeginErEffDate);
             predicate = predicate.AndIF(parm.BeginErEffDate != null, it => it.ErEffDate >= parm.BeginErEffDate && it.ErEffDate <= parm.EndErEffDate);
+
+            //下拉列表或输入字符查询
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.ErfmCcy), it => it.ErfmCcy == parm.ErfmCcy);
+            //下拉列表或输入字符查询
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.ErtoCcy), it => it.ErtoCcy == parm.ErtoCcy);
+ 		
             var response = Queryable()
                 .Where(predicate.ToExpression())
                 .ToPage<FicoExchangeRate, FicoExchangeRateDto>(parm);
@@ -53,8 +60,7 @@ namespace La.Service.Financial
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-           
-            int count = Count(it => Convert.ToDateTime(it.ErEffDate).ToString("yyyyMMdd") + it.ErfmCcy + it.ErtoCcy == entryString);
+            int count = Count(it => it.ErId.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

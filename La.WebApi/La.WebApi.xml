@@ -238,7 +238,7 @@
             
             @tableName fico_exchange_rate
             @author Davis.Cheng
-            @date 2023-04-11
+            @date 2023-05-18
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.FicoExchangeRateController._FicoExchangeRateService">
@@ -409,7 +409,7 @@
             
             @tableName fico_prctr
             @author Davis.Cheng
-            @date 2023-04-26
+            @date 2023-05-18
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.FicoPrctrController._FicoPrctrService">
@@ -574,60 +574,117 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:La.WebApi.Controllers.EhrEmployeeController">
+        <member name="T:La.WebApi.Controllers.OfficeEhrEmployeeController">
             <summary>
             人事信息Controller
             
-            @tableName ehr_employee
+            @tableName office_ehr_employee
             @author Davis.Ching
-            @date 2023-05-15
+            @date 2023-05-16
             </summary>
         </member>
-        <member name="F:La.WebApi.Controllers.EhrEmployeeController._EhrEmployeeService">
+        <member name="F:La.WebApi.Controllers.OfficeEhrEmployeeController._OfficeEhrEmployeeService">
             <summary>
             人事信息接口
             </summary>
         </member>
-        <member name="M:La.WebApi.Controllers.EhrEmployeeController.#ctor(La.Service.Office.IOfficeService.IEhrEmployeeService)">
+        <member name="M:La.WebApi.Controllers.OfficeEhrEmployeeController.#ctor(La.Service.Office.IOfficeService.IOfficeEhrEmployeeService)">
             <summary>
             人事信息Controller
             </summary>
         </member>
-        <member name="M:La.WebApi.Controllers.EhrEmployeeController.QueryEhrEmployee(La.Model.Dto.EhrEmployeeQueryDto)">
+        <member name="M:La.WebApi.Controllers.OfficeEhrEmployeeController.QueryOfficeEhrEmployee(La.Model.Dto.OfficeEhrEmployeeQueryDto)">
             <summary>
             查询人事信息列表
             </summary>
             <param name="parm"></param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.EhrEmployeeController.GetEhrEmployee(System.String)">
+        <member name="M:La.WebApi.Controllers.OfficeEhrEmployeeController.GetOfficeEhrEmployee(System.String)">
             <summary>
             查询人事信息详情
             </summary>
             <param name="EeId"></param>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.EhrEmployeeController.AddEhrEmployee(La.Model.Dto.EhrEmployeeDto)">
+        <member name="M:La.WebApi.Controllers.OfficeEhrEmployeeController.AddOfficeEhrEmployee(La.Model.Dto.OfficeEhrEmployeeDto)">
             <summary>
             添加人事信息
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.EhrEmployeeController.UpdateEhrEmployee(La.Model.Dto.EhrEmployeeDto)">
+        <member name="M:La.WebApi.Controllers.OfficeEhrEmployeeController.UpdateOfficeEhrEmployee(La.Model.Dto.OfficeEhrEmployeeDto)">
             <summary>
             更新人事信息
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.EhrEmployeeController.DeleteEhrEmployee(System.String)">
+        <member name="M:La.WebApi.Controllers.OfficeEhrEmployeeController.DeleteOfficeEhrEmployee(System.String)">
             <summary>
             删除人事信息
             </summary>
             <returns></returns>
         </member>
-        <member name="M:La.WebApi.Controllers.EhrEmployeeController.Export(La.Model.Dto.EhrEmployeeQueryDto)">
+        <member name="M:La.WebApi.Controllers.OfficeEhrEmployeeController.Export(La.Model.Dto.OfficeEhrEmployeeQueryDto)">
             <summary>
             导出人事信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:La.WebApi.Controllers.OfficeNumberingRulesController">
+            <summary>
+            单据编码Controller
+            
+            @tableName office_numbering_rules
+            @author Davis.Ching
+            @date 2023-05-16
+            </summary>
+        </member>
+        <member name="F:La.WebApi.Controllers.OfficeNumberingRulesController._OfficeNumberingRulesService">
+            <summary>
+            单据编码接口
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.OfficeNumberingRulesController.#ctor(La.Service.Office.IOfficeService.IOfficeNumberingRulesService)">
+            <summary>
+            单据编码Controller
+            </summary>
+        </member>
+        <member name="M:La.WebApi.Controllers.OfficeNumberingRulesController.QueryOfficeNumberingRules(La.Model.Dto.OfficeNumberingRulesQueryDto)">
+            <summary>
+            查询单据编码列表
+            </summary>
+            <param name="parm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.OfficeNumberingRulesController.GetOfficeNumberingRules(System.Int64)">
+            <summary>
+            查询单据编码详情
+            </summary>
+            <param name="RefId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.OfficeNumberingRulesController.AddOfficeNumberingRules(La.Model.Dto.OfficeNumberingRulesDto)">
+            <summary>
+            添加单据编码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.OfficeNumberingRulesController.UpdateOfficeNumberingRules(La.Model.Dto.OfficeNumberingRulesDto)">
+            <summary>
+            更新单据编码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.OfficeNumberingRulesController.DeleteOfficeNumberingRules(System.String)">
+            <summary>
+            删除单据编码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:La.WebApi.Controllers.OfficeNumberingRulesController.Export(La.Model.Dto.OfficeNumberingRulesQueryDto)">
+            <summary>
+            导出单据编码
             </summary>
             <returns></returns>
         </member>
@@ -763,7 +820,7 @@
             
             @tableName pp_ec_master
             @author Davis.Cheng
-            @date 2023-04-28
+            @date 2023-05-18
             </summary>
         </member>
         <member name="F:La.WebApi.Controllers.PpEcMasterController._PpEcMasterService">

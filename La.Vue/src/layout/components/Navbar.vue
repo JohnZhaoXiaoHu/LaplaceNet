@@ -8,15 +8,16 @@
     </template>
 
     <div class="right-menu">
-      <header-search id="header-search" class="right-menu-item" />
+      <!-- <refresh title="刷新页面" class="right-menu-item" /> -->
+      <header-search id="header-search" :title="$t('btn.search')" class="right-menu-item" />
       <template v-if="appStore.device == 'desktop'">
-        <la-git title="源码地址" class="right-menu-item" />
-        <la-doc title="文档地址" class="right-menu-item" />
-        <screenfull title="全屏" class="right-menu-item" />
+        <!-- <la-git title="源码地址" class="right-menu-item" /> -->
+        <!-- <la-doc title="文档地址" class="right-menu-item" /> -->
+        <screenfull :title="$t('layout.fullscreen')" class="right-menu-item" />
       </template>
-      <size-select title="布局大小" class="right-menu-item" />
-      <LangSelect title="语言设置" class="right-menu-item" />
-      <Notice title="通知" class="right-menu-item" />
+      <size-select :title="$t('layout.sizeSelect')" class="right-menu-item" />
+      <LangSelect :title="$t('layout.multiLanguage')" class="right-menu-item" />
+      <Notice :title="$t('layout.notice')" class="right-menu-item" />
 
       <el-dropdown @command="handleCommand" class="right-menu-item avatar-container" trigger="hover">
         <span class="avatar-wrapper">
@@ -35,7 +36,7 @@
               <span>{{ $t('layout.layoutSetting') }}</span>
             </el-dropdown-item>
             <el-dropdown-item command="copyToken" v-if="dev">
-              <span>复制token</span>
+              <span>{{ $t('layout.myToken') }}</span>
             </el-dropdown-item>
             <el-dropdown-item divided command="logout">
               <span>{{ $t('layout.logOut') }}</span>
@@ -51,6 +52,7 @@
   import Breadcrumb from '@/components/Breadcrumb'
   import TopNav from '@/components/TopNav'
   import Hamburger from '@/components/Hamburger'
+  import Refresh from '@/components/Refresh'
   import Screenfull from '@/components/Screenfull'
   import SizeSelect from '@/components/SizeSelect'
   import HeaderSearch from '@/components/HeaderSearch'
@@ -93,17 +95,17 @@
   const copyText = async (val) => {
     try {
       await toClipboard(val)
-      proxy.$modal.msgSuccess('复制成功！')
+      proxy.$modal.msgSuccess(proxy.$t('layout.myTokenCopy'))
     } catch (e) {
       console.log(e)
-      proxy.$modal.msgError('当前浏览器不支持')
+      proxy.$modal.msgError(proxy.$t('layout.mybrowserNg'))
     }
   }
   function logout() {
     proxy
       .$confirm(proxy.$t('layout.logOutConfirm'), proxy.$t('common.tips'), {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
+        confirmButtonText: proxy.$t('common.ok'),
+        cancelButtonText: proxy.$t('common.cancel'),
         type: 'warning'
       })
       .then(() => {
@@ -122,7 +124,7 @@
 
 <style lang="scss" scoped>
   .el-menu {
-    // display: inline-table;
+    /* // display: inline-table; */
     border-bottom: none;
 
     .el-menu-item {
@@ -136,7 +138,7 @@
     overflow: hidden;
     position: relative;
     background: var(--base-topBar-background);
-    // box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+    /* // box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08); */
 
     .hamburger-container {
       line-height: var(--base-header-height);
@@ -198,7 +200,7 @@
             font-size: 12px;
           }
 
-          i {
+          .i {
             cursor: pointer;
             margin-left: 10px;
           }

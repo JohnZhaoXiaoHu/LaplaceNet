@@ -46,18 +46,18 @@
         </template>
       </el-table-column>
       <el-table-column label="创建时间" align="center" prop="createTime" width="150" />
-      <el-table-column label="备注" align="center" prop="remark" width="150" :show-overflow-tooltip="true" />
+      <!-- <el-table-column label="备注" align="center" prop="remark" width="150" :show-overflow-tooltip="true" /> -->
       <el-table-column label="操作" align="center" width="200">
         <template #default="scope">
           <div v-if="scope.row.roleKey != 'admin'">
-            <el-button size="small" text icon="edit" :title="$t('btn.edit')" @click.stop="handleUpdate(scope.row)"
+            <el-button type="success" text icon="edit" :title="$t('btn.edit')" @click.stop="handleUpdate(scope.row)"
               v-hasPermi="['system:role:edit']">
             </el-button>
-            <el-button size="small" text icon="delete" :title="$t('btn.delete')" @click.stop="handleDelete(scope.row)"
+            <el-button type="danger" text icon="delete" :title="$t('btn.delete')" @click.stop="handleDelete(scope.row)"
               v-hasPermi="['system:role:remove']">
             </el-button>
 
-            <el-dropdown size="small" @command="(command) => handleCommand(command, scope.row)"
+            <el-dropdown type="primary" @command="(command) => handleCommand(command, scope.row)"
               v-hasPermi="['system:role:edit', 'system:role:authorize', 'system:roleusers:list']">
               <span class="el-dropdown-link">
                 {{ $t('btn.more') }}
@@ -67,9 +67,11 @@
               </span>
               <template #dropdown>
                 <el-dropdown-menu>
-                  <el-dropdown-item command="handleDataScope" icon="circle-check">{{ $t('menu.menuPermi')
+                  <el-dropdown-item type="primary" command="handleDataScope" icon="circle-check">{{
+                    $t('menu.menuPermi')
                     }}</el-dropdown-item>
-                  <el-dropdown-item command="handleAuthUser" icon="user">{{ $t('menu.assignUsers') }}</el-dropdown-item>
+                  <el-dropdown-item type="primary" command="handleAuthUser" icon="user">{{ $t('menu.assignUsers')
+                    }}</el-dropdown-item>
                 </el-dropdown-menu>
               </template>
             </el-dropdown>
@@ -171,7 +173,9 @@
   import { listRole, getRole, delRole, addRole, updateRole, exportRole, dataScope, changeRoleStatus } from '@/api/system/role'
   import { roleMenuTreeselect } from '@/api/system/menu'
   import { treeselect as deptTreeselect, roleDeptTreeselect } from '@/api/system/dept'
-
+  import { useRouter } from 'vue-router'
+  const route = useRoute()
+  const router = useRouter()
   const { proxy } = getCurrentInstance()
 
   const loading = ref(true)
@@ -255,9 +259,16 @@
   const formRef = ref()
   const { form, rules, defaultProps } = toRefs(state)
 
-  watch(searchText, (val) => {
-    proxy.$refs.menuRef.filter(val)
-  })
+  watch(
+    route,
+    searchText,
+    (val) => {
+      proxy.$refs.menuRef.filter(val)
+    },
+    {
+      immediate: true
+    }
+  )
 
   /** 查询角色列表 */
   function getList() {
@@ -491,13 +502,16 @@
       menuCheckStrictly: row.menuCheckStrictly
     }
   }
-  const router = useRouter()
+
   /** 分配用户操作 */
   function handleAuthUser(row) {
     const roleId = row.roleId
     var hasPermi = proxy.$auth.hasPermi(['system:role:authorize', 'system:roleusers:list'])
     if (hasPermi) {
-      router.push({ path: '/system/roleusers', query: { roleId } })
+      router.push({
+        path: '/system/roleusers',
+        query: { roleId: roleId }
+      })
     } else {
       proxy.$modal.msgError('你没有权限访问')
     }

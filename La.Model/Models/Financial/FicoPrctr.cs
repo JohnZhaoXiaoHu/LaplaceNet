@@ -8,7 +8,7 @@ namespace La.Model.Models
     /// 利润中心，数据实体对象
     ///
     /// @author Davis.Cheng
-    /// @date 2023-04-26
+    /// @date 2023-05-18
     /// </summary>
     [SugarTable("fico_prctr")]
     public class FicoPrctr

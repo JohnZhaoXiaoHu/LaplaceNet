@@ -60,13 +60,12 @@
 </template>
 
 <script setup name="mmmats">
-  // 引入 mmmats操作方法
-  // 引入 sysrefstrategy操作方法
+  // 引入 officenumberingrules操作方法
   import {
-    listSysRefStrategy, addSysRefStrategy, delSysRefStrategy, updateSysRefStrategy, getSysRefStrategy,
+    listOfficeNumberingRules, addOfficeNumberingRules, delOfficeNumberingRules, updateOfficeNumberingRules, getOfficeNumberingRules,
 
   }
-    from '@/api/system/sysrefstrategy.js'
+    from '@/api/office/officenumberingrules.js'
   //获取当前组件实例
   const { proxy } = getCurrentInstance()
   //按物料编码获取物料号码

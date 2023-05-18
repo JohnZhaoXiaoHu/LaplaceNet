@@ -264,5 +264,25 @@
     "DataBase": "データベース",
     "TableName": "テーブル名",
     "TableDescription": "表の説明"
+  },
+  "upload": {
+    "Drag": "ファイルをここにドラッグするか、",
+    "Clickupload": "アップロードをクリック",
+    "Selectfile": "ファイルの選択",
+    "Pleaseupload": "",
+    "Size": "最大",
+    "Format": "の",
+    "Filesfor": "が認められています。",
+    "Formatincorrect": "フォーマットエラー、",
+    "FileType": "ファイルをアップロードしてください!",
+    "Uloading": "ファイルをアップロードしています。お待ちください…",
+    "Totalfile": "アップロードされたファイルの数は超過できません",
+    "Files": "ファイル！",
+    "Uploadfailed": "アップロードに失敗しました",
+    "Reason": "、理由：",
+    "StorageType": "ストレージタイプ",
+    "StorageFolder": "StorageFolder",
+    "Filenamerules": "ファイル名のルール",
+    "Customfilenames": "カスタムファイル名"
   }
 }

@@ -10,7 +10,7 @@ namespace La.Model.Dto
     /// <summary>
     /// 利润中心查询对象
     /// @author Davis.Cheng
-    /// @date 2023-04-26
+    /// @date 2023-05-18
     /// </summary>
     public class FicoPrctrQueryDto : PagerInfo 
     {

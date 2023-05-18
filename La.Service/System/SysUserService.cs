@@ -44,8 +44,8 @@ namespace La.Service
             var exp = Expressionable.Create<SysUser>();
             exp.AndIF(!string.IsNullOrEmpty(user.UserName), u => u.UserName.Contains(user.UserName));
             exp.AndIF(!string.IsNullOrEmpty(user.Status), u => u.Status == user.Status);
-            exp.AndIF(user.BeginTime != DateTime.MinValue && user.BeginTime != null, u => u.Create_time >= user.BeginTime);
-            exp.AndIF(user.EndTime != DateTime.MinValue && user.EndTime != null, u => u.Create_time <= user.EndTime);
+            //exp.AndIF( user.BeginTime != null, u => u.Create_time >= user.BeginTime);
+            //exp.AndIF( user.EndTime != null, u => u.Create_time <= user.EndTime);
             exp.AndIF(!user.Phonenumber.IsEmpty(), u => u.Phonenumber == user.Phonenumber);
             exp.And(u => u.IsDeleted == "0");
 

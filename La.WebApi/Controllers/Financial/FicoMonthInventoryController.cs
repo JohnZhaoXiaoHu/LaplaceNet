@@ -83,7 +83,7 @@ namespace La.WebApi.Controllers
 
             if (UserConstants.NOT_UNIQUE.Equals(_FicoMonthInventoryService.CheckEntryStringUnique(parm.MiId.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增月度存货 '{parm.MiId}'失败，输入的月度存货已存在"));
+                return ToResponse(ApiResult.Error($"新增月度存货 '{parm.MiYm}'失败，输入的月度存货已存在"));
             }
             var modal = parm.Adapt<FicoMonthInventory>().ToCreate(HttpContext);
 

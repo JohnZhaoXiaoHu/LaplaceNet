@@ -16,7 +16,7 @@ namespace La.Model.System
         [SugarColumn(IsOnlyIgnoreUpdate = true)]
         [JsonProperty(propertyName: "CreateTime")]
         [ExcelColumn(Format = "yyyy-MM-dd HH:mm:ss")]
-        public DateTime Create_time { get; set; } = DateTime.Now;
+        public DateTime Create_time { get; set; }= DateTime.Now;
 
         [JsonIgnore]
         [JsonProperty(propertyName: "UpdateBy")]

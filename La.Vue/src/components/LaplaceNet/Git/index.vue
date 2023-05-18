@@ -3,20 +3,14 @@
     <svg-icon name="github" @click="goto" />
   </div>
 </template>
-<script>
-  export default {
-    setup() {
-      const url = ref("https://github.com/Lean365/LaplaceNet");
+<script setup>
 
-      function goto() {
-        window.open(url.value);
-      }
+  const url = ref('https://github.com/Lean365/LaplaceNet');
 
-      return {
-        goto,
-      };
-    },
-  };
+  function goto() {
+    window.open(url.value)
+  }
+
 </script>
 <style scoped>
   .svg-icon {

@@ -30,6 +30,16 @@ import pagedeptEn from './pages/dept/en'//英文
 import pagedeptJa from './pages/dept/ja'//日文
 
 
+// 文件上传页面
+import pageuploadZh from './pages/upload/zh-cn'//中文
+import pageuploadEn from './pages/upload/en'//英文
+import pageuploadJa from './pages/upload/ja'//日文
+
+// 用户页面
+import pageuserZh from './pages/user/zh-cn'//中文
+import pageuserEn from './pages/user/en'//英文
+import pageuserJa from './pages/user/ja'//日文
+
 
 const i18n = createI18n({
   // 全局注入 $t 函数
@@ -42,19 +52,25 @@ const i18n = createI18n({
       ...zh,
       ...pageLoginZh,
       ...pagemenuZh,
-      ...pagedeptZh
+      ...pagedeptZh,
+      ...pageuploadZh,
+      ...pageuserZh
     },
     'en': {
       ...en,
       ...pageLoginEn,
       ...pagemenuEn,
-      ...pagedeptEn
+      ...pagedeptEn,
+      ...pageuploadEn,
+      ...pageuserEn
     },
     'ja': {
       ...ja,
       ...pageLoginJa,
       ...pagemenuJa,
-      ...pagedeptJa
+      ...pagedeptJa,
+      ...pageuploadJa,
+      ...pageuserJa
     },
 
     //... 在这里添加其他语言支持

@@ -49,7 +49,7 @@ namespace La.Service.Financial
         /// <returns></returns>
         public string CheckEntryStringUnique(string entryString)
         {
-            int count = Count(it => it.FpId.ToString() == entryString);
+            int count = Count(it => it.FpYm.ToString() == entryString);
             if (count > 0)
             {
                 return UserConstants.NOT_UNIQUE;

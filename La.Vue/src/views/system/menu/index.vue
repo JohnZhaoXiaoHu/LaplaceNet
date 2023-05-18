@@ -98,11 +98,11 @@
       </el-table-column>
       <el-table-column :label="$t('btn.operate')" align="center" width="170" class-name="small-padding fixed-width">
         <template #default="scope">
-          <el-button text size="small" icon="Edit" @click="handleUpdate(scope.row)"
+          <el-button size="small" type="success" icon="Edit" @click="handleUpdate(scope.row)"
             v-hasPermi="['system:menu:edit']"></el-button>
-          <el-button text size="small" icon="Plus" @click="handleAdd(scope.row)"
+          <el-button size="small" type="primary" icon="Plus" @click="handleAdd(scope.row)"
             v-hasPermi="['system:menu:add']"></el-button>
-          <el-button text size="small" icon="Delete" @click="handleDelete(scope.row)"
+          <el-button size="small" type="danger" icon="Delete" @click="handleDelete(scope.row)"
             v-hasPermi="['system:menu:remove']"></el-button>
         </template>
       </el-table-column>

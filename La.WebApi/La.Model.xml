@@ -327,7 +327,7 @@
             <summary>
             汇率表查询对象
             @author Davis.Cheng
-            @date 2023-04-11
+            @date 2023-05-18
             </summary>
         </member>
         <member name="P:La.Model.Dto.FicoExchangeRateQueryDto.BeginErEffDate">
@@ -618,7 +618,7 @@
             <summary>
             利润中心查询对象
             @author Davis.Cheng
-            @date 2023-04-26
+            @date 2023-05-18
             </summary>
         </member>
         <member name="P:La.Model.Dto.FicoPrctrQueryDto.FpPlnt">
@@ -980,459 +980,581 @@
             描述 :UpdateTime 
             </summary>
         </member>
-        <member name="T:La.Model.Dto.EhrEmployeeQueryDto">
+        <member name="T:La.Model.Dto.OfficeEhrEmployeeQueryDto">
             <summary>
             人事信息查询对象
             @author Davis.Ching
-            @date 2023-05-15
+            @date 2023-05-16
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeName">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeName">
             <summary>
             描述 :姓名 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeGender">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeGender">
             <summary>
             描述 :性别 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.BeginEeBirthday">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.BeginEeBirthday">
             <summary>
             描述 :开始时间
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EndEeBirthday">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EndEeBirthday">
             <summary>
             描述 :结束时间
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeWedlock">
-            <summary>
-            描述 :婚姻状态 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeNationId">
-            <summary>
-            描述 :民族 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeNativePlace">
-            <summary>
-            描述 :籍贯 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EePoliticId">
-            <summary>
-            描述 :政治面貌 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeCountry">
-            <summary>
-            描述 :国家/地区 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeProvince">
-            <summary>
-            描述 :省区 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeHomeAddress">
-            <summary>
-            描述 :家庭住址 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeHouseholdType">
-            <summary>
-            描述 :户口性质 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeTitlesId">
-            <summary>
-            描述 :职称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EePostId">
-            <summary>
-            描述 :岗位 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EePostLevel">
-            <summary>
-            描述 :等级 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeDutyName">
-            <summary>
-            描述 :职务 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeRecruited">
-            <summary>
-            描述 :招聘来源 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeEngageForm">
-            <summary>
-            描述 :聘用形式 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeTiptopDegrEe">
-            <summary>
-            描述 :学历 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeSpecialty">
-            <summary>
-            描述 :专业 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeWorkID">
-            <summary>
-            描述 :工号 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.BeginEeBeginDate">
-            <summary>
-            描述 :开始时间
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EndEeBeginDate">
-            <summary>
-            描述 :结束时间
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeWorkState">
-            <summary>
-            描述 :在职状态 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeProbation">
-            <summary>
-            描述 :试用期 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeQueryDto.EeContractTerm">
-            <summary>
-            描述 :合同期限 
-            </summary>
-        </member>
-        <member name="T:La.Model.Dto.EhrEmployeeDto">
-            <summary>
-            人事信息输入输出对象
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeId">
-            <summary>
-            描述 :ID 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeName">
-            <summary>
-            描述 :姓名 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeNameUsed">
-            <summary>
-            描述 :曾用名 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeNickName">
-            <summary>
-            描述 :昵称 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeEnglishName">
-            <summary>
-            描述 :英文名 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeGender">
-            <summary>
-            描述 :性别 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeBirthday">
-            <summary>
-            描述 :出生日期 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeIdentityCard">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeIdentityCard">
             <summary>
             描述 :身份证号 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeWedlock">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeWedlock">
             <summary>
             描述 :婚姻状态 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeNationId">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeNationId">
             <summary>
             描述 :民族 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeNativePlace">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeNativePlace">
             <summary>
             描述 :籍贯 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EePoliticId">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EePoliticId">
             <summary>
             描述 :政治面貌 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeEmail">
-            <summary>
-            描述 :邮件 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EePhone">
-            <summary>
-            描述 :电话 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeCountry">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeCountry">
             <summary>
             描述 :国家/地区 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeProvince">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeProvince">
             <summary>
             描述 :省区 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeCity">
-            <summary>
-            描述 :市区 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeCounty">
-            <summary>
-            描述 :县区 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeHomeAddress">
-            <summary>
-            描述 :家庭住址 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EePostCode">
-            <summary>
-            描述 :邮编 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeHouseholdType">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeHouseholdType">
             <summary>
             描述 :户口性质 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeStayAddress">
-            <summary>
-            描述 :暂住地址 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeDepartmentId">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeDepartmentId">
             <summary>
             描述 :部门 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeTitlesId">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeTitlesId">
             <summary>
             描述 :职称 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EePostId">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EePostId">
             <summary>
             描述 :岗位 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EePostLevel">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EePostLevel">
             <summary>
             描述 :等级 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeDutyName">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeDutyName">
             <summary>
             描述 :职务 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeRecruited">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeRecruited">
             <summary>
             描述 :招聘来源 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeEngageForm">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeEngageForm">
             <summary>
             描述 :聘用形式 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeTiptopDegrEe">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeTiptopDegrEe">
             <summary>
             描述 :学历 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeSpecialty">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeSpecialty">
             <summary>
             描述 :专业 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeSchool">
-            <summary>
-            描述 :院校 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeWorkID">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeWorkID">
             <summary>
             描述 :工号 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeBeginDate">
-            <summary>
-            描述 :入职日期 
-            </summary>
-        </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeWorkState">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeWorkState">
             <summary>
             描述 :在职状态 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeProbation">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeProbation">
             <summary>
             描述 :试用期 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeContractTerm">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EeContractTerm">
             <summary>
             描述 :合同期限 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeConversionTime">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.BeginEeLeaveDate">
+            <summary>
+            描述 :开始时间
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeQueryDto.EndEeLeaveDate">
+            <summary>
+            描述 :结束时间
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.OfficeEhrEmployeeDto">
+            <summary>
+            人事信息输入输出对象
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeId">
+            <summary>
+            描述 :ID 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeName">
+            <summary>
+            描述 :姓名 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeNameUsed">
+            <summary>
+            描述 :曾用名 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeNickName">
+            <summary>
+            描述 :昵称 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeEnglishName">
+            <summary>
+            描述 :英文名 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeGender">
+            <summary>
+            描述 :性别 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeBirthday">
+            <summary>
+            描述 :出生日期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeIdentityCard">
+            <summary>
+            描述 :身份证号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeWedlock">
+            <summary>
+            描述 :婚姻状态 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeNationId">
+            <summary>
+            描述 :民族 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeNativePlace">
+            <summary>
+            描述 :籍贯 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EePoliticId">
+            <summary>
+            描述 :政治面貌 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeEmail">
+            <summary>
+            描述 :邮件 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EePhone">
+            <summary>
+            描述 :电话 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeCountry">
+            <summary>
+            描述 :国家/地区 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeProvince">
+            <summary>
+            描述 :省区 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeCity">
+            <summary>
+            描述 :市区 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeCounty">
+            <summary>
+            描述 :县区 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeHomeAddress">
+            <summary>
+            描述 :家庭住址 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EePostCode">
+            <summary>
+            描述 :邮编 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeHouseholdType">
+            <summary>
+            描述 :户口性质 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeStayAddress">
+            <summary>
+            描述 :暂住地址 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeDepartmentId">
+            <summary>
+            描述 :部门 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeTitlesId">
+            <summary>
+            描述 :职称 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EePostId">
+            <summary>
+            描述 :岗位 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EePostLevel">
+            <summary>
+            描述 :等级 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeDutyName">
+            <summary>
+            描述 :职务 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeRecruited">
+            <summary>
+            描述 :招聘来源 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeEngageForm">
+            <summary>
+            描述 :聘用形式 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeTiptopDegrEe">
+            <summary>
+            描述 :学历 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeSpecialty">
+            <summary>
+            描述 :专业 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeSchool">
+            <summary>
+            描述 :院校 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeWorkID">
+            <summary>
+            描述 :工号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeBeginDate">
+            <summary>
+            描述 :入职日期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeWorkState">
+            <summary>
+            描述 :在职状态 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeProbation">
+            <summary>
+            描述 :试用期 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeContractTerm">
+            <summary>
+            描述 :合同期限 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeConversionTime">
             <summary>
             描述 :转正日期 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeLeaveDate">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeLeaveDate">
             <summary>
             描述 :离职日期 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeBeginContract">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeBeginContract">
             <summary>
             描述 :合同起始日 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeBndContract">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeBndContract">
             <summary>
             描述 :合同终止晶 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeWorkAge">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeWorkAge">
             <summary>
             描述 :工龄 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeAvatar">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeAvatar">
             <summary>
             描述 :头像 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeQualificationAffix">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeQualificationAffix">
             <summary>
             描述 :学历附件 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.EeTitleAffix">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.EeTitleAffix">
             <summary>
             描述 :职称附件 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF01">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.UDF01">
             <summary>
             描述 :UDF01 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF02">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.UDF02">
             <summary>
             描述 :UDF02 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF03">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.UDF03">
             <summary>
             描述 :UDF03 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF04">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.UDF04">
             <summary>
             描述 :UDF04 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF05">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.UDF05">
             <summary>
             描述 :UDF05 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF06">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.UDF06">
             <summary>
             描述 :UDF06 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF51">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.UDF51">
             <summary>
             描述 :UDF51 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF52">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.UDF52">
             <summary>
             描述 :UDF52 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF53">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.UDF53">
             <summary>
             描述 :UDF53 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF54">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.UDF54">
             <summary>
             描述 :UDF54 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF55">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.UDF55">
             <summary>
             描述 :UDF55 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.UDF56">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.UDF56">
             <summary>
             描述 :UDF56 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.IsDeleted">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.IsDeleted">
             <summary>
             描述 :IsDeleted 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.ReMark">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.ReMark">
             <summary>
             描述 :ReMark 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.CreateBy">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.CreateBy">
             <summary>
             描述 :CreateBy 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.CreateTime">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.CreateTime">
             <summary>
             描述 :CreateTime 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.UpdateBy">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.UpdateBy">
             <summary>
             描述 :UpdateBy 
             </summary>
         </member>
-        <member name="P:La.Model.Dto.EhrEmployeeDto.UpdateTime">
+        <member name="P:La.Model.Dto.OfficeEhrEmployeeDto.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.OfficeNumberingRulesQueryDto">
+            <summary>
+            单据编码查询对象
+            @author Davis.Ching
+            @date 2023-05-16
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesQueryDto.RefModule">
+            <summary>
+            描述 :模块 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesQueryDto.RefCategory">
+            <summary>
+            描述 :类别 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesQueryDto.RefName">
+            <summary>
+            描述 :编码名称 
+            </summary>
+        </member>
+        <member name="T:La.Model.Dto.OfficeNumberingRulesDto">
+            <summary>
+            单据编码输入输出对象
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesDto.RefId">
+            <summary>
+            描述 :ID 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesDto.RefModule">
+            <summary>
+            描述 :模块 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesDto.RefCategory">
+            <summary>
+            描述 :类别 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesDto.RefCode">
+            <summary>
+            描述 :编码代号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesDto.RefName">
+            <summary>
+            描述 :编码名称 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesDto.RefPattern">
+            <summary>
+            描述 :编码模式 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesDto.RefPrefix">
+            <summary>
+            描述 :前缀 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesDto.RefLenth">
+            <summary>
+            描述 :长度 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesDto.InitNumber">
+            <summary>
+            描述 :初始编码 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesDto.IsoNumber">
+            <summary>
+            描述 :ISO编号 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesDto.Status">
+            <summary>
+            描述 :状态 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesDto.Sort">
+            <summary>
+            描述 :排序 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesDto.IsDeleted">
+            <summary>
+            描述 :IsDeleted 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesDto.ReMark">
+            <summary>
+            描述 :ReMark 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesDto.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesDto.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesDto.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            </summary>
+        </member>
+        <member name="P:La.Model.Dto.OfficeNumberingRulesDto.UpdateTime">
             <summary>
             描述 :UpdateTime 
             </summary>
@@ -1870,7 +1992,7 @@
             <summary>
             主设变查询对象
             @author Davis.Cheng
-            @date 2023-04-28
+            @date 2023-05-18
             </summary>
         </member>
         <member name="P:La.Model.Dto.PpEcMasterQueryDto.BeginEmEcIssueDate">
@@ -3803,7 +3925,7 @@
              汇率表，数据实体对象
             
              @author Davis.Cheng
-             @date 2023-04-11
+             @date 2023-05-18
              </summary>
         </member>
         <member name="P:La.Model.Models.FicoExchangeRate.ErId">
@@ -4085,7 +4207,7 @@
              利润中心，数据实体对象
             
              @author Davis.Cheng
-             @date 2023-04-26
+             @date 2023-05-18
              </summary>
         </member>
         <member name="P:La.Model.Models.FicoPrctr.FpId">
@@ -4440,387 +4562,503 @@
             空值 :true 
             </summary>
         </member>
-        <member name="T:La.Model.Models.EhrEmployee">
+        <member name="T:La.Model.Models.OfficeEhrEmployee">
              <summary>
              人事信息，数据实体对象
             
              @author Davis.Ching
-             @date 2023-05-15
+             @date 2023-05-16
              </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeId">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeId">
             <summary>
             描述 :ID 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeName">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeName">
             <summary>
             描述 :姓名 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeNameUsed">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeNameUsed">
             <summary>
             描述 :曾用名 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeNickName">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeNickName">
             <summary>
             描述 :昵称 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeEnglishName">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeEnglishName">
             <summary>
             描述 :英文名 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeGender">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeGender">
             <summary>
             描述 :性别 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeBirthday">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeBirthday">
             <summary>
             描述 :出生日期 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeIdentityCard">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeIdentityCard">
             <summary>
             描述 :身份证号 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeWedlock">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeWedlock">
             <summary>
             描述 :婚姻状态 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeNationId">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeNationId">
             <summary>
             描述 :民族 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeNativePlace">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeNativePlace">
             <summary>
             描述 :籍贯 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EePoliticId">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EePoliticId">
             <summary>
             描述 :政治面貌 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeEmail">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeEmail">
             <summary>
             描述 :邮件 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EePhone">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EePhone">
             <summary>
             描述 :电话 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeCountry">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeCountry">
             <summary>
             描述 :国家/地区 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeProvince">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeProvince">
             <summary>
             描述 :省区 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeCity">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeCity">
             <summary>
             描述 :市区 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeCounty">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeCounty">
             <summary>
             描述 :县区 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeHomeAddress">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeHomeAddress">
             <summary>
             描述 :家庭住址 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EePostCode">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EePostCode">
             <summary>
             描述 :邮编 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeHouseholdType">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeHouseholdType">
             <summary>
             描述 :户口性质 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeStayAddress">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeStayAddress">
             <summary>
             描述 :暂住地址 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeDepartmentId">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeDepartmentId">
             <summary>
             描述 :部门 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeTitlesId">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeTitlesId">
             <summary>
             描述 :职称 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EePostId">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EePostId">
             <summary>
             描述 :岗位 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EePostLevel">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EePostLevel">
             <summary>
             描述 :等级 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeDutyName">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeDutyName">
             <summary>
             描述 :职务 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeRecruited">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeRecruited">
             <summary>
             描述 :招聘来源 
             空值 :false 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeEngageForm">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeEngageForm">
             <summary>
             描述 :聘用形式 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeTiptopDegrEe">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeTiptopDegrEe">
             <summary>
             描述 :学历 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeSpecialty">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeSpecialty">
             <summary>
             描述 :专业 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeSchool">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeSchool">
             <summary>
             描述 :院校 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeWorkID">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeWorkID">
             <summary>
             描述 :工号 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeBeginDate">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeBeginDate">
             <summary>
             描述 :入职日期 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeWorkState">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeWorkState">
             <summary>
             描述 :在职状态 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeProbation">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeProbation">
             <summary>
             描述 :试用期 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeContractTerm">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeContractTerm">
             <summary>
             描述 :合同期限 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeConversionTime">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeConversionTime">
             <summary>
             描述 :转正日期 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeLeaveDate">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeLeaveDate">
             <summary>
             描述 :离职日期 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeBeginContract">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeBeginContract">
             <summary>
             描述 :合同起始日 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeBndContract">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeBndContract">
             <summary>
             描述 :合同终止晶 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeWorkAge">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeWorkAge">
             <summary>
             描述 :工龄 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeAvatar">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeAvatar">
             <summary>
             描述 :头像 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeQualificationAffix">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeQualificationAffix">
             <summary>
             描述 :学历附件 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.EeTitleAffix">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.EeTitleAffix">
             <summary>
             描述 :职称附件 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.UDF01">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.UDF01">
             <summary>
             描述 :UDF01 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.UDF02">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.UDF02">
             <summary>
             描述 :UDF02 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.UDF03">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.UDF03">
             <summary>
             描述 :UDF03 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.UDF04">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.UDF04">
             <summary>
             描述 :UDF04 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.UDF05">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.UDF05">
             <summary>
             描述 :UDF05 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.UDF06">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.UDF06">
             <summary>
             描述 :UDF06 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.UDF51">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.UDF51">
             <summary>
             描述 :UDF51 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.UDF52">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.UDF52">
             <summary>
             描述 :UDF52 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.UDF53">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.UDF53">
             <summary>
             描述 :UDF53 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.UDF54">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.UDF54">
             <summary>
             描述 :UDF54 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.UDF55">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.UDF55">
             <summary>
             描述 :UDF55 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.UDF56">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.UDF56">
             <summary>
             描述 :UDF56 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.IsDeleted">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.IsDeleted">
             <summary>
             描述 :IsDeleted 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.ReMark">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.ReMark">
             <summary>
             描述 :ReMark 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.CreateBy">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.CreateBy">
             <summary>
             描述 :CreateBy 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.CreateTime">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.CreateTime">
             <summary>
             描述 :CreateTime 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.UpdateBy">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.UpdateBy">
             <summary>
             描述 :UpdateBy 
             空值 :true 
             </summary>
         </member>
-        <member name="P:La.Model.Models.EhrEmployee.UpdateTime">
+        <member name="P:La.Model.Models.OfficeEhrEmployee.UpdateTime">
+            <summary>
+            描述 :UpdateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="T:La.Model.Models.OfficeNumberingRules">
+             <summary>
+             单据编码，数据实体对象
+            
+             @author Davis.Ching
+             @date 2023-05-16
+             </summary>
+        </member>
+        <member name="P:La.Model.Models.OfficeNumberingRules.RefId">
+            <summary>
+            描述 :ID 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.OfficeNumberingRules.RefModule">
+            <summary>
+            描述 :模块 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.OfficeNumberingRules.RefCategory">
+            <summary>
+            描述 :类别 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.OfficeNumberingRules.RefCode">
+            <summary>
+            描述 :编码代号 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.OfficeNumberingRules.RefName">
+            <summary>
+            描述 :编码名称 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.OfficeNumberingRules.RefPattern">
+            <summary>
+            描述 :编码模式 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.OfficeNumberingRules.RefPrefix">
+            <summary>
+            描述 :前缀 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.OfficeNumberingRules.RefLenth">
+            <summary>
+            描述 :长度 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.OfficeNumberingRules.InitNumber">
+            <summary>
+            描述 :初始编码 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.OfficeNumberingRules.IsoNumber">
+            <summary>
+            描述 :ISO编号 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.OfficeNumberingRules.Status">
+            <summary>
+            描述 :状态 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.OfficeNumberingRules.Sort">
+            <summary>
+            描述 :排序 
+            空值 :false 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.OfficeNumberingRules.IsDeleted">
+            <summary>
+            描述 :IsDeleted 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.OfficeNumberingRules.ReMark">
+            <summary>
+            描述 :ReMark 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.OfficeNumberingRules.CreateBy">
+            <summary>
+            描述 :CreateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.OfficeNumberingRules.CreateTime">
+            <summary>
+            描述 :CreateTime 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.OfficeNumberingRules.UpdateBy">
+            <summary>
+            描述 :UpdateBy 
+            空值 :true 
+            </summary>
+        </member>
+        <member name="P:La.Model.Models.OfficeNumberingRules.UpdateTime">
             <summary>
             描述 :UpdateTime 
             空值 :true 
@@ -5255,7 +5493,7 @@
              主设变，数据实体对象
             
              @author Davis.Cheng
-             @date 2023-04-28
+             @date 2023-05-18
              </summary>
         </member>
         <member name="P:La.Model.Models.PpEcMaster.EmId">

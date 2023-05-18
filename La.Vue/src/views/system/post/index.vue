@@ -61,12 +61,13 @@
       </el-table-column>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template #default="scope">
-          <el-button text size="small" icon="edit" @click="handleUpdate(scope.row)" v-hasPermi="['system:post:edit']">
-            {{ $t('btn.edit') }}
+          <el-button type="success" size="small" icon="edit" @click="handleUpdate(scope.row)"
+            v-hasPermi="['system:post:edit']">
+            <!-- {{ $t('btn.edit') }} -->
           </el-button>
-          <el-button text size="small" icon="delete" @click="handleDelete(scope.row)"
+          <el-button type="danger" size="small" icon="delete" @click="handleDelete(scope.row)"
             v-hasPermi="['system:post:remove']">
-            {{ $t('btn.delete') }}
+            <!-- {{ $t('btn.delete') }} -->
           </el-button>
         </template>
       </el-table-column>
@@ -245,7 +246,7 @@
   }
   /** 导出按钮操作 */
   function handleExport() {
-    this.$confirm('是否确认导出所有岗位数据项?', '警告', {
+    proxy.$confirm('是否确认导出所有岗位数据项?', '警告', {
       confirmButtonText: '确定',
       cancelButtonText: '取消',
       type: 'warning',

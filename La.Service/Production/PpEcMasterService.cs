@@ -15,7 +15,7 @@ namespace La.Service.Production
     /// 主设变Service业务层处理
     ///
     /// @author Davis.Cheng
-    /// @date 2023-04-28
+    /// @date 2023-05-18
     /// </summary>
     [AppService(ServiceType = typeof(IPpEcMasterService), ServiceLifetime = LifeTime.Transient)]
     public class PpEcMasterService : BaseService<PpEcMaster>, IPpEcMasterService
@@ -33,13 +33,13 @@ namespace La.Service.Production
             var predicate = Expressionable.Create<PpEcMaster>();
 
             //搜索条件查询语法参考Sqlsugar
-            predicate = predicate.AndIF(parm.BeginEmEcIssueDate != null, it => it.EmEcIssueDate >= parm.BeginEmEcIssueDate);
+            predicate = predicate.AndIF(parm.BeginEmEcIssueDate != null, it => it.EmEcIssueDate >=parm.BeginEmEcIssueDate);
             predicate = predicate.AndIF(parm.BeginEmEcIssueDate != null, it => it.EmEcIssueDate >= parm.BeginEmEcIssueDate && it.EmEcIssueDate <= parm.EndEmEcIssueDate);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EmEcNo), it => it.EmEcNo.Contains(parm.EmEcNo));
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EmEcTitle), it => it.EmEcTitle.Contains(parm.EmEcTitle));
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EmEcAssigned), it => it.EmEcAssigned == parm.EmEcAssigned);
             predicate = predicate.AndIF(parm.EmEcManageCategory != null, it => it.EmEcManageCategory == parm.EmEcManageCategory);
-            predicate = predicate.AndIF(parm.BeginEmEcEntryDate != null, it => it.EmEcEntryDate >= parm.BeginEmEcEntryDate);
+            predicate = predicate.AndIF(parm.BeginEmEcEntryDate != null, it => it.EmEcEntryDate >=parm.BeginEmEcEntryDate);
             predicate = predicate.AndIF(parm.BeginEmEcEntryDate != null, it => it.EmEcEntryDate >= parm.BeginEmEcEntryDate && it.EmEcEntryDate <= parm.EndEmEcEntryDate);
             var response = Queryable()
                 .Where(predicate.ToExpression())

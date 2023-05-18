@@ -2,9 +2,9 @@
  * @Descripttion: (利润中心/fico_prctr)
  * @version: (1.0)
  * @Author: (Davis.Cheng)
- * @Date: (2023-04-26)
+ * @Date: (2023-05-18)
  * @LastEditors: (Davis.Cheng)
- * @LastEditTime: (2023-04-26)
+ * @LastEditTime: (2023-05-18)
 -->
 <template>
   <div>
@@ -61,11 +61,6 @@
       <el-col :span="1.5">
         <el-button type="danger" :disabled="multiple" v-hasPermi="['la:ficoprctr:delete']" plain icon="delete" @click="handleDelete">
           {{ $t('btn.delete') }}
-        </el-button>
-      </el-col>
-      <el-col :span="1.5">
-        <el-button color="#00CED1" plain icon="Upload" @click="handleImport" v-hasPermi="['la:ficoprctr:import']">
-          {{ $t('btn.import') }}
         </el-button>
       </el-col>
       <el-col :span="1.5">
@@ -159,7 +154,7 @@
 
           <el-col :lg="12">
             <el-form-item label="IsDeleted" prop="isDeleted">
-              <el-input clearable v-model="form.isDeleted" :placeholder="$t('btn.enter')+'IsDeleted'"  :disabled="true"/>
+              <el-input clearable v-model="form.isDeleted" :placeholder="$t('btn.enter')+'IsDeleted'" />
             </el-form-item>
           </el-col>
 

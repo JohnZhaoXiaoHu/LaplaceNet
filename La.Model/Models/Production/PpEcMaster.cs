@@ -8,7 +8,7 @@ namespace La.Model.Models
     /// 主设变，数据实体对象
     ///
     /// @author Davis.Cheng
-    /// @date 2023-04-28
+    /// @date 2023-05-18
     /// </summary>
     [SugarTable("pp_ec_master")]
     public class PpEcMaster

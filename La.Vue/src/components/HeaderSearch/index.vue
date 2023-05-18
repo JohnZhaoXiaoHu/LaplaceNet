@@ -139,8 +139,8 @@
   .svg-icon {
     width: 1.2em;
     height: 1.2em;
-    vertical-align: -0.15em;
-    fill: #003459;
+    vertical-align: text-bottom;
+    fill: RoyalBlue;
     overflow: hidden;
   }
 

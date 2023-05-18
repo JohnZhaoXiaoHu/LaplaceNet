@@ -178,8 +178,8 @@
     "dateselect": "请选择日期:",
     "clean": "清空",
     "enter": "请输入:",
-    "dateStart": "开始日期",
-    "dateEnd": "结束日期",
+    "dateStart": "开始日",
+    "dateEnd": "结束日",
     "select": "请选择:",
     "operation": "操作",
     "empty": "不能为空!",
@@ -265,5 +265,25 @@
     "DataBase": "数据库",
     "TableName": "表名",
     "TableDescription": "表描述"
+  },
+  "upload": {
+    "Drag": "将文件拖到此处，或",
+    "Clickupload": "点击上传",
+    "Selectfile": "选取文件",
+    "Pleaseupload": "请上传",
+    "Size": "大小不超过",
+    "Format": "格式为",
+    "Filesfor": "的文件",
+    "Formatincorrect": "文件格式不正确, 请上传",
+    "FileType": "格式文件!",
+    "Uloading": "正在上传文件，请稍候...",
+    "Totalfile": "上传文件数量不能超过",
+    "Files": "个！",
+    "Uploadfailed": "上传失败",
+    "Reason": "，原因：",
+    "StorageType": "存储类型",
+    "StorageFolder": "存储文件夹",
+    "Filenamerules": "文件名规则",
+    "Customfilenames": "自定文件名"
   }
 }

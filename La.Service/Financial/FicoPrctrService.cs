@@ -15,7 +15,7 @@ namespace La.Service.Financial
     /// 利润中心Service业务层处理
     ///
     /// @author Davis.Cheng
-    /// @date 2023-04-26
+    /// @date 2023-05-18
     /// </summary>
     [AppService(ServiceType = typeof(IFicoPrctrService), ServiceLifetime = LifeTime.Transient)]
     public class FicoPrctrService : BaseService<FicoPrctr>, IFicoPrctrService
@@ -33,11 +33,20 @@ namespace La.Service.Financial
             var predicate = Expressionable.Create<FicoPrctr>();
 
             //搜索条件查询语法参考Sqlsugar
+
+            //删除标记不显示
+            predicate = predicate.And(it => it.IsDeleted == false);
+            //下拉列表或输入字符查询
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FpPlnt), it => it.FpPlnt == parm.FpPlnt);
+            //下拉列表或输入字符查询
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FpCode), it => it.FpCode.Contains(parm.FpCode));
+            //下拉列表或输入字符查询
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.FpType), it => it.FpType == parm.FpType);
-            predicate = predicate.AndIF(parm.BeginFpActDate == null, it => it.FpActDate >= DateTime.Now.AddDays(-1));
+            //选择日期查询
+            predicate = predicate.AndIF(parm.BeginFpActDate != null, it => it.FpActDate >=parm.BeginFpActDate);
             predicate = predicate.AndIF(parm.BeginFpActDate != null, it => it.FpActDate >= parm.BeginFpActDate && it.FpActDate <= parm.EndFpActDate);
+
+ 		
             var response = Queryable()
                 .Where(predicate.ToExpression())
                 .ToPage<FicoPrctr, FicoPrctrDto>(parm);

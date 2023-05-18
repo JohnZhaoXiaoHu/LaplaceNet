@@ -265,5 +265,25 @@
     "DataBase": "DataBase",
     "TableName": "Name",
     "TableDescription": "Description"
+  },
+  "upload": {
+    "Drag": "Drag files here, or ",
+    "Clickupload": "Click upload",
+    "Selectfile": "Select file",
+    "Pleaseupload": "Please upload",
+    "Size": "Maximum",
+    "Format": "",
+    "Filesfor": "allowed",
+    "Formatincorrect": "The file format is incorrect, please upload ",
+    "FileType": " file!",
+    "Uloading": "Uploading files, please wait...",
+    "Totalfile": "The number of uploaded files cannot exceed",
+    "Files": "file！",
+    "Uploadfailed": "Upload failed",
+    "Reason": ", Reason:",
+    "StorageType": "Storage Type",
+    "StorageFolder": "Storage Folder",
+    "Filenamerules": "Filename rules",
+    "Customfilenames": "Custom filenames"
   }
 }

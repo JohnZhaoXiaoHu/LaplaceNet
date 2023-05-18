@@ -10,7 +10,7 @@ namespace La.Service.Financial.IFinancialService
     /// 汇率表service接口
     ///
     /// @author Davis.Cheng
-    /// @date 2023-04-11
+    /// @date 2023-05-18
     /// </summary>
     public interface IFicoExchangeRateService : IBaseService<FicoExchangeRate>
     {

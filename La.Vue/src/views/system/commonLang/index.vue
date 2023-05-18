@@ -79,10 +79,10 @@
 
       <el-table-column :label="$t('btn.operate')" align="center" width="140">
         <template #default="scope">
-          <el-button v-hasPermi="['system:lang:edit']" text size="small" icon="edit" :title="$t('btn.edit')"
+          <el-button v-hasPermi="['system:lang:edit']" type="success" size="small" icon="edit" :title="$t('btn.edit')"
             @click="handleUpdate(scope.row)"></el-button>
-          <el-button v-hasPermi="['system:lang:delete']" text size="small" icon="delete" :title="$t('btn.delete')"
-            @click="handleDelete(scope.row)"></el-button>
+          <el-button v-hasPermi="['system:lang:delete']" type="danger" size="small" icon="delete"
+            :title="$t('btn.delete')" @click="handleDelete(scope.row)"></el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -98,9 +98,9 @@
 
       <el-table-column :label="$t('btn.operate')" align="center" width="140">
         <template #default="scope">
-          <el-button v-hasPermi="['system:lang:edit']" text size="small" icon="edit" :title="$t('btn.edit')"
+          <el-button v-hasPermi="['system:lang:edit']" type="success" size="small" icon="edit" :title="$t('btn.edit')"
             @click="handleUpdateP(scope.row)">
-            {{ $t('btn.edit') }}
+            <!-- {{ $t('btn.edit') }} -->
           </el-button>
           <!-- <el-button v-hasPermi="['system:lang:delete']" type="danger" icon="delete" title="删除" @click="handleDeleteP(scope.row)"></el-button> -->
         </template>

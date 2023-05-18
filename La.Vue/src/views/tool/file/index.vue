@@ -3,14 +3,15 @@
     <!-- :model属性用于表单验证使用 比如下面的el-form-item 的 prop属性用于对表单值进行验证操作 -->
     <el-form :model="queryParams" label-position="left" inline ref="queryForm" v-show="showSearch" @submit.prevent>
       <el-form-item label="" prop="fileId">
-        <el-input v-model="queryParams.fileId" placeholder="请输入文件id" clearable />
+        <el-input v-model="queryParams.fileId" :placeholder="$t('btn.enter')+$t('f.fileID')" clearable />
       </el-form-item>
       <el-form-item label="">
-        <el-date-picker v-model="dateRangeAddTime" type="daterange" range-separator="-" start-placeholder="开始日期"
-          end-placeholder="结束日期" placeholder="请选择上传时间"></el-date-picker>
+        <el-date-picker v-model="dateRangeAddTime" type="daterange" range-separator="-"
+          :start-placeholder="$t('btn.dateStart')" :end-placeholder="$t('btn.dateEnd')"
+          :placeholder="$t('btn.dateselect')"></el-date-picker>
       </el-form-item>
       <el-form-item label="" prop="storeType">
-        <el-select v-model="queryParams.storeType" placeholder="请选择存储类型" clearable="">
+        <el-select v-model="queryParams.storeType" :placeholder="$t('btn.select')+$t('f.storageType')" clearable="">
           <el-option v-for="item in storeTypeOptions" :key="item.dictValue" :label="item.dictLabel"
             :value="item.dictValue"></el-option>
         </el-select>
@@ -40,25 +41,26 @@
     <el-table :data="dataList" v-loading="loading" ref="table" border highlight-current-row
       @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="50" align="center" />
-      <el-table-column prop="id" label="文件id" align="center" width="150" />
-      <el-table-column prop="fileName" label="文件名--下载" width="500%" :show-overflow-tooltip="true">
+      <el-table-column prop="id" :label="$t('f.fileID')" align="center" width="150" />
+      <el-table-column prop="fileName" :label="$t('f.fileDown')" width="500%" :show-overflow-tooltip="true">
         <template #default="scope">
           <el-link type="primary" :href="scope.row.accessUrl" target="_blank">{{ scope.row.fileName
             }}</el-link>
         </template>
       </el-table-column>
 
-      <el-table-column prop="fileSize" label="文件大小" align="center" :show-overflow-tooltip="true" />
-      <el-table-column prop="fileExt" label="扩展名" align="center" :show-overflow-tooltip="true" width="80px" />
-      <el-table-column prop="storeType" label="存储类型" align="center">
+      <el-table-column prop="fileSize" :label="$t('f.fileSize')" align="center" :show-overflow-tooltip="true" />
+      <el-table-column prop="fileExt" :label="$t('f.fileExt')" align="center" :show-overflow-tooltip="true"
+        width="80px" />
+      <el-table-column prop="storeType" :label="$t('f.fileStorageType')" align="center">
         <template #default="scope">
           {{ scope.row.storeType }}
           <!-- <dict-tag :options="storeTypeOptions" :value="parseInt(scope.row.storeType)" /> -->
         </template>
       </el-table-column>
-      <el-table-column prop="create_by" label="操作人" align="center" />
-      <el-table-column prop="create_time" label="创建日期" align="center" width="150" />
-      <el-table-column prop="accessUrl" align="center" label="预览图" width="100">
+      <el-table-column prop="create_by" :label="$t('f.fileOperator')" align="center" />
+      <el-table-column prop="create_time" :label="$t('f.fileCreatedate')" align="center" width="150" />
+      <el-table-column prop="accessUrl" align="center" :label="$t('f.filePreview')" width="100">
         <template #default="{ row }">
           <el-image preview-teleported :src="row.accessUrl" :preview-src-list="[row.accessUrl]"
             :hide-on-click-modal="true" fit="contain" lazy class="el-avatar">
@@ -75,7 +77,7 @@
           <!-- <embed :src='row.accessUrl' type="application/pdf" width="90%" height="700px;" /> -->
         </template>
       </el-table-column>
-      <el-table-column label="操作" align="center" width="230">
+      <el-table-column :label="$t('f.fileOperation')" align="center" width="230">
         <template #default="scope">
           <el-button text size="small" icon="view" @click="handleView(scope.row)">{{ $t('btn.view') }}</el-button>
           <el-button class="copy-btn-main" icon="document-copy" text size="small"
@@ -92,12 +94,12 @@
       @pagination="getList" />
 
     <!-- 添加或修改文件存储对话框 -->
-    <el-dialog :title="title" :lock-scroll="false" v-model="open" width="400px" draggable>
-      <el-form ref="formRef" :model="form" :rules="rules" label-width="90px" label-position="left">
+    <el-dialog :title="title" :lock-scroll="false" v-model="open" width="600px" draggable>
+      <el-form ref="formRef" :model="form" :rules="rules" label-width="180px" label-position="right">
         <el-row>
           <el-col :lg="24">
-            <el-form-item label="存储类型" prop="storeType">
-              <el-radio-group v-model="form.storeType" placeholder="请选择存储类型">
+            <el-form-item :label="proxy.$t('upload.StorageType')" prop="storeType">
+              <el-radio-group v-model="form.storeType" :placeholder="proxy.$t('upload.StorageType')">
                 <el-radio v-for="item in storeTypeOptions" :key="item.dictValue" :label="parseInt(item.dictValue)">
                   {{ item.dictLabel }}
                 </el-radio>
@@ -105,13 +107,14 @@
             </el-form-item>
           </el-col>
           <el-col :lg="24">
-            <el-form-item label="存储文件夹" prop="storePath">
-              <el-input v-model="form.storePath" placeholder="请输入存储文件夹" clearable="" auto-complete="" disabled />
+            <el-form-item :label="proxy.$t('upload.StorageFolder')" prop="storePath">
+              <el-input v-model="form.storePath" :placeholder="proxy.$t('btn.enter')+proxy.$t('upload.StorageFolder')"
+                clearable="" auto-complete="" disabled />
             </el-form-item>
           </el-col>
           <el-col :lg="24">
-            <el-form-item label="文件名规则" prop="fileNameType">
-              <el-radio-group v-model="form.fileNameType" placeholder="请选择文件名存储类型">
+            <el-form-item :label="proxy.$t('upload.Filenamerules')" prop="fileNameType">
+              <el-radio-group v-model="form.fileNameType" :placeholder="proxy.$t('upload.Filenamerules')">
                 <el-radio v-for="item in fileNameTypeOptions" :key="item.dictValue" :label="parseInt(item.dictValue)">
                   {{ item.dictLabel }}
                 </el-radio>
@@ -119,12 +122,12 @@
             </el-form-item>
           </el-col>
           <el-col :lg="24" v-if="form.fileNameType == 2">
-            <el-form-item label="自定文件名" prop="fileName">
-              <el-input v-model="form.fileName" placeholder="请输入文件名" clearable="" />
+            <el-form-item :label="proxy.$t('upload.Customfilenames')" prop="fileName">
+              <el-input v-model="form.fileName" :placeholder="proxy.$t('upload.Customfilenames')" clearable="" />
             </el-form-item>
           </el-col>
           <el-col :lg="24">
-            <UploadFile ref="uploadRef" v-model="form.accessUrl" :fileType="[]" :fileSize="10" :drag="true"
+            <UploadFile ref="uploadRef" v-model="form.accessUrl" :fileType="['pdf']" :fileSize="10" :drag="true"
               :data="uploadData" :autoUpload="false" @success="handleUploadSuccess" />
           </el-col>
         </el-row>
@@ -138,7 +141,7 @@
     </el-dialog>
 
     <!-- 添加或修改文件存储对话框 -->
-    <el-dialog title="查看" :lock-scroll="false" v-model="openView">
+    <el-dialog :title="proxy.$t('btn.view')" :lock-scroll="false" v-model="openView">
       <el-form ref="form" :model="formView" :rules="rules" label-width="100px">
         <el-row>
           <el-col :lg="12">

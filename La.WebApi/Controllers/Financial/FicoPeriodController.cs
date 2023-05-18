@@ -81,9 +81,9 @@ namespace La.WebApi.Controllers
 
            // 校验输入项目是否唯一
 
-            if (UserConstants.NOT_UNIQUE.Equals(_FicoPeriodService.CheckEntryStringUnique(parm.FpId.ToString())))
+            if (UserConstants.NOT_UNIQUE.Equals(_FicoPeriodService.CheckEntryStringUnique(parm.FpYm.ToString())))
             {
-                return ToResponse(ApiResult.Error($"新增财务期间 '{parm.FpId}'失败，输入的财务期间已存在"));
+                return ToResponse(ApiResult.Error($"新增财务期间 '{parm.FpYm}'失败，输入的财务期间已存在"));
             }
             var modal = parm.Adapt<FicoPeriod>().ToCreate(HttpContext);
 

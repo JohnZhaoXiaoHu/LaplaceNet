@@ -27,9 +27,9 @@
 
   // 初始化时间
   const initTime = () => {
-    state.time.txt = formatNowDateTime(new Date(), 'YYYY-mm-dd HH:MM:SS WWW QQQQ');
+    state.time.txt = formatNowDateTime(new Date(), 'YYYY-mm-dd HH:MM:SS WWW ZZZ QQQQ');
     state.time.fun = window.setInterval(() => {
-      state.time.txt = formatNowDateTime(new Date(), 'YYYY-mm-dd HH:MM:SS WWW QQQQ');
+      state.time.txt = formatNowDateTime(new Date(), 'YYYY-mm-dd HH:MM:SS WWW ZZZ QQQQ');
     }, 1000);
   };
   // 页面加载前

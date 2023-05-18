@@ -215,6 +215,7 @@
     /*safari 浏览器支持*/
     letter-spacing: 2px;
     /*字符间距*/
+    cursor: pointer
   }
 
   .drawer-item {

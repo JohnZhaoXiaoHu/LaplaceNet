@@ -10,7 +10,7 @@ namespace La.Model.Dto
     /// <summary>
     /// 汇率表查询对象
     /// @author Davis.Cheng
-    /// @date 2023-04-11
+    /// @date 2023-05-18
     /// </summary>
     public class FicoExchangeRateQueryDto : PagerInfo 
     {

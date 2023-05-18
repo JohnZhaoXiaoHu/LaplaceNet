@@ -4,8 +4,8 @@
       <!--部门数据-->
       <el-col :span="4" :xs="24">
         <div class="head-container">
-          <el-input v-model="deptName" placeholder="请输入部门名称" clearable prefix-icon="el-icon-search"
-            style="margin-bottom: 20px" />
+          <el-input v-model="deptName" :placeholder="$t('btn.enter')+$t('u.deptName')" clearable
+            prefix-icon="el-icon-search" style="margin-bottom: 20px" />
         </div>
         <div class="head-container">
           <el-tree :data="deptOptions" :props="{ label: 'label', children: 'children' }" :expand-on-click-node="false"
@@ -16,24 +16,25 @@
       <!--用户数据-->
       <el-col :lg="20" :xm="24">
         <el-form :model="queryParams" ref="queryRef" :inline="true" v-show="showSearch" label-width="68px">
-          <el-form-item label="用户名称" prop="userName">
-            <el-input v-model="queryParams.userName" placeholder="请输入用户名称" clearable style="width: 240px"
-              @keyup.enter="handleQuery" />
+          <el-form-item :label="$t('u.userName')" prop="userName">
+            <el-input v-model="queryParams.userName" :placeholder="$t('btn.enter')+$t('u.userName')" clearable
+              style="width: 240px" @keyup.enter="handleQuery" />
           </el-form-item>
-          <el-form-item label="手机号码" prop="phonenumber">
-            <el-input v-model="queryParams.phonenumber" placeholder="请输入手机号码" clearable style="width: 240px"
-              @keyup.enter="handleQuery" />
+          <el-form-item :label="$t('u.userMobile')" prop="phonenumber">
+            <el-input v-model="queryParams.phonenumber" :placeholder="$t('btn.enter')+$t('u.userMobile')" clearable
+              style="width: 240px" @keyup.enter="handleQuery" />
           </el-form-item>
-          <el-form-item label="状态" prop="status">
-            <el-select v-model="queryParams.status" placeholder="用户状态" clearable style="width: 240px">
+          <el-form-item :label="$t('u.userStat')" prop="status">
+            <el-select v-model="queryParams.status" :placeholder="$t('btn.select')+$t('u.userStat')" clearable
+              style="width: 240px">
               <el-option v-for="dict in statusOptions" :key="dict.dictValue" :label="dict.dictLabel"
                 :value="dict.dictValue" />
             </el-select>
           </el-form-item>
-          <el-form-item label="创建时间">
+          <!-- <el-form-item :label="$t('u.Createdate')">
             <el-date-picker v-model="dateRange" style="width: 240px" type="daterange" range-separator="-"
-              start-placeholder="开始日期" end-placeholder="结束日期"></el-date-picker>
-          </el-form-item>
+              :start-placeholder="$t('btn.dateStart')" :end-placeholder="$t('btn.dateEnd')"></el-date-picker>
+          </el-form-item> -->
           <el-form-item>
             <el-button type="primary" icon="search" @click="handleQuery">{{ $t('btn.search') }}</el-button>
             <el-button icon="refresh" @click="resetQuery">{{ $t('btn.reset') }}</el-button>
@@ -59,8 +60,8 @@
             </el-button>
           </el-col>
           <el-col :span="1.5">
-            <el-button type="info" plain icon="Upload" @click="handleImport"
-              v-hasPermi="['system:user:import']">导入</el-button>
+            <el-button type="info" plain icon="Upload" @click="handleImport" v-hasPermi="['system:user:import']"> {{
+              $t('btn.import') }}</el-button>
           </el-col>
           <el-col :span="1.5">
             <el-button type="warning" plain icon="Download" @click="handleExport" v-hasPermi="['system:user:export']">
@@ -73,29 +74,30 @@
 
         <el-table v-loading="loading" :data="userList" @selection-change="handleSelectionChange">
           <el-table-column type="selection" width="50" align="center" />
-          <el-table-column label="用户编号" align="center" key="userId" prop="userId" v-if="columns.showColumn('userId')" />
-          <el-table-column label="登录名" align="center" key="userName" prop="userName"
+          <el-table-column :label="$t('u.userID')" align="center" key="userId" prop="userId"
+            v-if="columns.showColumn('userId')" />
+          <el-table-column :label="$t('u.userName')" align="center" key="userName" prop="userName"
             v-if="columns.showColumn('userName')" :show-overflow-tooltip="true" />
-          <el-table-column label="用户昵称" align="center" key="nickName" prop="nickName"
+          <el-table-column :label="$t('u.userNick')" align="center" key="nickName" prop="nickName"
             v-if="columns.showColumn('nickName')" :show-overflow-tooltip="true" />
-          <el-table-column label="部门" align="center" key="deptName" prop="deptName"
+          <el-table-column :label="$t('u.deptName')" align="center" key="deptName" prop="deptName"
             v-if="columns.showColumn('deptName')" :show-overflow-tooltip="true" />
-          <el-table-column label="手机号码" align="center" key="phonenumber" prop="phonenumber"
+          <el-table-column :label="$t('u.userMobile')" align="center" key="phonenumber" prop="phonenumber"
             v-if="columns.showColumn('phonenumber')" width="120" />
-          <el-table-column label="状态" align="center" key="status" v-if="columns.showColumn('status')">
+          <el-table-column :label="$t('u.userStat')" align="center" key="status" v-if="columns.showColumn('status')">
             <template #default="scope">
-              <el-switch v-model="scope.row.status" active-value="0" inactive-value="1"
+              <el-switch v-if="scope.row.userId !== 1" v-model="scope.row.status" active-value="0" inactive-value="1"
                 @change="handleStatusChange(scope.row)"></el-switch>
             </template>
           </el-table-column>
-          <el-table-column label="创建时间" align="center" prop="createTime" v-if="columns.showColumn('createTime')"
-            width="160"></el-table-column>
-          <el-table-column prop="sex" label="性别" align="center" v-if="columns.showColumn('sex')">
+          <el-table-column :label="$t('u.Createdate')" align="center" prop="createTime"
+            v-if="columns.showColumn('createTime')" width="160"></el-table-column>
+          <el-table-column prop="sex" :label="$t('u.sex')" align="center" v-if="columns.showColumn('sex')">
             <template #default="scope">
               <dict-tag :options="sexOptions" :value="scope.row.sex" />
             </template>
           </el-table-column>
-          <el-table-column prop="avatar" label="头像地址" align="center" v-if="columns.showColumn('avatar')">
+          <el-table-column prop="avatar" :label="$t('u.avatar')" align="center" v-if="columns.showColumn('avatar')">
             <template #default="scope">
               <el-image preview-teleported :hide-on-click-modal="true" lazy class="avatar" fit="contain"
                 :src="scope.row.avatar" :preview-src-list="[scope.row.avatar]">
@@ -107,17 +109,18 @@
               </el-image>
             </template>
           </el-table-column>
-          <el-table-column prop="email" label="用户邮箱" align="center" v-if="columns.showColumn('email')" />
-          <el-table-column prop="loginDate" label="最后登录时间" align="center" v-if="columns.showColumn('loginDate')" />
-          <el-table-column label="操作" align="center" width="110" class-name="small-padding fixed-width">
+          <el-table-column prop="email" :label="$t('u.email')" align="center" v-if="columns.showColumn('email')" />
+          <el-table-column prop="loginDate" :label="$t('u.loginDate')" align="center"
+            v-if="columns.showColumn('loginDate')" />
+          <el-table-column :label="$t('u.Operation')" align="center" width="150" class-name="small-padding fixed-width">
             <template #default="scope">
-              <el-button v-if="scope.row.userId !== 1" text icon="Edit" @click="handleUpdate(scope.row)"
+              <el-button v-if="scope.row.userId !== 1" type="success" icon="Edit" @click="handleUpdate(scope.row)"
                 v-hasPermi="['system:user:edit']">
               </el-button>
-              <el-button v-if="scope.row.userId !== 1" text icon="Delete" @click="handleDelete(scope.row)"
+              <el-button v-if="scope.row.userId !== 1" type="danger" icon="Delete" @click="handleDelete(scope.row)"
                 v-hasPermi="['system:user:remove']">
               </el-button>
-              <el-button v-if="scope.row.userId !== 1" text icon="Key" @click="handleResetPwd(scope.row)"
+              <el-button v-if="scope.row.userId !== 1" color="#FF69B4" icon="Key" @click="handleResetPwd(scope.row)"
                 v-hasPermi="['system:user:resetPwd']"></el-button>
             </template>
           </el-table-column>

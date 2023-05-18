@@ -19,7 +19,7 @@ namespace La.WebApi.Controllers
     /// 
     /// @tableName pp_ec_master
     /// @author Davis.Cheng
-    /// @date 2023-04-28
+    /// @date 2023-05-18
     /// </summary>
     [Verify]
     [Route("Production/PpEcMaster")]
