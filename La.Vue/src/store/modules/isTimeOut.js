@@ -2,7 +2,7 @@
 import useUserStore from '@/store/modules/user'
 let lastTime = new Date().getTime()
 let currentTime = new Date().getTime()
-let timeOut = 30 * 60 * 1000  //设置超时时间: 30分钟
+let timeOut = 30 * 60 * 1000  //设置超时时间: 120分钟
 window.onload = function () {
   window.document.onmousedown = function () {
     localStorage.setItem("lastTime", new Date().getTime())
@@ -31,5 +31,5 @@ function checkTimeout() {
 }
 export default function () {
   /* 定时器 间隔30秒检测是否长时间未操作页面 */
-  window.setInterval(checkTimeout, 30000);
+  window.setInterval(checkTimeout, 29 * 60 * 1000);
 }
