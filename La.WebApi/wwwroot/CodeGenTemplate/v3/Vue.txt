@@ -187,10 +187,10 @@ $if(replaceDto.ShowBtnView)
           <el-button type="primary" icon="view" @click="handlePreview(scope.row)"></el-button>
 $end
 $if(replaceDto.ShowBtnEdit)
-          <el-button v-hasPermi="['${replaceDto.PermissionPrefix}:edit']" type="success" icon="edit" :title="${t}t('btn.edit')" @click="handleUpdate(scope.row)"></el-button>
+          <el-button v-hasPermi="['${replaceDto.PermissionPrefix}:edit']" type="success" icon="edit" :title="${t}t('btn.edit')" @click="handleUpdate(scope.row)" style="width:5px;margin-bottom:5px;"></el-button>
 $end
 $if(replaceDto.ShowBtnDelete)
-          <el-button v-hasPermi="['${replaceDto.PermissionPrefix}:delete']" type="danger" icon="delete" :title="${t}t('btn.delete')" @click="handleDelete(scope.row)"></el-button>
+          <el-button v-hasPermi="['${replaceDto.PermissionPrefix}:delete']" type="danger" icon="delete" :title="${t}t('btn.delete')" @click="handleDelete(scope.row)" style="width:5px;margin-bottom:5px;"></el-button>
 $end
         </template>
       </el-table-column>

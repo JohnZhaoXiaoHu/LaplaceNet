@@ -1,3 +1,4 @@
+**中文** | [English](./README.en.md)
 <h2 align="center">🏬Laplace.NET后台管理系统🏬</h2>
 <h4 align="center">👉.Net7+Vue3.x+Element plus前后端分离的快速发开框架👈</h4>  
 
@@ -11,12 +12,17 @@
 </p>
 
 ## 🎉概述
-* 本项目旨在[ZR.Admin](https://gitee.com/izory)框架基础上新增实用功能，并不对框架本身进行完善。
-* 适合有一定NetCore和vue基础的开发人员，框架本身问题请移步izory：[ZR.Admin](https://gitee.com/izory)。敬请谅解！！！！
-* 基于.NET7实现的通用权限管理平台（RBAC模式）。整合最新技术高效快速开发，前后端分离模式，开箱即用。
-* 代码量少、学习简单、通俗易懂、功能强大、易扩展、轻量级，让web开发更快速、简单高效（从此告别996），解决70%的重复工作，专注您的业务，轻松开发从现在开始！
-* 如果您是0基础，请移步到izory：[ZR.Admin](https://gitee.com/izory)。
 
+- 基于.NET7实现的通用管理平台（RBAC模式）。整合[ZR.Admin](https://gitee.com/izory)框架技术高效快速开发，前后端分离模式，开箱即用。
+- 代码量少、学习简单、通俗易懂、功能强大、易扩展、轻量级，让web开发更快速、简单高效，解决70%的重复工作，专注您的业务，轻松开发从现在开始！
+
+
+## 💚 适合人群
+
+- 正在以及想使用 element-ui/element-plus 开发，前端开发经验 1 年+。
+- 熟悉 Vue.js 技术栈，使用它开发过几个实际项目。
+- 对原理技术感兴趣，想进阶和提升的同学。
+- 零基础，请移步到izory：[ZR.Admin](https://gitee.com/izory)。
 
 
 
@@ -36,7 +42,7 @@
 | Net7 |       | [克隆/下载](https://github.com/Lean365/LaplaceNet)             |
 
 ## 🐰前端技术
-Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、 element-ui、echats、i18n国际化等，前端采用vscode工具开发
+Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、 element-plus、echats、i18n国际化等，前端采用vscode工具开发
 
 ## 🐰后端技术
 - 核心框架：.Net7.0 + Web API + sqlsugar + swagger + signalR + IpRateLimit + Quartz.net + Redis

@@ -143,11 +143,12 @@
       </el-table-column>
       <el-table-column :label="$t('btn.operate')" align="center" width="160">
         <template #default="scope">
-          <el-button type="primary" icon="view" @click="handlePreview(scope.row)"></el-button>
+          <el-button type="primary" icon="view" @click="handlePreview(scope.row)"
+            style="width:5px;margin-bottom:5px;"></el-button>
           <el-button v-hasPermi="['pp:ecmaster:edit']" type="success" icon="edit" :title="$t('btn.edit')"
-            @click="handleUpdate(scope.row)"></el-button>
+            @click="handleUpdate(scope.row)" style="width:5px;margin-bottom:5px;"></el-button>
           <el-button v-hasPermi="['pp:ecmaster:delete']" type="danger" icon="delete" :title="$t('btn.delete')"
-            @click="handleDelete(scope.row)"></el-button>
+            @click="handleDelete(scope.row)" style="width:5px;margin-bottom:5px;"></el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -196,11 +197,7 @@
                 </el-form-item>
               </el-col>
 
-              <el-col :lg="24">
-                <el-form-item label="内容" prop="emEcContent">
-                  <el-input clearable type="textarea" v-model="form.emEcContent" :placeholder="$t('btn.enter')+'内容'" />
-                </el-form-item>
-              </el-col>
+
 
               <el-col :lg="12">
                 <el-form-item label="担当" prop="emEcAssigned">
@@ -251,10 +248,19 @@
                 </el-form-item>
               </el-col>
 
-
             </el-row>
           </el-tab-pane>
-          <el-tab-pane label="关联文件" name="second">
+          <el-tab-pane label="ec内容" name="second">
+            <el-row :gutter="20">
+              <el-col :lg="24">
+                <el-form-item label="内容" prop="emEcContent">
+                  <el-input clearable type="textarea" v-model="form.emEcContent" :placeholder="$t('btn.enter')+'内容'"
+                    :rows="20" />
+                </el-form-item>
+              </el-col>
+            </el-row>
+          </el-tab-pane>
+          <el-tab-pane label="关联文件" name="third">
             <el-row :gutter="20">
               <el-col :lg="12">
                 <el-form-item label="联络No." prop="emEcLiaisonNo">
@@ -309,7 +315,7 @@
               </el-col>
             </el-row>
           </el-tab-pane>
-          <el-tab-pane label="其它" name="third">
+          <el-tab-pane label="其它" name="fourth">
             <el-row :gutter="20">
               <el-col :lg="12">
                 <el-form-item label="UDF01" prop="uDF01">
@@ -426,7 +432,7 @@
               </el-col>
             </el-row>
           </el-tab-pane>
-          <el-tab-pane label="Guid" name="fourth">
+          <el-tab-pane label="Guid" name="fifth">
             <el-row :gutter="20">
               <el-col :lg="12">
                 <el-form-item label="ID" prop="emId">

@@ -8,7 +8,6 @@
 -->
 <template>
   <div>
-
     <el-form :model="queryParams" label-position="right" inline ref="queryRef" v-show="showSearch" @submit.prevent>
       <el-form-item label="发行日">
         <el-date-picker v-model="dateRangeEmEcIssueDate" type="daterange" range-separator="-"
@@ -169,9 +168,9 @@
       <el-table-column :label="$t('btn.operate')" align="center" width="160">
         <template #default="scope">
           <el-button v-hasPermi="['la:ppecmaster:edit']" type="success" icon="edit" :title="$t('btn.edit')"
-            @click="handleUpdate(scope.row)"></el-button>
+            @click="handleUpdate(scope.row)" style="width:5px;margin-bottom:5px;"></el-button>
           <el-button v-hasPermi="['la:ppecmaster:delete']" type="danger" icon="delete" :title="$t('btn.delete')"
-            @click="handleDelete(scope.row)"></el-button>
+            @click="handleDelete(scope.row)" style="width:5px;margin-bottom:5px;"></el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -308,11 +307,12 @@
         v-if="columns.showColumn('esDeptModifyTime')" />
       <el-table-column :label="$t('btn.operate')" align="center" width="160">
         <template #default="scope">
-          <el-button type="primary" icon="view" @click="handlePreview(scope.row)"></el-button>
+          <el-button type="primary" icon="view" @click="handlePreview(scope.row)"
+            style="width:5px;margin-bottom:5px;"></el-button>
           <el-button v-hasPermi="['pp:ecslave:edit']" type="success" icon="edit" :title="$t('btn.edit')"
-            @click="handleUpdate(scope.row)"></el-button>
+            @click="handleUpdate(scope.row)" style="width:5px;margin-bottom:5px;"></el-button>
           <el-button v-hasPermi="['pp:ecslave:delete']" type="danger" icon="delete" :title="$t('btn.delete')"
-            @click="handleDelete(scope.row)"></el-button>
+            @click="handleDelete(scope.row)" style="width:5px;margin-bottom:5px;"></el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -1272,3 +1272,33 @@
 
   handleQuery()
 </script>
+
+<style lang="scss" scoped>
+  .el-button--goon {
+    color: #FFF;
+    background-color: #1E90FF;
+    border-color: #1E90FF;
+    height: 34px;
+    line-height: 34px;
+    padding: 0 20px;
+  }
+
+  .el-button--goon:focus,
+  .el-button--goon:hover {
+    color: #FFF;
+    background-color: #1E90FF;
+    border-color: #1E90FF;
+    height: 34px;
+    line-height: 34px;
+    padding: 0 20px;
+  }
+
+  .el-button--goon:active {
+    color: #FFF;
+    background-color: #1E90FF;
+    border-color: #1E90FF;
+    height: 34px;
+    line-height: 34px;
+    padding: 0 20px;
+  }
+</style>
