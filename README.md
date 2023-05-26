@@ -1,7 +1,9 @@
 **中文** | [English](./README.en.md)
 <h2 align="center">🏬Laplace.NET通用管理系统🏬</h2>
 <h4 align="center">👉.Net7+Vue3.x+Element plus前后端分离的快速发开框架👈</h4>  
-
+<div align=center>
+<img src="https://github.com/Lean365/LaplaceNet/blob/master/La.Vue/src/assets/logo/logo.png" width=128" height="128" />
+</div>
 
 <p align="center">
 	<a href="https://github.com/Lean365/LaplaceNET"><img src="https://img.shields.io/github/stars/Lean365/LaplaceNet?style=flat-square&logo=github&color=red"></a>
