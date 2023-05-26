@@ -1,5 +1,5 @@
 **中文** | [English](./README.en.md)
-<h2 align="center">🏬Laplace.NET后台管理系统🏬</h2>
+<h2 align="center">🏬Laplace.NET通用管理系统🏬</h2>
 <h4 align="center">👉.Net7+Vue3.x+Element plus前后端分离的快速发开框架👈</h4>  
 
 
