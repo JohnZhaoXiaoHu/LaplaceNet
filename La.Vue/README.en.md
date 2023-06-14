@@ -174,11 +174,62 @@ Modern browsers and Internet Explorer 10+.
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | IE10, IE11, Edge                                                                                                                                                                                                 | last 2 versions                                                                                                                                                                                                    | last 2 versions                                                                                                                                                                                                | last 2 versions                                                                                                                                                                                                |
 
-## 🔧Instructions for use
-If the deployment of iis can not access the situation can have the following two approaches:
-1. Open the La.WebApi.exe file directly and look at the error log in the console
-2. web.config inside a false change to true, iis restart the project after running the site, with the directory under a folder log inside the error log file
-3. If you have environment, please use Laplace_deb.sql,sql2019 version to import directly, if you don't have environment, you can use SQLite version, laplace.net.db, and configure in <font color=#ff0000>appsettings.json</font>
+## 🔧 Instructions for use
+If the deployment of iis cannot access the situation, there are two methods:
+1. Backend packaging: In the VS2022 menu<Generate><Publish>
+2. Open the La.WebApi.exe file directly and check the error log on the console
+3. Change false to true in webconfig. After restarting the project and running the website, there is an error log file in the folder log under the directory
+4. If there is an environment, please use Laplace_ Deb.sql, sql2019 version can be directly imported. If there is no environment, SQLite version, place.net.db can be used, and configured in<font color=# ff0000>appsettings. json</font>
+5. Front end packaging: npm run build: prod
+```
+✓ build in 2m 20s
+```
+### 🔧 Overflow Solution
+```
+FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory
+```
+1. Delete Command
+```
+   rimraf node_modules
+```
+2. Reinstall
+```
+   npm i
+```
+
+3. Increase memory mechanism
+```
+   npm install -g increase-memory-limit
+```
+4. Execution
+```
+    increase-memory-limit
+```
+5. Modify node_modules\.bin\webpack.cmd, "%_prog%" replace % _prog% 
+6. Modify package.js
+```
+     "scripts": {
+    "dev": "vite",
+    "build:prod": "vite build",
+    "build:stage": "vite build --mode staging",
+    "preview": "vite preview"
+  },
+
+```
+Change to
+```
+     "scripts": {
+    "dev": "node.exe --max-old-space-size=10240 node_modules/vite/bin/vite.js",
+    "build:prod": "node.exe --max-old-space-size=10240 node_modules/vite/bin/vite.js build",
+    "build:stage": "vite build --mode staging",
+    "preview": "vite preview"
+  },
+```
+7. Rebuild
+```
+   npm run build:prod
+
+```
 
 ## 🚩License
 [MIT](https://github.com/Lean365/LaplaceNet/blob/master/LICENSE)

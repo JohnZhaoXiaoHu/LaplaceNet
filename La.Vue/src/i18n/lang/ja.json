@@ -11,7 +11,7 @@
     "systemRole": "ロール",
     "systemUser": "ユーザー",
     "systemDept": "部門",
-    "systemDic": "辞書管理",
+    "systemDic": "データ辞書",
     "systemPost": "職務",
     "systemParam": "パラメータ设置",
     "systemLog": "ログ管理",
@@ -56,7 +56,7 @@
     "thursday": "木曜日",
     "friday": "金曜日",
     "saturday": "土曜日",
-    "projectInfo": "Laplace.NET は管理画面のフロントエンドのインタフェースで、vue と element-plusを使っています。i18nの多言語対応、可変ルート、権限、典型的なビジネスアプリテンプレートであり、豊富なコンポーネントを提供しています。素早くビジネス用の管理画面の現型を構築に役立ちます。",
+    "projectInfo": "Laplace.Netならビジネスも処理も簡単に作れます。簡単なインストール、最短で構築が出来る、i18n多言語、無料の開発フレームワークです。「.Net 7.0+Vue3.x(setup)+Vite+Pinia+Element Plus」",
     "slogan": "グロバール企業としてのプライドを持ちQCDSへの限りない挑戦。",
     "returnLogin": "戻る",
     "loggingIn": "ログイン中...",
@@ -130,7 +130,7 @@
     "backstageManagement": "バックグラウンド管理",
     "bottomBar": "フッター",
     "identity": "アイデンティティ",
-    "content1": "代碼完全免費開源，易讀易懂、界面簡潔美觀，給你的項目多一種選擇與參考。",
+    "content1": "簡単インストール、最短で構築が出来る、無料、i18nの多言語対応。",
     "topNav": "ヘッダー"
   },
   "common": {

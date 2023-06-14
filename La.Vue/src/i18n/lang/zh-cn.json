@@ -57,7 +57,7 @@
     "friday": "五",
     "saturday": "六",
     "projectInfo": "Laplace.NET是一款前后端分离的、跨平台基于RBAC的通用权限管理后台。ORM采用SqlSugar。前端采用Vue、支持多租户、缓存、任务调度、支持统一异常处理、接口限流、支持一键生成前后端代码，支持动态国际化翻译(Vue3)，等诸多黑科技，代码简洁易懂、易扩展让开发更简单、更通用。",
-    "slogan": "改善观念,持续改进,精益生产。",
+    "slogan": "具有持续挑战QCDS的全球制造商。",
     "returnLogin": "返回",
     "loggingIn": "登录中...",
     "rewardUser": "打赏作者喝杯咖啡表示鼓励",

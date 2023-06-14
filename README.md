@@ -43,10 +43,10 @@
 | Vue3 |       | [Net7中已包含克隆/下载](https://github.com/Lean365/LaplaceNet) |
 | Net7 |       | [克隆/下载](https://github.com/Lean365/LaplaceNet)             |
 
-## 🐰前端技术
+## 🐰前端
 Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、 element-plus、echats、i18n国际化等，前端采用vscode工具开发
 
-## 🐰后端技术
+## 🐰后端
 - 核心框架：.Net7.0 + Web API + sqlsugar + swagger + signalR + IpRateLimit + Quartz.net + Redis
 - 定时计划任务：Quartz.Net组件，支持执行程序集或者http网络请求
 - 安全支持：过滤器(数据权限过滤)、Sql注入、请求伪造
@@ -176,9 +176,57 @@ Modern browsers and Internet Explorer 10+.
 
 ## 🔧使用说明
 如果部署iis访问不了情况可以有以下两种办法：
-1. 直接打开La.WebApi.exe文件然后看控制台的错误日志
-2. web.config里面有个false 改为 true，iis重启项目后运行网站后，跟目录下面 有个文件夹 log 里面有错误日志文件
-3. 有环境的请使用Laplace_deb.sql,sql2019版本直接导入，没有环境的可以使用SQLite版本，laplace.net.db，并在<font color=#ff0000>appsettings.json</font>配置
+1. 后端打包：在VS2022菜单<生成>\<发布>
+2. 直接打开La.WebApi.exe文件然后看控制台的错误日志
+3. web.config里面有个false 改为 true，iis重启项目后运行网站后，跟目录下面 有个文件夹 log 里面有错误日志文件
+4. 有环境的请使用Laplace_deb.sql,sql2019版本直接导入，没有环境的可以使用SQLite版本，laplace.net.db，并在<font color=#ff0000>appsettings.json</font>配置
+5. 前端打包：npm run build:prod
+ ```
+✓ built in 2m 20s
+```
+### 🔧溢出解决方案
+ ```
+FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory
+```
+   1. 删除命令
+   ```
+   rimraf node_modules
+   ```
+   2. 重新构建
+   ```
+   npm i
+   ```
+   3. 增加内存机制
+   ```
+   npm install -g increase-memory-limit
+   ```
+   4. 执行
+   ```
+    increase-memory-limit
+   ```
+   5. 修改node_modules\.bin\webpack.cmd文件，全局搜索 “%_prog%” 替换为 %_prog%即可
+   6. 修改package.js
+   ```
+     "scripts": {
+    "dev": "vite",
+    "build:prod": "vite build",
+    "build:stage": "vite build --mode staging",
+    "preview": "vite preview"
+  },
+   ```
+   改成
+   ```
+     "scripts": {
+    "dev": "node.exe --max-old-space-size=10240 node_modules/vite/bin/vite.js",
+    "build:prod": "node.exe --max-old-space-size=10240 node_modules/vite/bin/vite.js build",
+    "build:stage": "vite build --mode staging",
+    "preview": "vite preview"
+  },
+   ```
+   7. 重新打包
+   ```
+   npm run build:prod
+   ```
 
 ## 🚩License
 [MIT](https://github.com/Lean365/LaplaceNet/blob/master/LICENSE)

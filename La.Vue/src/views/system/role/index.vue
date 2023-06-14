@@ -170,6 +170,8 @@
 </template>
 
 <script setup name="role">
+  import { getCurrentInstance, ref, reactive } from 'vue';
+
   import { listRole, getRole, delRole, addRole, updateRole, exportRole, dataScope, changeRoleStatus } from '@/api/system/role'
   import { roleMenuTreeselect } from '@/api/system/menu'
   import { treeselect as deptTreeselect, roleDeptTreeselect } from '@/api/system/dept'
