@@ -1,7 +1,7 @@
 {
   "particles": {
     "number": {
-      "value": 120,
+      "value": 40,
       "density": {
         "enable": true,
         "value_area": 800
@@ -27,7 +27,7 @@
         "nb_sides": 5
       },
       "image": {
-        "src": "src/assets/icons/svg/laplace.svg",
+        "src": "src/assets/logo/laplace.svg",
         "width": 200,
         "height": 200
       }

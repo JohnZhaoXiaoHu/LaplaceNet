@@ -227,6 +227,19 @@ FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memor
    ```
    npm run build:prod
    ```
+6. IIS部署前端
+   下载URL重写模块[urlrewrite](https://www.iis.net/downloads/microsoft/url-rewrite)
+   下载代理模块[Application Request Routing](https://www.iis.net/downloads/microsoft/application-request-routing)
+   配置示例
+   <img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/iis1.png"/>
+   <img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/iis2.png"/>
+   <img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/iis3.png"/>
+   <img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/iis4.png"/>
+   <img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/iis5.png"/>
+   <img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/iis6.png"/>
+   <img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/iis7.png"/>
+   <img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/iis8.png"/>
+   <img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/iis9.png"/>
 
 ## 🚩License
 [MIT](https://github.com/Lean365/LaplaceNet/blob/master/LICENSE)
