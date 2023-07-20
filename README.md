@@ -2,7 +2,7 @@
 <h2 align="center">🏬Laplace.NET通用管理系统🏬</h2>
 <h4 align="center">👉.Net7+Vue3.x+Element plus前后端分离的快速发开框架👈</h4>  
 <div align=center>
-<img src="https://github.com/Lean365/LaplaceNet/blob/master/La.Vue/src/assets/logo/laplace.png" width=128" height="128" />
+<img src="https://github.com/Lean365/LaplaceNet/blob/master/La.Vue/src/assets/logo/Laplace.png" width=128" height="128" />
 <img src="https://github.com/Lean365/LaplaceNet/blob/master/La.Vue/src/assets/logo/Lean365.png" width=128" height="128" />
 <img src="https://github.com/Lean365/LaplaceNet/blob/master/La.Vue/src/assets/logo/Antares.png" width=128" height="128" />
 </div>

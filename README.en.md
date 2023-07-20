@@ -2,7 +2,7 @@
 <h2 align="center">🏬Laplace.NET General management platform🏬</h2>
 <h4 align="center">👉.Net7+Vue3.x+Element plus Fast development framework with front and rear separation👈</h4>  
 <div align=center>
-<img src="https://github.com/Lean365/LaplaceNet/blob/master/La.Vue/src/assets/logo/laplace.png" width=128" height="128" />
+<img src="https://github.com/Lean365/LaplaceNet/blob/master/La.Vue/src/assets/logo/Laplace.png" width=128" height="128" />
 <img src="https://github.com/Lean365/LaplaceNet/blob/master/La.Vue/src/assets/logo/Lean365.png" width=128" height="128" />
 <img src="https://github.com/Lean365/LaplaceNet/blob/master/La.Vue/src/assets/logo/Antares.png" width=128" height="128" />
 </div>
