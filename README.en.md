@@ -87,37 +87,37 @@ Due to being a personal project, funds are limited!!!
 
 ## 🎉 LeanManufacturing Management
 1. Budget management
-   1. Personnel
-   2. Equipment
-   3. Overtime
+- Personnel
+- Equipment
+- Overtime
 7. Expense management
-   1. Actual budget comparison
+- Actual budget comparison
 8. Cost Management
-   1. sales
-   2. BOM
-   3. labor
-   4. production
+- sales
+- BOM
+- labor
+- production
 9. Sales Management
-   1. Customer Complaints
-   2. Serial number
+- Customer Complaints
+- Serial number
 10. Material Management
-   1. MRP
-   2. FC
-11. Production Management
-   1. EC
-   2. OPH(Output per hour)
-   3. Defects
-   4. Manhour
+- MRP
+- FC
+11. Production Management 
+- **<font color="#000066">EC</font>**
+- **<font color="#000066">OPH(Output per hour)</font>**
+- Defects
+- Manhour
 12. Quality Control
-   1. Cost
-   2. Incoming material
-   3. finished product
+- Cost
+- Incoming material
+- finished product
 
 ## 🎉 OA
-1. Workflow (pending...)
+- (pending...)
 
 ## 🎉ChatGPT
-1.  (pending...)
+- (pending...)
 
 
 ## 🔰Project Structure
