@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
+using System.Reflection;
 
 namespace La.WebApi.Extensions
 {
@@ -38,24 +39,26 @@ namespace La.WebApi.Extensions
         public static void AddSwaggerConfig(this IServiceCollection services)
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
-            //IWebHostEnvironment hostEnvironment = App.GetRequiredService<IWebHostEnvironment>();
+            //IWebHostEnvironment hostEnvironment = services.BuildServiceProvider().GetRequiredService<IWebHostEnvironment>();
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "Laplace.Net7 - API Interface",
+                    Title = "La.NET Api",
                     Version = "v1",
                     Description = "",
-                    Contact = new OpenApiContact { Name = "Davis.Cheng", Email = "32322788@qq.com", Url = new System.Uri("https://laplacenet.github.io/") }
                 });
                 try
                 {
-                    var tempPath = "";// hostEnvironment.ContentRootPath;
+                    //var tempPath = hostEnvironment.ContentRootPath;
                     //添加文档注释
-                    c.IncludeXmlComments(Path.Combine(tempPath, "La.WebApi.xml"), true);
-                    c.IncludeXmlComments(Path.Combine(tempPath, "La.Model.xml"), true);
-                    //c.IncludeXmlComments(Path.Combine(Directory.GetParent(tempPath).FullName, "La.Model", "ZRModel.xml"), true);
+                    var baseDir = AppContext.BaseDirectory;
+                    c.IncludeXmlComments(Path.Combine(baseDir, "La.Model.xml"), true);
+
+                    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                    var xmlPath = Path.Combine(baseDir, xmlFile);
+                    c.IncludeXmlComments(xmlPath);
                 }
                 catch (Exception ex)
                 {

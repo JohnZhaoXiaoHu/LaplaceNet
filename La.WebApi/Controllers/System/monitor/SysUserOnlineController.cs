@@ -1,32 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using La.WebApi.Filters;
-using La.Model.Dto;
-using La.WebApi.Hubs;
-//using MySqlX.XDevAPI.Common;
 using Microsoft.AspNetCore.SignalR;
+using La.WebApi.Filters;
+using La.WebApi.Hubs;
 using La.Model;
-using La.Model.System;
-using System.Collections.Generic;
-using La.Infra.Enums;
-using La.Model.System.Dto;
-using La.Service.System;
-using La.Service.System.IService;
 using La.Infra.Attribute;
-using La.Infra.Model;
+using La.Infra.Enums;
+using La.Infra;
+using La.Service.System;
+using La.WebApi.Extensions;
+
 namespace La.WebApi.Controllers.monitor
 {
-    /// <summary>
-    /// 在线管理
-    /// </summary>
-
     [Verify]
     [Route("monitor/online")]
-    //[ApiController]
-
     public class SysUserOnlineController : BaseController
     {
         private ILogger<SysUserOnlineController> _logger;
-        private IHubContext<MessageHub> _hub;
+        private IHubContext<Hub> HubContext;
+
         /// <summary>
         /// 在线日志
         /// </summary>
@@ -35,33 +26,27 @@ namespace La.WebApi.Controllers.monitor
         public SysUserOnlineController(ILogger<SysUserOnlineController> logger, IHubContext<MessageHub> hub)
         {
             _logger = logger;
-            _hub = hub;
+            HubContext = hub;
         }
+        //public SysUserOnlineController(IHubContext<Hub> hubContext)
+        //{
+        //    HubContext = hubContext;
+        //}
+
         /// <summary>
-        /// 动态条件获取当前在线用户
+        /// 获取在线用户列表
         /// </summary>
-        /// <param name="online"></param>
+        /// <param name="parm"></param>
         /// <returns></returns>
         [HttpGet("list")]
-        [ActionPermissionFilter(Permission = "monitor:online:list")]
-        public Result PageList([FromQuery] OnlineUsers online)
+        public IActionResult Index([FromQuery] PagerInfo parm)
         {
-            var data = MessageHub.clientUsers;
-            IEnumerable<OnlineUsers> dataWhere = data.AsEnumerable();
+            var result = MessageHub.clientUsers
+                .OrderByDescending(f => f.LoginTime)
+                .Skip(parm.PageNum - 1).Take(parm.PageSize);
 
-            if (!string.IsNullOrEmpty(online.Ipaddr))
-            {
-                dataWhere = dataWhere.Where((u) => u.Ipaddr!.Contains(online.Ipaddr!));
-            }
-            if (!string.IsNullOrEmpty(online.UserName))
-            {
-                dataWhere = dataWhere.Where((u) => u.UserName!.Contains(online.UserName!));
-            }
-
-            return Result.Success().SetData(new PageModel<List<OnlineUsers>>() { Total = data.Count, Data = dataWhere.ToList() });
+            return SUCCESS(new { result, totalNum = MessageHub.clientUsers.Count });
         }
-
-
         /// <summary>
         /// 强制退出用户
         /// </summary>
@@ -72,17 +57,16 @@ namespace La.WebApi.Controllers.monitor
         [HttpDelete("{connnectionId}")]
         [ActionPermissionFilter(Permission = "monitor:online:forceLogout")]
         [Log(Title = "在线用户", BusinessType = BusinessType.FORCE)]
-        public async Task<Result> forceOut(string connnectionId)
+        public async Task<IActionResult> forceOut(string connnectionId)
         {
             if (MessageHub.clientUsers.Exists(u => u.ConnnectionId == connnectionId))
             {
                 //前端接受到这个事件后，触发前端自动退出
-                await _hub.Clients.Client(connnectionId).SendAsync(HubTypeEnum.forceOut.ToString(), "你已被强制退出！");
-                return Result.Success();
+                await HubContext.Clients.Client(connnectionId).SendAsync(HubTypeEnum.forceOut.ToString(), "你已被强制退出！");
+                return SUCCESS("你已被强制退出！");
             }
-            return Result.Error("操作失败！未发现该连接！");
+            return SUCCESS("操作失败！未发现该连接！");
         }
 
     }
-
 }

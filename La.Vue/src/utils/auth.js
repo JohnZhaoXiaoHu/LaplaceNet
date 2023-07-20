@@ -1,6 +1,6 @@
 // import Cookies from 'js-cookie'
 
-const TokenKey = 'La-Token'
+const TokenKey = 'ZR-Token'
 
 export function getToken() {
   return localStorage.getItem(TokenKey)

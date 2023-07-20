@@ -3,12 +3,12 @@ using SqlSugar;
 namespace La.Model.System
 {
     /// <summary>
-    /// 通知公告表，数据实体对象
+    /// 通知公告表
     ///
-    /// @author (Davis.Cheng)
+    /// @author zr
     /// @date 2021-12-15
     /// </summary>
-    [SugarTable("sys_notice")]
+    [SugarTable("sys_notice", "通知公告表")]
     [Tenant(0)]
     public class SysNotice : SysBase
     {
@@ -20,21 +20,22 @@ namespace La.Model.System
         /// <summary>
         /// 公告标题
         /// </summary>
-        [SugarColumn(ColumnName = "notice_title")]
+        [SugarColumn(ColumnName = "notice_title", ExtendedAttribute = ProteryConstant.NOTNULL)]
         public string NoticeTitle { get; set; }
         /// <summary>
         /// 公告类型 (1通知 2公告)
         /// </summary>
-        [SugarColumn(ColumnName = "notice_type")]
-        public string NoticeType { get; set; }
+        [SugarColumn(ColumnName = "notice_type", ExtendedAttribute = ProteryConstant.NOTNULL)]
+        public int NoticeType { get; set; }
         /// <summary>
         /// 公告内容
         /// </summary>
-        [SugarColumn(ColumnName = "notice_content")]
+        [SugarColumn(ColumnName = "notice_content", ColumnDataType = StaticConfig.CodeFirst_BigString)]
         public string NoticeContent { get; set; }
         /// <summary>
         /// 公告状态 (0正常 1关闭)
         /// </summary>
-        public string Status { get; set; }
+        [SugarColumn(DefaultValue = "0", ExtendedAttribute = ProteryConstant.NOTNULL)]
+        public int Status { get; set; }
     }
 }

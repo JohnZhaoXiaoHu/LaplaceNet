@@ -3,7 +3,7 @@
     "account": "账号",
     "password": "密码",
     "confirmPassword": "确认密码",
-    "captcha": "验证码",
+    "captcha": "验证码看右边算式",
     "btnLogin": "登录",
     "rememberMe": "记住密码",
     "loggingIn": "登入中...",
@@ -22,10 +22,10 @@
     "enterPassword": "请输入密码!",
     "lengthPassword": "密码字符在6到20之间.",
     "againPassword": "请再次输入密码!",
-    "enterCaptcha": "请输入验证码",
+    "enterCaptcha": "请输入计算结果(验证码)",
     "congratulationsAccount": "恭喜你的账号:",
     "successfulAccount": "注册成功.",
     "systemPrompt": "Laplace提示",
-  "selectLanguage": "正在设置语言，请稍候..."
+    "selectLanguage": "正在设置语言，请稍候..."
   }
 }

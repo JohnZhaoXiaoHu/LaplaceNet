@@ -39,27 +39,21 @@ namespace La.Service
         /// 根据条件分页查询用户列表
         /// </summary>
         /// <returns></returns>
-        public PagedInfo<SysUser> SelectUserList(SysUser user, PagerInfo pager)
+        public PagedInfo<SysUser> SelectUserList(SysUserQueryDto user, PagerInfo pager)
         {
             var exp = Expressionable.Create<SysUser>();
             exp.AndIF(!string.IsNullOrEmpty(user.UserName), u => u.UserName.Contains(user.UserName));
-            exp.AndIF(!string.IsNullOrEmpty(user.Status), u => u.Status == user.Status);
-            //exp.AndIF( user.BeginTime != null, u => u.Create_time >= user.BeginTime);
-            //exp.AndIF( user.EndTime != null, u => u.Create_time <= user.EndTime);
+            exp.AndIF(user.Status != -1, u => u.Status == user.Status);
+            exp.AndIF(user.BeginTime != DateTime.MinValue && user.BeginTime != null, u => u.Create_time >= user.BeginTime);
+            exp.AndIF(user.EndTime != DateTime.MinValue && user.EndTime != null, u => u.Create_time <= user.EndTime);
             exp.AndIF(!user.Phonenumber.IsEmpty(), u => u.Phonenumber == user.Phonenumber);
-            exp.And(u => u.IsDeleted == "0");
+            exp.And(u => u.IsDeleted == 0);
 
             if (user.DeptId != 0)
             {
-                List<SysDept> depts = Context.Queryable<SysDept>().ToList();
+                var allChildDepts = Context.Queryable<SysDept>().ToChildList(it => it.ParentId, user.DeptId);
 
-                var newDepts = depts.FindAll(delegate (SysDept dept)
-                {
-                    string[] parentDeptId = dept.Ancestors.Split(",", StringSplitOptions.RemoveEmptyEntries);
-                    return parentDeptId.Contains(user.DeptId.ToString());
-                });
-                string[] deptArr = newDepts.Select(x => x.DeptId.ToString()).ToArray();
-                exp.AndIF(user.DeptId != 0, u => u.DeptId == user.DeptId || deptArr.Contains(u.DeptId.ToString()));
+                exp.And(u => allChildDepts.Select(f => f.DeptId).ToList().Contains(u.DeptId));
             }
             var query = Queryable()
                 .LeftJoin<SysDept>((u, dept) => u.DeptId == dept.DeptId)
@@ -80,7 +74,8 @@ namespace La.Service
         /// <returns></returns>
         public SysUser SelectUserById(long userId)
         {
-            var user = Queryable().Filter(null, true).Where(f => f.UserId == userId).First();
+            var user = Queryable().Filter(null, true).WithCache(60 * 5)
+                .Where(f => f.UserId == userId).First();
             if (user != null && user.UserId > 0)
             {
                 user.Roles = RoleService.SelectUserRoleListByUserId(userId);
@@ -158,7 +153,7 @@ namespace La.Service
                 t.Status,
                 t.Sex,
                 t.PostIds,
-                t.ReMark,
+                t.Remark,
                 t.Update_by,
                 t.Update_time
             }, true);
@@ -182,6 +177,7 @@ namespace La.Service
         /// <returns></returns>
         public int ChangeUserStatus(SysUser user)
         {
+            CheckUserAllowed(user);
             return Update(user, it => new { it.Status }, f => f.UserId == user.UserId);
         }
 
@@ -197,7 +193,7 @@ namespace La.Service
             UserRoleService.DeleteUserRoleByUserId((int)userid);
             // 删除用户与岗位关联
             UserPostService.Delete(userid);
-            return Update(new SysUser() { UserId = userid, IsDeleted = "2" }, it => new { it.IsDeleted }, f => f.UserId == userid);
+            return Update(new SysUser() { UserId = userid, IsDeleted = 2 }, it => new { it.IsDeleted }, f => f.UserId == userid);
         }
 
         /// <summary>
@@ -217,23 +213,31 @@ namespace La.Service
         /// <returns></returns>
         public SysUser Register(RegisterDto dto)
         {
-            //密码md5
-            string password = NETCore.Encrypt.EncryptProvider.Md5(dto.Password);
             if (!Tools.PasswordStrength(dto.Password))
             {
                 throw new CustomException("密码强度不符合要求");
             }
+            if (!Tools.CheckUserName(dto.Username))
+            {
+                throw new CustomException("用户名不符合要求");
+            }
+            //密码md5
+            string password = NETCore.Encrypt.EncryptProvider.Md5(dto.Password);
+
             SysUser user = new()
             {
                 Create_time = DateTime.Now,
                 UserName = dto.Username,
                 NickName = dto.Username,
                 Password = password,
-                Status = "0",
+                Status = 0,
                 DeptId = 0,
-                ReMark = "用户注册"
+                Remark = "用户注册"
             };
-
+            if (UserConstants.NOT_UNIQUE.Equals(CheckUserNameUnique(dto.Username)))
+            {
+                throw new CustomException($"保存用户{dto.Username}失败，注册账号已存在");
+            }
             user.UserId = Insertable(user).ExecuteReturnIdentity();
             return user;
         }
@@ -275,10 +279,10 @@ namespace La.Service
             users.ForEach(x =>
             {
                 x.Create_time = DateTime.Now;
-                x.Status = "0";
-                x.IsDeleted = "0";
+                x.Status = 0;
+                x.IsDeleted = 0;
                 x.Password = "E10ADC3949BA59ABBE56E057F20F883E";
-                x.ReMark = x.ReMark.IsEmpty() ? "数据导入" : x.ReMark;
+                x.Remark = x.Remark.IsEmpty() ? "数据导入" : x.Remark;
             });
             var x = Context.Storageable(users)
                 .SplitInsert(it => !it.Any())
@@ -298,7 +302,7 @@ namespace La.Service
                                x.TotalList.Count);
             //输出统计                      
             Console.WriteLine(msg);
-            
+
             //输出错误信息               
             foreach (var item in x.ErrorList)
             {
@@ -308,7 +312,7 @@ namespace La.Service
             {
                 Console.WriteLine("userName为" + item.Item.UserName + " : " + item.StorageMessage);
             }
-            
+
             return (msg, x.ErrorList, x.IgnoreList);
         }
 
@@ -319,7 +323,7 @@ namespace La.Service
         /// <returns></returns>
         public SysUser Login(LoginBodyDto user)
         {
-            return GetFirst(it => it.UserName == user.Username && it.Password == user.Password);
+            return GetFirst(it => it.UserName == user.Username && it.Password.ToLower() == user.Password.ToLower());
         }
 
         /// <summary>

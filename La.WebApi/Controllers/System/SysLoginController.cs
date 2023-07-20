@@ -140,7 +140,7 @@ namespace La.WebApi.Controllers.System
             long uid = HttpContext.GetUId();
             var menus = sysMenuService.SelectMenuTreeByUserId(uid);
 
-            return ToResponse(ToJson(1, sysMenuService.BuildMenus(menus)));
+            return SUCCESS(sysMenuService.BuildMenus(menus));
         }
 
         /// <summary>
@@ -148,7 +148,7 @@ namespace La.WebApi.Controllers.System
         /// </summary>
         /// <returns></returns>
         [HttpGet("captchaImage")]
-        public ApiResult CaptchaImage()
+        public IActionResult CaptchaImage()
         {
             string uuid = Guid.NewGuid().ToString().Replace("-", "");
 
@@ -157,7 +157,7 @@ namespace La.WebApi.Controllers.System
             var info = SecurityCodeHelper.Generate(uuid, 60);
             var obj = new { captchaOff, uuid, img = info.Base64 };// File(stream, "image/png")
 
-            return ToJson(1, obj);
+            return SUCCESS(obj);
         }
 
         /// <summary>
@@ -202,10 +202,7 @@ namespace La.WebApi.Controllers.System
             {
                 return ToResponse(ResultCode.CAPTCHA_ERROR, "验证码错误");
             }
-            if (UserConstants.NOT_UNIQUE.Equals(sysUserService.CheckUserNameUnique(dto.Username)))
-            {
-                return ToResponse(ResultCode.CUSTOM_ERROR, $"保存用户{dto.Username}失败，注册账号已存在");
-            }
+            
             SysUser user = sysUserService.Register(dto);
             if (user.UserId > 0)
             {

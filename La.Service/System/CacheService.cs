@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using La.Common;
+using La.Common.Cache;
 
 namespace La.Service.System
 {
@@ -13,15 +11,18 @@ namespace La.Service.System
         public static List<string> GetUserPerms(string key)
         {
             return (List<string>)CacheHelper.GetCache(key);
+            //return RedisServer.Cache.Get<List<string>>(key).ToList();
         }
 
         public static void SetUserPerms(string key, object data)
         {
             CacheHelper.SetCache(key, data);
+            //RedisServer.Cache.Set(key, data);
         }
         public static void RemoveUserPerms(string key)
         {
             CacheHelper.Remove(key);
+            //RedisServer.Cache.Del(key);
         }
         #endregion
     }

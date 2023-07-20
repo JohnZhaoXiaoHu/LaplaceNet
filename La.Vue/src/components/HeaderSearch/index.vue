@@ -1,11 +1,27 @@
 <template>
-  <div :class="{ show: show }" class="header-search">
-    <svg-icon class-name="search-icon" name="magnifying-glass-solid" @click.stop="click" />
-    <el-select ref="headerSearchSelectRef" v-model="search" :remote-method="querySearch" filterable default-first-option
-      remote placeholder="Search" class="header-search-select" @change="change">
-      <el-option v-for="option in options" :key="option.item.path" :value="option.item"
-        :label="option.item.title.join(' > ')" />
-    </el-select>
+  <div class="header-search">
+    <svg-icon name="search" @click.stop="click" />
+    <el-dialog v-model="open" width="500" @close="close">
+      <el-select style="width: 100%" ref="headerSearchSelectRef" size="large" v-model="search"
+        :remote-method="querySearch" filterable default-first-option remote popper-class="header-search-select"
+        placement="bottom" placeholder="菜单搜索，支持标题、URL模糊查询" @change="change">
+        <template #prefix>
+          <el-icon color="#409EFC" class="no-inherit">
+            <Search />
+          </el-icon>
+        </template>
+        <el-option v-for="option in options" :key="option.item.path" :value="option.item"
+          :label="option.item.title.join(' > ')">
+          <span style="float: left">
+            <div>
+              {{ option.item.title.join(' > ') }}
+              <div class="path">{{ option.item.path }}</div>
+            </div>
+          </span>
+          <span style="float: right" @click.stop="handleLove(option.item)"> <svg-icon color="#ccc" name="star" /></span>
+        </el-option>
+      </el-select>
+    </el-dialog>
   </div>
 </template>
 
@@ -14,26 +30,32 @@
   import { getNormalPath } from '@/utils/ruoyi'
   import { isHttp } from '@/utils/validate'
   import usePermissionStore from '@/store/modules/permission'
-
+  import { findItem, color16 } from '@/utils/ruoyi'
+  const { proxy } = getCurrentInstance()
   const search = ref('')
   const options = ref([])
   const searchPool = ref([])
   const show = ref(false)
+  const open = ref(false)
   const fuse = ref(undefined)
   const headerSearchSelectRef = ref(null)
   const router = useRouter()
   const routes = computed(() => usePermissionStore().routes)
 
   function click() {
+    open.value = !open.value
     show.value = !show.value
-    if (show.value) {
-      headerSearchSelectRef.value && headerSearchSelectRef.value.focus()
+    if (open.value) {
+      setTimeout(() => {
+        headerSearchSelectRef.value && headerSearchSelectRef.value.focus()
+      }, 1)
     }
   }
   function close() {
     headerSearchSelectRef.value && headerSearchSelectRef.value.blur()
     options.value = []
     show.value = false
+    open.value = false
   }
   function change(val) {
     const path = val.path
@@ -49,6 +71,7 @@
     options.value = []
     nextTick(() => {
       show.value = false
+      open.value = false
     })
   }
   function initFuse(list) {
@@ -83,12 +106,15 @@
       const p = r.path.length > 0 && r.path[0] === '/' ? r.path : '/' + r.path
       const data = {
         path: !isHttp(r.path) ? getNormalPath(basePath + p) : r.path,
-        title: [...prefixTitle]
+        title: [...prefixTitle],
+        icon: 'menu',
+        menuTitle: ''
       }
 
       if (r.meta && r.meta.title) {
         data.title = [...data.title, r.meta.title]
-
+        data.icon = r.meta.icon
+        data.menuTitle = r.meta.title
         if (r.redirect !== 'noRedirect') {
           // only push the routes with title
           // special case: need to exclude parent router without redirect
@@ -111,6 +137,28 @@
       options.value = fuse.value.search(query)
     } else {
       options.value = []
+    }
+  }
+  /**
+   * 添加快捷菜单
+   * @param {*} item
+   */
+  function handleLove(item) {
+    var arraryObjectLocal = proxy.$cache.local.getJSON('commonlyUseMenu') || []
+
+    var len = 12
+    if (arraryObjectLocal.length >= len) {
+      proxy.$modal.msgError(`最多可添加${len}个常用菜单`)
+      return
+    }
+    let index = findItem(arraryObjectLocal, 'path', item.path)
+    if (index <= -1) {
+      arraryObjectLocal.push({ ...item, color: color16() })
+      proxy.$cache.local.setJSON('commonlyUseMenu', arraryObjectLocal)
+      proxy.$modal.msgSuccess('添加成功')
+      usePermissionStore().setCommonlyUsedRoutes()
+    } else {
+      proxy.$modal.msgError('该菜单已存在')
     }
   }
 
@@ -136,49 +184,33 @@
 </script>
 
 <style lang="scss" scoped>
-  .svg-icon {
-    width: 1.2em;
-    height: 1.2em;
-    vertical-align: text-bottom;
-    fill: RoyalBlue;
-    overflow: hidden;
-  }
-
   .header-search {
-    font-size: 0 !important;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    :deep(.el-dialog) {
+      .el-dialog__header {
+        display: none !important;
+      }
+
+      --el-dialog-bg-color: #00000;
+
+      .el-dialog__body {
+        padding: 0;
+      }
+    }
 
     .search-icon {
       cursor: pointer;
       font-size: 18px;
       vertical-align: middle;
     }
+  }
 
-    .header-search-select {
-      font-size: 18px;
-      transition: width 0.2s;
-      width: 0;
-      overflow: hidden;
-      background: transparent;
-      border-radius: 0;
-      display: inline-block;
-      vertical-align: middle;
-
-      :deep(.el-input__inner) {
-        border-radius: 0;
-        border: 0;
-        padding-left: 0;
-        padding-right: 0;
-        box-shadow: none !important;
-        border-bottom: 1px solid #d9d9d9;
-        vertical-align: middle;
-      }
-    }
-
-    &.show {
-      .header-search-select {
-        width: 210px;
-        margin-left: 10px;
-      }
-    }
+  .path {
+    color: #ccc;
+    font-size: 10px;
   }
 </style>

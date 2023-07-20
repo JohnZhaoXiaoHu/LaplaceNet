@@ -2,6 +2,7 @@
 using La.Model.System.Dto;
 using La.Model.System;
 using La.Model.System.Vo;
+using La.Model.System.Generate;
 
 namespace La.Service.System.IService
 {
@@ -14,9 +15,9 @@ namespace La.Service.System.IService
 
         SysMenu GetMenuByMenuId(int menuId);
         List<SysMenu> GetMenusByMenuId(int menuId, long userId);
-        int AddMenu(SysMenu menu);
+        long AddMenu(SysMenu menu);
 
-        int EditMenu(SysMenu menu);
+        long EditMenu(SysMenu menu);
 
         int DeleteMenuById(int menuId);
 
@@ -37,6 +38,10 @@ namespace La.Service.System.IService
         List<RouterVo> BuildMenus(List<SysMenu> menus);
 
         List<TreeSelectVo> BuildMenuTreeSelect(List<SysMenu> menus);
+
+        void AddSysMenu(GenTable genTableInfo, string permPrefix, bool showEdit, bool showExport);
+        List<SysMenu> SelectTreeMenuListByRoles(MenuQueryDto menu, List<long> roles);
+        List<RoleMenuExportDto> SelectRoleMenuListByRole(MenuQueryDto menu, int roleId);
     }
 
     /// <summary>
@@ -72,5 +77,13 @@ namespace La.Service.System.IService
         /// <param name="roleId"></param>
         /// <returns></returns>
         int DeleteRoleMenuByRoleId(long roleId);
+
+        /// <summary>
+        /// 删除角色指定菜单
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <param name="menuIds"></param>
+        /// <returns></returns>
+        bool DeleteRoleMenuByRoleIdMenuIds(long roleId, long[] menuIds);
     }
 }

@@ -16,13 +16,6 @@ namespace La.Service.System
     [AppService(ServiceType = typeof(ISysUserRoleService), ServiceLifetime = LifeTime.Transient)]
     public class SysUserRoleService : BaseService<SysUserRole>, ISysUserRoleService
     {
-        //public SysUserRoleRepository SysUserRoleRepository;
-
-        //public SysUserRoleService(SysUserRoleRepository sysUserRoleRepository)
-        //{
-        //    SysUserRoleRepository = sysUserRoleRepository;
-        //}
-
         /// <summary>
         /// 通过角色ID查询角色使用数量
         /// </summary>
@@ -71,11 +64,12 @@ namespace La.Service.System
         /// <returns></returns>
         public List<SysUser> GetSysUsersByRoleId(long roleId)
         {
-            return Context.Queryable<SysUserRole, SysUser > ((t1, u) => new JoinQueryInfos(
+            return Context.Queryable<SysUserRole, SysUser>((t1, u) => new JoinQueryInfos(
                    JoinType.Left, t1.UserId == u.UserId))
-                 .Where((t1, u) => t1.RoleId == roleId && u.IsDeleted == "0")
-                 .Select((t1, u) => u)
-                 .ToList();
+                .WithCache(60 * 10)
+                .Where((t1, u) => t1.RoleId == roleId && u.IsDeleted == 0)
+                .Select((t1, u) => u)
+                .ToList();
         }
 
         /// <summary>
@@ -85,10 +79,9 @@ namespace La.Service.System
         /// <returns></returns>
         public PagedInfo<SysUser> GetSysUsersByRoleId(RoleUserQueryDto roleUserQueryDto)
         {
-            //return SysUserRoleRepository.GetSysUsersByRoleId(roleUserQueryDto);
             var query = Context.Queryable<SysUserRole, SysUser>((t1, u) => new JoinQueryInfos(
                 JoinType.Left, t1.UserId == u.UserId))
-                .Where((t1, u) => t1.RoleId == roleUserQueryDto.RoleId && u.IsDeleted == "0");
+                .Where((t1, u) => t1.RoleId == roleUserQueryDto.RoleId && u.IsDeleted == 0);
             if (!string.IsNullOrEmpty(roleUserQueryDto.UserName))
             {
                 query = query.Where((t1, u) => u.UserName.Contains(roleUserQueryDto.UserName));
@@ -104,7 +97,7 @@ namespace La.Service.System
         public PagedInfo<SysUser> GetExcludedSysUsersByRoleId(RoleUserQueryDto roleUserQueryDto)
         {
             var query = Context.Queryable<SysUser>()
-                .Where(it => it.IsDeleted == "0")
+                .Where(it => it.IsDeleted == 0)
                 .Where(it => SqlFunc.Subqueryable<SysUserRole>().Where(s => s.UserId == it.UserId && s.RoleId == roleUserQueryDto.RoleId).NotAny())
                 .WhereIF(roleUserQueryDto.UserName.IsNotEmpty(), it => it.UserName.Contains(roleUserQueryDto.UserName));
 

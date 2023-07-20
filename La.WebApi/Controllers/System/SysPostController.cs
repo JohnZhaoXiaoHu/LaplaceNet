@@ -35,7 +35,7 @@ namespace La.WebApi.Controllers.System
         public IActionResult List([FromQuery] SysPost post, [FromQuery] PagerInfo pagerInfo)
         {
             var predicate = Expressionable.Create<SysPost>();
-            predicate = predicate.AndIF(post.Status.IfNotEmpty(), it => it.Status == post.Status);
+            predicate = predicate.AndIF(post.Status.ToString().IfNotEmpty(), it => it.Status == post.Status);
             var list = PostService.GetPages(predicate.ToExpression(), pagerInfo, s => new { s.PostSort });
 
             return SUCCESS(list);
@@ -73,7 +73,7 @@ namespace La.WebApi.Controllers.System
             }
 
             post.Create_by = HttpContext.GetName();
-            return ToResponse(ToJson(PostService.Add(post)));
+            return ToResponse(PostService.Add(post));
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace La.WebApi.Controllers.System
         public IActionResult Delete(string id)
         {
             int[] ids = Tools.SpitIntArrary(id);
-            return ToResponse(ToJson(PostService.Delete(ids)));
+            return ToResponse(PostService.Delete(ids));
         }
 
         /// <summary>

@@ -1,7 +1,4 @@
-﻿//using Microsoft.AspNetCore.Http;
-//using Snowflake.Core;
-using System;
-
+﻿
 namespace La.WebApi.Extensions
 {
     public static class EntityExtension

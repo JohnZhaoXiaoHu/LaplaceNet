@@ -1,11 +1,12 @@
 ﻿using System;
 using SqlSugar;
 using La.Infra.Attribute;
-using ${options.ModelsNamespace};
-using ${options.ModelsNamespace}.Dto;
-using ${options.ModelsNamespace}.Models;
-using ${options.ModelsNamespace}.System;
-using La.Repository;
+using La.Infra.Extensions;
+using ${options.BaseNamespace}Model;
+using ${options.BaseNamespace}Model.System;
+using ${options.DtosNamespace};
+using ${options.ModelsNamespace}.${options.SubNamespace};
+using ${options.RepositoriesNamespace};
 using ${options.IServicsNamespace}.${options.SubNamespace}.I${options.SubNamespace}Service;
 using System.Linq;
 $if(genTable.TplCategory == "tree")
@@ -15,16 +16,14 @@ $end
 namespace ${options.ServicesNamespace}.${options.SubNamespace}
 {
     /// <summary>
-    /// ${genTable.FunctionName}Service业务层处理
-    ///
+    /// ${genTable.FunctionName}
+    /// Service业务层处理
     /// @author ${replaceDto.Author}
     /// @date ${replaceDto.AddTime}
     /// </summary>
     [AppService(ServiceType = typeof(I${replaceDto.ModelTypeName}Service), ServiceLifetime = LifeTime.Transient)]
     public class ${replaceDto.ModelTypeName}Service : BaseService<${replaceDto.ModelTypeName}>, I${replaceDto.ModelTypeName}Service
     {
-        #region 业务逻辑代码
-
         /// <summary>
         /// 查询${genTable.FunctionName}列表
         /// </summary>
@@ -35,33 +34,29 @@ namespace ${options.ServicesNamespace}.${options.SubNamespace}
             //开始拼装查询条件
             var predicate = Expressionable.Create<${replaceDto.ModelTypeName}>();
 
-            //搜索条件查询语法参考Sqlsugar
-
-            //删除标记不显示
-            predicate = predicate.And(it => it.IsDeleted == false);
 $foreach(column in genTable.Columns)
 $if(column.IsQuery)
 $if(column.HtmlType == "selectMulti")
-            //多项选择查询
             predicate = predicate.AndIF(parm.${column.CsharpField} != null, it => parm.${column.CsharpField}.Contains(it.${column.CsharpField}));
 $elseif(column.CsharpType == "string")
-            //下拉列表或输入字符查询
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.${column.CsharpField}), ${codeTool.QueryExp(column.CsharpField, column.QueryType)};
 $elseif(column.CsharpType == "DateTime")
-            //选择日期查询
-            predicate = predicate.AndIF(parm.Begin${column.CsharpField} != null, it => it.${column.CsharpField} >=parm.Begin${column.CsharpField});
-            predicate = predicate.AndIF(parm.Begin${column.CsharpField} != null, it => it.${column.CsharpField} >= parm.Begin${column.CsharpField} && it.${column.CsharpField} <= parm.End${column.CsharpField});
-
+$if(column.HtmlType == "month")
+            DateTime monthEnd = Convert.ToDateTime(parm.${column.CsharpField}).AddMonths(1);
+            predicate = predicate.AndIF(parm.${column.CsharpField} != null, it => it.${column.CsharpField} >= parm.${column.CsharpField} && it.${column.CsharpField} < monthEnd);
+$else
+            predicate = predicate.AndIF(parm.Begin${column.CsharpField} == null, it => it.${column.CsharpField} >= DateTime.Now.ToShortDateString().ParseToDateTime());
+            predicate = predicate.AndIF(parm.Begin${column.CsharpField} != null, it => it.${column.CsharpField} >= parm.Begin${column.CsharpField});
+            predicate = predicate.AndIF(parm.End${column.CsharpField} != null, it => it.${column.CsharpField} <= parm.End${column.CsharpField});
+$end
 $elseif(column.CsharpType == "int" || column.CsharpType == "long")
-            //输入数字查询
             predicate = predicate.AndIF(parm.${column.CsharpField} != null, ${codeTool.QueryExp(column.CsharpField, column.QueryType)};
 $end
 $end
 $end
- 		
             var response = Queryable()
 $if(null != genTable.SubTableName && "" != genTable.SubTableName)
-                .Includes(x => x.${genTable.SubTable.ClassName}Nav) //填充子对象 //.Includes(it => it.${genTable.SubTable.ClassName}.MappingField(z => z.${genTable.SubTableFkName}, () => it.${replaceDto.PKName}))
+                //.Includes(x => x.${genTable.SubTable.ClassName}Nav) //填充子对象
 $end
 $if(genTable.Options.SortField != "" && genTable.Options.SortField != null)
                 //.OrderBy("${genTable.Options.SortField} ${genTable.Options.SortType}")
@@ -80,10 +75,8 @@ $if(genTable.TplCategory == "tree")
         /// <returns></returns>
         public List<${replaceDto.ModelTypeName}> GetTreeList(${replaceDto.ModelTypeName}QueryDto parm)
         {
-            //开始拼装查询条件
             var predicate = Expressionable.Create<${replaceDto.ModelTypeName}>();
 
-            //搜索条件查询语法参考Sqlsugar
 $foreach(column in genTable.Columns)
 $if(column.IsQuery)
 $if(column.CsharpType == "string")
@@ -101,7 +94,6 @@ $end
             return response;
         }
 $end
-
         /// <summary>
         /// 校验输入项目是否唯一
         /// </summary>
@@ -118,49 +110,76 @@ $end
         }
 
         /// <summary>
-        /// 添加${genTable.FunctionName}
+        /// 获取详情
         /// </summary>
-        /// <param name="parm"></param>
+        /// <param name="${replaceDto.PKName}"></param>
         /// <returns></returns>
-        public int Add${replaceDto.ModelTypeName}(${replaceDto.ModelTypeName} parm)
+        public ${replaceDto.ModelTypeName} GetInfo(${replaceDto.PKType} ${replaceDto.PKName})
         {
-            var response = Insert(parm, it => new
-            {
-${foreach(item in genTable.Columns)}
-$if((item.IsInsert))
-                it.$item.CsharpField,
+            var response = Queryable()
+$if(null != genTable.SubTableName && "" != genTable.SubTableName)
+                .Includes(x => x.${genTable.SubTable.ClassName}Nav) //填充子对象
 $end
-${end}
-            });
+                .Where(x => x.${replaceDto.PKName} == ${replaceDto.PKName})
+                .First();
+
             return response;
         }
 
         /// <summary>
-        /// 修改${genTable.FunctionName}
+        /// 添加
+        /// ${genTable.FunctionName}
         /// </summary>
-        /// <param name="parm"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
-        public int Update${replaceDto.ModelTypeName}(${replaceDto.ModelTypeName} parm)
+        public int Add${replaceDto.ModelTypeName}(${replaceDto.ModelTypeName} model)
         {
-            var response = Update(w => w.${replaceDto.PKName} == parm.${replaceDto.PKName}, it => new ${replaceDto.ModelTypeName}()
-            {
+$if(null != genTable.SubTableName && "" != genTable.SubTableName)
+            return Context.InsertNav(model).Include(s1 => s1.${genTable.SubTable.ClassName}Nav).ExecuteCommand() ? 1 : 0;
+$else
+            return Add(model, true);
+$end
+        }
+
+        /// <summary>
+        /// 修改编辑
+        /// ${genTable.FunctionName}
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public int Update${replaceDto.ModelTypeName}(${replaceDto.ModelTypeName} model)
+        {
+            //var response = Update(w => w.${replaceDto.PKName} == model.${replaceDto.PKName}, it => new ${replaceDto.ModelTypeName}()
+            //{
 $foreach(item in genTable.Columns)
 $if((item.IsEdit))
-                $item.CsharpField = parm.$item.CsharpField,
+            //    $item.CsharpField = model.$item.CsharpField,
 $end
 ${end}
-            });
-            return response;
+            //});
+            //return response;
+$if(null != genTable.SubTableName && "" != genTable.SubTableName)
+            return Context.UpdateNav(model).Include(z1 => z1.${genTable.SubTable.ClassName}Nav).ExecuteCommand() ? 1 : 0;
+$else
+            return Update(model, true);
+$end
         }
-
+$if(replaceDto.ShowBtnTruncate)
         /// <summary>
-        /// 清空${genTable.FunctionName}
+        /// 清空
+        /// ${genTable.FunctionName}
         /// </summary>
         /// <returns></returns>
-        public void Truncate${replaceDto.ModelTypeName}()
+        public bool Truncate${replaceDto.ModelTypeName}()
         {
-            Truncate();
+            var newTableName = $"${genTable.TableName}_{DateTime.Now:yyyyMMdd}";
+            if (Queryable().Any() && !Context.DbMaintenance.IsAnyTable(newTableName))
+            {
+                Context.DbMaintenance.BackupTable("${genTable.TableName}", newTableName);
+            }
+            
+            return Truncate();
         }
-        #endregion
+$end
     }
 }

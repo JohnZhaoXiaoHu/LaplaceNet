@@ -3,47 +3,27 @@ using La.Infra.Constant;
 using La.Infra.Model;
 using IPTools.Core;
 using Microsoft.AspNetCore.SignalR;
-using La.WebApi.Extensions;
-using La.WebApi.Framework;
-using La.Model;
-using La.Model.System;
-using La.Service.System.IService;
 using UAParser;
-using JinianNet.JNTemplate;
-using La.Infra.Enums;
+using La.WebApi.Extensions;
+using La.Service.System.IService;
 
 namespace La.WebApi.Hubs
 {
     /// <summary>
-    /// 用户数据
+    /// msghub
     /// </summary>
     public class MessageHub : Hub
     {
         //创建用户集合，用于存储所有链接的用户数据
-        /// <summary>
-        /// 用户数据
-        /// </summary>
         public static readonly List<OnlineUsers> clientUsers = new();
-        /// <summary>
-        /// logger
-        /// </summary>
         private readonly NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
-        /// <summary>
-        /// 接口
-        /// </summary>
         private readonly ISysNoticeService SysNoticeService;
-        /// <summary>
-        /// 用户数据
-        /// </summary>
-        /// <param name="noticeService"></param>
+
         public MessageHub(ISysNoticeService noticeService)
         {
             SysNoticeService = noticeService;
         }
-        /// <summary>
-        /// 用户数据
-        /// </summary>
-        /// <returns></returns>
+
         private ApiResult SendNotice()
         {
             var result = SysNoticeService.GetSysNotices();
@@ -59,31 +39,25 @@ namespace La.WebApi.Hubs
         /// <returns></returns>
         public override Task OnConnectedAsync()
         {
-            var name = HttpContextExtension.GetName(App.HttpContext);// Context.User.Identity.Name;
+            var name = HttpContextExtension.GetName(App.HttpContext);
             var ip = HttpContextExtension.GetClientUserIp(App.HttpContext);
             var ip_info = IpTool.Search(ip);
+
             ClientInfo clientInfo = HttpContextExtension.GetClientInfo(App.HttpContext);
-            LoginUser loginUser = JwtUtil.GetLoginUser(App.HttpContext);
+            string device = clientInfo.ToString();
+
+            var userid = HttpContextExtension.GetUId(App.HttpContext);
+            string uuid = device + userid + ip;
             var user = clientUsers.Any(u => u.ConnnectionId == Context.ConnectionId);
-            //判断用户是否存在，否则添加集合
-            if (!user && Context.User!.Identity!.IsAuthenticated)
+            var user2 = clientUsers.Any(u => u.Uuid == uuid);
+
+            //判断用户是否存在，否则添加集合!user2 && !user && 
+            if (!user2 && !user && Context.User.Identity.IsAuthenticated)
             {
-                OnlineUsers users = new(Context.ConnectionId)
+                OnlineUsers users = new(Context.ConnectionId, name, userid, ip, device)
                 {
-                    //地点
-                    LoginLocation = ip_info.City ?? "",
-                    //系统
-                    Os = clientInfo.OS.ToString() ?? "",
-                    //浏览器
-                    Browser = clientInfo.UserAgent.ToString() ?? "",
-                    //ip
-                    Ipaddr = ip ?? "",
-                    //时间
-                    LoginTime = DateTime.Now,
-                    //用户
-                    UserName = loginUser.UserName ?? "",
-                    //ID
-                    UserId = loginUser.UserId,
+                    Location = ip_info.City,
+                    Uuid = uuid
                 };
                 clientUsers.Add(users);
                 Console.WriteLine($"{DateTime.Now}：{name},{Context.ConnectionId}连接服务端success，当前已连接{clientUsers.Count}个");
@@ -92,7 +66,6 @@ namespace La.WebApi.Hubs
             }
 
             Clients.All.SendAsync(HubsConstant.OnlineNum, clientUsers.Count);
-            Clients.All.SendAsync(HubsConstant.OnlineUser, clientUsers);
             return base.OnConnectedAsync();
         }
 
@@ -108,14 +81,13 @@ namespace La.WebApi.Hubs
             {
                 clientUsers.Remove(user);
                 Clients.All.SendAsync(HubsConstant.OnlineNum, clientUsers.Count);
-                //Clients.All.SendAsync(HubsConstant.OnlineUser, clientUsers);
-                Console.WriteLine($"用户{user?.UserName}离开了，当前已连接{clientUsers.Count}个");
+
+                Console.WriteLine($"用户{user?.Name}离开了，当前已连接{clientUsers.Count}个");
             }
             return base.OnDisconnectedAsync(exception);
         }
 
         #endregion
-
 
         /// <summary>
         /// 注册信息

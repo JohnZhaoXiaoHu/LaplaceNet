@@ -1,4 +1,7 @@
 ﻿
+using System;
+using System.Collections.Generic;
+
 namespace La.Infra
 {
     /// <summary>
@@ -15,16 +18,20 @@ namespace La.Infra
         public ALIYUN_OSS ALIYUN_OSS { get; set; }
         public JwtSettings JwtSettings { get; set; }
         public Gen Gen { get; set; }
+        public List<DbConfigs> DbConfigs { get; set; }
+        public DbConfigs CodeGenDbConfig { get; set; }
     }
     /// <summary>
     /// 发送邮件数据配置
     /// </summary>
     public class MailOptions
     {
-        public string From { get; set; }
+        public string FromName { get; set; }
+        public string FromEmail { get; set; }
         public string Password { get; set; }
         public string Smtp { get; set; }
         public int Port { get; set; }
+        public bool UseSsl { get; set; }
         public string Signature { get; set; }
     }
     /// <summary>
@@ -75,10 +82,30 @@ namespace La.Infra
 
     public class Gen
     {
-        public string Conn { get; set; }
-        public int DbType { get; set; }
-        public string Database { get; set; }
-
+        public bool AutoPre { get; set; }
+        public string VuePath { get; set; }
+        public string Author { get; set; }
+        public DbConfigs GenDbConfig { get; set; }
+        public CsharpTypeArr CsharpTypeArr { get; set; }
     }
 
+    public class DbConfigs
+    {
+        public string Conn { get; set; }
+        public int DbType { get; set; }
+        public string ConfigId { get; set; }
+        public bool IsAutoCloseConnection { get; set; }
+        public string DbName { get; set; }
+    }
+
+    public class CsharpTypeArr
+    {
+        public string[] String { get; set; }
+        public string[] Int { get; set; }
+        public string[] Long { get; set; }
+        public string[] DateTime { get; set; }
+        public string[] Float { get; set; }
+        public string[] Decimal { get; set; }
+        public string[] Bool { get; set; }
+    }
 }

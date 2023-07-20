@@ -2,7 +2,7 @@
 using La.Infra.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using La.Model.System;
+using La.Model.System.Dto;
 
 namespace La.WebApi.Filters
 {

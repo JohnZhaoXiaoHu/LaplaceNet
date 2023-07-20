@@ -57,12 +57,12 @@ namespace La.Infra.Model
             return this;
         }
 
-        /// <summary>
-        /// 返回成功消息
-        /// </summary>
-        /// <param name="data">数据对象</param>
-        /// <returns>成功消息</returns>
-        public static ApiResult Success(object data) { return new ApiResult(HttpStatus.SUCCESS, "success", data); }
+        ///// <summary>
+        ///// 返回成功消息
+        ///// </summary>
+        ///// <param name = "data" > 数据对象 </ param >
+        ///// < returns > 成功消息 </ returns >
+        //public static ApiResult Success(object data) { return new ApiResult(HttpStatus.SUCCESS, "success", data); }
 
         /// <summary>
         /// 返回成功消息
@@ -82,7 +82,6 @@ namespace La.Infra.Model
         /// <summary>
         /// 访问被拒
         /// </summary>
-        /// <param name="apiResult"></param>
         /// <returns></returns>
         public ApiResult On401()
         {
@@ -116,17 +115,10 @@ namespace La.Infra.Model
         {
             return $"msg={Msg},data={Data}";
         }
-        public ApiResult SetData(object obj)
-        {
-            this.Data = obj;
-            return this;
-        }
     }
 
     public class ApiResult<T> : ApiResult
     {
         public T Result { get; set; }
     }
-
-
 }

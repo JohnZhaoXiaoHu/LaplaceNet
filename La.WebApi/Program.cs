@@ -1,37 +1,27 @@
+using AspNetCoreRateLimit;
 using La.Infra;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.DataProtection;
-using La.WebApi.Framework;
-using La.Infra.Extensions;
+using Microsoft.IdentityModel.Tokens;
+using System.Text.Json.Serialization;
 using La.WebApi.Extensions;
 using La.WebApi.Filters;
-using La.WebApi.Middleware;
+using La.WebApi.Framework;
 using La.WebApi.Hubs;
+using La.WebApi.Middleware;
 using La.Common.Cache;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //注入HttpContextAccessor
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-var corsUrls = builder.Configuration["corsUrls"]?.Split(',', StringSplitOptions.RemoveEmptyEntries);
-
-//配置跨域
-builder.Services.AddCors(c =>
-{
-    c.AddPolicy("Policy", policy =>
-    {
-        policy.WithOrigins(corsUrls == null ? Array.Empty<string>() : corsUrls)
-        .AllowAnyHeader()//允许任意头
-        .AllowCredentials()//允许cookie
-        .AllowAnyMethod();//允许任意方法
-    });
-});
+// 跨域配置
+builder.Services.AddCors(builder.Configuration);
 // 显示logo
 builder.Services.AddLogo();
 //注入SignalR实时通讯，默认用json传输
@@ -41,6 +31,8 @@ builder.Services.AddDataProtection()
     .PersistKeysToFileSystem(new DirectoryInfo(Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "DataProtection"));
 //普通验证码
 builder.Services.AddCaptcha(builder.Configuration);
+//IPRatelimit
+builder.Services.AddIPRate(builder.Configuration);
 //builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
 //绑定整个对象到Model上
@@ -55,15 +47,25 @@ builder.Services.AddAuthentication(options =>
 .AddJwtBearer(o =>
 {
     o.TokenValidationParameters = JwtUtil.ValidParameters();
+    o.Events = new JwtBearerEvents
+    {
+        OnAuthenticationFailed = context =>
+        {
+            // 如果过期，把过期信息添加到头部
+            if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
+            {
+                context.Response.Headers.Add("Token-Expired", "true");
+            }
+
+            return Task.CompletedTask;
+        }
+    };
 });
 
-//InternalApp.InternalServices = builder.Services;
-builder.Services.AddAppService();
 builder.Services.AddSingleton(new AppSettings(builder.Configuration));
+builder.Services.AddAppService();
 //开启计划任务
 builder.Services.AddTaskSchedulers();
-//初始化db
-DbExtension.AddDb(builder.Configuration);
 
 //注册REDIS 服务
 var openRedis = builder.Configuration["RedisServer:open"];
@@ -78,6 +80,9 @@ builder.Services.AddMvc(options =>
 })
 .AddJsonOptions(options =>
 {
+    options.JsonSerializerOptions.NumberHandling = JsonNumberHandling.AllowReadingFromString |
+                    JsonNumberHandling.WriteAsString;
+    options.JsonSerializerOptions.WriteIndented = true;
     options.JsonSerializerOptions.Converters.Add(new JsonConverterUtil.DateTimeConverter());
     options.JsonSerializerOptions.Converters.Add(new JsonConverterUtil.DateTimeNullConverter());
 });
@@ -86,12 +91,13 @@ builder.Services.AddSwaggerConfig();
 
 var app = builder.Build();
 InternalApp.ServiceProvider = app.Services;
-if (builder.Configuration["InitDb"].ParseToBool() == true)
-{
-    app.Services.InitDb();
-}
+InternalApp.Configuration = builder.Configuration;
+InternalApp.WebHostEnvironment = app.Environment;
+//初始化db
+builder.Services.AddDb(builder.Configuration, app.Environment);
 
-app.UseSwagger();
+//使用全局异常中间件
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
 //使可以多次多去body内容
 app.Use((context, next) =>
@@ -115,11 +121,16 @@ app.UseAuthorization();
 
 //开启缓存
 app.UseResponseCaching();
-//恢复/启动任务
-app.UseAddTaskSchedulers();
-//使用全局异常中间件
-app.UseMiddleware<GlobalExceptionMiddleware>();
-
+if (builder.Environment.IsProduction())
+{
+    //恢复/启动任务
+    app.UseAddTaskSchedulers();
+}
+//使用swagger
+app.UseSwagger();
+//启用客户端IP限制速率
+app.UseIpRateLimiting();
+app.UseRateLimiter();
 //设置socket连接
 app.MapHub<MessageHub>("/msgHub");
 

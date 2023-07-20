@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using La.Model.Dto;
-using La.Model.Models;
 using MiniExcelLibs.Attributes;
 
 namespace La.Model.Dto
 {
     /// <summary>
-    /// 人事信息查询对象
-    /// @author Davis.Ching
-    /// @date 2023-05-16
+    /// 人事信息
+    /// 查询对象
+    /// @author Lean365
+    /// @date 2023-07-20
     /// </summary>
     public class OfficeEhrEmployeeQueryDto : PagerInfo 
     {
@@ -18,10 +15,6 @@ namespace La.Model.Dto
         /// 描述 :姓名 
         /// </summary>
         public string EeName { get; set; }
-        /// <summary>
-        /// 描述 :性别 
-        /// </summary>
-        public string EeGender { get; set; }
         /// <summary>
         /// 描述 :开始时间
         /// </summary>
@@ -31,101 +24,14 @@ namespace La.Model.Dto
         /// </summary>
         public DateTime? EndEeBirthday { get; set; }
         /// <summary>
-        /// 描述 :身份证号 
-        /// </summary>
-        public string EeIdentityCard { get; set; }
-        /// <summary>
-        /// 描述 :婚姻状态 
-        /// </summary>
-        public byte? EeWedlock { get; set; }
-        /// <summary>
-        /// 描述 :民族 
-        /// </summary>
-        public byte? EeNationId { get; set; }
-        /// <summary>
-        /// 描述 :籍贯 
-        /// </summary>
-        public byte? EeNativePlace { get; set; }
-        /// <summary>
-        /// 描述 :政治面貌 
-        /// </summary>
-        public byte? EePoliticId { get; set; }
-        /// <summary>
-        /// 描述 :国家/地区 
-        /// </summary>
-        public string EeCountry { get; set; }
-        /// <summary>
-        /// 描述 :省区 
-        /// </summary>
-        public string EeProvince { get; set; }
-        /// <summary>
-        /// 描述 :户口性质 
-        /// </summary>
-        public byte? EeHouseholdType { get; set; }
-        /// <summary>
-        /// 描述 :部门 
-        /// </summary>
-        public int? EeDepartmentId { get; set; }
-        /// <summary>
-        /// 描述 :职称 
-        /// </summary>
-        public int? EeTitlesId { get; set; }
-        /// <summary>
-        /// 描述 :岗位 
-        /// </summary>
-        public int? EePostId { get; set; }
-        /// <summary>
-        /// 描述 :等级 
-        /// </summary>
-        public int? EePostLevel { get; set; }
-        /// <summary>
-        /// 描述 :职务 
-        /// </summary>
-        public int? EeDutyName { get; set; }
-        /// <summary>
-        /// 描述 :招聘来源 
-        /// </summary>
-        public int? EeRecruited { get; set; }
-        /// <summary>
-        /// 描述 :聘用形式 
-        /// </summary>
-        public string EeEngageForm { get; set; }
-        /// <summary>
-        /// 描述 :学历 
-        /// </summary>
-        public int? EeTiptopDegrEe { get; set; }
-        /// <summary>
-        /// 描述 :专业 
-        /// </summary>
-        public int? EeSpecialty { get; set; }
-        /// <summary>
         /// 描述 :工号 
         /// </summary>
         public string EeWorkID { get; set; }
-        /// <summary>
-        /// 描述 :在职状态 
-        /// </summary>
-        public byte? EeWorkState { get; set; }
-        /// <summary>
-        /// 描述 :试用期 
-        /// </summary>
-        public byte? EeProbation { get; set; }
-        /// <summary>
-        /// 描述 :合同期限 
-        /// </summary>
-        public byte? EeContractTerm { get; set; }
-        /// <summary>
-        /// 描述 :开始时间
-        /// </summary>
-        public DateTime? BeginEeLeaveDate { get; set; }
-        /// <summary>
-        /// 描述 :结束时间
-        /// </summary>
-        public DateTime? EndEeLeaveDate { get; set; }
     }
 
     /// <summary>
-    /// 人事信息输入输出对象
+    /// 人事信息
+    /// 输入输出对象
     /// </summary>
     public class OfficeEhrEmployeeDto
     {
@@ -194,14 +100,14 @@ namespace La.Model.Dto
         [Required(ErrorMessage = "婚姻状态不能为空")]
 
         [ExcelColumn(Name = "婚姻状态")]
-        public byte EeWedlock { get; set; }
+        public string EeWedlock { get; set; }
 
         /// <summary>
         /// 描述 :民族 
         /// </summary>
         [Required(ErrorMessage = "民族不能为空")]
         [ExcelIgnore]
-        public byte EeNationId { get; set; }
+        public string EeNationId { get; set; }
 
         /// <summary>
         /// 描述 :籍贯 
@@ -209,14 +115,14 @@ namespace La.Model.Dto
         [Required(ErrorMessage = "籍贯不能为空")]
 
         [ExcelColumn(Name = "籍贯")]
-        public byte EeNativePlace { get; set; }
+        public string EeNativePlace { get; set; }
 
         /// <summary>
         /// 描述 :政治面貌 
         /// </summary>
         [Required(ErrorMessage = "政治面貌不能为空")]
         [ExcelIgnore]
-        public byte EePoliticId { get; set; }
+        public string EePoliticId { get; set; }
 
         /// <summary>
         /// 描述 :邮件 
@@ -284,7 +190,7 @@ namespace La.Model.Dto
         /// </summary>
 
         [ExcelColumn(Name = "户口性质")]
-        public byte EeHouseholdType { get; set; }
+        public string EeHouseholdType { get; set; }
 
         /// <summary>
         /// 描述 :暂住地址 
@@ -384,21 +290,21 @@ namespace La.Model.Dto
         /// </summary>
 
         [ExcelColumn(Name = "在职状态")]
-        public byte EeWorkState { get; set; }
+        public string EeWorkState { get; set; }
 
         /// <summary>
         /// 描述 :试用期 
         /// </summary>
 
         [ExcelColumn(Name = "试用期")]
-        public byte EeProbation { get; set; }
+        public string EeProbation { get; set; }
 
         /// <summary>
         /// 描述 :合同期限 
         /// </summary>
 
         [ExcelColumn(Name = "合同期限")]
-        public byte EeContractTerm { get; set; }
+        public string EeContractTerm { get; set; }
 
         /// <summary>
         /// 描述 :转正日期 
@@ -535,10 +441,10 @@ namespace La.Model.Dto
         public bool IsDeleted { get; set; }
 
         /// <summary>
-        /// 描述 :ReMark 
+        /// 描述 :Remark 
         /// </summary>
         [ExcelIgnore]
-        public string ReMark { get; set; }
+        public string Remark { get; set; }
 
         /// <summary>
         /// 描述 :CreateBy 

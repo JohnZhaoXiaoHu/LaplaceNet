@@ -9,7 +9,7 @@ using System;
 using System.Linq;
 using La.WebApi.Extensions;
 using La.WebApi.Framework;
-using La.Model.System;
+using La.Model.System.Dto;
 
 namespace La.WebApi.Filters
 {

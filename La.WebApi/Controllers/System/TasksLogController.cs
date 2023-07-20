@@ -42,7 +42,7 @@ namespace La.WebApi.Controllers.System
             var predicate = Expressionable.Create<SysTasksLog>().And(it => it.CreateTime >= queryDto.BeginTime && it.CreateTime <= queryDto.EndTime);
             predicate = predicate.AndIF(queryDto.JobName.IfNotEmpty(), m => m.JobName.Contains(queryDto.JobName));
             predicate = predicate.AndIF(queryDto.JobGroup.IfNotEmpty(), m => m.JobGroup == queryDto.JobGroup);
-            predicate = predicate.AndIF(queryDto.Status.IfNotEmpty(), m => m.Status == queryDto.Status);
+            predicate = predicate.AndIF(queryDto.Status.ToString().IfNotEmpty(), m => m.Status == queryDto.Status);
             predicate = predicate.AndIF(queryDto.JobId.IfNotEmpty(), m => m.JobId == queryDto.JobId);
 
             var response = tasksLogService.GetPages(predicate.ToExpression(), pager, m => m.CreateTime, OrderByType.Desc);
@@ -64,7 +64,7 @@ namespace La.WebApi.Controllers.System
 
             int result = tasksLogService.Delete(jobIdArr);
 
-            return ToResponse(ToJson(result, result));
+            return ToResponse(result);
         }
 
         /// <summary>

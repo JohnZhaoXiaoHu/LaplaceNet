@@ -7,16 +7,15 @@ using Microsoft.AspNetCore.Mvc;
 using SqlSugar;
 using La.WebApi.Extensions;
 using La.WebApi.Filters;
-using La.CodeGenerator;
-using La.CodeGenerator.Model;
-using La.CodeGenerator.Service;
+using La.Generator;
+using La.Generator.Model;
+using La.Generator.Service;
 using La.Common;
 using La.Model;
 using La.Model.System.Dto;
 using La.Model.System.Generate;
 using La.Service.System.IService;
-using static System.Net.Mime.MediaTypeNames;
-using La.Repository;
+
 namespace La.WebApi.Controllers
 {
     /// <summary>
@@ -29,16 +28,18 @@ namespace La.WebApi.Controllers
         private readonly CodeGeneraterService _CodeGeneraterService = new CodeGeneraterService();
         private readonly IGenTableService GenTableService;
         private readonly IGenTableColumnService GenTableColumnService;
-
+        private readonly ISysMenuService SysMenuService;
         private readonly IWebHostEnvironment WebHostEnvironment;
         public CodeGeneratorController(
             IGenTableService genTableService,
             IGenTableColumnService genTableColumnService,
-            IWebHostEnvironment webHostEnvironment)
+            IWebHostEnvironment webHostEnvironment,
+            ISysMenuService sysMenuService)
         {
             GenTableService = genTableService;
             GenTableColumnService = genTableColumnService;
             WebHostEnvironment = webHostEnvironment;
+            SysMenuService = sysMenuService;
         }
 
         /// <summary>
@@ -68,7 +69,6 @@ namespace La.WebApi.Controllers
             List<DbTableInfo> list = _CodeGeneraterService.GetAllTables(dbName, tableName, pager);
             var page = new PagedInfo<DbTableInfo>
             {
-                TotalPage = pager.TotalPage,
                 TotalNum = pager.TotalNum,
                 PageSize = pager.PageSize,
                 PageIndex = pager.PageNum,
@@ -90,7 +90,7 @@ namespace La.WebApi.Controllers
             //查询原表数据，部分字段映射到代码生成表字段
             var rows = GenTableService.GetGenTables(new GenTable() { TableName = tableName }, pagerInfo);
 
-            return SUCCESS(rows, TIME_FORMAT_FULL);
+            return SUCCESS(rows, "MM月dd日 HH:mm");
         }
 
         /// <summary>
@@ -130,9 +130,6 @@ namespace La.WebApi.Controllers
         [ActionPermissionFilter(Permission = "tool:gen:remove")]
         public IActionResult Remove(string tableIds)
         {
-
-
-
             long[] tableId = Tools.SpitLongArrary(tableIds);
 
             int result = GenTableService.DeleteGenTableByIds(tableId);
@@ -154,6 +151,7 @@ namespace La.WebApi.Controllers
             {
                 throw new CustomException("表不能为空");
             }
+            DbConfigs dbConfig = AppSettings.Get<DbConfigs>(nameof(GlobalConstant.CodeGenDbConfig));
             string[] tableNames = tables.Split(',', StringSplitOptions.RemoveEmptyEntries);
             int result = 0;
             foreach (var tableName in tableNames)
@@ -161,15 +159,18 @@ namespace La.WebApi.Controllers
                 var tabInfo = _CodeGeneraterService.GetTableInfo(dbName, tableName);
                 if (tabInfo != null)
                 {
+                    List<OracleSeq> seqs = new();
                     GenTable genTable = CodeGeneratorTool.InitTable(dbName, HttpContext.GetName(), tableName, tabInfo?.Description);
                     genTable.TableId = GenTableService.ImportGenTable(genTable);
-
+                    if (dbConfig.DbType == 3)
+                    {
+                        seqs = _CodeGeneraterService.GetAllOracleSeqs(dbName);
+                    }
                     if (genTable.TableId > 0)
                     {
                         //保存列信息
                         List<DbColumnInfo> dbColumnInfos = _CodeGeneraterService.GetColumnInfo(dbName, tableName);
-                        List<GenTableColumn> genTableColumns = CodeGeneratorTool.InitGenTableColumn(genTable, dbColumnInfos);
-
+                        List<GenTableColumn> genTableColumns = CodeGeneratorTool.InitGenTableColumn(genTable, dbColumnInfos, seqs);
                         GenTableColumnService.DeleteGenTableColumnByTableName(tableName);
                         GenTableColumnService.InsertGenTableColumn(genTableColumns);
                         genTable.Columns = genTableColumns;
@@ -215,28 +216,25 @@ namespace La.WebApi.Controllers
         /// <summary>
         /// 预览代码
         /// </summary>
+        /// <param name="dto"></param>
         /// <param name="tableId"></param>
-        /// <param name="VueVersion"></param>
         /// <returns></returns>
         [HttpPost("preview/{tableId}")]
         [ActionPermissionFilter(Permission = "tool:gen:preview")]
-        public IActionResult Preview(long tableId = 0, int VueVersion = 0)
+        public IActionResult Preview([FromQuery] GenerateDto dto, [FromRoute] int tableId = 0)
         {
-            GenerateDto dto = new()
-            {
-                TableId = tableId,
-                VueVersion = VueVersion
-            };
+            dto.TableId = tableId;
             if (dto == null || dto.TableId <= 0)
             {
                 throw new CustomException(ResultCode.CUSTOM_ERROR, "请求参数为空");
             }
             var genTableInfo = GenTableService.GetGenTableInfo(dto.TableId);
+            var dbConfig = AppSettings.Get<DbConfigs>(nameof(GlobalConstant.CodeGenDbConfig));
 
-            dto.DbType = AppSettings.GetAppConfig("gen:dbType", 0);
+            dto.DbType = dbConfig.DbType;
             dto.GenTable = genTableInfo;
             dto.IsPreview = true;
-            //生成代码
+
             CodeGeneratorTool.Generate(dto);
 
             return SUCCESS(dto.GenCodes);
@@ -257,16 +255,18 @@ namespace La.WebApi.Controllers
                 throw new CustomException(ResultCode.CUSTOM_ERROR, "请求参数为空");
             }
             var genTableInfo = GenTableService.GetGenTableInfo(dto.TableId);
+            var dbConfig = AppSettings.Get<DbConfigs>(nameof(GlobalConstant.CodeGenDbConfig));
 
-            dto.DbType = AppSettings.GetAppConfig("gen:dbType", 0);
+            dto.DbType = dbConfig.DbType;
             dto.GenTable = genTableInfo;
             //自定义路径
             if (genTableInfo.GenType == "1")
-            {                
+            {
+                var genPath = genTableInfo.GenPath;
                 string tempPath = WebHostEnvironment.ContentRootPath;
                 var parentPath = tempPath[..tempPath.LastIndexOf(@"\")];
                 //代码生成文件夹路径
-                dto.GenCodePath = genTableInfo.GenPath.IsEmpty() ? parentPath : genTableInfo.GenPath;
+                dto.GenCodePath = (genPath.IsEmpty() || genPath.Equals("/")) ? parentPath : genTableInfo.GenPath;
             }
             else
             {
@@ -274,10 +274,21 @@ namespace La.WebApi.Controllers
                 dto.GenCodePath = Path.Combine(dto.ZipPath, DateTime.Now.ToString("yyyyMMdd"));
             }
             //生成压缩包
-            string zipReturnFileName = $"Laplace.NET-{genTableInfo.TableComment}-{DateTime.Now:MMddHHmmss}.zip";
+            string zipReturnFileName = $"La.NET-{genTableInfo.TableComment}-{DateTime.Now:MMddHHmmss}.zip";
 
             //生成代码到指定文件夹
             CodeGeneratorTool.Generate(dto);
+            if (genTableInfo.Options.GenerateMenu)
+            {
+                SysMenuService.AddSysMenu(genTableInfo, dto.ReplaceDto.PermissionPrefix, dto.ReplaceDto.ShowBtnEdit, dto.ReplaceDto.ShowBtnExport);
+            }
+
+            foreach (var item in dto.GenCodes)
+            {
+                item.Path = Path.Combine(dto.GenCodePath, item.Path);
+                FileUtil.WriteAndSave(item.Path, item.Content);
+            }
+
             //下载文件
             FileUtil.ZipGenCode(dto.ZipPath, dto.GenCodePath, zipReturnFileName);
 

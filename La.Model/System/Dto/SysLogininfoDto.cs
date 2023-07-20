@@ -10,7 +10,7 @@
         /// <summary>
         /// 登录状态 0成功 1失败
         /// </summary>
-        public string Status { get; set; }
+        public int Status { get; set; }
         /// <summary>
         /// 用户名
         /// </summary>

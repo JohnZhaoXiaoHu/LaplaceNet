@@ -2,7 +2,9 @@
 <h2 align="center">🏬Laplace.NET通用管理系统🏬</h2>
 <h4 align="center">👉.Net7+Vue3.x+Element plus前后端分离的快速发开框架👈</h4>  
 <div align=center>
-<img src="https://github.com/Lean365/LaplaceNet/blob/master/La.Vue/src/assets/logo/logo.png" width=128" height="128" />
+<img src="https://github.com/Lean365/LaplaceNet/blob/master/La.Vue/src/assets/logo/laplace.png" width=128" height="128" />
+<img src="https://github.com/Lean365/LaplaceNet/blob/master/La.Vue/src/assets/logo/Lean365.png" width=128" height="128" />
+<img src="https://github.com/Lean365/LaplaceNet/blob/master/La.Vue/src/assets/logo/Antares.png" width=128" height="128" />
 </div>
 
 <p align="center">
@@ -46,7 +48,7 @@
 ## 🐰前端
 Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、 element-plus、echats、i18n国际化等，前端采用vscode工具开发
 
-## 🐰后端
+## 📌后端
 - 核心框架：.Net7.0 + Web API + sqlsugar + swagger + signalR + IpRateLimit + Quartz.net + Redis
 - 定时计划任务：Quartz.Net组件，支持执行程序集或者http网络请求
 - 安全支持：过滤器(数据权限过滤)、Sql注入、请求伪造
@@ -82,6 +84,41 @@ Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、
 18. 通知管理：系统通知公告信息发布维护，使用 signalr 实现对用户实时通知。
 19. 账号注册：可以注册账号登录系统。
 20. 多语言管理：支持静态、后端动态配置国际化。目前只支持中、英、日文(仅支持vue3)
+
+## 🎉精益生产管理
+1. 预算管理
+   1. 人员
+   2. 设备
+   3. 加班
+7. 费用管理
+   1. 实际预算对比
+8. 成本管理
+   1. 销售
+   2. BOM
+   3. 人工
+   4. 生产
+9.  销售管理
+   1. 客诉
+   2. 序列号
+10. 物料管理
+   1. MRP
+   2. FC
+11. 生产管理
+   1. 设变
+   2. OPH(每小时产量)
+   3. 不良
+   4. 工数
+12. 品质管理
+   1. 成本
+   2. 来料
+   3. 成品
+
+## 🎉OA
+1.  工作流(计划中...)
+
+## 🎉ChatGPT
+1.  (计划中...)
+
 
 ## 🔰项目结构
 

@@ -5,24 +5,21 @@ using La.Infra.Model;
 using Mapster;
 using Microsoft.AspNetCore.Mvc;
 using La.Model.Dto;
-using La.Model.Models;
+using La.Model.Production;
 using La.Model.System;
 using La.Service.Production.IProductionService;
 using La.WebApi.Extensions;
 using La.WebApi.Filters;
 using La.Common;
-using JinianNet.JNTemplate.Dynamic;
-using SqlSugar;
-using La.Service.Production;
 
 namespace La.WebApi.Controllers
 {
     /// <summary>
-    /// oph主表Controller
-    /// 
+    /// oph主表
+    /// Controller
     /// @tableName pp_output_master
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Lean365
+    /// @date 2023-07-20
     /// </summary>
     [Verify]
     [Route("production/PpOutputMaster")]
@@ -32,15 +29,10 @@ namespace La.WebApi.Controllers
         /// oph主表接口
         /// </summary>
         private readonly IPpOutputMasterService _PpOutputMasterService;
-        /// <summary>
-        /// oph主表Controller
-        /// </summary>
-        public PpOutputMasterController(
-            IPpOutputMasterService PpOutputMasterService 
- )
+
+        public PpOutputMasterController(IPpOutputMasterService PpOutputMasterService)
         {
             _PpOutputMasterService = PpOutputMasterService;
-
         }
 
         /// <summary>
@@ -66,9 +58,10 @@ namespace La.WebApi.Controllers
         [ActionPermissionFilter(Permission = "pp:outputmaster:query")]
         public IActionResult GetPpOutputMaster(int PomId)
         {
-            var response = _PpOutputMasterService.GetFirst(x => x.PomId == PomId);
+            var response = _PpOutputMasterService.GetInfo(PomId);
             
-            return SUCCESS(response);
+            var info = response.Adapt<PpOutputMaster>();
+            return SUCCESS(info);
         }
 
         /// <summary>
@@ -107,12 +100,7 @@ namespace La.WebApi.Controllers
         [Log(Title = "oph主表", BusinessType = BusinessType.UPDATE)]
         public IActionResult UpdatePpOutputMaster([FromBody] PpOutputMasterDto parm)
         {
-            if (parm == null)
-            {
-                throw new CustomException("请求实体不能为空");
-            }
             var modal = parm.Adapt<PpOutputMaster>().ToUpdate(HttpContext);
-
             var response = _PpOutputMasterService.UpdatePpOutputMaster(modal);
 
             return ToResponse(response);
@@ -144,6 +132,7 @@ namespace La.WebApi.Controllers
         [ActionPermissionFilter(Permission = "pp:outputmaster:export")]
         public IActionResult Export([FromQuery] PpOutputMasterQueryDto parm)
         {
+            parm.PageNum = 1;
             parm.PageSize = 100000;
             var list = _PpOutputMasterService.GetList(parm).Result;
             if (list == null || list.Count <= 0)
@@ -154,6 +143,21 @@ namespace La.WebApi.Controllers
             return ExportExcel(result.Item2, result.Item1);
         }
 
+        /// <summary>
+        /// 清空oph主表
+        /// </summary>
+        /// <returns></returns>
+        [Log(Title = "oph主表", BusinessType = BusinessType.CLEAN)]
+        [ActionPermissionFilter(Permission = "pp:outputmaster:delete")]
+        [HttpDelete("clean")]
+        public IActionResult Clear()
+        {
+            if (!HttpContextExtension.IsAdmin(HttpContext))
+            {
+                return ToResponse(ResultCode.FAIL, "操作失败");
+            }
+            return SUCCESS(_PpOutputMasterService.TruncatePpOutputMaster());
+        }
 
     }
 }

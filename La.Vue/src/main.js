@@ -1,27 +1,10 @@
 import { createApp } from 'vue'
-/*引入资源请求插件*/
-//import VueResource from 'vue-resource'
-//Axios网络请求库封装
-//import axios from 'axios'
-//import VueAxios from 'vue-axios'
-//cookie记录
-//import Cookies from 'js-cookie'
+// import Cookies from 'js-cookie'
 
-
+import ElementPlus from 'element-plus'
 import 'dayjs/locale/zh-cn'
 import '@/assets/styles/index.scss' // global css
 
-//引入element-plus库
-import ElementPlus from 'element-plus'
-//引用element-plus样式
-import ElementUI from 'element-plus/es/index'
-import 'element-plus/dist/index.css'
-
-//VForm3 可视化动态表单平台及h5页面搭建平台
-import VForm3 from 'vform3-builds'  //引入VForm 3库
-import 'vform3-builds/dist/designer.style.css'  //引入VForm3样式
-import VFormRender from 'vform3-builds/dist/render.umd.js'  //引入VFormRender组件
-//引入jsPlumb流程图绘制
 import App from './App'
 import router from './router'
 import directive from './directive' // directive
@@ -31,23 +14,16 @@ import { downFile } from '@/utils/request'
 import signalR from '@/utils/signalR'
 import vueI18n from './i18n/index'
 import pinia from '@/store/index'
-//过期退出
-import isTimeOut from '@/store/modules/isTimeOut'
-//引入流程组件bpmn-js
-import "bpmn-js/dist/assets/diagram-js.css"
-import "bpmn-js/dist/assets/bpmn-font/css/bpmn.css"
-import "bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css"
-import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css"
+
 // svg图标
+import '@/assets/iconfont/iconfont.js' //iconfont
 import 'virtual:svg-icons-register'
 import SvgIcon from '@/components/SvgIcon/index.vue'
 import elementIcons from '@/components/SvgIcon/svgicon'
-//粒子动画
-import Particles from 'vue3-particles'
 
 import './permission' // permission control
-import { checkPermi, checkRole } from '@/utils/permission' // 权限判断函数
-
+//粒子动画
+import Particles from 'vue3-particles'
 import { getConfigKey } from '@/api/system/config'
 import { getDicts } from '@/api/system/dict/data'
 import { parseTime, resetForm, addDateRange, handleTree, selectDictLabel, download } from '@/utils/ruoyi'
@@ -66,31 +42,11 @@ import ImagePreview from '@/components/ImagePreview'
 import DictTag from '@/components/DictTag'
 // el-date-picker 快捷选项
 import dateOptions from '@/utils/dateOptions'
-//格式化日期
-import moment from "moment"
 
-//VXE Table组件
-// import 'xe-utils'
-// import VXETable from 'vxe-table'
-// import 'vxe-table/lib/style.css'
-// VXETable.setup({
-//   // 对组件内置的提示语进行国际化翻译
-//   i18n: (key, args) => i18n.global.t(key, args)
-// })
 const app = createApp(App)
-
-app.config.globalProperties.$filters = {
-  timeFormat(value, formatString) {
-    formatString = formatString || 'YYYY-MM-DD';
-    return moment(value).format(formatString);
-  }
-}
 signalR.init(import.meta.env.VITE_APP_SOCKET_API)
 app.config.globalProperties.signalr = signalR
 // 全局方法挂载
-//app.config.globalProperties.$axios = axios
-app.config.globalProperties.checkPermi = checkPermi
-app.config.globalProperties.checkRole = checkRole
 app.config.globalProperties.getConfigKey = getConfigKey
 app.config.globalProperties.getDicts = getDicts
 app.config.globalProperties.download = download
@@ -101,7 +57,7 @@ app.config.globalProperties.handleTree = handleTree
 app.config.globalProperties.addDateRange = addDateRange
 app.config.globalProperties.selectDictLabel = selectDictLabel
 app.config.globalProperties.dateOptions = dateOptions
-//app.prototype.uuid = uuidv4()
+
 // 全局组件挂载
 app.component('DictTag', DictTag)
 app.component('Pagination', Pagination)
@@ -112,17 +68,12 @@ app.component('RightToolbar', RightToolbar)
 app.component('svg-icon', SvgIcon)
 
 directive(app)
-/* 注意：如果你的项目中有使用axios，请用下面一行代码将全局axios复位为你的axios！！ */
-//window.axios = axios
+
 app.use(pinia)
   .use(router)
-  .use(VForm3)
-  .use(VFormRender)
   .use(plugins)
-  .use(ElementUI)
   .use(ElementPlus, {})
   .use(elementIcons)
   .use(vueI18n)
-  .use(isTimeOut)
   .use(Particles)
   .mount('#app')

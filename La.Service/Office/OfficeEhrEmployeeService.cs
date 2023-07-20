@@ -1,10 +1,11 @@
 using System;
 using SqlSugar;
 using La.Infra.Attribute;
+using La.Infra.Extensions;
 using La.Model;
-using La.Model.Dto;
-using La.Model.Models;
 using La.Model.System;
+using La.Model.Dto;
+using La.Model.Office;
 using La.Repository;
 using La.Service.Office.IOfficeService;
 using System.Linq;
@@ -12,16 +13,14 @@ using System.Linq;
 namespace La.Service.Office
 {
     /// <summary>
-    /// 人事信息Service业务层处理
-    ///
-    /// @author Davis.Ching
-    /// @date 2023-05-16
+    /// 人事信息
+    /// Service业务层处理
+    /// @author Lean365
+    /// @date 2023-07-20
     /// </summary>
     [AppService(ServiceType = typeof(IOfficeEhrEmployeeService), ServiceLifetime = LifeTime.Transient)]
     public class OfficeEhrEmployeeService : BaseService<OfficeEhrEmployee>, IOfficeEhrEmployeeService
     {
-        #region 业务逻辑代码
-
         /// <summary>
         /// 查询人事信息列表
         /// </summary>
@@ -32,33 +31,17 @@ namespace La.Service.Office
             //开始拼装查询条件
             var predicate = Expressionable.Create<OfficeEhrEmployee>();
 
-            //搜索条件查询语法参考Sqlsugar
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EeName), it => it.EeName.Contains(parm.EeName));
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EeGender), it => it.EeGender == parm.EeGender);
-            predicate = predicate.AndIF(parm.BeginEeBirthday != null, it => it.EeBirthday >=parm.BeginEeBirthday);
-            predicate = predicate.AndIF(parm.BeginEeBirthday != null, it => it.EeBirthday >= parm.BeginEeBirthday && it.EeBirthday <= parm.EndEeBirthday);
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EeIdentityCard), it => it.EeIdentityCard.Contains(parm.EeIdentityCard));
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EeCountry), it => it.EeCountry == parm.EeCountry);
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EeProvince), it => it.EeProvince == parm.EeProvince);
-            predicate = predicate.AndIF(parm.EeDepartmentId != null, it => it.EeDepartmentId == parm.EeDepartmentId);
-            predicate = predicate.AndIF(parm.EeTitlesId != null, it => it.EeTitlesId == parm.EeTitlesId);
-            predicate = predicate.AndIF(parm.EePostId != null, it => it.EePostId == parm.EePostId);
-            predicate = predicate.AndIF(parm.EePostLevel != null, it => it.EePostLevel == parm.EePostLevel);
-            predicate = predicate.AndIF(parm.EeDutyName != null, it => it.EeDutyName == parm.EeDutyName);
-            predicate = predicate.AndIF(parm.EeRecruited != null, it => it.EeRecruited == parm.EeRecruited);
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EeEngageForm), it => it.EeEngageForm == parm.EeEngageForm);
-            predicate = predicate.AndIF(parm.EeTiptopDegrEe != null, it => it.EeTiptopDegrEe == parm.EeTiptopDegrEe);
-            predicate = predicate.AndIF(parm.EeSpecialty != null, it => it.EeSpecialty == parm.EeSpecialty);
+            predicate = predicate.AndIF(parm.BeginEeBirthday == null, it => it.EeBirthday >= DateTime.Now.ToShortDateString().ParseToDateTime());
+            predicate = predicate.AndIF(parm.BeginEeBirthday != null, it => it.EeBirthday >= parm.BeginEeBirthday);
+            predicate = predicate.AndIF(parm.EndEeBirthday != null, it => it.EeBirthday <= parm.EndEeBirthday);
             predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.EeWorkID), it => it.EeWorkID.Contains(parm.EeWorkID));
-            predicate = predicate.AndIF(parm.BeginEeLeaveDate != null, it => it.EeLeaveDate >=parm.BeginEeLeaveDate);
-            predicate = predicate.AndIF(parm.BeginEeLeaveDate != null, it => it.EeLeaveDate >= parm.BeginEeLeaveDate && it.EeLeaveDate <= parm.EndEeLeaveDate);
             var response = Queryable()
                 .Where(predicate.ToExpression())
                 .ToPage<OfficeEhrEmployee, OfficeEhrEmployeeDto>(parm);
 
             return response;
         }
-
 
         /// <summary>
         /// 校验输入项目是否唯一
@@ -76,132 +59,105 @@ namespace La.Service.Office
         }
 
         /// <summary>
-        /// 添加人事信息
+        /// 获取详情
         /// </summary>
-        /// <param name="parm"></param>
+        /// <param name="EeId"></param>
         /// <returns></returns>
-        public int AddOfficeEhrEmployee(OfficeEhrEmployee parm)
+        public OfficeEhrEmployee GetInfo(string EeId)
         {
-            var response = Insert(parm, it => new
-            {
-                it.EeId,
-                it.EeName,
-                it.EeNameUsed,
-                it.EeNickName,
-                it.EeEnglishName,
-                it.EeGender,
-                it.EeBirthday,
-                it.EeIdentityCard,
-                it.EeWedlock,
-                it.EeNationId,
-                it.EeNativePlace,
-                it.EePoliticId,
-                it.EeEmail,
-                it.EePhone,
-                it.EeCountry,
-                it.EeProvince,
-                it.EeCity,
-                it.EeCounty,
-                it.EeHomeAddress,
-                it.EePostCode,
-                it.EeHouseholdType,
-                it.EeStayAddress,
-                it.EeDepartmentId,
-                it.EeTitlesId,
-                it.EePostId,
-                it.EePostLevel,
-                it.EeDutyName,
-                it.EeRecruited,
-                it.EeEngageForm,
-                it.EeTiptopDegrEe,
-                it.EeSpecialty,
-                it.EeSchool,
-                it.EeWorkID,
-                it.EeBeginDate,
-                it.EeWorkState,
-                it.EeProbation,
-                it.EeContractTerm,
-                it.EeConversionTime,
-                it.EeLeaveDate,
-                it.EeBeginContract,
-                it.EeBndContract,
-                it.EeWorkAge,
-                it.EeAvatar,
-                it.EeQualificationAffix,
-                it.EeTitleAffix,
-                it.CreateBy,
-                it.CreateTime,
-            });
+            var response = Queryable()
+                .Where(x => x.EeId == EeId)
+                .First();
+
             return response;
         }
 
         /// <summary>
-        /// 修改人事信息
+        /// 添加
+        /// 人事信息
         /// </summary>
-        /// <param name="parm"></param>
+        /// <param name="model"></param>
         /// <returns></returns>
-        public int UpdateOfficeEhrEmployee(OfficeEhrEmployee parm)
+        public int AddOfficeEhrEmployee(OfficeEhrEmployee model)
         {
-            var response = Update(w => w.EeId == parm.EeId, it => new OfficeEhrEmployee()
-            {
-                EeName = parm.EeName,
-                EeNameUsed = parm.EeNameUsed,
-                EeNickName = parm.EeNickName,
-                EeEnglishName = parm.EeEnglishName,
-                EeGender = parm.EeGender,
-                EeBirthday = parm.EeBirthday,
-                EeIdentityCard = parm.EeIdentityCard,
-                EeWedlock = parm.EeWedlock,
-                EeNationId = parm.EeNationId,
-                EeNativePlace = parm.EeNativePlace,
-                EePoliticId = parm.EePoliticId,
-                EeEmail = parm.EeEmail,
-                EePhone = parm.EePhone,
-                EeCountry = parm.EeCountry,
-                EeProvince = parm.EeProvince,
-                EeCity = parm.EeCity,
-                EeCounty = parm.EeCounty,
-                EeHomeAddress = parm.EeHomeAddress,
-                EePostCode = parm.EePostCode,
-                EeHouseholdType = parm.EeHouseholdType,
-                EeStayAddress = parm.EeStayAddress,
-                EeDepartmentId = parm.EeDepartmentId,
-                EeTitlesId = parm.EeTitlesId,
-                EePostId = parm.EePostId,
-                EePostLevel = parm.EePostLevel,
-                EeDutyName = parm.EeDutyName,
-                EeRecruited = parm.EeRecruited,
-                EeEngageForm = parm.EeEngageForm,
-                EeTiptopDegrEe = parm.EeTiptopDegrEe,
-                EeSpecialty = parm.EeSpecialty,
-                EeSchool = parm.EeSchool,
-                EeWorkID = parm.EeWorkID,
-                EeBeginDate = parm.EeBeginDate,
-                EeWorkState = parm.EeWorkState,
-                EeProbation = parm.EeProbation,
-                EeContractTerm = parm.EeContractTerm,
-                EeConversionTime = parm.EeConversionTime,
-                EeLeaveDate = parm.EeLeaveDate,
-                EeBeginContract = parm.EeBeginContract,
-                EeBndContract = parm.EeBndContract,
-                EeWorkAge = parm.EeWorkAge,
-                EeAvatar = parm.EeAvatar,
-                EeQualificationAffix = parm.EeQualificationAffix,
-                EeTitleAffix = parm.EeTitleAffix,
-                UpdateBy = parm.UpdateBy,
-                UpdateTime = parm.UpdateTime,
-            });
-            return response;
+            return Add(model, true);
         }
 
         /// <summary>
-        /// 清空人事信息
+        /// 修改编辑
+        /// 人事信息
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public int UpdateOfficeEhrEmployee(OfficeEhrEmployee model)
+        {
+            //var response = Update(w => w.EeId == model.EeId, it => new OfficeEhrEmployee()
+            //{
+            //    EeName = model.EeName,
+            //    EeNameUsed = model.EeNameUsed,
+            //    EeNickName = model.EeNickName,
+            //    EeEnglishName = model.EeEnglishName,
+            //    EeGender = model.EeGender,
+            //    EeBirthday = model.EeBirthday,
+            //    EeIdentityCard = model.EeIdentityCard,
+            //    EeWedlock = model.EeWedlock,
+            //    EeNationId = model.EeNationId,
+            //    EeNativePlace = model.EeNativePlace,
+            //    EePoliticId = model.EePoliticId,
+            //    EeEmail = model.EeEmail,
+            //    EePhone = model.EePhone,
+            //    EeCountry = model.EeCountry,
+            //    EeProvince = model.EeProvince,
+            //    EeCity = model.EeCity,
+            //    EeCounty = model.EeCounty,
+            //    EeHomeAddress = model.EeHomeAddress,
+            //    EePostCode = model.EePostCode,
+            //    EeHouseholdType = model.EeHouseholdType,
+            //    EeStayAddress = model.EeStayAddress,
+            //    EeDepartmentId = model.EeDepartmentId,
+            //    EeTitlesId = model.EeTitlesId,
+            //    EePostId = model.EePostId,
+            //    EePostLevel = model.EePostLevel,
+            //    EeDutyName = model.EeDutyName,
+            //    EeRecruited = model.EeRecruited,
+            //    EeEngageForm = model.EeEngageForm,
+            //    EeTiptopDegrEe = model.EeTiptopDegrEe,
+            //    EeSpecialty = model.EeSpecialty,
+            //    EeSchool = model.EeSchool,
+            //    EeWorkID = model.EeWorkID,
+            //    EeBeginDate = model.EeBeginDate,
+            //    EeWorkState = model.EeWorkState,
+            //    EeProbation = model.EeProbation,
+            //    EeContractTerm = model.EeContractTerm,
+            //    EeConversionTime = model.EeConversionTime,
+            //    EeLeaveDate = model.EeLeaveDate,
+            //    EeBeginContract = model.EeBeginContract,
+            //    EeBndContract = model.EeBndContract,
+            //    EeWorkAge = model.EeWorkAge,
+            //    EeAvatar = model.EeAvatar,
+            //    EeQualificationAffix = model.EeQualificationAffix,
+            //    EeTitleAffix = model.EeTitleAffix,
+            //    Remark = model.Remark,
+            //    UpdateBy = model.UpdateBy,
+            //    UpdateTime = model.UpdateTime,
+            //});
+            //return response;
+            return Update(model, true);
+        }
+        /// <summary>
+        /// 清空
+        /// 人事信息
         /// </summary>
         /// <returns></returns>
-        public void TruncateOfficeEhrEmployee()
+        public bool TruncateOfficeEhrEmployee()
         {
-            Truncate();
+            var newTableName = $"office_ehr_employee_{DateTime.Now:yyyyMMdd}";
+            if (Queryable().Any() && !Context.DbMaintenance.IsAnyTable(newTableName))
+            {
+                Context.DbMaintenance.BackupTable("office_ehr_employee", newTableName);
+            }
+            
+            return Truncate();
         }
-        #endregion
     }
 }

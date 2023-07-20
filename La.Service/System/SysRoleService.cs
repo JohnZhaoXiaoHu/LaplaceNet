@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using La.Model;
 using La.Model.System;
+using La.Model.System.Dto;
 using La.Repository;
 using La.Service.System.IService;
 
@@ -40,9 +41,9 @@ namespace La.Service
         public PagedInfo<SysRole> SelectRoleList(SysRole sysRole, PagerInfo pager)
         {
             var exp = Expressionable.Create<SysRole>();
-            exp.And(role => role.IsDeleted == "0");
+            exp.And(role => role.IsDeleted == 0);
             exp.AndIF(!string.IsNullOrEmpty(sysRole.RoleName), role => role.RoleName.Contains(sysRole.RoleName));
-            exp.AndIF(!string.IsNullOrEmpty(sysRole.Status), role => role.Status == sysRole.Status);
+            exp.AndIF(sysRole.Status != -1, role => role.Status == sysRole.Status);
             exp.AndIF(!string.IsNullOrEmpty(sysRole.RoleKey), role => role.RoleKey == sysRole.RoleKey);
 
             var query = Queryable()
@@ -63,7 +64,7 @@ namespace La.Service
         public List<SysRole> SelectRoleAll()
         {
             return Queryable()
-                .Where(role => role.IsDeleted == "0")
+                .Where(role => role.IsDeleted == 0)
                 .OrderBy(role => role.RoleSort)
                 .ToList();
         }
@@ -76,7 +77,7 @@ namespace La.Service
         public List<SysRole> SelectRolePermissionByUserId(long userId)
         {
             return Queryable()
-                .Where(role => role.IsDeleted == "0")
+                .Where(role => role.IsDeleted == 0)
                 .Where(it => SqlFunc.Subqueryable<SysUserRole>().Where(s => s.UserId == userId).Any())
                 .OrderBy(role => role.RoleSort)
                 .ToList();
@@ -179,15 +180,31 @@ namespace La.Service
         /// </summary>
         /// <param name="sysRoleDto"></param>
         /// <returns></returns>
-        public bool AuthDataScope(SysRole sysRoleDto)
+        public bool AuthDataScope(SysRoleDto sysRoleDto)
         {
             return UseTran2(() =>
             {
                 //删除角色菜单
-                DeleteRoleMenuByRoleId(sysRoleDto.RoleId);
+                //DeleteRoleMenuByRoleId(sysRoleDto.RoleId);
+                //InsertRoleMenu(sysRoleDto);
+                var oldMenus = SelectUserRoleMenus(sysRoleDto.RoleId);
+                var newMenus = sysRoleDto.MenuIds;
+
+                //并集菜单
+                var arr_c = oldMenus.Intersect(newMenus).ToArray();
+                //获取减量菜单
+                var delMenuIds = oldMenus.Where(c => !arr_c.Contains(c)).ToArray();
+                //获取增量
+                var addMenuIds = newMenus.Where(c => !arr_c.Contains(c)).ToArray();
+
+                RoleMenuService.DeleteRoleMenuByRoleIdMenuIds(sysRoleDto.RoleId, delMenuIds);
+                sysRoleDto.MenuIds = addMenuIds.ToList();
+                sysRoleDto.DelMenuIds= delMenuIds.ToList();
                 InsertRoleMenu(sysRoleDto);
+                Console.WriteLine($"减少了{delMenuIds.Length},增加了{addMenuIds.Length}菜单");
             });
         }
+
         #region Service
 
 
@@ -196,14 +213,14 @@ namespace La.Service
         /// </summary>
         /// <param name="sysRoleDto"></param>
         /// <returns></returns>
-        public int InsertRoleMenu(SysRole sysRoleDto)
+        public int InsertRoleMenu(SysRoleDto sysRoleDto)
         {
             int rows = 1;
             // 新增用户与角色管理
-            List<SysRoleMenu> sysRoleMenus = new List<SysRoleMenu>();
+            List<SysRoleMenu> sysRoleMenus = new();
             foreach (var item in sysRoleDto.MenuIds)
             {
-                SysRoleMenu rm = new SysRoleMenu
+                SysRoleMenu rm = new()
                 {
                     Menu_id = item,
                     Role_id = sysRoleDto.RoleId,
@@ -277,6 +294,7 @@ namespace La.Service
         public List<SysRole> SelectUserRoleListByUserId(long userId)
         {
             return Context.Queryable<SysUserRole>()
+                .WithCache(60 * 10)
                 .LeftJoin<SysRole>((ur, r) => ur.RoleId == r.RoleId)
                 .Where((ur, r) => ur.UserId == userId && r.RoleId > 0)
                 .Select((ur, r) => r)
@@ -290,7 +308,7 @@ namespace La.Service
         /// <returns></returns>
         public List<long> SelectUserRoles(long userId)
         {
-            var list = SelectUserRoleListByUserId(userId).Where(f => f.Status == "0");
+            var list = SelectUserRoleListByUserId(userId).Where(f => f.Status == 0);
 
             return list.Select(x => x.RoleId).ToList();
         }
@@ -351,7 +369,7 @@ namespace La.Service
             return db.Updateable<SysRole>()
             .SetColumns(it => it.Update_time == sysRole.Update_time)
             .SetColumns(it => it.DataScope == sysRole.DataScope)
-            .SetColumns(it => it.ReMark == sysRole.ReMark)
+            .SetColumns(it => it.Remark == sysRole.Remark)
             .SetColumns(it => it.Update_by == sysRole.Update_by)
             //.SetColumns(it => it.MenuCheckStrictly == sysRole.MenuCheckStrictly)
             .SetColumns(it => it.DeptCheckStrictly == sysRole.DeptCheckStrictly)

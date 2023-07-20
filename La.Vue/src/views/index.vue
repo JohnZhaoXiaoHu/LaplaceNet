@@ -1,229 +1,282 @@
 <template>
-  <div class="chart-warp-top">
-    <ChartHead />
-  </div>
-  <h2 style="color: red;">{{ $t('layout.ProjectInformation') }}</h2>
-  <h5 style="color: rgb(42, 3, 184);">
-    {{ $t('layout.projectInfo') }}
-  </h5>
-  <div class="panel padding-15">
-    <div class="panel-content">
-      <div class="margin_t-10">
-        <el-button size="small" type="warning" @click="releaseHandle()" round><svg-icon name="log" />{{
-          $t('layout.changeLog') }}</el-button>
-        <el-button size="small" type="success" @click="releaseHandle()" round><svg-icon name="life-ring-regular" />{{
-          $t('layout.helpguide') }}</el-button>
-        <el-button size="small" type="info" @click="releaseHandle()" round><svg-icon name="github"
-            color="BlueViolet" />GitHub</el-button>
-        <el-button size="small" type="info" @click="giteeHandle()" round><svg-icon name="gitee" color="Crimson" />Gitee
-        </el-button>
-      </div>
-    </div>
-  </div>
-  <h2 style="float:center">{{ $t('layout.technicalSelection') }}</h2>
-  <el-row class="mt10">
-    <el-col :sm="24" :lg="12">
-      <el-card>
-        <div style="float: left; width: 100%">
-          <h4>{{ $t('layout.backendTechnology') }}</h4>
-          <el-table :data="backend" border stripe height="450" style="width: 100%">
-            <el-table-column type="index" :label="$t('layout.indexNo')" style="width: 10%"></el-table-column>
-            <el-table-column prop="Name" :label="$t('layout.component')" style="width: 20%"></el-table-column>
-            <el-table-column prop="Fun" :label="$t('layout.description')" style="width: 20%"></el-table-column>
-          </el-table>
-        </div>
-      </el-card>
-    </el-col>
-    <el-col :sm="24" :lg="12">
-      <el-card>
-        <div style="float: right; width: 100%">
-          <h4>{{ $t('layout.frontendTechnology') }}</h4>
-          <el-table :data="frontend" border stripe height="450" style="width: 100%">
-            <el-table-column type="index" :label="$t('layout.indexNo')" style="width: 10%"></el-table-column>
-            <el-table-column prop="Name" :label="$t('layout.component')" style="width: 20%"></el-table-column>
-            <el-table-column prop="Fun" :label="$t('layout.description')" style="width: 20%"></el-table-column>
-          </el-table>
-        </div>
-      </el-card>
-    </el-col>
-  </el-row>
   <div>
 
-    <el-row class="mt10">
-      <el-col :sm="24" :lg="12">
-        <el-card>
-          <h4>{{ $t('layout.devDependencies') }}</h4>
-          <el-table :data="devData" border stripe height="602" style="width: 100%">
-            <el-table-column type="index" :label="$t('layout.indexNo')" style="width: 10%"></el-table-column>
-            <el-table-column prop="name" :label="$t('layout.dependenciesName')" style="width: 20%"></el-table-column>
-            <el-table-column prop="version" :label="$t('layout.dependenciesVersion')"
-              style="width: 20%"></el-table-column>
-          </el-table>
-        </el-card>
+    <div>
+      <el-card>
+        <template #header>
+          <div>
+            <el-icon>
+              <DArrowRight />
+            </el-icon>
+            <h8>{{ $t('layout.shortCut') }}</h8>
+          </div>
+        </template>
+
+        <el-row :gutter="24" type="flex">
+
+          <el-col v-for="(card, key) in toolCards" :key="key" :span="2" :xs="8" @click="toTarget(card.name)">
+            <div style="height: 100%">
+              <div :style="{ backgroundColor: card.bg }" style="cursor:pointer;text-align: center;"
+                @click="navigateToPage( card.url)">
+                <el-icon>
+                  <component :is="card.icon" :style="{ color: card.color }" />
+                </el-icon>
+                {{ card.label }}
+              </div>
+            </div>
+          </el-col>
+
+        </el-row>
+
+      </el-card>
+      <!-- <div class="quick-entrance-title"></div> -->
+    </div>
+    <panel-group @handleSetLineChartData="handleSetLineChartData" />
+
+    <el-row :gutter="32">
+      <el-col :xs="24" :sm="24" :lg="24">
+        <div class="chart-wrapper">
+          <line-chart :chart-data="lineChartData" :key="dataType" />
+        </div>
       </el-col>
-      <el-col :sm="24" :lg="12">
-        <el-card>
-          <h4>{{ $t('layout.dependencies') }}</h4>
-          <el-table :data="depData" border stripe height="602" style="width: 100%">
-            <el-table-column type="index" :label="$t('layout.indexNo')" style="width: 10%"></el-table-column>
-            <el-table-column prop="name" :label="$t('layout.dependenciesName')" style="width: 20%"></el-table-column>
-            <el-table-column prop="version" :label="$t('layout.dependenciesVersion')" style="width: 20%">
-            </el-table-column>
-          </el-table>
-        </el-card>
+    </el-row>
+
+    <el-row :gutter="32">
+      <el-col :xs="24" :sm="24" :lg="8">
+        <div class="chart-wrapper">
+          <raddar-chart />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="24" :lg="8">
+        <div class="chart-wrapper">
+          <pie-chart />
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="24" :lg="8">
+        <div class="chart-wrapper">
+          <bar-chart />
+        </div>
       </el-col>
     </el-row>
   </div>
 </template>
-<script setup>
-  import config from '../../package.json'
+
+<script setup name="index">
+  import PanelGroup from './dashboard/PanelGroup'
+  import LineChart from './dashboard/LineChart'
+  import RaddarChart from './dashboard/RaddarChart'
+  import PieChart from './dashboard/PieChart'
+  import BarChart from './dashboard/BarChart'
+  import WordCloudChat from './dashboard/WordCloud.vue'
+
+  import dayjs from 'dayjs'
+
+  import useUserStore from '@/store/modules/user'
+  import useSocketStore from '@/store/modules/socket'
+  import { useRouter } from 'vue-router';
+
   const { proxy } = getCurrentInstance()
-  const versionstring = config.description + ':v' + config.version;
-  const data = reactive({
-    github: 'https://github.com/Lean365/LaplaceNet',
-    gitee: 'https://github.com/Lean365/LaplaceNet',
-    release: 'https://github.com/Lean365/LaplaceNet/actions/workflows/release.yml',
+  const userInfo = computed(() => {
+    return useUserStore().userInfo
   })
-  import dayjs from "dayjs";  //时间转换插件
-  // 引入组件
-  const ChartHead = defineAsyncComponent(() => import('@/utils/ontime.vue'));
-
-
-  const githubHandle = () => {
-    window.open(data.github)
+  const currentTime = computed(() => {
+    return proxy.parseTime(new Date())
+  })
+  const onlineUsers = computed(() => {
+    return useSocketStore().onlineUsers
+  })
+  // 使用 useRouter 获取路由实例
+  const router = useRouter();
+  // 声明组件局部状态和方法
+  const navigateToPage = (page) => {
+    // 使用路由实例的 push 方法进行页面导航
+    router.push(page);
   }
-  const giteeHandle = () => {
-    window.open(data.gitee)
+  const toolCards = ref([
+    {
+      label: proxy.$t('menu.systemUser'),
+      icon: 'user',
+      name: 'user',
+      color: '#8491c3',
+      bg: 'rgba(65,105,225,.3)',//皇家蓝
+      url: 'system/user'
+    },
+    {
+      label: proxy.$t('menu.systemRole'),//'',
+      icon: 'setting',
+      name: 'authority',
+      color: '#8491c3',
+      bg: 'rgba(100,149,237,.3)',//矢车菊的蓝色
+      url: 'system/role'
+    },
+    {
+      label: proxy.$t('menu.systemMenu'),//'',
+      icon: 'menu',
+      name: 'menu',
+      color: '#4d5aaf',
+      bg: 'rgba(176,196,222,.3)',//淡钢蓝
+      url: 'system/menu'
+    },
+    {
+      label: proxy.$t('menu.sales'),//'',
+      icon: 'coin',
+      name: 'about',
+      color: '#4d4398',
+      bg: 'rgba(135,206,235,.3)',//天蓝色
+      url: 'system/menu'
+    },
+    {
+      label: proxy.$t('menu.materials'),//'',
+      icon: 'aim',
+      name: 'about',
+      color: '#5654a2',
+      bg: 'rgba(0,191,255,.3)',//深天蓝
+      url: 'system/menu'
+    },
+    {
+      label: proxy.$t('menu.accounting'),//'',,menu.accounting
+      icon: 'Money',
+      name: 'about',
+      color: '#706caa',
+      bg: 'rgba(173,216,230,.3)',//淡蓝
+      url: 'system/menu'
+    },
+    {
+      label: proxy.$t('menu.production'),//'',menu.production
+      icon: 'Wallet',
+      name: 'about',
+      color: '#68699b',
+      bg: 'rgba(176,224,230,.3)',//火药蓝
+      url: 'system/menu'
+    },
+    {
+      label: proxy.$t('menu.ec'),//'', menu.ec
+      icon: 'Suitcase',
+      name: 'about',
+      color: '#867ba9',
+      bg: 'rgba(160, 216, 239,.3)',//【空色
+      url: 'system/menu'
+    },
+    {
+      label: proxy.$t('menu.quality'),//'', 
+      icon: 'Magnet',
+      name: 'about',
+      color: '#4d5aaf',
+      bg: 'rgba(132, 145, 195,.3)',//紅掛空色
+      url: 'system/menu'
+    },
+    {
+      label: proxy.$t('menu.production'),//'',menu.production
+      icon: 'UserFilled',
+      name: 'about',
+      color: '#a59aca',
+      bg: 'rgba(220, 214, 217,.3)',//薄梅鼠
+      url: 'system/menu'
+    },
+    {
+      label: proxy.$t('menu.sdSerial'),//'',menu.production
+      icon: 'goods',
+      name: 'about',
+      color: '#7058a3',
+      bg: 'rgba(214, 236, 240,.3)',//月白
+      url: 'system/menu'
+    },
+    {
+      label: proxy.$t('menu.about'),//'',menu.production
+      icon: 'compass',
+      name: 'about',
+      color: '#674598',
+      bg: 'rgba(211, 224, 243,.3)',//淡青
+      url: 'about'
+    },
+
+
+
+  ])
+  //关闭
+  const handleClose = (tag) => {
+    toolCards.value.splice(toolCards.value.indexOf(tag), 1)
   }
-  const releaseHandle = () => {
-    window.open(data.release)
+  const data = {
+    newVisitis: {
+      expectedData: [100, 120, 161, 134, 105, 160, 165],
+      actualData: [120, 82, 91, 154, 162, 140, 145]
+    },
+    users: {
+      expectedData: [200, 192, 120, 144, 160, 130, 140],
+      actualData: [180, 160, 151, 106, 145, 150, 130]
+    },
+    purchases: {
+      expectedData: [80, 100, 121, 104, 105, 90, 100],
+      actualData: [120, 90, 100, 138, 142, 130, 130]
+    },
+    shoppings: {
+      expectedData: [130, 140, 141, 142, 145, 150, 160],
+      actualData: [120, 82, 91, 154, 162, 140, 130]
+    },
+    wordCloud: [
+      {
+        name: 'Vue3',
+        value: 144
+      },
+      {
+        name: '.net6',
+        value: 928
+      },
+      {
+        name: 'Sqlsugar',
+        value: 906
+      },
+      {
+        name: 'Redis',
+        value: 825
+      },
+      {
+        name: '代码生成',
+        value: 514
+      },
+      {
+        name: '开源免费',
+        value: 486
+      },
+      {
+        name: '代码简单',
+        value: 53
+      },
+      {
+        name: '打赏',
+        value: 163
+      },
+      {
+        name: '国际化',
+        value: 163
+      },
+      {
+        name: 'Composition api',
+        value: 1163
+      },
+      {
+        name: 'Quartz.Net',
+        value: 190
+      },
+      {
+        name: 'Element UI',
+        value: 190
+      }
+    ]
   }
-  const oscsHandle = () => {
-    window.open(data.oscs)
+
+
+  let lineChartData = reactive([])
+  const dataType = ref(null)
+  function handleSetLineChartData(type) {
+    dataType.value = type
+    lineChartData = data[type]
   }
 
-
-  //单元格的 style 的回调方法
-  const cellStyle = ({ row, column, rowIndex, columnIndex }) => {
-    // 事件等级列字体颜色
-
-    if (rowIndex === 0 && columnIndex === 1) {
-      return {
-        //backgroundColor: 'bluess',
-        color: 'CornflowerBlue',
-
-      }
-    }
-    if (rowIndex === 1 && columnIndex === 1) {
-      return {
-        //backgroundColor: 'bluess',
-        color: 'CornflowerBlue',
-
-
-      }
-    }
-    if (rowIndex === 2 && columnIndex === 1) {
-      return {
-        //backgroundColor: 'bluess',
-        color: 'CornflowerBlue',
-
-      }
-    }
-    if (rowIndex === 0 && columnIndex === 3) {
-      return {
-        //backgroundColor: 'bluess',
-        color: 'CornflowerBlue',
-
-      }
-    }
-    if (rowIndex === 1 && columnIndex === 3) {
-      return {
-        //backgroundColor: 'bluess',
-        color: 'CornflowerBlue',
-
-      }
-    }
-    if (rowIndex === 2 && columnIndex === 3) {
-      return {
-        //backgroundColor: 'bluess',
-        color: 'CornflowerBlue',
-
-      }
-    }
-  }
-
-
-
-
-  let backend = [
-
-    { Name: 'NET7', Fun: '.NET是一种用于构建多种应用的免费开源开发平台' },
-    { Name: 'JWT', Fun: 'JSON Web Tokens基于JSON的开放标准((RFC 7519)' },
-    { Name: 'SqlSugar', Fun: '开源 ORM 框架' },
-    { Name: 'Quartz.Net', Fun: '任务调度框架' },
-    { Name: 'MySql', Fun: '关系型数据库管理系统,MariaDB数据库管理系统是MySQL的一个分支' },
-    { Name: 'Mapster', Fun: '高性能对象映射框架' },
-    { Name: 'MiniExcel', Fun: '.NET操作Excel高效低内存的开源框架' },
-    { Name: 'Epplus', Fun: '用于.NET的Excel电子表格' },
-    { Name: 'Redis', Fun: '远程字典服务' },
-    { Name: 'SignalR', Fun: '实时通信，服务器端实时推送至客户端' },
-  ]
-  let frontend = [
-    { Name: 'Vue3', Fun: 'JavaScript 框架' },
-    { Name: 'Vuex', Fun: '状态管理模式 + 库' },
-    { Name: 'Element plus', Fun: 'Vue3 UI组件库' },
-    { Name: 'Axios', Fun: 'Web数据交互方式' },
-    { Name: 'Sass', Fun: 'CSS扩展语言' },
-    { Name: 'Wangeditor', Fun: '富文本编辑器' },
-    { Name: 'Vite', Fun: '前端构建工具' },
-    { Name: 'Composition api', Fun: '组合式API' },
-    { Name: 'I18n', Fun: '国际化' },
-  ]
-
-  let depData = [
-    { name: '@element-plus/icons-vue', version: config.dependencies['@element-plus/icons-vue'] },
-    { name: '@microsoft/signalr', version: config.dependencies['@microsoft/signalr'] },
-    { name: '@vueuse/core', version: config.dependencies['@vueuse/core'] },
-    { name: '@wangeditor/editor', version: config.dependencies['@wangeditor/editor'] },
-    { name: '@wangeditor/editor-for-vue', version: config.dependencies['@wangeditor/editor-for-vue'] },
-    { name: 'axios', version: config.dependencies['axios'] },
-    { name: 'countup.js', version: config.dependencies['countup.js'] },
-    { name: 'echarts', version: config.dependencies['echarts'] },
-    { name: 'echarts-wordcloud', version: config.dependencies['echarts-wordcloud'] },
-    { name: 'element-plus', version: config.dependencies['element-plus'] },
-    { name: 'file-saver', version: config.dependencies['file-saver'] },
-    { name: 'fuse.js', version: config.dependencies['fuse.js'] },
-    { name: 'highlight.js', version: config.dependencies['highlight.js'] },
-    { name: 'js-cookie', version: config.dependencies['js-cookie'] },
-    { name: 'jsencrypt', version: config.dependencies['jsencrypt'] },
-    { name: 'md-editor-v3', version: config.dependencies['md-editor-v3'] },
-    { name: 'nprogress', version: config.dependencies['nprogress'] },
-    { name: 'pinia', version: config.dependencies['pinia'] },
-    { name: 'qs', version: config.dependencies['qs'] },
-    { name: 'sortablejs', version: config.dependencies['sortablejs'] },
-    { name: 'vue', version: config.dependencies['vue'] },
-    { name: 'vue-clipboard3', version: config.dependencies['vue-clipboard3'] },
-    { name: 'vue-cropper', version: config.dependencies['vue-cropper'] },
-    { name: 'vue-i18n', version: config.dependencies['vue-i18n'] },
-    { name: 'vue-router', version: config.dependencies['vue-router'] },
-    { name: 'vue3-seamless-scroll', version: config.dependencies['vue3-seamless-scroll'] },
-
-  ]
-  let devData = [
-    { name: '@vitejs/plugin-vue', version: config.devDependencies['@vitejs/plugin-vue'] },
-    { name: '@vue/compiler-sfc', version: config.devDependencies['@vue/compiler-sfc'] },
-    { name: 'sass', version: config.devDependencies['sass'] },
-    { name: 'unplugin-auto-import', version: config.devDependencies['unplugin-auto-import'] },
-    { name: 'vite', version: config.devDependencies['vite'] },
-    { name: 'vite-plugin-compression', version: config.devDependencies['vite-plugin-compression'] },
-    { name: 'vite-plugin-svg-icons', version: config.devDependencies['vite-plugin-svg-icons'] },
-    { name: 'vite-plugin-vue-setup-extend', version: config.devDependencies['vite-plugin-vue-setup-extend'] },
-  ]
-  // 模拟表头数据
 
 
 </script>
-
 
 <style lang="scss" scoped>
 

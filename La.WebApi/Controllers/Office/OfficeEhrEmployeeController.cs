@@ -5,7 +5,7 @@ using La.Infra.Model;
 using Mapster;
 using Microsoft.AspNetCore.Mvc;
 using La.Model.Dto;
-using La.Model.Models;
+using La.Model.Office;
 using La.Model.System;
 using La.Service.Office.IOfficeService;
 using La.WebApi.Extensions;
@@ -15,23 +15,21 @@ using La.Common;
 namespace La.WebApi.Controllers
 {
     /// <summary>
-    /// 人事信息Controller
-    /// 
+    /// 人事信息
+    /// Controller
     /// @tableName office_ehr_employee
-    /// @author Davis.Ching
-    /// @date 2023-05-16
+    /// @author Lean365
+    /// @date 2023-07-20
     /// </summary>
     [Verify]
-    [Route("Office/OfficeEhrEmployee")]
+    [Route("office/OfficeEhrEmployee")]
     public class OfficeEhrEmployeeController : BaseController
     {
         /// <summary>
         /// 人事信息接口
         /// </summary>
         private readonly IOfficeEhrEmployeeService _OfficeEhrEmployeeService;
-        /// <summary>
-        /// 人事信息Controller
-        /// </summary>
+
         public OfficeEhrEmployeeController(IOfficeEhrEmployeeService OfficeEhrEmployeeService)
         {
             _OfficeEhrEmployeeService = OfficeEhrEmployeeService;
@@ -60,9 +58,10 @@ namespace La.WebApi.Controllers
         [ActionPermissionFilter(Permission = "office:ehremployee:query")]
         public IActionResult GetOfficeEhrEmployee(string EeId)
         {
-            var response = _OfficeEhrEmployeeService.GetFirst(x => x.EeId == EeId);
+            var response = _OfficeEhrEmployeeService.GetInfo(EeId);
             
-            return SUCCESS(response);
+            var info = response.Adapt<OfficeEhrEmployee>();
+            return SUCCESS(info);
         }
 
         /// <summary>
@@ -101,12 +100,7 @@ namespace La.WebApi.Controllers
         [Log(Title = "人事信息", BusinessType = BusinessType.UPDATE)]
         public IActionResult UpdateOfficeEhrEmployee([FromBody] OfficeEhrEmployeeDto parm)
         {
-            if (parm == null)
-            {
-                throw new CustomException("请求实体不能为空");
-            }
             var modal = parm.Adapt<OfficeEhrEmployee>().ToUpdate(HttpContext);
-
             var response = _OfficeEhrEmployeeService.UpdateOfficeEhrEmployee(modal);
 
             return ToResponse(response);
@@ -138,6 +132,7 @@ namespace La.WebApi.Controllers
         [ActionPermissionFilter(Permission = "office:ehremployee:export")]
         public IActionResult Export([FromQuery] OfficeEhrEmployeeQueryDto parm)
         {
+            parm.PageNum = 1;
             parm.PageSize = 100000;
             var list = _OfficeEhrEmployeeService.GetList(parm).Result;
             if (list == null || list.Count <= 0)
@@ -148,6 +143,21 @@ namespace La.WebApi.Controllers
             return ExportExcel(result.Item2, result.Item1);
         }
 
+        /// <summary>
+        /// 清空人事信息
+        /// </summary>
+        /// <returns></returns>
+        [Log(Title = "人事信息", BusinessType = BusinessType.CLEAN)]
+        [ActionPermissionFilter(Permission = "office:ehremployee:delete")]
+        [HttpDelete("clean")]
+        public IActionResult Clear()
+        {
+            if (!HttpContextExtension.IsAdmin(HttpContext))
+            {
+                return ToResponse(ResultCode.FAIL, "操作失败");
+            }
+            return SUCCESS(_OfficeEhrEmployeeService.TruncateOfficeEhrEmployee());
+        }
 
     }
 }

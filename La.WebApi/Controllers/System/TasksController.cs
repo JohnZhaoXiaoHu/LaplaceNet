@@ -8,7 +8,6 @@ using Quartz;
 using SqlSugar;
 using La.WebApi.Extensions;
 using La.WebApi.Filters;
-using La.Model;
 using La.Model.System;
 using La.Model.System.Dto;
 using La.Service.System.IService;
@@ -40,19 +39,9 @@ namespace La.WebApi.Controllers
         /// <returns></returns>
         [HttpGet("list")]
         [ActionPermissionFilter(Permission = "monitor:job:list")]
-        public IActionResult ListTask([FromQuery] TasksQueryDto parm, [FromQuery] PagerInfo pager)
+        public IActionResult ListTask([FromQuery] TasksQueryDto parm)
         {
-            //开始拼装查询条件
-            var predicate = Expressionable.Create<SysTasks>();
-
-            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.QueryText),
-                m => m.Name.Contains(parm.QueryText) ||
-                m.JobGroup.Contains(parm.QueryText) ||
-                m.AssemblyName.Contains(parm.QueryText));
-            predicate.AndIF(parm.TaskType != null, m => m.TaskType == parm.TaskType);
-
-            var response = _tasksQzService.GetPages(predicate.ToExpression(), pager);
-
+            var response = _tasksQzService.SelectTaskList(parm);
             return SUCCESS(response, TIME_FORMAT_FULL);
         }
 
@@ -137,7 +126,7 @@ namespace La.WebApi.Controllers
                 throw new CustomException($"api地址不能为空");
             }
 
-            if (tasksQz.IsStart)
+            if (tasksQz.IsStart == 1)
             {
                 throw new CustomException($"该任务正在运行中，请先停止在更新");
             }
@@ -205,7 +194,7 @@ namespace La.WebApi.Controllers
 
             if (taskResult.Code == 200)
             {
-                tasksQz.IsStart = true;
+                tasksQz.IsStart = 1;
                 _tasksQzService.Update(tasksQz);
             }
 
@@ -236,7 +225,7 @@ namespace La.WebApi.Controllers
 
             if (taskResult.Code == 200)
             {
-                tasksQz.IsStart = false;
+                tasksQz.IsStart = 0;
                 _tasksQzService.Update(tasksQz);
             }
 
@@ -253,11 +242,12 @@ namespace La.WebApi.Controllers
         [Log(Title = "执行任务", BusinessType = BusinessType.OTHER)]
         public async Task<IActionResult> Run(string id)
         {
-            if (!_tasksQzService.Any(m => m.ID == id))
+            var result = await _tasksQzService.IsAnyAsync(m => m.ID == id);
+            if (!result)
             {
                 throw new CustomException("任务不存在");
             }
-            var tasksQz = _tasksQzService.GetFirst(m => m.ID == id);
+            var tasksQz = await _tasksQzService.GetFirstAsync(m => m.ID == id);
             var taskResult = await _schedulerServer.RunTaskScheduleAsync(tasksQz);
 
             return ToResponse(taskResult);

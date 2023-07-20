@@ -1,0 +1,290 @@
+2023-07-18 14:38:38.8818 |  | ERROR | GlobalExceptionMiddleware |  | admin |  | Status can't  convert string to int32 | [{"dictType":"sys_lang_type"}] | {
+  "code": 500,
+  "msg": "服务器好像出了点问题，请联系系统管理员...",
+  "data": null
+} | SqlSugar.SqlSugarException: Status can't  convert string to int32
+   at SqlSugar.IDataReaderEntityBuilder`1.CheckType(List`1 invalidTypes, String bindProperyTypeName, String validPropertyType, String propertyName)
+   at SqlSugar.IDataReaderEntityBuilder`1.BindMethod(ILGenerator generator, EntityColumnInfo columnInfo, Int32 ordinal)
+   at SqlSugar.IDataReaderEntityBuilder`1.BindField(ILGenerator generator, LocalBuilder result, EntityColumnInfo columnInfo, String fieldName)
+   at SqlSugar.IDataReaderEntityBuilder`1.CreateBuilder(Type type)
+   at SqlSugar.DbBindAccessory.<>c__DisplayClass4_0`1.<GetEntityList>b__0()
+   at SqlSugar.ReflectionInoCore`1.GetOrCreate(String cacheKey, Func`1 create)
+   at SqlSugar.ReflectionInoCacheService.GetOrCreate[V](String cacheKey, Func`1 create, Int32 cacheDurationInSeconds)
+   at SqlSugar.DbBindAccessory.GetEntityList[T](SqlSugarProvider context, IDataReader dataReader)
+   at SqlSugar.DbBindProvider.DataReaderToList[T](Type type, IDataReader dataReader)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](Boolean isComplexModel, Type entityType, IDataReader dataReader)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](KeyValuePair`2 sqlObj)
+   at SqlSugar.QueryableProvider`1.<>c__DisplayClass198_0`1.<_ToList>b__0()
+   at La.WebApi.Extensions.SqlSugarCache.GetOrCreate[V](String cacheKey, Func`1 create, Int32 cacheDurationInSeconds) in G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\Extensions\SqlSugarCache.cs:line 53
+   at SqlSugar.CacheSchemeMain.GetOrCreate[T](ICacheService cacheService, QueryBuilder queryBuilder, Func`1 getData, Int32 cacheDurationInSeconds, SqlSugarProvider context, String cacheKey)
+   at SqlSugar.QueryableProvider`1._ToList[TResult]()
+   at SqlSugar.QueryableProvider`1.ToList()
+   at La.Service.System.SysDictDataService.SelectDictDataByTypes(String[] dictTypes) in G:\App Develop\VS2023\ZrAdminNetCore\La.Service\System\SysDictDataService.cs:line 56
+   at La.WebApi.Controllers.System.SysDictDataController.DictTypes(List`1 dto) in G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\Controllers\System\SysDictDataController.cs:line 73
+   at lambda_method291(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 125
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at La.WebApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\Middleware\GlobalExceptionMiddleware.cs:line 38
+2023-07-18 14:39:00.8348 |  | ERROR | GlobalExceptionMiddleware |  | admin |  | Status can't  convert string to int32 | [{"dictType":"sys_lang_type"}] | {
+  "code": 500,
+  "msg": "服务器好像出了点问题，请联系系统管理员...",
+  "data": null
+} | SqlSugar.SqlSugarException: Status can't  convert string to int32
+   at SqlSugar.IDataReaderEntityBuilder`1.CheckType(List`1 invalidTypes, String bindProperyTypeName, String validPropertyType, String propertyName)
+   at SqlSugar.IDataReaderEntityBuilder`1.BindMethod(ILGenerator generator, EntityColumnInfo columnInfo, Int32 ordinal)
+   at SqlSugar.IDataReaderEntityBuilder`1.BindField(ILGenerator generator, LocalBuilder result, EntityColumnInfo columnInfo, String fieldName)
+   at SqlSugar.IDataReaderEntityBuilder`1.CreateBuilder(Type type)
+   at SqlSugar.DbBindAccessory.<>c__DisplayClass4_0`1.<GetEntityList>b__0()
+   at SqlSugar.ReflectionInoCore`1.GetOrCreate(String cacheKey, Func`1 create)
+   at SqlSugar.ReflectionInoCacheService.GetOrCreate[V](String cacheKey, Func`1 create, Int32 cacheDurationInSeconds)
+   at SqlSugar.DbBindAccessory.GetEntityList[T](SqlSugarProvider context, IDataReader dataReader)
+   at SqlSugar.DbBindProvider.DataReaderToList[T](Type type, IDataReader dataReader)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](Boolean isComplexModel, Type entityType, IDataReader dataReader)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](KeyValuePair`2 sqlObj)
+   at SqlSugar.QueryableProvider`1.<>c__DisplayClass198_0`1.<_ToList>b__0()
+   at La.WebApi.Extensions.SqlSugarCache.GetOrCreate[V](String cacheKey, Func`1 create, Int32 cacheDurationInSeconds) in G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\Extensions\SqlSugarCache.cs:line 53
+   at SqlSugar.CacheSchemeMain.GetOrCreate[T](ICacheService cacheService, QueryBuilder queryBuilder, Func`1 getData, Int32 cacheDurationInSeconds, SqlSugarProvider context, String cacheKey)
+   at SqlSugar.QueryableProvider`1._ToList[TResult]()
+   at SqlSugar.QueryableProvider`1.ToList()
+   at La.Service.System.SysDictDataService.SelectDictDataByTypes(String[] dictTypes) in G:\App Develop\VS2023\ZrAdminNetCore\La.Service\System\SysDictDataService.cs:line 56
+   at La.WebApi.Controllers.System.SysDictDataController.DictTypes(List`1 dto) in G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\Controllers\System\SysDictDataController.cs:line 73
+   at lambda_method291(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 125
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at La.WebApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\Middleware\GlobalExceptionMiddleware.cs:line 38
+2023-07-18 14:39:54.3930 |  | ERROR | GlobalExceptionMiddleware |  | admin |  | Status can't  convert string to int32 | [{"dictType":"sys_oper_type","columnName":"businessTypeOptions"},{"dictType":"sys_common_status","columnName":"statusOptions"}] | {
+  "code": 500,
+  "msg": "服务器好像出了点问题，请联系系统管理员...",
+  "data": null
+} | SqlSugar.SqlSugarException: Status can't  convert string to int32
+   at SqlSugar.IDataReaderEntityBuilder`1.CheckType(List`1 invalidTypes, String bindProperyTypeName, String validPropertyType, String propertyName)
+   at SqlSugar.IDataReaderEntityBuilder`1.BindMethod(ILGenerator generator, EntityColumnInfo columnInfo, Int32 ordinal)
+   at SqlSugar.IDataReaderEntityBuilder`1.BindField(ILGenerator generator, LocalBuilder result, EntityColumnInfo columnInfo, String fieldName)
+   at SqlSugar.IDataReaderEntityBuilder`1.CreateBuilder(Type type)
+   at SqlSugar.DbBindAccessory.<>c__DisplayClass4_0`1.<GetEntityList>b__0()
+   at SqlSugar.ReflectionInoCore`1.GetOrCreate(String cacheKey, Func`1 create)
+   at SqlSugar.ReflectionInoCacheService.GetOrCreate[V](String cacheKey, Func`1 create, Int32 cacheDurationInSeconds)
+   at SqlSugar.DbBindAccessory.GetEntityList[T](SqlSugarProvider context, IDataReader dataReader)
+   at SqlSugar.DbBindProvider.DataReaderToList[T](Type type, IDataReader dataReader)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](Boolean isComplexModel, Type entityType, IDataReader dataReader)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](KeyValuePair`2 sqlObj)
+   at SqlSugar.QueryableProvider`1.<>c__DisplayClass198_0`1.<_ToList>b__0()
+   at La.WebApi.Extensions.SqlSugarCache.GetOrCreate[V](String cacheKey, Func`1 create, Int32 cacheDurationInSeconds) in G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\Extensions\SqlSugarCache.cs:line 53
+   at SqlSugar.CacheSchemeMain.GetOrCreate[T](ICacheService cacheService, QueryBuilder queryBuilder, Func`1 getData, Int32 cacheDurationInSeconds, SqlSugarProvider context, String cacheKey)
+   at SqlSugar.QueryableProvider`1._ToList[TResult]()
+   at SqlSugar.QueryableProvider`1.ToList()
+   at La.Service.System.SysDictDataService.SelectDictDataByTypes(String[] dictTypes) in G:\App Develop\VS2023\ZrAdminNetCore\La.Service\System\SysDictDataService.cs:line 56
+   at La.WebApi.Controllers.System.SysDictDataController.DictTypes(List`1 dto) in G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\Controllers\System\SysDictDataController.cs:line 73
+   at lambda_method291(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 125
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at La.WebApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\Middleware\GlobalExceptionMiddleware.cs:line 38
+2023-07-18 14:40:33.8808 |  | ERROR | GlobalExceptionMiddleware |  | admin |  | Status can't  convert string to int32 |  | {
+  "code": 500,
+  "msg": "服务器好像出了点问题，请联系系统管理员...",
+  "data": null
+} | SqlSugar.SqlSugarException: Status can't  convert string to int32
+   at SqlSugar.IDataReaderEntityBuilder`1.CheckType(List`1 invalidTypes, String bindProperyTypeName, String validPropertyType, String propertyName)
+   at SqlSugar.IDataReaderEntityBuilder`1.BindMethod(ILGenerator generator, EntityColumnInfo columnInfo, Int32 ordinal)
+   at SqlSugar.IDataReaderEntityBuilder`1.BindField(ILGenerator generator, LocalBuilder result, EntityColumnInfo columnInfo, String fieldName)
+   at SqlSugar.IDataReaderEntityBuilder`1.CreateBuilder(Type type)
+   at SqlSugar.DbBindAccessory.<>c__DisplayClass4_0`1.<GetEntityList>b__0()
+   at SqlSugar.ReflectionInoCore`1.GetOrCreate(String cacheKey, Func`1 create)
+   at SqlSugar.ReflectionInoCacheService.GetOrCreate[V](String cacheKey, Func`1 create, Int32 cacheDurationInSeconds)
+   at SqlSugar.DbBindAccessory.GetEntityList[T](SqlSugarProvider context, IDataReader dataReader)
+   at SqlSugar.DbBindProvider.DataReaderToList[T](Type type, IDataReader dataReader)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](Boolean isComplexModel, Type entityType, IDataReader dataReader)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](KeyValuePair`2 sqlObj)
+   at SqlSugar.QueryableProvider`1.<>c__DisplayClass198_0`1.<_ToList>b__0()
+   at La.WebApi.Extensions.SqlSugarCache.GetOrCreate[V](String cacheKey, Func`1 create, Int32 cacheDurationInSeconds) in G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\Extensions\SqlSugarCache.cs:line 53
+   at SqlSugar.CacheSchemeMain.GetOrCreate[T](ICacheService cacheService, QueryBuilder queryBuilder, Func`1 getData, Int32 cacheDurationInSeconds, SqlSugarProvider context, String cacheKey)
+   at SqlSugar.QueryableProvider`1._ToList[TResult]()
+   at SqlSugar.QueryableProvider`1.ToList()
+   at La.Service.System.SysDictDataService.SelectDictDataByType(String dictType) in G:\App Develop\VS2023\ZrAdminNetCore\La.Service\System\SysDictDataService.cs:line 44
+   at La.WebApi.Controllers.System.SysDictDataController.DictType(String dictType) in G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\Controllers\System\SysDictDataController.cs:line 61
+   at lambda_method192(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 125
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at La.WebApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\Middleware\GlobalExceptionMiddleware.cs:line 38
+2023-07-18 14:40:33.8808 |  | ERROR | GlobalExceptionMiddleware |  | admin |  | Status can't  convert string to int32 |  | {
+  "code": 500,
+  "msg": "服务器好像出了点问题，请联系系统管理员...",
+  "data": null
+} | SqlSugar.SqlSugarException: Status can't  convert string to int32
+   at SqlSugar.IDataReaderEntityBuilder`1.CheckType(List`1 invalidTypes, String bindProperyTypeName, String validPropertyType, String propertyName)
+   at SqlSugar.IDataReaderEntityBuilder`1.BindMethod(ILGenerator generator, EntityColumnInfo columnInfo, Int32 ordinal)
+   at SqlSugar.IDataReaderEntityBuilder`1.BindField(ILGenerator generator, LocalBuilder result, EntityColumnInfo columnInfo, String fieldName)
+   at SqlSugar.IDataReaderEntityBuilder`1.CreateBuilder(Type type)
+   at SqlSugar.DbBindAccessory.<>c__DisplayClass4_0`1.<GetEntityList>b__0()
+   at SqlSugar.ReflectionInoCore`1.GetOrCreate(String cacheKey, Func`1 create)
+   at SqlSugar.ReflectionInoCacheService.GetOrCreate[V](String cacheKey, Func`1 create, Int32 cacheDurationInSeconds)
+   at SqlSugar.DbBindAccessory.GetEntityList[T](SqlSugarProvider context, IDataReader dataReader)
+   at SqlSugar.DbBindProvider.DataReaderToList[T](Type type, IDataReader dataReader)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](Boolean isComplexModel, Type entityType, IDataReader dataReader)
+   at SqlSugar.QueryableProvider`1.GetData[TResult](KeyValuePair`2 sqlObj)
+   at SqlSugar.QueryableProvider`1.<>c__DisplayClass198_0`1.<_ToList>b__0()
+   at La.WebApi.Extensions.SqlSugarCache.GetOrCreate[V](String cacheKey, Func`1 create, Int32 cacheDurationInSeconds) in G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\Extensions\SqlSugarCache.cs:line 53
+   at SqlSugar.CacheSchemeMain.GetOrCreate[T](ICacheService cacheService, QueryBuilder queryBuilder, Func`1 getData, Int32 cacheDurationInSeconds, SqlSugarProvider context, String cacheKey)
+   at SqlSugar.QueryableProvider`1._ToList[TResult]()
+   at SqlSugar.QueryableProvider`1.ToList()
+   at La.Service.System.SysDictDataService.SelectDictDataByType(String dictType) in G:\App Develop\VS2023\ZrAdminNetCore\La.Service\System\SysDictDataService.cs:line 44
+   at La.WebApi.Controllers.System.SysDictDataController.DictType(String dictType) in G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\Controllers\System\SysDictDataController.cs:line 61
+   at lambda_method192(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 125
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at La.WebApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\Middleware\GlobalExceptionMiddleware.cs:line 38
+2023-07-18 14:40:34.2659 |  | ERROR | GlobalExceptionMiddleware |  | admin |  | 在将 varchar 值 'Y' 转换成数据类型 int 时失败。 | ?pageNum=1&pageSize=10 | {
+  "code": 500,
+  "msg": "服务器好像出了点问题，请联系系统管理员...",
+  "data": null
+} | Microsoft.Data.SqlClient.SqlException (0x80131904): 在将 varchar 值 'Y' 转换成数据类型 int 时失败。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.Read()
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteExecuteScalar(SqlDataReader ds, Boolean returnSqlValue)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at SqlSugar.AdoProvider.GetScalar(String sql, SugarParameter[] parameters)
+   at SqlSugar.AdoProvider.GetInt(String sql, SugarParameter[] parameters)
+   at SqlSugar.QueryableProvider`1.GetCount()
+   at SqlSugar.QueryableProvider`1.Count()
+   at SqlSugar.QueryableProvider`1.ToPageList(Int32 pageIndex, Int32 pageSize, Int32& totalNumber)
+   at La.Repository.QueryableExtension.ToPage[T](ISugarQueryable`1 source, PagerInfo parm) in G:\App Develop\VS2023\ZrAdminNetCore\La.Repository\BaseRepository.cs:line 355
+   at La.Repository.BaseRepository`1.GetPages(Expression`1 where, PagerInfo parm, Expression`1 order, OrderByType orderEnum) in G:\App Develop\VS2023\ZrAdminNetCore\La.Repository\BaseRepository.cs:line 288
+   at La.Service.System.SysDictService.SelectDictTypeList(SysDictType dictType, PagerInfo pager) in G:\App Develop\VS2023\ZrAdminNetCore\La.Service\System\SysDictService.cs:line 44
+   at La.WebApi.Controllers.System.SysDictTypeController.List(SysDictType dict, PagerInfo pagerInfo) in G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\Controllers\System\SysDictTypeController.cs:line 40
+   at lambda_method357(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 125
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at La.WebApi.Middleware.GlobalExceptionMiddleware.Invoke(HttpContext context) in G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\Middleware\GlobalExceptionMiddleware.cs:line 38
+ClientConnectionId:1f3a753b-4e95-47ed-83e0-f00f021ff1e3
+Error Number:245,State:1,Class:16

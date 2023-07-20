@@ -105,7 +105,7 @@ namespace La.WebApi.Controllers
                 it.ConfigType,
                 it.Create_by,
                 it.Create_time,
-                it.ReMark,
+                it.Remark,
             }));
         }
 
@@ -132,7 +132,7 @@ namespace La.WebApi.Controllers
                 ConfigType = model.ConfigType,
                 Update_by = model.Update_by,
                 Update_time = model.Update_time,
-                ReMark = model.ReMark
+                Remark = model.Remark
             });
 
             return SUCCESS(response);

@@ -54,7 +54,7 @@ namespace La.Tasks
             var logModel = new SysTasksLog()
             {
                 Elapsed = elapsed,
-                Status = status.ToString(),
+                Status = status,
                 JobMessage = logMsg
             };
 
@@ -78,7 +78,7 @@ namespace La.Tasks
             logModel.InvokeTarget = job.JobType.FullName;
             logModel = await tasksLogService.AddTaskLog(job.Key.Name, logModel);
             //成功后执行次数+1
-            if (logModel.Status == "0")
+            if (logModel.Status ==0)
             {
                 await taskQzService.UpdateAsync(f => new SysTasks()
                 {

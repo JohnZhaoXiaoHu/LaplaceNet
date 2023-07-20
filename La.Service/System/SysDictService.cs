@@ -37,7 +37,7 @@ namespace La.Service.System
         {
             var exp = Expressionable.Create<SysDictType>();
             exp.AndIF(!string.IsNullOrEmpty(dictType.DictName), it => it.DictName.Contains(dictType.DictName));
-            exp.AndIF(!string.IsNullOrEmpty(dictType.Status), it => it.Status == dictType.Status);
+            exp.AndIF(!string.IsNullOrEmpty(dictType.Status.ToString()), it => it.Status == dictType.Status);
             exp.AndIF(!string.IsNullOrEmpty(dictType.DictType), it => it.DictType.Contains(dictType.DictType));
             exp.AndIF(!string.IsNullOrEmpty(dictType.Type), it => it.Type.Equals(dictType.Type));
 

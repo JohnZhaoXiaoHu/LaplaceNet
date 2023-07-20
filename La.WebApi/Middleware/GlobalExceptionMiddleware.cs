@@ -4,6 +4,7 @@ using La.Infra.Model;
 using IPTools.Core;
 using Microsoft.AspNetCore.Http.Features;
 using NLog;
+using System.Diagnostics;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using La.WebApi.Extensions;
@@ -22,7 +23,7 @@ namespace La.WebApi.Middleware
         private readonly RequestDelegate next;
         private readonly ISysOperLogService SysOperLogService;
 
-        static readonly Logger Logger = LogManager.GetCurrentClassLogger();//声明NLog变量
+        static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         public GlobalExceptionMiddleware(RequestDelegate next, ISysOperLogService sysOperLog)
         {
@@ -87,7 +88,7 @@ namespace La.WebApi.Middleware
                 RequestMethod = context.Request.Method,
                 JsonResult = responseResult,
                 ErrorMsg = string.IsNullOrEmpty(error) ? msg : error,
-                OperName = context.User.Identity.Name,
+                OperName = HttpContextExtension.GetName(context),
                 OperLocation = ip_info.Province + " " + ip_info.City,
                 OperTime = DateTime.Now
             };
@@ -112,12 +113,19 @@ namespace La.WebApi.Middleware
             ei.Properties["status"] = 1;//走正常返回都是通过走GlobalExceptionFilter不通过
             ei.Properties["jsonResult"] = responseResult;
             ei.Properties["requestParam"] = sysOperLog.OperParam;
-            ei.Properties["user"] = HttpContextExtension.GetName(context);
+            ei.Properties["user"] = sysOperLog.OperName;
 
             Logger.Log(ei);
             context.Response.ContentType = "text/json;charset=utf-8";
             await context.Response.WriteAsync(responseResult, System.Text.Encoding.UTF8);
-            WxNoticeHelper.SendMsg("系统出错", sysOperLog.ErrorMsg);
+            
+            string errorMsg = $"> 操作人：{sysOperLog.OperName}" +
+                $"\n> 操作地区：{sysOperLog.OperIp}({sysOperLog.OperLocation})" +
+                $"\n> 操作模块：{sysOperLog.Title}" +
+                $"\n> 操作地址：{sysOperLog.OperUrl}" +
+                $"\n> 错误信息：{msg}\n\n> {error}";
+                
+            WxNoticeHelper.SendMsg("系统出错", errorMsg, "", WxNoticeHelper.MsgType.markdown);
             SysOperLogService.InsertOperlog(sysOperLog);
         }
 

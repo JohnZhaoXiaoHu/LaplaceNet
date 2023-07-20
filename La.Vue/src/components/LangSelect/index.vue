@@ -1,9 +1,7 @@
 <template>
   <div>
-    <el-dropdown placement="bottom" trigger="hover" @command="handleLanguageChange" style="vertical-align: middle">
-      <span class="el-dropdown-link">
-        <svg-icon class-name="size-icon" name="language-outline" />
-      </span>
+    <el-dropdown trigger="hover" @command="handleLanguageChange" style="vertical-align: middle">
+      <svg-icon class-name="size-icon" name="language" :color="props.color" />
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item v-for="item of langOptions" :key="item.value" :disabled="lang === item.value"
@@ -20,49 +18,34 @@
   import useAppStore from '@/store/modules/app'
   const appStore = useAppStore()
   const lang = computed(() => useAppStore().lang)
-
+  const props = defineProps({
+    color: {
+      type: String
+    }
+  })
   const { proxy } = getCurrentInstance()
   const langOptions = ref([
     { label: '简体中文', value: 'zh-cn' },
+    { label: '繁體中文', value: 'zh-tw' },
     { label: 'English', value: 'en' },
     { label: '日本語', value: 'ja' },
   ])
 
   function handleLanguageChange(lang) {
-    proxy.$modal.loading(proxy.$t('layout.switchingLanguage'))
+    proxy.$modal.loading('正在设置语言，请稍候...')
     appStore.setLang(lang)
     setTimeout('window.location.reload()', 1000)
   }
 </script>
 
 <style lang="scss" scoped>
-  .language-outline-svg {
+  .size-icon--style {
+    width: 20px;
+    height: 20px;
+    vertical-align: 10px;
     font-size: 18px;
     line-height: 50px;
     padding-right: 7px;
-    width: 48px;
-    height: 48px;
-    vertical-align: text-bottom;
-  }
 
-  /* //svg-icon修改颜色 */
-  .svg-icon {
-    width: 1.2em;
-    height: 1.2em;
-    vertical-align: middle;
-    fill: RoyalBlue;
-    overflow: hidden;
-    /* 宝蓝(#4b5cc4)：鲜艳明亮的蓝色 （注：英文中为 RoyalBlue 即皇家蓝色，是皇室选用的色彩，多和小面积纯黄色（金色）配合使用。） rgba(74, 74, 77, 0.65); */
-  }
-
-  .el-dropdown+.el-dropdown {
-    margin-left: 15px;
-  }
-
-  .el-dropdown-link {
-    cursor: pointer;
-    color: var(--el-color-primary);
-    display: flex;
-    align-items: center;
   }
 </style>

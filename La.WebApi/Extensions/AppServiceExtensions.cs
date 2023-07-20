@@ -1,6 +1,5 @@
-﻿using La.Infra.Attribute;
-using Microsoft.Extensions.DependencyInjection;
-using System.Linq;
+﻿using La.Infra;
+using La.Infra.Attribute;
 using System.Reflection;
 
 namespace La.WebApi.Extensions
@@ -16,7 +15,11 @@ namespace La.WebApi.Extensions
         /// <param name="services"></param>
         public static void AddAppService(this IServiceCollection services)
         {
-            string[] cls = new string[] { "La.Repository", "La.Service", "La.Tasks" };
+            var cls = AppSettings.Get<string[]>("InjectClass");
+            if (cls == null || cls.Length <= 0)
+            {
+                throw new Exception("请更新appsettings类");
+            }
             foreach (var item in cls)
             {
                 Register(services, item);

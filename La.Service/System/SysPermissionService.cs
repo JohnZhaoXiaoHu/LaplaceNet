@@ -1,8 +1,6 @@
 ﻿using La.Infra;
 using La.Infra.Attribute;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using La.Model.System;
 using La.Service.System.IService;
 
@@ -32,7 +30,7 @@ namespace La.Service.System
         /// <returns>角色权限信息</returns>
         public List<string> GetRolePermission(SysUser user)
         {
-            List<string> roles = new List<string>();
+            List<string> roles = new();
             // 管理员拥有所有权限
             if (user.IsAdmin())
             {

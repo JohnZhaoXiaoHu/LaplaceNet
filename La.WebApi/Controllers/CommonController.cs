@@ -10,6 +10,7 @@ using La.WebApi.Extensions;
 using La.WebApi.Filters;
 using La.Common;
 using La.Model.System;
+using La.Service.System;
 using La.Service.System.IService;
 
 namespace La.WebApi.Controllers
@@ -25,7 +26,10 @@ namespace La.WebApi.Controllers
 
         private IWebHostEnvironment WebHostEnvironment;
         private ISysFileService SysFileService;
-        public CommonController(IOptions<OptionsSetting> options, IWebHostEnvironment webHostEnvironment, ISysFileService fileService)
+        public CommonController(
+            IOptions<OptionsSetting> options,
+            IWebHostEnvironment webHostEnvironment,
+            ISysFileService fileService)
         {
             WebHostEnvironment = webHostEnvironment;
             SysFileService = fileService;
@@ -40,9 +44,23 @@ namespace La.WebApi.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return new RedirectResult("/swagger/");//返回API界面
-            //return Ok("看到这里页面说明你已经成功启动了本项目:)\n\n" +
-            //    "如果觉得项目有用，打赏作者喝杯咖啡作为奖励\n☛☛http://www.izhaorui.cn/doc/support.html\n");
+            return Ok("看到这里页面说明你已经成功启动了本项目:)\n\n" +
+                "如果觉得项目有用，打赏作者喝杯咖啡作为奖励\n☛☛http://www.izhaorui.cn/doc/support.html\n");
+        }
+
+        /// <summary>
+        /// 企业消息测试
+        /// </summary>
+        /// <param name="msg">要发送的消息</param>
+        /// <param name="toUser">要发送的人@all所有，xxx单独发送对个人</param>
+        /// <returns></returns>
+        [Route("/sendMsg")]
+        [HttpGet]
+        [Log(Title = "企业消息测试")]
+        public IActionResult SendMsg(string msg, string toUser = "")
+        {
+            WxNoticeHelper.SendMsg("消息测试", msg, toUser, WxNoticeHelper.MsgType.markdown);
+            return SUCCESS(msg);
         }
 
         /// <summary>
@@ -51,15 +69,15 @@ namespace La.WebApi.Controllers
         /// <param name="sendEmailVo">请求参数接收实体</param>
         /// <returns></returns>
         [ActionPermissionFilter(Permission = "tool:email:send")]
-        [Log(Title = "发送邮件", IsSaveRequestData = false)]
+        [Log(Title = "发送邮件")]
         [HttpPost]
         public IActionResult SendEmail([FromBody] SendEmailDto sendEmailVo)
         {
-            if (sendEmailVo == null || string.IsNullOrEmpty(sendEmailVo.Subject) || string.IsNullOrEmpty(sendEmailVo.ToUser))
+            if (sendEmailVo == null)
             {
                 return ToResponse(ApiResult.Error($"请求参数不完整"));
             }
-            if (string.IsNullOrEmpty(OptionsSetting.MailOptions.From) || string.IsNullOrEmpty(OptionsSetting.MailOptions.Password))
+            if (string.IsNullOrEmpty(OptionsSetting.MailOptions.FromEmail) || string.IsNullOrEmpty(OptionsSetting.MailOptions.Password))
             {
                 return ToResponse(ApiResult.Error($"请配置邮箱信息"));
             }
@@ -71,11 +89,11 @@ namespace La.WebApi.Controllers
             {
                 toUsers.Append(mailHelper.FromEmail);
             }
-            mailHelper.SendMail(toUsers, sendEmailVo.Subject, sendEmailVo.Content, sendEmailVo.FileUrl, sendEmailVo.HtmlContent);
+            string result = mailHelper.SendMail(toUsers, sendEmailVo.Subject, sendEmailVo.Content, sendEmailVo.FileUrl, sendEmailVo.HtmlContent);
 
-            logger.Info($"发送邮件{JsonConvert.SerializeObject(sendEmailVo)}");
+            logger.Info($"发送邮件{JsonConvert.SerializeObject(sendEmailVo)}, 结果{result}");
 
-            return SUCCESS(true);
+            return SUCCESS(result);
         }
 
         #region 上传
@@ -156,6 +174,35 @@ namespace La.WebApi.Controllers
         }
 
         #endregion
+
+        /// <summary>
+        /// 初始化种子数据
+        /// </summary>
+        /// <param name="clean">是否清空数据</param>
+        /// <returns></returns>
+        [HttpGet]
+        [ActionPermissionFilter(Permission = "common")]
+        [Log(BusinessType = BusinessType.INSERT, Title = "初始化数据")]
+        public IActionResult InitSeedData(bool clean = false)
+        {
+            if (!WebHostEnvironment.IsDevelopment())
+            {
+                return ToResponse(ResultCode.CUSTOM_ERROR, "导入数据失败");
+            }
+            var path = Path.Combine(WebHostEnvironment.WebRootPath, "data.xlsx");
+            SeedDataService seedDataService = new();
+            var result = seedDataService.InitSeedData(path, clean);
+            Console.ForegroundColor = ConsoleColor.Red;
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
+            Console.ForegroundColor = ConsoleColor.White;
+            return SUCCESS(new
+            {
+                result
+            });
+        }
     }
 
     public class UploadDto

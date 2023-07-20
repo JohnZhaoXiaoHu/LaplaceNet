@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using SqlSugar;
+using La.Infra;
 using La.Infra.Attribute;
 using La.Infra.Enums;
 using La.Infra.Model;
@@ -75,11 +76,15 @@ namespace La.WebApi.Controllers
         {
             long[] idsArr = Tools.SpitLongArrary(ids);
             if (idsArr.Length <= 0) { return ToResponse(ApiResult.Error($"删除失败Id 不能为空")); }
+            //TODO 删除本地资源
+            foreach (var id in idsArr)
+            {
+                FileUtil.deleteFile(_SysFileService.GetById(id).FileUrl.Substring(0, _SysFileService.GetById(id).FileUrl.LastIndexOf("/") + 1), _SysFileService.GetById(id).FileName);
+            }
 
             var response = _SysFileService.Delete(idsArr);
-            //TODO 删除本地资源
-
             return ToResponse(response);
+
         }
 
         /// <summary>

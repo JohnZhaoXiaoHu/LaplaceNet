@@ -5,7 +5,7 @@ using La.Infra.Model;
 using Mapster;
 using Microsoft.AspNetCore.Mvc;
 using La.Model.Dto;
-using La.Model.Models;
+using La.Model.Production;
 using La.Model.System;
 using La.Service.Production.IProductionService;
 using La.WebApi.Extensions;
@@ -15,11 +15,11 @@ using La.Common;
 namespace La.WebApi.Controllers
 {
     /// <summary>
-    /// oph从表Controller
-    /// 
+    /// oph从表
+    /// Controller
     /// @tableName pp_output_slave
-    /// @author Laplace.Net:Davis.Cheng
-    /// @date 2023-03-09
+    /// @author Lean365
+    /// @date 2023-07-20
     /// </summary>
     [Verify]
     [Route("production/PpOutputSlave")]
@@ -29,9 +29,7 @@ namespace La.WebApi.Controllers
         /// oph从表接口
         /// </summary>
         private readonly IPpOutputSlaveService _PpOutputSlaveService;
-        /// <summary>
-        /// oph从表Controller
-        /// </summary>
+
         public PpOutputSlaveController(IPpOutputSlaveService PpOutputSlaveService)
         {
             _PpOutputSlaveService = PpOutputSlaveService;
@@ -60,9 +58,10 @@ namespace La.WebApi.Controllers
         [ActionPermissionFilter(Permission = "pp:outputslave:query")]
         public IActionResult GetPpOutputSlave(int PosId)
         {
-            var response = _PpOutputSlaveService.GetFirst(x => x.PosId == PosId);
+            var response = _PpOutputSlaveService.GetInfo(PosId);
             
-            return SUCCESS(response);
+            var info = response.Adapt<PpOutputSlave>();
+            return SUCCESS(info);
         }
 
         /// <summary>
@@ -101,12 +100,7 @@ namespace La.WebApi.Controllers
         [Log(Title = "oph从表", BusinessType = BusinessType.UPDATE)]
         public IActionResult UpdatePpOutputSlave([FromBody] PpOutputSlaveDto parm)
         {
-            if (parm == null)
-            {
-                throw new CustomException("请求实体不能为空");
-            }
             var modal = parm.Adapt<PpOutputSlave>().ToUpdate(HttpContext);
-
             var response = _PpOutputSlaveService.UpdatePpOutputSlave(modal);
 
             return ToResponse(response);
@@ -138,6 +132,7 @@ namespace La.WebApi.Controllers
         [ActionPermissionFilter(Permission = "pp:outputslave:export")]
         public IActionResult Export([FromQuery] PpOutputSlaveQueryDto parm)
         {
+            parm.PageNum = 1;
             parm.PageSize = 100000;
             var list = _PpOutputSlaveService.GetList(parm).Result;
             if (list == null || list.Count <= 0)
@@ -148,6 +143,21 @@ namespace La.WebApi.Controllers
             return ExportExcel(result.Item2, result.Item1);
         }
 
+        /// <summary>
+        /// 清空oph从表
+        /// </summary>
+        /// <returns></returns>
+        [Log(Title = "oph从表", BusinessType = BusinessType.CLEAN)]
+        [ActionPermissionFilter(Permission = "pp:outputslave:delete")]
+        [HttpDelete("clean")]
+        public IActionResult Clear()
+        {
+            if (!HttpContextExtension.IsAdmin(HttpContext))
+            {
+                return ToResponse(ResultCode.FAIL, "操作失败");
+            }
+            return SUCCESS(_PpOutputSlaveService.TruncatePpOutputSlave());
+        }
 
     }
 }

@@ -1,10 +1,5 @@
 ﻿using La.Infra;
 using La.Infra.Extensions;
-using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -16,7 +11,7 @@ namespace La.WebApi.Extensions
     /// <summary>
     /// HttpContext扩展类
     /// </summary>
-    public static class HttpContextExtension
+    public static partial class HttpContextExtension
     {
         /// <summary>
         /// 是否是ajax请求
@@ -33,7 +28,7 @@ namespace La.WebApi.Extensions
             //return request.Headers.ContainsKey("X-Requested-With") &&
             //       request.Headers["X-Requested-With"].Equals("XMLHttpRequest");
 
-            return request.Headers["X-Requested-With"] == "XMLHttpRequest" || (request.Headers != null && request.Headers["X-Requested-With"] == "XMLHttpRequest");
+            return request.Headers["X-Requested-With"] == "XMLHttpRequest" || request.Headers != null && request.Headers["X-Requested-With"] == "XMLHttpRequest";
         }
 
         /// <summary>
@@ -49,14 +44,23 @@ namespace La.WebApi.Extensions
             {
                 result = context.Connection.RemoteIpAddress?.ToString();
             }
-            if (string.IsNullOrEmpty(result) || result.Contains("::1"))
+            if (string.IsNullOrEmpty(result))
+                throw new Exception("获取IP失败");
+
+            if (result.Contains("::1"))
                 result = "127.0.0.1";
 
             result = result.Replace("::ffff:", "127.0.0.1");
+            result = result.Split(':')?.FirstOrDefault() ?? "127.0.0.1";
             result = IsIP(result) ? result : "127.0.0.1";
             return result;
         }
 
+        /// <summary>
+        /// 判断是否IP
+        /// </summary>
+        /// <param name="ip"></param>
+        /// <returns></returns>
         public static bool IsIP(string ip)
         {
             return Regex.IsMatch(ip, @"^((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)$");
@@ -92,7 +96,7 @@ namespace La.WebApi.Extensions
         /// <returns></returns>
         public static bool IsAdmin(this HttpContext context)
         {
-            var userName = GetName(context);
+            var userName = context.GetName();
             return userName == GlobalConstant.AdminRole;
         }
 
@@ -127,19 +131,35 @@ namespace La.WebApi.Extensions
             return context.Request.Headers["Authorization"];
         }
 
+        /// <summary>
+        /// 获取浏览器信息
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public static ClientInfo GetClientInfo(this HttpContext context)
         {
-            var str = GetUserAgent(context);
+            var str = context.GetUserAgent();
             var uaParser = Parser.GetDefault();
             ClientInfo c = uaParser.Parse(str);
 
             return c;
         }
 
+        /// <summary>
+        /// 获取请求Url
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public static string? GetRequestUrl(this HttpContext context)
         {
             return context != null ? context.Request.Path.Value : "";
         }
+
+        /// <summary>
+        /// 获取请求参数
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public static string GetQueryString(this HttpContext context)
         {
             return context != null ? context.Request.QueryString.Value : "";
@@ -162,16 +182,19 @@ namespace La.WebApi.Extensions
                 param = reader.ReadToEndAsync().Result;
                 if (param.IsEmpty())
                 {
-                    param = GetQueryString(context);
+                    param = context.GetQueryString();
                 }
+                param = PwdRep().Replace(param, "***");
             }
             else
             {
-                param = GetQueryString(context);
+                param = context.GetQueryString();
             }
             operLog.OperParam = param;
         }
 
+        [GeneratedRegex("(?<=\"password\":\")[^\",]*")]
+        private static partial Regex PwdRep();
     }
 
 }

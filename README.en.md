@@ -2,7 +2,9 @@
 <h2 align="center">🏬Laplace.NET General management platform🏬</h2>
 <h4 align="center">👉.Net7+Vue3.x+Element plus Fast development framework with front and rear separation👈</h4>  
 <div align=center>
-<img src="https://github.com/Lean365/LaplaceNet/blob/master/La.Vue/src/assets/logo/logo.png" width=128" height="128" />
+<img src="https://github.com/Lean365/LaplaceNet/blob/master/La.Vue/src/assets/logo/laplace.png" width=128" height="128" />
+<img src="https://github.com/Lean365/LaplaceNet/blob/master/La.Vue/src/assets/logo/Lean365.png" width=128" height="128" />
+<img src="https://github.com/Lean365/LaplaceNet/blob/master/La.Vue/src/assets/logo/Antares.png" width=128" height="128" />
 </div>
 
 <p align="center">
@@ -82,6 +84,41 @@ Due to being a personal project, funds are limited!!!
 18. notification management: system notification announcement information release maintenance, using signalr to achieve real-time notification to users.
 19. account registration: you can register an account to log into the system. 20.
 20. multi-language management: support for static, back-end dynamic configuration internationalization. Currently only supports Chinese, English and Japanese (only supports vue3)
+
+## 🎉 LeanManufacturing Management
+1. Budget management
+   1. Personnel
+   2. Equipment
+   3. Overtime
+7. Expense management
+   1. Actual budget comparison
+8. Cost Management
+   1. sales
+   2. BOM
+   3. labor
+   4. production
+9. Sales Management
+   1. Customer Complaints
+   2. Serial number
+10. Material Management
+   1. MRP
+   2. FC
+11. Production Management
+   1. EC
+   2. OPH(Output per hour)
+   3. Defects
+   4. Manhour
+12. Quality Control
+   1. Cost
+   2. Incoming material
+   3. finished product
+
+## 🎉 OA
+1. Workflow (pending...)
+
+## 🎉ChatGPT
+1.  (pending...)
+
 
 ## 🔰Project Structure
 

@@ -1,69 +1,40 @@
-﻿using La.Model.System;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace La.WebApi.Hubs
+﻿namespace La.WebApi.Hubs
 {
-    /// <summary>
-    /// 在线用户
-    /// </summary>
-    public class OnlineUsers : SysBase
+    public class OnlineUsers
     {
-        /// <summary>
-        /// 在线用户
-        /// </summary>
-        public OnlineUsers()
-        {
-
-        }
-        /// <summary>
-        /// 在线用户
-        /// </summary>
-        /// <param name="connnectionId"></param>
-        public OnlineUsers(string connnectionId)
-        {
-            this.ConnnectionId = connnectionId;
-        }
-        /// <summary>
-        /// 页码
-        /// </summary>
-        public int PageNum { get; set; }
-        public int PageSize { get; set; }
         /// <summary>
         /// 客户端连接Id
         /// </summary>
-        public string? ConnnectionId { get; }
+        public string ConnnectionId { get; set; }
         /// <summary>
         /// 用户id
         /// </summary>
-        public long? UserId { get; set; }
+        public long? Userid { get; set; }
+        public string Name { get; set; }
+        public DateTime LoginTime { get; set; }
+        public string UserIP { get; set; }
         /// <summary>
-        /// 用户名称
+        /// 登录地点
         /// </summary>
-        public string? UserName { get; set; }
-        /// <summary>
-        /// 登入时间
-        /// </summary>
-        public DateTime? LoginTime { get; set; }
-        /// <summary>
-        /// IP地址
-        /// </summary>
-        public string? Ipaddr { get; set; }
-        /// <summary>
-        /// 登入位置
-        /// </summary>
-        public string? LoginLocation { get; set; }
-        /// <summary>
-        /// 系统
-        /// </summary>
+        public string? Location { get; set; }
 
-        public string? Os { get; set; }
+        /// <summary>
+        /// 判断用户唯一
+        /// </summary>
+        public string? Uuid{ get; set; }
         /// <summary>
         /// 浏览器
         /// </summary>
-        public string? Browser { get; set; }
+        public string Browser { get; set; }
 
-
+        public OnlineUsers(string clientid, string name, long? userid, string userip, string browser)
+        {
+            ConnnectionId = clientid;
+            Name = name;
+            LoginTime = DateTime.Now;
+            Userid = userid;
+            UserIP = userip;
+            Browser = browser;
+        }
     }
 }

@@ -1,23 +1,4 @@
-{
-  "profiles": {
-    "WSL": {
-      "commandName": "WSL2",
-      "launchUrl": "http://localhost:8888/",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        "ASPNETCORE_URLS": "http://localhost:8888"
-      },
-      "distributionName": ""
-    },
-    "La.WebApi": {
-      "commandName": "Project",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "dotnetRunMessages": true,
-      "applicationUrl": "http://localhost:8888"
-    }
-  },
+﻿{
   "$schema": "https://json.schemastore.org/launchsettings.json",
   "iisSettings": {
     "windowsAuthentication": false,
@@ -25,6 +6,17 @@
     "iisExpress": {
       "applicationUrl": "http://localhost:63521",
       "sslPort": 44395
+    }
+  },
+  "profiles": {
+    "La.WebApi": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchUrl": "",
+      "applicationUrl": "http://localhost:8888",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
     }
   }
 }

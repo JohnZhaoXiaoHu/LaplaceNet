@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using La.Model.System;
+using La.Model.System.Dto;
 using La.Model.System.Vo;
-using La.Repository;
 
 namespace La.Service.System.IService
 {
     public interface ISysDeptService : IBaseService<SysDept>
     {
-        List<SysDept> GetSysDepts(SysDept dept);
+        List<SysDept> GetSysDepts(SysDeptQueryDto dept);
         string CheckDeptNameUnique(SysDept dept);
         int InsertDept(SysDept dept);
         int UpdateDept(SysDept dept);

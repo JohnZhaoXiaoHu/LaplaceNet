@@ -1,7 +1,12 @@
-﻿using La.Infra.Attribute;
+﻿using La.Infra;
+using La.Infra.Attribute;
 using La.Infra.Extensions;
+using SqlSugar;
 using System;
+using La.Model;
 using La.Model.System;
+using La.Model.System.Dto;
+using La.Repository;
 using La.Service.System.IService;
 
 namespace La.Service.System
@@ -13,13 +18,33 @@ namespace La.Service.System
     public class SysTasksQzService : BaseService<SysTasks>, ISysTasksQzService
     {
         /// <summary>
+        /// 查询任务
+        /// </summary>
+        /// <param name="parm"></param>
+        /// <returns></returns>
+        public PagedInfo<SysTasks> SelectTaskList(TasksQueryDto parm)
+        {
+            var predicate = Expressionable.Create<SysTasks>();
+
+            predicate = predicate.AndIF(!string.IsNullOrEmpty(parm.QueryText),
+                m => m.Name.Contains(parm.QueryText) ||
+                m.JobGroup.Contains(parm.QueryText) ||
+                m.AssemblyName.Contains(parm.QueryText));
+            predicate.AndIF(parm.TaskType != null, m => m.TaskType == parm.TaskType);
+            predicate.AndIF(parm.IsStart != null, m => m.IsStart == parm.IsStart);
+
+            return Queryable().Where(predicate.ToExpression())
+                .ToPage(parm);
+        }
+
+        /// <summary>
         /// 添加任务
         /// </summary>
         /// <param name="parm"></param>
         /// <returns></returns>
         public int AddTasks(SysTasks parm)
         {
-            parm.IsStart = false;
+            parm.IsStart = 0;
 
             SetAssembleName(parm);
 
@@ -58,7 +83,7 @@ namespace La.Service.System
                 Cron = parm.Cron,
                 AssemblyName = parm.AssemblyName,
                 ClassName = parm.ClassName,
-                ReMark = parm.ReMark,
+                Remark = parm.Remark,
                 TriggerType = parm.TriggerType,
                 IntervalSecond = parm.IntervalSecond,
                 JobParams = parm.JobParams,

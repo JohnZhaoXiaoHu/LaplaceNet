@@ -1,34 +1,18 @@
 <template>
-
-  <!-- 添加点击事件 -->
   <el-config-provider :locale="locale" :size="size">
-    <router-view v-slot="{ Component, route }">
-      <!-- <transition name="fade"> -->
-      <component :is="Component" :key="route.path" />
-      <!-- </transition> -->
-
-    </router-view>
+    <router-view />
   </el-config-provider>
 </template>
 <script setup>
   import useUserStore from './store/modules/user'
   import useAppStore from './store/modules/app'
   import { ElConfigProvider } from 'element-plus'
-  import zh from 'element-plus/lib/locale/lang/zh-cn' // 中文语言
-  import en from 'element-plus/lib/locale/lang/en' // 英文语言
-  import ja from 'element-plus/lib/locale/lang/ja' //日本語
-  // import zh from 'vxe-table/lib/locale/lang/zh-CN'
-  // import en from 'vxe-table/lib/locale/lang/en-US'
-  // import ja from 'vxe-table/lib/locale/lang/ja-JP'
+  import zh from 'element-plus/dist/locale/zh-cn.mjs' // 中文语言
+  import tw from 'element-plus/dist/locale/zh-tw.mjs' //繁体
+  import en from 'element-plus/dist/locale/en.mjs' // 英文语言
+  import ja from 'element-plus/dist/locale/ja.mjs' //繁体
   import defaultSettings from '@/settings'
-  import { useRoute } from 'vue-router'
-  //import login from './modules/login'
   const { proxy } = getCurrentInstance()
-  // 设置超时时间:30分钟
-  const route = useRoute(() => {
-    return route
-  })
-
 
   const token = computed(() => {
     return useUserStore().userId
@@ -58,6 +42,8 @@
     (val) => {
       if (val == 'zh-cn') {
         locale.value = zh
+      } else if (val == 'zh-tw') {
+        locale.value = tw
       } else if (val == 'en') {
         locale.value = en
       } else if (val == 'ja') {

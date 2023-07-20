@@ -6,7 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using La.WebApi.Extensions;
-using La.Model.System;
+using La.Model.System.Dto;
 using La.Service.System;
 
 namespace La.WebApi.Framework
@@ -125,15 +125,20 @@ namespace La.WebApi.Framework
         {
             try
             {
-                var userData = jwtToken.FirstOrDefault(x => x.Type == ClaimTypes.UserData).Value;
-                var loginUser = JsonConvert.DeserializeObject<LoginUser>(userData);
-                var permissions = CacheService.GetUserPerms(GlobalConstant.UserPermKEY + loginUser?.UserId);
-                if (loginUser?.UserName == GlobalConstant.AdminRole)
+                LoginUser loginUser = null;
+                
+                var userData = jwtToken.FirstOrDefault(x => x.Type == ClaimTypes.UserData)?.Value;
+                if (userData != null)
                 {
-                    permissions = new List<string>() { GlobalConstant.AdminPerm };
+                    loginUser = JsonConvert.DeserializeObject<LoginUser>(userData);
+                    var permissions = CacheService.GetUserPerms(GlobalConstant.UserPermKEY + loginUser?.UserId);
+                    if (loginUser?.UserName == GlobalConstant.AdminRole)
+                    {
+                        permissions = new List<string>() { GlobalConstant.AdminPerm };
+                    }
+                    if (permissions == null) return null;
+                    loginUser.Permissions = permissions;
                 }
-                if (permissions == null) return null;
-                loginUser.Permissions = permissions;
                 return loginUser;
             }
             catch (Exception ex)
@@ -150,10 +155,6 @@ namespace La.WebApi.Framework
         /// <returns></returns>
         public static List<Claim> AddClaims(LoginUser user)
         {
-            if (user?.Permissions.Count > 50)
-            {
-                user.Permissions = new List<string>();
-            }
             var claims = new List<Claim>()
                 {
                     new Claim(ClaimTypes.PrimarySid, user.UserId.ToString()),

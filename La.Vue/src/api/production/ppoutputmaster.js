@@ -24,7 +24,6 @@ export function addPpOutputMaster(data) {
     data: data,
   })
 }
-
 /**
 * 修改oph主表
 * @param data
@@ -36,7 +35,6 @@ export function updatePpOutputMaster(data) {
     data: data,
   })
 }
-
 /**
 * 获取oph主表详情
 * @param {Id}
@@ -58,7 +56,6 @@ export function delPpOutputMaster(pid) {
     method: 'delete'
   })
 }
-
 // 清空oph主表
 export function clearPpOutputMaster() {
   return request({
@@ -66,9 +63,7 @@ export function clearPpOutputMaster() {
     method: 'delete'
   })
 }
-
 // 导出oph主表
 export async function exportPpOutputMaster(query) {
   await downFile('production/PpOutputMaster/export', { ...query })
 }
-

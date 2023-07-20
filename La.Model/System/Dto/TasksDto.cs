@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace La.Model.System.Dto
 {
-    public class TasksQueryDto
+    public class TasksQueryDto : PagerInfo
     {
         /// <summary>
         /// 查询字符串
@@ -12,6 +12,7 @@ namespace La.Model.System.Dto
         public string QueryText { get; set; }
         public int? TaskType { get; set; }
         public int? TriggerType { get; set; }
+        public int? IsStart { get; set; }
     }
 
     /// <summary>
@@ -62,7 +63,7 @@ namespace La.Model.System.Dto
         /// 任务描述
         /// </summary>
         [Display(Name = "任务描述")]
-        public string ReMark { get; set; }
+        public string Remark { get; set; }
 
         /// <summary>
         /// 开始时间

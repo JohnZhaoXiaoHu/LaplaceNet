@@ -1,0 +1,1682 @@
+2023-07-14 10:51:28.8608 Info Message Template Auto Format enabled
+2023-07-14 10:51:30.2285 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 10:51:30.2285 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 10:51:33.1744 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 10:51:34.4913 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 10:51:34.5255 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 10:51:34.5420 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 10:51:34.5420 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 10:51:34.5740 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 10:51:34.5740 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 10:51:34.5740 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 10:51:34.6137 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 10:51:34.6553 Info Configuration initialized.
+2023-07-14 10:51:34.6553 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-14 11:06:19.0767 Info Message Template Auto Format enabled
+2023-07-14 11:06:19.1085 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 11:06:19.1085 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 11:06:19.1288 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 11:06:19.1460 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 11:06:19.1854 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 11:06:19.1854 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 11:06:19.1854 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 11:06:19.2020 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 11:06:19.2020 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 11:06:19.2020 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 11:06:19.2210 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 11:06:19.2351 Info Configuration initialized.
+2023-07-14 11:06:19.2351 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-14 11:10:35.0348 Info Message Template Auto Format enabled
+2023-07-14 11:10:35.0811 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 11:10:35.0811 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 11:10:35.1042 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 11:10:35.1285 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 11:10:35.1832 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 11:10:35.1858 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 11:10:35.1858 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 11:10:35.2006 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 11:10:35.2006 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 11:10:35.2006 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 11:10:35.2318 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 11:10:35.2485 Info Configuration initialized.
+2023-07-14 11:10:35.2485 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-14 11:12:51.1606 Info Message Template Auto Format enabled
+2023-07-14 11:12:51.2077 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 11:12:51.2077 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 11:12:51.2426 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 11:12:51.2645 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 11:12:51.3266 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 11:12:51.3291 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 11:12:51.3291 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 11:12:51.3457 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 11:12:51.3457 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 11:12:51.3457 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 11:12:51.3801 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 11:12:51.4027 Info Configuration initialized.
+2023-07-14 11:12:51.4027 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-14 11:19:38.4890 Info Message Template Auto Format enabled
+2023-07-14 11:19:38.5187 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 11:19:38.5187 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 11:19:38.5398 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 11:19:38.5534 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 11:19:38.5872 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 11:19:38.5872 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 11:19:38.5872 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 11:19:38.5959 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 11:19:38.5959 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 11:19:38.5959 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 11:19:38.6115 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 11:19:38.6115 Info Configuration initialized.
+2023-07-14 11:19:38.6115 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-14 11:37:59.0207 Info Message Template Auto Format enabled
+2023-07-14 11:37:59.0584 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 11:37:59.0593 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 11:37:59.0816 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 11:37:59.0982 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 11:37:59.1434 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 11:37:59.1434 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 11:37:59.1434 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 11:37:59.1571 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 11:37:59.1571 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 11:37:59.1571 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 11:37:59.1885 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 11:37:59.2189 Info Configuration initialized.
+2023-07-14 11:37:59.2189 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-14 13:39:09.9473 Info Message Template Auto Format enabled
+2023-07-14 13:39:11.5664 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 13:39:11.5664 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 13:39:13.8378 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 13:39:13.8553 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 13:39:13.9177 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 13:39:13.9222 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 13:39:13.9222 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 13:39:13.9413 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 13:39:13.9413 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 13:39:13.9519 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 13:39:13.9872 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 13:39:14.0057 Info Configuration initialized.
+2023-07-14 13:39:14.0057 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-14 14:54:31.9575 Info Message Template Auto Format enabled
+2023-07-14 14:54:31.9934 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 14:54:31.9934 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 14:54:32.0153 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 14:54:32.0310 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 14:54:32.0691 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 14:54:32.0691 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 14:54:32.0691 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 14:54:32.0781 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 14:54:32.0781 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 14:54:32.0781 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 14:54:32.0991 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 14:54:32.1142 Info Configuration initialized.
+2023-07-14 14:54:32.1142 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-14 15:07:22.9214 Info Message Template Auto Format enabled
+2023-07-14 15:07:22.9522 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 15:07:22.9522 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 15:07:22.9713 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 15:07:22.9713 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 15:07:23.0030 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 15:07:23.0184 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 15:07:23.0184 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 15:07:23.0184 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 15:07:23.0184 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 15:07:23.0184 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 15:07:23.0470 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 15:07:23.0588 Info Configuration initialized.
+2023-07-14 15:07:23.0588 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-14 15:08:49.6960 Info Message Template Auto Format enabled
+2023-07-14 15:08:49.7417 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 15:08:49.7417 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 15:08:49.7714 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 15:08:49.7932 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 15:08:49.8494 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 15:08:49.8494 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 15:08:49.8494 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 15:08:49.8679 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 15:08:49.8679 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 15:08:49.8679 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 15:08:49.9027 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 15:08:49.9282 Info Configuration initialized.
+2023-07-14 15:08:49.9282 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-14 15:39:55.6018 Info Message Template Auto Format enabled
+2023-07-14 15:39:55.6613 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 15:39:55.6613 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 15:39:55.6854 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 15:39:55.7038 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 15:39:55.7489 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 15:39:55.7489 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 15:39:55.7489 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 15:39:55.7637 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 15:39:55.7637 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 15:39:55.7637 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 15:39:55.7914 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 15:39:55.8195 Info Configuration initialized.
+2023-07-14 15:39:55.8195 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-14 16:48:13.1441 Info Message Template Auto Format enabled
+2023-07-14 16:48:13.1910 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 16:48:13.1919 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 16:48:13.2166 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 16:48:13.2338 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 16:48:13.2760 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 16:48:13.2760 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 16:48:13.2760 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 16:48:13.2872 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 16:48:13.2872 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 16:48:13.2872 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 16:48:13.3096 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 16:48:13.3253 Info Configuration initialized.
+2023-07-14 16:48:13.3253 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-14 16:56:30.5535 Info Message Template Auto Format enabled
+2023-07-14 16:56:30.5956 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 16:56:30.5956 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 16:56:30.6150 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 16:56:30.6300 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 16:56:30.6678 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 16:56:30.6678 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 16:56:30.6678 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 16:56:30.6792 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 16:56:30.6792 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 16:56:30.6792 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 16:56:30.7171 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 16:56:30.7354 Info Configuration initialized.
+2023-07-14 16:56:30.7354 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-14 17:08:03.5432 Info Message Template Auto Format enabled
+2023-07-14 17:08:03.5751 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 17:08:03.5751 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 17:08:03.5943 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 17:08:03.6070 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 17:08:03.6372 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 17:08:03.6522 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 17:08:03.6522 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 17:08:03.6522 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 17:08:03.6522 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 17:08:03.6522 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 17:08:03.6825 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\ZR.Admin.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 17:08:03.6962 Info Configuration initialized.
+2023-07-14 17:08:03.6962 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-14 17:08:54.9406 Info Message Template Auto Format enabled
+2023-07-14 17:08:54.9694 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 17:08:54.9694 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 17:08:54.9863 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 17:08:54.9991 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 17:08:55.0348 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 17:08:55.0348 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 17:08:55.0348 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 17:08:55.0436 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 17:08:55.0436 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 17:08:55.0436 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 17:08:55.0605 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\ZR.Admin.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 17:08:55.0605 Info Configuration initialized.
+2023-07-14 17:08:55.0605 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-14 17:21:07.2499 Info Message Template Auto Format enabled
+2023-07-14 17:21:08.5787 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 17:21:08.5787 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 17:21:11.7829 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 17:21:13.1789 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 17:21:13.2136 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 17:21:13.2136 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 17:21:13.2136 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 17:21:13.2213 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 17:21:13.2213 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 17:21:13.2213 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 17:21:13.2367 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 17:21:13.2535 Info Configuration initialized.
+2023-07-14 17:21:13.2535 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-14 17:22:10.0922 Info Message Template Auto Format enabled
+2023-07-14 17:22:10.1205 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 17:22:10.1205 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 17:22:10.1364 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 17:22:10.1481 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 17:22:10.1829 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 17:22:10.1829 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 17:22:10.1881 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 17:22:10.1881 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 17:22:10.1881 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 17:22:10.1881 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 17:22:10.2141 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 17:22:10.2255 Info Configuration initialized.
+2023-07-14 17:22:10.2255 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-14 17:23:52.3310 Info Message Template Auto Format enabled
+2023-07-14 17:23:52.3787 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 17:23:52.3787 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 17:23:52.3991 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 17:23:52.4146 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 17:23:52.4597 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 17:23:52.4597 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 17:23:52.4597 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 17:23:52.4772 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 17:23:52.4772 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 17:23:52.4772 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 17:23:52.5105 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 17:23:52.5531 Info Configuration initialized.
+2023-07-14 17:23:52.5531 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-14 17:36:12.8329 Info Message Template Auto Format enabled
+2023-07-14 17:36:12.8613 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 17:36:12.8613 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 17:36:12.8812 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 17:36:12.8975 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 17:36:12.9399 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 17:36:12.9399 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 17:36:12.9443 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 17:36:12.9443 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 17:36:12.9443 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 17:36:12.9443 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 17:36:12.9667 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 17:36:12.9778 Info Configuration initialized.
+2023-07-14 17:36:12.9778 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-14 17:39:48.4924 Info Message Template Auto Format enabled
+2023-07-14 17:39:48.5222 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-14 17:39:48.5222 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-14 17:39:48.5397 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-14 17:39:48.5397 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-14 17:39:48.5911 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-14 17:39:48.5911 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-14 17:39:48.5911 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-14 17:39:48.5996 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-14 17:39:48.5996 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-14 17:39:48.5996 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-14 17:39:48.6160 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-14 17:39:48.6160 Info Configuration initialized.
+2023-07-14 17:39:48.6160 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 07:46:54.4303 Info Message Template Auto Format enabled
+2023-07-17 07:46:54.4773 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 07:46:54.4773 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 07:46:54.5028 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 07:46:54.5193 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 07:46:54.5588 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 07:46:54.5588 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 07:46:54.5588 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 07:46:54.5701 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 07:46:54.5701 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 07:46:54.5701 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 07:46:54.5961 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 07:46:54.6073 Info Configuration initialized.
+2023-07-17 07:46:54.6135 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 07:57:13.7927 Info FileTarget(Name=allfile_wrapped): Archiving G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\all.txt to G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\bak\all.20230714.000.txt
+2023-07-17 07:57:14.1001 Info FileTarget(Name=sqlfile_wrapped): Archiving G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\admin-sql.txt to G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\bak\admin-sql20230714.000.txt
+2023-07-17 08:06:12.6315 Info Message Template Auto Format enabled
+2023-07-17 08:06:12.6687 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 08:06:12.6687 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 08:06:12.6909 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 08:06:12.7091 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 08:06:12.7468 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 08:06:12.7468 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 08:06:12.7508 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 08:06:12.7508 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 08:06:12.7508 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 08:06:12.7508 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 08:06:12.7714 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 08:06:12.7843 Info Configuration initialized.
+2023-07-17 08:06:12.7843 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 08:18:59.5141 Info Message Template Auto Format enabled
+2023-07-17 08:18:59.5510 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 08:18:59.5510 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 08:18:59.5764 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 08:18:59.5964 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 08:18:59.6715 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 08:18:59.6715 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 08:18:59.6715 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 08:18:59.6840 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 08:18:59.6840 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 08:18:59.6840 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 08:18:59.7227 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 08:18:59.7531 Info Configuration initialized.
+2023-07-17 08:18:59.7629 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 08:19:43.3665 Info Message Template Auto Format enabled
+2023-07-17 08:19:43.4120 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 08:19:43.4120 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 08:19:43.4439 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 08:19:43.4636 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 08:19:43.5175 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 08:19:43.5175 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 08:19:43.5219 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 08:19:43.5219 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 08:19:43.5371 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 08:19:43.5371 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 08:19:43.5563 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 08:19:43.5739 Info Configuration initialized.
+2023-07-17 08:19:43.5739 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 08:28:44.3718 Info Message Template Auto Format enabled
+2023-07-17 08:28:44.4116 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 08:28:44.4116 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 08:28:44.4361 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 08:28:44.4637 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 08:28:44.5536 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 08:28:44.5536 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 08:28:44.5583 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 08:28:44.5749 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 08:28:44.5749 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 08:28:44.5749 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 08:28:44.5969 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 08:28:44.6164 Info Configuration initialized.
+2023-07-17 08:28:44.6164 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 08:39:18.8572 Info Message Template Auto Format enabled
+2023-07-17 08:39:18.9045 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 08:39:18.9045 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 08:39:18.9323 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 08:39:18.9487 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 08:39:18.9884 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 08:39:18.9884 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 08:39:18.9884 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 08:39:19.0021 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 08:39:19.0021 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 08:39:19.0021 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 08:39:19.0208 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 08:39:19.0358 Info Configuration initialized.
+2023-07-17 08:39:19.0358 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 08:39:30.8196 Info Message Template Auto Format enabled
+2023-07-17 08:39:30.8625 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 08:39:30.8625 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 08:39:30.8842 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 08:39:30.8997 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 08:39:30.9606 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 08:39:30.9606 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 08:39:30.9753 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 08:39:30.9863 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 08:39:30.9863 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 08:39:30.9863 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 08:39:31.0017 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 08:39:31.0017 Info Configuration initialized.
+2023-07-17 08:39:31.0017 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 08:40:58.2220 Info Message Template Auto Format enabled
+2023-07-17 08:40:58.2621 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 08:40:58.2621 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 08:40:58.2870 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 08:40:58.3066 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 08:40:58.3607 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 08:40:58.3617 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 08:40:58.3617 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 08:40:58.3773 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 08:40:58.3773 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 08:40:58.3773 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 08:40:58.4017 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 08:40:58.4396 Info Configuration initialized.
+2023-07-17 08:40:58.4407 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 08:50:00.3758 Info Message Template Auto Format enabled
+2023-07-17 08:50:00.4241 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 08:50:00.4241 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 08:50:00.4590 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 08:50:00.4802 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 08:50:00.5521 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 08:50:00.5534 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 08:50:00.5534 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 08:50:00.5737 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 08:50:00.5737 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 08:50:00.5737 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 08:50:00.5984 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 08:50:00.6174 Info Configuration initialized.
+2023-07-17 08:50:00.6174 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 08:58:12.6212 Info Message Template Auto Format enabled
+2023-07-17 08:58:12.6553 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 08:58:12.6553 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 08:58:12.6764 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 08:58:12.6898 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 08:58:12.7163 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 08:58:12.7299 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 08:58:12.7299 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 08:58:12.7299 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 08:58:12.7299 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 08:58:12.7299 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 08:58:12.7601 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 08:58:12.7735 Info Configuration initialized.
+2023-07-17 08:58:12.7735 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 09:03:10.4393 Info Message Template Auto Format enabled
+2023-07-17 09:03:10.5015 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 09:03:10.5015 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 09:03:10.5336 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 09:03:10.5570 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 09:03:10.6379 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 09:03:10.6379 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 09:03:10.6379 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 09:03:10.6541 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 09:03:10.6541 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 09:03:10.6541 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 09:03:10.6850 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 09:03:10.7196 Info Configuration initialized.
+2023-07-17 09:03:10.7196 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 09:08:36.6818 Info Message Template Auto Format enabled
+2023-07-17 09:08:36.7403 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 09:08:36.7403 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 09:08:36.7681 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 09:08:36.7902 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 09:08:36.8736 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 09:08:36.8885 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 09:08:36.8912 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 09:08:36.9136 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 09:08:36.9136 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 09:08:36.9136 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 09:08:36.9393 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 09:08:36.9575 Info Configuration initialized.
+2023-07-17 09:08:36.9575 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 09:14:11.7929 Info Message Template Auto Format enabled
+2023-07-17 09:14:11.8298 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 09:14:11.8298 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 09:14:11.8543 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 09:14:11.8731 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 09:14:11.9222 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 09:14:11.9222 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 09:14:11.9259 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 09:14:11.9259 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 09:14:11.9259 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 09:14:11.9259 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 09:14:11.9570 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 09:14:11.9570 Info Configuration initialized.
+2023-07-17 09:14:11.9728 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 09:24:07.1267 Info Message Template Auto Format enabled
+2023-07-17 09:24:07.1597 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 09:24:07.1597 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 09:24:07.1783 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 09:24:07.1899 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 09:24:07.2307 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 09:24:07.2307 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 09:24:07.2307 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 09:24:07.2437 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 09:24:07.2437 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 09:24:07.2437 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 09:24:07.2625 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 09:24:07.2792 Info Configuration initialized.
+2023-07-17 09:24:07.2792 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 09:25:20.3763 Info Message Template Auto Format enabled
+2023-07-17 09:25:20.4216 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 09:25:20.4216 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 09:25:20.4423 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 09:25:20.4568 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 09:25:20.5029 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 09:25:20.5029 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 09:25:20.5093 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 09:25:20.5093 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 09:25:20.5093 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 09:25:20.5093 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 09:25:20.5474 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 09:25:20.5614 Info Configuration initialized.
+2023-07-17 09:25:20.5614 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 09:31:45.7224 Info Message Template Auto Format enabled
+2023-07-17 09:31:45.8063 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 09:31:45.8063 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 09:31:45.8326 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 09:31:45.8583 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 09:31:45.9476 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 09:31:45.9476 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 09:31:45.9546 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 09:31:45.9681 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 09:31:45.9681 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 09:31:45.9681 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 09:31:46.0143 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 09:31:46.0510 Info Configuration initialized.
+2023-07-17 09:31:46.0510 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 09:33:02.2506 Info Message Template Auto Format enabled
+2023-07-17 09:33:02.2783 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 09:33:02.2790 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 09:33:02.2790 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 09:33:02.3074 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 09:33:02.3477 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 09:33:02.3477 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 09:33:02.3477 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 09:33:02.3597 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 09:33:02.3597 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 09:33:02.3597 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 09:33:02.3786 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 09:33:02.3906 Info Configuration initialized.
+2023-07-17 09:33:02.3906 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 09:36:49.6263 Info Message Template Auto Format enabled
+2023-07-17 09:36:49.6743 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 09:36:49.6743 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 09:36:49.7005 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 09:36:49.7177 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 09:36:49.7716 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 09:36:49.7716 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 09:36:49.7716 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 09:36:49.7850 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 09:36:49.7850 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 09:36:49.7850 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 09:36:49.8137 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 09:36:49.8307 Info Configuration initialized.
+2023-07-17 09:36:49.8307 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 09:37:58.6918 Info Message Template Auto Format enabled
+2023-07-17 09:37:58.7294 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 09:37:58.7294 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 09:37:58.7521 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 09:37:58.7728 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 09:37:58.8298 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 09:37:58.8298 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 09:37:58.8298 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 09:37:58.8479 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 09:37:58.8479 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 09:37:58.8479 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 09:37:58.8669 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 09:37:58.8881 Info Configuration initialized.
+2023-07-17 09:37:58.8881 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 10:26:45.8431 Info Message Template Auto Format enabled
+2023-07-17 10:26:45.8870 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 10:26:45.8870 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 10:26:45.9127 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 10:26:45.9413 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 10:26:46.0029 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 10:26:46.0029 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 10:26:46.0141 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 10:26:46.0299 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 10:26:46.0299 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 10:26:46.0299 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 10:26:46.0474 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 10:26:46.0661 Info Configuration initialized.
+2023-07-17 10:26:46.0661 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 10:27:40.3969 Info Message Template Auto Format enabled
+2023-07-17 10:27:40.4326 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 10:27:40.4326 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 10:27:40.4498 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 10:27:40.4498 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 10:27:40.4996 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 10:27:40.4996 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 10:27:40.4996 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 10:27:40.5139 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 10:27:40.5139 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 10:27:40.5139 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 10:27:40.5335 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 10:27:40.5572 Info Configuration initialized.
+2023-07-17 10:27:40.5572 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 14:12:59.0483 Info Message Template Auto Format enabled
+2023-07-17 14:12:59.1147 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 14:12:59.1147 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 14:12:59.1461 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 14:12:59.1744 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 14:12:59.2627 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 14:12:59.2627 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 14:12:59.2627 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 14:12:59.2776 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 14:12:59.2776 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 14:12:59.2776 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 14:12:59.3061 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 14:12:59.3554 Info Configuration initialized.
+2023-07-17 14:12:59.3554 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 15:39:56.0164 Info Message Template Auto Format enabled
+2023-07-17 15:39:56.0460 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 15:39:56.0460 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 15:39:56.0633 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 15:39:56.0797 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 15:39:56.1224 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 15:39:56.1224 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 15:39:56.1224 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 15:39:56.1350 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 15:39:56.1350 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 15:39:56.1350 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 15:39:56.1585 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 15:39:56.1729 Info Configuration initialized.
+2023-07-17 15:39:56.1729 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 15:43:54.3753 Info Message Template Auto Format enabled
+2023-07-17 15:43:54.4242 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 15:43:54.4242 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 15:43:54.4509 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 15:43:54.4730 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 15:43:54.5301 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 15:43:54.5301 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 15:43:54.5371 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 15:43:54.5371 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 15:43:54.5371 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 15:43:54.5371 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 15:43:54.5683 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 15:43:54.5921 Info Configuration initialized.
+2023-07-17 15:43:54.6005 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-17 16:00:03.8502 Info Message Template Auto Format enabled
+2023-07-17 16:00:03.9124 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-17 16:00:03.9124 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-17 16:00:03.9431 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-17 16:00:03.9650 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-17 16:00:04.0197 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-17 16:00:04.0197 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-17 16:00:04.0197 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-17 16:00:04.0315 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-17 16:00:04.0315 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-17 16:00:04.0315 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-17 16:00:04.0629 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-17 16:00:04.0809 Info Configuration initialized.
+2023-07-17 16:00:04.0809 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-18 07:43:54.1399 Info FileTarget(Name=sqlfile_wrapped): Archiving G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\admin-sql.txt to G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\bak\admin-sql20230717.000.txt
+2023-07-18 14:36:47.9345 Info FileTarget(Name=allfile_wrapped): Archiving G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\all.txt to G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\bak\all.20230717.000.txt
+2023-07-18 15:04:48.1148 Info Message Template Auto Format enabled
+2023-07-18 15:04:48.1660 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-18 15:04:48.1660 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-18 15:04:48.1939 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-18 15:04:48.2199 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-18 15:04:48.2498 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-18 15:04:48.2660 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-18 15:04:48.2660 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-18 15:04:48.2660 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-18 15:04:48.2660 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-18 15:04:48.2660 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-18 15:04:48.2983 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-18 15:04:48.3176 Info Configuration initialized.
+2023-07-18 15:04:48.3176 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-18 15:06:08.6183 Info Message Template Auto Format enabled
+2023-07-18 15:06:08.6555 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-18 15:06:08.6555 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-18 15:06:08.6759 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-18 15:06:08.6902 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-18 15:06:08.7240 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-18 15:06:08.7240 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-18 15:06:08.7240 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-18 15:06:08.7352 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-18 15:06:08.7352 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-18 15:06:08.7352 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-18 15:06:08.7352 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-18 15:06:08.7599 Info Configuration initialized.
+2023-07-18 15:06:08.7599 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-18 15:08:44.0728 Info Message Template Auto Format enabled
+2023-07-18 15:08:44.1169 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-18 15:08:44.1169 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-18 15:08:44.1445 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-18 15:08:44.1647 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-18 15:08:44.2529 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-18 15:08:44.2529 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-18 15:08:44.2529 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-18 15:08:44.2724 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-18 15:08:44.2724 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-18 15:08:44.2724 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-18 15:08:44.3026 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-18 15:08:44.3158 Info Configuration initialized.
+2023-07-18 15:08:44.3158 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-18 15:11:04.0719 Info Message Template Auto Format enabled
+2023-07-18 15:11:04.1142 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-18 15:11:04.1142 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-18 15:11:04.1370 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-18 15:11:04.1562 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-18 15:11:04.2203 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-18 15:11:04.2220 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-18 15:11:04.2220 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-18 15:11:04.2414 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-18 15:11:04.2414 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-18 15:11:04.2414 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-18 15:11:04.2693 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-18 15:11:04.2865 Info Configuration initialized.
+2023-07-18 15:11:04.2865 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-18 15:14:21.4439 Info Message Template Auto Format enabled
+2023-07-18 15:14:21.4791 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-18 15:14:21.4791 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-18 15:14:21.4994 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-18 15:14:21.5173 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-18 15:14:21.5729 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-18 15:14:21.5729 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-18 15:14:21.5729 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-18 15:14:21.5848 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-18 15:14:21.5848 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-18 15:14:21.5848 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-18 15:14:21.6038 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-18 15:14:21.6138 Info Configuration initialized.
+2023-07-18 15:14:21.6138 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-18 17:39:08.4627 Info Message Template Auto Format enabled
+2023-07-18 17:39:08.5044 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-18 17:39:08.5044 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-18 17:39:08.5259 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-18 17:39:08.5508 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-18 17:39:08.6371 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-18 17:39:08.6371 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-18 17:39:08.6450 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-18 17:39:08.6582 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-18 17:39:08.6582 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-18 17:39:08.6582 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-18 17:39:08.6846 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-18 17:39:08.6981 Info Configuration initialized.
+2023-07-18 17:39:08.6981 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 07:43:19.8094 Info FileTarget(Name=sqlfile_wrapped): Archiving G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\admin-sql.txt to G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\bak\admin-sql20230718.000.txt
+2023-07-19 09:43:37.3159 Info FileTarget(Name=allfile_wrapped): Archiving G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\all.txt to G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\bak\all.20230718.000.txt
+2023-07-19 11:05:16.4200 Info Message Template Auto Format enabled
+2023-07-19 11:05:16.4668 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 11:05:16.4668 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 11:05:16.5118 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 11:05:16.5328 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 11:05:16.5759 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 11:05:16.5759 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 11:05:16.5759 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 11:05:16.5904 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 11:05:16.5904 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 11:05:16.5904 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 11:05:16.6088 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 11:05:16.6275 Info Configuration initialized.
+2023-07-19 11:05:16.6275 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 11:06:46.8797 Info Message Template Auto Format enabled
+2023-07-19 11:06:46.9151 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 11:06:46.9159 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 11:06:46.9360 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 11:06:46.9525 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 11:06:47.0003 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 11:06:47.0003 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 11:06:47.0003 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 11:06:47.0126 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 11:06:47.0126 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 11:06:47.0126 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 11:06:47.0335 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 11:06:47.0473 Info Configuration initialized.
+2023-07-19 11:06:47.0473 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 11:07:18.3269 Info Message Template Auto Format enabled
+2023-07-19 11:07:18.3619 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 11:07:18.3619 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 11:07:18.3833 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 11:07:18.3990 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 11:07:18.4324 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 11:07:18.4477 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 11:07:18.4477 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 11:07:18.4658 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 11:07:18.4658 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 11:07:18.4658 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 11:07:18.4868 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 11:07:18.5074 Info Configuration initialized.
+2023-07-19 11:07:18.5074 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 11:07:37.2547 Info Message Template Auto Format enabled
+2023-07-19 11:07:37.2999 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 11:07:37.2999 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 11:07:37.3323 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 11:07:37.3524 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 11:07:37.4023 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 11:07:37.4023 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 11:07:37.4023 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 11:07:37.4178 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 11:07:37.4178 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 11:07:37.4178 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 11:07:37.4355 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 11:07:37.4658 Info Configuration initialized.
+2023-07-19 11:07:37.4658 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 11:07:53.9240 Info Message Template Auto Format enabled
+2023-07-19 11:07:53.9706 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 11:07:53.9706 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 11:07:54.0011 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 11:07:54.0226 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 11:07:54.0843 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 11:07:54.0843 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 11:07:54.0907 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 11:07:54.1056 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 11:07:54.1056 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 11:07:54.1056 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 11:07:54.1300 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 11:07:54.1479 Info Configuration initialized.
+2023-07-19 11:07:54.1479 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 11:08:09.9425 Info Message Template Auto Format enabled
+2023-07-19 11:08:09.9799 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 11:08:09.9799 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 11:08:10.0047 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 11:08:10.0286 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 11:08:10.0871 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 11:08:10.0885 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 11:08:10.0885 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 11:08:10.1053 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 11:08:10.1053 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 11:08:10.1053 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 11:08:10.1336 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 11:08:10.1537 Info Configuration initialized.
+2023-07-19 11:08:10.1537 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 11:08:25.2223 Info Message Template Auto Format enabled
+2023-07-19 11:08:25.2801 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 11:08:25.2801 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 11:08:25.3037 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 11:08:25.3274 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 11:08:25.3546 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 11:08:25.3704 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 11:08:25.3704 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 11:08:25.3704 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 11:08:25.3849 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 11:08:25.3849 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 11:08:25.3849 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 11:08:25.4109 Info Configuration initialized.
+2023-07-19 11:08:25.4109 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 11:08:51.3661 Info Message Template Auto Format enabled
+2023-07-19 11:08:51.4022 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 11:08:51.4022 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 11:08:51.4240 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 11:08:51.4418 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 11:08:51.4913 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 11:08:51.4913 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 11:08:51.4979 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 11:08:51.4979 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 11:08:51.5107 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 11:08:51.5107 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 11:08:51.5296 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 11:08:51.5452 Info Configuration initialized.
+2023-07-19 11:08:51.5452 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 11:09:19.3148 Info Message Template Auto Format enabled
+2023-07-19 11:09:19.3494 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 11:09:19.3494 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 11:09:19.3680 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 11:09:19.3846 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 11:09:19.4365 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 11:09:19.4365 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 11:09:19.4365 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 11:09:19.4501 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 11:09:19.4501 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 11:09:19.4501 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 11:09:19.4715 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 11:09:19.4899 Info Configuration initialized.
+2023-07-19 11:09:19.4899 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 11:09:53.8847 Info Message Template Auto Format enabled
+2023-07-19 11:09:53.9152 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 11:09:53.9152 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 11:09:53.9351 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 11:09:53.9490 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 11:09:53.9838 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 11:09:53.9838 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 11:09:53.9838 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 11:09:53.9960 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 11:09:53.9960 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 11:09:53.9960 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 11:09:54.0134 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 11:09:54.0276 Info Configuration initialized.
+2023-07-19 11:09:54.0276 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 11:10:43.8153 Info Message Template Auto Format enabled
+2023-07-19 11:10:43.8638 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 11:10:43.8638 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 11:10:43.8929 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 11:10:43.9124 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 11:10:43.9673 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 11:10:43.9673 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 11:10:43.9673 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 11:10:43.9857 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 11:10:43.9857 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 11:10:43.9857 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 11:10:44.0168 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 11:10:44.0335 Info Configuration initialized.
+2023-07-19 11:10:44.0335 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 11:17:23.4687 Info Message Template Auto Format enabled
+2023-07-19 11:17:23.5035 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 11:17:23.5035 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 11:17:23.5260 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 11:17:23.5434 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 11:17:23.6043 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 11:17:23.6043 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 11:17:23.6113 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 11:17:23.6113 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 11:17:23.6113 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 11:17:23.6239 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 11:17:23.6424 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 11:17:23.6590 Info Configuration initialized.
+2023-07-19 11:17:23.6590 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 11:18:03.1294 Info Message Template Auto Format enabled
+2023-07-19 11:18:03.1629 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 11:18:03.1629 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 11:18:03.1823 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 11:18:03.1978 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 11:18:03.2439 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 11:18:03.2439 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 11:18:03.2491 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 11:18:03.2491 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 11:18:03.2491 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 11:18:03.2491 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 11:18:03.2807 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 11:18:03.2980 Info Configuration initialized.
+2023-07-19 11:18:03.2980 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 11:18:33.3241 Info Message Template Auto Format enabled
+2023-07-19 11:18:33.3653 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 11:18:33.3653 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 11:18:33.3870 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 11:18:33.4042 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 11:18:33.4723 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 11:18:33.4723 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 11:18:33.4723 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 11:18:33.4876 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 11:18:33.4876 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 11:18:33.4998 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 11:18:33.5333 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 11:18:33.5511 Info Configuration initialized.
+2023-07-19 11:18:33.5511 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 11:18:59.0626 Info Message Template Auto Format enabled
+2023-07-19 11:18:59.1009 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 11:18:59.1009 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 11:18:59.1204 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 11:18:59.1367 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 11:18:59.1824 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 11:18:59.1824 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 11:18:59.1877 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 11:18:59.1877 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 11:18:59.1877 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 11:18:59.1877 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 11:18:59.2158 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 11:18:59.2276 Info Configuration initialized.
+2023-07-19 11:18:59.2340 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 11:19:51.3292 Info Message Template Auto Format enabled
+2023-07-19 11:19:51.3587 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 11:19:51.3596 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 11:19:51.3760 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 11:19:51.3760 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 11:19:51.4302 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 11:19:51.4302 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 11:19:51.4375 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 11:19:51.4375 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 11:19:51.4375 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 11:19:51.4375 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 11:19:51.4647 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 11:19:51.4767 Info Configuration initialized.
+2023-07-19 11:19:51.4767 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 11:20:57.0795 Info Message Template Auto Format enabled
+2023-07-19 11:20:57.1111 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 11:20:57.1111 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 11:20:57.1305 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 11:20:57.1463 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 11:20:57.1950 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 11:20:57.1950 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 11:20:57.1950 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 11:20:57.2066 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 11:20:57.2066 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 11:20:57.2066 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 11:20:57.2317 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 11:20:57.2638 Info Configuration initialized.
+2023-07-19 11:20:57.2721 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 11:21:32.4908 Info Message Template Auto Format enabled
+2023-07-19 11:21:32.5274 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 11:21:32.5274 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 11:21:32.5503 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 11:21:32.5663 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 11:21:32.5948 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 11:21:32.6110 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 11:21:32.6110 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 11:21:32.6272 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 11:21:32.6272 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 11:21:32.6272 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 11:21:32.6474 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 11:21:32.6612 Info Configuration initialized.
+2023-07-19 11:21:32.6612 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 11:21:56.0590 Info Message Template Auto Format enabled
+2023-07-19 11:21:56.1031 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 11:21:56.1031 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 11:21:56.1343 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 11:21:56.1526 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 11:21:56.2054 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 11:21:56.2054 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 11:21:56.2054 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 11:21:56.2238 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 11:21:56.2238 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 11:21:56.2238 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 11:21:56.2492 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 11:21:56.2670 Info Configuration initialized.
+2023-07-19 11:21:56.2677 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 15:40:45.4987 Info Message Template Auto Format enabled
+2023-07-19 15:40:45.5536 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 15:40:45.5536 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 15:40:45.5862 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 15:40:45.6093 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 15:40:45.6606 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 15:40:45.6707 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 15:40:45.6707 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 15:40:45.6865 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 15:40:45.6865 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 15:40:45.6865 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 15:40:45.7195 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 15:40:45.7418 Info Configuration initialized.
+2023-07-19 15:40:45.7418 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 16:49:36.1704 Info Message Template Auto Format enabled
+2023-07-19 16:49:37.8288 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 16:49:37.8288 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 16:49:41.1579 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 16:49:42.6297 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 16:49:42.6636 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 16:49:42.6636 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 16:49:42.6636 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 16:49:42.6749 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 16:49:42.6749 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 16:49:42.6749 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 16:49:42.6957 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 16:49:42.7158 Info Configuration initialized.
+2023-07-19 16:49:42.7158 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-19 16:53:03.1889 Info FileTarget(Name=errorfile_wrapped): Archiving G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\error.txt to G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\bak\error.20230718.000.txt
+2023-07-19 17:26:49.7771 Info Message Template Auto Format enabled
+2023-07-19 17:26:51.5561 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-19 17:26:51.5561 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-19 17:26:54.5598 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-19 17:26:56.1992 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-19 17:26:56.2931 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-19 17:26:56.2994 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-19 17:26:56.2994 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-19 17:26:56.3216 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-19 17:26:56.3216 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-19 17:26:56.3216 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-19 17:26:56.3511 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-19 17:26:56.3666 Info Configuration initialized.
+2023-07-19 17:26:56.3666 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 07:36:48.6493 Info FileTarget(Name=sqlfile_wrapped): Archiving G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\admin-sql.txt to G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\bak\admin-sql20230719.000.txt
+2023-07-20 07:40:21.8870 Info FileTarget(Name=allfile_wrapped): Archiving G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\all.txt to G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\bak\all.20230719.000.txt
+2023-07-20 09:06:15.0644 Info Message Template Auto Format enabled
+2023-07-20 09:06:18.2770 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 09:06:18.2770 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 09:06:24.8624 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 09:06:28.4586 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 09:06:28.5197 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 09:06:28.5197 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 09:06:28.5197 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 09:06:28.5400 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 09:06:28.5400 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 09:06:28.5400 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 09:06:28.5633 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 09:06:28.5795 Info Configuration initialized.
+2023-07-20 09:06:28.5795 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 09:09:43.4930 Info FileTarget(Name=errorfile_wrapped): Archiving G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\error.txt to G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\adminlogs\bak\error.20230719.000.txt
+2023-07-20 09:12:47.2380 Info AppDomain Shutting down. LogFactory closing...
+2023-07-20 09:12:47.2742 Info LogFactory has been closed.
+2023-07-20 09:12:53.1791 Info Message Template Auto Format enabled
+2023-07-20 09:12:53.2155 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 09:12:53.2155 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 09:12:53.2361 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 09:12:53.2528 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 09:12:53.3087 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 09:12:53.3087 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 09:12:53.3087 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 09:12:53.3288 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 09:12:53.3288 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 09:12:53.3355 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 09:12:53.3649 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 09:12:53.3959 Info Configuration initialized.
+2023-07-20 09:12:53.3959 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 09:27:27.8581 Info Message Template Auto Format enabled
+2023-07-20 09:27:27.8956 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 09:27:27.8956 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 09:27:27.9191 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 09:27:27.9355 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 09:27:27.9767 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 09:27:27.9767 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 09:27:27.9767 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 09:27:27.9870 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 09:27:27.9870 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 09:27:27.9870 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 09:27:28.0104 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 09:27:28.0263 Info Configuration initialized.
+2023-07-20 09:27:28.0263 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 09:28:17.9683 Info Message Template Auto Format enabled
+2023-07-20 09:28:18.0134 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 09:28:18.0150 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 09:28:18.0484 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 09:28:18.0712 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 09:28:18.1254 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 09:28:18.1254 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 09:28:18.1254 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 09:28:18.1424 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 09:28:18.1424 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 09:28:18.1424 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 09:28:18.1592 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 09:28:18.1725 Info Configuration initialized.
+2023-07-20 09:28:18.1725 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 09:30:27.1032 Info Message Template Auto Format enabled
+2023-07-20 09:30:27.1425 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 09:30:27.1425 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 09:30:27.1646 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 09:30:27.1801 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 09:30:27.2246 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 09:30:27.2246 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 09:30:27.2246 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 09:30:27.2367 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 09:30:27.2367 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 09:30:27.2367 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 09:30:27.2664 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 09:30:27.2664 Info Configuration initialized.
+2023-07-20 09:30:27.2812 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 09:30:33.5485 Info AppDomain Shutting down. LogFactory closing...
+2023-07-20 09:30:33.5485 Info LogFactory has been closed.
+2023-07-20 09:30:40.4102 Info Message Template Auto Format enabled
+2023-07-20 09:30:40.4618 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 09:30:40.4618 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 09:30:40.4846 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 09:30:40.5011 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 09:30:40.5534 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 09:30:40.5534 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 09:30:40.5534 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 09:30:40.5662 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 09:30:40.5662 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 09:30:40.5662 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 09:30:40.5939 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 09:30:40.5939 Info Configuration initialized.
+2023-07-20 09:30:40.5939 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 09:31:53.9646 Info Message Template Auto Format enabled
+2023-07-20 09:31:54.0051 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 09:31:54.0051 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 09:31:54.0264 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 09:31:54.0437 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 09:31:54.0862 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 09:31:54.0862 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 09:31:54.0862 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 09:31:54.1006 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 09:31:54.1006 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 09:31:54.1006 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 09:31:54.1214 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 09:31:54.1390 Info Configuration initialized.
+2023-07-20 09:31:54.1390 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 09:37:01.4557 Info Message Template Auto Format enabled
+2023-07-20 09:37:01.4970 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 09:37:01.4970 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 09:37:01.5210 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 09:37:01.5583 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 09:37:01.6089 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 09:37:01.6089 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 09:37:01.6150 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 09:37:01.6150 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 09:37:01.6150 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 09:37:01.6150 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 09:37:01.6443 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 09:37:01.6605 Info Configuration initialized.
+2023-07-20 09:37:01.6605 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 09:37:17.4963 Info Message Template Auto Format enabled
+2023-07-20 09:37:17.5319 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 09:37:17.5319 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 09:37:17.5526 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 09:37:17.5655 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 09:37:17.6027 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 09:37:17.6027 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 09:37:17.6027 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 09:37:17.6127 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 09:37:17.6127 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 09:37:17.6127 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 09:37:17.6306 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 09:37:17.6449 Info Configuration initialized.
+2023-07-20 09:37:17.6449 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 09:37:54.7160 Info Message Template Auto Format enabled
+2023-07-20 09:37:54.7522 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 09:37:54.7522 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 09:37:54.7739 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 09:37:54.7912 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 09:37:54.8333 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 09:37:54.8333 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 09:37:54.8333 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 09:37:54.8474 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 09:37:54.8474 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 09:37:54.8474 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 09:37:54.8698 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 09:37:54.8848 Info Configuration initialized.
+2023-07-20 09:37:54.8848 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 09:38:20.3769 Info Message Template Auto Format enabled
+2023-07-20 09:38:20.4151 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 09:38:20.4151 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 09:38:20.4390 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 09:38:20.4530 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 09:38:20.4745 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 09:38:20.4887 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 09:38:20.4887 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 09:38:20.4887 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 09:38:20.4887 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 09:38:20.4887 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 09:38:20.5179 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 09:38:20.5384 Info Configuration initialized.
+2023-07-20 09:38:20.5384 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 09:38:26.0166 Info AppDomain Shutting down. LogFactory closing...
+2023-07-20 09:38:26.0253 Info LogFactory has been closed.
+2023-07-20 09:38:30.2951 Info Message Template Auto Format enabled
+2023-07-20 09:38:30.3274 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 09:38:30.3274 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 09:38:30.3474 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 09:38:30.3647 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 09:38:30.4106 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 09:38:30.4106 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 09:38:30.4106 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 09:38:30.4263 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 09:38:30.4263 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 09:38:30.4263 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 09:38:30.4449 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 09:38:30.4608 Info Configuration initialized.
+2023-07-20 09:38:30.4608 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 09:39:24.2517 Info Message Template Auto Format enabled
+2023-07-20 09:39:24.2942 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 09:39:24.2942 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 09:39:24.3192 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 09:39:24.3411 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 09:39:24.3952 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 09:39:24.3952 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 09:39:24.3952 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 09:39:24.4098 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 09:39:24.4098 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 09:39:24.4098 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 09:39:24.4468 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 09:39:24.4715 Info Configuration initialized.
+2023-07-20 09:39:24.4729 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 09:40:43.8631 Info Message Template Auto Format enabled
+2023-07-20 09:40:43.8929 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 09:40:43.8929 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 09:40:43.9144 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 09:40:43.9331 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 09:40:43.9823 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 09:40:43.9823 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 09:40:43.9823 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 09:40:43.9954 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 09:40:43.9954 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 09:40:43.9954 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 09:40:44.0239 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 09:40:44.0560 Info Configuration initialized.
+2023-07-20 09:40:44.0560 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 09:42:22.2265 Info Message Template Auto Format enabled
+2023-07-20 09:42:22.2586 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 09:42:22.2586 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 09:42:22.2781 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 09:42:22.2917 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 09:42:22.3360 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 09:42:22.3360 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 09:42:22.3360 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 09:42:22.3495 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 09:42:22.3495 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 09:42:22.3495 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 09:42:22.3703 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 09:42:22.3965 Info Configuration initialized.
+2023-07-20 09:42:22.3965 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 09:43:02.8332 Info Message Template Auto Format enabled
+2023-07-20 09:43:02.8673 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 09:43:02.8673 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 09:43:02.8882 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 09:43:02.9044 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 09:43:02.9493 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 09:43:02.9493 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 09:43:02.9493 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 09:43:02.9626 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 09:43:02.9626 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 09:43:02.9626 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 09:43:02.9844 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 09:43:02.9965 Info Configuration initialized.
+2023-07-20 09:43:02.9965 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 09:43:43.0807 Info Message Template Auto Format enabled
+2023-07-20 09:43:43.1196 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 09:43:43.1196 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 09:43:43.1438 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 09:43:43.1590 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 09:43:43.2041 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 09:43:43.2041 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 09:43:43.2099 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 09:43:43.2099 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 09:43:43.2099 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 09:43:43.2099 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 09:43:43.2384 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 09:43:43.2523 Info Configuration initialized.
+2023-07-20 09:43:43.2523 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 10:24:40.3844 Info Message Template Auto Format enabled
+2023-07-20 10:24:40.4430 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 10:24:40.4430 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 10:24:40.4770 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 10:24:40.5127 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 10:24:40.6001 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 10:24:40.6154 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 10:24:40.6220 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 10:24:40.6402 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 10:24:40.6402 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 10:24:40.6402 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 10:24:40.6643 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 10:24:40.6891 Info Configuration initialized.
+2023-07-20 10:24:40.6891 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 10:29:31.9616 Info Message Template Auto Format enabled
+2023-07-20 10:29:31.9912 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 10:29:31.9912 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 10:29:32.0132 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 10:29:32.0291 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 10:29:32.0738 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 10:29:32.0747 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 10:29:32.0747 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 10:29:32.0747 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 10:29:32.0907 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 10:29:32.0907 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 10:29:32.1109 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 10:29:32.1243 Info Configuration initialized.
+2023-07-20 10:29:32.1243 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 10:30:55.4101 Info Message Template Auto Format enabled
+2023-07-20 10:30:55.4448 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 10:30:55.4448 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 10:30:55.4726 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 10:30:55.4945 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 10:30:55.5560 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 10:30:55.5594 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 10:30:55.5594 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 10:30:55.5753 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 10:30:55.5753 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 10:30:55.5753 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 10:30:55.6019 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 10:30:55.6254 Info Configuration initialized.
+2023-07-20 10:30:55.6254 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 10:33:35.2238 Info Message Template Auto Format enabled
+2023-07-20 10:33:35.2602 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 10:33:35.2602 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 10:33:35.2804 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 10:33:35.2956 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 10:33:35.3446 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 10:33:35.3446 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 10:33:35.3446 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 10:33:35.3604 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 10:33:35.3604 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 10:33:35.3604 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 10:33:35.3901 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 10:33:35.4167 Info Configuration initialized.
+2023-07-20 10:33:35.4229 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 13:50:30.2848 Info Message Template Auto Format enabled
+2023-07-20 13:50:32.7130 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 13:50:32.7130 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 13:50:38.6263 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 13:50:40.7850 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 13:50:40.8586 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 13:50:40.8586 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 13:50:40.8689 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 13:50:40.8863 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 13:50:40.8863 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 13:50:40.8863 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 13:50:40.9203 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 13:50:40.9366 Info Configuration initialized.
+2023-07-20 13:50:40.9366 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 14:05:01.1944 Info Message Template Auto Format enabled
+2023-07-20 14:05:01.2220 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 14:05:01.2220 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 14:05:01.2393 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 14:05:01.2530 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 14:05:01.2972 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 14:05:01.2972 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 14:05:01.2972 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 14:05:01.3107 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 14:05:01.3107 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 14:05:01.3107 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 14:05:01.3256 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 14:05:01.3256 Info Configuration initialized.
+2023-07-20 14:05:01.3256 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 14:23:45.2198 Info Message Template Auto Format enabled
+2023-07-20 14:23:45.2492 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 14:23:45.2492 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 14:23:45.2668 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 14:23:45.2794 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 14:23:45.3201 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 14:23:45.3201 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 14:23:45.3201 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 14:23:45.3201 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 14:23:45.3330 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 14:23:45.3330 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 14:23:45.3330 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 14:23:45.3572 Info Configuration initialized.
+2023-07-20 14:23:45.3572 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 14:44:41.9881 Info Message Template Auto Format enabled
+2023-07-20 14:44:42.0286 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 14:44:42.0286 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 14:44:42.0511 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 14:44:42.0632 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 14:44:42.1010 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 14:44:42.1010 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 14:44:42.1010 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 14:44:42.1106 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 14:44:42.1106 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 14:44:42.1106 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 14:44:42.1269 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 14:44:42.1395 Info Configuration initialized.
+2023-07-20 14:44:42.1395 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 14:57:14.1655 Info Message Template Auto Format enabled
+2023-07-20 14:57:14.2009 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 14:57:14.2009 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 14:57:14.2252 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 14:57:14.2434 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 14:57:14.2722 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 14:57:14.2854 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 14:57:14.2854 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 14:57:14.2854 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 14:57:14.2854 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 14:57:14.2854 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 14:57:14.3145 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 14:57:14.3268 Info Configuration initialized.
+2023-07-20 14:57:14.3268 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 15:01:31.2914 Info Message Template Auto Format enabled
+2023-07-20 15:01:31.3283 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 15:01:31.3283 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 15:01:31.3514 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 15:01:31.3663 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 15:01:31.4047 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 15:01:31.4047 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 15:01:31.4047 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 15:01:31.4137 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 15:01:31.4137 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 15:01:31.4137 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 15:01:31.4324 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 15:01:31.4324 Info Configuration initialized.
+2023-07-20 15:01:31.4441 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 15:03:55.0480 Info Message Template Auto Format enabled
+2023-07-20 15:03:55.0980 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 15:03:55.0980 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 15:03:55.1262 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 15:03:55.1469 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 15:03:55.2023 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 15:03:55.2023 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 15:03:55.2023 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 15:03:55.2130 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 15:03:55.2130 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 15:03:55.2130 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 15:03:55.2328 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 15:03:55.2464 Info Configuration initialized.
+2023-07-20 15:03:55.2464 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 15:05:59.0711 Info Message Template Auto Format enabled
+2023-07-20 15:05:59.1066 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 15:05:59.1066 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 15:05:59.1294 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 15:05:59.1454 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 15:05:59.1906 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 15:05:59.1906 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 15:05:59.1906 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 15:05:59.2008 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 15:05:59.2008 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 15:05:59.2008 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 15:05:59.2260 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 15:05:59.2590 Info Configuration initialized.
+2023-07-20 15:05:59.2590 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 15:08:06.0251 Info Message Template Auto Format enabled
+2023-07-20 15:08:06.0668 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 15:08:06.0668 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 15:08:06.0969 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 15:08:06.1156 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 15:08:06.1785 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 15:08:06.1812 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 15:08:06.1812 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 15:08:06.1978 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 15:08:06.1978 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 15:08:06.1978 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 15:08:06.2211 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 15:08:06.2381 Info Configuration initialized.
+2023-07-20 15:08:06.2381 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 15:10:06.1199 Info Message Template Auto Format enabled
+2023-07-20 15:10:06.1669 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 15:10:06.1669 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 15:10:06.1919 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 15:10:06.2137 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 15:10:06.2738 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 15:10:06.2771 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 15:10:06.2771 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 15:10:06.2966 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 15:10:06.2966 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 15:10:06.2966 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 15:10:06.3334 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 15:10:06.3544 Info Configuration initialized.
+2023-07-20 15:10:06.3544 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 15:11:19.1173 Info Message Template Auto Format enabled
+2023-07-20 15:11:19.1598 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 15:11:19.1598 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 15:11:19.1806 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 15:11:19.1960 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 15:11:19.2494 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 15:11:19.2494 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 15:11:19.2494 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 15:11:19.2620 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 15:11:19.2620 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 15:11:19.2620 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 15:11:19.2940 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 15:11:19.3176 Info Configuration initialized.
+2023-07-20 15:11:19.3176 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 15:31:50.1354 Info Message Template Auto Format enabled
+2023-07-20 15:31:50.1705 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 15:31:50.1705 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 15:31:50.1929 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 15:31:50.3004 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 15:31:50.3389 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 15:31:50.3389 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 15:31:50.3389 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 15:31:50.3508 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 15:31:50.3508 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 15:31:50.3508 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 15:31:50.3771 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 15:31:50.4006 Info Configuration initialized.
+2023-07-20 15:31:50.4006 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 15:34:17.7689 Info Message Template Auto Format enabled
+2023-07-20 15:34:17.8075 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 15:34:17.8075 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 15:34:17.8328 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 15:34:17.8505 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 15:34:17.9416 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 15:34:17.9458 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 15:34:17.9584 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 15:34:17.9772 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 15:34:17.9772 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 15:34:17.9772 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 15:34:18.0008 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 15:34:18.0632 Info Configuration initialized.
+2023-07-20 15:34:18.0733 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 15:34:43.6832 Info Message Template Auto Format enabled
+2023-07-20 15:34:43.7333 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 15:34:43.7333 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 15:34:43.7617 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 15:34:43.7781 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 15:34:43.8363 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 15:34:43.8363 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 15:34:43.8363 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 15:34:43.8528 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 15:34:43.8528 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 15:34:43.8528 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 15:34:43.9057 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 15:34:43.9272 Info Configuration initialized.
+2023-07-20 15:34:43.9279 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 16:20:57.3809 Info Message Template Auto Format enabled
+2023-07-20 16:20:57.4372 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 16:20:57.4372 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 16:20:57.8519 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 16:20:57.8784 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 16:20:57.9860 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 16:20:57.9860 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 16:20:57.9954 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 16:20:57.9954 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 16:20:57.9954 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 16:20:57.9954 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 16:20:58.0288 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 16:20:58.0444 Info Configuration initialized.
+2023-07-20 16:20:58.0444 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 16:26:39.6665 Info Message Template Auto Format enabled
+2023-07-20 16:26:39.7086 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 16:26:39.7086 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 16:26:39.7297 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 16:26:39.7459 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 16:26:39.7861 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 16:26:39.7861 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 16:26:39.7861 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 16:26:39.7949 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 16:26:39.7949 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 16:26:39.7949 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 16:26:39.8171 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 16:26:39.8283 Info Configuration initialized.
+2023-07-20 16:26:39.8283 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 16:27:43.1918 Info Message Template Auto Format enabled
+2023-07-20 16:27:43.3179 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 16:27:43.3179 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 16:27:43.3403 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 16:27:43.3635 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 16:27:43.4203 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 16:27:43.4203 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 16:27:43.4203 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 16:27:43.4390 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 16:27:43.4390 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 16:27:43.4390 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 16:27:43.4776 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 16:27:43.5023 Info Configuration initialized.
+2023-07-20 16:27:43.5023 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 16:28:55.1717 Info Message Template Auto Format enabled
+2023-07-20 16:28:55.2158 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 16:28:55.2158 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 16:28:55.2376 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 16:28:55.2583 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 16:28:55.3068 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 16:28:55.3068 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 16:28:55.3068 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 16:28:55.3157 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 16:28:55.3157 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 16:28:55.3157 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 16:28:55.3334 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 16:28:55.3447 Info Configuration initialized.
+2023-07-20 16:28:55.3447 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 16:42:58.6920 Info Message Template Auto Format enabled
+2023-07-20 16:42:58.7252 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 16:42:58.7252 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 16:42:58.7473 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 16:42:58.7622 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 16:42:58.7874 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 16:42:58.7874 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 16:42:58.8035 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 16:42:58.8035 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 16:42:58.8035 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 16:42:58.8035 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 16:42:58.8291 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 16:42:58.8404 Info Configuration initialized.
+2023-07-20 16:42:58.8404 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 16:59:36.4143 Info Message Template Auto Format enabled
+2023-07-20 16:59:36.4485 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 16:59:36.4485 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 16:59:36.4690 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 16:59:36.4841 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 16:59:36.5305 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 16:59:36.5305 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 16:59:36.5305 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 16:59:36.5477 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 16:59:36.5477 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 16:59:36.5477 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 16:59:36.5683 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 16:59:36.5914 Info Configuration initialized.
+2023-07-20 16:59:36.5914 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 17:00:14.2131 Info Message Template Auto Format enabled
+2023-07-20 17:00:14.2517 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 17:00:14.2517 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 17:00:14.2786 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 17:00:14.2952 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 17:00:14.3520 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 17:00:14.3520 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 17:00:14.3572 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 17:00:14.3759 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 17:00:14.3881 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 17:00:14.3881 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 17:00:14.4320 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 17:00:14.4749 Info Configuration initialized.
+2023-07-20 17:00:14.4749 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 17:02:12.8632 Info Message Template Auto Format enabled
+2023-07-20 17:02:12.9015 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 17:02:12.9015 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 17:02:12.9291 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 17:02:12.9482 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 17:02:13.0187 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 17:02:13.0187 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 17:02:13.0187 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 17:02:13.0307 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 17:02:13.0307 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 17:02:13.0307 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 17:02:13.0573 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 17:02:13.0734 Info Configuration initialized.
+2023-07-20 17:02:13.0734 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 17:05:44.8516 Info Message Template Auto Format enabled
+2023-07-20 17:05:44.9268 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 17:05:44.9268 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 17:05:45.0441 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 17:05:45.0615 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 17:05:45.1276 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 17:05:45.1276 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 17:05:45.1276 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 17:05:45.1494 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 17:05:45.1494 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 17:05:45.1494 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 17:05:45.1704 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 17:05:45.1871 Info Configuration initialized.
+2023-07-20 17:05:45.1871 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 17:16:03.0128 Info Message Template Auto Format enabled
+2023-07-20 17:16:04.6506 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 17:16:04.6506 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 17:16:07.7257 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 17:16:09.0346 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 17:16:09.0752 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 17:16:09.0752 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 17:16:09.0752 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 17:16:09.0859 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 17:16:09.0859 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 17:16:09.0859 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 17:16:09.1027 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 17:16:09.1145 Info Configuration initialized.
+2023-07-20 17:16:09.1145 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-20 17:19:26.7401 Info Message Template Auto Format enabled
+2023-07-20 17:19:26.7741 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-20 17:19:26.7741 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-20 17:19:26.7960 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-20 17:19:26.8103 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-20 17:19:26.8513 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-20 17:19:26.8513 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-20 17:19:26.8513 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-20 17:19:26.8657 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-20 17:19:26.8657 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-20 17:19:26.8657 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-20 17:19:26.8833 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-20 17:19:26.8990 Info Configuration initialized.
+2023-07-20 17:19:26.8990 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False

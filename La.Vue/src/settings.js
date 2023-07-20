@@ -2,7 +2,7 @@ export default {
   /**
    * 框架版本号
    */
-  version: '2.0.0',
+  version: '4.0.0',
   /**
    * 网页标题
    */
@@ -13,24 +13,12 @@ export default {
   sideTheme: 'theme-dark',
   /**
    * 框架主题颜色值
-   * Darkorange／暗橙／#ff8c00
-   * Gold／金色／#ffd700
-   * Orangered／橙紅／#ff4500
-   * Lightgreen／亮綠／#90ee90
-   * Royalblue／品藍／皇室藍／#4169e1
-   * Darkturquoise／暗綠松石色／#00ced1
-   * Dodgerblue／道奇藍／#1e90ff
-   * Deepskyblue／深天藍／#00bfff
-   * 鼠尾草藍／#4d80e6
-   * Cornflowerblue／矢車菊藍／#6495ed
-   * 湛藍／蔚藍色／#007fff
-   * Mediumvioletred／中青紫紅／#c71585
    */
-  theme: '#6495ed',
+  theme: '#409EFF',
   /**
    * 是否系统布局配置
    */
-  showSettings: true,
+  showSettings: false,
 
   /**
    * 是否显示顶部导航
@@ -79,12 +67,7 @@ export default {
   /**
    * 水印文案
    */
-  watermarkText: 'Laplace.NET',
-  /**
-    * 允许注册
-    */
-  register: false,
-
+  watermarkText: '灵兰软件Lean',
   /**
    * 是否显示其他登录
    */
@@ -92,5 +75,9 @@ export default {
   /**
    * 默认大小
    */
-  defaultSize: 'default'
+  defaultSize: 'default',
+  /**
+   * 默认语言
+   */
+  defaultLang: 'zh-cn'
 }

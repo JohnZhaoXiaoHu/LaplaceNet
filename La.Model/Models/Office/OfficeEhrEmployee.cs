@@ -1,14 +1,11 @@
-using System;
-using SqlSugar;
-using System.Collections.Generic;
 
-namespace La.Model.Models
+namespace La.Model.Office
 {
     /// <summary>
-    /// 人事信息，数据实体对象
-    ///
-    /// @author Davis.Ching
-    /// @date 2023-05-16
+    /// 人事信息
+    /// 数据实体对象
+    /// @author Lean365
+    /// @date 2023-07-20
     /// </summary>
     [SugarTable("office_ehr_employee")]
     public class OfficeEhrEmployee
@@ -66,25 +63,25 @@ namespace La.Model.Models
         /// 描述 :婚姻状态 
         /// 空值 :false 
         /// </summary>
-        public byte EeWedlock { get; set; }
+        public string EeWedlock { get; set; }
 
         /// <summary>
         /// 描述 :民族 
         /// 空值 :false 
         /// </summary>
-        public byte EeNationId { get; set; }
+        public string EeNationId { get; set; }
 
         /// <summary>
         /// 描述 :籍贯 
         /// 空值 :false 
         /// </summary>
-        public byte EeNativePlace { get; set; }
+        public string EeNativePlace { get; set; }
 
         /// <summary>
         /// 描述 :政治面貌 
         /// 空值 :false 
         /// </summary>
-        public byte EePoliticId { get; set; }
+        public string EePoliticId { get; set; }
 
         /// <summary>
         /// 描述 :邮件 
@@ -138,7 +135,7 @@ namespace La.Model.Models
         /// 描述 :户口性质 
         /// 空值 :true 
         /// </summary>
-        public byte EeHouseholdType { get; set; }
+        public string EeHouseholdType { get; set; }
 
         /// <summary>
         /// 描述 :暂住地址 
@@ -222,19 +219,19 @@ namespace La.Model.Models
         /// 描述 :在职状态 
         /// 空值 :true 
         /// </summary>
-        public byte EeWorkState { get; set; }
+        public string EeWorkState { get; set; }
 
         /// <summary>
         /// 描述 :试用期 
         /// 空值 :true 
         /// </summary>
-        public byte EeProbation { get; set; }
+        public string EeProbation { get; set; }
 
         /// <summary>
         /// 描述 :合同期限 
         /// 空值 :true 
         /// </summary>
-        public byte EeContractTerm { get; set; }
+        public string EeContractTerm { get; set; }
 
         /// <summary>
         /// 描述 :转正日期 
@@ -363,10 +360,10 @@ namespace La.Model.Models
         public bool IsDeleted { get; set; }
 
         /// <summary>
-        /// 描述 :ReMark 
+        /// 描述 :Remark 
         /// 空值 :true 
         /// </summary>
-        public string ReMark { get; set; }
+        public string Remark { get; set; }
 
         /// <summary>
         /// 描述 :CreateBy 

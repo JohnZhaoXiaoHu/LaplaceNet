@@ -3,9 +3,11 @@ using La.Infra.Attribute;
 using La.Infra.Enums;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections;
+using La.WebApi.Extensions;
 using La.WebApi.Filters;
 using La.Common;
 using La.Model.System;
+using La.Model.System.Dto;
 using La.Service.System.IService;
 
 namespace La.WebApi.Controllers.System
@@ -32,7 +34,7 @@ namespace La.WebApi.Controllers.System
         /// <returns></returns>
         [ActionPermissionFilter(Permission = "system:dept:list")]
         [HttpGet("list")]
-        public IActionResult List([FromQuery] SysDept dept)
+        public IActionResult List([FromQuery] SysDeptQueryDto dept)
         {
             return SUCCESS(DeptService.GetSysDepts(dept), TIME_FORMAT_FULL);
         }
@@ -45,7 +47,7 @@ namespace La.WebApi.Controllers.System
         [HttpGet("list/exclude/{deptId}")]
         public IActionResult ExcludeChild(long deptId)
         {
-            var depts = DeptService.GetSysDepts(new SysDept());
+            var depts = DeptService.GetSysDepts(new SysDeptQueryDto());
 
             for (int i = 0; i < depts.Count; i++)
             {
@@ -65,7 +67,7 @@ namespace La.WebApi.Controllers.System
         /// <param name="dept"></param>
         /// <returns></returns>
         [HttpGet("treeselect")]
-        public IActionResult TreeSelect(SysDept dept)
+        public IActionResult TreeSelect(SysDeptQueryDto dept)
         {
             var depts = DeptService.GetSysDepts(dept);
 
@@ -81,7 +83,7 @@ namespace La.WebApi.Controllers.System
         [HttpGet("roleDeptTreeselect/{roleId}")]
         public IActionResult RoleMenuTreeselect(int roleId)
         {
-            var depts = DeptService.GetSysDepts(new SysDept());
+            var depts = DeptService.GetSysDepts(new SysDeptQueryDto());
             var checkedKeys = DeptService.SelectRoleDepts(roleId);
             return SUCCESS(new
             {
@@ -114,10 +116,10 @@ namespace La.WebApi.Controllers.System
         {
             if (UserConstants.NOT_UNIQUE.Equals(DeptService.CheckDeptNameUnique(dept)))
             {
-                return ToResponse(GetApiResult(ResultCode.CUSTOM_ERROR, $"新增部门{dept.DeptName}失败，部门名称已存在"));
+                return ToResponse(ResultCode.CUSTOM_ERROR, $"新增部门{dept.DeptName}失败，部门名称已存在");
             }
-            dept.Create_by = User.Identity.Name;
-            return ToResponse(ToJson(DeptService.InsertDept(dept)));
+            dept.Create_by = HttpContext.GetName();
+            return ToResponse(DeptService.InsertDept(dept));
         }
 
         /// <summary>
@@ -132,14 +134,14 @@ namespace La.WebApi.Controllers.System
         {
             if (UserConstants.NOT_UNIQUE.Equals(DeptService.CheckDeptNameUnique(dept)))
             {
-                return ToResponse(GetApiResult(ResultCode.CUSTOM_ERROR, $"修改部门{dept.DeptName}失败，部门名称已存在"));
+                return ToResponse(ResultCode.CUSTOM_ERROR, $"修改部门{dept.DeptName}失败，部门名称已存在");
             }
             else if (dept.ParentId.Equals(dept.DeptId))
             {
-                return ToResponse(GetApiResult(ResultCode.CUSTOM_ERROR, $"修改部门{dept.DeptName}失败，上级部门不能是自己"));
+                return ToResponse(ResultCode.CUSTOM_ERROR, $"修改部门{dept.DeptName}失败，上级部门不能是自己");
             }
-            dept.Update_by = User.Identity.Name;
-            return ToResponse(ToJson(DeptService.UpdateDept(dept)));
+            dept.Update_by = HttpContext.GetName();
+            return ToResponse(DeptService.UpdateDept(dept));
         }
 
         /// <summary>
@@ -151,15 +153,15 @@ namespace La.WebApi.Controllers.System
         [Log(Title = "部门管理", BusinessType = BusinessType.DELETE)]
         public IActionResult Remove(long deptId)
         {
-            if (DeptService.Queryable().Count(it => it.ParentId == deptId && it.IsDeleted == "0") > 0)
+            if (DeptService.Queryable().Count(it => it.ParentId == deptId && it.IsDeleted == 0) > 0)
             {
-                return ToResponse(GetApiResult(ResultCode.CUSTOM_ERROR, $"存在下级部门，不允许删除"));
+                return ToResponse(ResultCode.CUSTOM_ERROR, $"存在下级部门，不允许删除");
             }
-            if (UserService.Queryable().Count(it => it.DeptId == deptId && it.IsDeleted == "0") > 0)
+            if (UserService.Queryable().Count(it => it.DeptId == deptId && it.IsDeleted == 0) > 0)
             {
-                return ToResponse(GetApiResult(ResultCode.CUSTOM_ERROR, $"部门存在用户，不允许删除"));
+                return ToResponse(ResultCode.CUSTOM_ERROR, $"部门存在用户，不允许删除");
             }
-            
+
             return SUCCESS(DeptService.Delete(deptId));
         }
     }

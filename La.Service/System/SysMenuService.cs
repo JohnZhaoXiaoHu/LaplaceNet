@@ -7,6 +7,8 @@ using System.Linq;
 using La.Common;
 using La.Model.System;
 using La.Model.System.Dto;
+using La.Model.System.Enums;
+using La.Model.System.Generate;
 using La.Model.System.Vo;
 using La.Service.System.IService;
 
@@ -31,17 +33,11 @@ namespace La.Service
         /// <returns></returns>
         public List<SysMenu> SelectTreeMenuList(MenuQueryDto menu, long userId)
         {
-            List<SysMenu> menuList;
-            //if (SysRoleService.IsAdmin(userId))
-            //{
-            //    menuList = SelectTreeMenuList(menu);
-            //}
-            //else
-            //{
-            //    var userRoles = SysRoleService.SelectUserRoles(userId);
-            //    menuList = SelectTreeMenuListByRoles(menu, userRoles);
-            //}
-            menuList = BuildMenuTree(SelectMenuList(menu, userId));
+            if (menu.ParentId != null)
+            {
+                return GetMenusByMenuId(menu.ParentId.ParseToInt(), userId);
+            }
+            List<SysMenu> menuList = BuildMenuTree(SelectMenuList(menu, userId));
             return menuList;
         }
 
@@ -106,10 +102,10 @@ namespace La.Service
         /// </summary>
         /// <param name="menu"></param>
         /// <returns></returns>
-        public int AddMenu(SysMenu menu)
+        public long AddMenu(SysMenu menu)
         {
             menu.Create_time = DateTime.Now;
-            return InsertReturnIdentity(menu);
+            return InsertReturnBigIdentity(menu);
         }
 
         /// <summary>
@@ -117,7 +113,7 @@ namespace La.Service
         /// </summary>
         /// <param name="menu"></param>
         /// <returns></returns>
-        public int EditMenu(SysMenu menu)
+        public long EditMenu(SysMenu menu)
         {
             menu.Icon = string.IsNullOrEmpty(menu.Icon) ? "" : menu.Icon;
             return Update(menu, false);
@@ -181,7 +177,7 @@ namespace La.Service
         /// <returns></returns>
         public List<SysMenu> SelectMenuTreeByUserId(long userId)
         {
-            MenuQueryDto dto = new() { Status = "0", MenuTypeIds = "M,C" };
+            MenuQueryDto dto = new() { Status = 0, MenuTypeIds = "M,C" };
             if (SysRoleService.IsAdmin(userId))
             {
                 return SelectTreeMenuList(dto);
@@ -205,7 +201,8 @@ namespace La.Service
                 JoinType.Left, rm.Role_id == ur.RoleId,
                 JoinType.Left, ur.RoleId == r.RoleId
                 ))
-                .Where((m, rm, ur, r) => m.Status == "0" && r.Status == "0" && ur.UserId == userId)
+                .WithCache(60 * 10)
+                .Where((m, rm, ur, r) => m.Status ==0 && r.Status == 0 && ur.UserId == userId)
                 .Select((m, rm, ur, r) => m).ToList();
             var menuList = menus.Where(f => !string.IsNullOrEmpty(f.Perms));
 
@@ -218,7 +215,7 @@ namespace La.Service
         /// <param name="menu"></param>
         /// <param name="roles">用户角色集合</param>
         /// <returns></returns>
-        private List<SysMenu> SelectTreeMenuListByRoles(MenuQueryDto menu, List<long> roles)
+        public List<SysMenu> SelectTreeMenuListByRoles(MenuQueryDto menu, List<long> roles)
         {
             var roleMenus = Context.Queryable<SysRoleMenu>()
                 .Where(r => roles.Contains(r.Role_id))
@@ -228,11 +225,38 @@ namespace La.Service
                 .Where(c => roleMenus.Contains(c.MenuId))
                 .WhereIF(!string.IsNullOrEmpty(menu.MenuName), (c) => c.MenuName.Contains(menu.MenuName))
                 .WhereIF(!string.IsNullOrEmpty(menu.Visible), (c) => c.Visible == menu.Visible)
-                .WhereIF(!string.IsNullOrEmpty(menu.Status), (c) => c.Status == menu.Status)
+                .WhereIF(!string.IsNullOrEmpty(menu.Status.ToString()), (c) => c.Status == menu.Status)
                 .WhereIF(!string.IsNullOrEmpty(menu.MenuTypeIds), c => menu.MenuTypeIdArr.Contains(c.MenuType))
                 .OrderBy((c) => new { c.ParentId, c.OrderNum })
                 .Select(c => c)
                 .ToTree(it => it.Children, it => it.ParentId, 0);
+        }
+
+        /// <summary>
+        /// 根据用户查询系统菜单列表
+        /// </summary>
+        /// <param name="menu"></param>
+        /// <param name="roleId">用户角色</param>
+        /// <returns></returns>
+        public List<RoleMenuExportDto> SelectRoleMenuListByRole(MenuQueryDto menu, int roleId)
+        {
+            var menuIds = Context.Queryable<SysRoleMenu>()
+                .Where(r => r.Role_id == roleId)
+                .Select(f => f.Menu_id).Distinct().ToList();
+
+            return Context.Queryable<SysMenu>()
+                .InnerJoin<SysMenu>((t1, t2) => t1.MenuId == t2.ParentId)
+                .InnerJoin<SysMenu>((t1, t2, t3) => t2.MenuId == t3.ParentId)
+                .Where((t1, t2, t3) => menuIds.Contains(t1.MenuId))
+                .Select((t1, t2, t3) => new RoleMenuExportDto()
+                {
+                    MenuName = $"{t1.MenuName}->{t2.MenuName}->{t3.MenuName}",
+                    Path = t2.Path,
+                    Component = t2.Component,
+                    Perms = t3.Perms,
+                    MenuType = (MenuType)(object)t3.MenuType,
+                    Status = (MenuStatus)(object)t3.Status
+                }).ToList();
         }
 
         /// <summary>
@@ -241,14 +265,17 @@ namespace La.Service
         /// <returns></returns>
         private List<SysMenu> SelectMenuList(MenuQueryDto menu)
         {
+            var menuExp = Expressionable.Create<SysMenu>();
+            menuExp.AndIF(!string.IsNullOrEmpty(menu.MenuName), it => it.MenuName.Contains(menu.MenuName));
+            menuExp.AndIF(!string.IsNullOrEmpty(menu.Visible), it => it.Visible == menu.Visible);
+            menuExp.AndIF(!string.IsNullOrEmpty(menu.Status.ToString()), it => it.Status == menu.Status);
+            menuExp.AndIF(!string.IsNullOrEmpty(menu.MenuTypeIds), it => menu.MenuTypeIdArr.Contains(it.MenuType));
+            menuExp.AndIF(menu.ParentId != null, it => it.ParentId == menu.ParentId);
+
             return Queryable()
-                .WhereIF(!string.IsNullOrEmpty(menu.MenuName), it => it.MenuName.Contains(menu.MenuName))
-                .WhereIF(!string.IsNullOrEmpty(menu.Visible), it => it.Visible == menu.Visible)
-                .WhereIF(!string.IsNullOrEmpty(menu.Status), it => it.Status == menu.Status)
-                .WhereIF(!string.IsNullOrEmpty(menu.MenuTypeIds), it => menu.MenuTypeIdArr.Contains(it.MenuType))
-                .WhereIF(menu.ParentId != null, it => it.ParentId == menu.ParentId)
-                .OrderBy(it => new { it.ParentId, it.OrderNum })
-                .ToList();
+            .Where(menuExp.ToExpression())
+            .OrderBy(it => new { it.ParentId, it.OrderNum })
+            .ToList();
         }
 
         /// <summary>
@@ -264,7 +291,7 @@ namespace La.Service
 
             return Queryable()
                 .InnerJoin(roleMenus, (c, j) => c.MenuId == j.Menu_id)
-                .Where((c, j) => c.Status == "0")
+                .Where((c, j) => c.Status ==0)
                 .WhereIF(!string.IsNullOrEmpty(sysMenu.MenuName), (c, j) => c.MenuName.Contains(sysMenu.MenuName))
                 .WhereIF(!string.IsNullOrEmpty(sysMenu.Visible), (c, j) => c.Visible == sysMenu.Visible)
                 .OrderBy((c, j) => new { c.ParentId, c.OrderNum })
@@ -281,9 +308,10 @@ namespace La.Service
             int parentId = menu.ParentId != null ? (int)menu.ParentId : 0;
 
             var list = Queryable()
+                .WithCache(60 * 10)
                 .WhereIF(!string.IsNullOrEmpty(menu.MenuName), it => it.MenuName.Contains(menu.MenuName))
                 .WhereIF(!string.IsNullOrEmpty(menu.Visible), it => it.Visible == menu.Visible)
-                .WhereIF(!string.IsNullOrEmpty(menu.Status), it => it.Status == menu.Status)
+                .WhereIF(!string.IsNullOrEmpty(menu.Status.ToString()), it => it.Status == menu.Status)
                 .WhereIF(!string.IsNullOrEmpty(menu.MenuTypeIds), it => menu.MenuTypeIdArr.Contains(it.MenuType))
                 .WhereIF(menu.ParentId != null, it => it.ParentId == menu.ParentId)
                 .OrderBy(it => new { it.ParentId, it.OrderNum })
@@ -559,5 +587,110 @@ namespace La.Service
         }
         #endregion
 
+
+        public void AddSysMenu(GenTable genTableInfo, string permPrefix, bool showEdit, bool showExport)
+        {
+            var menu = GetFirst(f => f.MenuName == genTableInfo.FunctionName);
+            if (menu is null)
+            {
+                menu = new()
+                {
+                    MenuName = genTableInfo.FunctionName,
+                    ParentId = genTableInfo.Options.ParentMenuId,
+                    OrderNum = 0,
+                    Path = genTableInfo.BusinessName,
+                    Component = $"{genTableInfo.ModuleName.FirstLowerCase()}/{genTableInfo.BusinessName}",
+                    Perms = $"{permPrefix}:list",
+                    IsCache = "1",
+                    MenuType = "C",
+                    Visible = "0",
+                    Status = 0,
+                    Icon = "icon1",
+                    Create_by = "system",
+                };
+                menu.MenuId = AddMenu(menu);
+            }
+
+            List<SysMenu> menuList = new();
+
+            SysMenu menuQuery = new()
+            {
+                MenuName = "查询",
+                ParentId = menu.MenuId,
+                OrderNum = 1,
+                Perms = $"{permPrefix}:query",
+                MenuType = "F",
+                Visible = "0",
+                Status = 0,
+                Icon = "",
+            };
+            SysMenu menuAdd = new()
+            {
+                MenuName = "新增",
+                ParentId = menu.MenuId,
+                OrderNum = 2,
+                Perms = $"{permPrefix}:add",
+                MenuType = "F",
+                Visible = "0",
+                Status = 0,
+                Icon = "",
+            };
+            SysMenu menuDel = new()
+            {
+                MenuName = "删除",
+                ParentId = menu.MenuId,
+                OrderNum = 3,
+                Perms = $"{permPrefix}:delete",
+                MenuType = "F",
+                Visible = "0",
+                Status = 0,
+                Icon = "",
+            };
+
+            SysMenu menuEdit = new()
+            {
+                MenuName = "修改",
+                ParentId = menu.MenuId,
+                OrderNum = 4,
+                Perms = $"{permPrefix}:edit",
+                MenuType = "F",
+                Visible = "0",
+                Status = 0,
+                Icon = "",
+            };
+
+            SysMenu menuExport = new()
+            {
+                MenuName = "导出",
+                ParentId = menu.MenuId,
+                OrderNum = 5,
+                Perms = $"{permPrefix}:export",
+                MenuType = "F",
+                Visible = "0",
+                Status = 0,
+                Icon = "",
+            };
+
+            menuList.Add(menuQuery);
+            menuList.Add(menuAdd);
+            menuList.Add(menuDel);
+            if (showEdit)
+            {
+                menuList.Add(menuEdit);
+            }
+            if (showExport)
+            {
+                menuList.Add(menuExport);
+            }
+            //Insert(menuList);
+
+            var x = Storageable(menuList)
+                .SplitInsert(it => !it.Any())
+                .SplitUpdate(it => !it.Any())
+                .WhereColumns(it => new { it.MenuName, it.ParentId })
+                .ToStorage();
+            x.AsInsertable.ExecuteCommand();//插入可插入部分;
+            x.AsUpdateable.ExecuteCommand();
+        }
     }
 }

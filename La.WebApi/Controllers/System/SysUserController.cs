@@ -9,6 +9,7 @@ using La.WebApi.Extensions;
 using La.WebApi.Filters;
 using La.Model;
 using La.Model.System;
+using La.Model.System.Dto;
 using La.Service.System.IService;
 
 namespace La.WebApi.Controllers.System
@@ -44,7 +45,7 @@ namespace La.WebApi.Controllers.System
         /// <returns></returns>
         [ActionPermissionFilter(Permission = "system:user:list")]
         [HttpGet("list")]
-        public IActionResult List([FromQuery] SysUser user, PagerInfo pager)
+        public IActionResult List([FromQuery] SysUserQueryDto user, PagerInfo pager)
         {
             var list = UserService.SelectUserList(user, pager);
 
@@ -76,7 +77,7 @@ namespace La.WebApi.Controllers.System
                 dic.Add("roleIds", sysUser.RoleIds);
             }
 
-            return ToResponse(ApiResult.Success(dic));
+            return SUCCESS(dic);
         }
 
         /// <summary>
@@ -132,7 +133,7 @@ namespace La.WebApi.Controllers.System
             if (user == null) { return ToResponse(ApiResult.Error(101, "请求参数错误")); }
 
             int result = UserService.ChangeUserStatus(user);
-            return ToResponse(ToJson(result));
+            return ToResponse(result);
         }
 
         /// <summary>
@@ -149,7 +150,7 @@ namespace La.WebApi.Controllers.System
             if (userid == 1) return ToResponse(La.Infra.ResultCode.FAIL, "不能删除管理员账号");
             int result = UserService.DeleteUser(userid);
 
-            return ToResponse(ToJson(result));
+            return ToResponse(result);
         }
 
         /// <summary>
@@ -165,7 +166,7 @@ namespace La.WebApi.Controllers.System
             sysUser.Password = NETCore.Encrypt.EncryptProvider.Md5(sysUser.Password);
 
             int result = UserService.ResetPwd(sysUser.UserId, sysUser.Password);
-            return ToResponse(ToJson(result));
+            return ToResponse(result);
         }
 
         /// <summary>
@@ -181,7 +182,7 @@ namespace La.WebApi.Controllers.System
             List<SysUser> users = new();
             using (var stream = formFile.OpenReadStream())
             {
-                users = stream.Query<SysUser>().ToList();
+                users = stream.Query<SysUser>(startCell: "A2").ToList();
             }
 
             return SUCCESS(UserService.ImportUsers(users));
@@ -208,7 +209,7 @@ namespace La.WebApi.Controllers.System
         [HttpGet("export")]
         [Log(Title = "用户导出", BusinessType = BusinessType.EXPORT)]
         [ActionPermissionFilter(Permission = "system:user:export")]
-        public IActionResult UserExport([FromQuery] SysUser user)
+        public IActionResult UserExport([FromQuery] SysUserQueryDto user)
         {
             var list = UserService.SelectUserList(user, new PagerInfo(1, 10000));
 

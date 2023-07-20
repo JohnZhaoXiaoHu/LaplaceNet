@@ -1,40 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using La.Model.Dto;
-using La.Model.Models;
 using MiniExcelLibs.Attributes;
 
 namespace La.Model.Dto
 {
     /// <summary>
-    /// oph从表查询对象
+    /// oph从表
+    /// 查询对象
+    /// @author Lean365
+    /// @date 2023-07-20
     /// </summary>
     public class PpOutputSlaveQueryDto : PagerInfo 
     {
-        /// <summary>
-        /// 描述 :父GUID 
-        /// </summary>
-        public string PomGuid { get; set; }
     }
 
     /// <summary>
-    /// oph从表输入输出对象
+    /// oph从表
+    /// 输入输出对象
     /// </summary>
     public class PpOutputSlaveDto
     {
         /// <summary>
         /// 描述 :ID 
         /// </summary>
+        [Required(ErrorMessage = "ID不能为空")]
         [ExcelIgnore]
-        public int? PosId { get; set; }
+        public int PosId { get; set; }
 
         /// <summary>
         /// 描述 :父GUID 
         /// </summary>
         [Required(ErrorMessage = "父GUID不能为空")]
-
-        [ExcelColumn(Name = "父GUID")]
+        [ExcelIgnore]
         public string PomGuid { get; set; }
 
         /// <summary>
@@ -129,73 +125,73 @@ namespace La.Model.Dto
         public int PosAchRatio { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UDF01 
         /// </summary>
         [ExcelIgnore]
         public string UDF01 { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UDF02 
         /// </summary>
         [ExcelIgnore]
         public string UDF02 { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UDF03 
         /// </summary>
         [ExcelIgnore]
         public string UDF03 { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UDF04 
         /// </summary>
         [ExcelIgnore]
         public string UDF04 { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UDF05 
         /// </summary>
         [ExcelIgnore]
         public string UDF05 { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UDF06 
         /// </summary>
         [ExcelIgnore]
         public string UDF06 { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UDF51 
         /// </summary>
         [ExcelIgnore]
         public decimal UDF51 { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UDF52 
         /// </summary>
         [ExcelIgnore]
         public decimal UDF52 { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UDF53 
         /// </summary>
         [ExcelIgnore]
         public decimal UDF53 { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UDF54 
         /// </summary>
         [ExcelIgnore]
         public decimal UDF54 { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UDF55 
         /// </summary>
         [ExcelIgnore]
         public decimal UDF55 { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UDF56 
         /// </summary>
         [ExcelIgnore]
         public decimal UDF56 { get; set; }
@@ -210,28 +206,28 @@ namespace La.Model.Dto
         /// 描述 :说明 
         /// </summary>
         [ExcelIgnore]
-        public string ReMark { get; set; }
+        public string Remark { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :CreateBy 
         /// </summary>
         [ExcelIgnore]
         public string CreateBy { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :CreateTime 
         /// </summary>
         [ExcelIgnore]
         public DateTime? CreateTime { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UpdateBy 
         /// </summary>
         [ExcelIgnore]
         public string UpdateBy { get; set; }
 
         /// <summary>
-        /// 描述 : 
+        /// 描述 :UpdateTime 
         /// </summary>
         [ExcelIgnore]
         public DateTime? UpdateTime { get; set; }

@@ -12,7 +12,7 @@ namespace La.Model.System.Dto
         public string ConfigKey { get; set; }
         public string ConfigValue { get; set; }
         public string ConfigType { get; set; }
-        public string ReMark { get; set; }
+        public string Remark { get; set; }
     }
 
     /// <summary>

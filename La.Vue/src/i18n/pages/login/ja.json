@@ -3,9 +3,9 @@
     "account": "アカウントID",
     "password": "パスワード",
     "confirmPassword": "パスワード(確認用)",
-    "captcha": "文字認証を入力",
+    "captcha": "計算をここに入力",
     "btnLogin": "ログイン",
-    "rememberMe": "このパソコンでログイン状態を維持する",
+    "rememberMe": "状態を維持する",
     "loggingIn": "ログイン中...",
     "loginSuccess": "ログイン成功",
     "loginTimeOut": "タイムアウト!再ログインしてください",
@@ -22,10 +22,10 @@
     "enterPassword": "パスワードを入力してください!",
     "lengthPassword": "パスワード文字は6～20の間にあります.",
     "againPassword": "パスワードを再入力してください!",
-    "enterCaptcha": "文字認証を入力してください。",
+    "enterCaptcha": "計算をここに入力してください。",
     "congratulationsAccount": "アカウント:",
     "successfulAccount": "登録完了しました.",
     "systemPrompt": "Laplaceメッセージ",
-  "selectLanguage": "言語設定中です、しばらくお待ちください..."
+    "selectLanguage": "言語設定中です、しばらくお待ちください..."
   }
 }

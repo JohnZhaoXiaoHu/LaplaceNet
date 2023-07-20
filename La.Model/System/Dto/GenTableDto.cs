@@ -20,7 +20,7 @@ namespace La.Model.System.Dto
         public string GenType { get; set; }
         public string GenPath { get; set; }
         //public string PermissionPrefix { get; set; }
-        public string ReMark { get; set; }
+        public string Remark { get; set; }
         /// <summary>
         /// 额外参数
         /// </summary>
@@ -76,7 +76,7 @@ namespace La.Model.System.Dto
         /// <summary>
         /// 备注
         /// </summary>
-        public string ReMark { get; set; }
+        public string Remark { get; set; }
         /// <summary>
         /// 自动填充类型
         /// </summary>

@@ -1,11 +1,11 @@
-﻿using La.Infra;
+using La.Infra;
 using La.Infra.Attribute;
 using La.Infra.Enums;
 using La.Infra.Model;
 using Mapster;
 using Microsoft.AspNetCore.Mvc;
-using ${options.ModelsNamespace}.Dto;
-using ${options.ModelsNamespace}.Models;
+using ${options.DtosNamespace};
+using ${options.ModelsNamespace}.${options.SubNamespace};
 using ${options.ModelsNamespace}.System;
 using ${options.IServicsNamespace}.${options.SubNamespace}.I${options.SubNamespace}Service;
 using ${options.ApiControllerNamespace}.Extensions;
@@ -15,8 +15,8 @@ using ${options.BaseNamespace}Common;
 namespace ${options.ApiControllerNamespace}.Controllers
 {
     /// <summary>
-    /// ${genTable.functionName}Controller
-    /// 
+    /// ${genTable.functionName}
+    /// Controller
     /// @tableName ${genTable.TableName}
     /// @author ${replaceDto.Author}
     /// @date ${replaceDto.AddTime}
@@ -29,9 +29,7 @@ namespace ${options.ApiControllerNamespace}.Controllers
         /// ${genTable.FunctionName}接口
         /// </summary>
         private readonly I${replaceDto.ModelTypeName}Service _${replaceDto.ModelTypeName}Service;
-        /// <summary>
-        /// ${genTable.FunctionName}Controller
-        /// </summary>
+
         public ${replaceDto.ModelTypeName}Controller(I${replaceDto.ModelTypeName}Service ${replaceDto.ModelTypeName}Service)
         {
             _${replaceDto.ModelTypeName}Service = ${replaceDto.ModelTypeName}Service;
@@ -74,9 +72,10 @@ $end
         [ActionPermissionFilter(Permission = "${replaceDto.PermissionPrefix}:query")]
         public IActionResult Get${replaceDto.ModelTypeName}(${replaceDto.PKType} ${replaceDto.PKName})
         {
-            var response = _${replaceDto.ModelTypeName}Service.GetFirst(x => x.${replaceDto.PKName} == ${replaceDto.PKName});
+            var response = _${replaceDto.ModelTypeName}Service.GetInfo(${replaceDto.PKName});
             
-            return SUCCESS(response);
+            var info = response.Adapt<${replaceDto.ModelTypeName}>();
+            return SUCCESS(info);
         }
 
 $if(replaceDto.ShowBtnAdd)
@@ -118,19 +117,14 @@ $if(replaceDto.ShowBtnEdit)
         [Log(Title = "${genTable.FunctionName}", BusinessType = BusinessType.UPDATE)]
         public IActionResult Update${replaceDto.ModelTypeName}([FromBody] ${replaceDto.ModelTypeName}Dto parm)
         {
-            if (parm == null)
-            {
-                throw new CustomException("请求实体不能为空");
-            }
             var modal = parm.Adapt<${replaceDto.ModelTypeName}>().ToUpdate(HttpContext);
-
             var response = _${replaceDto.ModelTypeName}Service.Update${replaceDto.ModelTypeName}(modal);
 
             return ToResponse(response);
         }
 $end
 
-$if(replaceDto.ShowBtnDelete)
+$if(replaceDto.ShowBtnDelete || replaceDto.ShowBtnMultiDel)
         /// <summary>
         /// 删除${genTable.FunctionName}
         /// </summary>
@@ -159,6 +153,7 @@ $if(replaceDto.ShowBtnExport)
         [ActionPermissionFilter(Permission = "${replaceDto.PermissionPrefix}:export")]
         public IActionResult Export([FromQuery] ${replaceDto.ModelTypeName}QueryDto parm)
         {
+            parm.PageNum = 1;
             parm.PageSize = 100000;
             var list = _${replaceDto.ModelTypeName}Service.GetList(parm).Result;
             if (list == null || list.Count <= 0)
@@ -178,15 +173,13 @@ $if(replaceDto.ShowBtnTruncate)
         [Log(Title = "${genTable.FunctionName}", BusinessType = BusinessType.CLEAN)]
         [ActionPermissionFilter(Permission = "${replaceDto.PermissionPrefix}:delete")]
         [HttpDelete("clean")]
-        public ApiResult Clear()
+        public IActionResult Clear()
         {
             if (!HttpContextExtension.IsAdmin(HttpContext))
             {
-                return ApiResult.Error("操作失败");
+                return ToResponse(ResultCode.FAIL, "操作失败");
             }
-            _${replaceDto.ModelTypeName}Service.Truncate${replaceDto.ModelTypeName}();
-
-            return ToJson(1);
+            return SUCCESS(_${replaceDto.ModelTypeName}Service.Truncate${replaceDto.ModelTypeName}());
         }
 $end
 
@@ -205,7 +198,6 @@ $if(showCustomInput)
             if (id <= 0) { return ToResponse(ApiResult.Error(101, "请求参数错误")); }
             var response = _${replaceDto.ModelTypeName}Service.Update(w => w.${replaceDto.PKName} == id, it => new ${replaceDto.ModelTypeName}()
             {
-                //Update 字段映射
 $foreach(item in genTable.Columns)
 $if((item.htmlType == "customInput"))
                 $item.CsharpField = value,

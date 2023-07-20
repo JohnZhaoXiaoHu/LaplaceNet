@@ -1,36 +1,30 @@
 <template>
-  <animationBackground></animationBackground>
-  <!-- <starBackground></starBackground> -->
+  <particlesBackground></particlesBackground>
   <div class="login">
-    <div class="drawer-item" style="display: flex; justify-content: flex-start">
-      <img src="../assets/logo/logo.png" class="image" />
-      <h6 class="slogan">{{ $t('layout.slogan') }}</h6>
-    </div>
     <el-form ref="loginRef" :model="loginForm" :rules="loginRules" class="login-form">
       <h3 class="title">{{ defaultSettings.title }}</h3>
 
-      <LangSelect title="多语言设置" class="v-tag" />
+      <LangSelect title="多语言设置" class="langSet" />
       <el-form-item prop="username">
-        <el-input v-model="loginForm.username" type="text" size="default" auto-complete="off"
-          :placeholder="$t('login.account')">
+        <el-input v-model="loginForm.username" type="text" auto-complete="off" :placeholder="$t('login.account')">
           <template #prefix>
-            <svg-icon name="user" class="el-input__icon input-icon" />
+            <svg-icon name="user" class="input-icon" />
           </template>
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input v-model="loginForm.password" type="password" size="default" auto-complete="off"
-          :placeholder="$t('login.password')" @keyup.enter="handleLogin">
+        <el-input v-model="loginForm.password" type="password" auto-complete="off" :placeholder="$t('login.password')"
+          @keyup.enter="handleLogin">
           <template #prefix>
-            <svg-icon name="password" class="el-input__icon input-icon" />
+            <svg-icon name="password" class="input-icon" />
           </template>
         </el-input>
       </el-form-item>
       <el-form-item prop="code" v-if="captchaOnOff != 'off'">
-        <el-input v-model="loginForm.code" size="default" auto-complete="off" :placeholder="$t('login.captcha')"
-          style="width: 63%" @keyup.enter="handleLogin">
+        <el-input v-model="loginForm.code" auto-complete="off" :placeholder="$t('login.captcha')" style="width: 63%"
+          @keyup.enter="handleLogin">
           <template #prefix>
-            <svg-icon name="validCode" class="el-input__icon input-icon" />
+            <svg-icon name="validCode" class="input-icon" />
           </template>
         </el-input>
         <div class="login-code">
@@ -40,23 +34,23 @@
 
       <div style="display: flex; justify-content: space-between">
         <el-checkbox v-model="loginForm.rememberMe">{{ $t('login.rememberMe') }}</el-checkbox>
-        <router-link class="link-type" :to="'/register'" v-if="defaultSettings.register">{{ $t('login.register')
-          }}</router-link>
+        <span style="font-size: 12px">
+          <span @click="handleForgetPwd()" class="forget-pwd">忘记密码</span>
+          <router-link class="link-type" :to="'/register'">{{ $t('login.register') }}</router-link>
+        </span>
       </div>
 
       <el-form-item style="width: 100%">
         <el-button :loading="loading" size="default" type="primary" style="width: 100%" @click.prevent="handleLogin">
           <span v-if="!loading">{{ $t('login.btnLogin') }}</span>
-          <span v-else>{{ $t('layout.loggingIn') }}</span>
+          <span v-else>登 录 中...</span>
         </el-button>
-
       </el-form-item>
-
       <div class="other-login" v-if="defaultSettings.showOtherLogin">
         <el-divider>{{ $t('login.otherLoginWay') }}</el-divider>
-        <img src="../assets/icons/gitee-fill-round.png" alt="" class="login-icon" @click="onAuth('GITEE')" />
-        <img src="../assets/icons/github-fill.png" alt="" class="login-icon" @click="onAuth('GITHUB')" />
-        <img src="../assets/icons/wechat-fill.png" alt="" class="login-icon" />
+
+        <span @click="onAuth('GITHUB')" title="github"><svg-icon name="github" className="login-icon"></svg-icon></span>
+        <span @click="onAuth('GITEE')" title="gitee"><svg-icon name="gitee" className="login-icon"></svg-icon></span>
       </div>
     </el-form>
 
@@ -72,11 +66,9 @@
   import Cookies from 'js-cookie'
   import { encrypt, decrypt } from '@/utils/jsencrypt'
   import defaultSettings from '@/settings'
-  import animationBackground from '@/views/components/animationBackground.vue'
-  import starBackground from '@/views/components/starBackground.vue'
+  import particlesBackground from '@/views/components/particlesBackground.vue'
   import LangSelect from '@/components/LangSelect/index.vue'
   import useUserStore from '@/store/modules/user'
-
 
   const userStore = useUserStore()
   const router = useRouter()
@@ -102,14 +94,9 @@
   // 验证码开关
   const captchaOnOff = ref('')
   // 注册开关
-  const register = ref()
-
+  const register = ref(false)
   const redirect = ref()
   redirect.value = route.query.redirect
-  // proxy.getConfigKey('sys.account.captchaOnOff').then((response) => {
-  //   captchaOnOff.value = response.data
-  // })
-
 
   function handleLogin() {
     proxy.$refs.loginRef.validate((valid) => {
@@ -130,7 +117,6 @@
         userStore
           .login(loginForm.value)
           .then(() => {
-            //localStorage.getItem("lastClickTime", new Date().getTime());
             proxy.$modal.msgSuccess(proxy.$t('login.loginSuccess'))
             router.push({ path: redirect.value || '/' })
           })
@@ -170,9 +156,12 @@
 
     switch (type) {
       default:
-        window.location.href = import.meta.env.VITE_GITHUB_API_HOST + '/auth/Authorization?authSource=' + type
+        window.location.href = import.meta.env.VITE_APP_BASE_API + '/auth/Authorization?authSource=' + type
         break
     }
+  }
+  function handleForgetPwd() {
+    proxy.$modal.msg('请联系管理员')
   }
   getCode()
   getCookie()
@@ -181,67 +170,17 @@
 <style lang="scss" scoped>
   @import '@/assets/styles/login.scss';
 
-  .login-icon {
-    width: 30px;
+  .forget-pwd {
+    color: #ccc;
     margin-right: 10px;
     cursor: pointer;
   }
 
-  .v-tag {
-    position: absolute;
-    /*定位元素*/
-    top: -0px;
-    /*上边缘设置*/
-    right: -12px;
-    /*右边缘设置*/
-    line-height: 2px;
-    /*设置行高*/
-    text-align: center;
-    /*设置文本的对齐方式*/
-    padding-top: 2px;
-    /*顶部补白*/
-    padding-left: 0px;
-    /*元素的左部填充*/
-    font-size: 12px;
-    /*字体大小*/
-    width: 38px;
-    /*宽度*/
-    background: #3de1ad;
-    /* 翡翠色(#3de1ad)：1，翡翠鸟羽毛的青绿色。2，翡翠宝石的颜色。 （注：C-Y≥30 的系列色彩，多与白色配合以体现清新明丽感觉，与黑色配合效果不好：该色个性柔弱，会被黑色牵制） */
-
-    color: white;
-    /*不同元素设置text-color*/
-    -webkit-transform: rotate(40deg);
-    /*safari 浏览器支持*/
-    letter-spacing: 2px;
-    /*字符间距*/
-    cursor: pointer
-  }
-
-  .drawer-item {
-    position: absolute;
-    left: 50px;
-    top: 50px;
-    padding: 0px 10px 5px;
-
-    .image {
-      width: 5%;
-      height: 5%;
-      padding: 0px 10px 5px;
-
-    }
-
-    .slogan {
-      position: absolute;
-      left: 50px;
-      top: -20px;
-      width: 105%;
-      height: 105%;
-      padding: 0px 10px 5px;
-      color: #304156;
-
-    }
-
+  .login-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+    cursor: pointer;
   }
 
   .other-login {

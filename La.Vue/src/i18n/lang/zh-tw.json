@@ -47,6 +47,7 @@
     "closeFullscreen": "關閉全屏"
   },
   "layout": {
+    "shortCut": "快捷入口",
     "hostName": "Laplace.Net",
     "week": "星期",
     "sunday": "日",
@@ -70,6 +71,7 @@
     "lastBulid": "最後更新日期",
     "currentVersion": "當前版本",
     "codeSourceAddress": "源碼地址",
+    "SourcePreview": "線上預覽",
     "fullscreen": "全屏",
     "sizeSelect": "大小設置",
     "multiLanguage": "多語言設置",
@@ -201,6 +203,7 @@
     "generateCode": "生成代碼",
     "start": "啟動",
     "stop": "停止",
+    "stopNow": "立即停止",
     "run": "運行",
     "runOnce": "運行一次",
     "log": "日誌",

@@ -96,7 +96,7 @@ namespace La.Service.System
         {
             var result = Update(w => w.DictCode == dict.DictCode, it => new SysDictData()
             {
-                ReMark = dict.ReMark,
+                Remark = dict.Remark,
                 Update_time = DateTime.Now,
                 DictSort = dict.DictSort,
                 DictLabel = dict.DictLabel,

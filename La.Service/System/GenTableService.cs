@@ -36,9 +36,7 @@ namespace La.Service.System
             string StartupPathStr = Directory.GetCurrentDirectory();
             //返回上一层目录
             string CDUPStr = StartupPathStr.Substring(0, StartupPathStr.LastIndexOf("\\")); // 第一个\是转义符，所以要写两个
-
-
-            //读取类名
+                                                                                            //读取类名
             string DelClassname;
             foreach (var item in tableIds)
             {
@@ -49,6 +47,9 @@ namespace La.Service.System
             }
             Delete(f => tableIds.Contains(f.TableId));
             return GenTableColumnService.DeleteGenTableColumn(tableIds);
+
+            //Delete(f => tableIds.Contains(f.TableId));
+            //return GenTableColumnService.DeleteGenTableColumn(tableIds);
         }
         /// <summary>
         /// 查找并删除类
@@ -197,10 +198,11 @@ namespace La.Service.System
                         column.DictType = prevColumn.DictType;
                         column.QueryType = prevColumn.QueryType;
                     }
-                    if (column.ColumnComment.IsEmpty())
-                    {
-                        column.ColumnComment = prevColumn.ColumnComment;
-                    }
+                    //不同步列说明
+                    //if (column.ColumnComment.IsEmpty())
+                    //{
+                    //    column.ColumnComment = prevColumn.ColumnComment;
+                    //}
                     updateColumns.Add(column);
                 }
             }
@@ -278,7 +280,7 @@ namespace La.Service.System
         /// <returns></returns>
         public int InsertGenTableColumn(List<GenTableColumn> tableColumn)
         {
-            return Context.Insertable(tableColumn).IgnoreColumns(x => new { x.ReMark }).ExecuteCommand();
+            return Context.Insertable(tableColumn).IgnoreColumns(x => new { x.Remark }).ExecuteCommand();
         }
 
         /// <summary>
@@ -306,7 +308,7 @@ namespace La.Service.System
                     it.Update_time,
                     it.DictType,
                     it.Update_by,
-                    it.ReMark,
+                    it.Remark,
                     it.IsSort,//
                     it.IsExport,
                     it.AutoFillType,

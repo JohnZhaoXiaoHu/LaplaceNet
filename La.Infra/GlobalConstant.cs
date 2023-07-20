@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace La.Infra
+﻿namespace La.Infra
 {
     /// <summary>
     /// 全局静态常量
     /// </summary>
     public class GlobalConstant
     {
+        /// <summary>
+        /// 代码生成常量
+        /// </summary>
+        public static readonly string CodeGenDbConfig;
+
         /// <summary>
         /// 管理员权限
         /// </summary>

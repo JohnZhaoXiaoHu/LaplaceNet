@@ -1,6 +1,6 @@
 <!--
  * @Descripttion: (${genTable.functionName}/${genTable.tableName})
- * @version: (1.0)
+ * @version: (4.0.0)
  * @Author: (${replaceDto.Author})
  * @Date: (${replaceDto.AddTime})
  * @LastEditors: (${replaceDto.Author})
@@ -23,21 +23,40 @@ $end
 $if(column.CsharpType == "int" || column.CsharpType == "long")
 $set(numLabel = ".number")
 $end
-$if(column.HtmlType == "datetime")
+$if(column.HtmlType == "month")
+      <el-form-item label="$labelName" prop="${columnName}">
+        <el-date-picker
+          v-model="queryParams.${columnName}"
+          type="month"
+          value-format="YYYY-MM-DD"
+          :placeholder="${t}t('btn.select')+'$labelName'">
+        </el-date-picker>
+      </el-form-item>
+$elseif(column.HtmlType == "datetime")
       <el-form-item label="$labelName">
-        <el-date-picker 
+        <el-date-picker
           v-model="dateRange${column.CsharpField}" 
-          type="datetimerange" 
-          range-separator="-"
-          :start-placeholder="${t}t('btn.dateStart')" 
-          :end-placeholder="${t}t('btn.dateEnd')" 
-          :placeholder="${t}t('btn.select')+'$labelName'"
+          type="datetimerange"
+          :start-placeholder="${t}t('btn.dateStart')"
+          :end-placeholder="${t}t('btn.dateEnd')"
           value-format="YYYY-MM-DD HH:mm:ss"
           :default-time="defaultTime"
           :shortcuts="dateOptions">
         </el-date-picker>
       </el-form-item>
-$elseif(column.HtmlType == "select" || column.HtmlType == "radio" || column.HtmlType == "selectMulti")
+$elseif(column.HtmlType == "datePicker")
+      <el-form-item label="$labelName">
+        <el-date-picker
+          style="width: 200px"
+          v-model="dateRange${column.CsharpField}" 
+          type="daterange"
+          start-placeholder="Start date"
+          end-placeholder="End date"
+          value-format="YYYY-MM-DD HH:mm:ss"
+          :default-time="defaultTime">
+        </el-date-picker>
+      </el-form-item>
+$elseif(column.HtmlType.Contains("select") || column.HtmlType == "radio")
       <el-form-item label="${labelName}" prop="${columnName}">
         <el-select filterable clearable $if(column.HtmlType == "selectMulti")multiple$end v-model="queryParams.${columnName}" :placeholder="${t}t('btn.select')+'${labelName}'">
           <el-option v-for="item in $if(column.DictType != "") options.${column.DictType} $else options.${column.CsharpFieldFl}Options$end" :key="item.dictValue" :label="item.dictLabel" :value="item.dictValue">
@@ -54,7 +73,7 @@ $elseif(column.HtmlType == "radio")
       </el-form-item>
 $else
       <el-form-item label="${labelName}" prop="${columnName}">
-        <el-input clearable v-model${numLabel}="queryParams.${columnName}" :placeholder="${t}t('btn.enter')+'${labelName}'" />
+        <el-input v-model${numLabel}="queryParams.${columnName}" :placeholder="${t}t('btn.enter')+'${labelName}'" />
       </el-form-item>
 $end
 $end
@@ -73,14 +92,12 @@ $if(replaceDto.ShowBtnAdd)
         </el-button>
       </el-col>
 $end
-$if(replaceDto.ShowBtnEdit)
+$if(replaceDto.ShowBtnMultiDel)
       <el-col :span="1.5">
         <el-button type="success" :disabled="single" v-hasPermi="['${replaceDto.PermissionPrefix}:edit']" plain icon="edit" @click="handleUpdate">
           {{ ${t}t('btn.edit') }}
         </el-button>
       </el-col>
-$end
-$if(replaceDto.ShowBtnDelete)
       <el-col :span="1.5">
         <el-button type="danger" :disabled="multiple" v-hasPermi="['${replaceDto.PermissionPrefix}:delete']" plain icon="delete" @click="handleDelete">
           {{ ${t}t('btn.delete') }}
@@ -89,8 +106,15 @@ $if(replaceDto.ShowBtnDelete)
 $end
 $if(replaceDto.ShowBtnTruncate)
       <el-col :span="1.5">
-        <el-button color="#666699" v-hasPermi="['${replaceDto.PermissionPrefix}:delete']" plain icon="BrushFilled" @click="handleClear">
-         {{ ${t}t('btn.clean') }}
+        <el-button type="danger" v-hasPermi="['${replaceDto.PermissionPrefix}:delete']" plain icon="delete" @click="handleClear">
+          {{ ${t}t('btn.clean') }}
+        </el-button>
+      </el-col>
+$end
+$if(replaceDto.ShowBtnExport)
+      <el-col :span="1.5">
+        <el-button type="warning" plain icon="download" @click="handleExport" v-hasPermi="['${replaceDto.PermissionPrefix}:export']">
+          {{ ${t}t('btn.export') }}
         </el-button>
       </el-col>
 $end
@@ -101,41 +125,29 @@ $if(replaceDto.ShowBtnImport)
         </el-button>
       </el-col>
 $end
-$if(replaceDto.ShowBtnExport)
-      <el-col :span="1.5">
-        <el-button color="#FF69B4" plain icon="download" @click="handleExport" v-hasPermi="['${replaceDto.PermissionPrefix}:export']">
-          {{ ${t}t('btn.export') }}
-        </el-button>
-      </el-col>
-$end
       <right-toolbar v-model:showSearch="showSearch" @queryTable="getList" :columns="columns"></right-toolbar>
     </el-row>
 
-    <!-- 数据区域 -->
-    <el-table :data="dataList" v-loading="loading" ref="table" border highlight-current-row @sort-change="sortChange" @selection-change="handleSelectionChange" height="602"
-      style="width: 100%">
+    <el-table
+      :data="dataList"
+      v-loading="loading"
+      ref="table"
+      border
+      header-cell-class-name="el-table-header-cell"
+      highlight-current-row
+      @sort-change="sortChange"
+$if(replaceDto.ShowBtnMultiDel)
+      @selection-change="handleSelectionChange"
+$end
+height="602"
+      style="width: 100%" >
+$if(replaceDto.ShowBtnMultiDel)
       <el-table-column type="selection" width="50" align="center"/>
-$if(null != genTable.SubTableName && "" != genTable.SubTableName && genTable.TplCategory == "subNav")
-      <el-table-column type="expand">
-        <template #default="props">
-          <el-descriptions border>
-$foreach(subColumn in genSubTable.Columns)
-            <el-descriptions-item label="${subColumn.ColumnComment}">{{ props.row.$tool.FirstLowerCase(genTable.SubTable.ClassName)Nav.${subColumn.CsharpFieldFl} }}</el-descriptions-item>
 $end
-          </el-descriptions>
-        </template>
-      </el-table-column>
-$end
-$if(null != genTable.SubTableName && "" != genTable.SubTableName && genTable.TplCategory == "subNavMore")
-      <el-table-column type="expand">
-        <template #default="props">
-          <el-table :data="props.row.$tool.FirstLowerCase(genTable.SubTable.ClassName)Nav">
-$foreach(subColumn in genSubTable.Columns)
-$if(subColumn.IsList == true)
-            <el-table-column prop="${subColumn.CsharpFieldFl}" label="${subColumn.ColumnComment}" align="center"/>
-$end
-$end
-        </el-table>
+$if(sub)
+      <el-table-column align="center" width="90">
+        <template #default="scope">
+          <el-button text @click="rowClick(scope.row)">详情</el-button>
         </template>
       </el-table-column>
 $end
@@ -161,115 +173,159 @@ $if(column.HtmlType == "customInput" && column.IsPk == false)
 $elseif(column.HtmlType == "imageUpload")
       <el-table-column prop="${columnName}" label="${labelName}" align="center" v-if="columns.showColumn('${columnName}')">
         <template #default="scope">
-          <el-image preview-teleported :hide-on-click-modal="true" lazy class="table-td-thumb" fit="contain" :src="scope.row.${columnName}" :preview-src-list="[scope.row.${columnName}]">
-            <div><el-icon :size="15"><document /></el-icon></div>
-          </el-image>
+          <ImagePreview :src="scope.row.${columnName}"></ImagePreview>
         </template>
       </el-table-column>
-$elseif(column.HtmlType == "checkbox" || column.HtmlType == "select" || column.HtmlType == "radio" || column.HtmlType == "selectMulti")
+$elseif(column.HtmlType == "checkbox" || column.HtmlType.Contains("select") || column.HtmlType == "radio")
       <el-table-column prop="${columnName}" label="${labelName}" align="center"${column.sortStr} v-if="columns.showColumn('${columnName}')">
         <template #default="scope">
-$if(column.HtmlType == "checkbox")
-          <dict-tag :options="$if(column.DictType != "") options.${column.DictType} $else options.${column.CsharpFieldFl}Options$end" :value="scope.row.${columnName} ? scope.row.${columnName}.split(',') : []" />
-$else
-          <dict-tag :options="$if(column.DictType != "") options.${column.DictType} $else options.${column.CsharpFieldFl}Options$end" :value="scope.row.${columnName}" />
-$end
+          <dict-tag :options="$if(column.DictType != "") options.${column.DictType} $else options.${column.CsharpFieldFl}Options$end" :value="scope.row.${columnName}" $if(column.HtmlType == "checkbox")split=","$end />
         </template>
       </el-table-column>
+$elseif(column.HtmlType == "datetime")
+      <el-table-column prop="${columnName}" label="${labelName}" :show-overflow-tooltip="true" ${column.sortStr} v-if="columns.showColumn('${columnName}')"/>
 $else
       <el-table-column prop="${columnName}" label="${labelName}" align="center"${showToolTipHtml}${column.sortStr} v-if="columns.showColumn('${columnName}')"/>
 $end
 $end
 $end
-      <el-table-column :label="${t}t('btn.operate')" align="center" width="160">
+      <el-table-column :label="${t}t('btn.operate')" width="200">
         <template #default="scope">
+$if(replaceDto.OperBtnStyle == 2)
+        <el-button-group>
+$if(replaceDto.ShowBtnView)
+          <el-button text type="primary" icon="view" @click="handlePreview(scope.row)"></el-button>
+$end
+$if(replaceDto.ShowBtnEdit)
+          <el-button text v-hasPermi="['${replaceDto.PermissionPrefix}:edit']" type="success" icon="edit" :title="${t}t('btn.edit')" @click="handleUpdate(scope.row)"></el-button>
+$end
+$if(replaceDto.ShowBtnDelete)
+          <el-button text v-hasPermi="['${replaceDto.PermissionPrefix}:delete']" type="danger" icon="delete" :title="${t}t('btn.delete')" @click="handleDelete(scope.row)"></el-button>
+$end
+        </el-button-group>
+$else
 $if(replaceDto.ShowBtnView)
           <el-button type="primary" icon="view" @click="handlePreview(scope.row)"></el-button>
 $end
 $if(replaceDto.ShowBtnEdit)
-          <el-button v-hasPermi="['${replaceDto.PermissionPrefix}:edit']" type="success" icon="edit" :title="${t}t('btn.edit')" @click="handleUpdate(scope.row)" style="width:5px;margin-bottom:5px;"></el-button>
+          <el-button v-hasPermi="['${replaceDto.PermissionPrefix}:edit']" type="success" icon="edit" :title="${t}t('btn.edit')" @click="handleUpdate(scope.row)"></el-button>
 $end
 $if(replaceDto.ShowBtnDelete)
-          <el-button v-hasPermi="['${replaceDto.PermissionPrefix}:delete']" type="danger" icon="delete" :title="${t}t('btn.delete')" @click="handleDelete(scope.row)" style="width:5px;margin-bottom:5px;"></el-button>
+          <el-button v-hasPermi="['${replaceDto.PermissionPrefix}:delete']" type="danger" icon="delete" :title="${t}t('btn.delete')" @click="handleDelete(scope.row)"></el-button>
+$end
 $end
         </template>
       </el-table-column>
     </el-table>
-    <pagination class="mt10" background :total="total" v-model:page="queryParams.pageNum" v-model:limit="queryParams.pageSize" @pagination="getList" />
+    <pagination :total="total" v-model:page="queryParams.pageNum" v-model:limit="queryParams.pageSize" @pagination="getList" />
+
+$* 一对一/一对多列表显示详情 *$
+$if(sub)
+    <el-drawer v-model="drawer" :with-header="false" direction="btt">
+      <el-table :data="$tool.FirstLowerCase(genTable.SubTable.ClassName)List" header-row-class-name="text-navy">
+        <el-table-column label="序号" type="index" width="80" />
+$foreach(column in genSubTable.Columns)
+$set(columnName = column.CsharpFieldFl)
+$if(column.IsList == true)
+$if(column.HtmlType == "checkbox" || column.HtmlType.Contains("select") || column.HtmlType == "radio")
+        <el-table-column prop="${columnName}" label="${column.ColumnComment}">
+          <template #default="scope">
+            <dict-tag :options="$if(column.DictType != "") options.${column.DictType} $else options.${column.CsharpFieldFl}Options$end" :value="scope.row.${columnName}" $if(column.HtmlType == "checkbox")split=","$end />
+          </template>
+        </el-table-column>
+$else
+        <el-table-column prop="${column.CsharpFieldFl}" label="${column.ColumnComment}"/>
+$end
+$end
+$end
+      </el-table>
+    </el-drawer>
+$end
 
     <!-- 添加或修改${genTable.functionName}对话框 -->
-    <el-dialog :title="title" :lock-scroll="false" v-model="open" >
+    <el-dialog :title="title" :lock-scroll="false" v-model="open" ${if(sub)}:fullscreen="fullScreen"$end>
       <el-form ref="formRef" :model="form" :rules="rules" label-width="100px">
         <el-row :gutter="20">
 $foreach(column in genTable.Columns)
 $set(columnName = column.CsharpFieldFl)
 $set(value = "item.dictValue")
+$set(number = "")
 $set(labelName = column.ColumnComment)
 $if(column.CsharpType == "int" || column.CsharpType == "long")
     $set(value = "parseInt(item.dictValue)")
+    $set(number = ".number")
 $end
 
 $if(column.IsPK || column.IsIncrement)
+$if(column.IsPK && column.IsIncrement == false)
           <el-col :lg="${options.ColNum}">
             <el-form-item label="${labelName}" prop="${columnName}">
-$if(column.IsIncrement == true)
-              <el-input-number clearable v-model.number="form.${columnName}" controls-position="right" :placeholder="${t}t('btn.enter')+'${labelName}'" :disabled="title==${t}t('btn.edit')"/>
-$else
-              <el-input clearable v-model="form.${columnName}" controls-position="right" :placeholder="${t}t('btn.enter')+'${labelName}'" :disabled="title==${t}t('btn.edit')"/>
-$end
+              <el-input v-model${number}="form.${columnName}" :placeholder="${t}t('btn.enter')+'${labelName}'" :disabled="opertype != 1"/>
             </el-form-item>
           </el-col>
-
+$else
+          <el-col :lg="${options.ColNum}" v-if="opertype != 1">
+            <el-form-item label="${labelName}" prop="${columnName}">
+              <el-input-number v-model.number="form.${columnName}" controls-position="right" :placeholder="${t}t('btn.enter')+'${labelName}'" :disabled="true"/>
+            </el-form-item>
+          </el-col>
+$end
 $else
 $if(column.HtmlType == "inputNumber" || column.HtmlType == "customInput")
           <el-col :lg="${options.ColNum}">
             <el-form-item label="${labelName}" prop="${columnName}">
-              <el-input-number clearable v-model.number="form.${columnName}" :controls="true" controls-position="right" :placeholder="${t}t('btn.enter')+'${labelName}'" ${column.DisabledStr}/>
+              <el-input-number v-model.number="form.${columnName}" :controls="true" controls-position="right" :placeholder="${t}t('btn.enter')+'${labelName}'" ${column.DisabledStr}/>
             </el-form-item>
           </el-col>
-$elseif(column.HtmlType == "datetime")
+$elseif(column.HtmlType == "datetime" || column.HtmlType == "month")
           <el-col :lg="${options.ColNum}">
             <el-form-item label="${labelName}" prop="${columnName}">
-              <el-date-picker clearable v-model="form.${columnName}" type="datetime" :teleported="false" :placeholder="${t}t('btn.dateselect')"${column.DisabledStr}></el-date-picker>
+              <el-date-picker v-model="form.${columnName}" type="datetime" :teleported="false" :placeholder="${t}t('btn.select')+'${labelName}'"${column.DisabledStr}></el-date-picker>
             </el-form-item>
           </el-col>
 $elseif(column.HtmlType == "imageUpload")
           <el-col :lg="24">
             <el-form-item label="${labelName}" prop="${columnName}">
-              <UploadImage clearable v-model="form.${columnName}" :data="{ uploadType: 1 }" />
+              <UploadImage v-model="form.${columnName}" :data="{ uploadType: 1 }" />
             </el-form-item>
           </el-col>
 $elseif(column.HtmlType == "fileUpload")
           <el-col :lg="24">
             <el-form-item label="${labelName}" prop="${columnName}">
-              <UploadFile  clearable v-model="form.${columnName}" :data="{ uploadType: 1 }" />
+              <UploadFile v-model="form.${columnName}" :data="{ uploadType: 1 }" />
             </el-form-item>
           </el-col>
-$elseif(column.HtmlType == "radio")
+$elseif(column.HtmlType == "radio" || column.HtmlType == "selectRadio")
           <el-col :lg="${options.ColNum}">
             <el-form-item label="${labelName}" prop="${columnName}">
               <el-radio-group v-model="form.${columnName}"${column.DisabledStr}>
-                <el-radio v-for="item in $if(column.DictType != "") options.${column.DictType} $else options.${column.CsharpFieldFl}Options$end" :key="item.dictValue" :label="${value}">{{item.dictLabel}}</el-radio>
+                <el-radio v-for="item in ${if(column.DictType != "")}options.${column.DictType}${else}options.${column.CsharpFieldFl}Options$end" :key="item.dictValue" :label="${value}">
+                  {{item.dictLabel}}
+                </el-radio>
               </el-radio-group>
             </el-form-item>
           </el-col>
 $elseif(column.HtmlType == "textarea")
           <el-col :lg="24">
             <el-form-item label="${labelName}" prop="${columnName}">
-              <el-input clearable type="textarea" v-model="form.${columnName}" :placeholder="${t}t('btn.enter')+'${labelName}'"${column.DisabledStr}/>
+              <el-input type="textarea" v-model="form.${columnName}" :placeholder="${t}t('btn.enter')+'${labelName}'"${column.DisabledStr}/>
             </el-form-item>
           </el-col>
 $elseif(column.HtmlType == "editor")
           <el-col :lg="24">
             <el-form-item label="${labelName}" prop="${columnName}">
-              <editor clearable v-model="form.${columnName}" :min-height="200" />
+              <editor v-model="form.${columnName}" :min-height="200" />
             </el-form-item>
           </el-col>
 $elseif(column.HtmlType == "select" || column.HtmlType == "selectMulti")
           <el-col :lg="${options.ColNum}">
             <el-form-item label="${labelName}" prop="${columnName}">
-              <el-select v-model="form.${columnName}" filterable clearable  :placeholder="${t}t('btn.select')+'${labelName}'"${column.DisabledStr}>
-                <el-option v-for="item in $if(column.DictType != "") options.${column.DictType} $else options.${column.CsharpFieldFl}Options$end" :key="item.dictValue" :label="item.dictLabel" :value="${value}"></el-option>
+              <el-select filterable clearable v-model="form.${columnName}" :placeholder="${t}t('btn.select')+'${labelName}'"${column.DisabledStr}>
+                <el-option
+                  v-for="item in $if(column.DictType != "")options.${column.DictType}${else}options.${column.CsharpFieldFl}Options$end" 
+                  :key="item.dictValue" 
+                  :label="item.dictLabel" 
+                  :value="${value}"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
@@ -277,46 +333,118 @@ $elseif(column.HtmlType == "checkbox")
           <el-col :lg="24">
             <el-form-item label="${labelName}" prop="${columnName}">
               <el-checkbox-group v-model="form.${columnName}Checked"${column.DisabledStr}>
-                <el-checkbox v-for="item in $if(column.DictType != "") options.${column.DictType} $else options.${column.CsharpFieldFl}Options$end" :key="item.dictValue" :label="item.dictValue">{{item.dictLabel}}</el-checkbox>
+                <el-checkbox v-for="item in $if(column.DictType != "")options.${column.DictType}${else}options.${column.CsharpFieldFl}Options$end" :key="item.dictValue" :label="item.dictValue">
+                  {{item.dictLabel}}
+                </el-checkbox>
               </el-checkbox-group>
+            </el-form-item>
+          </el-col>
+$elseif(column.HtmlType == "colorPicker")
+          <el-col :lg="12">
+            <el-form-item label="${labelName}" prop="${columnName}">
+              <el-color-picker v-model="form.${columnName}" />
             </el-form-item>
           </el-col>
 $else
           <el-col :lg="${options.ColNum}">
             <el-form-item label="${labelName}" prop="${columnName}">
-              <el-input clearable v-model="form.${columnName}" :placeholder="${t}t('btn.enter')+'${labelName}'" ${column.DisabledStr}/>
+              <el-input v-model${number}="form.${columnName}" :placeholder="${t}t('btn.enter')+'${labelName}'" ${column.DisabledStr}/>
             </el-form-item>
           </el-col>
 $end
 $end
 $end
         </el-row>
+$* 子表信息 *$
+$if(sub)
+        <el-divider content-position="center">${genTable.SubTable.FunctionName}信息</el-divider>
+        <el-row :gutter="10" class="mb8">
+          <el-col :span="1.5">
+            <el-button type="primary" icon="Plus" @click="handleAdd${genTable.SubTable.ClassName}">添加</el-button>
+          </el-col>
+          <el-col :span="1.5">
+            <el-button type="danger" icon="Delete" @click="handleDelete${genTable.SubTable.ClassName}">删除</el-button>
+          </el-col>
+          <el-col :span="1.5">
+            <el-button type="info" icon="FullScreen" @click="fullScreen = !fullScreen">{{ fullScreen ? '退出全屏' : '全屏' }}</el-button>
+          </el-col>
+        </el-row>
+        <el-table :data="${tool.FirstLowerCase(genTable.SubTable.ClassName)}List" :row-class-name="row${genTable.SubTable.ClassName}Index" @selection-change="handle${genTable.SubTable.ClassName}SelectionChange" ref="${genTable.SubTable.ClassName}Ref">
+          <el-table-column type="selection" width="50" align="center" />
+          <el-table-column label="序号" align="center" prop="index" width="50"/>
+$foreach(column in genTable.SubTable.Columns)
+$set(labelName = column.ColumnComment)
+$set(columnName = column.CsharpFieldFl)
+$if(column.CsharpType == "int" || column.CsharpType == "long")
+$set(value = "parseInt(item.dictValue)")
+$set(number = ".number")
+$end
+$if(column.IsList == true)
+$if(column.IsPk || column.CsharpField == genTable.SubTableFkName)
+$elseif(column.HtmlType == "inputNumber" || column.HtmlType == "customInput")
+          <el-table-column label="${labelName}" align="center" prop="${columnName}" width="140">
+            <template #default="scope">
+              <el-input-number v-model="scope.row.${columnName}" controls-position="right" :placeholder="${t}t('btn.enter')+'${labelName}'" />
+            </template>
+          </el-table-column>
+$elseif(column.HtmlType == "datetime" || column.HtmlType == "month")
+          <el-table-column label="${labelName}" align="center" prop="${columnName}">
+            <template #default="scope">
+              <el-date-picker clearable v-model="scope.row.${columnName}" type="date" :placeholder="${t}t('btn.select')+'${labelName}'"></el-date-picker>
+            </template>
+          </el-table-column>
+$elseif(column.HtmlType == "radio" || column.HtmlType == "selectRadio" || column.HtmlType == "select" || column.HtmlType == "selectMulti")
+          <el-table-column label="${labelName}" prop="${columnName}">
+            <template #default="scope">
+              <el-select v-model="scope.row.${columnName}" :placeholder="${t}t('btn.select')+'${labelName}'"${column.DisabledStr}>
+                <el-option
+                  v-for="item in $if(column.DictType != "")options.${column.DictType}${else}options.${column.CsharpFieldFl}Options$end" 
+                  :key="item.dictValue" 
+                  :label="item.dictLabel" 
+                  :value="${value}"></el-option>
+              </el-select>
+            </template>
+          </el-table-column>
+$else
+          <el-table-column label="${labelName}" align="center" prop="${columnName}">
+            <template #default="scope">
+              <el-input v-model="scope.row.${columnName}" :placeholder="${t}t('btn.enter')+'${labelName}'" />
+            </template>
+          </el-table-column>
+$end
+$end
+$end
+        </el-table>
+$end
       </el-form>
       <template #footer v-if="opertype != 3">
         <el-button text @click="cancel">{{ ${t}t('btn.cancel') }}</el-button>
         <el-button type="primary" @click="submitForm">{{ ${t}t('btn.submit') }}</el-button>
       </template>
     </el-dialog>
-
   </div>
 </template>
 
 <script setup name="${genTable.BusinessName.ToLower()}">
 // 引入 ${genTable.BusinessName.ToLower()}操作方法
-import { list${genTable.BusinessName}, add${genTable.BusinessName}, del${genTable.BusinessName}, update${genTable.BusinessName}, get${genTable.BusinessName}, 
-$if(replaceDto.ShowBtnTruncate) clear${genTable.BusinessName}, $end 
+import { list${genTable.BusinessName},
+$if(replaceDto.ShowBtnAdd) add${genTable.BusinessName}, $end
+$if(replaceDto.ShowBtnDelete || replaceDto.ShowBtnMultiDel)del${genTable.BusinessName},$end 
+$if(replaceDto.ShowBtnEdit) update${genTable.BusinessName},$end
+get${genTable.BusinessName}, 
+$if(replaceDto.ShowBtnTruncate) clear${genTable.BusinessName}, $end
 $if(showCustomInput) changeSort $end } 
 from '@/api/${tool.FirstLowerCase(genTable.ModuleName)}/${genTable.BusinessName.ToLower()}.js'
+$if(replaceDto.ShowEditor == 1)
+import Editor from '@/components/Editor'
+$end
 //获取当前组件实例
 const { proxy } = getCurrentInstance()
 // 选中${replaceDto.FistLowerPk}数组数组
 const ids = ref([])
-// 非单个禁用
-const single = ref(true)
-// 非多个禁用
-const multiple = ref(true)
+//加载动画
 const loading = ref(false)
-  // 显示搜索条件
+// 显示搜索条件
 const showSearch = ref(true)
 //使用reactive()定义响应式变量,仅支持对象、数组、Map、Set等集合类型有效
 const queryParams = reactive({
@@ -340,22 +468,22 @@ $if(column.IsList)
 $end
 $end
 ])
-  // 总条数
+// 总条数
 const total = ref(0)
-  // ${genTable.functionName}表格数据
+// ${genTable.functionName}表格数据
 const dataList = ref([])
-  // 查询参数
+// 查询参数
 const queryRef = ref()
 //定义起始时间
 const defaultTime = ref([new Date(2000, 1, 1, 0, 0, 0), new Date(2000, 2, 1, 23, 59, 59)])
 
 $foreach(item in genTable.Columns)
-$if(item.HtmlType == "datetime" && item.IsQuery == true)
+$if((item.HtmlType == "datetime" || item.HtmlType == "datePicker") && item.IsQuery == true)
 // ${item.ColumnComment}时间范围
 const dateRange${item.CsharpField} = ref([])
 
 $elseif(item.HtmlType == "customInput")
-// ******************自定义编辑 start **********************
+/******************自定义编辑 start **********************/
 const editIndex = ref(-1)
 const columnRefs = ref([])
 const setColumnsRef = (el) => {
@@ -384,21 +512,22 @@ function handleChangeSort(info) {
       proxy.${modal}modal.msgSuccess('修改成功')
     })
 }
-// ******************自定义编辑 end **********************
+/******************自定义编辑 end **********************/
 
 $end
 $end
-
+//字典定义
 $set(index = 0)
+
 var dictParams = [
-$foreach(item in genTable.Columns)
-$if((item.HtmlType == "radio" || item.HtmlType == "select" || item.HtmlType == "selectMulti" || item.HtmlType == "checkbox") && item.DictType != "")
+$foreach(item in dicts)
+$if(item.DictType != "")
   { dictType: "${item.DictType}" },
 $set(index = index + 1)
 $end
 $end
 ]
-//字典定义
+
 $if(index > 0)
 proxy.getDicts(dictParams).then((response) => {
   response.data.forEach((element) => {
@@ -409,7 +538,7 @@ $end
 //获取${genTable.functionName}表记录数据
 function getList(){
 $foreach(item in genTable.Columns)
-$if(item.HtmlType == "datetime" && item.IsQuery == true)
+$if((item.HtmlType == "datetime" || item.HtmlType == "datePicker") && item.IsQuery == true)
   proxy.addDateRange(queryParams, dateRange${item.CsharpField}.value, '${item.CsharpField}');
 $end
 $end
@@ -433,7 +562,7 @@ function handleQuery() {
 // 重置查询操作
 function resetQuery(){
 $foreach(item in genTable.Columns)
-$if(item.HtmlType == "datetime" && item.IsQuery == true)
+$if((item.HtmlType == "datetime" || item.HtmlType == "datePicker") && item.IsQuery == true)
   // ${item.ColumnComment}时间范围
   dateRange${item.CsharpField}.value = []
 $end
@@ -441,14 +570,14 @@ $end
   proxy.resetForm("queryRef")
   handleQuery()
 }
-
+$if(replaceDto.ShowBtnMultiDel)
 // 多选框选中数据
 function handleSelectionChange(selection) {
   ids.value = selection.map((item) => item.${replaceDto.FistLowerPk});
   single.value = selection.length != 1
   multiple.value = !selection.length;
 }
-
+$end
 // 自定义排序
 function sortChange(column) {
   var sort = undefined
@@ -474,15 +603,17 @@ ${end}
 /*************** form操作 ***************/
 //定义响应式变量
 const formRef = ref()
-  // 弹出层标题
-const title = ref("")
+// 弹出层标题
+const title = ref('')
 // 操作类型 1、add 2、edit 3、view
 //定义响应式变量
 const opertype = ref(0)
-//定义对话框打开变更
+//定义对话框打开
 const open = ref(false)
 //reactive()定义响应式变量,仅支持对象、数组、Map、Set等集合类型有效
 const state = reactive({
+  single: true,
+  multiple: true,
   form: {},
   rules: {
 $foreach(column in genTable.Columns)
@@ -493,8 +624,8 @@ $end
 $end
   },
   options: {
-$foreach(column in genTable.Columns)
-$if(column.HtmlType == "radio" || column.HtmlType == "select" || column.HtmlType == "checkbox" || column.HtmlType == "selectMulti")
+$foreach(column in dicts)
+$if(column.HtmlType == "radio" || column.HtmlType.Contains("select") || column.HtmlType == "checkbox")
     //$if(column.ColumnComment != "") ${column.ColumnComment} $else ${column.CsharpFieldFl}$end选项列表 格式 eg:{ dictLabel: '标签', dictValue: '0'}
     $if(column.DictType != "")${column.DictType}$else${column.CsharpFieldFl}Options$end: [],
 $end
@@ -502,7 +633,7 @@ $end
   }
 })
 //将响应式对象转换成普通对象
-const { form, rules, options } = toRefs(state)
+const { form, rules, options, single, multiple } = toRefs(state)
 
 // 关闭dialog
 function cancel(){
@@ -514,14 +645,16 @@ function cancel(){
 function reset() {
   form.value = {
 $foreach(item in genTable.Columns)
-$if((item.IsEdit || item.IsInsert))
-    $item.CsharpFieldFl: undefined,
-$end
 $if((item.HtmlType == "checkbox"))
     ${item.CsharpFieldFl}Checked: [],
+$else
+    $item.CsharpFieldFl: null,
 $end
 $end
   };
+$if(sub)
+  ${tool.FirstLowerCase(genTable.SubTable.ClassName)}List.value = []
+$end
   proxy.resetForm("formRef")
 }
 
@@ -529,7 +662,7 @@ $end
 function handleAdd() {
   reset();
   open.value = true
-  title.value = proxy.${t}t('btn.add')
+  title.value = proxy.${t}t('btn.add')+'${genTable.functionName}'
   opertype.value = 1
 }
 
@@ -541,17 +674,20 @@ function handleUpdate(row) {
     const { code, data } = res
     if (code == 200) {
       open.value = true
-      title.value = proxy.${t}t('btn.edit')
+      title.value = proxy.${t}t('btn.edit')+'${genTable.functionName}'
       opertype.value = 2
 
       form.value = {
-      ...data,
+        ...data,
 $foreach(item in genTable.Columns)
 $if(item.HtmlType == "checkbox")
-          ${item.CsharpFieldFl}Checked: data.${item.CsharpFieldFl} ? data.${item.CsharpFieldFl}.split(',') : [],
+        ${item.CsharpFieldFl}Checked: data.${item.CsharpFieldFl} ? data.${item.CsharpFieldFl}.split(',') : [],
 $end
 $end
       }
+$if(sub)
+      ${tool.FirstLowerCase(genTable.SubTable.ClassName)}List.value = res.data.${tool.FirstLowerCase(genTable.SubTable.ClassName)}Nav
+$end
     }
   })
 }
@@ -564,6 +700,10 @@ $foreach(item in genTable.Columns)
 $if(item.HtmlType == "checkbox")
       form.value.${item.CsharpFieldFl} = form.value.${item.CsharpFieldFl}Checked.toString();
 $end
+$end
+
+$if(sub)
+      form.value.${tool.FirstLowerCase(genTable.SubTable.ClassName)}Nav = ${tool.FirstLowerCase(genTable.SubTable.ClassName)}List.value
 $end
       if (form.value.${replaceDto.FistLowerPk} != undefined && opertype.value === 2) {
         update${genTable.BusinessName}(form.value).then((res) => {
@@ -626,7 +766,7 @@ $if(replaceDto.ShowBtnView)
 function handlePreview(row) {
   reset()
   open.value = true
-  title.value =  proxy.${t}t('btn.preview')
+  title.value = proxy.${t}t('btn.preview')
   opertype.value = 3
   form.value = row
 }
@@ -645,6 +785,62 @@ function handleExport() {
       await proxy.downFile('/${genTable.ModuleName}/${genTable.BusinessName}/export', { ...queryParams })
     })
 }
+$end
+
+$if(sub)
+/*********************${genTable.SubTable.FunctionName}子表信息*************************/
+const ${tool.FirstLowerCase(genTable.SubTable.ClassName)}List = ref([])
+const checked${genTable.SubTable.ClassName} = ref([])
+const fullScreen = ref(false)
+const drawer = ref(false)
+
+/** ${genTable.SubTable.FunctionName}序号 */
+function row${genTable.SubTable.ClassName}Index({ row, rowIndex }) {
+  row.index = rowIndex + 1;
+}
+
+/** ${genTable.SubTable.FunctionName}添加按钮操作 */
+function handleAdd${genTable.SubTable.ClassName}() {
+  let obj = {};
+$foreach(column in genTable.SubTable.Columns)
+$if(column.IsPK || column.CsharpField == genTable.SubTableFkName)
+$elseif(column.IsList == true && "" != column.CsharpField)
+  //obj.${column.CsharpFieldFl} = null;
+$end
+$end
+  ${tool.FirstLowerCase(genTable.SubTable.ClassName)}List.value.push(obj);
+}
+
+/** 复选框选中数据 */
+function handle${genTable.SubTable.ClassName}SelectionChange(selection) {
+  checked${genTable.SubTable.ClassName}.value = selection.map(item => item.index)
+}
+
+/** ${genTable.SubTable.FunctionName}删除按钮操作 */
+function handleDelete${genTable.SubTable.ClassName}() {
+  if(checked${genTable.SubTable.ClassName}.value.length == 0){
+    proxy.${modal}modal.msgError('请先选择要删除的${genTable.SubTable.FunctionName}数据')
+  } else {
+    const ${genTable.SubTable.ClassName}s = ${tool.FirstLowerCase(genTable.SubTable.ClassName)}List.value;
+    const checked${genTable.SubTable.ClassName}s = checked${genTable.SubTable.ClassName}.value;
+    ${tool.FirstLowerCase(genTable.SubTable.ClassName)}List.value = ${genTable.SubTable.ClassName}s.filter(function(item) {
+      return checked${genTable.SubTable.ClassName}s.indexOf(item.index) == -1
+    });
+  }
+}
+
+/** ${genTable.SubTable.FunctionName}详情 */
+function rowClick(row) {
+  const id = row.${replaceDto.FistLowerPk} || ids.value
+  get${genTable.BusinessName}(id).then((res) => {
+    const { code, data } = res
+    if (code == 200) {
+      drawer.value = true
+      ${tool.FirstLowerCase(genTable.SubTable.ClassName)}List.value = data.${tool.FirstLowerCase(genTable.SubTable.ClassName)}Nav
+    }
+  })
+}
+
 $end
 
 handleQuery()

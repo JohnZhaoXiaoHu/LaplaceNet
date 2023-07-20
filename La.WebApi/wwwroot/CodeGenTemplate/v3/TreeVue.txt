@@ -1,10 +1,7 @@
 ﻿<!--
  * @Descripttion: (${genTable.functionName}/${genTable.tableName})
- * @version: (1.0)
  * @Author: (${replaceDto.Author})
  * @Date: (${replaceDto.AddTime})
- * @LastEditors: (${replaceDto.Author})
- * @LastEditTime: (${replaceDto.AddTime})
 -->
 <template>
   <div>
@@ -13,6 +10,7 @@ $foreach(column in genTable.Columns)
 $set(labelName = "")
 $set(columnName = "")
 $set(numLabel = "")
+$if(column.IsQuery == true)
 $set(columnName = column.CsharpFieldFl)
 $if(column.ColumnComment != "")
 $set(labelName = column.ColumnComment)
@@ -22,7 +20,6 @@ $end
 $if(column.CsharpType == "int" || column.CsharpType == "long")
 $set(numLabel = ".number")
 $end
-
 $if(column.HtmlType == "datetime")
       <el-form-item label="$labelName">
         <el-date-picker 
@@ -70,7 +67,7 @@ $end
        <el-col :span="1.5">
         <el-button type="info" plain icon="sort" @click="toggleExpandAll">展开/折叠</el-button>
       </el-col>
-$if(replaceDto.ShowBtnDelete)
+$if(replaceDto.ShowBtnMultiDel)
       <el-col :span="1.5">
         <el-button type="danger" :disabled="multiple" v-hasPermi="['${replaceDto.PermissionPrefix}:delete']" plain icon="delete" @click="handleDelete">
           {{ ${t}t('btn.delete') }}
@@ -123,9 +120,7 @@ $if(column.HtmlType == "customInput" && column.IsPk == false)
 $elseif(column.HtmlType == "imageUpload")
       <el-table-column prop="${columnName}" label="${labelName}" align="center">
         <template #default="scope">
-          <el-image preview-teleported :hide-on-click-modal="true" lazy class="table-td-thumb" fit="contain" :src="scope.row.${columnName}" :preview-src-list="[scope.row.${columnName}]">
-            <div><el-icon :size="15"><document /></el-icon></div>
-          </el-image>
+          <ImagePreview :src="scope.row.${columnName}"></ImagePreview>
         </template>
       </el-table-column>
 $elseif(column.HtmlType == "checkbox" || column.HtmlType == "select" || column.HtmlType == "radio")
@@ -293,15 +288,23 @@ $end
 
   </div>
 </template>
+
 <script setup name="${genTable.BusinessName.ToLower()}">
-import { treelist${genTable.BusinessName}, list${genTable.BusinessName}, add${genTable.BusinessName}, del${genTable.BusinessName}, update${genTable.BusinessName}, get${genTable.BusinessName},
+import { treelist${genTable.BusinessName}, list${genTable.BusinessName}, 
+$if(replaceDto.ShowBtnAdd) add${genTable.BusinessName}, $end
+$if(replaceDto.ShowBtnDelete || replaceDto.ShowBtnMultiDel)del${genTable.BusinessName},$end
+$if(replaceDto.ShowBtnEdit) update${genTable.BusinessName},$end
+get${genTable.BusinessName},
 $if(showCustomInput) changeSort $end } from '@/api/${tool.FirstLowerCase(genTable.ModuleName)}/${genTable.BusinessName.ToLower()}.js'
+$if(replaceDto.ShowEditor == 1)
+import Editor from '@/components/Editor'
+$end
 
 const { proxy } = getCurrentInstance()
 // 是否展开，默认全部折叠
 const isExpandAll = ref(false)
 const refreshTable = ref(true)
-//展开/折叠操作
+// 展开/折叠操作
 function toggleExpandAll() {
   refreshTable.value = false
   isExpandAll.value = !isExpandAll.value
@@ -399,6 +402,9 @@ $end
       loading.value = false
     }
   })
+    .catch(() => {
+      loading.value = false
+    })
 }
 
 // 查询

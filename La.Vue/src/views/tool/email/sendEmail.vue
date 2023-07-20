@@ -7,9 +7,8 @@
       :key="domain.key"
       :rules="[
         { required: true, message: '邮箱不能为空', trigger: 'blur' },
-        { message: '请输入正确的邮箱地址', trigger: ['blur', 'change'], type: 'email' },
-      ]"
-    >
+        { message: '请输入正确的邮箱地址', trigger: ['blur', 'change'], type: 'email' }
+      ]">
       <el-input v-model="domain.value" style="width: 300px"></el-input>
       <el-button class="ml10" @click="addDomain" icon="plus" />
       <el-button class="ml10" @click.prevent="removeDomain(domain)" icon="minus" />
@@ -27,7 +26,7 @@
       <UploadFile v-model="form.fileUrl" :limit="5" :fileSize="15" :data="{ fileDir: 'email', uploadType: 1 }" />
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="formSubmit">发送邮件</el-button>
+      <el-button type="primary" icon="upload" @click="formSubmit">发送邮件</el-button>
     </el-form-item>
   </el-form>
 </template>
@@ -41,14 +40,14 @@ const data = reactive({
     htmlContent: '',
     toEmails: [
       {
-        value: '',
-      },
-    ],
+        value: ''
+      }
+    ]
   },
   rules: {
     subject: [{ required: true, message: '主题不能为空', trigger: 'blur' }],
-    content: [{ required: true, message: '内容不能为空', trigger: 'blur' }],
-  },
+    content: [{ required: true, message: '内容不能为空', trigger: 'blur' }]
+  }
 })
 
 const { form, rules } = toRefs(data)
@@ -65,9 +64,9 @@ function reset() {
     sendMe: false,
     toEmails: [
       {
-        value: '',
-      },
-    ],
+        value: ''
+      }
+    ]
   }
   proxy.resetForm('formRef')
 }
@@ -86,7 +85,7 @@ function formSubmit() {
       })
       var p = {
         ...form.value,
-        toUser: emails.toString(),
+        toUser: emails.toString()
       }
       // 如果校验通过，请求接口，允许提交表单
       sendEmail(p).then((res) => {
@@ -115,7 +114,7 @@ function removeDomain(item) {
   } else {
     proxy.$message({
       message: '请至少保留一位联系人',
-      type: 'warning',
+      type: 'warning'
     })
   }
 }
@@ -123,7 +122,7 @@ function removeDomain(item) {
 function addDomain() {
   form.value.toEmails.push({
     value: '',
-    key: Date.now(),
+    key: Date.now()
   })
 }
 </script>

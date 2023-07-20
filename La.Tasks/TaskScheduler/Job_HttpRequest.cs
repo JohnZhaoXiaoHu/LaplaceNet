@@ -3,8 +3,10 @@ using La.Infra.Attribute;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Impl.Triggers;
+using SqlSugar.IOC;
 using System;
 using System.Threading.Tasks;
+using La.Model.System;
 using La.Service.System.IService;
 
 namespace La.Tasks.TaskScheduler
@@ -15,13 +17,13 @@ namespace La.Tasks.TaskScheduler
     [AppService(ServiceType = typeof(Job_HttpRequest), ServiceLifetime = LifeTime.Scoped)]
     internal class Job_HttpRequest : JobBase, IJob
     {
-        private readonly ISysTasksQzService tasksQzService;
+        //private readonly ISysTasksQzService tasksQzService;
         private readonly NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public Job_HttpRequest(ISysTasksQzService tasksQzService)
-        {
-            this.tasksQzService = tasksQzService;
-        }
+        //public Job_HttpRequest(ISysTasksQzService tasksQzService)
+        //{
+        //    this.tasksQzService = tasksQzService;
+        //}
         public async Task Execute(IJobExecutionContext context)
         {
             await ExecuteJob(context, async () => await Run(context));
@@ -29,7 +31,8 @@ namespace La.Tasks.TaskScheduler
         public async Task Run(IJobExecutionContext context)
         {
             AbstractTrigger trigger = (context as JobExecutionContextImpl).Trigger as AbstractTrigger;
-            var info = await tasksQzService.GetByIdAsync(trigger.JobName);
+            //var info = await tasksQzService.CopyNew().GetByIdAsync(trigger.JobName);
+            var info = await DbScoped.SugarScope.CopyNew().Queryable<SysTasks>().FirstAsync(f => f.ID == trigger.JobName);
             if (info == null)
             {
                 throw new CustomException($"任务{trigger?.JobName}网络请求执行失败，任务不存在");

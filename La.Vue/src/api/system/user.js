@@ -10,13 +10,6 @@ export function listUser(query) {
     params: query
   })
 }
-// 查询用户列表
-export function listUseAll() {
-  return request({
-    url: '/system/user/list',
-    method: 'get',
-  })
-}
 
 // 查询用户详细
 export function getUser(userId) {
@@ -122,9 +115,9 @@ export function updateUserPwd(oldPassword, newPassword) {
 export function uploadAvatar(data) {
   return request({
     url: '/system/user/profile/avatar',
-    headers: { 'Content-Type': 'multipart-formData' },
     method: 'post',
-    data: data
+    data: data,
+    headers: { 'Content-Type': 'multipart/form-data' }
   })
 }
 

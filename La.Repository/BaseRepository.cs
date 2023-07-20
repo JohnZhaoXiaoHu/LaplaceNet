@@ -12,7 +12,7 @@ using La.Model;
 namespace La.Repository
 {
     /// <summary>
-    /// 
+    /// 数据仓库类
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class BaseRepository<T> : SimpleClient<T> where T : class, new()
@@ -79,7 +79,7 @@ namespace La.Repository
 
         /// <summary>
         /// 实体根据主键更新指定字段
-        /// return Update(user, t => new { t.NickName, }, true);
+        /// return Update(new SysUser(){ Status = 1 }, t => new { t.NickName, }, true);
         /// </summary>
         /// <param name="entity"></param>
         /// <param name="expression"></param>
@@ -91,12 +91,12 @@ namespace La.Repository
         }
 
         /// <summary>
-        /// 根据指定条件更新指定列 eg：Update(new SysUser(){ }, it => new { it.Status }, f => f.Userid == 1));
+        /// 根据指定条件更新指定列 eg：Update(new SysUser(){ Status = 1 }, it => new { it.Status }, f => f.Userid == 1));
         /// 只更新Status列，条件是包含
         /// </summary>
-        /// <param name="entity"></param>
-        /// <param name="expression"></param>
-        /// <param name="where"></param>
+        /// <param name="entity">实体类</param>
+        /// <param name="expression">要更新列的表达式</param>
+        /// <param name="where">where表达式</param>
         /// <returns></returns>
         public int Update(T entity, Expression<Func<T, object>> expression, Expression<Func<T, bool>> where)
         {
@@ -117,14 +117,11 @@ namespace La.Repository
         /// <returns></returns>
         public int Update(T entity, List<string> list = null, bool isNull = true)
         {
-            if (list == null)
-            {
-                list = new List<string>()
+            list ??= new List<string>()
             {
                 "Create_By",
                 "Create_time"
             };
-            }
             return Context.Updateable(entity).IgnoreColumns(isNull).IgnoreColumns(list.ToArray()).ExecuteCommand();
         }
 
@@ -171,6 +168,7 @@ namespace La.Repository
         {
             return Context.Storageable(t);
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -192,6 +190,11 @@ namespace La.Repository
             }
         }
 
+        /// <summary>
+        /// 使用事务
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
         public bool UseTran2(Action action)
         {
             var result = Context.Ado.UseTran(() => action());
@@ -239,36 +242,6 @@ namespace La.Repository
             return Context.Queryable<T>();
         }
 
-        public (List<T>, int) QueryableToPage(Expression<Func<T, bool>> expression, int pageIndex = 0, int pageSize = 10)
-        {
-            int totalNumber = 0;
-            var list = Context.Queryable<T>().Where(expression).ToPageList(pageIndex, pageSize, ref totalNumber);
-            return (list, totalNumber);
-        }
-
-        public (List<T>, int) QueryableToPage(Expression<Func<T, bool>> expression, string order, int pageIndex = 0, int pageSize = 10)
-        {
-            int totalNumber = 0;
-            var list = Context.Queryable<T>().Where(expression).OrderBy(order).ToPageList(pageIndex, pageSize, ref totalNumber);
-            return (list, totalNumber);
-        }
-
-        public (List<T>, int) QueryableToPage(Expression<Func<T, bool>> expression, Expression<Func<T, object>> orderFiled, string orderBy, int pageIndex = 0, int pageSize = 10)
-        {
-            int totalNumber = 0;
-
-            if (orderBy.Equals("DESC", StringComparison.OrdinalIgnoreCase))
-            {
-                var list = Context.Queryable<T>().Where(expression).OrderBy(orderFiled, OrderByType.Desc).ToPageList(pageIndex, pageSize, ref totalNumber);
-                return (list, totalNumber);
-            }
-            else
-            {
-                var list = Context.Queryable<T>().Where(expression).OrderBy(orderFiled, OrderByType.Asc).ToPageList(pageIndex, pageSize, ref totalNumber);
-                return (list, totalNumber);
-            }
-        }
-
         public List<T> SqlQueryToList(string sql, object obj = null)
         {
             return Context.Ado.SqlQuery<T>(sql, obj);
@@ -296,9 +269,21 @@ namespace La.Repository
             return source.ToPage(parm);
         }
 
+        /// <summary>
+        /// 分页获取数据
+        /// </summary>
+        /// <param name="where">条件表达式</param>
+        /// <param name="parm"></param>
+        /// <param name="order"></param>
+        /// <param name="orderEnum"></param>
+        /// <returns></returns>
         public PagedInfo<T> GetPages(Expression<Func<T, bool>> where, PagerInfo parm, Expression<Func<T, object>> order, OrderByType orderEnum = OrderByType.Asc)
         {
-            var source = Context.Queryable<T>().Where(where).OrderByIF(orderEnum == OrderByType.Asc, order, OrderByType.Asc).OrderByIF(orderEnum == OrderByType.Desc, order, OrderByType.Desc);
+            var source = Context
+                .Queryable<T>()
+                .Where(where)
+                .OrderByIF(orderEnum == OrderByType.Asc, order, OrderByType.Asc)
+                .OrderByIF(orderEnum == OrderByType.Desc, order, OrderByType.Desc);
 
             return source.ToPage(parm);
         }

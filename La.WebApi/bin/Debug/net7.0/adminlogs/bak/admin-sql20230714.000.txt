@@ -1,0 +1,387 @@
+2023-07-14 17:36:32.7306 | INFO |  |  |  
+【db0 SQL语句】SELECT [Id],[lang_code],[lang_key],[lang_name],[Addtime] FROM [sys_common_lang]  WHERE ( [lang_code] = N'zh-cn' )
+
+2023-07-14 17:36:33.5622 | INFO |  |  |  
+【db0 SQL语句】SELECT  TOP 1 [UserId],[UserName],[NickName],[UserType],[Avatar],[Email],[Password],[Phonenumber],[Sex],[Status],[IsDeleted],[LoginIP],[LoginDate],[DeptId],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [sys_user]  WHERE ( [UserId] = 1 )
+
+2023-07-14 17:36:33.6089 | INFO |  |  |  
+【db0 SQL语句】SELECT [r].* FROM [sys_user_role] [ur] Left JOIN [sys_role] [r] ON ( [ur].[role_id] = [r].[RoleId] )   WHERE (( [ur].[user_id] = 1 ) AND ( [r].[RoleId] > 0 ))
+
+2023-07-14 17:36:33.8049 | INFO |  |  |  
+【db0 SQL语句】SELECT [r].* FROM [sys_user_role] [ur] Left JOIN [sys_role] [r] ON ( [ur].[role_id] = [r].[RoleId] )   WHERE (( [ur].[user_id] = 1 ) AND ( [r].[RoleId] > 0 ))
+
+2023-07-14 17:36:33.8806 | INFO |  |  |  
+【db0 SQL语句】SELECT [MenuId],[MenuName],[ParentId],[OrderNum],[Path],[Component],[IsCache],[IsFrame],[MenuType],[Visible],[Status],[Perms],[Icon],[menuName_key],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [sys_menu]  WHERE ( [Status] = 0 )  AND  ([MenuType] IN ('M','C')) ORDER BY [ParentId],[OrderNum]
+
+2023-07-14 17:36:33.8979 | INFO |  |  |  
+【db0 SQL语句】SELECT [notice_id],[notice_title],[notice_type],[notice_content],[Status],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [sys_notice]  WHERE ( [Status] = 0 )
+
+2023-07-14 17:36:34.2157 | INFO |  |  |  
+【db0 SQL语句】SELECT [DictCode],[DictSort],[DictLabel],[DictValue],[DictType],[CssClass],[ListClass],[IsDefault],[Status],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [sys_dict_data]  WHERE (( [Status] = 0 ) AND ( [DictType] = N'sys_normal_disable' ))ORDER BY [DictSort] ASC
+
+2023-07-14 17:36:34.2494 | INFO |  |  |  
+【db0 SQL语句】 SELECT COUNT(1) FROM (SELECT [PostId],[PostCode],[PostName],[PostSort],[Status],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [sys_post]  WHERE ( [Status] = 0 )) CountTable 
+
+2023-07-14 17:36:34.2494 | INFO |  |  |  
+【db0 SQL语句】SELECT * FROM (SELECT [PostId],[PostCode],[PostName],[PostSort],[Status],[Remark],[Create_by],[Create_time],[Update_by],[Update_time],ROW_NUMBER() OVER(ORDER BY [PostSort]) AS RowIndex  FROM [sys_post]  WHERE ( [Status] = 0 )) T WHERE RowIndex BETWEEN 1 AND 10
+
+2023-07-14 17:36:39.0949 | INFO |  |  |  
+【db0 SQL语句】 SELECT COUNT(1) FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [gen_table]  WHERE ( 1 = 1 ) ) CountTable 
+
+2023-07-14 17:36:39.0995 | INFO |  |  |  
+【db0 SQL语句】SELECT * FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time],ROW_NUMBER() OVER(ORDER BY [TableId] DESC) AS RowIndex  FROM [gen_table]  WHERE ( 1 = 1 ) ) T WHERE RowIndex BETWEEN 1 AND 10
+
+2023-07-14 17:36:39.1436 | INFO |  |  |  
+【db0 SQL语句】 SELECT COUNT(1) FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [gen_table]  WHERE ( 1 = 1 ) ) CountTable 
+
+2023-07-14 17:36:39.1436 | INFO |  |  |  
+【db0 SQL语句】SELECT * FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time],ROW_NUMBER() OVER(ORDER BY [TableId] DESC) AS RowIndex  FROM [gen_table]  WHERE ( 1 = 1 ) ) T WHERE RowIndex BETWEEN 1 AND 10
+
+2023-07-14 17:36:48.0506 | ERROR |  |  |  
+【db0 SQL语句】DELETE FROM [gen_table] WHERE ( [TableName] = N'qm_qccost_waste' ) 
+
+2023-07-14 17:36:48.1069 | WARN |  |  |  
+【db0 SQL语句】INSERT INTO [gen_table]  
+           ([DbName],[TableName],[TableComment],[ClassName],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time])
+     VALUES
+           (N'La_Dev',N'qm_qccost_waste',N'废弃部品',N'QmQccostWaste',N'La.',N'La',N'QmQccostWaste',N'废弃部品',N'admin',N'1',N'G:\App Develop\VS2023\ZrAdminNetCore',N'{"ParentMenuId":0,"SortType":"asc","SortField":"","TreeCode":"","TreeName":"","TreeParentCode":"","PermissionPrefix":"qm:qccostwaste","CheckedBtn":[1,2,3,4,5,6,7,8],"ColNum":12,"GenerateRepo":0,"GenerateMenu":false,"OperBtnStyle":1}',N'废弃部品(qm_qccost_waste)',N'admin','2023-07-14 17:36:48.040') ;SELECT SCOPE_IDENTITY();
+
+2023-07-14 17:36:48.4974 | ERROR |  |  |  
+【db0 SQL语句】DELETE FROM [gen_table_column] WHERE ( [TableName] = N'qm_qccost_waste' ) 
+
+2023-07-14 17:36:48.5244 | WARN |  |  |  
+【db0 SQL语句】INSERT [gen_table_column]  ([ColumnName],[TableId],[TableName],[ColumnComment],[ColumnType],[CsharpType],[CsharpField],[IsPk],[IsRequired],[IsIncrement],[IsInsert],[IsEdit],[IsList],[IsQuery],[IsSort],[IsExport],[HtmlType],[QueryType],[Sort],[DictType],[AutoFillType],[Create_by],[Create_time])
+ SELECT N'qcwdGuid' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'Guid' AS [ColumnComment],N'uniqueidentifier' AS [ColumnType],N'string' AS [CsharpType],N'QcwdGuid' AS [CsharpField],1 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],0 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.490' AS [Create_time]	
+UNION ALL 
+ SELECT N'qcwd001' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'日期' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'Qcwd001' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'qcwd002' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'机种' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'Qcwd002' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'qcwd003' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'间接人员赁率' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'Qcwd003' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'qcwd004' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'部品品号' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'Qcwd004' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'qcwd005' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'部品品名' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'Qcwd005' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'qcwd006' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'事故内容' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'Qcwd006' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'qcwd007' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'废弃费用' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'Qcwd007' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'qcwd008' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'废弃数量' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'Qcwd008' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'qcwd009' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'部品单价' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'Qcwd009' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'qcwd010' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'废弃处理费用' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'Qcwd010' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'qcwd011' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'运费' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'Qcwd011' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'qcwd012' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'其他费用' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'Qcwd012' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'qcwd013' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'处理作业时间(分)' AS [ColumnComment],N'int' AS [ColumnType],N'int' AS [CsharpType],N'Qcwd013' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'qcwd014' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'关税' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'Qcwd014' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'qcwd015' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'处理发生其他费用' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'Qcwd015' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'qcwd016' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'设变' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'Qcwd016' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'qcwdrec' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'Qcwdrec' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'Qcwdrec' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF01' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'UDF01' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'UDF01' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF02' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'UDF02' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'UDF02' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF03' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'UDF03' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'UDF03' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF04' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'UDF04' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'UDF04' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF05' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'UDF05' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'UDF05' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF06' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'UDF06' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'UDF06' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF51' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'UDF51' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'UDF51' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF52' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'UDF52' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'UDF52' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF53' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'UDF53' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'UDF53' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF54' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'UDF54' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'UDF54' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF55' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'UDF55' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'UDF55' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF56' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'UDF56' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'UDF56' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'isDeleted' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'IsDeleted' AS [ColumnComment],N'bit' AS [ColumnType],N'bool' AS [CsharpType],N'IsDeleted' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],0 AS [IsEdit],0 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'radio' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.491' AS [Create_time]	
+UNION ALL 
+ SELECT N'reMark' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'ReMark' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ReMark' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.492' AS [Create_time]	
+UNION ALL 
+ SELECT N'create_by' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'CreateBy' AS [ColumnComment],N'varchar' AS [ColumnType],N'string' AS [CsharpType],N'CreateBy' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],0 AS [IsEdit],0 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.492' AS [Create_time]	
+UNION ALL 
+ SELECT N'create_time' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'CreateTime' AS [ColumnComment],N'datetime' AS [ColumnType],N'DateTime' AS [CsharpType],N'CreateTime' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],0 AS [IsEdit],0 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'datetime' AS [HtmlType],N'BETWEEN' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.492' AS [Create_time]	
+UNION ALL 
+ SELECT N'update_by' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'UpdateBy' AS [ColumnComment],N'varchar' AS [ColumnType],N'string' AS [CsharpType],N'UpdateBy' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],0 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.492' AS [Create_time]	
+UNION ALL 
+ SELECT N'update_time' AS [ColumnName],N'1' AS [TableId],N'qm_qccost_waste' AS [TableName],N'UpdateTime' AS [ColumnComment],N'datetime' AS [ColumnType],N'DateTime' AS [CsharpType],N'UpdateTime' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],0 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'datetime' AS [HtmlType],N'BETWEEN' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:36:48.492' AS [Create_time]
+;
+select SCOPE_IDENTITY();
+
+2023-07-14 17:36:48.9876 | INFO |  |  |  
+【db0 SQL语句】 SELECT COUNT(1) FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [gen_table]  WHERE ( 1 = 1 ) ) CountTable 
+
+2023-07-14 17:36:48.9876 | INFO |  |  |  
+【db0 SQL语句】SELECT * FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time],ROW_NUMBER() OVER(ORDER BY [TableId] DESC) AS RowIndex  FROM [gen_table]  WHERE ( 1 = 1 ) ) T WHERE RowIndex BETWEEN 1 AND 10
+
+2023-07-14 17:36:50.6665 | INFO |  |  |  
+【db0 SQL语句】 SELECT COUNT(1) FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [gen_table]  WHERE  ([TableName] like '%'+N'qm_qccost_waste'+'%') ) CountTable 
+
+2023-07-14 17:36:50.6665 | INFO |  |  |  
+【db0 SQL语句】SELECT * FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time],ROW_NUMBER() OVER(ORDER BY [TableId] DESC) AS RowIndex  FROM [gen_table]  WHERE  ([TableName] like '%'+N'qm_qccost_waste'+'%') ) T WHERE RowIndex BETWEEN 1 AND 10
+
+2023-07-14 17:36:51.0046 | INFO |  |  |  
+【db0 SQL语句】 SELECT COUNT(1) FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [gen_table]  WHERE  ([TableName] like '%'+N'qm_qccost_waste'+'%') ) CountTable 
+
+2023-07-14 17:36:51.0060 | INFO |  |  |  
+【db0 SQL语句】SELECT * FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time],ROW_NUMBER() OVER(ORDER BY [TableId] DESC) AS RowIndex  FROM [gen_table]  WHERE  ([TableName] like '%'+N'qm_qccost_waste'+'%') ) T WHERE RowIndex BETWEEN 1 AND 10
+
+2023-07-14 17:36:51.6364 | INFO |  |  |  
+【db0 SQL语句】 SELECT COUNT(1) FROM (SELECT [DictId],[DictName],[DictType],[Status],[Type],[CustomSql],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [sys_dict_type]  WHERE ( [Status] = 0 )) CountTable 
+
+2023-07-14 17:36:51.6364 | INFO |  |  |  
+【db0 SQL语句】SELECT * FROM (SELECT [DictId],[DictName],[DictType],[Status],[Type],[CustomSql],[Remark],[Create_by],[Create_time],[Update_by],[Update_time],ROW_NUMBER() OVER(ORDER BY [DictId] DESC) AS RowIndex  FROM [sys_dict_type]  WHERE ( [Status] = 0 )) T WHERE RowIndex BETWEEN 1 AND 100
+
+2023-07-14 17:36:51.6566 | INFO |  |  |  
+【db0 SQL语句】SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [gen_table]  WHERE [TableId] = 1  
+
+2023-07-14 17:36:51.6952 | INFO |  |  |  
+【db0 SQL语句】SELECT [ColumnId],[ColumnName],[TableId],[TableName],[ColumnComment],[ColumnType],[CsharpType],[CsharpField],[IsPk],[IsRequired],[IsIncrement],[IsInsert],[IsEdit],[IsList],[IsQuery],[IsSort],[IsExport],[HtmlType],[QueryType],[Sort],[DictType],[AutoFillType],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [gen_table_column]  WHERE ( [TableId] = 1 )ORDER BY [Sort] ASC
+
+2023-07-14 17:36:51.6952 | INFO |  |  |  
+【db0 SQL语句】SELECT [r].* FROM [sys_user_role] [ur] Left JOIN [sys_role] [r] ON ( [ur].[role_id] = [r].[RoleId] )   WHERE (( [ur].[user_id] = 1 ) AND ( [r].[RoleId] > 0 ))
+
+2023-07-14 17:36:51.6952 | INFO |  |  |  
+【db0 SQL语句】SELECT [MenuId],[MenuName],[ParentId],[OrderNum],[Path],[Component],[IsCache],[IsFrame],[MenuType],[Visible],[Status],[Perms],[Icon],[menuName_key],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [sys_menu]  WHERE (( [Status] = 0 ) AND  ([MenuType] IN ('M','C')) )ORDER BY [ParentId],[OrderNum]
+
+2023-07-14 17:36:51.7483 | INFO |  |  |  
+【db0 SQL语句】SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [gen_table] 
+
+2023-07-14 17:40:06.7779 | INFO |  |  |  
+【db0 SQL语句】SELECT [notice_id],[notice_title],[notice_type],[notice_content],[Status],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [sys_notice]  WHERE ( [Status] = 0 )
+
+2023-07-14 17:40:29.2331 | INFO |  |  |  
+【db0 SQL语句】 SELECT COUNT(1) FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [gen_table]  WHERE  ([TableName] like '%'+N'qm_qccost_waste'+'%') ) CountTable 
+
+2023-07-14 17:40:29.2491 | INFO |  |  |  
+【db0 SQL语句】SELECT * FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time],ROW_NUMBER() OVER(ORDER BY [TableId] DESC) AS RowIndex  FROM [gen_table]  WHERE  ([TableName] like '%'+N'qm_qccost_waste'+'%') ) T WHERE RowIndex BETWEEN 1 AND 10
+
+2023-07-14 17:40:33.8294 | ERROR |  |  |  
+【db0 SQL语句】DELETE FROM [gen_table] WHERE  ([TableId] IN (1))  
+
+2023-07-14 17:40:33.8867 | ERROR |  |  |  
+【db0 SQL语句】DELETE FROM [gen_table_column] WHERE  ([TableId] IN (1))  
+
+2023-07-14 17:40:33.9797 | INFO |  |  |  
+【db0 SQL语句】 SELECT COUNT(1) FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [gen_table]  WHERE  ([TableName] like '%'+N'qm_qccost_waste'+'%') ) CountTable 
+
+2023-07-14 17:40:33.9797 | INFO |  |  |  
+【db0 SQL语句】SELECT * FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time],ROW_NUMBER() OVER(ORDER BY [TableId] DESC) AS RowIndex  FROM [gen_table]  WHERE  ([TableName] like '%'+N'qm_qccost_waste'+'%') ) T WHERE RowIndex BETWEEN 1 AND 10
+
+2023-07-14 17:40:33.9797 | WARN |  |  |  
+【db0 SQL语句】INSERT INTO [sys_oper_log]  
+           ([Title],[BusinessType],[Method],[RequestMethod],[OperatorType],[OperName],[OperUrl],[OperIp],[OperLocation],[OperParam],[JsonResult],[Status],[OperTime],[Elapsed])
+     VALUES
+           (N'代码生成',3,N'CodeGenerator.Remove()',N'DELETE',0,N'admin',N'/tool/gen/1',N'127.0.0.1',N'0 内网IP',N'',N'{  "code": 200,  "msg": "success",  "data": 36}',0,'2023-07-14 17:40:33.924',0) ;
+
+2023-07-14 17:40:41.4341 | ERROR |  |  |  
+【db0 SQL语句】DELETE FROM [gen_table] WHERE ( [TableName] = N'sd_client' ) 
+
+2023-07-14 17:40:41.4341 | WARN |  |  |  
+【db0 SQL语句】INSERT INTO [gen_table]  
+           ([DbName],[TableName],[TableComment],[ClassName],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time])
+     VALUES
+           (N'La_Dev',N'sd_client',N'客户信息',N'SdClient',N'La.',N'La',N'SdClient',N'客户信息',N'admin',N'1',N'G:\App Develop\VS2023\ZrAdminNetCore',N'{"ParentMenuId":0,"SortType":"asc","SortField":"","TreeCode":"","TreeName":"","TreeParentCode":"","PermissionPrefix":"sd:client","CheckedBtn":[1,2,3,4,5,6,7,8,9],"ColNum":12,"GenerateRepo":0,"GenerateMenu":false,"OperBtnStyle":1}',N'客户信息(sd_client)',N'admin','2023-07-14 17:40:41.432') ;SELECT SCOPE_IDENTITY();
+
+2023-07-14 17:40:41.8305 | ERROR |  |  |  
+【db0 SQL语句】DELETE FROM [gen_table_column] WHERE ( [TableName] = N'sd_client' ) 
+
+2023-07-14 17:40:41.8808 | WARN |  |  |  
+【db0 SQL语句】INSERT [gen_table_column]  ([ColumnName],[TableId],[TableName],[ColumnComment],[ColumnType],[CsharpType],[CsharpField],[IsPk],[IsRequired],[IsIncrement],[IsInsert],[IsEdit],[IsList],[IsQuery],[IsSort],[IsExport],[HtmlType],[QueryType],[Sort],[DictType],[AutoFillType],[Create_by],[Create_time])
+ SELECT N'scId' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'ID' AS [ColumnComment],N'bigint' AS [ColumnType],N'long' AS [CsharpType],N'ScId' AS [CsharpField],1 AS [IsPk],1 AS [IsRequired],1 AS [IsIncrement],0 AS [IsInsert],0 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.827' AS [Create_time]	
+UNION ALL 
+ SELECT N'scOrg' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'销售组织' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScOrg' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scPlant' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'销售工厂' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScPlant' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scIndustryType' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'行业类别' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScIndustryType' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'select' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scEnterpriseNature' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'企业性质' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScEnterpriseNature' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scCode' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'客户代码' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScCode' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scAbbr' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'客户简称' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScAbbr' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scName' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'客户名称' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScName' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scEbe' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'企业法人' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScEbe' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scBusinessNo' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'营业执照' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScBusinessNo' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scTaxNo' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'税号' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScTaxNo' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scTaxType' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'税别' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScTaxType' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'select' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scMainBusiness' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'主营业务' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScMainBusiness' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scCcy' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'交易币种' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScCcy' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scPayTerms' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'付款条件' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScPayTerms' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scPayMethod' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'付款方式' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScPayMethod' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scRecAccount' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'统驭科目' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScRecAccount' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scTradeTerms' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'贸易条件' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScTradeTerms' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scShippingTerms' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'装运条件' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScShippingTerms' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scCustomerGrade' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'客户等级' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScCustomerGrade' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scCustomerCredit' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'客户信用' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScCustomerCredit' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scFirstTransDate' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'首次交易' AS [ColumnComment],N'date' AS [ColumnType],N'DateTime' AS [CsharpType],N'ScFirstTransDate' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'datetime' AS [HtmlType],N'BETWEEN' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scLastTransDate' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'最近交易' AS [ColumnComment],N'date' AS [ColumnType],N'DateTime' AS [CsharpType],N'ScLastTransDate' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'datetime' AS [HtmlType],N'BETWEEN' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scBankCode' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'银行代码' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScBankCode' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scBankName' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'银行名称' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScBankName' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scBranchName' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'分行名称' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScBranchName' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scBankCountry' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'银行所在国' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScBankCountry' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scBankState' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'银行所在州省' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScBankState' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'radio' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scBankCity' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'银行所在市' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScBankCity' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scBankCounty' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'银行所在县' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScBankCounty' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scBankAddr' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'银行地址' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScBankAddr' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.828' AS [Create_time]	
+UNION ALL 
+ SELECT N'scBankAddr1' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'银行地址1' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScBankAddr1' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'scBankAddr2' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'银行地址2' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScBankAddr2' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'scBankAccount' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'银行账号' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScBankAccount' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'scBankSwiftNo' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'SWIFT代码' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScBankSwiftNo' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'scRegionCode' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'国家地区' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScRegionCode' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'scState' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'州省' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScState' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'radio' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'scCity' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'市' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScCity' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'scCounty' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'县' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScCounty' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'scAddr' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'地址' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScAddr' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'scAddr1' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'地址1' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScAddr1' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'scAddr2' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'地址2' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScAddr2' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'scContacts' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'联系人' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScContacts' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'scEmail' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'电邮' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScEmail' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'scTelNo' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'电话' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScTelNo' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'scFaxNp' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'传真' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScFaxNp' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'scPhoneNo' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'手机' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ScPhoneNo' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'isFroze' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'冻结标记' AS [ColumnComment],N'bit' AS [ColumnType],N'bool' AS [CsharpType],N'IsFroze' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'radio' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF01' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'UDF01' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'UDF01' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF02' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'UDF02' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'UDF02' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]
+;
+INSERT [gen_table_column]  ([ColumnName],[TableId],[TableName],[ColumnComment],[ColumnType],[CsharpType],[CsharpField],[IsPk],[IsRequired],[IsIncrement],[IsInsert],[IsEdit],[IsList],[IsQuery],[IsSort],[IsExport],[HtmlType],[QueryType],[Sort],[DictType],[AutoFillType],[Create_by],[Create_time])
+ SELECT N'uDF03' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'UDF03' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'UDF03' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF04' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'UDF04' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'UDF04' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF05' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'UDF05' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'UDF05' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF06' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'UDF06' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'UDF06' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF51' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'UDF51' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'UDF51' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF52' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'UDF52' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'UDF52' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF53' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'UDF53' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'UDF53' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF54' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'UDF54' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'UDF54' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF55' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'UDF55' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'UDF55' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'uDF56' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'UDF56' AS [ColumnComment],N'decimal' AS [ColumnType],N'decimal' AS [CsharpType],N'UDF56' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'reMark' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'说明' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'ReMark' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],1 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'isDeleted' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'软删除' AS [ColumnComment],N'bit' AS [ColumnType],N'bool' AS [CsharpType],N'IsDeleted' AS [CsharpField],0 AS [IsPk],1 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],0 AS [IsEdit],0 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'radio' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'create_by' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'CreateBy' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'CreateBy' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],0 AS [IsEdit],0 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'create_time' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'CreateTime' AS [ColumnComment],N'datetime' AS [ColumnType],N'DateTime' AS [CsharpType],N'CreateTime' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],0 AS [IsEdit],0 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'datetime' AS [HtmlType],N'BETWEEN' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'update_by' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'UpdateBy' AS [ColumnComment],N'nvarchar' AS [ColumnType],N'string' AS [CsharpType],N'UpdateBy' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],0 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'input' AS [HtmlType],N'EQ' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]	
+UNION ALL 
+ SELECT N'update_time' AS [ColumnName],N'2' AS [TableId],N'sd_client' AS [TableName],N'UpdateTime' AS [ColumnComment],N'datetime' AS [ColumnType],N'DateTime' AS [CsharpType],N'UpdateTime' AS [CsharpField],0 AS [IsPk],0 AS [IsRequired],0 AS [IsIncrement],1 AS [IsInsert],1 AS [IsEdit],0 AS [IsList],0 AS [IsQuery],0 AS [IsSort],1 AS [IsExport],N'datetime' AS [HtmlType],N'BETWEEN' AS [QueryType],N'0' AS [Sort],N'' AS [DictType],N'0' AS [AutoFillType],N'admin' AS [Create_by],'2023-07-14 17:40:41.829' AS [Create_time]
+;
+select SCOPE_IDENTITY();
+
+2023-07-14 17:40:42.3669 | INFO |  |  |  
+【db0 SQL语句】 SELECT COUNT(1) FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [gen_table]  WHERE  ([TableName] like '%'+N'qm_qccost_waste'+'%') ) CountTable 
+
+2023-07-14 17:40:42.3669 | INFO |  |  |  
+【db0 SQL语句】SELECT * FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time],ROW_NUMBER() OVER(ORDER BY [TableId] DESC) AS RowIndex  FROM [gen_table]  WHERE  ([TableName] like '%'+N'qm_qccost_waste'+'%') ) T WHERE RowIndex BETWEEN 1 AND 10
+
+2023-07-14 17:40:47.9511 | INFO |  |  |  
+【db0 SQL语句】 SELECT COUNT(1) FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [gen_table]  WHERE ( 1 = 1 ) ) CountTable 
+
+2023-07-14 17:40:47.9511 | INFO |  |  |  
+【db0 SQL语句】SELECT * FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time],ROW_NUMBER() OVER(ORDER BY [TableId] DESC) AS RowIndex  FROM [gen_table]  WHERE ( 1 = 1 ) ) T WHERE RowIndex BETWEEN 1 AND 10
+
+2023-07-14 17:40:49.4665 | INFO |  |  |  
+【db0 SQL语句】 SELECT COUNT(1) FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [gen_table]  WHERE  ([TableName] like '%'+N'sd_client'+'%') ) CountTable 
+
+2023-07-14 17:40:49.4665 | INFO |  |  |  
+【db0 SQL语句】SELECT * FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time],ROW_NUMBER() OVER(ORDER BY [TableId] DESC) AS RowIndex  FROM [gen_table]  WHERE  ([TableName] like '%'+N'sd_client'+'%') ) T WHERE RowIndex BETWEEN 1 AND 10
+
+2023-07-14 17:40:49.5159 | INFO |  |  |  
+【db0 SQL语句】 SELECT COUNT(1) FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [gen_table]  WHERE  ([TableName] like '%'+N'sd_client'+'%') ) CountTable 
+
+2023-07-14 17:40:49.5159 | INFO |  |  |  
+【db0 SQL语句】SELECT * FROM (SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time],ROW_NUMBER() OVER(ORDER BY [TableId] DESC) AS RowIndex  FROM [gen_table]  WHERE  ([TableName] like '%'+N'sd_client'+'%') ) T WHERE RowIndex BETWEEN 1 AND 10
+
+2023-07-14 17:40:50.1759 | INFO |  |  |  
+【db0 SQL语句】 SELECT COUNT(1) FROM (SELECT [DictId],[DictName],[DictType],[Status],[Type],[CustomSql],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [sys_dict_type]  WHERE ( [Status] = 0 )) CountTable 
+
+2023-07-14 17:40:50.1808 | INFO |  |  |  
+【db0 SQL语句】SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [gen_table]  WHERE [TableId] = 2  
+
+2023-07-14 17:40:50.1808 | INFO |  |  |  
+【db0 SQL语句】SELECT * FROM (SELECT [DictId],[DictName],[DictType],[Status],[Type],[CustomSql],[Remark],[Create_by],[Create_time],[Update_by],[Update_time],ROW_NUMBER() OVER(ORDER BY [DictId] DESC) AS RowIndex  FROM [sys_dict_type]  WHERE ( [Status] = 0 )) T WHERE RowIndex BETWEEN 1 AND 100
+
+2023-07-14 17:40:50.1808 | INFO |  |  |  
+【db0 SQL语句】SELECT [ColumnId],[ColumnName],[TableId],[TableName],[ColumnComment],[ColumnType],[CsharpType],[CsharpField],[IsPk],[IsRequired],[IsIncrement],[IsInsert],[IsEdit],[IsList],[IsQuery],[IsSort],[IsExport],[HtmlType],[QueryType],[Sort],[DictType],[AutoFillType],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [gen_table_column]  WHERE ( [TableId] = 2 )ORDER BY [Sort] ASC
+
+2023-07-14 17:40:50.2077 | INFO |  |  |  
+【db0 SQL语句】SELECT [TableId],[DbName],[TableName],[TableComment],[SubTableName],[SubTableFkName],[ClassName],[TplCategory],[BaseNameSpace],[ModuleName],[BusinessName],[FunctionName],[FunctionAuthor],[GenType],[GenPath],[Options],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [gen_table] 
+
+2023-07-14 17:40:50.2306 | INFO |  |  |  
+【db0 SQL语句】SELECT [r].* FROM [sys_user_role] [ur] Left JOIN [sys_role] [r] ON ( [ur].[role_id] = [r].[RoleId] )   WHERE (( [ur].[user_id] = 1 ) AND ( [r].[RoleId] > 0 ))
+
+2023-07-14 17:40:50.2306 | INFO |  |  |  
+【db0 SQL语句】SELECT [MenuId],[MenuName],[ParentId],[OrderNum],[Path],[Component],[IsCache],[IsFrame],[MenuType],[Visible],[Status],[Perms],[Icon],[menuName_key],[Remark],[Create_by],[Create_time],[Update_by],[Update_time] FROM [sys_menu]  WHERE (( [Status] = 0 ) AND  ([MenuType] IN ('M','C')) )ORDER BY [ParentId],[OrderNum]
+

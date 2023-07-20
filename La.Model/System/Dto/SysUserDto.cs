@@ -1,4 +1,6 @@
-﻿namespace La.Model.System.Dto
+﻿using System;
+
+namespace La.Model.System.Dto
 {
     public class SysUserDto
     {
@@ -6,11 +8,29 @@
         public string UserName { get; set; }
         public string NickName { get; set; }
         public string Email { get; set; }
-        public string ReMark { get; set; }
+        public string Remark { get; set; }
         public string Phonenumber { get; set; }
         /// <summary>
         /// 用户性别（0男 1女 2未知）
         /// </summary>
         public int Sex { get; set; }
+    }
+
+    public class SysUserQueryDto
+    {
+        public long UserId { get; set; }
+        public string UserName { get; set; }
+        public string NickName { get; set; }
+        public string Email { get; set; }
+        public string Remark { get; set; }
+        public string Phonenumber { get; set; }
+        /// <summary>
+        /// 用户性别（0男 1女 2未知）
+        /// </summary>
+        public int Sex { get; set; }
+        public DateTime? BeginTime { get; set; }
+        public DateTime? EndTime { get; set; }
+        public int Status { get; set; }
+        public long DeptId { get; set; }
     }
 }

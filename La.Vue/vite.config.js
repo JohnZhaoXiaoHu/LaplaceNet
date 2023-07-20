@@ -1,7 +1,13 @@
 import { defineConfig, loadEnv } from 'vite'
 import path from 'path'
-import viteSvgIcons from './vite/plugins'
-
+import createVitePlugins from './vite/plugins'
+import pkg from "./package.json";
+import dayjs from "dayjs";
+const { dependencies, devDependencies, name, version } = pkg;
+const __APP_INFO__ = {
+  pkg: { dependencies, devDependencies, name, version },
+  lastBuildTime: dayjs().format("YYYY-MM-DD HH:mm:ss")
+};
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, command }) => {
   const env = loadEnv(mode, process.cwd())
@@ -17,7 +23,10 @@ export default defineConfig(({ mode, command }) => {
     alias['vue-i18n'] = 'vue-i18n/dist/vue-i18n.cjs.js'
   }
   return {
-    plugins: viteSvgIcons(env, command === 'build'),
+    define: {
+      __APP_INFO__: JSON.stringify(__APP_INFO__)
+    },
+    plugins: createVitePlugins(env, command === 'build'),
     resolve: {
       // https://cn.vitejs.dev/config/#resolve-alias
       alias: alias,
@@ -61,6 +70,14 @@ export default defineConfig(({ mode, command }) => {
           rewrite: (path) => path.replace(/^\/msgHub/, '')
         }
       }
-    }
+    },
+    module: {
+      rules: [
+        {
+          test: /\.html$/i,
+          loader: 'html-loader',
+        },
+      ],
+    },
   }
 })

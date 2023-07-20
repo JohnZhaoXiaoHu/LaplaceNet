@@ -12,19 +12,14 @@
 
 <style lang="scss" scoped>
   .screenfull-svg {
+    display: inline-block;
+    cursor: pointer;
+    fill: #5a5e66;
+    width: 20px;
+    height: 20px;
+    vertical-align: 10px;
     font-size: 18px;
     line-height: 50px;
     padding-right: 7px;
-    width: 48px;
-    height: 48px;
-    vertical-align: text-bottom;
-  }
-
-  .svg-icon {
-    width: 1.2em;
-    height: 1.2em;
-    vertical-align: text-bottom;
-    fill: RoyalBlue;
-    overflow: hidden;
   }
 </style>

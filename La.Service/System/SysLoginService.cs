@@ -38,7 +38,7 @@ namespace La.Service.System
 
             SysUser user = SysUserService.Login(loginBody);
             logininfor.UserName = loginBody.Username;
-            logininfor.Status = "1";
+            logininfor.Status = 1;
             logininfor.LoginTime = DateTime.Now;
 
             if (user == null || user.UserId <= 0)
@@ -47,14 +47,14 @@ namespace La.Service.System
                 AddLoginInfo(logininfor);
                 throw new CustomException(ResultCode.LOGIN_ERROR ,logininfor.Msg);
             }
-            if (user.Status == "1")
+            if (user.Status == 1)
             {
                 logininfor.Msg = "该用户已禁用";
                 AddLoginInfo(logininfor);
                 throw new CustomException(ResultCode.LOGIN_ERROR, logininfor.Msg);
             }
 
-            logininfor.Status = "0";
+            logininfor.Status = 0;
             logininfor.Msg = "登录成功";
             AddLoginInfo(logininfor);
             SysUserService.UpdateLoginInfo(loginBody, user.UserId);
@@ -69,16 +69,18 @@ namespace La.Service.System
         /// <returns></returns>
         public PagedInfo<SysLogininfor> GetLoginLog(SysLogininfor logininfoDto, PagerInfo pager)
         {
-            logininfoDto.BeginTime = DateTimeHelper.GetBeginTime(logininfoDto.BeginTime, -1);
-            logininfoDto.EndTime = DateTimeHelper.GetBeginTime(logininfoDto.EndTime, 1);
+            //logininfoDto.BeginTime = DateTimeHelper.GetBeginTime(logininfoDto.BeginTime, -1);
+            //logininfoDto.EndTime = DateTimeHelper.GetBeginTime(logininfoDto.EndTime, 1);
 
             var exp = Expressionable.Create<SysLogininfor>();
-            exp.And(it => it.LoginTime >= logininfoDto.BeginTime && it.LoginTime <= logininfoDto.EndTime);
+
+            exp.AndIF(logininfoDto.BeginTime == null, it => it.LoginTime >= DateTime.Now.ToShortDateString().ParseToDateTime());
+            exp.AndIF(logininfoDto.BeginTime != null, it => it.LoginTime >= logininfoDto.BeginTime && it.LoginTime <= logininfoDto.EndTime);
             exp.AndIF(logininfoDto.Ipaddr.IfNotEmpty(), f => f.Ipaddr == logininfoDto.Ipaddr);
             exp.AndIF(logininfoDto.UserName.IfNotEmpty(), f => f.UserName.Contains(logininfoDto.UserName));
-            exp.AndIF(logininfoDto.Status.IfNotEmpty(), f => f.Status == logininfoDto.Status);
+            exp.AndIF(logininfoDto.Status.ToString().IfNotEmpty(), f => f.Status == logininfoDto.Status);
             var query = Queryable().Where(exp.ToExpression())
-                .OrderBy(it => it.InfoId, OrderByType.Desc);
+            .OrderBy(it => it.InfoId, OrderByType.Desc);
 
             return query.ToPage(pager);
         }

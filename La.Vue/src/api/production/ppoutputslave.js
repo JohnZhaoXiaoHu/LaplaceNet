@@ -13,7 +13,6 @@ export function listPpOutputSlave(query) {
   })
 }
 
-
 /**
 * 新增oph从表
 * @param data
@@ -25,7 +24,6 @@ export function addPpOutputSlave(data) {
     data: data,
   })
 }
-
 /**
 * 修改oph从表
 * @param data
@@ -37,7 +35,6 @@ export function updatePpOutputSlave(data) {
     data: data,
   })
 }
-
 /**
 * 获取oph从表详情
 * @param {Id}
@@ -59,7 +56,6 @@ export function delPpOutputSlave(pid) {
     method: 'delete'
   })
 }
-
 // 清空oph从表
 export function clearPpOutputSlave() {
   return request({
@@ -67,9 +63,7 @@ export function clearPpOutputSlave() {
     method: 'delete'
   })
 }
-
 // 导出oph从表
 export async function exportPpOutputSlave(query) {
   await downFile('production/PpOutputSlave/export', { ...query })
 }
-
