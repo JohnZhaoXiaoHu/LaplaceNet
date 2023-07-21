@@ -17,6 +17,7 @@
 
 ## 🎉Overview
 
+- Production Kanban focusing on small and medium-sized manufacturing companies.
 - A universal management platform based on. NET7 implementation (RBAC mode). Integration [ZR. Admin]（ https://gitee.com/izory ）Efficient and rapid development of framework technology, front and rear end separation mode, ready to use out of the box.
 - Low code, easy to learn, easy to understand, powerful, easy to expand, and lightweight, making web development faster, simpler, and more efficient, solving 70% of repetitive work, focusing on your business, and easy to develop from now on！
 
@@ -38,16 +39,16 @@
 ```
 Due to being a personal project, funds are limited!!!
 ```
-## 🐰Repositories
+## 💎Repositories
 | Repositories | Gitee | Github                                                                           |
 | ------------ | ----- | -------------------------------------------------------------------------------- |
 | Vue3         |       | [Clone/Download already included in Net7](https://github.com/Lean365/LaplaceNet) |
 | Net7         |       | [Clone/Download](https://github.com/Lean365/LaplaceNet)                          |
 
-## 🐰Front-end
+## 🍅Front-end
     vue3.x、vite、vuex、vue-router 、vue-cli 、axios、 element-plus、echats、i18n etc,using vscode tools.
 
-## 🐰Back-end 
+## 🍆Back-end 
 - Core Framework：.Net7.0 + Web API + sqlsugar + swagger + signalR + IpRateLimit + Quartz.net + Redis
 - Scheduled tasks：Quartz.Net component that supports execution of assemblies or http network requests
 - Security support: Filters (data permission filtering), Sql injection, request forgery
@@ -61,7 +62,7 @@ Due to being a personal project, funds are limited!!!
 - Cached data: built-in memory cache and Redis
 
 
-## 📌Functions
+## 🌽Functions
 
 1. User Management: User is the system operator, this function mainly completes the system user configuration.
 2. Department Management: Configure the system organization (company, department, group) and show the tree structure.
@@ -112,10 +113,10 @@ Due to being a personal project, funds are limited!!!
 - Incoming material
 - finished product
 
-## 🔴 OA
+## 🌈OA
 - pending...
 
-## 🔴 ChatGPT
+## 🌈ChatGPT
 - pending...
 
 
@@ -280,6 +281,6 @@ Change to
    <img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/iis8.png"/>
    <img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/iis9.png"/>
 
-## 🚩License
+## 🔑License
 [MIT](https://github.com/Lean365/LaplaceNet/blob/master/LICENSE)
 

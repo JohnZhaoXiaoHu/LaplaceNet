@@ -17,6 +17,7 @@
 
 ## 🎉概述
 
+- 侧重中小制造业企业的生产看板。
 - 基于.NET7实现的通用管理平台（RBAC模式）。整合[ZR.Admin](https://gitee.com/izory)框架技术高效快速开发，前后端分离模式，开箱即用。
 - 代码量少、学习简单、通俗易懂、功能强大、易扩展、轻量级，让web开发更快速、简单高效，解决70%的重复工作，专注您的业务，轻松开发从现在开始！
 
@@ -38,16 +39,16 @@
 ```
 由于是个人项目，资金有限！！！
 ```
-## 🐰代码仓库
+## 💎代码仓库
 | 仓库 | Gitee | Github                                                         |
 | ---- | ----- | -------------------------------------------------------------- |
 | Vue3 |       | [Net7中已包含克隆/下载](https://github.com/Lean365/LaplaceNet) |
 | Net7 |       | [克隆/下载](https://github.com/Lean365/LaplaceNet)             |
 
-## 🐰前端
+## 🍅前端
 Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、 element-plus、echats、i18n国际化等，前端采用vscode工具开发
 
-## 📌后端
+## 🍆后端
 - 核心框架：.Net7.0 + Web API + sqlsugar + swagger + signalR + IpRateLimit + Quartz.net + Redis
 - 定时计划任务：Quartz.Net组件，支持执行程序集或者http网络请求
 - 安全支持：过滤器(数据权限过滤)、Sql注入、请求伪造
@@ -61,7 +62,7 @@ Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、
 - 缓存数据：内置内存缓存和Redis
 
 
-## 📌内置功能
+## 🌽内置功能
 
 1. 用户管理：用户是系统操作者，该功能主要完成系统用户配置。
 2. 部门管理：配置系统组织机构（公司、部门、小组），树结构展现。
@@ -112,10 +113,10 @@ Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、
 - 来料
 - 成品
 
-## 🔴 OA
+## 🌈OA
 - 计划中...
 
-## 🔴 ChatGPT
+## 🌈ChatGPT
 - 计划中...
 
 
@@ -277,6 +278,6 @@ FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memor
    <img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/iis8.png"/>
    <img src="https://github.com/Lean365/LaplaceNET/raw/master/La.Docs/images/iis9.png"/>
 
-## 🚩License
+## 🔑License
 [MIT](https://github.com/Lean365/LaplaceNet/blob/master/LICENSE)
 
