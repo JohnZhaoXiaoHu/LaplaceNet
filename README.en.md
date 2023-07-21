@@ -46,44 +46,10 @@ Due to being a personal project, funds are limited!!!
 | Net7         |       | [Clone/Download](https://github.com/Lean365/LaplaceNet)                          |
 
 ## 🍅Front-end
-    vue3.x、vite、vuex、vue-router 、vue-cli 、axios、 element-plus、echats、i18n etc,using vscode tools.
+- vue3.x、vite、vuex、vue-router 、vue-cli 、axios、 element-plus、echats、i18n etc,using vscode tools.
 
 ## 🍆Back-end 
-- Core Framework：.Net7.0 + Web API + sqlsugar + swagger + signalR + IpRateLimit + Quartz.net + Redis
-- Scheduled tasks：Quartz.Net component that supports execution of assemblies or http network requests
-- Security support: Filters (data permission filtering), Sql injection, request forgery
-- Log management: NLog, login log, operation log, timed task log
-- Tools: verification code, rich public functions
-- Interface flow restriction: support interface flow restriction to avoid excessive pressure on the service layer caused by malicious requests
-- Code generation: High efficiency development, code generator can generate all front and back-end code with one click
-- Data dictionary: support data dictionary, which can facilitate the management of some states
-- Sub-base and sub-table: using orm sqlsugar can easily realize sub-base and sub-table with superior performance
-- Multi-tenant: support multi-tenant function
-- Cached data: built-in memory cache and Redis
-
-
-## 🌽Functions
-
-1. User Management: User is the system operator, this function mainly completes the system user configuration.
-2. Department Management: Configure the system organization (company, department, group) and show the tree structure.
-3. Position management: configure the system users belong to hold positions.
-4. menu management: configure the system menu, operation privileges, button privilege identification, etc.
-5. Role management: role menu permission assignment. 6.
-6. Dictionary management: maintenance of some of the more fixed data often used in the system. 7.
-7. operation log: system normal operation log record and query; system abnormal information log record and query.
-8. login log: system login log records and queries include login exceptions.
-9. system interface: use swagger to generate relevant api interface documents. 10.
-10. service monitoring: monitor the current system CPU, memory, disk, stack and other related information.
-11. online builder: drag and drop form elements to generate the corresponding VUE code (only vue2 is supported). 12.
-12. task system: based on Quartz.NET, you can online (add, modify, delete, manually execute) task scheduling including execution results log.
-13. article management: you can write article records.
-14. code generation: you can generate front and back-end code (.cs, .vue, .js, .sql, etc.) with one click to support the download, custom configuration of front-end display controls, so that the development is faster and more efficient (the most powerful ever).
-15. parameter management: dynamic configuration of the system common parameters. 16.
-16. send mail: you can send mail to multiple users.
-17. file management: you can upload file management, currently supports uploading to local and Ali cloud.
-18. notification management: system notification announcement information release maintenance, using signalr to achieve real-time notification to users.
-19. account registration: you can register an account to log into the system. 20.
-20. multi-language management: support for static, back-end dynamic configuration internationalization. Currently only supports Chinese, English and Japanese (only supports vue3)
+- Core Framework：.Net7.0 + Web API + sqlsugar + swagger + signalR + IpRateLimit + Quartz.net + Redis,using vs2022 tools.
 
 ## ✨ LeanManufacturing Management
 1. Budget management

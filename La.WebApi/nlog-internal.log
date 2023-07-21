@@ -1680,3 +1680,17 @@
 2023-07-20 17:19:26.8833 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\ZrAdminNetCore\La.WebApi\bin\Debug\net7.0\NLog.config
 2023-07-20 17:19:26.8990 Info Configuration initialized.
 2023-07-20 17:19:26.8990 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
+2023-07-21 08:53:56.0115 Info Message Template Auto Format enabled
+2023-07-21 08:53:58.7880 Info Auto loading assembly name: NLog.Web.AspNetCore
+2023-07-21 08:53:58.7880 Info Loading assembly: NLog.Web.AspNetCore
+2023-07-21 08:54:03.3671 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.0.873. Product version: 5.3.0+278a0ced4ad8dafb275f8d8c4312275f6dc5df95. GlobalAssemblyCache: False
+2023-07-21 08:54:05.1886 Info Auto loading assembly name: NLog.Web.AspNetCore succeeded!
+2023-07-21 08:54:05.2585 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=allfile)
+2023-07-21 08:54:05.2585 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=errorfile)
+2023-07-21 08:54:05.2685 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=sqlfile)
+2023-07-21 08:54:05.2805 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=consoleSql)
+2023-07-21 08:54:05.2805 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=console)
+2023-07-21 08:54:05.2805 Info Registered target NLog.Targets.Wrappers.AsyncTargetWrapper(Name=blackhole)
+2023-07-21 08:54:05.3063 Info Validating config: Targets=6, ConfigItems=148, FilePath=G:\App Develop\VS2023\LaplaceNet\La.WebApi\bin\Debug\net7.0\NLog.config
+2023-07-21 08:54:05.3320 Info Configuration initialized.
+2023-07-21 08:54:05.3320 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.0.1813. Product version: 5.2.0+eed5f76d158dbcaef9326f7a0e1c281adad171e8. GlobalAssemblyCache: False
