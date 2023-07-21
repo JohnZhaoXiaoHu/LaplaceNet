@@ -31,9 +31,8 @@
 
 
 ## 🌐在线体验
-- 官方文档：https://laplacenet.github.io/
-- 😭(未开放)vue3.x版本体验：http://www.ilaplace.cn/vue
-- 账号密码：admin/123456
+- 😭计划中...
+
 
 
 ```
@@ -85,7 +84,7 @@ Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、
 19. 账号注册：可以注册账号登录系统。
 20. 多语言管理：支持静态、后端动态配置国际化。目前只支持中、英、日文(仅支持vue3)
 
-## 🎉精益生产管理
+## ✨精益生产管理
 1. 预算管理
 - 人员
 - 设备
@@ -104,7 +103,7 @@ Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、
 - MRP
 - FC
 11. 生产管理
--  **设变**
+- **设变**
 - **OPH(每小时产量)**
 - 不良
 - 工数
@@ -113,10 +112,10 @@ Vue版前端技术栈 ：基于vue3.x、vuex、vue-router 、vue-cli 、axios、
 - 来料
 - 成品
 
-## 🎉OA
+## 🔴 OA
 - 计划中...
 
-## 🎉ChatGPT
+## 🔴 ChatGPT
 - 计划中...
 
 

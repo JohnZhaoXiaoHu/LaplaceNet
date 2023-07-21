@@ -31,9 +31,8 @@
 
 
 ## 🌐Online
-- Official documents：https://laplacenet.github.io/
-- 😭(Not open) Experience with version 3. x of Vue：http://www.ilaplace.cn/vue
-- Test account：admin/123456
+- 😭pending... 
+
 
 
 ```
@@ -85,7 +84,7 @@ Due to being a personal project, funds are limited!!!
 19. account registration: you can register an account to log into the system. 20.
 20. multi-language management: support for static, back-end dynamic configuration internationalization. Currently only supports Chinese, English and Japanese (only supports vue3)
 
-## 🎉 LeanManufacturing Management
+## ✨ LeanManufacturing Management
 1. Budget management
 - Personnel
 - Equipment
@@ -104,8 +103,8 @@ Due to being a personal project, funds are limited!!!
 - MRP
 - FC
 11. Production Management 
-- **<font color="#000066">EC</font>**
-- **<font color="#000066">OPH(Output per hour)</font>**
+- **EC**
+- **OPH(Output per hour)**
 - Defects
 - Manhour
 12. Quality Control
@@ -113,11 +112,11 @@ Due to being a personal project, funds are limited!!!
 - Incoming material
 - finished product
 
-## 🎉 OA
-- (pending...)
+## 🔴 OA
+- pending...
 
-## 🎉ChatGPT
-- (pending...)
+## 🔴 ChatGPT
+- pending...
 
 
 ## 🔰Project Structure
