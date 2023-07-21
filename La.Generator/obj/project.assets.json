@@ -3895,11 +3895,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Generator\\La.Generator.csproj",
+      "projectUniqueName": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Generator\\La.Generator.csproj",
       "projectName": "La.Generator",
-      "projectPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Generator\\La.Generator.csproj",
+      "projectPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Generator\\La.Generator.csproj",
       "packagesPath": "C:\\Users\\Davis.Cheng\\.nuget\\packages\\",
-      "outputPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Generator\\obj\\",
+      "outputPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Generator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Davis.Cheng\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3916,14 +3916,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Common\\La.Common.csproj": {
-              "projectPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Common\\La.Common.csproj"
+            "G:\\App Develop\\VS2023\\LaplaceNet\\La.Common\\La.Common.csproj": {
+              "projectPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Common\\La.Common.csproj"
             },
-            "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Infra\\La.Infra.csproj": {
-              "projectPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Infra\\La.Infra.csproj"
+            "G:\\App Develop\\VS2023\\LaplaceNet\\La.Infra\\La.Infra.csproj": {
+              "projectPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Infra\\La.Infra.csproj"
             },
-            "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Model\\La.Model.csproj": {
-              "projectPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Model\\La.Model.csproj"
+            "G:\\App Develop\\VS2023\\LaplaceNet\\La.Model\\La.Model.csproj": {
+              "projectPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Model\\La.Model.csproj"
             }
           }
         }

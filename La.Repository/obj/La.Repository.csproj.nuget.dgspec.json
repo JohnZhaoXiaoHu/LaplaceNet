@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Repository\\La.Repository.csproj": {}
+    "G:\\App Develop\\VS2023\\LaplaceNet\\La.Repository\\La.Repository.csproj": {}
   },
   "projects": {
-    "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Infra\\La.Infra.csproj": {
+    "G:\\App Develop\\VS2023\\LaplaceNet\\La.Infra\\La.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Infra\\La.Infra.csproj",
+        "projectUniqueName": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Infra\\La.Infra.csproj",
         "projectName": "La.Infra",
-        "projectPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Infra\\La.Infra.csproj",
+        "projectPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Infra\\La.Infra.csproj",
         "packagesPath": "C:\\Users\\Davis.Cheng\\.nuget\\packages\\",
-        "outputPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Infra\\obj\\",
+        "outputPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Infra\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Davis.Cheng\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -84,14 +84,14 @@
         }
       }
     },
-    "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Model\\La.Model.csproj": {
+    "G:\\App Develop\\VS2023\\LaplaceNet\\La.Model\\La.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Model\\La.Model.csproj",
+        "projectUniqueName": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Model\\La.Model.csproj",
         "projectName": "La.Model",
-        "projectPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Model\\La.Model.csproj",
+        "projectPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Model\\La.Model.csproj",
         "packagesPath": "C:\\Users\\Davis.Cheng\\.nuget\\packages\\",
-        "outputPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Model\\obj\\",
+        "outputPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Davis.Cheng\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -157,14 +157,14 @@
         }
       }
     },
-    "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Repository\\La.Repository.csproj": {
+    "G:\\App Develop\\VS2023\\LaplaceNet\\La.Repository\\La.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Repository\\La.Repository.csproj",
+        "projectUniqueName": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Repository\\La.Repository.csproj",
         "projectName": "La.Repository",
-        "projectPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Repository\\La.Repository.csproj",
+        "projectPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Repository\\La.Repository.csproj",
         "packagesPath": "C:\\Users\\Davis.Cheng\\.nuget\\packages\\",
-        "outputPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Repository\\obj\\",
+        "outputPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Davis.Cheng\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -181,11 +181,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Infra\\La.Infra.csproj": {
-                "projectPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Infra\\La.Infra.csproj"
+              "G:\\App Develop\\VS2023\\LaplaceNet\\La.Infra\\La.Infra.csproj": {
+                "projectPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Infra\\La.Infra.csproj"
               },
-              "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Model\\La.Model.csproj": {
-                "projectPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Model\\La.Model.csproj"
+              "G:\\App Develop\\VS2023\\LaplaceNet\\La.Model\\La.Model.csproj": {
+                "projectPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Model\\La.Model.csproj"
               }
             }
           }

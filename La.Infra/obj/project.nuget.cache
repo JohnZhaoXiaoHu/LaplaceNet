@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aH/GPrxq3G6BCIGeR/2xeiQ5kJLGoLLnGqsMIi++NsIpEz0aFapM4WGS4PG2WfV/RDJjSoeQ0+pWTBapLDIoqw==",
+  "dgSpecHash": "UBImGSL3yZtt+zAF5Rf92H2fyEPpl7v+cBi4jhjta8VcQuyJWEZZS/cn4kP2u/Bk5m2yZ8YW72l50bxzSeCImw==",
   "success": true,
-  "projectFilePath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Infra\\La.Infra.csproj",
+  "projectFilePath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Infra\\La.Infra.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Davis.Cheng\\.nuget\\packages\\aspectcore.abstractions\\2.4.0\\aspectcore.abstractions.2.4.0.nupkg.sha512",
     "C:\\Users\\Davis.Cheng\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",

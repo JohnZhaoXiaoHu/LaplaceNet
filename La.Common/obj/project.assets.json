@@ -1342,11 +1342,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Common\\La.Common.csproj",
+      "projectUniqueName": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Common\\La.Common.csproj",
       "projectName": "La.Common",
-      "projectPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Common\\La.Common.csproj",
+      "projectPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Common\\La.Common.csproj",
       "packagesPath": "C:\\Users\\Davis.Cheng\\.nuget\\packages\\",
-      "outputPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Common\\obj\\",
+      "outputPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Common\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Davis.Cheng\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1363,8 +1363,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Infra\\La.Infra.csproj": {
-              "projectPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Infra\\La.Infra.csproj"
+            "G:\\App Develop\\VS2023\\LaplaceNet\\La.Infra\\La.Infra.csproj": {
+              "projectPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Infra\\La.Infra.csproj"
             }
           }
         }

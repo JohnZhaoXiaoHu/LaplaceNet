@@ -5523,11 +5523,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.WebApi\\La.WebApi.csproj",
+      "projectUniqueName": "G:\\App Develop\\VS2023\\LaplaceNet\\La.WebApi\\La.WebApi.csproj",
       "projectName": "La.WebApi",
-      "projectPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.WebApi\\La.WebApi.csproj",
+      "projectPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.WebApi\\La.WebApi.csproj",
       "packagesPath": "C:\\Users\\Davis.Cheng\\.nuget\\packages\\",
-      "outputPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.WebApi\\obj\\",
+      "outputPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Davis.Cheng\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5544,14 +5544,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Generator\\La.Generator.csproj": {
-              "projectPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Generator\\La.Generator.csproj"
+            "G:\\App Develop\\VS2023\\LaplaceNet\\La.Generator\\La.Generator.csproj": {
+              "projectPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Generator\\La.Generator.csproj"
             },
-            "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Service\\La.Service.csproj": {
-              "projectPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Service\\La.Service.csproj"
+            "G:\\App Develop\\VS2023\\LaplaceNet\\La.Service\\La.Service.csproj": {
+              "projectPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Service\\La.Service.csproj"
             },
-            "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Tasks\\La.Tasks.csproj": {
-              "projectPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Tasks\\La.Tasks.csproj"
+            "G:\\App Develop\\VS2023\\LaplaceNet\\La.Tasks\\La.Tasks.csproj": {
+              "projectPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Tasks\\La.Tasks.csproj"
             }
           }
         }

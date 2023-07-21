@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kbEZcS7AbBfBVJMe9OA26V7HAWqtkHtKBGoo1lXmayxCnT9NfIiHt/sE5irB4hOqPt4DI7QdEVTCgmCzdaUdvA==",
+  "dgSpecHash": "SiPCqt7sfR3rz+9IYbXp9ea6FIHB8m8t1oT8h6oMyPZHrUdHsWxFGGWGrI4JdVGunOPbag68Hkhw3E81U9uSqw==",
   "success": true,
-  "projectFilePath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Generator\\La.Generator.csproj",
+  "projectFilePath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Generator\\La.Generator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Davis.Cheng\\.nuget\\packages\\aliyun.oss.sdk.netcore\\2.13.0\\aliyun.oss.sdk.netcore.2.13.0.nupkg.sha512",
     "C:\\Users\\Davis.Cheng\\.nuget\\packages\\aspectcore.abstractions\\2.4.0\\aspectcore.abstractions.2.4.0.nupkg.sha512",

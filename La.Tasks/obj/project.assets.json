@@ -4282,11 +4282,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Tasks\\La.Tasks.csproj",
+      "projectUniqueName": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Tasks\\La.Tasks.csproj",
       "projectName": "La.Tasks",
-      "projectPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Tasks\\La.Tasks.csproj",
+      "projectPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Tasks\\La.Tasks.csproj",
       "packagesPath": "C:\\Users\\Davis.Cheng\\.nuget\\packages\\",
-      "outputPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Tasks\\obj\\",
+      "outputPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Tasks\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Davis.Cheng\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4303,11 +4303,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Model\\La.Model.csproj": {
-              "projectPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Model\\La.Model.csproj"
+            "G:\\App Develop\\VS2023\\LaplaceNet\\La.Model\\La.Model.csproj": {
+              "projectPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Model\\La.Model.csproj"
             },
-            "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Service\\La.Service.csproj": {
-              "projectPath": "G:\\App Develop\\VS2023\\ZrAdminNetCore\\La.Service\\La.Service.csproj"
+            "G:\\App Develop\\VS2023\\LaplaceNet\\La.Service\\La.Service.csproj": {
+              "projectPath": "G:\\App Develop\\VS2023\\LaplaceNet\\La.Service\\La.Service.csproj"
             }
           }
         }
